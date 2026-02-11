@@ -1,4 +1,4 @@
-import { SITE_URL, BUSINESS_INFO, SOCIAL_LINKS } from '@/lib/constants'
+import { SITE_URL, BUSINESS_INFO, SOCIAL_LINKS, storageUrl } from '@/lib/constants'
 
 export function getLocalBusinessJsonLd() {
   return {
@@ -29,7 +29,7 @@ export function getLocalBusinessJsonLd() {
       closes: '23:00',
     },
     sameAs: [SOCIAL_LINKS.facebook, SOCIAL_LINKS.instagram],
-    image: `${SITE_URL}/images/Logo.png`,
+    image: storageUrl('branding/logo.png'),
     priceRange: '$$',
   }
 }

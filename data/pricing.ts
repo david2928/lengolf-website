@@ -1,3 +1,5 @@
+import { storageUrl } from '@/lib/constants'
+
 export interface LessonPackage {
   name: string
   oneGolfer: string
@@ -24,10 +26,10 @@ export const lessonNotes = [
 ]
 
 export const services = [
-  { title: 'Golf', image: '/images/LENGOLF-20-min-1.jpg', href: '/golf' },
-  { title: 'Food & Drinks', image: '/images/FOOD-DRINKS.png', href: '/images/FOOD_DRINK_MENU.png' },
-  { title: 'Lessons', image: '/images/LESSONS.png', href: '/lessons' },
-  { title: 'Events', image: '/images/EVENTS.png', href: '/events' },
+  { title: 'Golf', image: storageUrl('venue/venue-simulator-01.jpg'), href: '/golf' },
+  { title: 'Food & Drinks', image: storageUrl('menus/food-drinks-cover.png'), href: storageUrl('menus/food-drink-menu.png') },
+  { title: 'Lessons', image: storageUrl('lessons/lessons-cover.png'), href: '/lessons' },
+  { title: 'Events', image: storageUrl('events/events-cover.png'), href: '/events' },
 ]
 
 export const amenities = [
@@ -42,12 +44,12 @@ export const amenities = [
 ]
 
 export const eventTypes = [
-  { title: 'Corporate events', icon: '/images/online-conference.png' },
-  { title: 'Company parties', icon: '/images/flags.png' },
-  { title: 'Team building', icon: '/images/people.png' },
-  { title: 'Meet & Greets', icon: '/images/handshake.png' },
-  { title: 'Birthdays or Special celebrations', icon: '/images/confetti.png' },
-  { title: 'Filming & Photoshoots', icon: '/images/film-camera.png' },
+  { title: 'Corporate events', icon: storageUrl('icons/icon-corporate.png') },
+  { title: 'Company parties', icon: storageUrl('icons/icon-party.png') },
+  { title: 'Team building', icon: storageUrl('icons/icon-team-building.png') },
+  { title: 'Meet & Greets', icon: storageUrl('icons/icon-meet-greet.png') },
+  { title: 'Birthdays or Special celebrations', icon: storageUrl('icons/icon-birthday.png') },
+  { title: 'Filming & Photoshoots', icon: storageUrl('icons/icon-filming.png') },
 ]
 
 export const faqItems = [

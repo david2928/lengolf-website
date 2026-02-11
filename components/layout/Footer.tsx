@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Mail } from 'lucide-react'
-import { FOOTER_MENU, SOCIAL_LINKS, BUSINESS_INFO } from '@/lib/constants'
+import { FOOTER_MENU, SOCIAL_LINKS, BUSINESS_INFO, storageUrl } from '@/lib/constants'
 import { FacebookIcon, LineIcon, InstagramIcon } from '@/components/shared/SocialIcons'
 
 export default function Footer() {
@@ -27,7 +27,7 @@ export default function Footer() {
           {/* Logo & Address — 36% */}
           <div className="w-full lg:w-[36%] flex-shrink-0">
             <Image
-              src="/images/Logo.png"
+              src={storageUrl('branding/logo.png')}
               alt="LENGOLF"
               width={194}
               height={26}

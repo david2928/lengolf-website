@@ -1,3 +1,5 @@
+import { storageUrl } from '@/lib/constants'
+
 export interface Coach {
   name: string
   fullName: string
@@ -14,7 +16,7 @@ export const coaches: Coach[] = [
     name: 'PRO Boss',
     fullName: 'Parin Phokan',
     nickname: 'Boss',
-    photo: '/images/Copy-of-Pro-Boss-2-min.png',
+    photo: storageUrl('lessons/coach-boss.png'),
     expertise: [
       'Drive Training',
       'Course Management',
@@ -32,17 +34,17 @@ export const coaches: Coach[] = [
       'Became a Golf Instructor licensed by Thailand PGA in Sep 2022 / GI 1416',
     ],
     gallery: [
-      '/images/Copy-of-188159-min.png',
-      '/images/Copy-of-188160-min.png',
-      '/images/1721445823583-min.jpg',
-      '/images/1721445823562-min.jpg',
+      storageUrl('lessons/coach-boss-gallery-01.png'),
+      storageUrl('lessons/coach-boss-gallery-02.png'),
+      storageUrl('lessons/coach-boss-gallery-03.jpg'),
+      storageUrl('lessons/coach-boss-gallery-04.jpg'),
     ],
   },
   {
     name: 'PRO Ratchavin',
     fullName: 'Ratchavin Tanakasempipat',
     nickname: 'Ratchavin',
-    photo: '/images/Pro-Rat.png',
+    photo: storageUrl('lessons/coach-ratchavin.png'),
     expertise: [
       'Beginner Golf Programs',
       'Short Game',
@@ -61,17 +63,17 @@ export const coaches: Coach[] = [
       'U.S Kids Golf Certifies Coach 1',
     ],
     gallery: [
-      '/images/S__33005573.jpg',
-      '/images/S__33005574.jpg',
-      '/images/S__33005576.jpg',
-      '/images/S__33005577.jpg',
+      storageUrl('lessons/coach-ratchavin-gallery-01.jpg'),
+      storageUrl('lessons/coach-ratchavin-gallery-02.jpg'),
+      storageUrl('lessons/coach-ratchavin-gallery-03.jpg'),
+      storageUrl('lessons/coach-ratchavin-gallery-04.jpg'),
     ],
   },
   {
     name: 'PRO Min',
     fullName: 'Varuth Kjonkittiskul',
     nickname: 'Min',
-    photo: '/images/pro-min.png',
+    photo: storageUrl('lessons/coach-min.png'),
     expertise: [
       'Beginner Golf Programs',
       'Course Management',
@@ -88,10 +90,10 @@ export const coaches: Coach[] = [
       'Became Professional Golfer Licensed by PGA Thailand since 2019 (TP0944)',
     ],
     gallery: [
-      '/images/S__12165126.jpg',
-      '/images/S__12165129.jpg',
-      '/images/S__12165128.jpg',
-      '/images/S__12165127.jpg',
+      storageUrl('lessons/coach-min-gallery-01.jpg'),
+      storageUrl('lessons/coach-min-gallery-02.jpg'),
+      storageUrl('lessons/coach-min-gallery-03.jpg'),
+      storageUrl('lessons/coach-min-gallery-04.jpg'),
     ],
   },
 ]

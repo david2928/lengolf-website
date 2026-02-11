@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import ImageGallery from '@/components/shared/ImageGallery'
+import { storageUrl } from '@/lib/constants'
 import { coaches } from '@/data/coaches'
 import { lessonPricing, lessonNotes } from '@/data/pricing'
 
@@ -11,27 +12,27 @@ export const metadata: Metadata = {
 }
 
 const promoImages = [
-  { src: '/images/LENGOLF-Starter-Package_V3-02_0-scaled.jpg', alt: 'Starter Package' },
-  { src: '/images/GOLF_COACHING_PACKAGE.jpg', alt: 'Coaching Package' },
-  { src: '/images/Poster-for-Free-Swing-Analysis_V2-min.jpg', alt: 'Free Swing Analysis' },
-  { src: '/images/S__69468219.jpg', alt: 'Lesson Promo' },
+  { src: storageUrl('lessons/promo-starter-package.jpg'), alt: 'Starter Package' },
+  { src: storageUrl('lessons/promo-coaching-package.jpg'), alt: 'Coaching Package' },
+  { src: storageUrl('lessons/promo-swing-analysis.jpg'), alt: 'Free Swing Analysis' },
+  { src: storageUrl('lessons/promo-lesson.jpg'), alt: 'Lesson Promo' },
 ]
 
 const studentImages = [
-  { src: '/images/DJI_20241217112225_0331_D-scaled.jpg', alt: 'Student practice', width: 1200, height: 800 },
-  { src: '/images/DJI_20241217112109_0326_D-scaled.jpg', alt: 'Golf student', width: 1200, height: 800 },
-  { src: '/images/DJI_20241217112057_0324_D-scaled.jpg', alt: 'Student lesson', width: 1200, height: 800 },
-  { src: '/images/bell2.png', alt: 'Student photo', width: 1200, height: 800 },
-  { src: '/images/bell1.png', alt: 'Student practice', width: 1200, height: 800 },
-  { src: '/images/20240428_160554-scaled.jpg', alt: 'Junior golf', width: 1200, height: 800 },
-  { src: '/images/20240428_160543-scaled.jpg', alt: 'Junior golfer', width: 1200, height: 800 },
-  { src: '/images/20240522_161513-scaled.jpg', alt: 'Student improvement', width: 1200, height: 800 },
-  { src: '/images/20240522_161516.jpg', alt: 'Golf student', width: 1200, height: 800 },
-  { src: '/images/20240511_165914-scaled.jpg', alt: 'Student training', width: 1200, height: 800 },
-  { src: '/images/20240522_161435-scaled.jpg', alt: 'Golf lesson', width: 1200, height: 800 },
-  { src: '/images/coachkids-1-1-scaled.png', alt: 'Kids golf', width: 1200, height: 800 },
-  { src: '/images/coachkids-2-scaled.png', alt: 'Kids lesson', width: 1200, height: 800 },
-  { src: '/images/coachkids-3-scaled.png', alt: 'Junior coaching', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-01.jpg'), alt: 'Student practice', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-02.jpg'), alt: 'Golf student', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-03.jpg'), alt: 'Student lesson', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-04.png'), alt: 'Student photo', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-05.png'), alt: 'Student practice', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-06.jpg'), alt: 'Junior golf', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-07.jpg'), alt: 'Junior golfer', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-08.jpg'), alt: 'Student improvement', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-09.jpg'), alt: 'Golf student', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-10.jpg'), alt: 'Student training', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-11.jpg'), alt: 'Golf lesson', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-kids-01.png'), alt: 'Kids golf', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-kids-02.png'), alt: 'Kids lesson', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-kids-03.png'), alt: 'Junior coaching', width: 1200, height: 800 },
 ]
 
 export default function LessonsPage() {
@@ -40,7 +41,7 @@ export default function LessonsPage() {
       {/* ── Hero ── */}
       <section className="relative flex h-[50vh] min-h-[400px] max-h-[550px] items-center text-white overflow-hidden">
         <Image
-          src="/images/20240522_161508-scaled.jpg"
+          src={storageUrl('lessons/hero-lessons.jpg')}
           alt="Golf coaching at LENGOLF"
           fill
           className="object-cover"

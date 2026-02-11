@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
+import { storageUrl } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Golf Simulator Rentals & Bay Rates',
@@ -13,17 +14,17 @@ const waysToPlay = [
   {
     title: 'DRIVING RANGE',
     description: "Experience top-notch accuracy and get valuable golf swing data. Learn your distances and see exactly where you can improve. Whether you're in the mood for a relaxed practice session with music or want to focus on your data, this is the place for you.",
-    image: '/images/WAYS_TO_PLAY_1-min.png',
+    image: storageUrl('golf/driving-range.png'),
   },
   {
     title: 'COURSE PLAY',
     description: 'Choose from over 100 championship courses, including renowned ones like Pebble Beach and TPC Sawgrass. Enjoy stunning high-definition graphics and take on challenges without the fear of losing your ball. Be daring and try to carry the water!',
-    image: '/images/WAYS_TO_PLAY_2-min.png',
+    image: storageUrl('golf/course-play.png'),
   },
   {
     title: 'GAMES & COMPETITIONS',
     description: "Challenge yourself with different modes like closest to the pin and longest drive. Perfect for a fun and competitive game night with family and friends, whether you're a beginner or a seasoned golfer. This is golf entertainment for everyone.",
-    image: '/images/WAYS_TO_PLAY_3-min.png',
+    image: storageUrl('golf/games-competitions.png'),
   },
 ]
 
@@ -31,25 +32,25 @@ const ourSetup = [
   {
     title: 'Auto Tee System & Surface Mats',
     description: 'Our simulators feature an easy-to-use auto tee system that streamlines your game, allowing you to focus on your swing. Practice on realistic surface mats that simulate green, rough, and bunker conditions, providing a true-to-course experience.',
-    image: '/images/OUR_SETUP_1-min.png',
+    image: storageUrl('golf/setup-auto-tee.png'),
   },
   {
     title: 'High Precision Simulator',
     description: 'Experience 99% accuracy with our simulators, capturing key swing metrics like club speed, ball speed, and launch angle. This precision offers detailed feedback to help you refine your technique and elevate your game.',
-    image: '/images/210210_0.jpg',
+    image: storageUrl('golf/setup-simulator.jpg'),
   },
   {
     title: 'Putting Green',
     description: 'Practice your putting on our large putting green, featuring high-quality graded turf and realistic slopes. This dedicated area allows you to hone your skills with conditions that closely mimic those on a real course.',
-    image: '/images/OUR_SETUP_3-min.png',
+    image: storageUrl('golf/setup-putting-green.png'),
   },
 ]
 
 const promoImages = [
-  '/images/New-Customer_TV.jpg',
-  '/images/Early-Bird.jpg',
-  '/images/003-01.jpg',
-  '/images/Buy-2H-get-2H_2_Social-Media-copy-4.jpg',
+  storageUrl('promotions/promo-new-customer.jpg'),
+  storageUrl('promotions/promo-early-bird.jpg'),
+  storageUrl('promotions/promo-03.jpg'),
+  storageUrl('promotions/promotion-1.jpg'),
 ]
 
 const locationLinks = [
@@ -75,7 +76,7 @@ export default function GolfPage() {
       {/* ── Hero ── */}
       <section className="relative flex h-[50vh] min-h-[400px] max-h-[550px] items-center text-white overflow-hidden">
         <Image
-          src="/images/Store-Picture-for-Google-Maps-07.png"
+          src={storageUrl('golf/hero-golf.png')}
           alt="LENGOLF simulator bay"
           fill
           className="object-cover object-center"
@@ -138,7 +139,7 @@ export default function GolfPage() {
             </h2>
             <div className="mx-auto max-w-lg">
               <Image
-                src="/images/Bay-Rate_Social.jpg"
+                src={storageUrl('golf/bay-rates.jpg')}
                 alt="LENGOLF Bay Rates"
                 width={768}
                 height={768}
@@ -155,7 +156,7 @@ export default function GolfPage() {
             </h2>
             <div className="mx-auto max-w-lg">
               <Image
-                src="/images/Monthly-Packages_Social.jpg"
+                src={storageUrl('golf/monthly-packages.jpg')}
                 alt="LENGOLF Monthly Packages"
                 width={768}
                 height={768}

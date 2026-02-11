@@ -1,5 +1,11 @@
 export const SITE_NAME = 'LENGOLF'
 export const SITE_URL = 'https://len.golf'
+export const SUPABASE_STORAGE_URL = 'https://bisimqmtxjsptehhqpeg.supabase.co/storage/v1/object/public/website-assets'
+
+export function storageUrl(path: string): string {
+  const clean = path.startsWith('/') ? path.slice(1) : path
+  return `${SUPABASE_STORAGE_URL}/${clean}`
+}
 export const SITE_DESCRIPTION = 'Premier indoor golf simulator and bar in the heart of Bangkok. Located at The Mercury Ville @ BTS Chidlom.'
 
 export const BUSINESS_INFO = {

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import ContactInfo from '@/components/shared/ContactInfo'
 import ContactForm from '@/components/about/ContactForm'
+import { storageUrl } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -45,7 +46,7 @@ export default function AboutPage() {
           <div className="w-full lg:w-5/12">
             <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
               <Image
-                src="/images/Copy-of-Store-Picture-for-Google-Maps-02-min.png"
+                src={storageUrl('venue/venue-interior-01.png')}
                 alt="LENGOLF interior"
                 fill
                 className="object-cover"

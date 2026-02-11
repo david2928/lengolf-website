@@ -4,6 +4,7 @@ import { useRef, useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { storageUrl } from '@/lib/constants'
 
 interface ServiceItem {
   title: string
@@ -12,9 +13,9 @@ interface ServiceItem {
 }
 
 const MENU_IMAGES = [
-  { src: '/images/food_menu.jpg', alt: 'Food Menu' },
-  { src: '/images/food_menu2.jpg', alt: 'Food Menu 2' },
-  { src: '/images/drink_menu.jpg', alt: 'Drink Menu' },
+  { src: storageUrl('menus/food-menu-1.jpg'), alt: 'Food Menu' },
+  { src: storageUrl('menus/food-menu-2.jpg'), alt: 'Food Menu 2' },
+  { src: storageUrl('menus/drink-menu.jpg'), alt: 'Drink Menu' },
 ]
 
 export default function ServicesCarousel({ services }: { services: ServiceItem[] }) {

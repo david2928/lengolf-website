@@ -5,7 +5,7 @@ import BookingCTA from '@/components/shared/BookingCTA'
 import ImageGallery from '@/components/shared/ImageGallery'
 import ServicesCarousel from '@/components/home/ServicesCarousel'
 import { services } from '@/data/pricing'
-import { BUSINESS_INFO, BOOKING_URL } from '@/lib/constants'
+import { BUSINESS_INFO, BOOKING_URL, storageUrl } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'LENGOLF | Premier Indoor Golf Simulator & Bar in Bangkok',
@@ -13,14 +13,14 @@ export const metadata: Metadata = {
 }
 
 const galleryImages = [
-  { src: '/images/LENGOLF-20-min-1.jpg', alt: 'LENGOLF indoor golf simulator', width: 1024, height: 683 },
-  { src: '/images/Copy-of-Store-Picture-for-Google-Maps-02-min.png', alt: 'LENGOLF store', width: 1024, height: 1024 },
-  { src: '/images/Copy-of-Store-Picture-for-Google-Maps-09-min.png', alt: 'LENGOLF interior', width: 1024, height: 1024 },
-  { src: '/images/Copy-of-Store-Picture-for-Google-Maps-11-min.png', alt: 'LENGOLF setup', width: 1024, height: 1024 },
-  { src: '/images/LENGOLF-1-min.jpg', alt: 'LENGOLF simulator bay', width: 1024, height: 683 },
-  { src: '/images/LENGOLF-10-min.jpg', alt: 'LENGOLF bar area', width: 683, height: 1024 },
-  { src: '/images/LENGOLF-14-min.jpg', alt: 'LENGOLF event space', width: 1024, height: 683 },
-  { src: '/images/LENGOLF-13-min.jpg', alt: 'LENGOLF golf simulator', width: 1024, height: 683 },
+  { src: storageUrl('venue/venue-simulator-01.jpg'), alt: 'LENGOLF indoor golf simulator', width: 1024, height: 683 },
+  { src: storageUrl('venue/venue-interior-01.png'), alt: 'LENGOLF store', width: 1024, height: 1024 },
+  { src: storageUrl('venue/venue-interior-02.png'), alt: 'LENGOLF interior', width: 1024, height: 1024 },
+  { src: storageUrl('venue/venue-interior-03.png'), alt: 'LENGOLF setup', width: 1024, height: 1024 },
+  { src: storageUrl('venue/venue-bay-01.jpg'), alt: 'LENGOLF simulator bay', width: 1024, height: 683 },
+  { src: storageUrl('venue/venue-bar-01.jpg'), alt: 'LENGOLF bar area', width: 683, height: 1024 },
+  { src: storageUrl('venue/venue-event-space.jpg'), alt: 'LENGOLF event space', width: 1024, height: 683 },
+  { src: storageUrl('venue/venue-simulator-02.jpg'), alt: 'LENGOLF golf simulator', width: 1024, height: 683 },
 ]
 
 export default function HomePage() {
@@ -38,12 +38,12 @@ export default function HomePage() {
           playsInline
           className="absolute inset-0 h-full w-full object-cover"
         >
-          <source src="/videos/Lengolf-1-Min-Version.mp4" type="video/mp4" />
+          <source src={storageUrl('videos/hero-video.mp4')} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/30" />
         <div className="relative z-10 text-center" style={{ paddingLeft: '20%', paddingRight: '20%' }}>
           <Image
-            src="/images/Lengolf-Logo-Typo-1.png"
+            src={storageUrl('branding/logo-typo.png')}
             alt="LENGOLF"
             width={400}
             height={100}
@@ -90,7 +90,7 @@ export default function HomePage() {
           {/* Image */}
           <div className="w-full lg:w-[42%] flex-shrink-0 mb-10 lg:mb-0">
             <Image
-              src="/images/Copy-of-Store-Picture-for-Google-Maps-02-min.png"
+              src={storageUrl('venue/venue-interior-01.png')}
               alt="LENGOLF interior"
               width={800}
               height={1000}
@@ -147,7 +147,7 @@ export default function HomePage() {
             TOP-RATED INDOOR GOLF SIMULATOR EXPERIENCE IN BANGKOK
           </h2>
           <Image
-            src="/images/Lengolf-Logo-Symbol-2.png"
+            src={storageUrl('branding/logo-symbol.png')}
             alt="LENGOLF symbol"
             width={200}
             height={200}

@@ -11,6 +11,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'len.golf',
       },
+      {
+        protocol: 'https',
+        hostname: 'bisimqmtxjsptehhqpeg.supabase.co',
+      },
     ],
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },

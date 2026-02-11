@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import ImageGallery from '@/components/shared/ImageGallery'
+import { storageUrl } from '@/lib/constants'
 import { eventTypes } from '@/data/pricing'
 import EventInquiryForm from '@/components/events/EventInquiryForm'
 
@@ -22,28 +23,28 @@ const amenities = [
 ]
 
 const eventGallery = [
-  { src: '/images/0B4A1494-1.jpg', alt: 'LENGOLF event', width: 1200, height: 800 },
-  { src: '/images/0B4A1451-1.jpg', alt: 'LENGOLF party', width: 1200, height: 800 },
-  { src: '/images/0B4A1443-1.jpg', alt: 'LENGOLF corporate event', width: 1200, height: 800 },
-  { src: '/images/0B4A1399-1.jpg', alt: 'LENGOLF team building', width: 1200, height: 800 },
-  { src: '/images/0B4A1339-1.jpg', alt: 'LENGOLF event space', width: 1200, height: 800 },
-  { src: '/images/0B4A1240-1.jpg', alt: 'LENGOLF gathering', width: 1200, height: 800 },
-  { src: '/images/0B4A0538-1.jpg', alt: 'LENGOLF golf event', width: 1200, height: 800 },
-  { src: '/images/DSC00210-1-scaled.jpg', alt: 'LENGOLF event photo', width: 1200, height: 800 },
-  { src: '/images/DSC00191-1-scaled.jpg', alt: 'LENGOLF party photo', width: 1200, height: 800 },
-  { src: '/images/Copy_of_IMG_8925-scaled.jpg', alt: 'LENGOLF celebration', width: 1200, height: 800 },
-  { src: '/images/DSC00168-1-scaled.jpg', alt: 'LENGOLF event guests', width: 1200, height: 800 },
-  { src: '/images/Copy_of_IMG_8931-scaled.jpg', alt: 'LENGOLF group event', width: 1200, height: 800 },
-  { src: '/images/DSC00137-1-scaled.jpg', alt: 'LENGOLF venue', width: 1200, height: 800 },
-  { src: '/images/DSC00129-1-scaled.jpg', alt: 'LENGOLF food and drinks', width: 1200, height: 800 },
-  { src: '/images/DSC00126-1-scaled.jpg', alt: 'LENGOLF event dining', width: 1200, height: 800 },
-  { src: '/images/Copy-of-Copy-of-20240907_213537-1-scaled.jpg', alt: 'LENGOLF night event', width: 1200, height: 800 },
-  { src: '/images/DJI_20241121124426_0165_D-1-scaled.jpg', alt: 'LENGOLF aerial view', width: 1200, height: 800 },
-  { src: '/images/DSC00165-1-scaled.jpg', alt: 'LENGOLF party atmosphere', width: 1200, height: 800 },
-  { src: '/images/DSC00155-1-scaled.jpg', alt: 'LENGOLF event fun', width: 1200, height: 800 },
-  { src: '/images/DSC00150-1-scaled.jpg', alt: 'LENGOLF simulator party', width: 1200, height: 800 },
-  { src: '/images/20240907_194856-1-scaled.jpg', alt: 'LENGOLF catering', width: 1200, height: 800 },
-  { src: '/images/DSC00183-1-scaled.jpg', alt: 'LENGOLF event space view', width: 1200, height: 800 },
+  { src: storageUrl('events/event-01.jpg'), alt: 'LENGOLF event', width: 1200, height: 800 },
+  { src: storageUrl('events/event-02.jpg'), alt: 'LENGOLF party', width: 1200, height: 800 },
+  { src: storageUrl('events/event-03.jpg'), alt: 'LENGOLF corporate event', width: 1200, height: 800 },
+  { src: storageUrl('events/event-04.jpg'), alt: 'LENGOLF team building', width: 1200, height: 800 },
+  { src: storageUrl('events/event-05.jpg'), alt: 'LENGOLF event space', width: 1200, height: 800 },
+  { src: storageUrl('events/event-06.jpg'), alt: 'LENGOLF gathering', width: 1200, height: 800 },
+  { src: storageUrl('events/event-07.jpg'), alt: 'LENGOLF golf event', width: 1200, height: 800 },
+  { src: storageUrl('events/event-08.jpg'), alt: 'LENGOLF event photo', width: 1200, height: 800 },
+  { src: storageUrl('events/event-09.jpg'), alt: 'LENGOLF party photo', width: 1200, height: 800 },
+  { src: storageUrl('events/event-10.jpg'), alt: 'LENGOLF celebration', width: 1200, height: 800 },
+  { src: storageUrl('events/event-11.jpg'), alt: 'LENGOLF event guests', width: 1200, height: 800 },
+  { src: storageUrl('events/event-12.jpg'), alt: 'LENGOLF group event', width: 1200, height: 800 },
+  { src: storageUrl('events/event-13.jpg'), alt: 'LENGOLF venue', width: 1200, height: 800 },
+  { src: storageUrl('events/event-14.jpg'), alt: 'LENGOLF food and drinks', width: 1200, height: 800 },
+  { src: storageUrl('events/event-15.jpg'), alt: 'LENGOLF event dining', width: 1200, height: 800 },
+  { src: storageUrl('events/event-16.jpg'), alt: 'LENGOLF night event', width: 1200, height: 800 },
+  { src: storageUrl('events/event-17.jpg'), alt: 'LENGOLF aerial view', width: 1200, height: 800 },
+  { src: storageUrl('events/event-18.jpg'), alt: 'LENGOLF party atmosphere', width: 1200, height: 800 },
+  { src: storageUrl('events/event-19.jpg'), alt: 'LENGOLF event fun', width: 1200, height: 800 },
+  { src: storageUrl('events/event-20.jpg'), alt: 'LENGOLF simulator party', width: 1200, height: 800 },
+  { src: storageUrl('events/event-21.jpg'), alt: 'LENGOLF catering', width: 1200, height: 800 },
+  { src: storageUrl('events/event-22.jpg'), alt: 'LENGOLF event space view', width: 1200, height: 800 },
 ]
 
 export default function EventsPage() {
@@ -52,7 +53,7 @@ export default function EventsPage() {
       {/* ── Hero ── */}
       <section className="relative flex h-[50vh] min-h-[400px] max-h-[550px] items-center text-white overflow-hidden">
         <Image
-          src="/images/0B4A1494-1.jpg"
+          src={storageUrl('events/event-01.jpg')}
           alt="LENGOLF event party"
           fill
           className="object-cover"
@@ -102,7 +103,7 @@ export default function EventsPage() {
               BOOK NOW
             </a>
             <a
-              href="/images/LENGOLF_Floorplan-min.png"
+              href={storageUrl('events/floorplan.png')}
               target="_blank"
               className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-8 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
             >
@@ -166,7 +167,7 @@ export default function EventsPage() {
           </h2>
           <div className="mx-auto max-w-lg">
             <Image
-              src="/images/S__71934019.jpg"
+              src={storageUrl('events/event-packages.jpg')}
               alt="LENGOLF Event Packages"
               width={768}
               height={1086}

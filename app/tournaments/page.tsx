@@ -3,6 +3,7 @@ import Image from 'next/image'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import ContactInfo from '@/components/shared/ContactInfo'
 import ImageGallery from '@/components/shared/ImageGallery'
+import { storageUrl } from '@/lib/constants'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { faqItems } from '@/data/pricing'
 
@@ -12,22 +13,22 @@ export const metadata: Metadata = {
 }
 
 const pastTournamentImages = [
-  { src: '/images/Copy-of-20240616_175428-min.jpg', alt: 'Past tournament', width: 1200, height: 800 },
-  { src: '/images/20240616_162715-min.jpg', alt: 'Tournament players', width: 1200, height: 800 },
-  { src: '/images/Copy-of-20240616_173524-min.jpg', alt: 'Tournament event', width: 1200, height: 800 },
-  { src: '/images/Copy-of-20240616_164246-min.jpg', alt: 'Golf tournament', width: 1200, height: 800 },
-  { src: '/images/Copy-of-20240616_182828-min.jpg', alt: 'Tournament winners', width: 1200, height: 800 },
-  { src: '/images/Copy-of-20240616_163647-min.jpg', alt: 'Tournament group', width: 1200, height: 800 },
-  { src: '/images/20240616_155350-min.jpg', alt: 'Tournament play', width: 1200, height: 800 },
-  { src: '/images/Copy-of-IMG_4743-scaled.jpg', alt: 'Tournament photo', width: 1200, height: 800 },
-  { src: '/images/Copy-of-IMG_4761-scaled.jpg', alt: 'Tournament action', width: 1200, height: 800 },
-  { src: '/images/Copy-of-IMG_4819-scaled.jpg', alt: 'Tournament participants', width: 1200, height: 800 },
-  { src: '/images/Copy-of-IMG_4900.jpg', alt: 'Tournament celebration', width: 1200, height: 800 },
-  { src: '/images/Copy-of-IMG_4919.jpg', alt: 'Tournament prizes', width: 1200, height: 800 },
-  { src: '/images/Copy-of-IMG_4921.jpg', alt: 'Tournament award', width: 1200, height: 800 },
-  { src: '/images/IMG_4761-scaled.jpg', alt: 'Golf competition', width: 1200, height: 800 },
-  { src: '/images/S__3792905_0-scaled.jpg', alt: 'Tournament finale', width: 1200, height: 800 },
-  { src: '/images/S__3792912_0-scaled.jpg', alt: 'Tournament group photo', width: 1200, height: 800 },
+  { src: storageUrl('tournaments/tournament-01.jpg'), alt: 'Past tournament', width: 1200, height: 800 },
+  { src: storageUrl('tournaments/tournament-02.jpg'), alt: 'Tournament players', width: 1200, height: 800 },
+  { src: storageUrl('tournaments/tournament-03.jpg'), alt: 'Tournament event', width: 1200, height: 800 },
+  { src: storageUrl('tournaments/tournament-04.jpg'), alt: 'Golf tournament', width: 1200, height: 800 },
+  { src: storageUrl('tournaments/tournament-05.jpg'), alt: 'Tournament winners', width: 1200, height: 800 },
+  { src: storageUrl('tournaments/tournament-06.jpg'), alt: 'Tournament group', width: 1200, height: 800 },
+  { src: storageUrl('tournaments/tournament-07.jpg'), alt: 'Tournament play', width: 1200, height: 800 },
+  { src: storageUrl('tournaments/tournament-08.jpg'), alt: 'Tournament photo', width: 1200, height: 800 },
+  { src: storageUrl('tournaments/tournament-09.jpg'), alt: 'Tournament action', width: 1200, height: 800 },
+  { src: storageUrl('tournaments/tournament-10.jpg'), alt: 'Tournament participants', width: 1200, height: 800 },
+  { src: storageUrl('tournaments/tournament-11.jpg'), alt: 'Tournament celebration', width: 1200, height: 800 },
+  { src: storageUrl('tournaments/tournament-12.jpg'), alt: 'Tournament prizes', width: 1200, height: 800 },
+  { src: storageUrl('tournaments/tournament-13.jpg'), alt: 'Tournament award', width: 1200, height: 800 },
+  { src: storageUrl('tournaments/tournament-14.jpg'), alt: 'Golf competition', width: 1200, height: 800 },
+  { src: storageUrl('tournaments/tournament-15.jpg'), alt: 'Tournament finale', width: 1200, height: 800 },
+  { src: storageUrl('tournaments/tournament-16.jpg'), alt: 'Tournament group photo', width: 1200, height: 800 },
 ]
 
 export default function TournamentsPage() {
@@ -36,7 +37,7 @@ export default function TournamentsPage() {
       {/* Hero */}
       <section className="relative flex min-h-[50vh] items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/DSC00126-1-scaled.jpg"
+          src={storageUrl('events/event-15.jpg')}
           alt="LENGOLF venue exterior"
           fill
           className="object-cover"
@@ -55,7 +56,7 @@ export default function TournamentsPage() {
         <h2 className="mb-10 text-center text-3xl font-bold">Active Tournament</h2>
         <div className="mx-auto max-w-2xl">
           <Image
-            src="/images/TOURNAMENT_COMING_SOON.png"
+            src={storageUrl('tournaments/coming-soon.png')}
             alt="Tournament Coming Soon"
             width={800}
             height={600}

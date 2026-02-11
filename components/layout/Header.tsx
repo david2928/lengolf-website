@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X, Phone, CalendarDays } from 'lucide-react'
-import { NAV_ITEMS, SOCIAL_LINKS, BOOKING_URL, BUSINESS_INFO } from '@/lib/constants'
+import { NAV_ITEMS, SOCIAL_LINKS, BOOKING_URL, BUSINESS_INFO, storageUrl } from '@/lib/constants'
 import { FacebookIcon, LineIcon, InstagramIcon } from '@/components/shared/SocialIcons'
 
 export default function Header() {
@@ -24,7 +24,7 @@ export default function Header() {
         {/* Logo — 12% width */}
         <Link href="/" className="flex-shrink-0" style={{ width: '12%', minWidth: '100px' }}>
           <Image
-            src="/images/Logo.png"
+            src={storageUrl('branding/logo.png')}
             alt="LENGOLF"
             width={194}
             height={26}
@@ -132,7 +132,7 @@ export default function Header() {
           >
             <Link href="/" className="flex-shrink-0" style={{ width: '12%', minWidth: '100px' }} onClick={() => setMobileMenuOpen(false)}>
               <Image
-                src="/images/Logo.png"
+                src={storageUrl('branding/logo.png')}
                 alt="LENGOLF"
                 width={194}
                 height={26}
