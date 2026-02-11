@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getAllPosts } from '@/lib/blog'
 import SectionWrapper from '@/components/shared/SectionWrapper'
+import { storageUrl } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'News & Articles',
@@ -16,12 +17,36 @@ export default async function BlogPage() {
 
   return (
     <>
-      <SectionWrapper dark>
-        <div className="mx-auto max-w-3xl text-center">
-          <h1 className="text-4xl font-bold lg:text-5xl"><span className="text-primary-light">NEWS</span> & ARTICLES</h1>
-          <p className="mt-4 text-gray-300">At LENGOLF, our passion is simple: blending golf and fun. Dive into how we&apos;re making golf enjoyable for everyone in Bangkok, offering a vibrant atmosphere where players of all levels can enjoy the game like never before.</p>
+      {/* Hero */}
+      <section className="relative flex h-[50vh] min-h-[400px] max-h-[550px] items-center text-white overflow-hidden">
+        <Image
+          src={storageUrl('venue/venue-bar-01.jpg')}
+          alt="LENGOLF blog"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(135deg, rgba(0,90,50,0.55) 0%, rgba(0,122,69,0.45) 40%, rgba(0,90,50,0.3) 100%)',
+          }}
+        />
+        <div className="relative z-10 w-full text-left" style={{ paddingLeft: '4%', paddingRight: '4%' }}>
+          <span
+            className="inline-block rounded px-6 py-2 text-lg font-bold uppercase tracking-widest text-white mb-5 md:text-xl"
+            style={{ backgroundColor: '#7CB342' }}
+          >
+            Blog
+          </span>
+          <h1 className="mb-4 text-5xl font-black uppercase leading-none md:text-6xl lg:text-7xl">
+            News & Articles
+          </h1>
+          <p className="text-base font-semibold italic tracking-wide text-white/90 md:text-lg">
+            Golf tips, Bangkok entertainment, and more from LENGOLF
+          </p>
         </div>
-      </SectionWrapper>
+      </section>
 
       <SectionWrapper>
         {posts.length === 0 ? (

@@ -56,3 +56,86 @@
 .animate-accordion-up {
   animation: accordion-up 0.2s ease-out;
 }
+
+/* ── Article prose styles ── */
+.article-content {
+  color: #404040;
+  line-height: 1.8;
+}
+
+.article-content > p:first-child {
+  @apply text-lg text-foreground font-medium leading-relaxed;
+}
+
+.article-content h3 {
+  @apply relative mt-12 mb-4 text-2xl font-bold text-foreground;
+  padding-bottom: 0.5rem;
+}
+
+.article-content h3::after {
+  content: '';
+  @apply absolute bottom-0 left-0 h-0.5 w-12 rounded-full;
+  background-color: #c8a96e;
+}
+
+.article-content h4 {
+  @apply mt-8 mb-3 text-lg font-semibold text-foreground;
+}
+
+.article-content p {
+  @apply mb-5;
+}
+
+.article-content a {
+  @apply font-medium text-[#005a32] underline decoration-[#005a32]/30 underline-offset-2 transition-colors hover:text-[#007a45] hover:decoration-[#007a45]/50;
+}
+
+.article-content ul {
+  @apply my-6 space-y-3 pl-0;
+  list-style: none;
+}
+
+.article-content ul li {
+  @apply relative pl-7 text-[#404040];
+}
+
+.article-content ul li::before {
+  content: '';
+  @apply absolute left-1 top-[0.6em] h-2 w-2 rounded-full;
+  background-color: #c8a96e;
+}
+
+.article-content ol {
+  @apply my-6 space-y-3 pl-6;
+  counter-reset: item;
+  list-style: none;
+}
+
+.article-content ol li {
+  @apply relative pl-4;
+  counter-increment: item;
+}
+
+.article-content ol li::before {
+  content: counter(item) '.';
+  @apply absolute -left-2 font-bold;
+  color: #005a32;
+}
+
+.article-content strong {
+  @apply font-semibold text-foreground;
+}
+
+.article-content blockquote {
+  @apply my-8 border-l-4 border-accent bg-[#faf8f4] py-4 pl-6 pr-4 italic text-foreground/80;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.article-content hr {
+  @apply my-10 border-t border-border;
+}
+
+/* Last paragraph CTA styling */
+.article-content > p:last-child {
+  @apply mt-8 rounded-lg bg-[#f0f7f3] p-6 text-foreground;
+}

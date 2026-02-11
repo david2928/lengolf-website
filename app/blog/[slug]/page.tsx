@@ -2,10 +2,9 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowLeft } from 'lucide-react'
-import { getPostBySlug, getPostSlugs } from '@/lib/blog'
-import SectionWrapper from '@/components/shared/SectionWrapper'
-import { SITE_URL } from '@/lib/constants'
+import { ArrowLeft, Clock, Calendar } from 'lucide-react'
+import { getPostBySlug, getPostSlugs, getRelatedPosts, getReadingTime } from '@/lib/blog'
+import { SITE_URL, BOOKING_URL } from '@/lib/constants'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -48,46 +47,147 @@ export default async function BlogPostPage({ params }: Props) {
     notFound()
   }
 
+  const readingTime = getReadingTime(post.content)
+  const relatedPosts = await getRelatedPosts(slug, 3)
+
+  const formattedDate = post.published_at
+    ? new Date(post.published_at).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
+    : null
+
   return (
     <>
-      {post.featured_image && (
-        <div className="relative h-[40vh] min-h-[300px]">
-          <Image
-            src={post.featured_image}
-            alt={post.title}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/40" />
+      {/* Article Header */}
+      <section className="relative overflow-hidden bg-[#003d22]">
+        {/* Decorative elements */}
+        <div className="absolute inset-0">
+          <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-[#005a32]/40" />
+          <div className="absolute -left-10 bottom-0 h-60 w-60 rounded-full bg-[#007a45]/20" />
+          <div className="absolute right-1/4 bottom-10 h-40 w-40 rounded-full bg-accent/10" />
         </div>
-      )}
 
-      <SectionWrapper>
-        <div className="mx-auto max-w-3xl">
-          <Link href="/blog" className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+        <div className="relative mx-auto max-w-4xl px-4 pb-12 pt-10 sm:px-6 lg:px-8">
+          <Link
+            href="/blog"
+            className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-white/70 transition-colors hover:text-white"
+          >
             <ArrowLeft className="h-4 w-4" />
             Back to Blog
           </Link>
 
-          <h1 className="mb-4 text-3xl font-bold lg:text-4xl">{post.title}</h1>
+          <h1 className="mb-6 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+            {post.title}
+          </h1>
 
-          {post.published_at && (
-            <p className="mb-8 text-sm text-muted-foreground">
-              {new Date(post.published_at).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })}
-            </p>
-          )}
-
-          <div
-            className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/60">
+            {formattedDate && (
+              <span className="inline-flex items-center gap-1.5">
+                <Calendar className="h-4 w-4" />
+                {formattedDate}
+              </span>
+            )}
+            <span className="inline-flex items-center gap-1.5">
+              <Clock className="h-4 w-4" />
+              {readingTime} min read
+            </span>
+          </div>
         </div>
-      </SectionWrapper>
+
+        {/* Bottom curve */}
+        <div className="absolute -bottom-px left-0 right-0">
+          <svg viewBox="0 0 1440 40" fill="none" className="w-full" preserveAspectRatio="none">
+            <path d="M0 40V0c240 26.7 480 40 720 40S1200 26.7 1440 0v40H0z" fill="white" />
+          </svg>
+        </div>
+      </section>
+
+      {/* Featured Image (if exists) */}
+      {post.featured_image && (
+        <div className="mx-auto -mt-6 max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="relative aspect-video overflow-hidden rounded-xl shadow-lg">
+            <Image
+              src={post.featured_image}
+              alt={post.title}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Article Body */}
+      <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <div
+          className="article-content prose prose-lg max-w-none"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
+      </article>
+
+      {/* CTA Banner */}
+      <section className="mx-auto max-w-3xl px-4 pb-12 sm:px-6 lg:px-8">
+        <div className="rounded-2xl bg-gradient-to-br from-[#003d22] to-[#005a32] p-8 text-center sm:p-10">
+          <h3 className="mb-3 text-2xl font-bold text-white">Ready to Hit the Greens?</h3>
+          <p className="mb-6 text-white/80">
+            Experience Bangkok&apos;s premier indoor golf simulator at LENGOLF. Walk-ins welcome or book online.
+          </p>
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-[#1a1a1a] transition-all hover:bg-accent/90 hover:shadow-lg"
+          >
+            Book a Bay
+          </a>
+        </div>
+      </section>
+
+      {/* Related Posts */}
+      {relatedPosts.length > 0 && (
+        <section className="border-t bg-[#fafafa] py-16 lg:py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <h2 className="mb-2 text-center text-sm font-semibold uppercase tracking-widest text-primary">
+              Keep Reading
+            </h2>
+            <p className="mb-10 text-center text-2xl font-bold text-foreground">
+              More Articles You Might Enjoy
+            </p>
+
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {relatedPosts.map((related) => (
+                <Link
+                  key={related.id}
+                  href={`/blog/${related.slug}`}
+                  className="group flex flex-col overflow-hidden rounded-xl border bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+                >
+                  <div className="flex flex-1 flex-col p-6">
+                    <h3 className="mb-2 text-lg font-semibold leading-snug text-foreground transition-colors group-hover:text-primary">
+                      {related.title}
+                    </h3>
+                    {related.excerpt && (
+                      <p className="mb-4 line-clamp-3 flex-1 text-sm text-muted-foreground">
+                        {related.excerpt}
+                      </p>
+                    )}
+                    {related.published_at && (
+                      <p className="mt-auto text-xs text-muted-foreground">
+                        {new Date(related.published_at).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                        })}
+                      </p>
+                    )}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </>
   )
 }

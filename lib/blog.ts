@@ -15,6 +15,12 @@ export interface BlogPost {
   updated_at: string
 }
 
+export function getReadingTime(html: string): number {
+  const text = html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
+  const words = text.split(' ').length
+  return Math.max(1, Math.ceil(words / 200))
+}
+
 export async function getAllPosts(): Promise<BlogPost[]> {
   const supabase = createClient()
 
@@ -47,6 +53,24 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   }
 
   return data
+}
+
+export async function getRelatedPosts(currentSlug: string, limit = 3): Promise<BlogPost[]> {
+  const supabase = createClient()
+
+  const { data, error } = await supabase
+    .from('blog_posts')
+    .select('*')
+    .eq('status', 'published')
+    .neq('slug', currentSlug)
+    .order('published_at', { ascending: false })
+    .limit(limit)
+
+  if (error) {
+    return []
+  }
+
+  return data || []
 }
 
 export async function getPostSlugs(): Promise<string[]> {
