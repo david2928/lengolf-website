@@ -3,13 +3,14 @@ import Image from 'next/image'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import ContactInfo from '@/components/shared/ContactInfo'
 import ImageGallery from '@/components/shared/ImageGallery'
-import { storageUrl } from '@/lib/constants'
+import { storageUrl, SITE_URL } from '@/lib/constants'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { faqItems } from '@/data/pricing'
 
 export const metadata: Metadata = {
   title: 'Tournaments',
   description: 'Join exciting golf competitions at LENGOLF Bangkok. Compete, win prizes, and enjoy our indoor golf tournaments. Open to all skill levels.',
+  alternates: { canonical: `${SITE_URL}/tournaments/` },
 }
 
 const pastTournamentImages = [

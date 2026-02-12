@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import SectionWrapper from '@/components/shared/SectionWrapper'
+import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
   description: 'LENGOLF Terms of Service - Read the terms and conditions for using our service.',
+  alternates: { canonical: `${SITE_URL}/terms-of-service/` },
 }
 
 export default function TermsOfServicePage() {

@@ -5,11 +5,12 @@ import BookingCTA from '@/components/shared/BookingCTA'
 import ImageGallery from '@/components/shared/ImageGallery'
 import ServicesCarousel from '@/components/home/ServicesCarousel'
 import { services } from '@/data/pricing'
-import { BUSINESS_INFO, BOOKING_URL, storageUrl } from '@/lib/constants'
+import { BUSINESS_INFO, BOOKING_URL, SITE_URL, storageUrl } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'LENGOLF | Premier Indoor Golf Simulator & Bar in Bangkok',
   description: 'LENGOLF is a premier golf simulator and bar in the heart of Bangkok, located inside The Mercury Ville @ BTS Chidlom. Perfect for all skill levels.',
+  alternates: { canonical: `${SITE_URL}/` },
 }
 
 const galleryImages = [

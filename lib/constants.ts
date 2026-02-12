@@ -1,5 +1,5 @@
 export const SITE_NAME = 'LENGOLF'
-export const SITE_URL = 'https://len.golf'
+export const SITE_URL = 'https://www.len.golf'
 export const SUPABASE_STORAGE_URL = 'https://bisimqmtxjsptehhqpeg.supabase.co/storage/v1/object/public/website-assets'
 
 export function storageUrl(path: string): string {

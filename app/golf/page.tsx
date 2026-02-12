@@ -3,11 +3,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
-import { storageUrl } from '@/lib/constants'
+import { storageUrl, SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Golf Simulator Rentals & Bay Rates',
   description: 'Book your bay at LENGOLF. State-of-the-art Korean Bravo Golf simulators, 400-700 THB per hour, up to 5 players per bay. Indoor golf in Bangkok.',
+  alternates: { canonical: `${SITE_URL}/golf/` },
 }
 
 const waysToPlay = [

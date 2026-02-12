@@ -3,11 +3,12 @@ import Image from 'next/image'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import ContactInfo from '@/components/shared/ContactInfo'
 import ContactForm from '@/components/about/ContactForm'
-import { storageUrl } from '@/lib/constants'
+import { storageUrl, SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'About Us',
   description: 'Learn about LENGOLF - a premier golf simulator and bar in Bangkok. Founded by golf-loving expats, we combine exciting golf with a lively social atmosphere.',
+  alternates: { canonical: `${SITE_URL}/about-us/` },
 }
 
 const whyChooseUs = [

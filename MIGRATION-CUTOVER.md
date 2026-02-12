@@ -24,21 +24,13 @@
 
 ## Pre-Launch Checklist
 
-### 1. Decide on Canonical Domain
+### 1. Decide on Canonical Domain ✅ DONE
 
-WordPress uses `www.len.golf` as canonical. Choose one:
+**Decision: Option A — Keep `www.len.golf`** (safest for SEO continuity)
 
-- **Option A: Keep `www.len.golf`** (safest for SEO continuity)
-  - In Vercel: Add both `len.golf` and `www.len.golf` as domains
-  - Set `www.len.golf` as primary, Vercel auto-redirects bare domain
-  - Update `SITE_URL` in `lib/constants.ts` to `https://www.len.golf`
-
-- **Option B: Switch to `len.golf`** (cleaner URL)
-  - In Vercel: Add both domains, set `len.golf` as primary
-  - Google will re-index with the new canonical over 2-4 weeks
-  - Current `SITE_URL` already set to `https://len.golf`
-
-**Action:** Choose an option and configure in Vercel dashboard under Settings > Domains.
+- [x] `SITE_URL` updated to `https://www.len.golf` in `lib/constants.ts` (2026-02-12)
+- [ ] In Vercel: Add both `len.golf` and `www.len.golf` as domains (at cutover time)
+- [ ] Set `www.len.golf` as primary, Vercel auto-redirects bare domain
 
 ---
 
@@ -62,20 +54,19 @@ Ensure all variables are set in Vercel project settings (Settings > Environment 
 
 ---
 
-### 3. Verify GTM Container Completeness
+### 3. Verify GTM Container Completeness ⚠️ ACTION NEEDED
 
-Log into [Google Tag Manager](https://tagmanager.google.com/) for container `GTM-MKCHVJKW` and confirm these tags fire:
+Checked WordPress source (2026-02-12): **LINE Tag is loaded as a standalone script, NOT through GTM.**
 
-- [ ] **Google Analytics 4** — Measurement ID `G-08BZ5M40SG`
-- [ ] **LINE Tag** — Tag ID `858981c2-e02a-49a7-b9d9-689880407fb0`
+- [ ] **Google Analytics 4** — Measurement ID `G-08BZ5M40SG` (verify in GTM)
+- [ ] **LINE Tag** — Tag ID `858981c2-e02a-49a7-b9d9-689880407fb0` — **MUST be added to GTM before cutover**
 
-If LINE Tag is **not** in GTM (it may be loaded as a standalone script on WordPress), add it:
+**Required action:** Add LINE Tag to GTM container `GTM-MKCHVJKW`:
 1. In GTM, create a new Custom HTML tag
-2. Paste the LINE Tag base code snippet
+2. Paste the LINE Tag base code snippet (from WordPress source or LINE Tag Manager)
 3. Set trigger: All Pages
 4. Publish the GTM container
-
-**Verify in WordPress first:** Check the WordPress source to confirm whether LINE Tag loads via GTM or as a separate script. If separate, it must be added to GTM before cutover.
+5. Verify it fires on the WordPress site (through GTM, not the old standalone script)
 
 ---
 
@@ -141,30 +132,28 @@ Location pages often pull image traffic. The current redirect of `/wp-content/up
 
 ---
 
-### 8. Canonical Validation at Scale
+### 8. Canonical Validation at Scale ✅ DONE
 
-One bad template can produce hundreds of wrong canonicals.
+Codebase audited (2026-02-12). All pages now have self-referencing canonical URLs:
 
-**Crawl staging and confirm:**
+- [x] Every page defines `alternates.canonical` in its metadata
+- [x] All canonicals are self-referencing (point to the page itself)
+- [x] All canonicals use `www.len.golf` + trailing slash
+- [x] No canonicals pointing to WordPress URLs or staging URLs
+- [x] Blog posts and location pages already had canonicals; 9 static pages fixed
 
-- [ ] Every indexable page has exactly **one** `<link rel="canonical">`
-- [ ] Each canonical points to itself (self-referencing)
-- [ ] All canonicals use the correct domain + trailing slash
-- [ ] No canonicals pointing to WordPress URLs, preview/staging URLs, or the non-canonical domain variant
-
-This is especially important if switching between `www` and bare domain.
+> Still recommended: crawl staging post-deploy to confirm rendered `<link rel="canonical">` tags.
 
 ---
 
-### 9. Crawl Budget Protection
+### 9. Crawl Budget Protection ✅ DONE
 
-Next.js apps can accidentally generate crawlable URL variants. Confirm that the site is **not** generating crawlable duplicates via:
+Codebase audited (2026-02-12). No crawlable URL variant issues found:
 
-- [ ] Query parameters (`?utm=`, `?ref=`, `?sort=`)
-- [ ] Pagination duplicates
-- [ ] Case-sensitive path variants (e.g., `/Golf/` vs `/golf/`)
-
-If present, either canonicalize aggressively or block via `robots.txt`.
+- [x] No query parameter routes — all routes are slug-based
+- [x] No pagination parameters
+- [x] All URLs are lowercase; no case-sensitivity issues
+- [x] `trailingSlash: true` handles slash normalization via Next.js
 
 ---
 
@@ -373,6 +362,9 @@ These items are **done** and included in the current codebase:
 - [x] Contact form rate limiting (5 req/min per IP, 429 response)
 - [x] SMTP migrated from old hosting (`mail.len.golf`) to Gmail (`smtp.gmail.com` via `info@len.golf` App Password)
 - [x] Proper 404 page (`not-found.tsx`) returns real 404 status for nonexistent URLs
+- [x] Canonical URLs on all pages (9 static pages fixed, blog + location already had them)
+- [x] `SITE_URL` set to `https://www.len.golf` (Option A — SEO continuity with WordPress)
+- [x] No crawl budget issues (no query params, no pagination, no case variants)
 
 ---
 

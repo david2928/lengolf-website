@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import SectionWrapper from '@/components/shared/SectionWrapper'
+import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'LENGOLF Privacy Policy - Learn about how we collect, use and protect your personal data.',
+  alternates: { canonical: `${SITE_URL}/privacy-policy/` },
 }
 
 export default function PrivacyPolicyPage() {

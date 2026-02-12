@@ -3,11 +3,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getAllPosts } from '@/lib/blog'
 import SectionWrapper from '@/components/shared/SectionWrapper'
-import { storageUrl } from '@/lib/constants'
+import { storageUrl, SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'News & Articles',
   description: 'Read the latest articles from LENGOLF about indoor golf, Bangkok entertainment, golf tips, and more.',
+  alternates: { canonical: `${SITE_URL}/blog/` },
 }
 
 export const revalidate = 3600 // ISR: revalidate every hour

@@ -2,13 +2,14 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import ImageGallery from '@/components/shared/ImageGallery'
-import { storageUrl } from '@/lib/constants'
+import { storageUrl, SITE_URL } from '@/lib/constants'
 import { eventTypes } from '@/data/pricing'
 import EventInquiryForm from '@/components/events/EventInquiryForm'
 
 export const metadata: Metadata = {
   title: 'Events & Parties',
   description: 'Host a memorable indoor golf party at LENGOLF. Corporate events, team building, birthdays & more. Full site rental, 50+ capacity, customizable packages.',
+  alternates: { canonical: `${SITE_URL}/events/` },
 }
 
 const amenities = [

@@ -2,13 +2,14 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import ImageGallery from '@/components/shared/ImageGallery'
-import { storageUrl } from '@/lib/constants'
+import { storageUrl, SITE_URL } from '@/lib/constants'
 import { coaches } from '@/data/coaches'
 import { lessonPricing, lessonNotes } from '@/data/pricing'
 
 export const metadata: Metadata = {
   title: 'Golf Lessons & Coaching',
   description: 'Take golf lessons at LENGOLF Bangkok from Thailand PGA professionals. Personalized instruction for all skill levels. Packages from 1,800 THB.',
+  alternates: { canonical: `${SITE_URL}/lessons/` },
 }
 
 const promoImages = [
