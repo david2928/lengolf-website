@@ -107,7 +107,101 @@ ORDER BY url;
 
 ---
 
-### 5. Test Staging Deployment
+### 5. HTML Parity Check (Content Diffing)
+
+Google compares rendered HTML before/after migrations. If headings, internal links, or body copy differ (even subtly), Google may treat pages as "changed" rather than "moved," slowing trust transfer.
+
+**Pick your top ~20 URLs** (homepage, golf hub, 5 blog posts, 10 location pages) and for each, compare the **rendered HTML** (not source) between WordPress and Next.js:
+
+- [ ] Same H1 text
+- [ ] Same H2/H3 hierarchy
+- [ ] Same internal links + anchor text
+- [ ] Same visible body copy (or intentionally improved)
+
+**Tooling (optional but helpful):**
+- `curl` + `lynx -dump`
+- Chrome DevTools → "Copy outerHTML"
+- SEO Minion → Compare URLs
+
+> This is one of the biggest hidden SEO migration killers.
+
+---
+
+### 6. Internal Link Audit
+
+Redirects preserve external link equity, but internal links should **never** rely on redirects — they dilute crawl efficiency.
+
+**Crawl the Next.js staging site** (Screaming Frog / Sitebulb) and filter for any internal links that return 3xx. Fix those links in the codebase so they point to final destinations. Watch for:
+
+- [ ] Links still pointing to `/{slug}/` instead of `/blog/{slug}/`
+- [ ] Links to old taxonomy URLs
+- [ ] Links to WordPress image URLs (`/wp-content/uploads/...`)
+
+> Rule of thumb: Redirects are for external links. Internal links should always point to the final URL.
+
+---
+
+### 7. Image SEO Continuity
+
+Location pages often pull image traffic. The current redirect of `/wp-content/uploads/*` to `/` is harmful for image search rankings, pages that earned backlinks via images, and featured snippets pulling images.
+
+**Recommended approach (in priority order):**
+
+1. **Best:** Serve legacy images at the same paths
+2. **Good:** 301 each image URL to its new Supabase Storage URL (1:1 mapping)
+3. **Acceptable:** 301 `/wp-content/uploads/*` to a **relevant page** (not homepage)
+4. **Current (bad):** Redirecting all to `/` — causes soft 404s and loses image equity
+
+- [ ] Audit top image URLs from backlink data / Search Console
+- [ ] Implement image-specific redirects or preserve paths where possible
+
+---
+
+### 8. Canonical Validation at Scale
+
+One bad template can produce hundreds of wrong canonicals.
+
+**Crawl staging and confirm:**
+
+- [ ] Every indexable page has exactly **one** `<link rel="canonical">`
+- [ ] Each canonical points to itself (self-referencing)
+- [ ] All canonicals use the correct domain + trailing slash
+- [ ] No canonicals pointing to WordPress URLs, preview/staging URLs, or the non-canonical domain variant
+
+This is especially important if switching between `www` and bare domain.
+
+---
+
+### 9. Crawl Budget Protection
+
+Next.js apps can accidentally generate crawlable URL variants. Confirm that the site is **not** generating crawlable duplicates via:
+
+- [ ] Query parameters (`?utm=`, `?ref=`, `?sort=`)
+- [ ] Pagination duplicates
+- [ ] Case-sensitive path variants (e.g., `/Golf/` vs `/golf/`)
+
+If present, either canonicalize aggressively or block via `robots.txt`.
+
+---
+
+### 10. Backlink Spot-Check
+
+Before launch, export top backlinks from GSC / Ahrefs and verify:
+
+- [ ] All high-value backlinks hit URLs with explicit redirects
+- [ ] No high-value link lands on the homepage via a generic catch-all redirect
+
+This is a quick, high-leverage check.
+
+---
+
+### 11. Contact Form Rate Limiting
+
+Since forms and SMTP are moving to a new stack, ensure **contact form API endpoints are rate-limited**. Without throttling, bots can hammer forms, cause email reputation issues, and indirectly hurt SEO via trust signals.
+
+---
+
+### 12. Test Staging Deployment
 
 Before DNS cutover, verify on the Vercel preview URL:
 
@@ -124,13 +218,14 @@ Before DNS cutover, verify on the Vercel preview URL:
 - [ ] 301 redirects work (test a few blog slugs at root level)
 - [ ] Images load from Supabase Storage
 - [ ] Mobile responsive layout works
+- [ ] Genuinely nonexistent URLs return **404 or 410** (not a redirect to homepage — soft 404s drag down trust site-wide)
 - [ ] Run [PageSpeed Insights](https://pagespeed.web.dev/) on key pages
 
 ---
 
 ## Launch Day Steps
 
-### 6. DNS Configuration
+### 13. DNS Configuration
 
 There are two approaches depending on whether you want to keep Cloudflare or switch fully to Vercel:
 
@@ -164,13 +259,13 @@ There are two approaches depending on whether you want to keep Cloudflare or swi
 
 ---
 
-### 7. SSL Certificate
+### 14. SSL Certificate
 
 Vercel auto-provisions SSL via Let's Encrypt once DNS points to their servers. No manual action needed. Verify HTTPS works after DNS propagation.
 
 ---
 
-### 8. Email Continuity Check
+### 15. Email Continuity Check
 
 After DNS change, immediately verify:
 
@@ -192,17 +287,21 @@ If the contact form SMTP server (`mail.len.golf`) is hosted on the old Thai host
 
 ## Post-Launch Checklist (Week 1-4)
 
-### 9. Google Search Console
+### 16. Google Search Console
 
 - [ ] Go to [Google Search Console](https://search.google.com/search-console)
 - [ ] Verify property for `len.golf` (or `www.len.golf` depending on canonical choice)
 - [ ] If switching from `www` to bare domain, add both properties and set preferred
 - [ ] Submit sitemap: `https://len.golf/sitemap.xml`
-- [ ] Request indexing for the homepage and key pages
+- [ ] **On launch day**, use URL Inspection to request indexing for a targeted set (do **not** spam requests for everything — Google uses these as signals, not a queue):
+  - Homepage
+  - Main category/hub page (`/golf/`)
+  - 1-2 representative blog posts
+  - 1 representative location page
 - [ ] Monitor **Coverage** report for 404 errors from missed redirects
 - [ ] Monitor **Core Web Vitals** (Next.js should score significantly better)
 
-### 10. Monitor Redirect Coverage
+### 17. Monitor Redirect Coverage
 
 Check Search Console's **Pages** report daily for the first 2 weeks. Common missed redirects to watch for:
 
@@ -212,14 +311,14 @@ Check Search Console's **Pages** report daily for the first 2 weeks. Common miss
 
 If new 404s appear, add redirects to `next.config.js` and redeploy.
 
-### 11. Verify Analytics Data Flow
+### 18. Verify Analytics Data Flow
 
 - [ ] Check GA4 (property `G-08BZ5M40SG`) is receiving pageview data
 - [ ] Check LINE Tag is firing (verify in LINE Tag Manager dashboard)
 - [ ] Check Vercel Analytics dashboard for Web Vitals scores
 - [ ] Compare traffic levels in GA4 week-over-week to detect any drops
 
-### 12. Performance Comparison
+### 19. Performance Comparison
 
 Run [PageSpeed Insights](https://pagespeed.web.dev/) on these pages and compare to pre-migration scores:
 
@@ -231,7 +330,27 @@ Run [PageSpeed Insights](https://pagespeed.web.dev/) on these pages and compare 
 | Blog post    | `/blog/{any}/`    | ___             | ___           |
 | Location     | `/location/{any}/`| ___             | ___           |
 
-### 13. Decommission WordPress
+### 20. Log Retention (Post-Cutover)
+
+Keep old server logs (or Cloudflare logs) for at least 30 days post-cutover. They are invaluable for:
+
+- Discovering URLs bots still hit
+- Finding missed redirects **before** GSC reports them (GSC can lag days/weeks)
+
+---
+
+### 21. Hreflang Consideration
+
+If you ever plan to add Thai/English language variants or locale targeting, ensure you are:
+
+- [ ] **Not** accidentally emitting `hreflang` tags now
+- [ ] Aware this will need to be implemented if multilingual support is added later
+
+Not a blocker — just flagging for future awareness.
+
+---
+
+### 22. Decommission WordPress
 
 **Wait at least 2-4 weeks** after cutover before cancelling the old hosting. This gives you:
 
@@ -280,3 +399,10 @@ These items are **done** and included in the current codebase:
 | DNS propagation delay             | Low        | Low    | Launch during low-traffic hours, TTL already low on CF  |
 | SEO ranking temporary dip         | Medium     | Medium | Normal during migration, recovers in 2-4 weeks          |
 | LINE Tag not firing               | Medium     | Medium | Verify in GTM or add as separate script pre-launch      |
+| HTML parity drift (content diff)  | Medium     | High   | Diff top 20 pages pre-launch (headings, links, copy)    |
+| Internal links through redirects  | Medium     | Medium | Crawl staging, fix all internal 3xx links in codebase   |
+| Image SEO equity loss             | High       | Medium | Map image URLs 1:1 instead of redirecting all to `/`    |
+| Wrong/duplicate canonicals        | Low        | High   | Crawl staging, validate every page has one self-canonical|
+| Soft 404s from catch-all redirects| Medium     | Medium | Return true 404/410 for nonexistent URLs, not homepage  |
+| Crawl budget waste (URL variants) | Low        | Low    | Audit for query param / case variants, canonicalize      |
+| Contact form bot abuse            | Medium     | Medium | Add rate limiting to form API endpoints                  |
