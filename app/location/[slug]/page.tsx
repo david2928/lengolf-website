@@ -27,11 +27,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: page.h1_title,
       description: page.meta_description || undefined,
-      url: `${SITE_URL}/location/${slug}`,
+      url: `${SITE_URL}/location/${slug}/`,
       type: 'website',
     },
     alternates: {
-      canonical: `${SITE_URL}/location/${slug}`,
+      canonical: `${SITE_URL}/location/${slug}/`,
     },
   }
 }

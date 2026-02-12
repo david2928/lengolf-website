@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { ArrowLeft, Clock, Calendar } from 'lucide-react'
 import { getPostBySlug, getPostSlugs, getRelatedPosts, getReadingTime } from '@/lib/blog'
 import { SITE_URL, BOOKING_URL } from '@/lib/constants'
+import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -26,10 +27,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.meta_title || post.title,
     description: post.meta_description || post.excerpt || undefined,
+    alternates: {
+      canonical: `${SITE_URL}/blog/${post.slug}/`,
+    },
     openGraph: {
       title: post.meta_title || post.title,
       description: post.meta_description || post.excerpt || undefined,
-      url: `${SITE_URL}/blog/${post.slug}`,
+      url: `${SITE_URL}/blog/${post.slug}/`,
       type: 'article',
       publishedTime: post.published_at || undefined,
       ...(post.featured_image && { images: [post.featured_image] }),
@@ -58,8 +62,18 @@ export default async function BlogPostPage({ params }: Props) {
       })
     : null
 
+  const breadcrumbJsonLd = getBreadcrumbJsonLd([
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'Blog', url: `${SITE_URL}/blog/` },
+    { name: post.title, url: `${SITE_URL}/blog/${post.slug}/` },
+  ])
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Article Header */}
       <section className="relative overflow-hidden bg-[#003d22]">
         {/* Decorative elements */}

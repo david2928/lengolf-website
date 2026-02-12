@@ -6,7 +6,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import LineChatWidget from '@/components/layout/LineChatWidget'
 import { SITE_NAME, SITE_URL, SITE_DESCRIPTION } from '@/lib/constants'
-import { getLocalBusinessJsonLd } from '@/lib/jsonld'
+import { getLocalBusinessJsonLd, getWebSiteJsonLd } from '@/lib/jsonld'
 import './globals.css'
 
 const poppins = Poppins({
@@ -78,6 +78,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(getLocalBusinessJsonLd()) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getWebSiteJsonLd()) }}
         />
         <Header />
         <main>{children}</main>

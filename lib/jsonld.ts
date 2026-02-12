@@ -1,4 +1,4 @@
-import { SITE_URL, BUSINESS_INFO, SOCIAL_LINKS, storageUrl } from '@/lib/constants'
+import { SITE_URL, SITE_NAME, BUSINESS_INFO, SOCIAL_LINKS, storageUrl } from '@/lib/constants'
 
 export function getLocalBusinessJsonLd() {
   return {
@@ -31,5 +31,37 @@ export function getLocalBusinessJsonLd() {
     sameAs: [SOCIAL_LINKS.facebook, SOCIAL_LINKS.instagram],
     image: storageUrl('branding/logo.png'),
     priceRange: '$$',
+  }
+}
+
+export function getWebSiteJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    url: SITE_URL,
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: storageUrl('branding/logo.png'),
+      },
+      sameAs: [SOCIAL_LINKS.facebook, SOCIAL_LINKS.instagram],
+    },
+  }
+}
+
+export function getBreadcrumbJsonLd(items: { name: string; url: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
   }
 }
