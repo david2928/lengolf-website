@@ -190,6 +190,54 @@ Tested on `https://lengolf-website.vercel.app` (2026-02-12):
 
 ## Launch Day Steps
 
+### Cutover Day Checklist
+
+Run through this in order on cutover day:
+
+#### Before DNS Change
+- [ ] Confirm all pre-launch items above are ✅ (they are as of 2026-02-12)
+- [ ] Take a final screenshot of Google Analytics real-time view (baseline)
+- [ ] Note current WordPress PageSpeed scores for comparison
+- [ ] Ensure you have Cloudflare dashboard access ready
+- [ ] Ensure you have Vercel dashboard access ready
+- [ ] Choose a low-traffic window (early morning Bangkok time recommended)
+
+#### DNS Change
+- [ ] Add `www.len.golf` and `len.golf` as domains in Vercel project settings
+- [ ] Set `www.len.golf` as primary domain in Vercel
+- [ ] In Cloudflare: update DNS records (see step 13 below)
+- [ ] Turn OFF Cloudflare proxy (orange cloud → grey cloud) for Vercel CNAMEs
+- [ ] Wait for Vercel SSL to provision (check Vercel dashboard — usually < 5 min)
+
+#### Immediately After DNS Change (within 30 min)
+- [ ] Verify `https://www.len.golf` loads the Next.js site (not WordPress)
+- [ ] Verify `https://len.golf` redirects to `https://www.len.golf`
+- [ ] Test contact form on live site — confirm email arrives at `info@len.golf`
+- [ ] Send a test email TO `info@len.golf` from an external address — confirm it arrives (MX records intact)
+- [ ] Spot-check 3 blog posts load at `/blog/{slug}/`
+- [ ] Spot-check 3 location pages load at `/location/{slug}/`
+- [ ] Test a WordPress blog redirect: visit `www.len.golf/golf-simulator-in-bangkok` → should redirect to `/blog/golf-simulator-in-bangkok/`
+- [ ] Check GA4 real-time view — confirm pageviews are flowing
+- [ ] Check GTM debug mode — confirm tags are firing
+
+#### Within First 24 Hours
+- [ ] Submit sitemap in Google Search Console: `https://www.len.golf/sitemap.xml`
+- [ ] Request indexing for homepage, `/golf/`, 1 blog post, 1 location page in GSC
+- [ ] Run PageSpeed Insights on homepage and compare to WordPress baseline
+- [ ] Monitor Vercel deployment logs for any errors
+- [ ] Check Supabase dashboard for new contact_submissions (confirms DB writes working)
+- [ ] Update SPF TXT record in Cloudflare: `v=spf1 include:_spf.google.com ~all`
+- [ ] Remove `mail.len.golf` DNS record if no longer needed
+
+#### Rollback Plan (if critical issues)
+If something goes badly wrong:
+1. In Cloudflare: change DNS records back to old hosting IPs (`27.254.86.99`, `27.254.82.179`)
+2. Turn Cloudflare proxy back ON (orange cloud)
+3. WordPress site will be live again within minutes
+4. Keep old hosting active for at least 2-4 weeks as safety net
+
+---
+
 ### 13. DNS Configuration
 
 There are two approaches depending on whether you want to keep Cloudflare or switch fully to Vercel:
