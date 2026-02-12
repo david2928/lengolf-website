@@ -69,21 +69,22 @@ const nextConfig = {
       'what-to-do-in-bangkok',
     ]
 
-    // Generate both /{slug} and /{slug}/ sources to avoid redirect chains
-    // with trailingSlash: true
-    const blogRedirects = blogSlugs.flatMap((slug) => [
-      { source: `/${slug}`, destination: `/blog/${slug}`, permanent: true },
-      { source: `/${slug}/`, destination: `/blog/${slug}/`, permanent: true },
-    ])
+    // All destinations use trailing slashes to match trailingSlash: true
+    // and avoid extra redirect hops from trailing-slash normalization.
+    const blogRedirects = blogSlugs.map((slug) => ({
+      source: `/${slug}`,
+      destination: `/blog/${slug}/`,
+      permanent: true,
+    }))
 
     // WordPress page-type taxonomy -> relevant Next.js service pages
     const pageTypeRedirects = [
-      { source: '/page-type/corporate-events', destination: '/events', permanent: true },
-      { source: '/page-type/golf-club-rental', destination: '/golf', permanent: true },
-      { source: '/page-type/golf-lessons', destination: '/lessons', permanent: true },
-      { source: '/page-type/golf-near', destination: '/golf', permanent: true },
-      { source: '/page-type/indoor-golf', destination: '/golf', permanent: true },
-      { source: '/page-type/things-to-do', destination: '/events', permanent: true },
+      { source: '/page-type/corporate-events', destination: '/events/', permanent: true },
+      { source: '/page-type/golf-club-rental', destination: '/golf/', permanent: true },
+      { source: '/page-type/golf-lessons', destination: '/lessons/', permanent: true },
+      { source: '/page-type/golf-near', destination: '/golf/', permanent: true },
+      { source: '/page-type/indoor-golf', destination: '/golf/', permanent: true },
+      { source: '/page-type/things-to-do', destination: '/events/', permanent: true },
     ]
 
     // WordPress location-area taxonomy -> most relevant location page per area
@@ -94,7 +95,7 @@ const nextConfig = {
     ]
     const locationAreaRedirects = locationAreas.map((area) => ({
       source: `/location-area/${area}`,
-      destination: `/location/indoor-golf-${area}`,
+      destination: `/location/indoor-golf-${area}/`,
       permanent: true,
     }))
 
@@ -104,20 +105,20 @@ const nextConfig = {
       ...locationAreaRedirects,
 
       // WordPress tag, category, and author archives -> blog listing
-      { source: '/tag/:slug', destination: '/blog', permanent: true },
-      { source: '/tag/:slug/:path*', destination: '/blog', permanent: true },
-      { source: '/category/:slug', destination: '/blog', permanent: true },
-      { source: '/category/:slug/:path*', destination: '/blog', permanent: true },
-      { source: '/author/:slug', destination: '/blog', permanent: true },
-      { source: '/author/:slug/:path*', destination: '/blog', permanent: true },
+      { source: '/tag/:slug', destination: '/blog/', permanent: true },
+      { source: '/tag/:slug/:path*', destination: '/blog/', permanent: true },
+      { source: '/category/:slug', destination: '/blog/', permanent: true },
+      { source: '/category/:slug/:path*', destination: '/blog/', permanent: true },
+      { source: '/author/:slug', destination: '/blog/', permanent: true },
+      { source: '/author/:slug/:path*', destination: '/blog/', permanent: true },
 
       // WordPress pagination archives -> blog listing
-      { source: '/page/:path*', destination: '/blog', permanent: true },
+      { source: '/page/:path*', destination: '/blog/', permanent: true },
 
       // WordPress feed URLs -> blog listing
-      { source: '/feed', destination: '/blog', permanent: true },
-      { source: '/feed/:path*', destination: '/blog', permanent: true },
-      { source: '/comments/feed', destination: '/blog', permanent: true },
+      { source: '/feed', destination: '/blog/', permanent: true },
+      { source: '/feed/:path*', destination: '/blog/', permanent: true },
+      { source: '/comments/feed', destination: '/blog/', permanent: true },
 
       // WordPress internal paths -> homepage.
       // These paths have no SEO value; 301 prevents infinite 404 crawl loops.
