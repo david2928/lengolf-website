@@ -54,19 +54,12 @@ Ensure all variables are set in Vercel project settings (Settings > Environment 
 
 ---
 
-### 3. Verify GTM Container Completeness ⚠️ ACTION NEEDED
+### 3. Verify GTM Container Completeness ✅ DONE
 
-Checked WordPress source (2026-02-12): **LINE Tag is loaded as a standalone script, NOT through GTM.**
+Checked WordPress source (2026-02-12):
 
-- [ ] **Google Analytics 4** — Measurement ID `G-08BZ5M40SG` (verify in GTM)
-- [ ] **LINE Tag** — Tag ID `858981c2-e02a-49a7-b9d9-689880407fb0` — **MUST be added to GTM before cutover**
-
-**Required action:** Add LINE Tag to GTM container `GTM-MKCHVJKW`:
-1. In GTM, create a new Custom HTML tag
-2. Paste the LINE Tag base code snippet (from WordPress source or LINE Tag Manager)
-3. Set trigger: All Pages
-4. Publish the GTM container
-5. Verify it fires on the WordPress site (through GTM, not the old standalone script)
+- [ ] **Google Analytics 4** — Measurement ID `G-08BZ5M40SG` (verify it's in GTM, not just direct gtag.js)
+- [x] **LINE Tag** — `858981c2-e02a-49a7-b9d9-689880407fb0` — **NOT NEEDED.** No LINE ad campaigns are running. Dropping it from the migration. Was loaded as standalone script on WordPress, not through GTM.
 
 ---
 
@@ -377,7 +370,7 @@ These items are **done** and included in the current codebase:
 | GTM/analytics gap                 | Low        | Medium | Verify GTM container pre-launch, test on staging        |
 | DNS propagation delay             | Low        | Low    | Launch during low-traffic hours, TTL already low on CF  |
 | SEO ranking temporary dip         | Medium     | Medium | Normal during migration, recovers in 2-4 weeks          |
-| LINE Tag not firing               | Medium     | Medium | Verify in GTM or add as separate script pre-launch      |
+| ~~LINE Tag not firing~~            | ~~Medium~~ | ~~Medium~~ | ✅ Not needed — no LINE ad campaigns running         |
 | HTML parity drift (content diff)  | Medium     | High   | Diff top 20 pages pre-launch (headings, links, copy)    |
 | Internal links through redirects  | Medium     | Medium | Crawl staging, fix all internal 3xx links in codebase   |
 | Image SEO equity loss             | High       | Medium | Map image URLs 1:1 instead of redirecting all to `/`    |
