@@ -34,9 +34,9 @@
 
 ---
 
-### 2. Verify Vercel Environment Variables
+### 2. Verify Vercel Environment Variables ✅ DONE
 
-Ensure all variables are set in Vercel project settings (Settings > Environment Variables):
+All variables verified and updated in Vercel (2026-02-12). SMTP vars updated from old hosting to Gmail:
 
 | Variable                         | Value                          | Required For        |
 | -------------------------------- | ------------------------------ | ------------------- |
