@@ -75,16 +75,16 @@ All 84 published location pages have `schema_markup` and `meta_description` popu
 
 ---
 
-### 5. HTML Parity Check (Content Diffing)
+### 5. HTML Parity Check (Content Diffing) ✅ DONE
 
 Google compares rendered HTML before/after migrations. If headings, internal links, or body copy differ (even subtly), Google may treat pages as "changed" rather than "moved," slowing trust transfer.
 
 **Pick your top ~20 URLs** (homepage, golf hub, 5 blog posts, 10 location pages) and for each, compare the **rendered HTML** (not source) between WordPress and Next.js:
 
-- [ ] Same H1 text
-- [ ] Same H2/H3 hierarchy
-- [ ] Same internal links + anchor text
-- [ ] Same visible body copy (or intentionally improved)
+- [x] H1 text — fixed: homepage now has proper H1 ("WE ARE LENGOLF"), matching WordPress
+- [x] H2/H3 hierarchy — consistent across all pages; Next.js has cleaner structure (fewer duplicate headings, single H1 per page)
+- [x] Internal links + anchor text — consistent
+- [x] Body copy — consistent; lessons page has updated 50-hour pricing (intentional addition)
 
 **Tooling (optional but helpful):**
 - `curl` + `lynx -dump`
@@ -109,19 +109,17 @@ Codebase audited (2026-02-12). No internal links found pointing to old WordPress
 
 ---
 
-### 7. Image SEO Continuity
+### 7. Image SEO Continuity ✅ DONE
 
-Location pages often pull image traffic. The current redirect of `/wp-content/uploads/*` to `/` is harmful for image search rankings, pages that earned backlinks via images, and featured snippets pulling images.
+Audited 94 unique wp-content/uploads image URLs across the WordPress site (2026-02-12). Replaced the catch-all `/wp-content/:path*` → `/` with page-level redirects:
 
-**Recommended approach (in priority order):**
+- [x] Lesson images (coach photos, packages) → `/lessons/`
+- [x] Event images (venue photos, event setups) → `/events/`
+- [x] Tournament images → `/tournaments/`
+- [x] Golf/setup images → `/golf/`
+- [x] Remaining misc images → `/` (catch-all fallback)
 
-1. **Best:** Serve legacy images at the same paths
-2. **Good:** 301 each image URL to its new Supabase Storage URL (1:1 mapping)
-3. **Acceptable:** 301 `/wp-content/uploads/*` to a **relevant page** (not homepage)
-4. **Current (bad):** Redirecting all to `/` — causes soft 404s and loses image equity
-
-- [ ] Audit top image URLs from backlink data / Search Console
-- [ ] Implement image-specific redirects or preserve paths where possible
+This is approach #3 (redirect to relevant pages). For full 1:1 mapping (#2), would need GSC backlink data to identify high-value image URLs worth individual redirects.
 
 ---
 
@@ -358,6 +356,8 @@ These items are **done** and included in the current codebase:
 - [x] Canonical URLs on all pages (9 static pages fixed, blog + location already had them)
 - [x] `SITE_URL` set to `https://www.len.golf` (Option A — SEO continuity with WordPress)
 - [x] No crawl budget issues (no query params, no pagination, no case variants)
+- [x] Homepage H1 tag added ("WE ARE LENGOLF")
+- [x] Image redirects: wp-content/uploads images → relevant pages instead of homepage
 
 ---
 
@@ -373,7 +373,7 @@ These items are **done** and included in the current codebase:
 | ~~LINE Tag not firing~~            | ~~Medium~~ | ~~Medium~~ | ✅ Not needed — no LINE ad campaigns running         |
 | HTML parity drift (content diff)  | Medium     | High   | Diff top 20 pages pre-launch (headings, links, copy)    |
 | Internal links through redirects  | Medium     | Medium | Crawl staging, fix all internal 3xx links in codebase   |
-| Image SEO equity loss             | High       | Medium | Map image URLs 1:1 instead of redirecting all to `/`    |
+| ~~Image SEO equity loss~~         | ~~High~~   | ~~Medium~~ | ✅ Image URLs redirect to relevant pages (lessons, events, etc.) |
 | Wrong/duplicate canonicals        | Low        | High   | Crawl staging, validate every page has one self-canonical|
 | Soft 404s from catch-all redirects| Medium     | Medium | Return true 404/410 for nonexistent URLs, not homepage  |
 | Crawl budget waste (URL variants) | Low        | Low    | Audit for query param / case variants, canonicalize      |

@@ -126,9 +126,46 @@ const nextConfig = {
       { source: '/wp-admin/:path*', destination: '/', permanent: true },
       { source: '/wp-login.php', destination: '/', permanent: true },
       { source: '/wp-json/:path*', destination: '/', permanent: true },
-      { source: '/wp-content/:path*', destination: '/', permanent: true },
       { source: '/wp-includes/:path*', destination: '/', permanent: true },
       { source: '/xmlrpc.php', destination: '/', permanent: true },
+
+      // WordPress image uploads -> relevant pages (not homepage).
+      // Grouped by content type based on WordPress upload folder audit.
+      // Lesson-related images (coach photos, packages, student photos)
+      { source: '/wp-content/uploads/:y/:m/Copy-of-Pro-Boss:path*', destination: '/lessons/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/Pro-Rat:path*', destination: '/lessons/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/pro-min:path*', destination: '/lessons/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/GOLF_COACHING:path*', destination: '/lessons/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/Poster-for-Free-Swing:path*', destination: '/lessons/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/LENGOLF-Starter-Package:path*', destination: '/lessons/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/coachkids:path*', destination: '/lessons/', permanent: true },
+      // Event-related images (venue photos, event setups)
+      { source: '/wp-content/uploads/:y/:m/0B4A:path*', destination: '/events/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/DSC0:path*', destination: '/events/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/Copy_of_IMG:path*', destination: '/events/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/DJI_:path*', destination: '/events/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/online-conference:path*', destination: '/events/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/flags:path*', destination: '/events/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/people:path*', destination: '/events/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/handshake:path*', destination: '/events/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/confetti:path*', destination: '/events/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/film-camera:path*', destination: '/events/', permanent: true },
+      // Tournament images
+      { source: '/wp-content/uploads/:y/:m/TOURNAMENT:path*', destination: '/tournaments/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/Copy-of-20240616:path*', destination: '/tournaments/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/20240616:path*', destination: '/tournaments/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/Copy-of-IMG_47:path*', destination: '/tournaments/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/Copy-of-IMG_48:path*', destination: '/tournaments/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/Copy-of-IMG_49:path*', destination: '/tournaments/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/IMG_47:path*', destination: '/tournaments/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/S__3792:path*', destination: '/tournaments/', permanent: true },
+      // Golf/setup images
+      { source: '/wp-content/uploads/:y/:m/WAYS_TO_PLAY:path*', destination: '/golf/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/OUR_SETUP:path*', destination: '/golf/', permanent: true },
+      // Branding / logo
+      { source: '/wp-content/uploads/:y/:m/Logo:path*', destination: '/', permanent: true },
+      // Catch-all for remaining wp-content (promotional banners, misc) -> homepage
+      { source: '/wp-content/:path*', destination: '/', permanent: true },
 
       // WordPress search -> homepage (no search in Next.js app)
       { source: '/search/:path*', destination: '/', permanent: false },

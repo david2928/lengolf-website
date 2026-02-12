@@ -77,9 +77,9 @@ export default function HomePage() {
         <div className="flex flex-col lg:flex-row lg:flex-nowrap">
           {/* Mobile: WE ARE text + BOOK NOW first */}
           <div className="lg:hidden text-center mb-10">
-            <h2 className="text-3xl font-bold mb-5" style={{ color: '#063B39' }}>
+            <h1 className="text-3xl font-bold mb-5" style={{ color: '#063B39' }}>
               WE ARE <span style={{ color: '#005a32' }}>LENGOLF</span>
-            </h2>
+            </h1>
             <p style={{ fontSize: '16px', fontWeight: 400, lineHeight: '26px', color: '#666666' }}>
               <strong style={{ color: '#063B39' }}>LENGOLF</strong> is a premier golf simulator and bar in the heart of Bangkok, located inside The Mercury Ville @ BTS Chidlom. Perfect for all skill levels, we offer a fun, relaxed environment to enjoy golf. Whether you&apos;re a seasoned pro or a beginner, <strong style={{ color: '#063B39' }}>LENGOLF</strong> is your go-to destination for golfing excitement and entertainment. Experience the joy of social golfing with friends and be part of a vibrant community that shares your passion for the game.
             </p>
@@ -103,9 +103,9 @@ export default function HomePage() {
           {/* Desktop: both text sections alongside image */}
           <div className="hidden lg:flex w-full lg:w-[58%] flex-col justify-center pl-[5%]">
             <div>
-              <h2 className="text-4xl font-bold mb-5" style={{ color: '#063B39' }}>
+              <h1 className="text-4xl font-bold mb-5" style={{ color: '#063B39' }}>
                 WE ARE <span style={{ color: '#005a32' }}>LENGOLF</span>
-              </h2>
+              </h1>
               <p style={{ fontSize: '16px', fontWeight: 400, lineHeight: '26px', color: '#666666' }}>
                 <strong style={{ color: '#063B39' }}>LENGOLF</strong> is a premier golf simulator and bar in the heart of Bangkok, located inside The Mercury Ville @ BTS Chidlom. Perfect for all skill levels, we offer a fun, relaxed environment to enjoy golf. Whether you&apos;re a seasoned pro or a beginner, <strong style={{ color: '#063B39' }}>LENGOLF</strong> is your go-to destination for golfing excitement and entertainment. Experience the joy of social golfing with friends and be part of a vibrant community that shares your passion for the game.
               </p>
