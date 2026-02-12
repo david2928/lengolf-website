@@ -52,10 +52,11 @@ Ensure all variables are set in Vercel project settings (Settings > Environment 
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY`  | *(from .env.local)*            | All data fetching   |
 | `NEXT_PUBLIC_GTM_ID`             | `GTM-MKCHVJKW`                | Analytics/tracking  |
 | `CONTACT_EMAIL_TO`               | `info@len.golf`               | Contact form emails |
-| `EMAIL_HOST`                     | `mail.len.golf`               | Contact form SMTP   |
+| `EMAIL_HOST`                     | `smtp.gmail.com`              | Contact form SMTP   |
 | `EMAIL_PORT`                     | `587`                         | Contact form SMTP   |
-| `EMAIL_USER`                     | `notification@len.golf`       | Contact form SMTP   |
-| `EMAIL_PASSWORD`                 | *(from .env.local)*            | Contact form SMTP   |
+| `EMAIL_USER`                     | `info@len.golf`               | Contact form SMTP   |
+| `EMAIL_PASSWORD`                 | *(Google App Password)*        | Contact form SMTP   |
+| `EMAIL_FROM`                     | `info@len.golf`               | Contact form SMTP   |
 
 **Note:** `SUPABASE_SERVICE_ROLE_KEY` is only needed for migration scripts, not production.
 
@@ -78,32 +79,15 @@ If LINE Tag is **not** in GTM (it may be loaded as a standalone script on WordPr
 
 ---
 
-### 4. Audit Supabase Content Quality
+### 4. Audit Supabase Content Quality ✅ DONE
 
-#### Blog Posts Meta Fields
+#### Blog Posts Meta Fields ✅
 
-Run this query to find posts missing SEO metadata:
+All 27 blog posts now have `meta_title` and `meta_description` populated. 20 posts were missing meta and have been filled in (2026-02-12).
 
-```sql
-SELECT title, slug,
-  CASE WHEN meta_title IS NULL OR meta_title = '' THEN 'MISSING' ELSE 'OK' END AS meta_title_status,
-  CASE WHEN meta_description IS NULL OR meta_description = '' THEN 'MISSING' ELSE 'OK' END AS meta_desc_status
-FROM blog_posts
-ORDER BY slug;
-```
+#### Location Pages Schema Markup ✅
 
-For any posts with `MISSING` status, populate `meta_title` and `meta_description` from the original WordPress Yoast SEO values (check the WordPress XML export at `_migration/lengolf.WordPress.2026-02-11.xml`).
-
-#### Location Pages Schema Markup
-
-```sql
-SELECT url, h1_title,
-  CASE WHEN schema_markup IS NULL THEN 'MISSING' ELSE 'OK' END AS schema_status,
-  CASE WHEN meta_description IS NULL OR meta_description = '' THEN 'MISSING' ELSE 'OK' END AS meta_desc_status
-FROM location_pages
-WHERE status = 'published'
-ORDER BY url;
-```
+All 84 published location pages have `schema_markup` and `meta_description` populated. No gaps found.
 
 ---
 
@@ -127,17 +111,17 @@ Google compares rendered HTML before/after migrations. If headings, internal lin
 
 ---
 
-### 6. Internal Link Audit
+### 6. Internal Link Audit ✅ DONE
 
-Redirects preserve external link equity, but internal links should **never** rely on redirects — they dilute crawl efficiency.
+Codebase audited (2026-02-12). No internal links found pointing to old WordPress paths:
 
-**Crawl the Next.js staging site** (Screaming Frog / Sitebulb) and filter for any internal links that return 3xx. Fix those links in the codebase so they point to final destinations. Watch for:
+- [x] No links pointing to `/{slug}/` instead of `/blog/{slug}/`
+- [x] No links to old taxonomy URLs
+- [x] No links to WordPress image URLs (`/wp-content/uploads/...`)
+- [x] No hardcoded `www.len.golf` references in application code (only in `next.config.js` image remotePatterns, which is intentional)
+- [x] All blog post HTML content in Supabase is clean of `wp-content` references
 
-- [ ] Links still pointing to `/{slug}/` instead of `/blog/{slug}/`
-- [ ] Links to old taxonomy URLs
-- [ ] Links to WordPress image URLs (`/wp-content/uploads/...`)
-
-> Rule of thumb: Redirects are for external links. Internal links should always point to the final URL.
+> Still recommended: crawl staging with Screaming Frog / Sitebulb to catch any dynamically-generated 3xx internal links.
 
 ---
 
@@ -195,9 +179,9 @@ This is a quick, high-leverage check.
 
 ---
 
-### 11. Contact Form Rate Limiting
+### 11. Contact Form Rate Limiting ✅ DONE
 
-Since forms and SMTP are moving to a new stack, ensure **contact form API endpoints are rate-limited**. Without throttling, bots can hammer forms, cause email reputation issues, and indirectly hurt SEO via trust signals.
+Rate limiting added to `/api/contact` endpoint (2026-02-12). In-memory rate limiter: 5 requests per minute per IP, returns 429 when exceeded.
 
 ---
 
@@ -265,23 +249,20 @@ Vercel auto-provisions SSL via Let's Encrypt once DNS points to their servers. N
 
 ---
 
-### 15. Email Continuity Check
+### 15. Email Continuity Check ✅ PARTIALLY DONE
 
-After DNS change, immediately verify:
+**SMTP migrated to Gmail (2026-02-12):** Contact form now uses `smtp.gmail.com` with `info@len.golf` App Password instead of `mail.len.golf` (which pointed to old Thai hosting at `27.254.41.241`). Tested and confirmed working.
 
-- [ ] Receiving emails at `info@len.golf` (Google Workspace still works)
-- [ ] Contact form email delivery still works (SMTP via `mail.len.golf`)
+After DNS change, verify:
+
+- [x] Contact form email delivery works via Gmail SMTP (tested 2026-02-12)
+- [ ] Receiving emails at `info@len.golf` (Google Workspace — should be unaffected since MX records point to Google)
 - [ ] SPF record still valid (update if old hosting IPs were in SPF)
 
-**SPF Update:** The current SPF record includes the old hosting IPs (`27.254.86.99`, `27.254.82.179`). Once those servers are decommissioned, update SPF to:
+**SPF Update:** Once old hosting is decommissioned, update SPF to:
 ```
 v=spf1 include:_spf.google.com ~all
 ```
-
-If the contact form SMTP server (`mail.len.golf`) is hosted on the old Thai hosting, you will need an alternative SMTP provider. Options:
-- Google Workspace SMTP relay (use existing Google account)
-- A transactional email service (SendGrid, Resend, Postmark)
-- Vercel-compatible email service
 
 ---
 
@@ -386,6 +367,12 @@ These items are **done** and included in the current codebase:
 - [x] Dynamic sitemap covering all pages, blog posts, and location pages
 - [x] Proper robots.txt disallowing `/api/`
 - [x] Per-page metadata via `generateMetadata` on all routes
+- [x] All 27 blog posts have `meta_title` and `meta_description` populated
+- [x] All 84 published location pages have `schema_markup` and `meta_description`
+- [x] Internal link audit — no old WordPress paths in codebase
+- [x] Contact form rate limiting (5 req/min per IP, 429 response)
+- [x] SMTP migrated from old hosting (`mail.len.golf`) to Gmail (`smtp.gmail.com` via `info@len.golf` App Password)
+- [x] Proper 404 page (`not-found.tsx`) returns real 404 status for nonexistent URLs
 
 ---
 
@@ -394,7 +381,7 @@ These items are **done** and included in the current codebase:
 | Risk                              | Likelihood | Impact | Mitigation                                              |
 | --------------------------------- | ---------- | ------ | ------------------------------------------------------- |
 | Missed redirect (404 on old URL)  | Medium     | Medium | Monitor Search Console, add redirects as discovered     |
-| Email delivery breaks             | Medium     | High   | Test SMTP immediately after DNS change, have backup plan|
+| ~~Email delivery breaks~~         | ~~Medium~~ | ~~High~~| ✅ Migrated to Gmail SMTP — no longer depends on old hosting |
 | GTM/analytics gap                 | Low        | Medium | Verify GTM container pre-launch, test on staging        |
 | DNS propagation delay             | Low        | Low    | Launch during low-traffic hours, TTL already low on CF  |
 | SEO ranking temporary dip         | Medium     | Medium | Normal during migration, recovers in 2-4 weeks          |
@@ -405,4 +392,4 @@ These items are **done** and included in the current codebase:
 | Wrong/duplicate canonicals        | Low        | High   | Crawl staging, validate every page has one self-canonical|
 | Soft 404s from catch-all redirects| Medium     | Medium | Return true 404/410 for nonexistent URLs, not homepage  |
 | Crawl budget waste (URL variants) | Low        | Low    | Audit for query param / case variants, canonicalize      |
-| Contact form bot abuse            | Medium     | Medium | Add rate limiting to form API endpoints                  |
+| ~~Contact form bot abuse~~        | ~~Medium~~ | ~~Medium~~ | ✅ Rate limiting added (5 req/min per IP)            |

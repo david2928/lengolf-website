@@ -2,22 +2,52 @@ import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 import { createClient } from '@/lib/supabase/client'
 
+// Simple in-memory rate limiter
+const rateLimit = new Map<string, { count: number; resetTime: number }>()
+const RATE_LIMIT_WINDOW = 60 * 1000 // 1 minute
+const RATE_LIMIT_MAX = 5 // max 5 requests per window
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now()
+  const entry = rateLimit.get(ip)
+
+  if (!entry || now > entry.resetTime) {
+    rateLimit.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW })
+    return false
+  }
+
+  entry.count++
+  return entry.count > RATE_LIMIT_MAX
+}
+
+// Clean up stale entries every 5 minutes
+setInterval(() => {
+  const now = Date.now()
+  for (const [ip, entry] of rateLimit) {
+    if (now > entry.resetTime) rateLimit.delete(ip)
+  }
+}, 5 * 60 * 1000)
+
 const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST || 'mail.len.golf',
+  host: process.env.EMAIL_HOST || 'smtp.gmail.com',
   port: parseInt(process.env.EMAIL_PORT || '587'),
   secure: process.env.EMAIL_SECURE === 'true',
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASSWORD,
   },
-  tls: {
-    rejectUnauthorized: false,
-    servername: 'cs94.hostneverdie.com',
-  },
 })
 
 export async function POST(request: NextRequest) {
   try {
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please try again later.' },
+        { status: 429 }
+      )
+    }
+
     const body = await request.json()
     const { name, email, phone, company, message, page_source } = body
 
