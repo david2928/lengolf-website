@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import { SITE_URL } from '@/lib/constants'
+import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
@@ -9,7 +10,17 @@ export const metadata: Metadata = {
 }
 
 export default function TermsOfServicePage() {
+  const breadcrumbJsonLd = getBreadcrumbJsonLd([
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'Terms of Service', url: `${SITE_URL}/terms-of-service/` },
+  ])
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
     <SectionWrapper>
       <div className="mx-auto max-w-3xl prose prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground">
         <h1>Terms of Service</h1>
@@ -87,5 +98,6 @@ export default function TermsOfServicePage() {
         </p>
       </div>
     </SectionWrapper>
+    </>
   )
 }
