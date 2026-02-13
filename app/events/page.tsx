@@ -5,7 +5,7 @@ import SectionWrapper from '@/components/shared/SectionWrapper'
 import ImageGallery from '@/components/shared/ImageGallery'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
 import { eventTypes, eventPackages, eventPackageNotes, eventsFaqItems, amenities } from '@/data/pricing'
-import { getEventsPricingJsonLd, getFaqPageJsonLd } from '@/lib/jsonld'
+import { getEventsPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import EventInquiryForm from '@/components/events/EventInquiryForm'
 import FloorPlanDialog from '@/components/events/FloorPlanDialog'
@@ -67,10 +67,18 @@ const eventGallery = [
 export default function EventsPage() {
   const pricingJsonLd = getEventsPricingJsonLd()
   const faqJsonLd = getFaqPageJsonLd(eventsFaqItems)
+  const breadcrumbJsonLd = getBreadcrumbJsonLd([
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'Events & Parties', url: `${SITE_URL}/events/` },
+  ])
 
   return (
     <>
       {/* JSON-LD Event Pricing Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}

@@ -5,6 +5,7 @@ import { getAllPosts } from '@/lib/blog'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
 import { storageUrl, SITE_URL, SITE_NAME, SOCIAL_LINKS } from '@/lib/constants'
+import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'News & Articles',
@@ -24,6 +25,11 @@ const crossLinks = [
 
 export default async function BlogPage() {
   const posts = await getAllPosts()
+
+  const breadcrumbJsonLd = getBreadcrumbJsonLd([
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'Blog', url: `${SITE_URL}/blog/` },
+  ])
 
   const collectionJsonLd = {
     '@context': 'https://schema.org',
@@ -47,6 +53,10 @@ export default async function BlogPage() {
   return (
     <>
       {/* JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}

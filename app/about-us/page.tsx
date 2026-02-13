@@ -7,7 +7,7 @@ import ContactForm from '@/components/about/ContactForm'
 import BookingCTA from '@/components/shared/BookingCTA'
 import { storageUrl, SITE_URL, BUSINESS_INFO, SOCIAL_LINKS } from '@/lib/constants'
 import { aboutFaqItems } from '@/data/pricing'
-import { getFaqPageJsonLd, getAggregateRatingJsonLd } from '@/lib/jsonld'
+import { getFaqPageJsonLd, getAggregateRatingJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { getGoogleReviews, type GoogleReview } from '@/lib/google-reviews'
 
@@ -122,10 +122,19 @@ function ReviewCard({ review }: { review: GoogleReview }) {
 
 export default async function AboutPage() {
   const faqJsonLd = getFaqPageJsonLd(aboutFaqItems)
+  const breadcrumbJsonLd = getBreadcrumbJsonLd([
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'About Us', url: `${SITE_URL}/about-us/` },
+  ])
   const reviewsData = await getGoogleReviews()
 
   return (
     <>
+      {/* JSON-LD Breadcrumb */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* JSON-LD FAQ Schema */}
       <script
         type="application/ld+json"

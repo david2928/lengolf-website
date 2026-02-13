@@ -6,7 +6,7 @@ import ImageGallery from '@/components/shared/ImageGallery'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
 import { coaches } from '@/data/coaches'
 import { lessonPricing, lessonNotes, lessonsFaqItems } from '@/data/pricing'
-import { getLessonsPricingJsonLd, getFaqPageJsonLd } from '@/lib/jsonld'
+import { getLessonsPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 
 const faqLinkStyle = 'font-medium underline underline-offset-2 hover:text-primary transition-colors'
@@ -66,10 +66,18 @@ const studentImages = [
 export default function LessonsPage() {
   const pricingJsonLd = getLessonsPricingJsonLd()
   const faqJsonLd = getFaqPageJsonLd(lessonsFaqItems)
+  const breadcrumbJsonLd = getBreadcrumbJsonLd([
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'Golf Lessons & Coaching', url: `${SITE_URL}/lessons/` },
+  ])
 
   return (
     <>
       {/* JSON-LD Pricing Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}

@@ -164,6 +164,16 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Copyright bar */}
+      <div className="border-t border-primary/10 bg-[#f0f9f4] px-[6%] py-4">
+        <div className="flex flex-col items-center gap-2 text-center text-xs text-muted-foreground sm:flex-row sm:justify-between sm:text-left">
+          <p>&copy; {new Date().getFullYear()} LENGOLF CO., LTD. All rights reserved.</p>
+          <div className="flex gap-4">
+            <Link href="/privacy-policy" className="transition-colors hover:text-primary">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="transition-colors hover:text-primary">Terms of Service</Link>
+          </div>
+        </div>
+      </div>
     </footer>
   )
 }

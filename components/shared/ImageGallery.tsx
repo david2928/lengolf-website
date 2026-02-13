@@ -54,6 +54,7 @@ export default function ImageGallery({ images, rows, className }: ImageGalleryPr
             key={index}
             onClick={() => setSelectedImage(index)}
             className="group relative aspect-square overflow-hidden"
+            aria-label={`View ${image.alt}`}
           >
             <Image
               src={image.src}
@@ -78,6 +79,7 @@ export default function ImageGallery({ images, rows, className }: ImageGalleryPr
                   onClick={() => setSelectedImage(getFlatIndex(rowIdx, colIdx))}
                   className="group relative overflow-hidden"
                   style={{ flex: aspectRatio }}
+                  aria-label={`View ${image.alt}`}
                 >
                   <div className="relative w-full" style={{ paddingBottom: `${(1 / aspectRatio) * 100}%` }}>
                     <Image

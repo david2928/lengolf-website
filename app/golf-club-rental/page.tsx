@@ -12,7 +12,7 @@ import {
   clubRentalWhyChoose,
   clubRentalFaqItems,
 } from '@/data/pricing'
-import { getClubRentalPricingJsonLd, getFaqPageJsonLd } from '@/lib/jsonld'
+import { getClubRentalPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 
 const faqLinkStyle = 'font-medium underline underline-offset-2 hover:text-primary transition-colors'
@@ -76,10 +76,18 @@ export const metadata: Metadata = {
 export default function ClubRentalPage() {
   const pricingJsonLd = getClubRentalPricingJsonLd()
   const faqJsonLd = getFaqPageJsonLd(clubRentalFaqItems)
+  const breadcrumbJsonLd = getBreadcrumbJsonLd([
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'Golf Club Rental', url: `${SITE_URL}/golf-club-rental/` },
+  ])
 
   return (
     <>
       {/* JSON-LD Pricing Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}

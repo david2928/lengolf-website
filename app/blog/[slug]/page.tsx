@@ -7,6 +7,7 @@ import { ArrowLeft, Clock, Calendar } from 'lucide-react'
 import { getPostBySlug, getPostSlugs, getRelatedPosts, getReadingTime } from '@/lib/blog'
 import { SITE_URL, SITE_NAME, BOOKING_URL, storageUrl } from '@/lib/constants'
 import { getBreadcrumbJsonLd } from '@/lib/jsonld'
+import ShareButtons from '@/components/blog/ShareButtons'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -164,8 +165,13 @@ export default async function BlogPostPage({ params }: Props) {
         />
       </article>
 
+      {/* Share Buttons */}
+      <div className="mx-auto max-w-3xl border-t border-border/60 px-4 pt-6 sm:px-6 lg:px-8">
+        <ShareButtons url={`${SITE_URL}/blog/${post.slug}/`} title={post.title} />
+      </div>
+
       {/* CTA Banner */}
-      <section className="mx-auto max-w-3xl px-4 pb-12 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-3xl px-4 pb-12 pt-8 sm:px-6 lg:px-8">
         <div className="rounded-2xl bg-gradient-to-br from-[#003d22] to-[#005a32] p-8 text-center sm:p-10">
           <h3 className="mb-3 text-2xl font-bold text-white">Ready to Hit the Greens?</h3>
           <p className="mb-6 text-white/80">

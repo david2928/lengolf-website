@@ -5,7 +5,7 @@ import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
 import { bayRates, bayRateNotes, monthlyPackages, monthlyPackageNotes, golfFaqItems } from '@/data/pricing'
-import { getGolfPricingJsonLd, getFaqPageJsonLd } from '@/lib/jsonld'
+import { getGolfPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 
 const faqLinkStyle = 'font-medium underline underline-offset-2 hover:text-primary transition-colors'
@@ -106,10 +106,18 @@ const locationLinks = [
 export default function GolfPage() {
   const pricingJsonLd = getGolfPricingJsonLd()
   const faqJsonLd = getFaqPageJsonLd(golfFaqItems)
+  const breadcrumbJsonLd = getBreadcrumbJsonLd([
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'Bay Rates', url: `${SITE_URL}/golf/` },
+  ])
 
   return (
     <>
       {/* JSON-LD Pricing Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}
