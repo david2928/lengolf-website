@@ -156,6 +156,36 @@ export function getGolfPricingJsonLd() {
   }
 }
 
+export function getEventsPricingJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'OfferCatalog',
+    name: 'LENGOLF Event Packages',
+    description: 'Event and party packages at LENGOLF Bangkok — indoor golf venue with full bar and catering',
+    provider: {
+      '@type': 'EntertainmentBusiness',
+      name: BUSINESS_INFO.name,
+      url: SITE_URL,
+    },
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'Small Event Package',
+        description: '10–15 guests, 2 golf bays, 3 hours. Includes 10 beers, 5 cocktails, unlimited soft drinks, and catered food spread from Smith & Co.',
+        price: '9999',
+        priceCurrency: 'THB',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Medium Event Package',
+        description: '15–25 guests, 4 golf bays, 3 hours, exclusive full-location rental. Includes 20 beers, 10 cocktails, unlimited soft drinks, and catered food from Smith & Co. & Pizza Mania.',
+        price: '21999',
+        priceCurrency: 'THB',
+      },
+    ],
+  }
+}
+
 export function getFaqPageJsonLd(faqItems: { question: string; answer: string }[]) {
   return {
     '@context': 'https://schema.org',

@@ -37,7 +37,7 @@ export const amenities = [
   '50+ Pack event space',
   'Full bar',
   'Customizable catering packages',
-  '3 simulator bays',
+  '4 simulator bays',
   'Free club usage',
   'Large putting green',
   'Contact our events team to learn more',
@@ -50,6 +50,93 @@ export const eventTypes = [
   { title: 'Meet & Greets', icon: storageUrl('icons/icon-meet-greet.png') },
   { title: 'Birthdays or Special celebrations', icon: storageUrl('icons/icon-birthday.png') },
   { title: 'Filming & Photoshoots', icon: storageUrl('icons/icon-filming.png') },
+]
+
+// ── Event Packages ──
+
+export interface EventPackage {
+  name: string
+  guests: string
+  bays: string
+  duration: string
+  beers: string
+  cocktails: string
+  softDrinks: string
+  food: string[]
+  caterer: string
+  price: string
+  exclusive: boolean
+}
+
+export const eventPackages: EventPackage[] = [
+  {
+    name: 'Small Package',
+    guests: '10–15 people',
+    bays: '2 Golf Bays',
+    duration: '3 Hours',
+    beers: '10 Beers (Singha or Asahi)',
+    cocktails: '5 Cocktails',
+    softDrinks: 'Unlimited Soft Drinks',
+    food: ['1 Calamari', '1 French Fries', '3 Burgers', '2 Toast', 'Crab or Shrimp Ebiko', '2 Sliders', 'Crispy Chicken & BBQ Brisket', '1 Salad'],
+    caterer: 'Smith & Co.',
+    price: '9,999 THB',
+    exclusive: false,
+  },
+  {
+    name: 'Medium Package',
+    guests: '15–25 people',
+    bays: '4 Golf Bays',
+    duration: '3 Hours',
+    beers: '20 Beers (Singha or Asahi)',
+    cocktails: '10 Cocktails',
+    softDrinks: 'Unlimited Soft Drinks',
+    food: ['2 Calamari', '2 French Fries', '3 Large Pizzas', '4 Toast', 'Crab or Shrimp Ebiko', '4 Sliders', 'Crispy Chicken & BBQ Brisket', '2 Salads'],
+    caterer: 'Smith & Co. & Pizza Mania',
+    price: '21,999 THB',
+    exclusive: true,
+  },
+]
+
+export const eventPackageNotes = [
+  'Food options can be fully customized to suit your preferences and event needs',
+  'Medium Package includes exclusive full-location rental',
+]
+
+// ── Events FAQs ──
+
+export const eventsFaqItems = [
+  {
+    question: 'How many people can LENGOLF accommodate for events?',
+    answer: 'Our venue can comfortably host events for up to 50+ guests. We have 4 golf simulator bays, a full bar area, and flexible seating arrangements that can be configured to suit your event layout.',
+  },
+  {
+    question: 'What event packages do you offer?',
+    answer: 'We offer two main packages: the Small Package (9,999 THB) for 10–15 guests with 2 golf bays, and the Medium Package (21,999 THB) for 15–25 guests with all 4 golf bays and exclusive full-location rental. Both include 3 hours, beer, cocktails, unlimited soft drinks, and a catered food spread.',
+  },
+  {
+    question: 'Can I customize the food and drinks for my event?',
+    answer: 'Absolutely! Our standard packages include curated food platters from Smith & Co. (and Pizza Mania for the Medium Package), but all food and drink options can be fully customized to suit your preferences, dietary requirements, and event theme. We also offer add-ons like sound system and DJ packages for a complete party experience.',
+  },
+  {
+    question: 'What types of events can you host?',
+    answer: 'We host corporate events, company parties, team building activities, meet & greets, birthdays, special celebrations, and filming or photoshoots. Our venue is versatile enough for both professional and social occasions.',
+  },
+  {
+    question: 'How do I book an event at LENGOLF?',
+    answer: 'Fill out the inquiry form on this page, or contact us directly on LINE @lengolf. Our events team will get back to you to discuss your requirements, customize your package, and confirm your booking.',
+  },
+  {
+    question: 'Where is LENGOLF located?',
+    answer: 'We\'re located on the 4th floor of The Mercury Ville at BTS Chidlom, 540 Ploenchit Road, Lumpini, Pathumwan, Bangkok 10330. We\'re directly accessible from the BTS Chidlom Skytrain station. See us on Google Maps.',
+  },
+  {
+    question: 'Do guests need golf experience?',
+    answer: 'Not at all! Our simulators are fun for everyone, from complete beginners to experienced golfers. We offer games like closest to the pin and longest drive that anyone can enjoy. Our golf pros can also provide mini-lessons and tips during your event.',
+  },
+  {
+    question: 'Can I get a custom event package?',
+    answer: 'Yes! Beyond our Small and Medium packages, we can create fully custom packages for larger groups, longer durations, or specific requirements. Add-ons include additional catering options, sound system and DJ setup, custom decorations, and more. Contact our events team on LINE @lengolf to discuss your needs.',
+  },
 ]
 
 // ── Bay Rates ──
