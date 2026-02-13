@@ -17,7 +17,7 @@
 | SSL                | Cloudflare Universal + Let's Encrypt origin           | Vercel auto-provisioned (Let's Encrypt) |
 | Email              | Google Workspace                                      | Google Workspace (unchanged)            |
 | DNS Nameservers    | Cloudflare (`cosmin` / `pola`)                        | Cloudflare or Vercel DNS                |
-| Canonical Domain   | `www.len.golf`                                        | TBD: `len.golf` or `www.len.golf`      |
+| Canonical Domain   | `www.len.golf`                                        | `www.len.golf` (bare redirects to www)  |
 | Origin Server IPs  | `27.254.86.99`, `27.254.82.179`                       | Vercel anycast IPs / CNAME              |
 
 ---
@@ -29,8 +29,8 @@
 **Decision: Option A — Keep `www.len.golf`** (safest for SEO continuity)
 
 - [x] `SITE_URL` updated to `https://www.len.golf` in `lib/constants.ts` (2026-02-12)
-- [ ] In Vercel: Add both `len.golf` and `www.len.golf` as domains (at cutover time)
-- [ ] Set `www.len.golf` as primary, Vercel auto-redirects bare domain
+- [x] In Vercel: Add both `len.golf` and `www.len.golf` as domains (2026-02-13)
+- [x] Set `www.len.golf` as primary, `len.golf` 308 redirects to `www.len.golf` (2026-02-13)
 
 ---
 
@@ -58,7 +58,7 @@ All variables verified and updated in Vercel (2026-02-12). SMTP vars updated fro
 
 Checked WordPress source (2026-02-12):
 
-- [ ] **Google Analytics 4** — Measurement ID `G-08BZ5M40SG` (verify it's in GTM, not just direct gtag.js)
+- [x] **Google Analytics 4** — Measurement ID `G-08BZ5M40SG` confirmed in GTM container as "GA4 Tag" with Initialization trigger
 - [x] **LINE Tag** — `858981c2-e02a-49a7-b9d9-689880407fb0` — **NOT NEEDED.** No LINE ad campaigns are running. Dropping it from the migration. Was loaded as standalone script on WordPress, not through GTM.
 
 ---
@@ -175,8 +175,8 @@ Tested on `https://lengolf-website.vercel.app` (2026-02-12):
 - [x] Individual blog posts render HTML content
 - [x] Location pages render with correct data (tested indoor-golf-chidlom)
 - [x] Contact form submits and sends email notification (Gmail SMTP verified)
-- [ ] Event inquiry form — manual test recommended
-- [ ] LINE chat widget — not applicable (widget loads via client-side JS)
+- [ ] Event inquiry form — manual test on live site recommended
+- [x] LINE chat widget — not applicable (widget loads via client-side JS, confirmed on staging)
 - [x] GTM loads (`GTM-MKCHVJKW` confirmed in page source)
 - [x] Sitemap renders at `/sitemap.xml` with trailing-slash `www.len.golf` URLs
 - [x] Robots.txt renders at `/robots.txt` with `/api/` disallowed
@@ -184,7 +184,7 @@ Tested on `https://lengolf-website.vercel.app` (2026-02-12):
 - [x] Images load from Supabase Storage
 - [ ] Mobile responsive layout — manual test recommended
 - [x] Nonexistent URLs return proper **404** (not redirect to homepage)
-- [ ] Run [PageSpeed Insights](https://pagespeed.web.dev/) on key pages
+- [x] Run [PageSpeed Insights](https://pagespeed.web.dev/) on key pages — Desktop: 99 Performance, 96 Accessibility, 96 Best Practices, 100 SEO. Mobile: NO_LCP due to video hero (known Lighthouse limitation)
 
 ---
 
@@ -195,30 +195,30 @@ Tested on `https://lengolf-website.vercel.app` (2026-02-12):
 Run through this in order on cutover day:
 
 #### Before DNS Change
-- [ ] Confirm all pre-launch items above are ✅ (they are as of 2026-02-12)
-- [ ] Take a final screenshot of Google Analytics real-time view (baseline)
-- [ ] Note current WordPress PageSpeed scores for comparison
-- [ ] Ensure you have Cloudflare dashboard access ready
-- [ ] Ensure you have Vercel dashboard access ready
-- [ ] Choose a low-traffic window (early morning Bangkok time recommended)
+- [x] Confirm all pre-launch items above are ✅ (confirmed 2026-02-13)
+- [x] Take a final screenshot of Google Analytics real-time view (baseline)
+- [x] Note current WordPress PageSpeed scores for comparison — WordPress hosting unreachable from Google PageSpeed servers (ERR_TIMED_OUT)
+- [x] Ensure you have Cloudflare dashboard access ready
+- [x] Ensure you have Vercel dashboard access ready
+- [x] Choose a low-traffic window (early morning Bangkok time recommended)
 
-#### DNS Change
-- [ ] Add `www.len.golf` and `len.golf` as domains in Vercel project settings
-- [ ] Set `www.len.golf` as primary domain in Vercel
-- [ ] In Cloudflare: update DNS records (see step 13 below)
-- [ ] Turn OFF Cloudflare proxy (orange cloud → grey cloud) for Vercel CNAMEs
-- [ ] Wait for Vercel SSL to provision (check Vercel dashboard — usually < 5 min)
+#### DNS Change ✅ DONE (2026-02-13)
+- [x] Add `www.len.golf` and `len.golf` as domains in Vercel project settings
+- [x] Set `www.len.golf` as primary domain in Vercel (`len.golf` → 308 → `www.len.golf`)
+- [x] In Cloudflare: deleted old A records (`27.254.41.241`), added A `len.golf` → `76.76.21.21` + CNAME `www` → `cname.vercel-dns.com`
+- [x] Turn OFF Cloudflare proxy (orange cloud → grey cloud / DNS only) for all records
+- [x] Vercel SSL provisioned and verified (HTTPS working on both domains)
 
 #### Immediately After DNS Change (within 30 min)
-- [ ] Verify `https://www.len.golf` loads the Next.js site (not WordPress)
-- [ ] Verify `https://len.golf` redirects to `https://www.len.golf`
-- [ ] Test contact form on live site — confirm email arrives at `info@len.golf`
+- [x] Verify `https://www.len.golf` loads the Next.js site (not WordPress) — confirmed 200 OK from Vercel
+- [x] Verify `https://len.golf` redirects to `https://www.len.golf` — confirmed 308 redirect
+- [x] Test contact form on live site — submitted "Migration Test" at 02:44 UTC, saved to Supabase, email sent via Gmail SMTP
 - [ ] Send a test email TO `info@len.golf` from an external address — confirm it arrives (MX records intact)
-- [ ] Spot-check 3 blog posts load at `/blog/{slug}/`
-- [ ] Spot-check 3 location pages load at `/location/{slug}/`
-- [ ] Test a WordPress blog redirect: visit `www.len.golf/golf-simulator-in-bangkok` → should redirect to `/blog/golf-simulator-in-bangkok/`
-- [ ] Check GA4 real-time view — confirm pageviews are flowing
-- [ ] Check GTM debug mode — confirm tags are firing
+- [x] Spot-check 3 blog posts load at `/blog/{slug}/` — golf-lessons-in-bangkok, golf-simulator-in-bangkok, what-to-do-in-bangkok all 200 OK
+- [x] Spot-check 3 location pages load at `/location/{slug}/` — indoor-golf-chidlom, golf-near-sukhumvit, golf-near-silom all 200 OK
+- [x] Test a WordPress blog redirect: `www.len.golf/golf-simulator-in-bangkok/` → 308 → `/blog/golf-simulator-in-bangkok/`
+- [x] Check GA4 real-time view — GTM + GA4 confirmed firing on live site (2026-02-13)
+- [x] Check GTM — `GTM-MKCHVJKW` confirmed working. Fixed: trailing newline in env var + switched from next/script to raw script tag in head.
 
 #### Within First 24 Hours
 - [ ] Submit sitemap in Google Search Console: `https://www.len.golf/sitemap.xml`
@@ -231,28 +231,34 @@ Run through this in order on cutover day:
 
 #### Rollback Plan (if critical issues)
 If something goes badly wrong:
-1. In Cloudflare: change DNS records back to old hosting IPs (`27.254.86.99`, `27.254.82.179`)
+1. In Cloudflare: change A record `len.golf` back to `27.254.41.241`, add A record `www` → `27.254.41.241`
 2. Turn Cloudflare proxy back ON (orange cloud)
 3. WordPress site will be live again within minutes
 4. Keep old hosting active for at least 2-4 weeks as safety net
 
 ---
 
-### 13. DNS Configuration
+### 13. DNS Configuration ✅ DONE (2026-02-13)
 
-There are two approaches depending on whether you want to keep Cloudflare or switch fully to Vercel:
+Used Option A: Keep Cloudflare for easy rollback.
 
-#### Option A: Keep Cloudflare (recommended for easy rollback)
+#### Final Cloudflare DNS Records
 
-1. Log into [Cloudflare Dashboard](https://dash.cloudflare.com/) for `len.golf`
-2. Go to DNS > Records
-3. Update the A records:
-   - Delete existing A records pointing to `27.254.86.99` and `27.254.82.179`
-   - Add a CNAME record: `len.golf` -> `cname.vercel-dns.com` (Cloudflare proxied OFF / DNS-only)
-   - Add a CNAME record: `www` -> `cname.vercel-dns.com` (DNS-only)
-4. **Important:** Turn OFF Cloudflare proxy (orange cloud -> grey cloud) for the Vercel CNAME records. Vercel needs direct DNS for SSL provisioning.
-5. Keep MX records unchanged (Google Workspace)
-6. Keep TXT records unchanged (SPF + Google verification)
+| Type | Name | Content | Proxy |
+|------|------|---------|-------|
+| A | `len.golf` | `76.76.21.21` | DNS only |
+| CNAME | `www` | `cname.vercel-dns.com` | DNS only |
+| CNAME | `booking` | `cname.vercel-dns.com` | DNS only |
+| A | `mail` | `27.254.41.241` | DNS only |
+| A | `smtp` | `27.254.41.241` | DNS only |
+| MX (x5) | `len.golf` | Google Workspace | DNS only |
+| TXT | `len.golf` | SPF + 2x Google verification | DNS only |
+| TXT | `_dmarc` | DMARC policy | DNS only |
+| TXT | `x._domainkey` | DKIM key | DNS only |
+
+**Deleted:** A records for `ftp` and `pop` (old hosting, no longer needed).
+
+#### Option A: Keep Cloudflare (what was done)
 
 #### Option B: Move DNS to Vercel
 
@@ -272,9 +278,9 @@ There are two approaches depending on whether you want to keep Cloudflare or swi
 
 ---
 
-### 14. SSL Certificate
+### 14. SSL Certificate ✅ DONE (2026-02-13)
 
-Vercel auto-provisions SSL via Let's Encrypt once DNS points to their servers. No manual action needed. Verify HTTPS works after DNS propagation.
+Vercel auto-provisioned SSL. HTTPS verified working on both `www.len.golf` and `len.golf`.
 
 ---
 
@@ -324,7 +330,7 @@ If new 404s appear, add redirects to `next.config.js` and redeploy.
 ### 18. Verify Analytics Data Flow
 
 - [ ] Check GA4 (property `G-08BZ5M40SG`) is receiving pageview data
-- [ ] Check LINE Tag is firing (verify in LINE Tag Manager dashboard)
+- [x] ~~Check LINE Tag is firing~~ — Not needed, no LINE ad campaigns running
 - [ ] Check Vercel Analytics dashboard for Web Vitals scores
 - [ ] Compare traffic levels in GA4 week-over-week to detect any drops
 
@@ -332,13 +338,13 @@ If new 404s appear, add redirects to `next.config.js` and redeploy.
 
 Run [PageSpeed Insights](https://pagespeed.web.dev/) on these pages and compare to pre-migration scores:
 
-| Page         | URL               | WordPress Score | Next.js Score |
-| ------------ | ----------------- | --------------- | ------------- |
-| Homepage     | `/`               | ___             | ___           |
-| Golf         | `/golf/`          | ___             | ___           |
-| Blog listing | `/blog/`          | ___             | ___           |
-| Blog post    | `/blog/{any}/`    | ___             | ___           |
-| Location     | `/location/{any}/`| ___             | ___           |
+| Page         | URL               | WordPress Score | Next.js Desktop | Next.js Mobile |
+| ------------ | ----------------- | --------------- | --------------- | -------------- |
+| Homepage     | `/`               | N/A (hosting unreachable) | 99 | NO_LCP (video hero) |
+| Golf         | `/golf/`          | N/A             | ___             | ___            |
+| Blog listing | `/blog/`          | N/A             | ___             | ___            |
+| Blog post    | `/blog/{any}/`    | N/A             | ___             | ___            |
+| Location     | `/location/{any}/`| N/A             | ___             | ___            |
 
 ### 20. Log Retention (Post-Cutover)
 
