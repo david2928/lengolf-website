@@ -5,7 +5,7 @@ import BookingCTA from '@/components/shared/BookingCTA'
 import ImageGallery from '@/components/shared/ImageGallery'
 import ServicesCarousel from '@/components/home/ServicesCarousel'
 import { services } from '@/data/pricing'
-import { BUSINESS_INFO, BOOKING_URL, SITE_URL, storageUrl } from '@/lib/constants'
+import { BUSINESS_INFO, BOOKING_URL, SITE_URL, storageUrl, storageImageUrl } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'LENGOLF | Premier Indoor Golf Simulator & Bar in Bangkok',
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 
 const galleryImages = [
   { src: storageUrl('venue/venue-simulator-01.jpg'), alt: 'LENGOLF indoor golf simulator', width: 1024, height: 683 },
-  { src: storageUrl('venue/venue-interior-01.png'), alt: 'LENGOLF store', width: 1024, height: 1024 },
-  { src: storageUrl('venue/venue-interior-02.png'), alt: 'LENGOLF interior', width: 1024, height: 1024 },
-  { src: storageUrl('venue/venue-interior-03.png'), alt: 'LENGOLF setup', width: 1024, height: 1024 },
+  { src: storageUrl('venue/venue-interior-01.jpg'), alt: 'LENGOLF store', width: 1024, height: 1024 },
+  { src: storageUrl('venue/venue-interior-02.jpg'), alt: 'LENGOLF interior', width: 1024, height: 1024 },
+  { src: storageUrl('venue/venue-interior-03.jpg'), alt: 'LENGOLF setup', width: 1024, height: 1024 },
   { src: storageUrl('venue/venue-bay-01.jpg'), alt: 'LENGOLF simulator bay', width: 1024, height: 683 },
   { src: storageUrl('venue/venue-bar-01.jpg'), alt: 'LENGOLF bar area', width: 683, height: 1024 },
   { src: storageUrl('venue/venue-event-space.jpg'), alt: 'LENGOLF event space', width: 1024, height: 683 },
@@ -37,6 +37,7 @@ export default function HomePage() {
           muted
           loop
           playsInline
+          poster={storageImageUrl('venue/venue-simulator-01.jpg', { width: 1280, quality: 60 })}
           className="absolute inset-0 h-full w-full object-cover"
         >
           <source src={storageUrl('videos/hero-video.mp4')} type="video/mp4" />
@@ -91,12 +92,14 @@ export default function HomePage() {
           {/* Image */}
           <div className="w-full lg:w-[42%] flex-shrink-0 mb-10 lg:mb-0">
             <Image
-              src={storageUrl('venue/venue-interior-01.png')}
+              src={storageUrl('venue/venue-interior-01.jpg')}
               alt="LENGOLF interior"
               width={800}
               height={1000}
               className="w-full h-full object-cover"
               style={{ borderRadius: '0 200px 0 0' }}
+              priority
+              sizes="(max-width: 1024px) 100vw, 42vw"
             />
           </div>
 

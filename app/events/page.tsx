@@ -104,7 +104,7 @@ export default function EventsPage() {
               BOOK NOW
             </a>
             <a
-              href={storageUrl('events/floorplan.png')}
+              href={storageUrl('events/floorplan.jpg')}
               target="_blank"
               className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-8 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
             >
@@ -170,9 +170,10 @@ export default function EventsPage() {
             <Image
               src={storageUrl('events/event-packages.jpg')}
               alt="LENGOLF Event Packages"
-              width={768}
-              height={1086}
+              width={512}
+              height={723}
               className="w-full rounded-lg shadow-sm"
+              sizes="(max-width: 512px) 100vw, 512px"
             />
           </div>
         </div>

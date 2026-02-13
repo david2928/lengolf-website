@@ -34,8 +34,8 @@ export const coaches: Coach[] = [
       'Became a Golf Instructor licensed by Thailand PGA in Sep 2022 / GI 1416',
     ],
     gallery: [
-      storageUrl('lessons/coach-boss-gallery-01.png'),
-      storageUrl('lessons/coach-boss-gallery-02.png'),
+      storageUrl('lessons/coach-boss-gallery-01.jpg'),
+      storageUrl('lessons/coach-boss-gallery-02.jpg'),
       storageUrl('lessons/coach-boss-gallery-03.jpg'),
       storageUrl('lessons/coach-boss-gallery-04.jpg'),
     ],

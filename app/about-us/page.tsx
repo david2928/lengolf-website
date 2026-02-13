@@ -47,7 +47,7 @@ export default function AboutPage() {
           <div className="w-full lg:w-5/12">
             <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
               <Image
-                src={storageUrl('venue/venue-interior-01.png')}
+                src={storageUrl('venue/venue-interior-01.jpg')}
                 alt="LENGOLF interior"
                 fill
                 className="object-cover"

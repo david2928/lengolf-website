@@ -27,9 +27,9 @@ export const lessonNotes = [
 
 export const services = [
   { title: 'Golf', image: storageUrl('venue/venue-simulator-01.jpg'), href: '/golf' },
-  { title: 'Food & Drinks', image: storageUrl('menus/food-drinks-cover.png'), href: storageUrl('menus/food-drink-menu.png') },
-  { title: 'Lessons', image: storageUrl('lessons/lessons-cover.png'), href: '/lessons' },
-  { title: 'Events', image: storageUrl('events/events-cover.png'), href: '/events' },
+  { title: 'Food & Drinks', image: storageUrl('menus/food-drinks-cover.jpg'), href: storageUrl('menus/food-drink-menu.png') },
+  { title: 'Lessons', image: storageUrl('lessons/lessons-cover.jpg'), href: '/lessons' },
+  { title: 'Events', image: storageUrl('events/events-cover.jpg'), href: '/events' },
 ]
 
 export const amenities = [

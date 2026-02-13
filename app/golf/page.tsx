@@ -77,7 +77,7 @@ export default function GolfPage() {
       {/* ── Hero ── */}
       <section className="relative flex h-[50vh] min-h-[400px] max-h-[550px] items-center text-white overflow-hidden">
         <Image
-          src={storageUrl('golf/hero-golf.png')}
+          src={storageUrl('golf/hero-golf.jpg')}
           alt="LENGOLF simulator bay"
           fill
           className="object-cover object-center"
@@ -142,9 +142,10 @@ export default function GolfPage() {
               <Image
                 src={storageUrl('golf/bay-rates.jpg')}
                 alt="LENGOLF Bay Rates"
-                width={768}
-                height={768}
+                width={512}
+                height={512}
                 className="w-full rounded-lg shadow-sm"
+                sizes="(max-width: 512px) 100vw, 512px"
               />
             </div>
           </div>
@@ -159,9 +160,10 @@ export default function GolfPage() {
               <Image
                 src={storageUrl('golf/monthly-packages.jpg')}
                 alt="LENGOLF Monthly Packages"
-                width={768}
-                height={768}
+                width={512}
+                height={512}
                 className="w-full rounded-lg shadow-sm"
+                sizes="(max-width: 512px) 100vw, 512px"
               />
             </div>
           </div>
@@ -183,6 +185,7 @@ export default function GolfPage() {
                 width={600}
                 height={600}
                 className="w-full"
+                sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
           ))}
@@ -209,6 +212,7 @@ export default function GolfPage() {
                     width={420}
                     height={520}
                     className="w-full aspect-[4/5] object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
                 <h3
@@ -246,6 +250,7 @@ export default function GolfPage() {
                     width={420}
                     height={520}
                     className="w-full aspect-[4/5] object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
                 <h3

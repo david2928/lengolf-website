@@ -6,6 +6,17 @@ export function storageUrl(path: string): string {
   const clean = path.startsWith('/') ? path.slice(1) : path
   return `${SUPABASE_STORAGE_URL}/${clean}`
 }
+
+const SUPABASE_RENDER_URL = 'https://bisimqmtxjsptehhqpeg.supabase.co/storage/v1/render/image/public/website-assets'
+
+export function storageImageUrl(path: string, options: { width?: number; height?: number; quality?: number } = {}): string {
+  const clean = path.startsWith('/') ? path.slice(1) : path
+  const params = new URLSearchParams()
+  if (options.width) params.set('width', String(options.width))
+  if (options.height) params.set('height', String(options.height))
+  params.set('quality', String(options.quality || 75))
+  return `${SUPABASE_RENDER_URL}/${clean}?${params.toString()}`
+}
 export const SITE_DESCRIPTION = 'Premier indoor golf simulator and bar in the heart of Bangkok. Located at The Mercury Ville @ BTS Chidlom.'
 
 export const BUSINESS_INFO = {

@@ -23,17 +23,17 @@ const studentImages = [
   { src: storageUrl('lessons/student-01.jpg'), alt: 'Student practice', width: 1200, height: 800 },
   { src: storageUrl('lessons/student-02.jpg'), alt: 'Golf student', width: 1200, height: 800 },
   { src: storageUrl('lessons/student-03.jpg'), alt: 'Student lesson', width: 1200, height: 800 },
-  { src: storageUrl('lessons/student-04.png'), alt: 'Student photo', width: 1200, height: 800 },
-  { src: storageUrl('lessons/student-05.png'), alt: 'Student practice', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-04.jpg'), alt: 'Student photo', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-05.jpg'), alt: 'Student practice', width: 1200, height: 800 },
   { src: storageUrl('lessons/student-06.jpg'), alt: 'Junior golf', width: 1200, height: 800 },
   { src: storageUrl('lessons/student-07.jpg'), alt: 'Junior golfer', width: 1200, height: 800 },
   { src: storageUrl('lessons/student-08.jpg'), alt: 'Student improvement', width: 1200, height: 800 },
   { src: storageUrl('lessons/student-09.jpg'), alt: 'Golf student', width: 1200, height: 800 },
   { src: storageUrl('lessons/student-10.jpg'), alt: 'Student training', width: 1200, height: 800 },
   { src: storageUrl('lessons/student-11.jpg'), alt: 'Golf lesson', width: 1200, height: 800 },
-  { src: storageUrl('lessons/student-kids-01.png'), alt: 'Kids golf', width: 1200, height: 800 },
-  { src: storageUrl('lessons/student-kids-02.png'), alt: 'Kids lesson', width: 1200, height: 800 },
-  { src: storageUrl('lessons/student-kids-03.png'), alt: 'Junior coaching', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-kids-01.jpg'), alt: 'Kids golf', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-kids-02.jpg'), alt: 'Kids lesson', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-kids-03.jpg'), alt: 'Junior coaching', width: 1200, height: 800 },
 ]
 
 export default function LessonsPage() {
@@ -96,6 +96,7 @@ export default function LessonsPage() {
                     width={400}
                     height={600}
                     className="w-full rounded-lg object-cover"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
                   />
                 </div>
                 <div className="w-full lg:w-2/3">
@@ -143,6 +144,7 @@ export default function LessonsPage() {
                         width={200}
                         height={150}
                         className="rounded-lg object-cover aspect-[4/3]"
+                        sizes="(max-width: 1024px) 25vw, 16vw"
                       />
                     ))}
                   </div>
@@ -226,6 +228,7 @@ export default function LessonsPage() {
                 width={600}
                 height={600}
                 className="w-full"
+                sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
           ))}
