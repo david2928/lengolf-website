@@ -52,6 +52,98 @@ export const eventTypes = [
   { title: 'Filming & Photoshoots', icon: storageUrl('icons/icon-filming.png') },
 ]
 
+// ── Bay Rates ──
+
+export interface BayRateRow {
+  timeSlot: string
+  weekday: string
+  weekend: string
+}
+
+export const bayRates: BayRateRow[] = [
+  { timeSlot: 'Before 14:00', weekday: '500 THB', weekend: '700 THB' },
+  { timeSlot: '14:00 – 17:00', weekday: '700 THB', weekend: '900 THB' },
+  { timeSlot: '17:00 – 23:00 (Promo)', weekday: '700 THB', weekend: '900 THB' },
+]
+
+export const bayRateNotes = [
+  'Price per hour, per bay (up to 5 players)',
+  'Weekday = Mon–Thu, Weekend = Fri–Sun & Public Holidays',
+  'Open daily 10:00 – 23:00',
+  'Free golf club rental included',
+]
+
+// ── Monthly Packages ──
+
+export interface MonthlyPackageRow {
+  name: string
+  hours: string
+  validity: string
+  perks: string
+  price: string
+}
+
+export const monthlyPackages: MonthlyPackageRow[] = [
+  { name: 'Early Bird*', hours: '10', validity: '6 months', perks: '—', price: '4,800 THB' },
+  { name: 'Early Bird+*', hours: 'Unlimited', validity: '1 month', perks: '5% Off F&D', price: '5,000 THB' },
+  { name: 'Bronze', hours: '5', validity: '1 month', perks: '—', price: '3,000 THB' },
+  { name: 'Silver', hours: '15', validity: '3 months', perks: '5% Off F&D', price: '8,000 THB' },
+  { name: 'Gold', hours: '30', validity: '6 months', perks: '10% Off F&D', price: '14,000 THB' },
+  { name: 'Diamond', hours: 'Unlimited', validity: '1 month', perks: '5% Off F&D', price: '8,000 THB' },
+  { name: 'Diamond+', hours: 'Unlimited', validity: '3 months', perks: '10% Off F&D', price: '18,000 THB' },
+]
+
+export const monthlyPackageNotes = [
+  '*Early Bird packages can only be used before 14:00',
+]
+
+// ── Golf Page FAQs ──
+
+export const golfFaqItems = [
+  {
+    question: 'How much does it cost to play at LENGOLF?',
+    answer: 'Our simulator bays start at 500 THB per hour on weekdays (Mon–Thu) before 14:00, and go up to 900 THB per hour on weekends (Fri–Sun & public holidays) after 14:00. Each bay holds up to 5 players, and standard golf club rental is included at no extra charge.',
+  },
+  {
+    question: 'Do I need to bring my own golf clubs?',
+    answer: 'No, standard club sets are provided free with every bay rental, including ladies\' sets. We also offer premium club rentals — Callaway Warbird (men\'s) and Majesty Shuttle (women\'s) — starting at 150 THB per hour. Premium clubs can be used in-house or taken to any golf course in Bangkok. You\'re always welcome to bring your own clubs too.',
+  },
+  {
+    question: 'How many people can play per bay?',
+    answer: 'Each simulator bay comfortably fits up to 5 players. The hourly rate is per bay, not per person, making it great value for groups.',
+  },
+  {
+    question: 'What are your opening hours?',
+    answer: 'LENGOLF is open daily from 10:00 AM to 11:00 PM, Monday through Sunday, including public holidays.',
+  },
+  {
+    question: 'What golf courses can I play on the simulator?',
+    answer: 'Our Korean Bravo Golf simulators feature over 100 championship courses, including world-famous venues like Pebble Beach and TPC Sawgrass, all rendered in high-definition graphics.',
+  },
+  {
+    question: 'How do I book a bay?',
+    answer: 'You can book online at booking.len.golf or add us on LINE @lengolf to reserve your bay. Walk-ins are also welcome, subject to availability.',
+  },
+  {
+    question: 'Where is LENGOLF located?',
+    answer: 'We\'re located on the 4th floor of The Mercury Ville at BTS Chidlom, 540 Ploenchit Road, Lumpini, Pathumwan, Bangkok 10330. We\'re directly accessible from the BTS Chidlom Skytrain station. See us on Google Maps.',
+  },
+  {
+    question: 'What monthly packages do you offer?',
+    answer: 'We offer 7 monthly packages ranging from 3,000 THB (Bronze, 5 hours) to 18,000 THB (Diamond+, unlimited hours for 3 months). Packages include perks like food & drink discounts. We also have Early Bird packages starting at 4,800 THB for use before 14:00.',
+  },
+  {
+    question: 'Do you offer golf lessons?',
+    answer: 'Yes, we have three Thailand PGA-certified professional coaches on staff — PRO Boss, PRO Ratchavin, and PRO Min. They offer personalized instruction for all skill levels, from beginners to advanced players, including junior golf development. Lessons use our simulators for swing analysis and data-driven improvement. Visit our lessons page for details.',
+  },
+  {
+    question: 'How much do golf lessons cost?',
+    answer: 'Lesson packages start at 1,800 THB for a 1-hour session (1 golfer). Multi-hour packages offer better value: 10 hours for 16,000 THB (valid 12 months) or 30 hours for 45,000 THB (valid 24 months). We also have a Starter Package at 11,000 THB which includes 5 hours of coaching plus 5 hours of practice. Golf simulator usage is included in all lesson packages.',
+  },
+]
+
+// ── Tournament FAQs ──
+
 export const faqItems = [
   {
     question: 'HOW DO I JOIN?',
