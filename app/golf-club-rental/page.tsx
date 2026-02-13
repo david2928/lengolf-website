@@ -388,6 +388,34 @@ export default function ClubRentalPage() {
           </div>
         </div>
       </section>
+
+      {/* ── Explore More ── */}
+      <SectionWrapper>
+        <h2 className="mb-3 text-center text-3xl font-bold italic lg:text-4xl">
+          <span style={{ color: '#007429' }}>EXPLORE</span>{' '}
+          <span className="text-foreground">MORE</span>
+        </h2>
+        <p className="mb-8 text-center text-sm text-muted-foreground">Check out everything LENGOLF has to offer</p>
+        <div className="mx-auto max-w-xl">
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {[
+              { label: 'Bay Rates', href: '/golf' },
+              { label: 'Lessons', href: '/lessons' },
+              { label: 'Events', href: '/events' },
+              { label: 'Blog', href: '/blog' },
+            ].map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="rounded-full border border-primary/20 bg-primary/5 px-5 py-2.5 text-sm font-medium transition-colors hover:bg-primary hover:text-white"
+                style={{ color: '#007429' }}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </SectionWrapper>
     </>
   )
 }

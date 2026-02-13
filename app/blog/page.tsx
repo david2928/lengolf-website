@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { getAllPosts } from '@/lib/blog'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
-import { storageUrl, SITE_URL, SOCIAL_LINKS } from '@/lib/constants'
+import { storageUrl, SITE_URL, SITE_NAME, SOCIAL_LINKS } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'News & Articles',
@@ -24,8 +24,33 @@ const crossLinks = [
 export default async function BlogPage() {
   const posts = await getAllPosts()
 
+  const collectionJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'LENGOLF Blog — News & Articles',
+    description: 'Read the latest articles from LENGOLF about indoor golf, Bangkok entertainment, golf tips, and more.',
+    url: `${SITE_URL}/blog/`,
+    publisher: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: posts.length,
+      itemListElement: posts.slice(0, 10).map((post, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: `${SITE_URL}/blog/${post.slug}/`,
+        name: post.title,
+      })),
+    },
+  }
+
   return (
     <>
+      {/* JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+      />
+
       {/* Hero */}
       <section className="relative flex h-[50vh] min-h-[400px] max-h-[550px] items-center text-white overflow-hidden">
         <Image

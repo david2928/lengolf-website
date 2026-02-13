@@ -340,6 +340,36 @@ export default function EventsPage() {
         </h2>
         <ImageGallery images={eventGallery} rows={[2, 3, 3, 2, 3, 3, 2, 2, 2]} />
       </SectionWrapper>
+
+      {/* ── Explore More ── */}
+      <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
+        <div className="section-max-width section-padding">
+          <h2 className="mb-3 text-center text-3xl font-bold italic lg:text-4xl">
+            <span style={{ color: '#007429' }}>EXPLORE</span>{' '}
+            <span className="text-foreground">MORE</span>
+          </h2>
+          <p className="mb-8 text-center text-sm text-muted-foreground">Check out everything LENGOLF has to offer</p>
+          <div className="mx-auto max-w-xl">
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              {[
+                { label: 'Bay Rates', href: '/golf' },
+                { label: 'Lessons', href: '/lessons' },
+                { label: 'Club Rental', href: '/golf-club-rental' },
+                { label: 'Blog', href: '/blog' },
+              ].map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="rounded-full border border-primary/20 bg-primary/5 px-5 py-2.5 text-sm font-medium transition-colors hover:bg-primary hover:text-white"
+                  style={{ color: '#007429' }}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   )
 }

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft, Clock, Calendar } from 'lucide-react'
 import { getPostBySlug, getPostSlugs, getRelatedPosts, getReadingTime } from '@/lib/blog'
-import { SITE_URL, BOOKING_URL } from '@/lib/constants'
+import { SITE_URL, SITE_NAME, BOOKING_URL, storageUrl } from '@/lib/constants'
 import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 
 interface Props {
@@ -68,11 +68,33 @@ export default async function BlogPostPage({ params }: Props) {
     { name: post.title, url: `${SITE_URL}/blog/${post.slug}/` },
   ])
 
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.meta_description || post.excerpt || undefined,
+    url: `${SITE_URL}/blog/${post.slug}/`,
+    datePublished: post.published_at || undefined,
+    dateModified: post.updated_at || post.published_at || undefined,
+    ...(post.featured_image && { image: post.featured_image }),
+    author: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: { '@type': 'ImageObject', url: storageUrl('branding/logo.png') },
+    },
+  }
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
       {/* Article Header */}
       <section className="relative overflow-hidden bg-[#003d22]">
