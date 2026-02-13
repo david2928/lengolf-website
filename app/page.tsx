@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   title: 'Indoor Golf Simulator & Bar in Bangkok',
   description: 'LENGOLF — indoor golf simulator bar at BTS Chidlom, Bangkok. 4 bays, 100+ courses, from 500 THB/hr. Free club rental, full bar, PGA coaching. Book your bay now.',
   alternates: { canonical: `${SITE_URL}/` },
+  openGraph: { images: [{ url: storageUrl('venue/venue-simulator-01.jpg'), alt: 'LENGOLF indoor golf simulator in Bangkok' }] },
 }
 
 const faqLinkStyle = 'font-medium underline underline-offset-2 hover:text-primary transition-colors'

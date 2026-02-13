@@ -36,6 +36,7 @@ export const metadata: Metadata = {
   title: 'Golf Lessons & Coaching',
   description: 'Take golf lessons at LENGOLF Bangkok from Thailand PGA professionals. Personalized instruction for all skill levels. Packages from 1,800 THB.',
   alternates: { canonical: `${SITE_URL}/lessons/` },
+  openGraph: { images: [{ url: storageUrl('lessons/promo-free-trial.jpg'), alt: 'Golf lessons with PGA Pro at LENGOLF' }] },
 }
 
 const promoImages = [

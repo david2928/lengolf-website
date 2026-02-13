@@ -5,7 +5,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import LineChatWidget from '@/components/layout/LineChatWidget'
 import MobileStickyBar from '@/components/layout/MobileStickyBar'
-import { SITE_NAME, SITE_URL, SITE_DESCRIPTION } from '@/lib/constants'
+import { SITE_NAME, SITE_URL, SITE_DESCRIPTION, storageUrl } from '@/lib/constants'
 import { getLocalBusinessJsonLd, getWebSiteJsonLd } from '@/lib/jsonld'
 import './globals.css'
 
@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: `${SITE_NAME} | Premier Indoor Golf Simulator & Bar in Bangkok`,
     description: SITE_DESCRIPTION,
+    images: [{ url: storageUrl('venue/venue-interior-01.jpg'), width: 1024, height: 1024, alt: 'LENGOLF indoor golf simulator and bar in Bangkok' }],
   },
   twitter: {
     card: 'summary_large_image',

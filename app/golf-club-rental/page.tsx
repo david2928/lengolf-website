@@ -70,6 +70,7 @@ export const metadata: Metadata = {
   title: 'Golf Club Rental in Bangkok',
   description: 'Rent golf clubs in Bangkok at LENGOLF. Free standard sets with every booking, premium Callaway Warbird & Majesty Shuttle from 150 THB/hr. Delivery available.',
   alternates: { canonical: `${SITE_URL}/golf-club-rental/` },
+  openGraph: { images: [{ url: storageUrl('venue/venue-simulator-01.jpg'), alt: 'Golf club rental at LENGOLF Bangkok' }] },
 }
 
 export default function ClubRentalPage() {

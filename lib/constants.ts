@@ -47,6 +47,7 @@ export const NAV_ITEMS = [
   { label: 'EVENTS', href: '/events' },
   { label: 'LESSONS', href: '/lessons' },
   { label: 'CLUB RENTAL', href: '/golf-club-rental' },
+  { label: 'ABOUT US', href: '/about-us' },
 ] as const
 
 export const FOOTER_MENU = [

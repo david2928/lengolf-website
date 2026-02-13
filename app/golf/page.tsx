@@ -37,6 +37,7 @@ export const metadata: Metadata = {
   title: 'Golf Simulator Rentals & Bay Rates',
   description: 'Book your bay at LENGOLF. State-of-the-art Korean Bravo Golf simulators, 500–900 THB per hour, up to 5 players per bay. Indoor golf in Bangkok.',
   alternates: { canonical: `${SITE_URL}/golf/` },
+  openGraph: { images: [{ url: storageUrl('golf/driving-range.png'), alt: 'LENGOLF indoor golf simulator bay' }] },
 }
 
 const waysToPlay = [

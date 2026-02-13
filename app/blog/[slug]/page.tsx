@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
+import DOMPurify from 'isomorphic-dompurify'
 import { ArrowLeft, Clock, Calendar } from 'lucide-react'
 import { getPostBySlug, getPostSlugs, getRelatedPosts, getReadingTime } from '@/lib/blog'
 import { SITE_URL, SITE_NAME, BOOKING_URL, storageUrl } from '@/lib/constants'
@@ -159,7 +160,7 @@ export default async function BlogPostPage({ params }: Props) {
       <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div
           className="article-content prose prose-lg max-w-none"
-          dangerouslySetInnerHTML={{ __html: post.content }}
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}
         />
       </article>
 

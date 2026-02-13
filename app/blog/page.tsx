@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: 'News & Articles',
   description: 'Read the latest articles from LENGOLF about indoor golf, Bangkok entertainment, golf tips, and more.',
   alternates: { canonical: `${SITE_URL}/blog/` },
+  openGraph: { images: [{ url: storageUrl('venue/venue-bar-01.jpg'), alt: 'LENGOLF blog — news and articles' }] },
 }
 
 export const revalidate = 3600 // ISR: revalidate every hour

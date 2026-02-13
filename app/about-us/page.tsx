@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   title: 'About Us — Indoor Golf Simulator & Bar',
   description: 'LENGOLF — founded by golf-loving expats at BTS Chidlom, Bangkok. 4 simulator bays, full bar, PGA coaching, and a relaxed social vibe. Open daily 10 AM – 11 PM.',
   alternates: { canonical: `${SITE_URL}/about-us/` },
+  openGraph: { images: [{ url: storageUrl('venue/venue-interior-01.jpg'), alt: 'LENGOLF interior' }] },
 }
 
 const faqLinkStyle = 'font-medium underline underline-offset-2 hover:text-primary transition-colors'

@@ -36,6 +36,7 @@ export const metadata: Metadata = {
   title: 'Events & Parties',
   description: 'Host a memorable indoor golf party at LENGOLF. Corporate events, team building, birthdays & more. Full site rental, 50+ capacity, customizable packages from 9,999 THB.',
   alternates: { canonical: `${SITE_URL}/events/` },
+  openGraph: { images: [{ url: storageUrl('events/event-01.jpg'), alt: 'Corporate event at LENGOLF indoor golf' }] },
 }
 
 const eventGallery = [
