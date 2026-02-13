@@ -343,6 +343,22 @@ export function getClubRentalPricingJsonLd() {
   }
 }
 
+export function getAggregateRatingJsonLd(rating: number, reviewCount: number) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'EntertainmentBusiness',
+    name: BUSINESS_INFO.name,
+    url: SITE_URL,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: rating,
+      reviewCount: reviewCount,
+      bestRating: 5,
+      worstRating: 1,
+    },
+  }
+}
+
 export function getFaqPageJsonLd(faqItems: { question: string; answer: string }[]) {
   return {
     '@context': 'https://schema.org',

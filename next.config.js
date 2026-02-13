@@ -151,14 +151,14 @@ const nextConfig = {
       { source: '/wp-content/uploads/:y/:m/confetti:path*', destination: '/events/', permanent: true },
       { source: '/wp-content/uploads/:y/:m/film-camera:path*', destination: '/events/', permanent: true },
       // Tournament images
-      { source: '/wp-content/uploads/:y/:m/TOURNAMENT:path*', destination: '/tournaments/', permanent: true },
-      { source: '/wp-content/uploads/:y/:m/Copy-of-20240616:path*', destination: '/tournaments/', permanent: true },
-      { source: '/wp-content/uploads/:y/:m/20240616:path*', destination: '/tournaments/', permanent: true },
-      { source: '/wp-content/uploads/:y/:m/Copy-of-IMG_47:path*', destination: '/tournaments/', permanent: true },
-      { source: '/wp-content/uploads/:y/:m/Copy-of-IMG_48:path*', destination: '/tournaments/', permanent: true },
-      { source: '/wp-content/uploads/:y/:m/Copy-of-IMG_49:path*', destination: '/tournaments/', permanent: true },
-      { source: '/wp-content/uploads/:y/:m/IMG_47:path*', destination: '/tournaments/', permanent: true },
-      { source: '/wp-content/uploads/:y/:m/S__3792:path*', destination: '/tournaments/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/TOURNAMENT:path*', destination: '/events/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/Copy-of-20240616:path*', destination: '/events/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/20240616:path*', destination: '/events/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/Copy-of-IMG_47:path*', destination: '/events/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/Copy-of-IMG_48:path*', destination: '/events/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/Copy-of-IMG_49:path*', destination: '/events/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/IMG_47:path*', destination: '/events/', permanent: true },
+      { source: '/wp-content/uploads/:y/:m/S__3792:path*', destination: '/events/', permanent: true },
       // Golf/setup images
       { source: '/wp-content/uploads/:y/:m/WAYS_TO_PLAY:path*', destination: '/golf/', permanent: true },
       { source: '/wp-content/uploads/:y/:m/OUR_SETUP:path*', destination: '/golf/', permanent: true },
@@ -166,6 +166,9 @@ const nextConfig = {
       { source: '/wp-content/uploads/:y/:m/Logo:path*', destination: '/', permanent: true },
       // Catch-all for remaining wp-content (promotional banners, misc) -> homepage
       { source: '/wp-content/:path*', destination: '/', permanent: true },
+
+      // Tournaments page removed — redirect to events
+      { source: '/tournaments', destination: '/events/', permanent: true },
 
       // WordPress search -> homepage (no search in Next.js app)
       { source: '/search/:path*', destination: '/', permanent: false },

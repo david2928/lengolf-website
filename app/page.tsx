@@ -7,7 +7,7 @@ import ImageGallery from '@/components/shared/ImageGallery'
 import ServicesCarousel from '@/components/home/ServicesCarousel'
 import { services, homeFaqItems } from '@/data/pricing'
 import { BUSINESS_INFO, BOOKING_URL, SITE_URL, SOCIAL_LINKS, storageUrl, storageImageUrl } from '@/lib/constants'
-import { getFaqPageJsonLd } from '@/lib/jsonld'
+import { getFaqPageJsonLd, getAggregateRatingJsonLd } from '@/lib/jsonld'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { getGoogleReviews } from '@/lib/google-reviews'
 
@@ -124,6 +124,14 @@ export default async function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+
+      {/* JSON-LD AggregateRating */}
+      {reviewsData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getAggregateRatingJsonLd(reviewsData.rating, reviewsData.totalReviews)) }}
+        />
+      )}
 
       {/* ── 1. Video Hero ── */}
       <section className="relative flex min-h-[560px] items-center justify-center overflow-hidden bg-[#30884E] text-white md:min-h-[620px]">

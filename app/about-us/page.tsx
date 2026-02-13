@@ -7,7 +7,7 @@ import ContactForm from '@/components/about/ContactForm'
 import BookingCTA from '@/components/shared/BookingCTA'
 import { storageUrl, SITE_URL, BUSINESS_INFO, SOCIAL_LINKS } from '@/lib/constants'
 import { aboutFaqItems } from '@/data/pricing'
-import { getFaqPageJsonLd } from '@/lib/jsonld'
+import { getFaqPageJsonLd, getAggregateRatingJsonLd } from '@/lib/jsonld'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { getGoogleReviews, type GoogleReview } from '@/lib/google-reviews'
 
@@ -130,6 +130,14 @@ export default async function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+
+      {/* JSON-LD AggregateRating */}
+      {reviewsData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getAggregateRatingJsonLd(reviewsData.rating, reviewsData.totalReviews)) }}
+        />
+      )}
 
       {/* ── Hero ── */}
       <section className="relative flex h-[50vh] min-h-[400px] max-h-[550px] items-center text-white overflow-hidden">
