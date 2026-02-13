@@ -322,10 +322,10 @@ export default function ClubRentalPage() {
               </ul>
               <div className="rounded-lg border border-primary/20 bg-primary/5 px-4 py-3 text-center">
                 <p className="text-sm font-bold" style={{ color: '#007429' }}>
-                  Try Before You Buy — FREE!
+                  Try Before You Buy!
                 </p>
                 <p className="mt-1 text-xs text-muted-foreground">
-                  Rent premium clubs in-house at no cost when considering a purchase
+                  Test any second-hand set on our simulators before you commit
                 </p>
               </div>
             </div>
