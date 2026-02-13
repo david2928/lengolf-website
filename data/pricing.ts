@@ -394,6 +394,35 @@ export const clubRentalFaqItems = [
   },
 ]
 
+// ── About Us FAQs ──
+
+export const aboutFaqItems = [
+  {
+    question: 'Where is LENGOLF located?',
+    answer: 'We\'re on the 4th floor of The Mercury Ville at BTS Chidlom, 540 Ploenchit Road, Lumpini, Pathumwan, Bangkok 10330. We\'re directly connected to the BTS Chidlom Skytrain station, so you can get here without stepping outside. See us on Google Maps.',
+  },
+  {
+    question: 'Is there parking at LENGOLF?',
+    answer: 'Yes! The Mercury Ville offers 3 hours of free parking for visitors. Additional parking is available at standard mall rates. Most guests find it easiest to arrive via BTS Chidlom, which connects directly to the mall.',
+  },
+  {
+    question: 'Do I need golf experience to visit LENGOLF?',
+    answer: 'Not at all — everyone is welcome, from complete beginners to experienced golfers. Our simulators are fun and easy to use, and free standard golf club sets are provided with every bay booking. If you\'d like guidance, our PGA-certified coaches offer lessons for all skill levels. Check our lessons page for details.',
+  },
+  {
+    question: 'What are your opening hours?',
+    answer: 'LENGOLF is open daily from 10:00 AM to 11:00 PM, Monday through Sunday, including public holidays.',
+  },
+  {
+    question: 'Can I book LENGOLF for a group or event?',
+    answer: 'Absolutely! Each bay fits up to 5 players, and we host events for 50+ guests with full-location rental, catering, and drink packages starting at 9,999 THB. Visit our events page or contact us on LINE @lengolf to plan your event.',
+  },
+  {
+    question: 'How do I contact LENGOLF?',
+    answer: 'The easiest way is LINE @lengolf — you can also call us at 096-668-2335, email info@len.golf, or book directly at booking.len.golf. Our friendly team typically responds within a few hours.',
+  },
+]
+
 // ── Tournament FAQs ──
 
 export const faqItems = [
