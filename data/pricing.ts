@@ -139,6 +139,47 @@ export const eventsFaqItems = [
   },
 ]
 
+// ── Lessons FAQs ──
+
+export const lessonsFaqItems = [
+  {
+    question: 'Do you offer a free trial golf lesson?',
+    answer: 'Yes! We offer a free 1-hour trial lesson with one of our PGA Pro coaches. It\'s a great way to experience our coaching approach — you\'ll learn simple and effective techniques, build solid fundamentals, and get course-ready fast. No commitment required. Contact us on LINE @lengolf to book your free trial.',
+  },
+  {
+    question: 'How much do golf lessons cost at LENGOLF?',
+    answer: 'Lesson packages start at 1,800 THB for a 1-hour session (1 golfer). Multi-hour packages offer better value — for example, 10 hours for 16,000 THB (valid 12 months) or 30 hours for 45,000 THB (valid 24 months). Group rates are available for 2 golfers or 3–5 golfers. Golf simulator usage is included in all lesson packages.',
+  },
+  {
+    question: 'What skill levels do your coaches teach?',
+    answer: 'Our coaches work with all skill levels, from complete beginners to advanced players. Whether you\'re picking up a club for the first time or fine-tuning your shot shaping, our PGA-certified professionals tailor each lesson to your goals and ability.',
+  },
+  {
+    question: 'Who are the golf coaches at LENGOLF?',
+    answer: 'We have three Thailand PGA-certified professional coaches: PRO Boss (Parin Phokan), specializing in drive training and course management; PRO Ratchavin (Ratchavin Tanakasempipat), specializing in beginner programs and short game; and PRO Min (Varuth Kjonkittiskul), specializing in course management and putting.',
+  },
+  {
+    question: 'How do I book a golf lesson?',
+    answer: 'Contact us on LINE @lengolf to schedule your lesson, or book online at booking.len.golf. Our team will match you with the right coach based on your goals and availability.',
+  },
+  {
+    question: 'What is included in a golf lesson?',
+    answer: 'Every lesson includes one-on-one instruction from a PGA-certified coach, use of our state-of-the-art golf simulators with swing analysis data, and standard golf club rental. Our coaches use video analysis to identify and correct technique, giving you actionable feedback each session.',
+  },
+  {
+    question: 'Do you offer golf lessons for kids and juniors?',
+    answer: 'Yes! All three of our coaches have junior golf development experience. We offer tailored programs for young golfers to build proper fundamentals, develop swing mechanics, and learn course etiquette in a fun, supportive environment.',
+  },
+  {
+    question: 'Where is LENGOLF located?',
+    answer: 'We\'re located on the 4th floor of The Mercury Ville at BTS Chidlom, 540 Ploenchit Road, Lumpini, Pathumwan, Bangkok 10330. We\'re directly accessible from the BTS Chidlom Skytrain station. See us on Google Maps.',
+  },
+  {
+    question: 'What are the Starter Package and Sim to Fairway packages?',
+    answer: 'The Starter Package (11,000 THB) includes 5 hours of coaching plus 5 hours of practice time and a free golf glove — ideal for beginners building a foundation. The Sim to Fairway package (13,499 THB) includes 5 hours of coaching plus 1 on-course lesson, so you can take your simulator skills to a real golf course. On-course fees for both student and coach must be covered by the customer.',
+  },
+]
+
 // ── Bay Rates ──
 
 export interface BayRateRow {
@@ -226,6 +267,130 @@ export const golfFaqItems = [
   {
     question: 'How much do golf lessons cost?',
     answer: 'Lesson packages start at 1,800 THB for a 1-hour session (1 golfer). Multi-hour packages offer better value: 10 hours for 16,000 THB (valid 12 months) or 30 hours for 45,000 THB (valid 24 months). We also have a Starter Package at 11,000 THB which includes 5 hours of coaching plus 5 hours of practice. Golf simulator usage is included in all lesson packages.',
+  },
+]
+
+// ── Club Rental Tiers ──
+
+export interface ClubRentalTier {
+  name: string
+  tag: string
+  brand: string
+  type: string
+  specs: string[]
+  price: string
+  highlight?: boolean
+}
+
+export const clubRentalTiers: ClubRentalTier[] = [
+  {
+    name: 'Standard Set',
+    tag: 'Free',
+    brand: 'House Set',
+    type: 'Men\'s & Ladies\'',
+    specs: ['Driver, Irons (5–PW), Putter', 'Included free with every bay booking', 'Available in-house only'],
+    price: 'Free',
+  },
+  {
+    name: 'Premium Men\'s',
+    tag: 'Premium',
+    brand: 'Callaway Warbird',
+    type: 'Men\'s Full Set',
+    specs: ['Driver, Fairway Woods, Irons (5–PW), Putter', 'Use at LENGOLF or any Bangkok golf course', 'Delivery available within Bangkok'],
+    price: 'From 150 THB/hr',
+    highlight: true,
+  },
+  {
+    name: 'Premium Women\'s',
+    tag: 'Premium',
+    brand: 'Majesty Shuttle',
+    type: 'Women\'s Full Set',
+    specs: ['Driver, Fairway Woods, Irons (5–PW), Putter', 'Use at LENGOLF or any Bangkok golf course', 'Delivery available within Bangkok'],
+    price: 'From 150 THB/hr',
+    highlight: true,
+  },
+]
+
+// ── Premium Club Pricing ──
+
+export interface PremiumClubPricingRow {
+  duration: string
+  price: string
+}
+
+export const premiumClubPricing: PremiumClubPricingRow[] = [
+  { duration: '1 Hour', price: '150 THB' },
+  { duration: '2 Hours', price: '250 THB' },
+  { duration: '4 Hours', price: '400 THB' },
+  { duration: 'Full Day', price: '1,200 THB' },
+]
+
+// ── Gear-Up Add-Ons ──
+
+export interface GearUpItem {
+  name: string
+  price: string
+  description: string
+  icon: string
+}
+
+export const gearUpItems: GearUpItem[] = [
+  { name: 'Golf Gloves', price: '600 THB', description: 'Premium synthetic leather gloves in all sizes', icon: 'hand' },
+  { name: 'Golf Balls', price: '400 THB / dozen', description: 'Practice-grade balls for range or course play', icon: 'circle' },
+  { name: 'Club Delivery', price: '500 THB', description: 'Same-day delivery of premium clubs anywhere in Bangkok', icon: 'truck' },
+]
+
+// ── Second-Hand Club Points ──
+
+export const secondHandClubPoints = [
+  'Try premium clubs in-house before you buy',
+  'Well-maintained Callaway and Majesty sets available',
+  'Significant savings over brand-new retail prices',
+  'Perfect for tourists or beginners not ready to invest in new gear',
+  'Ask our staff about current availability and pricing',
+]
+
+// ── Club Rental Why Choose ──
+
+export interface ClubRentalFeature {
+  title: string
+  description: string
+  icon: string
+}
+
+export const clubRentalWhyChoose: ClubRentalFeature[] = [
+  { title: 'Premium Quality', description: 'Callaway Warbird and Majesty Shuttle — trusted brands used by pros and amateurs worldwide', icon: 'award' },
+  { title: 'Use Anywhere + Delivery', description: 'Rent for in-house play or take clubs to any golf course in Bangkok with same-day delivery', icon: 'map-pin' },
+  { title: 'Flexible Duration', description: 'Hourly, half-day, or full-day rental — pay only for the time you need', icon: 'clock' },
+  { title: 'Easy Booking', description: 'Reserve clubs online at booking.len.golf or walk in — no deposit required', icon: 'calendar' },
+]
+
+// ── Club Rental FAQs ──
+
+export const clubRentalFaqItems = [
+  {
+    question: 'Can tourists rent golf clubs at LENGOLF?',
+    answer: 'Absolutely! We welcome tourists and visitors. Standard clubs are free with any bay booking, and premium Callaway/Majesty sets start at just 150 THB per hour. No membership or deposit required — just walk in or book online at booking.len.golf.',
+  },
+  {
+    question: 'What brands are available for premium club rental?',
+    answer: 'We offer Callaway Warbird full sets for men and Majesty Shuttle full sets for women. Both include driver, fairway woods, irons (5–PW), and putter. These are current-generation clubs maintained to high standards.',
+  },
+  {
+    question: 'Can I use rented clubs outside of LENGOLF?',
+    answer: 'Yes! Premium club rentals can be used at LENGOLF or taken to any golf course in Bangkok. We also offer same-day club delivery for 500 THB anywhere in Bangkok — contact us on LINE @lengolf to arrange.',
+  },
+  {
+    question: 'How much does premium club rental cost per hour?',
+    answer: 'Premium clubs start at 150 THB for 1 hour, 250 THB for 2 hours, 400 THB for 4 hours, or 1,200 THB for a full day. Standard house clubs are always free with any bay booking. Check our bay rates page for simulator pricing.',
+  },
+  {
+    question: 'Do you deliver golf clubs in Bangkok?',
+    answer: 'Yes, we offer same-day delivery of premium club sets anywhere in Bangkok for 500 THB. Contact us on LINE @lengolf to book delivery. You can also find us on Google Maps at The Mercury Ville, BTS Chidlom.',
+  },
+  {
+    question: 'Can I try clubs before buying second-hand?',
+    answer: 'Yes! We have a "Try Before You Buy" program — rent premium clubs in-house for free when considering a second-hand purchase. We regularly have well-maintained Callaway and Majesty sets available. Ask our staff or message us on LINE @lengolf for current availability.',
   },
 ]
 

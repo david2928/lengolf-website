@@ -1,10 +1,36 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import ImageGallery from '@/components/shared/ImageGallery'
-import { storageUrl, SITE_URL } from '@/lib/constants'
+import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
 import { coaches } from '@/data/coaches'
-import { lessonPricing, lessonNotes } from '@/data/pricing'
+import { lessonPricing, lessonNotes, lessonsFaqItems } from '@/data/pricing'
+import { getLessonsPricingJsonLd, getFaqPageJsonLd } from '@/lib/jsonld'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+
+const faqLinkStyle = 'font-medium underline underline-offset-2 hover:text-primary transition-colors'
+
+const faqLinks: Record<string, { href: string; external?: boolean }> = {
+  'booking.len.golf': { href: 'https://booking.len.golf/', external: true },
+  '@lengolf': { href: 'https://lin.ee/uxQpIXn', external: true },
+  'Google Maps': { href: BUSINESS_INFO.googleMapsUrl, external: true },
+}
+
+function renderFaqAnswer(answer: string) {
+  const pattern = new RegExp(`(${Object.keys(faqLinks).map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g')
+  const parts = answer.split(pattern)
+  return parts.map((part, i) => {
+    const link = faqLinks[part]
+    if (link) {
+      if (link.external) {
+        return <a key={i} href={link.href} className={faqLinkStyle} target="_blank" rel="noopener noreferrer">{part}</a>
+      }
+      return <Link key={i} href={link.href} className={faqLinkStyle}>{part}</Link>
+    }
+    return part
+  })
+}
 
 export const metadata: Metadata = {
   title: 'Golf Lessons & Coaching',
@@ -13,32 +39,46 @@ export const metadata: Metadata = {
 }
 
 const promoImages = [
-  { src: storageUrl('lessons/promo-starter-package.jpg'), alt: 'Starter Package' },
-  { src: storageUrl('lessons/promo-coaching-package.jpg'), alt: 'Coaching Package' },
-  { src: storageUrl('lessons/promo-swing-analysis.jpg'), alt: 'Free Swing Analysis' },
-  { src: storageUrl('lessons/promo-lesson.jpg'), alt: 'Lesson Promo' },
+  { src: storageUrl('lessons/promo-free-trial.jpg'), alt: 'Free 1-hour trial lesson with a PGA Pro — simple techniques, solid fundamentals, get course-ready fast' },
+  { src: storageUrl('lessons/promo-starter-package.jpg'), alt: 'Starter Package — 5 hours coaching plus 5 hours practice with free golf glove for 11,000 THB' },
+  { src: storageUrl('lessons/promo-coaching-package.jpg'), alt: 'Coaching package options with hourly and multi-hour lesson bundles at LENGOLF' },
+  { src: storageUrl('lessons/promo-lesson.jpg'), alt: 'Golf lesson promotion with PGA-certified coach on simulator bay' },
 ]
 
 const studentImages = [
-  { src: storageUrl('lessons/student-01.jpg'), alt: 'Student practice', width: 1200, height: 800 },
-  { src: storageUrl('lessons/student-02.jpg'), alt: 'Golf student', width: 1200, height: 800 },
-  { src: storageUrl('lessons/student-03.jpg'), alt: 'Student lesson', width: 1200, height: 800 },
-  { src: storageUrl('lessons/student-04.jpg'), alt: 'Student photo', width: 1200, height: 800 },
-  { src: storageUrl('lessons/student-05.jpg'), alt: 'Student practice', width: 1200, height: 800 },
-  { src: storageUrl('lessons/student-06.jpg'), alt: 'Junior golf', width: 1200, height: 800 },
-  { src: storageUrl('lessons/student-07.jpg'), alt: 'Junior golfer', width: 1200, height: 800 },
-  { src: storageUrl('lessons/student-08.jpg'), alt: 'Student improvement', width: 1200, height: 800 },
-  { src: storageUrl('lessons/student-09.jpg'), alt: 'Golf student', width: 1200, height: 800 },
-  { src: storageUrl('lessons/student-10.jpg'), alt: 'Student training', width: 1200, height: 800 },
-  { src: storageUrl('lessons/student-11.jpg'), alt: 'Golf lesson', width: 1200, height: 800 },
-  { src: storageUrl('lessons/student-kids-01.jpg'), alt: 'Kids golf', width: 1200, height: 800 },
-  { src: storageUrl('lessons/student-kids-02.jpg'), alt: 'Kids lesson', width: 1200, height: 800 },
-  { src: storageUrl('lessons/student-kids-03.jpg'), alt: 'Junior coaching', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-01.jpg'), alt: 'Student practicing iron shots with PRO Boss on golf simulator', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-02.jpg'), alt: 'Adult student working on swing technique during a coaching session', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-03.jpg'), alt: 'Coach analyzing student swing data on simulator screen', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-04.jpg'), alt: 'Student and coach reviewing shot trajectory after a drive', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-05.jpg'), alt: 'Beginner golfer learning proper grip and stance fundamentals', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-06.jpg'), alt: 'Junior golfer learning swing fundamentals with coach guidance', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-07.jpg'), alt: 'Young golfer practicing on simulator during junior development program', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-08.jpg'), alt: 'Student improving driving distance with simulator feedback', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-09.jpg'), alt: 'Student working on short game technique with coach', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-10.jpg'), alt: 'Advanced player refining shot shaping skills on simulator', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-11.jpg'), alt: 'Student receiving real-time swing feedback during lesson', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-kids-01.jpg'), alt: 'Kids group lesson with age-appropriate golf instruction', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-kids-02.jpg'), alt: 'Child learning to swing with junior-sized clubs on simulator', width: 1200, height: 800 },
+  { src: storageUrl('lessons/student-kids-03.jpg'), alt: 'Junior coaching session focused on building proper swing mechanics', width: 1200, height: 800 },
 ]
 
 export default function LessonsPage() {
+  const pricingJsonLd = getLessonsPricingJsonLd()
+  const faqJsonLd = getFaqPageJsonLd(lessonsFaqItems)
+
   return (
     <>
+      {/* JSON-LD Pricing Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}
+      />
+      {/* JSON-LD FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
       {/* ── Hero ── */}
       <section className="relative flex h-[50vh] min-h-[400px] max-h-[550px] items-center text-white overflow-hidden">
         <Image
@@ -70,12 +110,46 @@ export default function LessonsPage() {
         </div>
       </section>
 
-      {/* ── Intro ── */}
+      {/* ── Intro + Stat Chips ── */}
       <SectionWrapper>
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-4xl text-center">
           <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-            At <strong className="text-foreground">LENGOLF</strong>, we offer comprehensive golf lessons led by a Thailand PGA professional. Whether you&apos;re looking to improve your driving, mid-range, or short game, our personalized instruction caters to your specific needs and skill level. Choose from flexible hourly sessions or opt for our extensive 10-hour package for a deep dive into refining your technique. Experience unparalleled coaching in a supportive environment dedicated to enhancing your golfing prowess.
+            At <strong className="text-foreground">LENGOLF</strong>, our Thailand PGA-certified coaches offer personalized golf instruction for every skill level — and you can try it with a <strong className="text-foreground">free 1-hour trial lesson</strong>. Whether you&apos;re a beginner building fundamentals or an advanced player refining your technique, lessons use our state-of-the-art simulators for data-driven swing analysis and faster improvement.
           </p>
+
+          {/* Stat chips */}
+          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {[
+              { stat: '3', label: 'PGA coaches' },
+              { stat: '1,800', label: 'THB / lesson' },
+              { stat: 'All Levels', label: 'beginner to advanced' },
+              { stat: 'Simulator', label: 'included free' },
+            ].map((item) => (
+              <div key={item.label} className="rounded-lg border border-primary/15 bg-primary/5 px-4 py-4">
+                <div className="text-2xl font-bold" style={{ color: '#007429' }}>{item.stat}</div>
+                <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">{item.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="https://lin.ee/uxQpIXn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-8 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              BOOK A LESSON
+            </a>
+            <a
+              href="#pricing"
+              className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-8 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
+              PRICING
+            </a>
+          </div>
         </div>
       </SectionWrapper>
 
@@ -163,52 +237,86 @@ export default function LessonsPage() {
             <span className="text-foreground">LESSONS</span>
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-            At <strong className="text-foreground">LENGOLF</strong>, <strong className="text-foreground">our Swing Building and Improvement Program</strong> is designed to enhance your golf skills through personalized lessons. Our expert instructors assess all aspects of your game, using advanced video analysis to identify and correct technique mistakes. This tailored approach helps you understand your swing and practice effectively, leading to quicker improvement.
-          </p>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Our lessons take place on our state-of-the-art indoor golf simulators, which feature auto tee systems and realistic surface mats. You&apos;ll work on mastering swing fundamentals, improving physical strength, enhancing lateral rotation, and learning effective warm-up exercises.
-          </p>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Through our focused lessons, you&apos;ll gain the confidence to play on courses, hit precise golf shots consistently, and enjoy the game more. With expert guidance and cutting-edge technology, <strong className="text-foreground">LENGOLF&apos;s</strong> lesson program is the key to achieving your golf goals.
+            Our <strong className="text-foreground">Swing Building and Improvement Program</strong> uses advanced video analysis and simulator data to identify and correct technique. Lessons cover swing fundamentals, physical strength, lateral rotation, and course strategy — giving you the confidence and consistency to play better on real courses.
           </p>
         </div>
       </SectionWrapper>
 
       {/* ── Pricing Table ── */}
-      <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
+      <section id="pricing" className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
             <span style={{ color: '#007429' }}>LESSON</span>{' '}
             <span className="text-foreground">PRICING</span>
           </h2>
-          <div className="mx-auto max-w-4xl overflow-x-auto">
-            <table className="w-full border-collapse">
+          <div className="mx-auto max-w-lg">
+            <Image
+              src={storageUrl('lessons/lesson-packages.jpg')}
+              alt="LENGOLF lesson packages: 1 hour from 1,800 THB, 5–50 hour packages available, Starter Package 11,000 THB, Sim to Fairway 13,499 THB"
+              width={512}
+              height={512}
+              className="w-full rounded-lg shadow-sm"
+              sizes="(max-width: 512px) 100vw, 512px"
+            />
+          </div>
+          {/* Screen-reader / crawler-visible pricing table */}
+          <div className="sr-only">
+            <table>
+              <caption>LENGOLF Lesson Packages (golf simulator usage included)</caption>
               <thead>
-                <tr style={{ backgroundColor: '#1B5E3B' }} className="text-white">
-                  <th className="px-4 py-3 text-center text-sm font-semibold">Courses Packages</th>
-                  <th className="px-4 py-3 text-center text-sm font-semibold">1 Golfer</th>
-                  <th className="px-4 py-3 text-center text-sm font-semibold">2 Golfers</th>
-                  <th className="px-4 py-3 text-center text-sm font-semibold">3-5 Golfers</th>
-                  <th className="px-4 py-3 text-center text-sm font-semibold">Remark</th>
+                <tr>
+                  <th>Course Package</th>
+                  <th>1 Golfer</th>
+                  <th>2 Golfers</th>
+                  <th>3-5 Golfers</th>
+                  <th>Remark</th>
                 </tr>
               </thead>
               <tbody>
                 {lessonPricing.map((row) => (
-                  <tr key={row.name} className="border-b border-gray-200">
-                    <td className="px-4 py-3 text-center text-sm font-medium">{row.name}</td>
-                    <td className="px-4 py-3 text-center text-sm">{row.oneGolfer}</td>
-                    <td className="px-4 py-3 text-center text-sm">{row.twoGolfers}</td>
-                    <td className="px-4 py-3 text-center text-sm">{row.threeToFiveGolfers}</td>
-                    <td className="px-4 py-3 text-center text-sm text-muted-foreground">{row.remark}</td>
+                  <tr key={row.name}>
+                    <td>{row.name}</td>
+                    <td>{row.oneGolfer}</td>
+                    <td>{row.twoGolfers}</td>
+                    <td>{row.threeToFiveGolfers}</td>
+                    <td>{row.remark}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <div className="mt-6 space-y-2">
+            <ul>
               {lessonNotes.map((note) => (
-                <p key={note} className="text-sm text-muted-foreground">{note}</p>
+                <li key={note}>{note}</li>
               ))}
-            </div>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA Band ── */}
+      <section className="py-12 lg:py-16 bg-primary">
+        <div className="section-max-width section-padding text-center">
+          <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">Ready to improve your game?</h2>
+          <p className="mb-6 text-white/80">Book a lesson with our PGA-certified coaches</p>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="https://booking.len.golf/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-12 items-center gap-2 rounded-md bg-white text-primary px-8 text-sm font-semibold transition-colors hover:bg-white/90"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+              BOOK A LESSON
+            </a>
+            <a
+              href="https://lin.ee/uxQpIXn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-12 items-center gap-2 rounded-md border-2 border-white px-8 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              LINE @lengolf
+            </a>
           </div>
         </div>
       </section>
@@ -235,16 +343,38 @@ export default function LessonsPage() {
         </div>
       </SectionWrapper>
 
-      {/* ── Our Students ── */}
+      {/* ── FAQ ── */}
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>OUR</span>{' '}
-            <span className="text-foreground">STUDENTS</span>
+            <span style={{ color: '#007429' }}>FREQUENTLY ASKED</span>{' '}
+            <span className="text-foreground">QUESTIONS</span>
           </h2>
-          <ImageGallery images={studentImages} rows={[3, 2, 2, 2, 2, 3]} />
+          <div className="mx-auto max-w-3xl">
+            <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
+              {lessonsFaqItems.map((item, i) => (
+                <AccordionItem key={i} value={`item-${i}`} className="border-b border-border/60 px-1">
+                  <AccordionTrigger className="text-left font-semibold py-5 hover:no-underline" style={{ color: '#007429' }}>
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
+                    {renderFaqAnswer(item.answer)}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
         </div>
       </section>
+
+      {/* ── Our Students ── */}
+      <SectionWrapper>
+        <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
+          <span style={{ color: '#007429' }}>OUR</span>{' '}
+          <span className="text-foreground">STUDENTS</span>
+        </h2>
+        <ImageGallery images={studentImages} rows={[3, 2, 2, 2, 2, 3]} />
+      </SectionWrapper>
     </>
   )
 }
