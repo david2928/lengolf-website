@@ -13,7 +13,7 @@ import { getGoogleReviews, type GoogleReview } from '@/lib/google-reviews'
 
 export const metadata: Metadata = {
   title: 'About Us — Indoor Golf Simulator & Bar',
-  description: 'LENGOLF — founded by golf-loving expats at BTS Chidlom, Bangkok. 4 simulator bays, full bar, PGA coaching, and a relaxed social vibe. Open daily 10 AM – 11 PM.',
+  description: 'Founded by golf-loving expats at BTS Chidlom, Bangkok. 4 simulator bays, full bar, PGA coaching, and a social vibe you won\'t find anywhere else.',
   alternates: { canonical: `${SITE_URL}/about-us/` },
   openGraph: { images: [{ url: storageUrl('venue/venue-interior-01.jpg'), alt: 'LENGOLF interior' }] },
 }

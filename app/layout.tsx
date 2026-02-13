@@ -28,9 +28,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} | Premier Indoor Golf Simulator & Bar in Bangkok`,
-    description: SITE_DESCRIPTION,
-    images: [{ url: storageUrl('venue/venue-interior-01.jpg'), width: 1024, height: 1024, alt: 'LENGOLF indoor golf simulator and bar in Bangkok' }],
+    images: [{ url: storageUrl('venue/venue-interior-01.jpg'), width: 1200, height: 630, alt: 'LENGOLF indoor golf simulator and bar in Bangkok' }],
   },
   twitter: {
     card: 'summary_large_image',

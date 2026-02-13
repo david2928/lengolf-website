@@ -68,7 +68,7 @@ const whyChooseIconMap: Record<string, React.ReactNode> = {
 
 export const metadata: Metadata = {
   title: 'Golf Club Rental in Bangkok',
-  description: 'Rent golf clubs in Bangkok at LENGOLF. Free standard sets with every booking, premium Callaway Warbird & Majesty Shuttle from 150 THB/hr. Delivery available.',
+  description: 'No clubs? No problem. Every LENGOLF booking includes free standard clubs. Upgrade to premium Callaway or Majesty sets from just 150 THB/hr.',
   alternates: { canonical: `${SITE_URL}/golf-club-rental/` },
   openGraph: { images: [{ url: storageUrl('venue/venue-simulator-01.jpg'), alt: 'Golf club rental at LENGOLF Bangkok' }] },
 }

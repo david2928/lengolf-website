@@ -9,7 +9,7 @@ import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'News & Articles',
-  description: 'Read the latest articles from LENGOLF about indoor golf, Bangkok entertainment, golf tips, and more.',
+  description: 'Golf tips, Bangkok entertainment guides, and indoor golf insights from LENGOLF. Your go-to resource for getting more out of the game.',
   alternates: { canonical: `${SITE_URL}/blog/` },
   openGraph: { images: [{ url: storageUrl('venue/venue-bar-01.jpg'), alt: 'LENGOLF blog — news and articles' }] },
 }
