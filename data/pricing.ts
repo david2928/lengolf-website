@@ -344,7 +344,7 @@ export const gearUpItems: GearUpItem[] = [
 
 export const secondHandClubPoints = [
   'Try premium clubs in-house before you buy',
-  'Well-maintained Callaway and Majesty sets available',
+  'Well-maintained Callaway and TaylorMade sets available',
   'Significant savings over brand-new retail prices',
   'Perfect for tourists or beginners not ready to invest in new gear',
   'Ask our staff about current availability and pricing',
@@ -390,7 +390,7 @@ export const clubRentalFaqItems = [
   },
   {
     question: 'Can I try clubs before buying second-hand?',
-    answer: 'Yes! We have a "Try Before You Buy" program — rent premium clubs in-house for free when considering a second-hand purchase. We regularly have well-maintained Callaway and Majesty sets available. Ask our staff or message us on LINE @lengolf for current availability.',
+    answer: 'Yes! We have a "Try Before You Buy" program — rent premium clubs in-house for free when considering a second-hand purchase. We regularly have well-maintained second-hand Callaway and TaylorMade sets available. Ask our staff or message us on LINE @lengolf for current availability.',
   },
 ]
 
