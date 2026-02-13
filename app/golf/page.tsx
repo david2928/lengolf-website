@@ -417,8 +417,150 @@ export default function GolfPage() {
         </div>
       </SectionWrapper>
 
-      {/* ── Club Rental Cross-Link ── */}
+      {/* ── Choose Your Bay ── */}
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
+        <div className="section-max-width section-padding">
+          <h2 className="mb-4 text-center text-3xl font-bold italic lg:text-4xl">
+            <span style={{ color: '#007429' }}>CHOOSE YOUR</span>{' '}
+            <span className="text-foreground">BAY</span>
+          </h2>
+          <p className="mx-auto mb-12 max-w-2xl text-center text-sm text-muted-foreground">
+            We offer two distinct bay experiences — pick the one that matches your game
+          </p>
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-2">
+            {/* Social Bays */}
+            <div className="flex flex-col overflow-hidden rounded-xl border border-primary/15 bg-white shadow-sm">
+              <div className="relative">
+                <Image
+                  src={storageUrl('golf/bay-social.jpg')}
+                  alt="Social Bays at LENGOLF — spacious simulator bays for groups and beginners"
+                  width={600}
+                  height={400}
+                  className="aspect-[3/2] w-full object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-6">
+                <div className="mb-3 flex items-center gap-2">
+                  <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold" style={{ color: '#007429' }}>
+                    3 Bays
+                  </span>
+                </div>
+                <h3 className="mb-1 text-xl font-bold text-foreground">Social Bays</h3>
+                <p className="mb-5 text-sm text-muted-foreground">Korean Bravo Golf simulators — perfect for beginners, groups &amp; social play</p>
+
+                <div className="mb-5">
+                  <h4 className="mb-2 text-xs font-bold uppercase tracking-wider text-muted-foreground/70">Ideal For</h4>
+                  <ul className="space-y-1.5">
+                    {['New golfers & beginners', 'Groups of 1–5 players', 'Casual, fun experiences', 'Celebrations & parties'].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#007429" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 shrink-0"><path d="M20 6 9 17l-5-5"/></svg>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mb-6">
+                  <h4 className="mb-2 text-xs font-bold uppercase tracking-wider text-muted-foreground/70">Features</h4>
+                  <ul className="space-y-1.5">
+                    {['Auto tee system', '100+ courses available', 'Multiple game modes', 'Social atmosphere'].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#007429" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 shrink-0"><path d="M20 6 9 17l-5-5"/></svg>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-auto">
+                  <BookingCTA className="w-full justify-center" />
+                </div>
+              </div>
+            </div>
+
+            {/* LENGOLF AI Lab */}
+            <div className="flex flex-col overflow-hidden rounded-xl border shadow-sm" style={{ borderColor: 'rgba(124, 58, 237, 0.15)' }}>
+              <div className="relative">
+                <Image
+                  src={storageUrl('golf/bay-ai-lab.jpg')}
+                  alt="LENGOLF AI Lab — Uneekor EYE Mini Lite launch monitor with AI swing analysis and 4K BenQ projector"
+                  width={600}
+                  height={400}
+                  className="aspect-[3/2] w-full object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+
+              {/* Powered by Uneekor strip */}
+              <div className="flex items-center gap-3 border-b px-5 py-3" style={{ borderColor: 'rgba(124, 58, 237, 0.1)', backgroundColor: 'rgba(124, 58, 237, 0.03)' }}>
+                <Image
+                  src={storageUrl('branding/uneekor-logo.png')}
+                  alt="Uneekor logo"
+                  width={90}
+                  height={24}
+                  className="h-6 w-auto shrink-0"
+                />
+                <div className="h-5 w-px bg-border/60 shrink-0" />
+                <p className="text-[11px] leading-snug text-muted-foreground">EYE Mini Lite launch monitor — used by PGA tour pros and top fitting studios worldwide</p>
+              </div>
+
+              <div className="flex flex-1 flex-col p-6" style={{ backgroundColor: 'white' }}>
+                <div className="mb-3 flex items-center gap-2">
+                  <span className="rounded-full px-3 py-1 text-xs font-semibold" style={{ backgroundColor: 'rgba(124, 58, 237, 0.1)', color: '#7C3AED' }}>
+                    1 Bay
+                  </span>
+                  <span className="rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white" style={{ backgroundColor: '#7C3AED' }}>
+                    New
+                  </span>
+                </div>
+                <h3 className="mb-1 text-xl font-bold text-foreground">LENGOLF AI Lab</h3>
+                <p className="mb-5 text-sm text-muted-foreground">Uneekor-powered bay for serious improvement</p>
+
+                <div className="mb-5">
+                  <h4 className="mb-2 text-xs font-bold uppercase tracking-wider text-muted-foreground/70">Ideal For</h4>
+                  <ul className="space-y-1.5">
+                    {['Intermediate+ players', 'Solo or duo (1–2 players)', 'Serious improvement focus', 'Left & right-handed optimized'].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 shrink-0"><path d="M20 6 9 17l-5-5"/></svg>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mb-6">
+                  <h4 className="mb-2 text-xs font-bold uppercase tracking-wider text-muted-foreground/70">Features</h4>
+                  <ul className="space-y-1.5">
+                    {['Uneekor EYE Mini Lite launch monitor', 'Dual-angle video replay', '4K BenQ projector', 'AI swing analysis'].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 shrink-0"><path d="M20 6 9 17l-5-5"/></svg>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-auto">
+                  <a
+                    href="https://booking.len.golf/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md px-8 text-sm font-semibold text-white transition-colors hover:opacity-90"
+                    style={{ backgroundColor: '#7C3AED' }}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                    BOOK AI LAB
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Club Rental Cross-Link ── */}
+      <section className="py-16 lg:py-24">
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
             <span style={{ color: '#007429' }}>CLUB</span>{' '}
