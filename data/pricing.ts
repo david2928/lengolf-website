@@ -234,7 +234,7 @@ export const golfFaqItems = [
   },
   {
     question: 'Do I need to bring my own golf clubs?',
-    answer: 'No, standard club sets are provided free with every bay rental, including ladies\' sets. We also offer premium club rentals — Callaway Warbird (men\'s) and Majesty Shuttle (women\'s) — starting at 150 THB per hour. Premium clubs can be used in-house or taken to any golf course in Bangkok. You\'re always welcome to bring your own clubs too.',
+    answer: 'No, standard club sets are provided free with every bay rental, including ladies\' sets. We also offer premium club rentals — Callaway Warbird (men\'s) and Majesty Shuttle (women\'s) — starting at 150 THB per hour. Premium clubs can be used in-house or taken to any golf course in Bangkok. See our club rental page for full details and pricing. You\'re always welcome to bring your own clubs too.',
   },
   {
     question: 'How many people can play per bay?',
@@ -336,7 +336,7 @@ export interface GearUpItem {
 
 export const gearUpItems: GearUpItem[] = [
   { name: 'Golf Gloves', price: '600 THB', description: 'Premium synthetic leather gloves in all sizes', icon: 'hand' },
-  { name: 'Golf Balls', price: '400 THB / dozen', description: 'Practice-grade balls for range or course play', icon: 'circle' },
+  { name: 'Golf Balls', price: '400 THB / 6 balls', description: 'Practice-grade balls for range or course play', icon: 'circle' },
   { name: 'Club Delivery', price: '500 THB', description: 'Same-day delivery of premium clubs anywhere in Bangkok', icon: 'truck' },
 ]
 

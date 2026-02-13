@@ -46,6 +46,7 @@ export const NAV_ITEMS = [
   { label: 'BAY RATES', href: '/golf' },
   { label: 'EVENTS', href: '/events' },
   { label: 'LESSONS', href: '/lessons' },
+  { label: 'CLUB RENTAL', href: '/golf-club-rental' },
 ] as const
 
 export const FOOTER_MENU = [
@@ -54,5 +55,6 @@ export const FOOTER_MENU = [
   { label: 'BAY RATES', href: '/golf' },
   { label: 'EVENTS', href: '/events' },
   { label: 'LESSONS', href: '/lessons' },
+  { label: 'CLUB RENTAL', href: '/golf-club-rental' },
   { label: 'BLOG', href: '/blog' },
 ] as const

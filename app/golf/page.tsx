@@ -15,6 +15,7 @@ const faqLinks: Record<string, { href: string; external?: boolean }> = {
   '@lengolf': { href: 'https://lin.ee/uxQpIXn', external: true },
   'Google Maps': { href: BUSINESS_INFO.googleMapsUrl, external: true },
   'lessons page': { href: '/lessons' },
+  'club rental page': { href: '/golf-club-rental' },
 }
 
 function renderFaqAnswer(answer: string) {
@@ -407,8 +408,48 @@ export default function GolfPage() {
         </div>
       </SectionWrapper>
 
-      {/* ── FAQ ── */}
+      {/* ── Club Rental Cross-Link ── */}
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
+        <div className="section-max-width section-padding">
+          <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
+            <span style={{ color: '#007429' }}>CLUB</span>{' '}
+            <span className="text-foreground">RENTAL</span>
+          </h2>
+          <div className="mx-auto max-w-4xl">
+            <div className="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm md:flex-row md:items-stretch">
+              <div className="md:w-2/5 shrink-0">
+                <Image
+                  src={storageUrl('venue/venue-simulator-01.jpg')}
+                  alt="Premium golf club rental at LENGOLF"
+                  width={480}
+                  height={320}
+                  className="h-52 w-full object-cover md:h-full"
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                />
+              </div>
+              <div className="flex flex-col justify-center p-6 md:p-8">
+                <h3 className="mb-3 text-xl font-bold" style={{ color: '#007429' }}>
+                  Premium Clubs, No Commitment
+                </h3>
+                <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+                  Free standard clubs are included with every booking. Upgrade to premium Callaway Warbird or Majesty Shuttle full sets from just 150 THB/hr — use in-house or take to any Bangkok golf course with same-day delivery.
+                </p>
+                <Link
+                  href="/golf-club-rental"
+                  className="inline-flex items-center gap-1 text-sm font-semibold transition-colors hover:underline"
+                  style={{ color: '#007429' }}
+                >
+                  View Club Rental Options
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="py-16 lg:py-24">
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
             <span style={{ color: '#007429' }}>FREQUENTLY ASKED</span>{' '}
@@ -432,7 +473,8 @@ export default function GolfPage() {
       </section>
 
       {/* ── Who We Serve ── */}
-      <SectionWrapper>
+      <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
+        <div className="section-max-width section-padding">
         <h2 className="mb-3 text-center text-3xl font-bold italic lg:text-4xl">
           <span style={{ color: '#007429' }}>Indoor Golf</span>{' '}
           <span className="text-foreground">Near You</span>
@@ -452,7 +494,8 @@ export default function GolfPage() {
             ))}
           </div>
         </div>
-      </SectionWrapper>
+        </div>
+      </section>
     </>
   )
 }

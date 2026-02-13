@@ -80,7 +80,7 @@ const nextConfig = {
     // WordPress page-type taxonomy -> relevant Next.js service pages
     const pageTypeRedirects = [
       { source: '/page-type/corporate-events', destination: '/events/', permanent: true },
-      { source: '/page-type/golf-club-rental', destination: '/golf/', permanent: true },
+      { source: '/page-type/golf-club-rental', destination: '/golf-club-rental/', permanent: true },
       { source: '/page-type/golf-lessons', destination: '/lessons/', permanent: true },
       { source: '/page-type/golf-near', destination: '/golf/', permanent: true },
       { source: '/page-type/indoor-golf', destination: '/golf/', permanent: true },

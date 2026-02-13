@@ -327,8 +327,8 @@ export function getClubRentalPricingJsonLd() {
       },
       {
         '@type': 'Offer',
-        name: 'Golf Balls – Dozen',
-        description: 'Practice-grade balls for range or course play',
+        name: 'Golf Balls – 6 Pack',
+        description: 'Practice-grade balls for range or course play, 6 balls per pack',
         price: '400',
         priceCurrency: 'THB',
       },
