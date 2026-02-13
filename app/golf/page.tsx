@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
+import AqiWidget from '@/components/shared/AqiWidget'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
 import { bayRates, bayRateNotes, monthlyPackages, monthlyPackageNotes, golfFaqItems } from '@/data/pricing'
 import { getGolfPricingJsonLd, getFaqPageJsonLd } from '@/lib/jsonld'
@@ -170,6 +171,10 @@ export default function GolfPage() {
                 <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">{item.label}</div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-8 flex justify-center">
+            <AqiWidget />
           </div>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
