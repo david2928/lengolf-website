@@ -426,3 +426,40 @@ export const faqItems = [
     answer: 'The finals will feature the 8 best-qualified teams and 4 randomly selected teams. Round 1: 9-hole knockout (scramble format). Round 2: 9 holes (best ball format). Final Round: 9-hole scramble to decide the winner.',
   },
 ]
+
+// ── Home Page FAQs ──
+
+export const homeFaqItems = [
+  {
+    question: 'What is LENGOLF?',
+    answer: 'LENGOLF is an indoor golf simulator bar in Bangkok, located on the 4th floor of The Mercury Ville at BTS Chidlom. We have 4 simulator bays with Korean Bravo Golf technology, a full-service bar with cocktails and food, and PGA-certified golf coaches on staff. It\'s a place to play golf, hang out with friends, and enjoy great drinks — all in air-conditioned comfort.',
+  },
+  {
+    question: 'How much does it cost to play at LENGOLF?',
+    answer: 'Simulator bay rates start at 500 THB per hour on weekdays before 14:00, and go up to 900 THB per hour on weekends after 14:00. Each bay holds up to 5 players and free standard golf clubs are included. We also offer monthly packages from 3,000 THB. See our bay rates page for full pricing.',
+  },
+  {
+    question: 'Where is LENGOLF located?',
+    answer: 'We\'re on the 4th floor of The Mercury Ville at BTS Chidlom, 540 Ploenchit Road, Lumpini, Pathumwan, Bangkok 10330 — directly accessible from the BTS Chidlom Skytrain station. See us on Google Maps.',
+  },
+  {
+    question: 'What are your opening hours?',
+    answer: 'LENGOLF is open daily from 10:00 AM to 11:00 PM, Monday through Sunday, including public holidays.',
+  },
+  {
+    question: 'Do I need to bring my own golf clubs?',
+    answer: 'No — standard golf club sets are provided free with every bay booking, including ladies\' sets. We also offer premium Callaway Warbird and Majesty Shuttle rentals from 150 THB per hour. Visit our club rental page for details.',
+  },
+  {
+    question: 'Do you offer golf lessons?',
+    answer: 'Yes! We have three Thailand PGA-certified coaches on staff — PRO Boss, PRO Ratchavin, and PRO Min. They teach all skill levels from complete beginners to advanced players. Lessons start at 1,800 THB per hour and we offer a free 1-hour trial lesson. Visit our lessons page for packages and pricing.',
+  },
+  {
+    question: 'Can I host an event or party at LENGOLF?',
+    answer: 'Absolutely! We host corporate events, team building, birthdays, and private parties for up to 50+ guests. Packages start at 9,999 THB and include golf bays, drinks, and catered food. Visit our events page or contact us on LINE @lengolf to plan your event.',
+  },
+  {
+    question: 'How do I book a bay at LENGOLF?',
+    answer: 'Book online at booking.len.golf, add us on LINE @lengolf, or just walk in. Online booking lets you choose your date, bay, and time slot in advance. Walk-ins are welcome subject to availability.',
+  },
+]
