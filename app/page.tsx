@@ -9,6 +9,7 @@ import { services, homeFaqItems } from '@/data/pricing'
 import { BUSINESS_INFO, BOOKING_URL, SITE_URL, SOCIAL_LINKS, storageUrl, storageImageUrl } from '@/lib/constants'
 import { getFaqPageJsonLd } from '@/lib/jsonld'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { getGoogleReviews } from '@/lib/google-reviews'
 
 export const metadata: Metadata = {
   title: 'Indoor Golf Simulator & Bar in Bangkok',
@@ -102,8 +103,19 @@ const serviceLinks = [
   },
 ]
 
-export default function HomePage() {
+export const revalidate = 86400
+
+function StarIcon({ filled }: { filled: boolean }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill={filled ? '#FBBC04' : '#E0E0E0'} className="h-4 w-4">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+    </svg>
+  )
+}
+
+export default async function HomePage() {
   const faqJsonLd = getFaqPageJsonLd(homeFaqItems)
+  const reviewsData = await getGoogleReviews()
 
   return (
     <>
@@ -235,7 +247,74 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 5. CTA Band ── */}
+      {/* ── 5. Google Reviews (compact) ── */}
+      {reviewsData && reviewsData.reviews.length > 0 && (
+        <SectionWrapper>
+          <div className="mx-auto max-w-4xl">
+            {/* Rating header */}
+            <div className="mb-8 flex flex-col items-center gap-2">
+              <h2 className="text-3xl font-bold italic lg:text-4xl">
+                <span style={{ color: '#007429' }}>WHAT OUR GUESTS</span>{' '}
+                <span className="text-foreground">SAY</span>
+              </h2>
+              <div className="flex items-center gap-2">
+                <div className="flex gap-0.5">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <StarIcon key={star} filled={star <= Math.round(reviewsData.rating)} />
+                  ))}
+                </div>
+                <span className="text-sm font-bold text-foreground">{reviewsData.rating} / 5.0</span>
+                <span className="text-sm text-muted-foreground">
+                  · {reviewsData.totalReviews.toLocaleString()}+ reviews
+                </span>
+              </div>
+            </div>
+
+            {/* 3 review cards */}
+            <div className="grid gap-5 sm:grid-cols-3">
+              {reviewsData.reviews.slice(0, 3).map((review) => {
+                const maxLen = 150
+                const truncated = review.text.length > maxLen
+                  ? review.text.slice(0, maxLen).replace(/\s+\S*$/, '') + '...'
+                  : review.text
+                return (
+                  <div key={`${review.reviewer_name}-${review.review_created_at}`} className="rounded-lg border border-border/60 bg-white p-5 shadow-sm">
+                    <div className="mb-3 flex items-center gap-3">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">
+                        {review.reviewer_name.charAt(0).toUpperCase()}
+                      </div>
+                      <div className="min-w-0">
+                        <p className="truncate text-sm font-semibold text-foreground">{review.reviewer_name}</p>
+                        <div className="flex gap-0.5">
+                          {[1, 2, 3, 4, 5].map((star) => (
+                            <StarIcon key={star} filled={star <= review.rating} />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{truncated}</p>
+                  </div>
+                )
+              })}
+            </div>
+
+            {/* Link */}
+            <div className="mt-6 text-center">
+              <a
+                href="https://maps.app.goo.gl/4eCe3XNUWEf7QPcL7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+              >
+                See all reviews on Google
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+        </SectionWrapper>
+      )}
+
+      {/* ── 6. CTA Band ── */}
       <section className="py-12 lg:py-16 bg-primary">
         <div className="section-max-width section-padding text-center">
           <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">Ready to play?</h2>
