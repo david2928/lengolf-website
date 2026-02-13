@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import LineChatWidget from '@/components/layout/LineChatWidget'
+import MobileStickyBar from '@/components/layout/MobileStickyBar'
 import { SITE_NAME, SITE_URL, SITE_DESCRIPTION } from '@/lib/constants'
 import { getLocalBusinessJsonLd, getWebSiteJsonLd } from '@/lib/jsonld'
 import './globals.css'
@@ -88,6 +89,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <main>{children}</main>
         <Footer />
         <LineChatWidget />
+        <MobileStickyBar />
         <Analytics />
       </body>
     </html>
