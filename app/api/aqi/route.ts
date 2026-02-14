@@ -45,11 +45,11 @@ export async function GET() {
 
     const raw = await res.json()
 
-    // Prefer US EPA AQI (matches IQAir / AirVisual numbers), fall back to UAQI
-    const epaIndex = raw.indexes?.find(
-      (idx: { code: string }) => idx.code === 'usa_epa'
+    // Prefer Thailand PCD AQI (official Thai index), fall back to UAQI
+    const pcdIndex = raw.indexes?.find(
+      (idx: { code: string }) => idx.code === 'tha_pcd'
     )
-    const aqiIndex = epaIndex || raw.indexes?.find(
+    const aqiIndex = pcdIndex || raw.indexes?.find(
       (idx: { code: string }) => idx.code === 'uaqi'
     ) || raw.indexes?.[0]
 
