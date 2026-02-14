@@ -33,6 +33,15 @@ export default function EventInquiryForm() {
 
       if (res.ok) {
         setSubmitted(true)
+        // Push event to GTM dataLayer for Google Ads conversion tracking
+        const w = window as typeof window & { dataLayer?: Record<string, unknown>[] }
+        if (w.dataLayer) {
+          w.dataLayer.push({
+            event: 'event_inquiry_submitted',
+            event_category: 'lead',
+            event_label: data.company || 'individual',
+          })
+        }
       }
     } catch {
       // Handle error silently
