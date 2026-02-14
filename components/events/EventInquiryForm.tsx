@@ -1,12 +1,14 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 
 export default function EventInquiryForm() {
+  const t = useTranslations('EventInquiryForm')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
@@ -53,8 +55,8 @@ export default function EventInquiryForm() {
   if (submitted) {
     return (
       <div className="rounded-lg bg-primary/10 p-8 text-center">
-        <h3 className="text-xl font-semibold text-primary">Thank you!</h3>
-        <p className="mt-2 text-muted-foreground">We&apos;ll get back to you soon about your event.</p>
+        <h3 className="text-xl font-semibold text-primary">{t('thankYou')}</h3>
+        <p className="mt-2 text-muted-foreground">{t('thankYouMessage')}</p>
       </div>
     )
   }
@@ -63,28 +65,28 @@ export default function EventInquiryForm() {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="space-y-2">
-          <Label htmlFor="name">Your name</Label>
+          <Label htmlFor="name">{t('yourName')}</Label>
           <Input id="name" name="name" required />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="email">Your email</Label>
+          <Label htmlFor="email">{t('yourEmail')}</Label>
           <Input id="email" name="email" type="email" required />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="phone">Phone number</Label>
+          <Label htmlFor="phone">{t('phoneNumber')}</Label>
           <Input id="phone" name="phone" type="tel" />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="company">Company</Label>
+          <Label htmlFor="company">{t('company')}</Label>
           <Input id="company" name="company" />
         </div>
       </div>
       <div className="space-y-2">
-        <Label htmlFor="message">Please share more about your event plans</Label>
+        <Label htmlFor="message">{t('messagePlaceholder')}</Label>
         <Textarea id="message" name="message" rows={5} required />
       </div>
       <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
-        {isSubmitting ? 'Sending...' : 'Send Inquiry'}
+        {isSubmitting ? t('sending') : t('sendInquiry')}
       </Button>
     </form>
   )

@@ -1,16 +1,28 @@
 'use client'
 
 import { useState } from 'react'
-import { usePathname } from 'next/navigation'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link, usePathname } from '@/i18n/navigation'
 import Image from 'next/image'
 import { Menu, X, Phone, CalendarDays } from 'lucide-react'
-import { NAV_ITEMS, SOCIAL_LINKS, BOOKING_URL, BUSINESS_INFO, storageUrl } from '@/lib/constants'
+import { SOCIAL_LINKS, BOOKING_URL, BUSINESS_INFO, storageUrl } from '@/lib/constants'
 import { FacebookIcon, LineIcon, InstagramIcon } from '@/components/shared/SocialIcons'
+import LanguageSwitcher from '@/components/layout/LanguageSwitcher'
+
+const NAV_KEYS = [
+  { key: 'home', href: '/' as const },
+  { key: 'bayRates', href: '/golf' as const },
+  { key: 'events', href: '/events' as const },
+  { key: 'lessons', href: '/lessons' as const },
+  { key: 'clubRental', href: '/golf-club-rental' as const },
+  { key: 'aboutUs', href: '/about-us' as const },
+] as const
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
+  const t = useTranslations('Nav')
+  const tCommon = useTranslations('Common')
 
   return (
     <header
@@ -36,7 +48,7 @@ export default function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex lg:items-center lg:justify-center lg:flex-1 lg:min-w-0">
           <div className="flex items-center">
-            {NAV_ITEMS.map((item) => {
+            {NAV_KEYS.map((item) => {
               const isActive = pathname === item.href
               const isAboutUs = item.href === '/about-us'
               return (
@@ -50,7 +62,7 @@ export default function Header() {
                     letterSpacing: '-0.3px',
                   }}
                 >
-                  {item.label}
+                  {t(item.key)}
                 </Link>
               )
             })}
@@ -75,7 +87,7 @@ export default function Header() {
             }}
           >
             <CalendarDays style={{ width: '18px', height: '18px' }} />
-            BOOK NOW
+            {tCommon('bookNow')}
           </a>
 
           {/* Phone */}
@@ -93,6 +105,9 @@ export default function Header() {
             {BUSINESS_INFO.phone}
           </a>
 
+          {/* Language Switcher */}
+          <LanguageSwitcher />
+
           {/* Social icons — hidden below xl */}
           <div className="hidden xl:flex items-center" style={{ gap: '3px' }}>
             <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="p-0.5">
@@ -108,14 +123,17 @@ export default function Header() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          type="button"
-          className="lg:hidden p-2"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <LanguageSwitcher />
+          <button
+            type="button"
+            className="p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu — full-screen overlay */}
@@ -147,7 +165,7 @@ export default function Header() {
 
           {/* Menu content */}
           <div className="flex-1 flex flex-col justify-center items-center gap-6 px-8">
-            {NAV_ITEMS.map((item) => {
+            {NAV_KEYS.map((item) => {
               const isActive = pathname === item.href
               return (
                 <Link
@@ -163,7 +181,7 @@ export default function Header() {
                   }}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {item.label}
+                  {t(item.key)}
                 </Link>
               )
             })}
@@ -183,7 +201,7 @@ export default function Header() {
               }}
             >
               <CalendarDays style={{ width: '18px', height: '18px' }} />
-              BOOK NOW
+              {tCommon('bookNow')}
             </a>
           </div>
 

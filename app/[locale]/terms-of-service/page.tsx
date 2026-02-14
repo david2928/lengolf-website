@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import { SITE_URL } from '@/lib/constants'
@@ -9,7 +10,9 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE_URL}/terms-of-service/` },
 }
 
-export default function TermsOfServicePage() {
+export default async function TermsOfServicePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  setRequestLocale(locale)
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
     { name: 'Terms of Service', url: `${SITE_URL}/terms-of-service/` },

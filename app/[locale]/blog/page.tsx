@@ -1,34 +1,39 @@
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import Image from 'next/image'
+import { Link } from '@/i18n/navigation'
 import { getAllPosts } from '@/lib/blog'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
 import { storageUrl, SITE_URL, SITE_NAME, SOCIAL_LINKS } from '@/lib/constants'
 import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 
-export const metadata: Metadata = {
-  title: 'News & Articles',
-  description: 'Golf tips, Bangkok entertainment guides, and indoor golf insights from LENGOLF. Your go-to resource for getting more out of the game.',
-  alternates: { canonical: `${SITE_URL}/blog/` },
-  openGraph: { images: [{ url: storageUrl('venue/venue-bar-01.jpg'), alt: 'LENGOLF blog — news and articles' }] },
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'Blog' })
+  return {
+    title: t('metaTitle'),
+    description: t('metaDescription'),
+    alternates: {
+      canonical: `${SITE_URL}${locale === 'th' ? '/th' : ''}/blog/`,
+      languages: { en: `${SITE_URL}/blog/`, th: `${SITE_URL}/th/blog/` },
+    },
+    openGraph: { images: [{ url: storageUrl('venue/venue-bar-01.jpg'), alt: 'LENGOLF blog — news and articles' }] },
+  }
 }
 
 export const revalidate = 3600 // ISR: revalidate every hour
 
-const crossLinks = [
-  { label: 'Bay Rates', href: '/golf' },
-  { label: 'Lessons', href: '/lessons' },
-  { label: 'Events', href: '/events' },
-  { label: 'Club Rental', href: '/golf-club-rental' },
-]
-
-export default async function BlogPage() {
+export default async function BlogPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations('Blog')
+  const tCommon = await getTranslations('Common')
   const posts = await getAllPosts()
 
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
-    { name: 'Blog', url: `${SITE_URL}/blog/` },
+    { name: t('heroBadge'), url: `${SITE_URL}/blog/` },
   ])
 
   const collectionJsonLd = {
@@ -49,6 +54,8 @@ export default async function BlogPage() {
       })),
     },
   }
+
+  const dateLocale = locale === 'th' ? 'th-TH' : 'en-US'
 
   return (
     <>
@@ -79,20 +86,20 @@ export default async function BlogPage() {
         />
         <div className="relative z-10 w-full text-left px-[4%]">
           <span className="inline-block rounded bg-[#7CB342] px-6 py-2 text-lg font-bold uppercase tracking-widest text-white mb-5 md:text-xl">
-            Blog
+            {t('heroBadge')}
           </span>
           <h1 className="mb-4 text-5xl font-black uppercase leading-none md:text-6xl lg:text-7xl">
-            News & Articles
+            {t('heroTitle')}
           </h1>
           <p className="text-base font-semibold italic tracking-wide text-white/90 md:text-lg">
-            Golf tips, Bangkok entertainment, and more from LENGOLF
+            {t('heroSubtitle')}
           </p>
         </div>
       </section>
 
       <SectionWrapper>
         {posts.length === 0 ? (
-          <p className="text-center text-muted-foreground">No blog posts yet. Check back soon!</p>
+          <p className="text-center text-muted-foreground">{t('noPosts')}</p>
         ) : (
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {posts.map((post) => (
@@ -121,7 +128,7 @@ export default async function BlogPage() {
                   )}
                   {post.published_at && (
                     <p className="mt-3 text-xs text-muted-foreground">
-                      {new Date(post.published_at).toLocaleDateString('en-US', {
+                      {new Date(post.published_at).toLocaleDateString(dateLocale, {
                         year: 'numeric',
                         month: 'long',
                         day: 'numeric',
@@ -138,10 +145,10 @@ export default async function BlogPage() {
       {/* ── CTA Band ── */}
       <section className="py-12 lg:py-16 bg-primary">
         <div className="section-max-width section-padding text-center">
-          <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">Enjoying our content? Come play!</h2>
-          <p className="mb-6 text-white/80">Book your bay online or contact us on LINE</p>
+          <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">{t('ctaTitle')}</h2>
+          <p className="mb-6 text-white/80">{t('ctaSubtitle')}</p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <BookingCTA text="BOOK YOUR BAY" className="bg-white text-primary hover:bg-white/90" />
+            <BookingCTA text={tCommon('bookYourBay')} className="bg-white text-primary hover:bg-white/90" />
             <a
               href={SOCIAL_LINKS.line}
               target="_blank"
@@ -149,7 +156,7 @@ export default async function BlogPage() {
               className="inline-flex h-12 items-center gap-2 rounded-md border-2 border-white px-8 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              LINE @lengolf
+              {tCommon('lineAtLengolf')}
             </a>
           </div>
         </div>
@@ -159,15 +166,20 @@ export default async function BlogPage() {
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-3 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>EXPLORE</span>{' '}
-            <span className="text-foreground">MORE</span>
+            <span style={{ color: '#007429' }}>{t('exploreTitle')}</span>{' '}
+            <span className="text-foreground">{t('exploreTitleSuffix')}</span>
           </h2>
-          <p className="mb-8 text-center text-sm text-muted-foreground">Check out everything LENGOLF has to offer</p>
+          <p className="mb-8 text-center text-sm text-muted-foreground">{t('exploreSubtitle')}</p>
           <div className="mx-auto max-w-xl">
             <div className="flex flex-wrap items-center justify-center gap-3">
-              {crossLinks.map((link) => (
+              {[
+                { label: t('exploreBayRates'), href: '/golf' },
+                { label: t('exploreLessons'), href: '/lessons' },
+                { label: t('exploreEvents'), href: '/events' },
+                { label: t('exploreClubRental'), href: '/golf-club-rental' },
+              ].map((link) => (
                 <Link
-                  key={link.label}
+                  key={link.href}
                   href={link.href}
                   className="rounded-full border border-primary/20 bg-primary/5 px-5 py-2.5 text-sm font-medium transition-colors hover:bg-primary hover:text-white"
                   style={{ color: '#007429' }}

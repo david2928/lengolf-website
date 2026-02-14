@@ -1,3 +1,4 @@
+import { getTranslations } from 'next-intl/server'
 import { MapPin } from 'lucide-react'
 import type { LocationPage } from '@/lib/locations'
 import { parseList } from '@/lib/locations'
@@ -6,7 +7,8 @@ interface Props {
   data: LocationPage
 }
 
-export default function GolfNearSections({ data }: Props) {
+export default async function GolfNearSections({ data }: Props) {
+  const t = await getTranslations('Location')
   const landmarks = parseList(data.nearby_landmarks)
   const hotels = parseList(data.nearby_hotels)
   const offices = parseList(data.nearby_offices)
@@ -29,7 +31,7 @@ export default function GolfNearSections({ data }: Props) {
         <section className="py-12 md:py-16">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-4">
-              Why LENGOLF for {data.location_name} Golfers?
+              {t('whyLengolfFor', { location: data.location_name })}
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
               {data.lengolf_pitch}
@@ -43,12 +45,12 @@ export default function GolfNearSections({ data }: Props) {
         <section className="py-12 md:py-16 bg-[#f8f9fa]">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-8">
-              Near {data.location_name}
+              {t('near', { location: data.location_name })}
             </h2>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {landmarks.length > 0 && (
                 <div>
-                  <h3 className="font-semibold text-[#1a472a] mb-3">Landmarks</h3>
+                  <h3 className="font-semibold text-[#1a472a] mb-3">{t('landmarks')}</h3>
                   <ul className="space-y-2">
                     {landmarks.map((item) => (
                       <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -61,7 +63,7 @@ export default function GolfNearSections({ data }: Props) {
               )}
               {hotels.length > 0 && (
                 <div>
-                  <h3 className="font-semibold text-[#1a472a] mb-3">Hotels</h3>
+                  <h3 className="font-semibold text-[#1a472a] mb-3">{t('hotels')}</h3>
                   <ul className="space-y-2">
                     {hotels.map((item) => (
                       <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -74,7 +76,7 @@ export default function GolfNearSections({ data }: Props) {
               )}
               {offices.length > 0 && (
                 <div>
-                  <h3 className="font-semibold text-[#1a472a] mb-3">Office Buildings</h3>
+                  <h3 className="font-semibold text-[#1a472a] mb-3">{t('officeBuildings')}</h3>
                   <ul className="space-y-2">
                     {offices.map((item) => (
                       <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">

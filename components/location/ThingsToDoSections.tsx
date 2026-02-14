@@ -1,3 +1,4 @@
+import { getTranslations } from 'next-intl/server'
 import { MapPin, Star } from 'lucide-react'
 import type { LocationPage } from '@/lib/locations'
 import { parseList, parseAttractions } from '@/lib/locations'
@@ -6,7 +7,8 @@ interface Props {
   data: LocationPage
 }
 
-export default function ThingsToDoSections({ data }: Props) {
+export default async function ThingsToDoSections({ data }: Props) {
+  const t = await getTranslations('Location')
   const attractions = parseAttractions(data.other_attractions)
   const landmarks = parseList(data.nearby_landmarks)
 
@@ -17,7 +19,7 @@ export default function ThingsToDoSections({ data }: Props) {
         <section className="py-12 md:py-16 bg-[#f8f9fa]">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-4">
-              About {data.location_name}
+              {t('about', { location: data.location_name })}
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
               {data.area_description}
@@ -42,7 +44,7 @@ export default function ThingsToDoSections({ data }: Props) {
         <section className="py-12 md:py-16 bg-[#f8f9fa]">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-4">
-              Indoor Golf at LENGOLF
+              {t('indoorGolfAtLengolf')}
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
               {data.lengolf_pitch}
@@ -56,7 +58,7 @@ export default function ThingsToDoSections({ data }: Props) {
         <section className="py-12 md:py-16">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-6">
-              Other Things To Do Near {data.location_name}
+              {t('otherThingsToDo', { location: data.location_name })}
             </h2>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {attractions.map((attr) => (
@@ -83,7 +85,7 @@ export default function ThingsToDoSections({ data }: Props) {
         <section className="py-12 md:py-16 bg-[#f8f9fa]">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-6">
-              Nearby Landmarks
+              {t('nearbyLandmarks')}
             </h2>
             <div className="flex flex-wrap gap-2">
               {landmarks.map((item) => (

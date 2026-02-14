@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import { SITE_URL } from '@/lib/constants'
@@ -9,7 +10,9 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE_URL}/privacy-policy/` },
 }
 
-export default function PrivacyPolicyPage() {
+export default async function PrivacyPolicyPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  setRequestLocale(locale)
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
     { name: 'Privacy Policy', url: `${SITE_URL}/privacy-policy/` },

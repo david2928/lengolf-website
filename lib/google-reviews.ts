@@ -21,7 +21,7 @@ export interface GoogleReviewsData {
   reviews: GoogleReview[]
 }
 
-export async function getGoogleReviews(): Promise<GoogleReviewsData | null> {
+export async function getGoogleReviews(locale: string = 'en'): Promise<GoogleReviewsData | null> {
   try {
     const supabase = createClient()
 
@@ -33,12 +33,14 @@ export async function getGoogleReviews(): Promise<GoogleReviewsData | null> {
     const rating = Number(avg_rating)
     if (!total_reviews || Number.isNaN(rating)) return null
 
-    // Fetch a larger pool of 5-star English reviews with comments
+    const language = locale === 'th' ? 'TH' : 'EN'
+
+    // Fetch a larger pool of 5-star reviews with comments in the target language
     const { data: pool, error: poolError } = await supabase
       .from('google_reviews_public')
       .select('reviewer_name, star_rating, comment, review_created_at')
       .eq('star_rating', 'FIVE')
-      .eq('language', 'EN')
+      .eq('language', language)
       .order('review_created_at', { ascending: false })
       .limit(30)
 
@@ -46,12 +48,21 @@ export async function getGoogleReviews(): Promise<GoogleReviewsData | null> {
 
     const mapped: GoogleReview[] = (pool ?? [])
       .filter((r) => r.star_rating in STAR_MAP && r.comment && r.comment.length > 20)
-      .map((r) => ({
-        reviewer_name: r.reviewer_name,
-        rating: STAR_MAP[r.star_rating],
-        text: r.comment!,
-        review_created_at: r.review_created_at,
-      }))
+      .map((r) => {
+        let text = r.comment!
+        // Strip "(Translated by Google) ... (Original)\n" prefix, keep only original text
+        const originalMarker = '(Original)\n'
+        const idx = text.indexOf(originalMarker)
+        if (idx !== -1) {
+          text = text.slice(idx + originalMarker.length).trim()
+        }
+        return {
+          reviewer_name: r.reviewer_name,
+          rating: STAR_MAP[r.star_rating],
+          text,
+          review_created_at: r.review_created_at,
+        }
+      })
 
     // Randomly pick 6 from the pool using Fisher-Yates shuffle
     for (let i = mapped.length - 1; i > 0; i--) {

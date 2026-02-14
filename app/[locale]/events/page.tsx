@@ -1,10 +1,11 @@
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import ImageGallery from '@/components/shared/ImageGallery'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
-import { eventTypes, eventPackages, eventPackageNotes, eventsFaqItems, amenities } from '@/data/pricing'
+import { eventTypes, eventPackages, eventPackageNotes } from '@/data/pricing'
 import { getEventsPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import EventInquiryForm from '@/components/events/EventInquiryForm'
@@ -32,11 +33,20 @@ function renderFaqAnswer(answer: string) {
   })
 }
 
-export const metadata: Metadata = {
-  title: 'Events & Parties',
-  description: 'Host your next event at LENGOLF Bangkok — corporate team building, birthdays, and private parties. Full venue rental for 50+ guests from 9,999 THB.',
-  alternates: { canonical: `${SITE_URL}/events/` },
-  openGraph: { images: [{ url: storageUrl('events/event-01.jpg'), alt: 'Corporate event at LENGOLF indoor golf' }] },
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'Events' })
+  const altLocale = locale === 'th' ? 'en' : 'th'
+  const altPrefix = altLocale === 'th' ? '/th' : ''
+  return {
+    title: t('metaTitle'),
+    description: t('metaDescription'),
+    alternates: {
+      canonical: `${SITE_URL}${locale === 'th' ? '/th' : ''}/events/`,
+      languages: { en: `${SITE_URL}/events/`, th: `${SITE_URL}/th/events/` },
+    },
+    openGraph: { images: [{ url: storageUrl('events/event-01.jpg'), alt: 'Corporate event at LENGOLF indoor golf' }] },
+  }
 }
 
 const eventGallery = [
@@ -64,12 +74,25 @@ const eventGallery = [
   { src: storageUrl('events/event-22.jpg'), alt: 'Panoramic view of LENGOLF event space with all bays and bar', width: 1200, height: 800 },
 ]
 
-export default function EventsPage() {
+const FAQ_COUNT = 8
+
+export default async function EventsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations('Events')
+  const tFaq = await getTranslations('EventsFaq')
+  const tCommon = await getTranslations('Common')
+
+  const faqItems = Array.from({ length: FAQ_COUNT }, (_, i) => ({
+    question: tFaq(`q${i + 1}`),
+    answer: tFaq(`a${i + 1}`),
+  }))
+
   const pricingJsonLd = getEventsPricingJsonLd()
-  const faqJsonLd = getFaqPageJsonLd(eventsFaqItems)
+  const faqJsonLd = getFaqPageJsonLd(faqItems)
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
-    { name: 'Events & Parties', url: `${SITE_URL}/events/` },
+    { name: t('metaTitle'), url: `${SITE_URL}/events/` },
   ])
 
   return (
@@ -109,13 +132,13 @@ export default function EventsPage() {
             className="inline-block rounded px-6 py-2 text-lg font-bold uppercase tracking-widest text-white mb-5 md:text-xl"
             style={{ backgroundColor: '#7CB342' }}
           >
-            Events &amp; Parties
+            {t('heroBadge')}
           </span>
           <h1 className="mb-4 text-5xl font-black uppercase leading-none md:text-6xl lg:text-7xl">
-            Golf. Party. Fun.
+            {t('heroTitle')}
           </h1>
           <p className="text-base font-semibold italic tracking-wide text-white/90 md:text-lg">
-            Host a memorable indoor golf party at LENGOLF
+            {t('heroSubtitle')}
           </p>
         </div>
       </section>
@@ -124,24 +147,19 @@ export default function EventsPage() {
       <SectionWrapper>
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="mb-8 text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>LOOKING TO HOST</span>{' '}
-            <span className="text-foreground">A UNIQUE AND EXCITING EVENT?</span>
+            <span style={{ color: '#007429' }}>{t('introTitle')}</span>{' '}
+            <span className="text-foreground">{t('introTitleSuffix')}</span>
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-            <strong className="text-foreground">LENGOLF</strong> is Bangkok&apos;s premier indoor golf event venue. Our state-of-the-art Korean Bravo Golf simulators, full bar, and customizable catering create the perfect setting for corporate events, birthday celebrations, team building, and private parties.
+            {t('introText')}
           </p>
 
           {/* Stat chips */}
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {[
-              { stat: '50+', label: 'guest capacity' },
-              { stat: '4', label: 'simulator bays' },
-              { stat: '100+', label: 'golf courses' },
-              { stat: 'Full', label: 'bar & catering' },
-            ].map((item) => (
-              <div key={item.label} className="rounded-lg border border-primary/15 bg-primary/5 px-4 py-4">
-                <div className="text-2xl font-bold" style={{ color: '#007429' }}>{item.stat}</div>
-                <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">{item.label}</div>
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="rounded-lg border border-primary/15 bg-primary/5 px-4 py-4">
+                <div className="text-2xl font-bold" style={{ color: '#007429' }}>{t(`stat${i}Value`)}</div>
+                <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">{t(`stat${i}Label`)}</div>
               </div>
             ))}
           </div>
@@ -152,7 +170,7 @@ export default function EventsPage() {
               className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-8 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-              BOOK NOW
+              {t('bookNow')}
             </a>
             <FloorPlanDialog />
           </div>
@@ -163,17 +181,17 @@ export default function EventsPage() {
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-12 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>WHY HAVE YOUR NEXT EVENT</span>{' '}
-            <span className="text-foreground">AT LENGOLF</span>
+            <span style={{ color: '#007429' }}>{t('amenitiesTitle')}</span>{' '}
+            <span className="text-foreground">{t('amenitiesTitleSuffix')}</span>
           </h2>
           <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
-            {amenities.map((item) => (
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
               <div
-                key={item}
+                key={i}
                 className="flex items-center justify-center rounded-md px-4 py-6 text-center font-bold uppercase text-primary transition-colors hover:bg-primary/5"
                 style={{ border: '2px solid #007429' }}
               >
-                <p className="text-sm md:text-base">{item}</p>
+                <p className="text-sm md:text-base">{t(`amenity${i}`)}</p>
               </div>
             ))}
           </div>
@@ -183,21 +201,21 @@ export default function EventsPage() {
       {/* ── Event Types ── */}
       <SectionWrapper>
         <h2 className="mb-12 text-center text-3xl font-bold italic lg:text-4xl">
-          <span style={{ color: '#007429' }}>Any Event, Any Time</span>{' '}
-          <span className="text-foreground">– We&apos;ve Got You Covered</span>
+          <span style={{ color: '#007429' }}>{t('eventTypesTitle')}</span>{' '}
+          <span className="text-foreground">{t('eventTypesTitleSuffix')}</span>
         </h2>
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
-          {eventTypes.map((event) => (
-            <div key={event.title} className="flex flex-col items-center gap-4 text-center">
+          {eventTypes.map((event, i) => (
+            <div key={i} className="flex flex-col items-center gap-4 text-center">
               <Image
                 src={event.icon}
-                alt={event.title}
+                alt={t(`eventType${i + 1}`)}
                 width={80}
                 height={80}
                 className="opacity-80"
                 style={{ filter: 'hue-rotate(0deg) saturate(1.2)' }}
               />
-              <p className="text-sm font-medium">{event.title}</p>
+              <p className="text-sm font-medium">{t(`eventType${i + 1}`)}</p>
             </div>
           ))}
         </div>
@@ -207,8 +225,8 @@ export default function EventsPage() {
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>OUR EVENT</span>{' '}
-            <span className="text-foreground">PACKAGES</span>
+            <span style={{ color: '#007429' }}>{t('packagesTitle')}</span>{' '}
+            <span className="text-foreground">{t('packagesTitleSuffix')}</span>
           </h2>
           <div className="mx-auto max-w-lg">
             <Image
@@ -283,15 +301,15 @@ export default function EventsPage() {
       {/* ── CTA Band ── */}
       <section className="py-12 lg:py-16 bg-primary">
         <div className="section-max-width section-padding text-center">
-          <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">Ready to plan your event?</h2>
-          <p className="mb-6 text-white/80">Get in touch to customize your perfect event package</p>
+          <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">{t('ctaTitle')}</h2>
+          <p className="mb-6 text-white/80">{t('ctaSubtitle')}</p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="#booknowsection"
               className="inline-flex h-12 items-center gap-2 rounded-md bg-white text-primary px-8 text-sm font-semibold transition-colors hover:bg-white/90"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-              INQUIRE NOW
+              {t('inquireNow')}
             </a>
             <a
               href="https://lin.ee/uxQpIXn"
@@ -300,7 +318,7 @@ export default function EventsPage() {
               className="inline-flex h-12 items-center gap-2 rounded-md border-2 border-white px-8 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              LINE @lengolf
+              {tCommon('lineAtLengolf')}
             </a>
           </div>
         </div>
@@ -310,8 +328,8 @@ export default function EventsPage() {
       <SectionWrapper id="booknowsection">
         <div className="mx-auto max-w-2xl">
           <h2 className="mb-8 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>Host</span>{' '}
-            <span className="text-foreground">an Event</span>
+            <span style={{ color: '#007429' }}>{t('formTitle')}</span>{' '}
+            <span className="text-foreground">{t('formTitleSuffix')}</span>
           </h2>
           <EventInquiryForm />
         </div>
@@ -321,12 +339,12 @@ export default function EventsPage() {
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>FREQUENTLY ASKED</span>{' '}
-            <span className="text-foreground">QUESTIONS</span>
+            <span style={{ color: '#007429' }}>{t('faqTitle')}</span>{' '}
+            <span className="text-foreground">{t('faqTitleSuffix')}</span>
           </h2>
           <div className="mx-auto max-w-3xl">
             <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
-              {eventsFaqItems.map((item, i) => (
+              {faqItems.map((item, i) => (
                 <AccordionItem key={i} value={`item-${i}`} className="border-b border-border/60 px-1">
                   <AccordionTrigger className="text-left font-semibold py-5 hover:no-underline" style={{ color: '#007429' }}>
                     {item.question}
@@ -344,8 +362,8 @@ export default function EventsPage() {
       {/* ── Event Gallery ── */}
       <SectionWrapper>
         <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-          <span style={{ color: '#007429' }}>EVENT</span>{' '}
-          <span className="text-foreground">GALLERY</span>
+          <span style={{ color: '#007429' }}>{t('galleryTitle')}</span>{' '}
+          <span className="text-foreground">{t('galleryTitleSuffix')}</span>
         </h2>
         <ImageGallery images={eventGallery} rows={[2, 3, 3, 2, 3, 3, 2, 2, 2]} />
       </SectionWrapper>
@@ -354,20 +372,20 @@ export default function EventsPage() {
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-3 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>EXPLORE</span>{' '}
-            <span className="text-foreground">MORE</span>
+            <span style={{ color: '#007429' }}>{t('exploreTitle')}</span>{' '}
+            <span className="text-foreground">{t('exploreTitleSuffix')}</span>
           </h2>
-          <p className="mb-8 text-center text-sm text-muted-foreground">Check out everything LENGOLF has to offer</p>
+          <p className="mb-8 text-center text-sm text-muted-foreground">{t('exploreSubtitle')}</p>
           <div className="mx-auto max-w-xl">
             <div className="flex flex-wrap items-center justify-center gap-3">
               {[
-                { label: 'Bay Rates', href: '/golf' },
-                { label: 'Lessons', href: '/lessons' },
-                { label: 'Club Rental', href: '/golf-club-rental' },
-                { label: 'Blog', href: '/blog' },
+                { label: t('exploreBayRates'), href: '/golf' },
+                { label: t('exploreLessons'), href: '/lessons' },
+                { label: t('exploreClubRental'), href: '/golf-club-rental' },
+                { label: t('exploreBlog'), href: '/blog' },
               ].map((link) => (
                 <Link
-                  key={link.label}
+                  key={link.href}
                   href={link.href}
                   className="rounded-full border border-primary/20 bg-primary/5 px-5 py-2.5 text-sm font-medium transition-colors hover:bg-primary hover:text-white"
                   style={{ color: '#007429' }}
