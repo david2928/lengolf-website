@@ -52,13 +52,23 @@ export const AQI_BANDS: AqiBand[] = [
   },
   {
     min: 201,
-    max: 999,
+    max: 300,
     label: 'Very Unhealthy',
     bgColor: '#faf5ff',
     accentColor: '#7c3aed',
     borderColor: '#e9d5ff',
     golfMessage: 'Stay indoors — perfect time for simulator golf',
     healthTip: 'Avoid outdoor activities.',
+  },
+  {
+    min: 301,
+    max: 999,
+    label: 'Hazardous',
+    bgColor: '#4a0404',
+    accentColor: '#991b1b',
+    borderColor: '#7f1d1d',
+    golfMessage: 'Stay indoors — simulator golf in clean, filtered air',
+    healthTip: 'Serious health risk. Stay indoors.',
   },
 ]
 

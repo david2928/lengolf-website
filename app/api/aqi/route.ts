@@ -34,7 +34,7 @@ export async function GET() {
             longitude: BUSINESS_INFO.coordinates.lng,
           },
           universalAqi: true,
-          extraComputations: ['HEALTH_RECOMMENDATIONS'],
+          extraComputations: ['HEALTH_RECOMMENDATIONS', 'LOCAL_AQI'],
         }),
       }
     )
@@ -45,15 +45,18 @@ export async function GET() {
 
     const raw = await res.json()
 
-    // Find the Universal AQI index (code: "uaqi")
-    const uaqiIndex = raw.indexes?.find(
+    // Prefer US EPA AQI (matches IQAir / AirVisual numbers), fall back to UAQI
+    const epaIndex = raw.indexes?.find(
+      (idx: { code: string }) => idx.code === 'usa_epa'
+    )
+    const aqiIndex = epaIndex || raw.indexes?.find(
       (idx: { code: string }) => idx.code === 'uaqi'
     ) || raw.indexes?.[0]
 
     const data: AqiApiResponse = {
-      aqi: uaqiIndex?.aqi ?? 0,
-      category: uaqiIndex?.category ?? 'Unknown',
-      dominantPollutant: uaqiIndex?.dominantPollutant ?? '',
+      aqi: aqiIndex?.aqi ?? 0,
+      category: aqiIndex?.category ?? 'Unknown',
+      dominantPollutant: aqiIndex?.dominantPollutant ?? '',
       healthTip: raw.healthRecommendations?.generalPopulation ?? '',
       updatedAt: new Date().toISOString(),
     }
