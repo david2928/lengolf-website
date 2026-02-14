@@ -98,7 +98,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   }))
 
   const faqJsonLd = getFaqPageJsonLd(faqItems)
-  const reviewsData = await getGoogleReviews()
+  const reviewsData = await getGoogleReviews(locale)
 
   const stats = [
     { stat: t('stat1Value'), label: t('stat1Label') },
