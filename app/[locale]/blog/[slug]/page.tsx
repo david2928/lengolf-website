@@ -9,6 +9,7 @@ import { getPostBySlug, getPostSlugs, getRelatedPosts, getReadingTime } from '@/
 import { SITE_URL, SITE_NAME, BOOKING_URL, storageUrl } from '@/lib/constants'
 import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 import ShareButtons from '@/components/blog/ShareButtons'
+import BackToTop from '@/components/blog/BackToTop'
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>
@@ -32,6 +33,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: post.meta_description || post.excerpt || undefined,
     alternates: {
       canonical: `${SITE_URL}/blog/${post.slug}/`,
+      languages: {
+        en: `${SITE_URL}/blog/${post.slug}/`,
+        th: `${SITE_URL}/th/blog/${post.slug}/`,
+      },
     },
     openGraph: {
       title: post.meta_title || post.title,
@@ -235,6 +240,8 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </section>
       )}
+
+      <BackToTop />
     </>
   )
 }

@@ -619,7 +619,19 @@
     "exploreBayRates": "Bay Rates",
     "exploreLessons": "Lessons",
     "exploreEvents": "Events",
-    "exploreClubRental": "Club Rental"
+    "exploreClubRental": "Club Rental",
+    "faqTitle": "BLOG",
+    "faqTitleSuffix": "FAQ"
+  },
+  "BlogFaq": {
+    "q1": "What topics does the LENGOLF blog cover?",
+    "a1": "Our blog covers indoor golf tips and techniques, Bangkok entertainment guides, golf simulator technology, upcoming events and promotions, and beginner-friendly guides to help you get the most out of your game.",
+    "q2": "How often is the blog updated?",
+    "a2": "We publish new articles regularly to keep you informed about the latest golf tips, LENGOLF news, and Bangkok lifestyle content. Follow us @lengolf on LINE for notifications.",
+    "q3": "Can I book a bay or lesson directly from the blog?",
+    "a3": "Yes! You can book a simulator bay anytime at booking.len.golf, or contact us on LINE @lengolf to enquire about lessons and events.",
+    "q4": "Where is LENGOLF located?",
+    "a4": "LENGOLF is located on the 4th floor of The Mercury Ville at BTS Chidlom, 540 Ploenchit Road, Bangkok. Find us easily on Google Maps — we're open daily from 10 AM to 11 PM."
   },
   "BlogPost": {
     "backToBlog": "Back to Blog",

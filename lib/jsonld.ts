@@ -343,6 +343,54 @@ export function getClubRentalPricingJsonLd() {
   }
 }
 
+export function getHomePricingJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'OfferCatalog',
+    name: 'LENGOLF Services & Pricing Overview',
+    description: 'Indoor golf simulator bay rental, monthly packages, golf lessons, and event packages at LENGOLF Bangkok',
+    provider: {
+      '@type': 'EntertainmentBusiness',
+      name: BUSINESS_INFO.name,
+      url: SITE_URL,
+    },
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'Bay Rental',
+        description: 'Indoor golf simulator bay rental, up to 5 players per bay, golf club rental included',
+        price: '500',
+        priceCurrency: 'THB',
+        unitCode: 'HUR',
+        eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'HUR' },
+      },
+      {
+        '@type': 'Offer',
+        name: 'Monthly Packages',
+        description: 'Monthly simulator bay packages from 5 to unlimited hours with F&B discounts',
+        price: '3000',
+        priceCurrency: 'THB',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Golf Lessons',
+        description: 'One-on-one coaching with PGA-certified professionals, simulator usage included',
+        price: '1800',
+        priceCurrency: 'THB',
+        unitCode: 'HUR',
+        eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'HUR' },
+      },
+      {
+        '@type': 'Offer',
+        name: 'Event Packages',
+        description: 'Private event packages with golf bays, drinks, catered food, and full-location rental options',
+        price: '9999',
+        priceCurrency: 'THB',
+      },
+    ],
+  }
+}
+
 export function getAggregateRatingJsonLd(rating: number, reviewCount: number) {
   return {
     '@context': 'https://schema.org',
@@ -371,6 +419,66 @@ export function getFaqPageJsonLd(faqItems: { question: string; answer: string }[
         text: item.answer,
       },
     })),
+  }
+}
+
+export function getLessonsServiceJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Golf Lessons at LENGOLF',
+    description: 'One-on-one and group golf coaching with Thailand PGA-certified professionals on indoor golf simulators. Lessons include real-time swing data analysis, video playback, and simulator bay usage.',
+    provider: {
+      '@type': 'EntertainmentBusiness',
+      name: BUSINESS_INFO.name,
+      url: SITE_URL,
+    },
+    serviceType: 'Golf Coaching',
+    areaServed: {
+      '@type': 'City',
+      name: 'Bangkok',
+    },
+    offers: {
+      '@type': 'Offer',
+      price: '1800',
+      priceCurrency: 'THB',
+      description: '1-hour lesson with a PGA-certified coach, simulator usage included',
+    },
+  }
+}
+
+export function getClubRentalServiceJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Golf Club Rental at LENGOLF',
+    description: 'Golf club rental service in Bangkok — free standard house sets with every bay booking, premium Callaway Warbird and Majesty Shuttle rentals, gear add-ons, and same-day delivery anywhere in Bangkok.',
+    provider: {
+      '@type': 'EntertainmentBusiness',
+      name: BUSINESS_INFO.name,
+      url: SITE_URL,
+    },
+    serviceType: 'Golf Equipment Rental',
+    areaServed: {
+      '@type': 'City',
+      name: 'Bangkok',
+    },
+    offers: [
+      {
+        '@type': 'Offer',
+        name: 'Standard Club Set',
+        price: '0',
+        priceCurrency: 'THB',
+        description: 'Free house set included with every bay booking',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Premium Club Rental',
+        price: '150',
+        priceCurrency: 'THB',
+        description: 'Callaway Warbird or Majesty Shuttle full set, per hour',
+      },
+    ],
   }
 }
 

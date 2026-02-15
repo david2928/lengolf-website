@@ -7,10 +7,11 @@ import BookingCTA from '@/components/shared/BookingCTA'
 import ImageGallery from '@/components/shared/ImageGallery'
 import ServicesCarousel from '@/components/home/ServicesCarousel'
 import { services } from '@/data/pricing'
-import { BUSINESS_INFO, BOOKING_URL, SITE_URL, SOCIAL_LINKS, storageUrl, storageImageUrl } from '@/lib/constants'
-import { getFaqPageJsonLd, getAggregateRatingJsonLd } from '@/lib/jsonld'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { BUSINESS_INFO, SITE_URL, SOCIAL_LINKS, storageUrl, storageImageUrl } from '@/lib/constants'
+import { getFaqPageJsonLd, getAggregateRatingJsonLd, getBreadcrumbJsonLd, getHomePricingJsonLd } from '@/lib/jsonld'
 import { getGoogleReviews } from '@/lib/google-reviews'
+import FaqSection from '@/components/shared/FaqSection'
+import { StarIcon } from '@/components/shared/StarRating'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
@@ -35,8 +36,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   }
 }
 
-const faqLinkStyle = 'font-medium underline underline-offset-2 hover:text-primary transition-colors'
-
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
   'booking.len.golf': { href: 'https://booking.len.golf/', external: true },
   '@lengolf': { href: 'https://lin.ee/uxQpIXn', external: true },
@@ -47,41 +46,18 @@ const faqLinks: Record<string, { href: string; external?: boolean }> = {
   'events page': { href: '/events' },
 }
 
-function renderFaqAnswer(answer: string) {
-  const pattern = new RegExp(`(${Object.keys(faqLinks).map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g')
-  const parts = answer.split(pattern)
-  return parts.map((part, i) => {
-    const link = faqLinks[part]
-    if (link) {
-      if (link.external) {
-        return <a key={i} href={link.href} className={faqLinkStyle} target="_blank" rel="noopener noreferrer">{part}</a>
-      }
-      return <Link key={i} href={link.href} className={faqLinkStyle}>{part}</Link>
-    }
-    return part
-  })
-}
-
 const galleryImages = [
-  { src: storageUrl('venue/venue-simulator-01.jpg'), alt: 'LENGOLF indoor golf simulator', width: 1024, height: 683 },
-  { src: storageUrl('venue/venue-interior-01.jpg'), alt: 'LENGOLF store', width: 1024, height: 1024 },
-  { src: storageUrl('venue/venue-interior-02.jpg'), alt: 'LENGOLF interior', width: 1024, height: 1024 },
-  { src: storageUrl('venue/venue-interior-03.jpg'), alt: 'LENGOLF setup', width: 1024, height: 1024 },
-  { src: storageUrl('venue/venue-bay-01.jpg'), alt: 'LENGOLF simulator bay', width: 1024, height: 683 },
-  { src: storageUrl('venue/venue-bar-01.jpg'), alt: 'LENGOLF bar area', width: 683, height: 1024 },
-  { src: storageUrl('venue/venue-event-space.jpg'), alt: 'LENGOLF event space', width: 1024, height: 683 },
-  { src: storageUrl('venue/venue-simulator-02.jpg'), alt: 'LENGOLF golf simulator', width: 1024, height: 683 },
+  { src: storageUrl('venue/venue-simulator-01.jpg'), alt: 'Golf simulator bay with Korean Bravo Golf technology and auto tee system at LENGOLF', width: 1024, height: 683 },
+  { src: storageUrl('venue/venue-interior-01.jpg'), alt: 'LENGOLF bar and lounge area with full drinks menu', width: 1024, height: 1024 },
+  { src: storageUrl('venue/venue-interior-02.jpg'), alt: 'Interior view of LENGOLF showing multiple simulator bays and seating', width: 1024, height: 1024 },
+  { src: storageUrl('venue/venue-interior-03.jpg'), alt: 'LENGOLF welcome area and lobby on the 4th floor of The Mercury Ville', width: 1024, height: 1024 },
+  { src: storageUrl('venue/venue-bay-01.jpg'), alt: 'Close-up of a LENGOLF simulator bay with hitting mat and projection screen', width: 1024, height: 683 },
+  { src: storageUrl('venue/venue-bar-01.jpg'), alt: 'LENGOLF bar counter serving craft cocktails and imported beers', width: 683, height: 1024 },
+  { src: storageUrl('venue/venue-event-space.jpg'), alt: 'LENGOLF private event space configured for corporate team building', width: 1024, height: 683 },
+  { src: storageUrl('venue/venue-simulator-02.jpg'), alt: 'Guests playing a virtual golf course on the Bravo Golf simulator at LENGOLF', width: 1024, height: 683 },
 ]
 
 export const revalidate = 86400
-
-function StarIcon({ filled }: { filled: boolean }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill={filled ? '#FBBC04' : '#E0E0E0'} className="h-4 w-4">
-      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-    </svg>
-  )
-}
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
@@ -98,6 +74,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   }))
 
   const faqJsonLd = getFaqPageJsonLd(faqItems)
+  const breadcrumbJsonLd = getBreadcrumbJsonLd([
+    { name: 'Home', url: `${SITE_URL}/` },
+  ])
+  const homePricingJsonLd = getHomePricingJsonLd()
   const reviewsData = await getGoogleReviews(locale)
 
   const stats = [
@@ -157,10 +137,20 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   return (
     <>
+      {/* JSON-LD Breadcrumb */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* JSON-LD FAQ Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      {/* JSON-LD OfferCatalog */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homePricingJsonLd) }}
       />
 
       {/* JSON-LD AggregateRating */}
@@ -482,28 +472,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </SectionWrapper>
 
       {/* ── 9. FAQ ── */}
-      <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
-        <div className="section-max-width section-padding">
-          <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>{t('faqTitle')}</span>{' '}
-            <span className="text-foreground">{t('faqTitleSuffix')}</span>
-          </h2>
-          <div className="mx-auto max-w-3xl">
-            <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
-              {faqItems.map((item, i) => (
-                <AccordionItem key={i} value={`item-${i}`} className="border-b border-border/60 px-1">
-                  <AccordionTrigger className="text-left font-semibold py-5 hover:no-underline" style={{ color: '#007429' }}>
-                    {item.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
-                    {renderFaqAnswer(item.answer)}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqItems} links={faqLinks} title={t('faqTitle')} titleSuffix={t('faqTitleSuffix')} bgColor="#F6FFFA" />
     </>
   )
 }
