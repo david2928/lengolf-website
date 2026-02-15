@@ -5,31 +5,14 @@ import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
-import { getClubRentalPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
-
-const faqLinkStyle = 'font-medium underline underline-offset-2 hover:text-primary transition-colors'
+import { getClubRentalPricingJsonLd, getClubRentalServiceJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
+import FaqSection from '@/components/shared/FaqSection'
 
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
   'booking.len.golf': { href: 'https://booking.len.golf/', external: true },
   '@lengolf': { href: 'https://lin.ee/uxQpIXn', external: true },
   'Google Maps': { href: BUSINESS_INFO.googleMapsUrl, external: true },
   'bay rates page': { href: '/golf' },
-}
-
-function renderFaqAnswer(answer: string) {
-  const pattern = new RegExp(`(${Object.keys(faqLinks).map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g')
-  const parts = answer.split(pattern)
-  return parts.map((part, i) => {
-    const link = faqLinks[part]
-    if (link) {
-      if (link.external) {
-        return <a key={i} href={link.href} className={faqLinkStyle} target="_blank" rel="noopener noreferrer">{part}</a>
-      }
-      return <Link key={i} href={link.href} className={faqLinkStyle}>{part}</Link>
-    }
-    return part
-  })
 }
 
 const gearIconMap: Record<string, React.ReactNode> = {
@@ -88,6 +71,7 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
   }))
 
   const pricingJsonLd = getClubRentalPricingJsonLd()
+  const serviceJsonLd = getClubRentalServiceJsonLd()
   const faqJsonLd = getFaqPageJsonLd(faqItems)
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
@@ -104,6 +88,11 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}
+      />
+      {/* JSON-LD Service Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
       {/* JSON-LD FAQ Schema */}
       <script
@@ -392,28 +381,7 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
-        <div className="section-max-width section-padding">
-          <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>{t('faqTitle')}</span>{' '}
-            <span className="text-foreground">{t('faqTitleSuffix')}</span>
-          </h2>
-          <div className="mx-auto max-w-3xl">
-            <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
-              {faqItems.map((item, i) => (
-                <AccordionItem key={i} value={`item-${i}`} className="border-b border-border/60 px-1">
-                  <AccordionTrigger className="text-left font-semibold py-5 hover:no-underline" style={{ color: '#007429' }}>
-                    {item.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
-                    {renderFaqAnswer(item.answer)}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqItems} links={faqLinks} title={t('faqTitle')} titleSuffix={t('faqTitleSuffix')} bgColor="#F6FFFA" />
 
       {/* ── Explore More ── */}
       <SectionWrapper>

@@ -7,30 +7,13 @@ import ImageGallery from '@/components/shared/ImageGallery'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
 import { coaches } from '@/data/coaches'
 import { lessonPricing, lessonNotes } from '@/data/pricing'
-import { getLessonsPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
-
-const faqLinkStyle = 'font-medium underline underline-offset-2 hover:text-primary transition-colors'
+import { getLessonsPricingJsonLd, getLessonsServiceJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
+import FaqSection from '@/components/shared/FaqSection'
 
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
   'booking.len.golf': { href: 'https://booking.len.golf/', external: true },
   '@lengolf': { href: 'https://lin.ee/uxQpIXn', external: true },
   'Google Maps': { href: BUSINESS_INFO.googleMapsUrl, external: true },
-}
-
-function renderFaqAnswer(answer: string) {
-  const pattern = new RegExp(`(${Object.keys(faqLinks).map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g')
-  const parts = answer.split(pattern)
-  return parts.map((part, i) => {
-    const link = faqLinks[part]
-    if (link) {
-      if (link.external) {
-        return <a key={i} href={link.href} className={faqLinkStyle} target="_blank" rel="noopener noreferrer">{part}</a>
-      }
-      return <Link key={i} href={link.href} className={faqLinkStyle}>{part}</Link>
-    }
-    return part
-  })
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -86,6 +69,7 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
   }))
 
   const pricingJsonLd = getLessonsPricingJsonLd()
+  const serviceJsonLd = getLessonsServiceJsonLd()
   const faqJsonLd = getFaqPageJsonLd(faqItems)
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
@@ -102,6 +86,11 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}
+      />
+      {/* JSON-LD Service Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
       {/* JSON-LD FAQ Schema */}
       <script
@@ -366,31 +355,19 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
             </div>
           ))}
         </div>
+        <div className="sr-only">
+          <h3>Current Lesson Promotions at LENGOLF</h3>
+          <ul>
+            <li>Free 1-Hour Trial Lesson: Try a complimentary lesson with a PGA-certified coach — simple techniques, solid fundamentals, get course-ready fast</li>
+            <li>Starter Package: 5 hours coaching plus 5 hours practice with a free golf glove for 11,000 THB — valid for 6 months</li>
+            <li>Coaching Packages: Hourly and multi-hour lesson bundles from 1,800 THB/hr, with volume discounts up to 50 hours</li>
+            <li>Lesson Promotion: Book multiple sessions with PGA-certified coaches on simulator bays with real-time swing data</li>
+          </ul>
+        </div>
       </SectionWrapper>
 
       {/* ── FAQ ── */}
-      <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
-        <div className="section-max-width section-padding">
-          <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>{t('faqTitle')}</span>{' '}
-            <span className="text-foreground">{t('faqTitleSuffix')}</span>
-          </h2>
-          <div className="mx-auto max-w-3xl">
-            <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
-              {faqItems.map((item, i) => (
-                <AccordionItem key={i} value={`item-${i}`} className="border-b border-border/60 px-1">
-                  <AccordionTrigger className="text-left font-semibold py-5 hover:no-underline" style={{ color: '#007429' }}>
-                    {item.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
-                    {renderFaqAnswer(item.answer)}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqItems} links={faqLinks} title={t('faqTitle')} titleSuffix={t('faqTitleSuffix')} bgColor="#F6FFFA" />
 
       {/* ── Our Students ── */}
       <SectionWrapper>

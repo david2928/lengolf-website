@@ -9,30 +9,16 @@ import { eventTypes, eventPackages, eventPackageNotes } from '@/data/pricing'
 import { eventClients, instagramPosts } from '@/data/event-clients'
 import InstagramEmbed from '@/components/events/InstagramEmbed'
 import { getEventsPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import EventInquiryForm from '@/components/events/EventInquiryForm'
 import FloorPlanDialog from '@/components/events/FloorPlanDialog'
-
-const faqLinkStyle = 'font-medium underline underline-offset-2 hover:text-primary transition-colors'
+import FaqSection from '@/components/shared/FaqSection'
 
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
+  'booking.len.golf': { href: 'https://booking.len.golf/', external: true },
   '@lengolf': { href: 'https://lin.ee/uxQpIXn', external: true },
   'Google Maps': { href: BUSINESS_INFO.googleMapsUrl, external: true },
-}
-
-function renderFaqAnswer(answer: string) {
-  const pattern = new RegExp(`(${Object.keys(faqLinks).map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g')
-  const parts = answer.split(pattern)
-  return parts.map((part, i) => {
-    const link = faqLinks[part]
-    if (link) {
-      if (link.external) {
-        return <a key={i} href={link.href} className={faqLinkStyle} target="_blank" rel="noopener noreferrer">{part}</a>
-      }
-      return <Link key={i} href={link.href} className={faqLinkStyle}>{part}</Link>
-    }
-    return part
-  })
+  'lessons page': { href: '/lessons' },
+  'club rental page': { href: '/golf-club-rental' },
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -169,7 +155,7 @@ export default async function EventsPage({ params }: { params: Promise<{ locale:
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="#booknowsection"
+              href="#inquire"
               className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-8 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
@@ -355,7 +341,7 @@ export default async function EventsPage({ params }: { params: Promise<{ locale:
           <p className="mb-6 text-white/80">{t('ctaSubtitle')}</p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
-              href="#booknowsection"
+              href="#inquire"
               className="inline-flex h-12 items-center gap-2 rounded-md bg-white text-primary px-8 text-sm font-semibold transition-colors hover:bg-white/90"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
@@ -375,7 +361,7 @@ export default async function EventsPage({ params }: { params: Promise<{ locale:
       </section>
 
       {/* ── Inquiry Form ── */}
-      <SectionWrapper id="booknowsection">
+      <SectionWrapper id="inquire">
         <div className="mx-auto max-w-2xl">
           <h2 className="mb-8 text-center text-3xl font-bold italic lg:text-4xl">
             <span style={{ color: '#007429' }}>{t('formTitle')}</span>{' '}
@@ -386,28 +372,7 @@ export default async function EventsPage({ params }: { params: Promise<{ locale:
       </SectionWrapper>
 
       {/* ── FAQ ── */}
-      <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
-        <div className="section-max-width section-padding">
-          <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>{t('faqTitle')}</span>{' '}
-            <span className="text-foreground">{t('faqTitleSuffix')}</span>
-          </h2>
-          <div className="mx-auto max-w-3xl">
-            <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
-              {faqItems.map((item, i) => (
-                <AccordionItem key={i} value={`item-${i}`} className="border-b border-border/60 px-1">
-                  <AccordionTrigger className="text-left font-semibold py-5 hover:no-underline" style={{ color: '#007429' }}>
-                    {item.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
-                    {renderFaqAnswer(item.answer)}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqItems} links={faqLinks} title={t('faqTitle')} titleSuffix={t('faqTitleSuffix')} bgColor="#F6FFFA" />
 
       {/* ── Event Gallery ── */}
       <SectionWrapper>

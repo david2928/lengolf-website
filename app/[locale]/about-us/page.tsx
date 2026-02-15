@@ -1,15 +1,15 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import ContactInfo from '@/components/shared/ContactInfo'
 import ContactForm from '@/components/about/ContactForm'
 import BookingCTA from '@/components/shared/BookingCTA'
 import { storageUrl, SITE_URL, BUSINESS_INFO, SOCIAL_LINKS } from '@/lib/constants'
 import { getFaqPageJsonLd, getAggregateRatingJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { getGoogleReviews, type GoogleReview } from '@/lib/google-reviews'
+import FaqSection from '@/components/shared/FaqSection'
+import { StarIcon, StarRating } from '@/components/shared/StarRating'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
@@ -25,52 +25,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   }
 }
 
-const faqLinkStyle = 'font-medium underline underline-offset-2 hover:text-primary transition-colors'
-
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
   'booking.len.golf': { href: 'https://booking.len.golf/', external: true },
   '@lengolf': { href: 'https://lin.ee/uxQpIXn', external: true },
   'Google Maps': { href: BUSINESS_INFO.googleMapsUrl, external: true },
   'lessons page': { href: '/lessons' },
   'events page': { href: '/events' },
-}
-
-function renderFaqAnswer(answer: string) {
-  const pattern = new RegExp(`(${Object.keys(faqLinks).map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g')
-  const parts = answer.split(pattern)
-  return parts.map((part, i) => {
-    const link = faqLinks[part]
-    if (link) {
-      if (link.external) {
-        return <a key={i} href={link.href} className={faqLinkStyle} target="_blank" rel="noopener noreferrer">{part}</a>
-      }
-      return <Link key={i} href={link.href} className={faqLinkStyle}>{part}</Link>
-    }
-    return part
-  })
-}
-
-function StarIcon({ filled, size = 'sm' }: { filled: boolean; size?: 'sm' | 'md' }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill={filled ? '#FBBC04' : '#E0E0E0'}
-      className={size === 'md' ? 'h-5 w-5' : 'h-4 w-4'}
-    >
-      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-    </svg>
-  )
-}
-
-function StarRating({ rating }: { rating: number }) {
-  return (
-    <div className="flex gap-0.5">
-      {[1, 2, 3, 4, 5].map((star) => (
-        <StarIcon key={star} filled={star <= rating} />
-      ))}
-    </div>
-  )
 }
 
 function ReviewCard({ review }: { review: GoogleReview }) {
@@ -212,6 +172,14 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               </div>
             ))}
           </div>
+          <div className="sr-only">
+            <h3>Why Choose LENGOLF — Key Features</h3>
+            <ul>
+              {Array.from({ length: WHY_COUNT }, (_, i) => (
+                <li key={i}>{t(`why${i + 1}Title`)}: {t(`why${i + 1}Description`)}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -300,28 +268,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       </SectionWrapper>
 
       {/* ── FAQ ── */}
-      <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
-        <div className="section-max-width section-padding">
-          <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>{t('faqTitle')}</span>{' '}
-            <span className="text-foreground">{t('faqTitleSuffix')}</span>
-          </h2>
-          <div className="mx-auto max-w-3xl">
-            <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
-              {faqItems.map((item, i) => (
-                <AccordionItem key={i} value={`item-${i}`} className="border-b border-border/60 px-1">
-                  <AccordionTrigger className="text-left font-semibold py-5 hover:no-underline" style={{ color: '#007429' }}>
-                    {item.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
-                    {renderFaqAnswer(item.answer)}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqItems} links={faqLinks} title={t('faqTitle')} titleSuffix={t('faqTitleSuffix')} bgColor="#F6FFFA" />
     </>
   )
 }

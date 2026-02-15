@@ -5,8 +5,9 @@ import { Link } from '@/i18n/navigation'
 import { getAllPosts } from '@/lib/blog'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
-import { storageUrl, SITE_URL, SITE_NAME, SOCIAL_LINKS } from '@/lib/constants'
-import { getBreadcrumbJsonLd } from '@/lib/jsonld'
+import { storageUrl, SITE_URL, SITE_NAME, SOCIAL_LINKS, BUSINESS_INFO } from '@/lib/constants'
+import { getBreadcrumbJsonLd, getFaqPageJsonLd } from '@/lib/jsonld'
+import FaqSection from '@/components/shared/FaqSection'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
@@ -29,7 +30,21 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
   setRequestLocale(locale)
   const t = await getTranslations('Blog')
   const tCommon = await getTranslations('Common')
+  const tFaq = await getTranslations('BlogFaq')
   const posts = await getAllPosts()
+
+  const faqItems = Array.from({ length: 4 }, (_, i) => ({
+    question: tFaq(`q${i + 1}`),
+    answer: tFaq(`a${i + 1}`),
+  }))
+
+  const faqLinks: Record<string, { href: string; external?: boolean }> = {
+    'booking.len.golf': { href: 'https://booking.len.golf/', external: true },
+    '@lengolf': { href: 'https://lin.ee/uxQpIXn', external: true },
+    'Google Maps': { href: BUSINESS_INFO.googleMapsUrl, external: true },
+  }
+
+  const faqJsonLd = getFaqPageJsonLd(faqItems)
 
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
@@ -67,6 +82,10 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
       {/* Hero */}
@@ -161,6 +180,9 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
           </div>
         </div>
       </section>
+
+      {/* ── FAQ ── */}
+      <FaqSection items={faqItems} links={faqLinks} title={t('faqTitle')} titleSuffix={t('faqTitleSuffix')} />
 
       {/* ── Cross-Link Pills ── */}
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>

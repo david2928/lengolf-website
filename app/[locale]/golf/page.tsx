@@ -8,9 +8,7 @@ import AqiWidget from '@/components/shared/AqiWidget'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
 import { bayRates, bayRateNotes, monthlyPackages, monthlyPackageNotes } from '@/data/pricing'
 import { getGolfPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
-
-const faqLinkStyle = 'font-medium underline underline-offset-2 hover:text-primary transition-colors'
+import FaqSection from '@/components/shared/FaqSection'
 
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
   'booking.len.golf': { href: 'https://booking.len.golf/', external: true },
@@ -18,21 +16,6 @@ const faqLinks: Record<string, { href: string; external?: boolean }> = {
   'Google Maps': { href: BUSINESS_INFO.googleMapsUrl, external: true },
   'lessons page': { href: '/lessons' },
   'club rental page': { href: '/golf-club-rental' },
-}
-
-function renderFaqAnswer(answer: string) {
-  const pattern = new RegExp(`(${Object.keys(faqLinks).map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g')
-  const parts = answer.split(pattern)
-  return parts.map((part, i) => {
-    const link = faqLinks[part]
-    if (link) {
-      if (link.external) {
-        return <a key={i} href={link.href} className={faqLinkStyle} target="_blank" rel="noopener noreferrer">{part}</a>
-      }
-      return <Link key={i} href={link.href} className={faqLinkStyle}>{part}</Link>
-    }
-    return part
-  })
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -303,6 +286,15 @@ export default async function GolfPage({ params }: { params: Promise<{ locale: s
             </div>
           ))}
         </div>
+        <div className="sr-only">
+          <h3>Current Promotions at LENGOLF</h3>
+          <ul>
+            <li>New Customer Offer: Buy 1 hour and get 1 hour free on your first visit</li>
+            <li>Early Bird Special: Discounted simulator bay rates before 2 PM on weekdays</li>
+            <li>LENGOLF AI Lab: AI-powered swing analysis with Uneekor technology and 4K virtual course play</li>
+            <li>Monthly Package Bonus: Get 20% extra hours on all monthly packages — limited-time offer</li>
+          </ul>
+        </div>
       </SectionWrapper>
 
       {/* ── Ways To Play ── */}
@@ -489,28 +481,7 @@ export default async function GolfPage({ params }: { params: Promise<{ locale: s
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-16 lg:py-24">
-        <div className="section-max-width section-padding">
-          <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>{t('faqTitle')}</span>{' '}
-            <span className="text-foreground">{t('faqTitleSuffix')}</span>
-          </h2>
-          <div className="mx-auto max-w-3xl">
-            <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
-              {faqItems.map((item, i) => (
-                <AccordionItem key={i} value={`item-${i}`} className="border-b border-border/60 px-1">
-                  <AccordionTrigger className="text-left font-semibold py-5 hover:no-underline" style={{ color: '#007429' }}>
-                    {item.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
-                    {renderFaqAnswer(item.answer)}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqItems} links={faqLinks} title={t('faqTitle')} titleSuffix={t('faqTitleSuffix')} />
 
       {/* ── Indoor Golf Near You ── */}
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>

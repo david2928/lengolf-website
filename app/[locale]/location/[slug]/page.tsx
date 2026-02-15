@@ -33,6 +33,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     alternates: {
       canonical: `${SITE_URL}/location/${slug}/`,
+      languages: {
+        en: `${SITE_URL}/location/${slug}/`,
+        th: `${SITE_URL}/th/location/${slug}/`,
+      },
     },
   }
 }
