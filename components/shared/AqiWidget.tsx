@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useTranslations, useLocale } from 'next-intl'
 import { Wind } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { getBand, AQI_BANDS, formatPollutant, formatTime, type AqiApiResponse } from '@/lib/aqi'
@@ -10,6 +11,9 @@ interface AqiWidgetProps {
 }
 
 export default function AqiWidget({ className }: AqiWidgetProps) {
+  const t = useTranslations('Aqi')
+  const locale = useLocale()
+  const isTh = locale === 'th'
   const [data, setData] = useState<AqiApiResponse | null>(null)
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(true)
@@ -29,6 +33,9 @@ export default function AqiWidget({ className }: AqiWidgetProps) {
   if (error || !data) return null
 
   const band = getBand(data.aqi)
+  const label = t(`label${band.key}`)
+  const golfMessage = t(`golf${band.key}`)
+  const healthTip = t(`health${band.key}`)
 
   return (
     <div
@@ -43,7 +50,7 @@ export default function AqiWidget({ className }: AqiWidgetProps) {
         borderColor: band.borderColor,
       }}
       role="complementary"
-      aria-label={`Air quality near LENGOLF: ${data.aqi} — ${band.label}`}
+      aria-label={`${t('header')}: ${data.aqi} — ${label}`}
     >
       {/* Decorative blob */}
       <div
@@ -81,14 +88,14 @@ export default function AqiWidget({ className }: AqiWidgetProps) {
             <div className="flex items-center gap-1.5">
               <Wind className="h-3 w-3 text-muted-foreground shrink-0" />
               <span
-                className="text-xs font-semibold"
+                className={cn('font-semibold', isTh ? 'text-sm' : 'text-xs')}
                 style={{ color: band.accentColor }}
               >
-                {band.label}
+                {label}
               </span>
             </div>
-            <p className="text-xs text-foreground/80 mt-0.5 leading-snug">
-              {band.golfMessage}
+            <p className={cn('text-foreground/80 mt-0.5 leading-snug', isTh ? 'text-sm' : 'text-xs')}>
+              {golfMessage}
             </p>
           </div>
 
@@ -98,8 +105,8 @@ export default function AqiWidget({ className }: AqiWidgetProps) {
               className="h-1.5 w-1.5 rounded-full animate-pulse"
               style={{ backgroundColor: band.accentColor }}
             />
-            <span className="text-[9px] text-muted-foreground whitespace-nowrap">
-              {formatTime(data.updatedAt)}
+            <span className={cn('text-muted-foreground whitespace-nowrap', isTh ? 'text-[11px]' : 'text-[9px]')}>
+              {formatTime(data.updatedAt, locale)}
             </span>
           </div>
         </div>
@@ -110,8 +117,8 @@ export default function AqiWidget({ className }: AqiWidgetProps) {
         {/* Header */}
         <div className="flex items-center gap-2 mb-3">
           <Wind className="h-4 w-4 text-muted-foreground" />
-          <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-            Air Quality Near LENGOLF
+          <span className={cn('font-medium uppercase tracking-wider text-muted-foreground', isTh ? 'text-sm' : 'text-xs')}>
+            {t('header')}
           </span>
         </div>
 
@@ -126,10 +133,10 @@ export default function AqiWidget({ className }: AqiWidgetProps) {
                 {data.aqi}
               </span>
               <span
-                className="text-sm font-semibold"
+                className={cn('font-semibold', isTh ? 'text-base' : 'text-sm')}
                 style={{ color: band.accentColor }}
               >
-                {band.label}
+                {label}
               </span>
             </div>
 
@@ -150,15 +157,15 @@ export default function AqiWidget({ className }: AqiWidgetProps) {
 
           {/* Right: messages + meta */}
           <div className="flex-1 min-w-0">
-            <p className="text-sm leading-relaxed text-foreground">
-              {band.golfMessage}
+            <p className={cn('leading-relaxed text-foreground', isTh ? 'text-base' : 'text-sm')}>
+              {golfMessage}
             </p>
-            <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-              {data.healthTip || band.healthTip}
+            <p className={cn('mt-1 text-muted-foreground leading-relaxed', isTh ? 'text-sm' : 'text-xs')}>
+              {healthTip}
             </p>
             {data.dominantPollutant && (
-              <span className="block text-[10px] text-muted-foreground mt-1">
-                Main pollutant: {formatPollutant(data.dominantPollutant)}
+              <span className={cn('block text-muted-foreground mt-1', isTh ? 'text-xs' : 'text-[10px]')}>
+                {t('mainPollutant', { pollutant: formatPollutant(data.dominantPollutant) })}
               </span>
             )}
           </div>
@@ -170,8 +177,8 @@ export default function AqiWidget({ className }: AqiWidgetProps) {
             className="h-1.5 w-1.5 rounded-full animate-pulse"
             style={{ backgroundColor: band.accentColor }}
           />
-          <span className="text-[10px] text-muted-foreground">
-            Updated {formatTime(data.updatedAt)}
+          <span className={cn('text-muted-foreground', isTh ? 'text-xs' : 'text-[10px]')}>
+            {t('updated', { time: formatTime(data.updatedAt, locale) })}
           </span>
         </div>
       </div>

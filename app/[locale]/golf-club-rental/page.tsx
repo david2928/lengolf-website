@@ -1,17 +1,10 @@
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
-import {
-  clubRentalTiers,
-  premiumClubPricing,
-  gearUpItems,
-  secondHandClubPoints,
-  clubRentalWhyChoose,
-  clubRentalFaqItems,
-} from '@/data/pricing'
 import { getClubRentalPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 
@@ -66,19 +59,39 @@ const whyChooseIconMap: Record<string, React.ReactNode> = {
   ),
 }
 
-export const metadata: Metadata = {
-  title: 'Golf Club Rental in Bangkok',
-  description: 'No clubs? No problem. Every LENGOLF booking includes free standard clubs. Upgrade to premium Callaway or Majesty sets from just 150 THB/hr.',
-  alternates: { canonical: `${SITE_URL}/golf-club-rental/` },
-  openGraph: { images: [{ url: storageUrl('venue/venue-simulator-01.jpg'), alt: 'Golf club rental at LENGOLF Bangkok' }] },
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'ClubRental' })
+  return {
+    title: t('metaTitle'),
+    description: t('metaDescription'),
+    alternates: {
+      canonical: `${SITE_URL}${locale === 'th' ? '/th' : ''}/golf-club-rental/`,
+      languages: { en: `${SITE_URL}/golf-club-rental/`, th: `${SITE_URL}/th/golf-club-rental/` },
+    },
+    openGraph: { images: [{ url: storageUrl('venue/venue-simulator-01.jpg'), alt: 'Golf club rental at LENGOLF Bangkok' }] },
+  }
 }
 
-export default function ClubRentalPage() {
+const FAQ_COUNT = 6
+
+export default async function ClubRentalPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations('ClubRental')
+  const tFaq = await getTranslations('ClubRentalFaq')
+  const tCommon = await getTranslations('Common')
+
+  const faqItems = Array.from({ length: FAQ_COUNT }, (_, i) => ({
+    question: tFaq(`q${i + 1}`),
+    answer: tFaq(`a${i + 1}`),
+  }))
+
   const pricingJsonLd = getClubRentalPricingJsonLd()
-  const faqJsonLd = getFaqPageJsonLd(clubRentalFaqItems)
+  const faqJsonLd = getFaqPageJsonLd(faqItems)
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
-    { name: 'Golf Club Rental', url: `${SITE_URL}/golf-club-rental/` },
+    { name: t('metaTitle'), url: `${SITE_URL}/golf-club-rental/` },
   ])
 
   return (
@@ -118,13 +131,13 @@ export default function ClubRentalPage() {
             className="inline-block rounded px-6 py-2 text-lg font-bold uppercase tracking-widest text-white mb-5 md:text-xl"
             style={{ backgroundColor: '#7CB342' }}
           >
-            Club Rental
+            {t('heroBadge')}
           </span>
           <h1 className="mb-4 text-5xl font-black uppercase leading-none md:text-6xl lg:text-7xl">
-            Premium Clubs, No Commitment
+            {t('heroTitle')}
           </h1>
           <p className="text-base font-semibold italic tracking-wide text-white/90 md:text-lg">
-            Free Standard Sets &bull; Callaway &amp; Majesty Upgrades
+            {t('heroSubtitle')}
           </p>
         </div>
       </section>
@@ -133,19 +146,14 @@ export default function ClubRentalPage() {
       <SectionWrapper>
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-            Every bay booking at <strong className="text-foreground">LENGOLF</strong> includes free standard golf clubs. Want premium gear? Rent Callaway Warbird or Majesty Shuttle full sets starting at just 150 THB per hour — use them in-house or take them to any golf course in Bangkok.
+            {t('introText')}
           </p>
 
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {[
-              { stat: 'Free', label: 'standard clubs' },
-              { stat: '150', label: 'THB/hr premium' },
-              { stat: 'Callaway', label: '& Majesty brands' },
-              { stat: 'Delivery', label: 'in Bangkok' },
-            ].map((item) => (
-              <div key={item.label} className="rounded-lg border border-primary/15 bg-primary/5 px-4 py-4">
-                <div className="text-2xl font-bold" style={{ color: '#007429' }}>{item.stat}</div>
-                <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">{item.label}</div>
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="rounded-lg border border-primary/15 bg-primary/5 px-4 py-4">
+                <div className="text-2xl font-bold" style={{ color: '#007429' }}>{t(`stat${i}Value`)}</div>
+                <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">{t(`stat${i}Label`)}</div>
               </div>
             ))}
           </div>
@@ -157,7 +165,7 @@ export default function ClubRentalPage() {
               className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-8 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
-              PRICING
+              {t('pricing')}
             </a>
           </div>
         </div>
@@ -167,15 +175,15 @@ export default function ClubRentalPage() {
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>CLUB RENTAL</span>{' '}
-            <span className="text-foreground">OPTIONS</span>
+            <span style={{ color: '#007429' }}>{t('tiersTitle')}</span>{' '}
+            <span className="text-foreground">{t('tiersTitleSuffix')}</span>
           </h2>
           <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
-            {clubRentalTiers.map((tier) => (
+            {[1, 2, 3].map((i) => (
               <div
-                key={tier.name}
+                key={i}
                 className={`rounded-xl border p-6 transition-shadow hover:shadow-md ${
-                  tier.highlight
+                  i > 1
                     ? 'border-primary/30 bg-white shadow-sm'
                     : 'border-border/60 bg-white'
                 }`}
@@ -183,27 +191,27 @@ export default function ClubRentalPage() {
                 <div className="mb-4 flex items-center justify-between">
                   <span
                     className={`inline-block rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide ${
-                      tier.tag === 'Free'
+                      i === 1
                         ? 'bg-primary/10 text-primary'
                         : 'bg-amber-50 text-amber-700'
                     }`}
                   >
-                    {tier.tag}
+                    {t(`tier${i}Tag`)}
                   </span>
                 </div>
-                <h3 className="mb-1 text-xl font-bold" style={{ color: '#007429' }}>{tier.name}</h3>
-                <p className="mb-1 text-sm font-semibold text-foreground">{tier.brand}</p>
-                <p className="mb-4 text-xs text-muted-foreground">{tier.type}</p>
+                <h3 className="mb-1 text-xl font-bold" style={{ color: '#007429' }}>{t(`tier${i}Name`)}</h3>
+                <p className="mb-1 text-sm font-semibold text-foreground">{t(`tier${i}Brand`)}</p>
+                <p className="mb-4 text-xs text-muted-foreground">{t(`tier${i}Type`)}</p>
                 <ul className="mb-5 space-y-2">
-                  {tier.specs.map((spec) => (
-                    <li key={spec} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  {[1, 2, 3].map((j) => (
+                    <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#007429" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 shrink-0"><path d="M20 6 9 17l-5-5"/></svg>
-                      {spec}
+                      {t(`tier${i}Spec${j}`)}
                     </li>
                   ))}
                 </ul>
                 <div className="border-t border-border/40 pt-4">
-                  <p className="text-lg font-bold" style={{ color: '#007429' }}>{tier.price}</p>
+                  <p className="text-lg font-bold" style={{ color: '#007429' }}>{t(`tier${i}Price`)}</p>
                 </div>
               </div>
             ))}
@@ -223,13 +231,13 @@ export default function ClubRentalPage() {
                 </tr>
               </thead>
               <tbody>
-                {clubRentalTiers.map((tier) => (
-                  <tr key={tier.name}>
-                    <td>{tier.name}</td>
-                    <td>{tier.brand}</td>
-                    <td>{tier.type}</td>
-                    <td>{tier.specs.join('; ')}</td>
-                    <td>{tier.price}</td>
+                {[1, 2, 3].map((i) => (
+                  <tr key={i}>
+                    <td>{t(`tier${i}Name`)}</td>
+                    <td>{t(`tier${i}Brand`)}</td>
+                    <td>{t(`tier${i}Type`)}</td>
+                    <td>{[1, 2, 3].map(j => t(`tier${i}Spec${j}`)).join('; ')}</td>
+                    <td>{t(`tier${i}Price`)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -242,30 +250,30 @@ export default function ClubRentalPage() {
       <section id="pricing" className="py-16 lg:py-24">
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>PREMIUM CLUB</span>{' '}
-            <span className="text-foreground">PRICING</span>
+            <span style={{ color: '#007429' }}>{t('premiumPricingTitle')}</span>{' '}
+            <span className="text-foreground">{t('premiumPricingTitleSuffix')}</span>
           </h2>
           <div className="mx-auto max-w-lg">
             <div className="overflow-hidden rounded-xl border border-border/60">
               <table className="w-full text-left">
                 <thead>
                   <tr className="bg-primary text-white">
-                    <th className="px-6 py-3 text-sm font-semibold">Duration</th>
-                    <th className="px-6 py-3 text-sm font-semibold text-right">Price</th>
+                    <th className="px-6 py-3 text-sm font-semibold">{t('duration')}</th>
+                    <th className="px-6 py-3 text-sm font-semibold text-right">{t('price')}</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {premiumClubPricing.map((row, i) => (
-                    <tr key={row.duration} className={i % 2 === 0 ? 'bg-white' : 'bg-muted/30'}>
-                      <td className="px-6 py-4 text-sm font-medium text-foreground">{row.duration}</td>
-                      <td className="px-6 py-4 text-sm font-bold text-right" style={{ color: '#007429' }}>{row.price}</td>
+                  {[1, 2, 3, 4].map((i) => (
+                    <tr key={i} className={i % 2 !== 0 ? 'bg-white' : 'bg-muted/30'}>
+                      <td className="px-6 py-4 text-sm font-medium text-foreground">{t(`pricingRow${i}Duration`)}</td>
+                      <td className="px-6 py-4 text-sm font-bold text-right" style={{ color: '#007429' }}>{t(`pricingRow${i}Price`)}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
             <p className="mt-4 text-center text-sm text-muted-foreground">
-              *Standard clubs are always free with any bay booking. Premium pricing applies to Callaway Warbird &amp; Majesty Shuttle sets.
+              {t('premiumPricingNote')}
             </p>
           </div>
         </div>
@@ -275,18 +283,22 @@ export default function ClubRentalPage() {
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>GEAR-UP</span>{' '}
-            <span className="text-foreground">ADD-ONS</span>
+            <span style={{ color: '#007429' }}>{t('gearUpTitle')}</span>{' '}
+            <span className="text-foreground">{t('gearUpTitleSuffix')}</span>
           </h2>
           <div className="mx-auto grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-3">
-            {gearUpItems.map((item) => (
-              <div key={item.name} className="rounded-lg border border-primary/15 bg-white px-5 py-6 text-center">
+            {([
+              { key: 1, icon: 'hand' },
+              { key: 2, icon: 'circle' },
+              { key: 3, icon: 'truck' },
+            ] as const).map((item) => (
+              <div key={item.key} className="rounded-lg border border-primary/15 bg-white px-5 py-6 text-center">
                 <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10" style={{ color: '#007429' }}>
                   {gearIconMap[item.icon]}
                 </div>
-                <h3 className="mb-1 text-base font-bold text-foreground">{item.name}</h3>
-                <p className="mb-2 text-lg font-bold" style={{ color: '#007429' }}>{item.price}</p>
-                <p className="text-xs text-muted-foreground">{item.description}</p>
+                <h3 className="mb-1 text-base font-bold text-foreground">{t(`gear${item.key}Name`)}</h3>
+                <p className="mb-2 text-lg font-bold" style={{ color: '#007429' }}>{t(`gear${item.key}Price`)}</p>
+                <p className="text-xs text-muted-foreground">{t(`gear${item.key}Description`)}</p>
               </div>
             ))}
           </div>
@@ -296,8 +308,8 @@ export default function ClubRentalPage() {
       {/* ── Second-Hand Clubs ── */}
       <SectionWrapper>
         <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-          <span style={{ color: '#007429' }}>SECOND-HAND</span>{' '}
-          <span className="text-foreground">CLUBS</span>
+          <span style={{ color: '#007429' }}>{t('secondHandTitle')}</span>{' '}
+          <span className="text-foreground">{t('secondHandTitleSuffix')}</span>
         </h2>
         <div className="mx-auto max-w-4xl">
           <div className="flex flex-col overflow-hidden rounded-xl bg-muted/40 md:flex-row md:items-stretch">
@@ -313,19 +325,19 @@ export default function ClubRentalPage() {
             </div>
             <div className="flex flex-col justify-center p-6 md:p-8">
               <ul className="mb-5 space-y-2.5">
-                {secondHandClubPoints.map((point) => (
-                  <li key={point} className="flex items-start gap-2 text-sm leading-relaxed text-muted-foreground">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm leading-relaxed text-muted-foreground">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#007429" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 shrink-0"><path d="M20 6 9 17l-5-5"/></svg>
-                    {point}
+                    {t(`secondHand${i}`)}
                   </li>
                 ))}
               </ul>
               <div className="rounded-lg border border-primary/20 bg-primary/5 px-4 py-3 text-center">
                 <p className="text-sm font-bold" style={{ color: '#007429' }}>
-                  Try Before You Buy!
+                  {t('tryBeforeBuy')}
                 </p>
                 <p className="mt-1 text-xs text-muted-foreground">
-                  Test any second-hand set on our simulators before you commit
+                  {t('tryBeforeBuyText')}
                 </p>
               </div>
             </div>
@@ -337,17 +349,22 @@ export default function ClubRentalPage() {
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>WHY CHOOSE</span>{' '}
-            <span className="text-foreground">LENGOLF</span>
+            <span style={{ color: '#007429' }}>{t('whyChooseTitle')}</span>{' '}
+            <span className="text-foreground">{t('whyChooseTitleSuffix')}</span>
           </h2>
           <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2">
-            {clubRentalWhyChoose.map((feature) => (
-              <div key={feature.title} className="rounded-xl border border-border/60 bg-white p-6">
+            {([
+              { key: 1, icon: 'award' },
+              { key: 2, icon: 'map-pin' },
+              { key: 3, icon: 'clock' },
+              { key: 4, icon: 'calendar' },
+            ] as const).map((item) => (
+              <div key={item.key} className="rounded-xl border border-border/60 bg-white p-6">
                 <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10" style={{ color: '#007429' }}>
-                  {whyChooseIconMap[feature.icon]}
+                  {whyChooseIconMap[item.icon]}
                 </div>
-                <h3 className="mb-2 text-lg font-bold text-foreground">{feature.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{feature.description}</p>
+                <h3 className="mb-2 text-lg font-bold text-foreground">{t(`why${item.key}Title`)}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{t(`why${item.key}Description`)}</p>
               </div>
             ))}
           </div>
@@ -357,10 +374,10 @@ export default function ClubRentalPage() {
       {/* ── CTA Band ── */}
       <section className="py-12 lg:py-16 bg-primary">
         <div className="section-max-width section-padding text-center">
-          <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">Ready to gear up?</h2>
-          <p className="mb-6 text-white/80">Book your bay online — standard clubs included free, or reserve premium sets</p>
+          <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">{t('ctaTitle')}</h2>
+          <p className="mb-6 text-white/80">{t('ctaSubtitle')}</p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <BookingCTA text="BOOK NOW" className="bg-white text-primary hover:bg-white/90" />
+            <BookingCTA text={tCommon('bookNow')} className="bg-white text-primary hover:bg-white/90" />
             <a
               href="https://lin.ee/uxQpIXn"
               target="_blank"
@@ -368,7 +385,7 @@ export default function ClubRentalPage() {
               className="inline-flex h-12 items-center gap-2 rounded-md border-2 border-white px-8 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              LINE @lengolf
+              {tCommon('lineAtLengolf')}
             </a>
           </div>
         </div>
@@ -378,12 +395,12 @@ export default function ClubRentalPage() {
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>FREQUENTLY ASKED</span>{' '}
-            <span className="text-foreground">QUESTIONS</span>
+            <span style={{ color: '#007429' }}>{t('faqTitle')}</span>{' '}
+            <span className="text-foreground">{t('faqTitleSuffix')}</span>
           </h2>
           <div className="mx-auto max-w-3xl">
             <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
-              {clubRentalFaqItems.map((item, i) => (
+              {faqItems.map((item, i) => (
                 <AccordionItem key={i} value={`item-${i}`} className="border-b border-border/60 px-1">
                   <AccordionTrigger className="text-left font-semibold py-5 hover:no-underline" style={{ color: '#007429' }}>
                     {item.question}
@@ -401,20 +418,20 @@ export default function ClubRentalPage() {
       {/* ── Explore More ── */}
       <SectionWrapper>
         <h2 className="mb-3 text-center text-3xl font-bold italic lg:text-4xl">
-          <span style={{ color: '#007429' }}>EXPLORE</span>{' '}
-          <span className="text-foreground">MORE</span>
+          <span style={{ color: '#007429' }}>{t('exploreTitle')}</span>{' '}
+          <span className="text-foreground">{t('exploreTitleSuffix')}</span>
         </h2>
-        <p className="mb-8 text-center text-sm text-muted-foreground">Check out everything LENGOLF has to offer</p>
+        <p className="mb-8 text-center text-sm text-muted-foreground">{t('exploreSubtitle')}</p>
         <div className="mx-auto max-w-xl">
           <div className="flex flex-wrap items-center justify-center gap-3">
             {[
-              { label: 'Bay Rates', href: '/golf' },
-              { label: 'Lessons', href: '/lessons' },
-              { label: 'Events', href: '/events' },
-              { label: 'Blog', href: '/blog' },
+              { label: t('exploreBayRates'), href: '/golf' },
+              { label: t('exploreLessons'), href: '/lessons' },
+              { label: t('exploreEvents'), href: '/events' },
+              { label: t('exploreBlog'), href: '/blog' },
             ].map((link) => (
               <Link
-                key={link.label}
+                key={link.href}
                 href={link.href}
                 className="rounded-full border border-primary/20 bg-primary/5 px-5 py-2.5 text-sm font-medium transition-colors hover:bg-primary hover:text-white"
                 style={{ color: '#007429' }}

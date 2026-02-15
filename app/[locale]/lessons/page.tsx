@@ -1,11 +1,12 @@
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import ImageGallery from '@/components/shared/ImageGallery'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
 import { coaches } from '@/data/coaches'
-import { lessonPricing, lessonNotes, lessonsFaqItems } from '@/data/pricing'
+import { lessonPricing, lessonNotes } from '@/data/pricing'
 import { getLessonsPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 
@@ -32,11 +33,18 @@ function renderFaqAnswer(answer: string) {
   })
 }
 
-export const metadata: Metadata = {
-  title: 'Golf Lessons & Coaching',
-  description: 'Learn golf from Thailand PGA professionals at LENGOLF Bangkok. Personalized simulator lessons for all levels. Free trial available, packages from 1,800 THB.',
-  alternates: { canonical: `${SITE_URL}/lessons/` },
-  openGraph: { images: [{ url: storageUrl('lessons/promo-free-trial.jpg'), alt: 'Golf lessons with PGA Pro at LENGOLF' }] },
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'Lessons' })
+  return {
+    title: t('metaTitle'),
+    description: t('metaDescription'),
+    alternates: {
+      canonical: `${SITE_URL}${locale === 'th' ? '/th' : ''}/lessons/`,
+      languages: { en: `${SITE_URL}/lessons/`, th: `${SITE_URL}/th/lessons/` },
+    },
+    openGraph: { images: [{ url: storageUrl('lessons/promo-free-trial.jpg'), alt: 'Golf lessons with PGA Pro at LENGOLF' }] },
+  }
 }
 
 const promoImages = [
@@ -63,12 +71,25 @@ const studentImages = [
   { src: storageUrl('lessons/student-kids-03.jpg'), alt: 'Junior coaching session focused on building proper swing mechanics', width: 1200, height: 800 },
 ]
 
-export default function LessonsPage() {
+const FAQ_COUNT = 9
+
+export default async function LessonsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations('Lessons')
+  const tFaq = await getTranslations('LessonsFaq')
+  const tCommon = await getTranslations('Common')
+
+  const faqItems = Array.from({ length: FAQ_COUNT }, (_, i) => ({
+    question: tFaq(`q${i + 1}`),
+    answer: tFaq(`a${i + 1}`),
+  }))
+
   const pricingJsonLd = getLessonsPricingJsonLd()
-  const faqJsonLd = getFaqPageJsonLd(lessonsFaqItems)
+  const faqJsonLd = getFaqPageJsonLd(faqItems)
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
-    { name: 'Golf Lessons & Coaching', url: `${SITE_URL}/lessons/` },
+    { name: t('metaTitle'), url: `${SITE_URL}/lessons/` },
   ])
 
   return (
@@ -108,13 +129,13 @@ export default function LessonsPage() {
             className="inline-block rounded px-6 py-2 text-lg font-bold uppercase tracking-widest text-white mb-5 md:text-xl"
             style={{ backgroundColor: '#7CB342' }}
           >
-            Golf Coaching
+            {t('heroBadge')}
           </span>
           <h1 className="mb-4 text-5xl font-black uppercase leading-none md:text-6xl lg:text-7xl">
-            Improve Your Game
+            {t('heroTitle')}
           </h1>
           <p className="text-base font-semibold italic tracking-wide text-white/90 md:text-lg">
-            Take golf lessons at LENGOLF
+            {t('heroSubtitle')}
           </p>
         </div>
       </section>
@@ -123,20 +144,15 @@ export default function LessonsPage() {
       <SectionWrapper>
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-            At <strong className="text-foreground">LENGOLF</strong>, our Thailand PGA-certified coaches offer personalized golf instruction for every skill level — and you can try it with a <strong className="text-foreground">free 1-hour trial lesson</strong>. Whether you&apos;re a beginner building fundamentals or an advanced player refining your technique, lessons use our state-of-the-art simulators for data-driven swing analysis and faster improvement.
+            {t('introText')}
           </p>
 
           {/* Stat chips */}
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {[
-              { stat: '3', label: 'PGA coaches' },
-              { stat: '1,800', label: 'THB / lesson' },
-              { stat: 'All Levels', label: 'beginner to advanced' },
-              { stat: 'Simulator', label: 'included free' },
-            ].map((item) => (
-              <div key={item.label} className="rounded-lg border border-primary/15 bg-primary/5 px-4 py-4">
-                <div className="text-2xl font-bold" style={{ color: '#007429' }}>{item.stat}</div>
-                <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">{item.label}</div>
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="rounded-lg border border-primary/15 bg-primary/5 px-4 py-4">
+                <div className="text-2xl font-bold" style={{ color: '#007429' }}>{t(`stat${i}Value`)}</div>
+                <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">{t(`stat${i}Label`)}</div>
               </div>
             ))}
           </div>
@@ -149,14 +165,14 @@ export default function LessonsPage() {
               className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-8 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              BOOK A LESSON
+              {t('bookALesson')}
             </a>
             <a
               href="#pricing"
               className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-8 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
-              PRICING
+              {t('pricing')}
             </a>
           </div>
         </div>
@@ -166,8 +182,8 @@ export default function LessonsPage() {
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-12 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>OUR</span>{' '}
-            <span className="text-foreground">COACH</span>
+            <span style={{ color: '#007429' }}>{t('ourCoachTitle')}</span>{' '}
+            <span className="text-foreground">{t('ourCoachTitleSuffix')}</span>
           </h2>
           <div className="space-y-20">
             {coaches.map((coach, i) => (
@@ -193,7 +209,7 @@ export default function LessonsPage() {
 
                   <div className="mt-6 grid gap-6 sm:grid-cols-3">
                     <div>
-                      <h4 className="mb-2 font-semibold" style={{ color: '#007429' }}>Coaching Expertise</h4>
+                      <h4 className="mb-2 font-semibold" style={{ color: '#007429' }}>{t('coachingExpertise')}</h4>
                       <ul className="space-y-1 text-sm text-muted-foreground">
                         {coach.expertise.map((item) => (
                           <li key={item}>• {item}</li>
@@ -201,7 +217,7 @@ export default function LessonsPage() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="mb-2 font-semibold" style={{ color: '#007429' }}>Career Achievements</h4>
+                      <h4 className="mb-2 font-semibold" style={{ color: '#007429' }}>{t('careerAchievements')}</h4>
                       <ul className="space-y-1 text-sm text-muted-foreground">
                         {coach.achievements.map((item) => (
                           <li key={item}>• {item}</li>
@@ -209,7 +225,7 @@ export default function LessonsPage() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="mb-2 font-semibold" style={{ color: '#007429' }}>Education</h4>
+                      <h4 className="mb-2 font-semibold" style={{ color: '#007429' }}>{t('education')}</h4>
                       <ul className="space-y-1 text-sm text-muted-foreground">
                         {coach.education.map((item) => (
                           <li key={item}>• {item}</li>
@@ -242,11 +258,11 @@ export default function LessonsPage() {
       <SectionWrapper>
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="mb-8 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>OUR</span>{' '}
-            <span className="text-foreground">LESSONS</span>
+            <span style={{ color: '#007429' }}>{t('ourLessonsTitle')}</span>{' '}
+            <span className="text-foreground">{t('ourLessonsTitleSuffix')}</span>
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-            Our <strong className="text-foreground">Swing Building and Improvement Program</strong> uses advanced video analysis and simulator data to identify and correct technique. Lessons cover swing fundamentals, physical strength, lateral rotation, and course strategy — giving you the confidence and consistency to play better on real courses.
+            {t('ourLessonsText')}
           </p>
         </div>
       </SectionWrapper>
@@ -255,8 +271,8 @@ export default function LessonsPage() {
       <section id="pricing" className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>LESSON</span>{' '}
-            <span className="text-foreground">PRICING</span>
+            <span style={{ color: '#007429' }}>{t('lessonPricingTitle')}</span>{' '}
+            <span className="text-foreground">{t('lessonPricingTitleSuffix')}</span>
           </h2>
           <div className="mx-auto max-w-lg">
             <Image
@@ -305,8 +321,8 @@ export default function LessonsPage() {
       {/* ── CTA Band ── */}
       <section className="py-12 lg:py-16 bg-primary">
         <div className="section-max-width section-padding text-center">
-          <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">Ready to improve your game?</h2>
-          <p className="mb-6 text-white/80">Book a lesson with our PGA-certified coaches</p>
+          <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">{t('ctaTitle')}</h2>
+          <p className="mb-6 text-white/80">{t('ctaSubtitle')}</p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="https://booking.len.golf/"
@@ -315,7 +331,7 @@ export default function LessonsPage() {
               className="inline-flex h-12 items-center gap-2 rounded-md bg-white text-primary px-8 text-sm font-semibold transition-colors hover:bg-white/90"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-              BOOK A LESSON
+              {t('bookALesson')}
             </a>
             <a
               href="https://lin.ee/uxQpIXn"
@@ -324,7 +340,7 @@ export default function LessonsPage() {
               className="inline-flex h-12 items-center gap-2 rounded-md border-2 border-white px-8 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              LINE @lengolf
+              {tCommon('lineAtLengolf')}
             </a>
           </div>
         </div>
@@ -333,8 +349,8 @@ export default function LessonsPage() {
       {/* ── Our Packages & Promotions ── */}
       <SectionWrapper>
         <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-          <span style={{ color: '#007429' }}>OUR PACKAGES &amp;</span>{' '}
-          <span className="text-foreground">PROMOTIONS</span>
+          <span style={{ color: '#007429' }}>{t('packagesTitle')}</span>{' '}
+          <span className="text-foreground">{t('packagesTitleSuffix')}</span>
         </h2>
         <div className="mx-auto grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2">
           {promoImages.map((img) => (
@@ -356,12 +372,12 @@ export default function LessonsPage() {
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>FREQUENTLY ASKED</span>{' '}
-            <span className="text-foreground">QUESTIONS</span>
+            <span style={{ color: '#007429' }}>{t('faqTitle')}</span>{' '}
+            <span className="text-foreground">{t('faqTitleSuffix')}</span>
           </h2>
           <div className="mx-auto max-w-3xl">
             <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
-              {lessonsFaqItems.map((item, i) => (
+              {faqItems.map((item, i) => (
                 <AccordionItem key={i} value={`item-${i}`} className="border-b border-border/60 px-1">
                   <AccordionTrigger className="text-left font-semibold py-5 hover:no-underline" style={{ color: '#007429' }}>
                     {item.question}
@@ -379,8 +395,8 @@ export default function LessonsPage() {
       {/* ── Our Students ── */}
       <SectionWrapper>
         <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-          <span style={{ color: '#007429' }}>OUR</span>{' '}
-          <span className="text-foreground">STUDENTS</span>
+          <span style={{ color: '#007429' }}>{t('studentsTitle')}</span>{' '}
+          <span className="text-foreground">{t('studentsTitleSuffix')}</span>
         </h2>
         <ImageGallery images={studentImages} rows={[3, 2, 2, 2, 2, 3]} />
       </SectionWrapper>
@@ -389,20 +405,20 @@ export default function LessonsPage() {
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-3 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>EXPLORE</span>{' '}
-            <span className="text-foreground">MORE</span>
+            <span style={{ color: '#007429' }}>{t('exploreTitle')}</span>{' '}
+            <span className="text-foreground">{t('exploreTitleSuffix')}</span>
           </h2>
-          <p className="mb-8 text-center text-sm text-muted-foreground">Check out everything LENGOLF has to offer</p>
+          <p className="mb-8 text-center text-sm text-muted-foreground">{t('exploreSubtitle')}</p>
           <div className="mx-auto max-w-xl">
             <div className="flex flex-wrap items-center justify-center gap-3">
               {[
-                { label: 'Bay Rates', href: '/golf' },
-                { label: 'Events', href: '/events' },
-                { label: 'Club Rental', href: '/golf-club-rental' },
-                { label: 'Blog', href: '/blog' },
+                { label: t('exploreBayRates'), href: '/golf' },
+                { label: t('exploreEvents'), href: '/events' },
+                { label: t('exploreClubRental'), href: '/golf-club-rental' },
+                { label: t('exploreBlog'), href: '/blog' },
               ].map((link) => (
                 <Link
-                  key={link.label}
+                  key={link.href}
                   href={link.href}
                   className="rounded-full border border-primary/20 bg-primary/5 px-5 py-2.5 text-sm font-medium transition-colors hover:bg-primary hover:text-white"
                   style={{ color: '#007429' }}

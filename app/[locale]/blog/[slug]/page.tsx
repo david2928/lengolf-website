@@ -1,7 +1,8 @@
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import DOMPurify from 'isomorphic-dompurify'
 import { ArrowLeft, Clock, Calendar } from 'lucide-react'
 import { getPostBySlug, getPostSlugs, getRelatedPosts, getReadingTime } from '@/lib/blog'
@@ -10,7 +11,7 @@ import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 import ShareButtons from '@/components/blog/ShareButtons'
 
 interface Props {
-  params: Promise<{ slug: string }>
+  params: Promise<{ locale: string; slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -46,7 +47,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export const revalidate = 3600
 
 export default async function BlogPostPage({ params }: Props) {
-  const { slug } = await params
+  const { locale, slug } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations('BlogPost')
   const post = await getPostBySlug(slug)
 
   if (!post) {
@@ -55,9 +58,10 @@ export default async function BlogPostPage({ params }: Props) {
 
   const readingTime = getReadingTime(post.content)
   const relatedPosts = await getRelatedPosts(slug, 3)
+  const dateLocale = locale === 'th' ? 'th-TH' : 'en-US'
 
   const formattedDate = post.published_at
-    ? new Date(post.published_at).toLocaleDateString('en-US', {
+    ? new Date(post.published_at).toLocaleDateString(dateLocale, {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
@@ -113,7 +117,7 @@ export default async function BlogPostPage({ params }: Props) {
             className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-white/70 transition-colors hover:text-white"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Blog
+            {t('backToBlog')}
           </Link>
 
           <h1 className="mb-6 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
@@ -129,7 +133,7 @@ export default async function BlogPostPage({ params }: Props) {
             )}
             <span className="inline-flex items-center gap-1.5">
               <Clock className="h-4 w-4" />
-              {readingTime} min read
+              {t('minRead', { count: readingTime })}
             </span>
           </div>
         </div>
@@ -173,9 +177,9 @@ export default async function BlogPostPage({ params }: Props) {
       {/* CTA Banner */}
       <section className="mx-auto max-w-3xl px-4 pb-12 pt-8 sm:px-6 lg:px-8">
         <div className="rounded-2xl bg-gradient-to-br from-[#003d22] to-[#005a32] p-8 text-center sm:p-10">
-          <h3 className="mb-3 text-2xl font-bold text-white">Ready to Hit the Greens?</h3>
+          <h3 className="mb-3 text-2xl font-bold text-white">{t('ctaTitle')}</h3>
           <p className="mb-6 text-white/80">
-            Experience Bangkok&apos;s premier indoor golf simulator at LENGOLF. Walk-ins welcome or book online.
+            {t('ctaText')}
           </p>
           <a
             href={BOOKING_URL}
@@ -183,7 +187,7 @@ export default async function BlogPostPage({ params }: Props) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-[#1a1a1a] transition-all hover:bg-accent/90 hover:shadow-lg"
           >
-            Book a Bay
+            {t('bookABay')}
           </a>
         </div>
       </section>
@@ -193,10 +197,10 @@ export default async function BlogPostPage({ params }: Props) {
         <section className="border-t bg-[#fafafa] py-16 lg:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <h2 className="mb-2 text-center text-sm font-semibold uppercase tracking-widest text-primary">
-              Keep Reading
+              {t('keepReading')}
             </h2>
             <p className="mb-10 text-center text-2xl font-bold text-foreground">
-              More Articles You Might Enjoy
+              {t('moreArticles')}
             </p>
 
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -217,7 +221,7 @@ export default async function BlogPostPage({ params }: Props) {
                     )}
                     {related.published_at && (
                       <p className="mt-auto text-xs text-muted-foreground">
-                        {new Date(related.published_at).toLocaleDateString('en-US', {
+                        {new Date(related.published_at).toLocaleDateString(dateLocale, {
                           year: 'numeric',
                           month: 'long',
                           day: 'numeric',

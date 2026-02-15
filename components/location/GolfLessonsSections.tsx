@@ -1,3 +1,4 @@
+import { getTranslations } from 'next-intl/server'
 import { GraduationCap, DollarSign, User } from 'lucide-react'
 import type { LocationPage } from '@/lib/locations'
 import { parseLessonPackages, parseSemicolonList } from '@/lib/locations'
@@ -6,7 +7,8 @@ interface Props {
   data: LocationPage
 }
 
-export default function GolfLessonsSections({ data }: Props) {
+export default async function GolfLessonsSections({ data }: Props) {
+  const t = await getTranslations('Location')
   const packages = parseLessonPackages(data.lesson_packages)
   const instructorLines = parseSemicolonList(data.instructor_info)
 
@@ -28,7 +30,7 @@ export default function GolfLessonsSections({ data }: Props) {
         <section className="py-12 md:py-16">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-6">
-              Our Instructors
+              {t('ourInstructors')}
             </h2>
             <div className="space-y-4">
               {instructorLines.map((line) => (
@@ -50,7 +52,7 @@ export default function GolfLessonsSections({ data }: Props) {
         <section className="py-12 md:py-16 bg-[#f8f9fa]">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-6">
-              Lesson Packages
+              {t('lessonPackages')}
             </h2>
             <div className="space-y-3">
               {packages.map((pkg, i) => (
@@ -77,7 +79,7 @@ export default function GolfLessonsSections({ data }: Props) {
         <section className="py-12 md:py-16">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-4">
-              Golf Lessons Near {data.location_name}
+              {t('golfLessonsNear', { location: data.location_name })}
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
               {data.lengolf_pitch}

@@ -1,3 +1,4 @@
+import { getTranslations } from 'next-intl/server'
 import { Users, Utensils, Building, MapPin, Trophy } from 'lucide-react'
 import type { LocationPage } from '@/lib/locations'
 import { parseList, parseSemicolonList } from '@/lib/locations'
@@ -6,7 +7,8 @@ interface Props {
   data: LocationPage
 }
 
-export default function CorporateEventsSections({ data }: Props) {
+export default async function CorporateEventsSections({ data }: Props) {
+  const t = await getTranslations('Location')
   const packages = parseSemicolonList(data.corporate_packages)
   const catering = parseSemicolonList(data.catering_options)
   const offices = parseList(data.nearby_offices)
@@ -29,7 +31,7 @@ export default function CorporateEventsSections({ data }: Props) {
         <section className="py-12 md:py-16">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-6">
-              Event Packages
+              {t('eventPackages')}
             </h2>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {packages.map((pkg) => (
@@ -46,7 +48,7 @@ export default function CorporateEventsSections({ data }: Props) {
               <div className="mt-6 flex items-center gap-2 rounded-lg bg-[#e8f5e9] p-4">
                 <Users className="h-5 w-5 text-[#2d6a4f]" />
                 <p className="text-sm font-medium text-[#2d6a4f]">
-                  Maximum capacity: {data.max_capacity} guests
+                  {t('maxCapacity', { capacity: data.max_capacity })}
                 </p>
               </div>
             )}
@@ -59,7 +61,7 @@ export default function CorporateEventsSections({ data }: Props) {
         <section className="py-12 md:py-16 bg-[#f8f9fa]">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-6">
-              Food & Beverage
+              {t('foodBeverage')}
             </h2>
             <div className="space-y-3">
               {catering.map((item) => (
@@ -81,7 +83,7 @@ export default function CorporateEventsSections({ data }: Props) {
         <section className="py-12 md:py-16">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-4">
-              Corporate Events Near {data.location_name}
+              {t('corporateEventsNear', { location: data.location_name })}
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
               {data.lengolf_pitch}
@@ -95,7 +97,7 @@ export default function CorporateEventsSections({ data }: Props) {
         <section className="py-12 md:py-16 bg-[#f8f9fa]">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-6">
-              Office Buildings Near {data.location_name}
+              {t('officeBuildingsNear', { location: data.location_name })}
             </h2>
             <div className="flex flex-wrap gap-2">
               {offices.map((office) => (

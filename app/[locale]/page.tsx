@@ -1,21 +1,38 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
 import ImageGallery from '@/components/shared/ImageGallery'
 import ServicesCarousel from '@/components/home/ServicesCarousel'
-import { services, homeFaqItems } from '@/data/pricing'
+import { services } from '@/data/pricing'
 import { BUSINESS_INFO, BOOKING_URL, SITE_URL, SOCIAL_LINKS, storageUrl, storageImageUrl } from '@/lib/constants'
 import { getFaqPageJsonLd, getAggregateRatingJsonLd } from '@/lib/jsonld'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { getGoogleReviews } from '@/lib/google-reviews'
 
-export const metadata: Metadata = {
-  title: 'Indoor Golf Simulator & Bar in Bangkok',
-  description: 'Play 100+ courses on state-of-the-art simulators, grab a drink, and escape the Bangkok heat. 4 bays from 500 THB/hr at BTS Chidlom.',
-  alternates: { canonical: `${SITE_URL}/` },
-  openGraph: { images: [{ url: storageUrl('venue/venue-simulator-01.jpg'), alt: 'LENGOLF indoor golf simulator in Bangkok' }] },
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'Home' })
+
+  const alternates: Metadata['alternates'] = {
+    canonical: `${SITE_URL}/`,
+    languages: {
+      en: `${SITE_URL}/`,
+      th: `${SITE_URL}/th/`,
+    },
+  }
+
+  return {
+    title: t('metaTitle'),
+    description: t('metaDescription'),
+    alternates,
+    openGraph: {
+      images: [{ url: storageUrl('venue/venue-simulator-01.jpg'), alt: 'LENGOLF indoor golf simulator in Bangkok' }],
+      locale: locale === 'th' ? 'th_TH' : 'en_US',
+    },
+  }
 }
 
 const faqLinkStyle = 'font-medium underline underline-offset-2 hover:text-primary transition-colors'
@@ -56,54 +73,6 @@ const galleryImages = [
   { src: storageUrl('venue/venue-simulator-02.jpg'), alt: 'LENGOLF golf simulator', width: 1024, height: 683 },
 ]
 
-const whyLengolf = [
-  {
-    title: 'State-of-the-Art Simulators',
-    subtitle: 'Korean Bravo Golf technology',
-    description: '4 private bays with 99% accuracy tracking — club speed, ball speed, launch angle, and spin. Play 100+ championship courses like Pebble Beach and TPC Sawgrass in stunning HD.',
-    image: storageUrl('venue/venue-simulator-01.jpg'),
-  },
-  {
-    title: 'Full Bar & Food',
-    subtitle: 'Cold drinks, great food & good vibes',
-    description: 'Enjoy ice-cold beers, refreshing drinks, burgers, sliders, and bar snacks while you play. Our full-service bar and kitchen mean you never have to leave the bay.',
-    image: storageUrl('venue/venue-bar-01.jpg'),
-  },
-  {
-    title: 'PGA-Certified Coaching',
-    subtitle: '3 Thailand PGA pros on staff',
-    description: 'Whether you\'re picking up a club for the first time or fine-tuning your short game, our coaches tailor every lesson to your goals. Free trial lesson available.',
-    image: storageUrl('lessons/lessons-cover.jpg'),
-  },
-]
-
-const serviceLinks = [
-  {
-    title: 'Bay Rates',
-    description: 'Hourly simulator rentals from 500 THB. Up to 5 players per bay with free club rental.',
-    image: storageUrl('golf/hero-golf.jpg'),
-    href: '/golf',
-  },
-  {
-    title: 'Golf Lessons',
-    description: 'PGA-certified coaching for all levels. Free trial lesson available. Packages from 1,800 THB.',
-    image: storageUrl('lessons/lessons-cover.jpg'),
-    href: '/lessons',
-  },
-  {
-    title: 'Events & Parties',
-    description: 'Corporate events, team building, and private parties for 10–50+ guests from 9,999 THB.',
-    image: storageUrl('events/events-cover.jpg'),
-    href: '/events',
-  },
-  {
-    title: 'Club Rental',
-    description: 'Free standard sets included. Premium Callaway & Majesty rentals from 150 THB/hr.',
-    image: storageUrl('venue/venue-simulator-01.jpg'),
-    href: '/golf-club-rental',
-  },
-]
-
 export const revalidate = 86400
 
 function StarIcon({ filled }: { filled: boolean }) {
@@ -114,9 +83,77 @@ function StarIcon({ filled }: { filled: boolean }) {
   )
 }
 
-export default async function HomePage() {
-  const faqJsonLd = getFaqPageJsonLd(homeFaqItems)
-  const reviewsData = await getGoogleReviews()
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  setRequestLocale(locale)
+
+  const t = await getTranslations('Home')
+  const tCommon = await getTranslations('Common')
+  const tFaq = await getTranslations('HomeFaq')
+
+  // Build FAQ items from translations
+  const faqItems = Array.from({ length: 8 }, (_, i) => ({
+    question: tFaq(`q${i + 1}`),
+    answer: tFaq(`a${i + 1}`),
+  }))
+
+  const faqJsonLd = getFaqPageJsonLd(faqItems)
+  const reviewsData = await getGoogleReviews(locale)
+
+  const stats = [
+    { stat: t('stat1Value'), label: t('stat1Label') },
+    { stat: t('stat2Value'), label: t('stat2Label') },
+    { stat: t('stat3Value'), label: t('stat3Label') },
+    { stat: t('stat4Value'), label: t('stat4Label') },
+  ]
+
+  const whyLengolf = [
+    {
+      title: t('why1Title'),
+      subtitle: t('why1Subtitle'),
+      description: t('why1Description'),
+      image: storageUrl('venue/venue-simulator-01.jpg'),
+    },
+    {
+      title: t('why2Title'),
+      subtitle: t('why2Subtitle'),
+      description: t('why2Description'),
+      image: storageUrl('venue/venue-bar-01.jpg'),
+    },
+    {
+      title: t('why3Title'),
+      subtitle: t('why3Subtitle'),
+      description: t('why3Description'),
+      image: storageUrl('lessons/lessons-cover.jpg'),
+    },
+  ]
+
+  const serviceLinks = [
+    {
+      title: t('service1Title'),
+      description: t('service1Description'),
+      image: storageUrl('golf/hero-golf.jpg'),
+      href: '/golf' as const,
+    },
+    {
+      title: t('service2Title'),
+      description: t('service2Description'),
+      image: storageUrl('lessons/lessons-cover.jpg'),
+      href: '/lessons' as const,
+    },
+    {
+      title: t('service3Title'),
+      description: t('service3Description'),
+      image: storageUrl('events/events-cover.jpg'),
+      href: '/events' as const,
+    },
+    {
+      title: t('service4Title'),
+      description: t('service4Description'),
+      image: storageUrl('venue/venue-simulator-01.jpg'),
+      href: '/golf-club-rental' as const,
+    },
+  ]
 
   return (
     <>
@@ -157,13 +194,13 @@ export default async function HomePage() {
             priority
           />
           <h1 className="mb-4 text-3xl font-black uppercase leading-tight sm:text-4xl md:text-5xl">
-            Indoor Golf Simulator &amp; Bar in Bangkok
+            {t('heroTitle')}
           </h1>
           <p className="mb-8 text-base font-medium text-white/85 sm:text-lg">
-            Play 100+ courses, grab cold drinks and great food, and sharpen your game — all at BTS Chidlom
+            {t('heroSubtitle')}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <BookingCTA text="BOOK YOUR BAY" className="bg-white text-primary hover:bg-white/90" />
+            <BookingCTA text={tCommon('bookYourBay')} className="bg-white text-primary hover:bg-white/90" />
             <a
               href={SOCIAL_LINKS.line}
               target="_blank"
@@ -171,7 +208,7 @@ export default async function HomePage() {
               className="inline-flex h-12 items-center gap-2 rounded-md border-2 border-white px-8 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              LINE @lengolf
+              {tCommon('lineAtLengolf')}
             </a>
           </div>
         </div>
@@ -181,16 +218,11 @@ export default async function HomePage() {
       <SectionWrapper>
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-            <strong className="text-foreground">LENGOLF</strong> is Bangkok&apos;s premier indoor golf simulator and bar, located inside The Mercury Ville @ BTS Chidlom. Whether you&apos;re a seasoned player or picking up a club for the first time, enjoy state-of-the-art Korean Bravo Golf simulators, a full-service bar, and PGA-certified coaching — all in a fun, relaxed environment.
+            <strong className="text-foreground">LENGOLF</strong> {t('introText', { name: '' }).trim()}
           </p>
 
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {[
-              { stat: '4', label: 'simulator bays' },
-              { stat: '100+', label: 'golf courses' },
-              { stat: 'From 500', label: 'THB / hour' },
-              { stat: 'Free', label: 'club rental' },
-            ].map((item) => (
+            {stats.map((item) => (
               <div key={item.label} className="rounded-lg border border-primary/15 bg-primary/5 px-4 py-4">
                 <div className="text-2xl font-bold" style={{ color: '#007429' }}>{item.stat}</div>
                 <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">{item.label}</div>
@@ -207,7 +239,7 @@ export default async function HomePage() {
               className="inline-flex h-12 items-center gap-2 rounded-md border-2 border-primary px-8 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              LINE @lengolf
+              {tCommon('lineAtLengolf')}
             </a>
           </div>
         </div>
@@ -215,15 +247,22 @@ export default async function HomePage() {
 
       {/* ── 3. Services Carousel ── */}
       <div className="mt-[-2rem] pb-16 lg:pb-24">
-        <ServicesCarousel services={services} />
+        <ServicesCarousel services={services.map(s => ({
+          ...s,
+          displayTitle: s.title === 'Golf' ? t('carouselGolf')
+            : s.title === 'Food & Drinks' ? t('carouselFoodDrinks')
+            : s.title === 'Lessons' ? t('carouselLessons')
+            : s.title === 'Events' ? t('carouselEvents')
+            : s.title,
+        }))} />
       </div>
 
       {/* ── 4. Why LENGOLF ── */}
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-14 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>WHY</span>{' '}
-            <span className="text-foreground">LENGOLF</span>
+            <span style={{ color: '#007429' }}>{t('whyLengolfTitle')}</span>{' '}
+            <span className="text-foreground">{t('whyLengolfTitleSuffix')}</span>
           </h2>
           <div className="mx-auto max-w-4xl space-y-8">
             {whyLengolf.map((item, i) => (
@@ -263,8 +302,8 @@ export default async function HomePage() {
             {/* Rating header */}
             <div className="mb-8 flex flex-col items-center gap-2">
               <h2 className="text-3xl font-bold italic lg:text-4xl">
-                <span style={{ color: '#007429' }}>WHAT OUR GUESTS</span>{' '}
-                <span className="text-foreground">SAY</span>
+                <span style={{ color: '#007429' }}>{t('reviewsTitle')}</span>{' '}
+                <span className="text-foreground">{t('reviewsTitleSuffix')}</span>
               </h2>
               <div className="flex items-center gap-2">
                 <div className="flex gap-0.5">
@@ -274,7 +313,7 @@ export default async function HomePage() {
                 </div>
                 <span className="text-sm font-bold text-foreground">{reviewsData.rating} / 5.0</span>
                 <span className="text-sm text-muted-foreground">
-                  · {reviewsData.totalReviews.toLocaleString()}+ reviews
+                  · {t('reviewsCount', { count: reviewsData.totalReviews.toLocaleString() })}
                 </span>
               </div>
             </div>
@@ -315,7 +354,7 @@ export default async function HomePage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
               >
-                See all reviews on Google
+                {t('reviewsAllReviews')}
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
             </div>
@@ -326,10 +365,10 @@ export default async function HomePage() {
       {/* ── 6. CTA Band ── */}
       <section className="py-12 lg:py-16 bg-primary">
         <div className="section-max-width section-padding text-center">
-          <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">Ready to play?</h2>
-          <p className="mb-6 text-white/80">Book your bay online or contact us on LINE</p>
+          <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">{tCommon('readyToPlay')}</h2>
+          <p className="mb-6 text-white/80">{tCommon('readyToPlaySubtitle')}</p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <BookingCTA text="BOOK YOUR BAY" className="bg-white text-primary hover:bg-white/90" />
+            <BookingCTA text={tCommon('bookYourBay')} className="bg-white text-primary hover:bg-white/90" />
             <a
               href={SOCIAL_LINKS.line}
               target="_blank"
@@ -337,7 +376,7 @@ export default async function HomePage() {
               className="inline-flex h-12 items-center gap-2 rounded-md border-2 border-white px-8 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              LINE @lengolf
+              {tCommon('lineAtLengolf')}
             </a>
           </div>
         </div>
@@ -346,8 +385,8 @@ export default async function HomePage() {
       {/* ── 6. Gallery ── */}
       <SectionWrapper>
         <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-          <span style={{ color: '#007429' }}>OUR</span>{' '}
-          <span className="text-foreground">GALLERY</span>
+          <span style={{ color: '#007429' }}>{t('galleryTitle')}</span>{' '}
+          <span className="text-foreground">{t('galleryTitleSuffix')}</span>
         </h2>
         <ImageGallery images={galleryImages} rows={[5, 3]} />
       </SectionWrapper>
@@ -356,8 +395,8 @@ export default async function HomePage() {
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>EXPLORE OUR</span>{' '}
-            <span className="text-foreground">SERVICES</span>
+            <span style={{ color: '#007429' }}>{t('servicesTitle')}</span>{' '}
+            <span className="text-foreground">{t('servicesTitleSuffix')}</span>
           </h2>
           <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2">
             {serviceLinks.map((item) => (
@@ -384,7 +423,7 @@ export default async function HomePage() {
                     {item.description}
                   </p>
                   <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold transition-colors" style={{ color: '#007429' }}>
-                    Learn more
+                    {tCommon('learnMore')}
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                   </span>
                 </div>
@@ -397,8 +436,8 @@ export default async function HomePage() {
       {/* ── 8. Find Us ── */}
       <SectionWrapper>
         <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-          <span style={{ color: '#007429' }}>FIND</span>{' '}
-          <span className="text-foreground">US</span>
+          <span style={{ color: '#007429' }}>{t('findUsTitle')}</span>{' '}
+          <span className="text-foreground">{t('findUsTitleSuffix')}</span>
         </h2>
         <div className="mx-auto max-w-5xl flex flex-col gap-8 lg:flex-row lg:items-start">
           <div className="w-full overflow-hidden rounded-lg lg:w-3/5">
@@ -413,19 +452,19 @@ export default async function HomePage() {
           </div>
           <div className="flex flex-col gap-5 lg:w-2/5">
             <div>
-              <h3 className="mb-1 text-sm font-bold uppercase tracking-wide text-foreground">Address</h3>
+              <h3 className="mb-1 text-sm font-bold uppercase tracking-wide text-foreground">{t('addressLabel')}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{BUSINESS_INFO.address}</p>
             </div>
             <div>
-              <h3 className="mb-1 text-sm font-bold uppercase tracking-wide text-foreground">Opening Hours</h3>
+              <h3 className="mb-1 text-sm font-bold uppercase tracking-wide text-foreground">{t('openingHoursLabel')}</h3>
               <p className="text-sm text-muted-foreground">{BUSINESS_INFO.hours}</p>
             </div>
             <div>
-              <h3 className="mb-1 text-sm font-bold uppercase tracking-wide text-foreground">Phone</h3>
+              <h3 className="mb-1 text-sm font-bold uppercase tracking-wide text-foreground">{t('phoneLabel')}</h3>
               <a href={`tel:${BUSINESS_INFO.phoneRaw}`} className="text-sm font-medium text-primary hover:underline">{BUSINESS_INFO.phone}</a>
             </div>
             <div>
-              <h3 className="mb-1 text-sm font-bold uppercase tracking-wide text-foreground">Email</h3>
+              <h3 className="mb-1 text-sm font-bold uppercase tracking-wide text-foreground">{t('emailLabel')}</h3>
               <a href={`mailto:${BUSINESS_INFO.email}`} className="text-sm font-medium text-primary hover:underline">{BUSINESS_INFO.email}</a>
             </div>
             <a
@@ -436,7 +475,7 @@ export default async function HomePage() {
               style={{ color: '#007429' }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              Get Directions on Google Maps
+              {t('getDirections')}
             </a>
           </div>
         </div>
@@ -446,12 +485,12 @@ export default async function HomePage() {
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>FREQUENTLY ASKED</span>{' '}
-            <span className="text-foreground">QUESTIONS</span>
+            <span style={{ color: '#007429' }}>{t('faqTitle')}</span>{' '}
+            <span className="text-foreground">{t('faqTitleSuffix')}</span>
           </h2>
           <div className="mx-auto max-w-3xl">
             <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
-              {homeFaqItems.map((item, i) => (
+              {faqItems.map((item, i) => (
                 <AccordionItem key={i} value={`item-${i}`} className="border-b border-border/60 px-1">
                   <AccordionTrigger className="text-left font-semibold py-5 hover:no-underline" style={{ color: '#007429' }}>
                     {item.question}

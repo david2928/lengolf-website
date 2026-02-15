@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 interface ShareButtonsProps {
   url: string
@@ -8,6 +9,7 @@ interface ShareButtonsProps {
 }
 
 export default function ShareButtons({ url, title }: ShareButtonsProps) {
+  const t = useTranslations('BlogPost')
   const [copied, setCopied] = useState(false)
   const encoded = encodeURIComponent(url)
   const encodedTitle = encodeURIComponent(title)
@@ -20,7 +22,7 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
 
   return (
     <div className="flex items-center gap-3">
-      <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Share</span>
+      <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{t('share')}</span>
       <a
         href={`https://www.facebook.com/sharer/sharer.php?u=${encoded}`}
         target="_blank"

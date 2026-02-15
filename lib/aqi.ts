@@ -1,6 +1,7 @@
 export interface AqiBand {
   min: number
   max: number
+  key: string
   label: string
   bgColor: string
   accentColor: string
@@ -14,6 +15,7 @@ export const AQI_BANDS: AqiBand[] = [
   {
     min: 0,
     max: 25,
+    key: 'VeryGood',
     label: 'Very Good',
     bgColor: '#f0faf4',
     accentColor: '#007429',
@@ -24,6 +26,7 @@ export const AQI_BANDS: AqiBand[] = [
   {
     min: 26,
     max: 50,
+    key: 'Good',
     label: 'Good',
     bgColor: '#eff6ff',
     accentColor: '#2563eb',
@@ -34,6 +37,7 @@ export const AQI_BANDS: AqiBand[] = [
   {
     min: 51,
     max: 100,
+    key: 'Moderate',
     label: 'Moderate',
     bgColor: '#fefce8',
     accentColor: '#a16207',
@@ -44,6 +48,7 @@ export const AQI_BANDS: AqiBand[] = [
   {
     min: 101,
     max: 200,
+    key: 'Unhealthy',
     label: 'Unhealthy',
     bgColor: '#fff7ed',
     accentColor: '#c2410c',
@@ -54,6 +59,7 @@ export const AQI_BANDS: AqiBand[] = [
   {
     min: 201,
     max: 999,
+    key: 'Hazardous',
     label: 'Hazardous',
     bgColor: '#fef2f2',
     accentColor: '#dc2626',
@@ -88,7 +94,8 @@ export function formatPollutant(code: string): string {
   return POLLUTANT_NAMES[code.toLowerCase()] || code
 }
 
-export function formatTime(iso: string): string {
+export function formatTime(iso: string, locale?: string): string {
   const d = new Date(iso)
-  return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })
+  const loc = locale === 'th' ? 'th-TH' : 'en-US'
+  return d.toLocaleTimeString(loc, { hour: 'numeric', minute: '2-digit', hour12: true })
 }

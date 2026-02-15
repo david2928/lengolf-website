@@ -1,21 +1,28 @@
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import ContactInfo from '@/components/shared/ContactInfo'
 import ContactForm from '@/components/about/ContactForm'
 import BookingCTA from '@/components/shared/BookingCTA'
 import { storageUrl, SITE_URL, BUSINESS_INFO, SOCIAL_LINKS } from '@/lib/constants'
-import { aboutFaqItems } from '@/data/pricing'
 import { getFaqPageJsonLd, getAggregateRatingJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { getGoogleReviews, type GoogleReview } from '@/lib/google-reviews'
 
-export const metadata: Metadata = {
-  title: 'About Us — Indoor Golf Simulator & Bar',
-  description: 'Founded by golf-loving expats at BTS Chidlom, Bangkok. 4 simulator bays, full bar, PGA coaching, and a social vibe you won\'t find anywhere else.',
-  alternates: { canonical: `${SITE_URL}/about-us/` },
-  openGraph: { images: [{ url: storageUrl('venue/venue-interior-01.jpg'), alt: 'LENGOLF interior' }] },
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'AboutUs' })
+  return {
+    title: t('metaTitle'),
+    description: t('metaDescription'),
+    alternates: {
+      canonical: `${SITE_URL}${locale === 'th' ? '/th' : ''}/about-us/`,
+      languages: { en: `${SITE_URL}/about-us/`, th: `${SITE_URL}/th/about-us/` },
+    },
+    openGraph: { images: [{ url: storageUrl('venue/venue-interior-01.jpg'), alt: 'LENGOLF interior' }] },
+  }
 }
 
 const faqLinkStyle = 'font-medium underline underline-offset-2 hover:text-primary transition-colors'
@@ -42,35 +49,6 @@ function renderFaqAnswer(answer: string) {
     return part
   })
 }
-
-const whyChooseUs = [
-  {
-    title: 'State-of-the-Art Simulators',
-    description: 'Experience the best in virtual golf with our advanced Korean simulators for realistic gameplay. Enjoy the convenience of our auto-tee system and choose from hundreds of international courses.',
-  },
-  {
-    title: 'Located in Central Bangkok',
-    description: "Conveniently located inside The Mercury Ville at Chidlom BTS, we're easily accessible from anywhere in Bangkok. Enjoy 3 hours of free parking.",
-  },
-  {
-    title: 'Warm and Inviting Staff',
-    description: 'Our friendly, attentive staff ensure you feel welcome and have everything you need.',
-  },
-  {
-    title: 'Fun & Relaxed Environment',
-    description: 'Enjoy a perfect blend of excitement and relaxation in our lively, yet laid-back atmosphere.',
-  },
-  {
-    title: 'Great Food and Drinks',
-    description: 'Savor delicious food and a wide selection of drinks to complement your golfing experience.',
-  },
-  {
-    title: 'Golf Lessons from a Pro',
-    description: 'Improve your game with expert lessons from our professional golf instructors.',
-  },
-]
-
-export const revalidate = 86400
 
 function StarIcon({ filled, size = 'sm' }: { filled: boolean; size?: 'sm' | 'md' }) {
   return (
@@ -120,13 +98,29 @@ function ReviewCard({ review }: { review: GoogleReview }) {
   )
 }
 
-export default async function AboutPage() {
-  const faqJsonLd = getFaqPageJsonLd(aboutFaqItems)
+export const revalidate = 86400
+
+const FAQ_COUNT = 6
+const WHY_COUNT = 6
+
+export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations('AboutUs')
+  const tFaq = await getTranslations('AboutUsFaq')
+  const tCommon = await getTranslations('Common')
+
+  const faqItems = Array.from({ length: FAQ_COUNT }, (_, i) => ({
+    question: tFaq(`q${i + 1}`),
+    answer: tFaq(`a${i + 1}`),
+  }))
+
+  const faqJsonLd = getFaqPageJsonLd(faqItems)
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
-    { name: 'About Us', url: `${SITE_URL}/about-us/` },
+    { name: t('heroBadge'), url: `${SITE_URL}/about-us/` },
   ])
-  const reviewsData = await getGoogleReviews()
+  const reviewsData = await getGoogleReviews(locale)
 
   return (
     <>
@@ -166,13 +160,13 @@ export default async function AboutPage() {
         />
         <div className="relative z-10 w-full text-left px-[4%]">
           <span className="inline-block rounded bg-[#7CB342] px-6 py-2 text-lg font-bold uppercase tracking-widest text-white mb-5 md:text-xl">
-            About Us
+            {t('heroBadge')}
           </span>
           <h1 className="mb-4 text-5xl font-black uppercase leading-none md:text-6xl lg:text-7xl">
-            Golf, Drinks &amp; Good Times in Bangkok
+            {t('heroTitle')}
           </h1>
           <p className="text-base font-semibold italic tracking-wide text-white/90 md:text-lg">
-            Founded by golf-loving expats at BTS Chidlom
+            {t('heroSubtitle')}
           </p>
         </div>
       </section>
@@ -181,29 +175,22 @@ export default async function AboutPage() {
       <SectionWrapper>
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="mb-8 text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>OUR</span>{' '}
-            <span className="text-foreground">STORY</span>
+            <span style={{ color: '#007429' }}>{t('storyTitle')}</span>{' '}
+            <span className="text-foreground">{t('storyTitleSuffix')}</span>
           </h2>
           <div className="space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p>{t('storyParagraph1')}</p>
             <p>
-              Our story began as a group of golf-loving expats in Bangkok who just wanted to play golf. But we often found that traffic and weather got in the way. Frustrated, we sought out golf simulators as a convenient alternative. While the technology was impressive, the private room and closed off nature of the available options in Bangkok left much to be desired. We envisioned a place that combined the excitement of golf with a lively, social atmosphere.
-            </p>
-            <p>
-              Determined to create something unique, we decided to take matters into our own hands. We tore down the walls, added a bar, and infused the space with a welcoming, relaxed vibe. The result is <strong className="text-foreground">LENGOLF</strong>, a haven for golf enthusiasts of all skill levels. Located at the Chidlom BTS stop, we offer state-of-the-art Korean simulators, delicious food and drinks, and a break from the Bangkok heat. At <strong className="text-foreground">LENGOLF</strong>, we&apos;re more than just a golf simulator; we&apos;re a community where fun and golf thrive.
+              {t('storyParagraph2', { name: 'LENGOLF' })}
             </p>
           </div>
 
           {/* Stat Chips */}
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {[
-              { stat: 'Est. 2024', label: 'founded' },
-              { stat: '4', label: 'simulator bays' },
-              { stat: '3', label: 'PGA coaches' },
-              { stat: '100+', label: 'golf courses' },
-            ].map((item) => (
-              <div key={item.label} className="rounded-lg border border-primary/15 bg-primary/5 px-4 py-4">
-                <div className="text-2xl font-bold" style={{ color: '#007429' }}>{item.stat}</div>
-                <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">{item.label}</div>
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="rounded-lg border border-primary/15 bg-primary/5 px-4 py-4">
+                <div className="text-2xl font-bold" style={{ color: '#007429' }}>{t(`stat${i}Value`)}</div>
+                <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">{t(`stat${i}Label`)}</div>
               </div>
             ))}
           </div>
@@ -214,14 +201,14 @@ export default async function AboutPage() {
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>WHY</span>{' '}
-            <span className="text-foreground">CHOOSE US</span>
+            <span style={{ color: '#007429' }}>{t('whyTitle')}</span>{' '}
+            <span className="text-foreground">{t('whyTitleSuffix')}</span>
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {whyChooseUs.map((item) => (
-              <div key={item.title} className="rounded-lg bg-white p-6 shadow-sm">
-                <h3 className="mb-3 text-lg font-semibold text-primary">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+            {Array.from({ length: WHY_COUNT }, (_, i) => (
+              <div key={i} className="rounded-lg bg-white p-6 shadow-sm">
+                <h3 className="mb-3 text-lg font-semibold text-primary">{t(`why${i + 1}Title`)}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{t(`why${i + 1}Description`)}</p>
               </div>
             ))}
           </div>
@@ -233,8 +220,8 @@ export default async function AboutPage() {
         <SectionWrapper>
           <div className="mx-auto max-w-5xl">
             <h2 className="mb-2 text-center text-3xl font-bold italic lg:text-4xl">
-              <span style={{ color: '#007429' }}>WHAT OUR GUESTS</span>{' '}
-              <span className="text-foreground">SAY</span>
+              <span style={{ color: '#007429' }}>{t('reviewsTitle')}</span>{' '}
+              <span className="text-foreground">{t('reviewsTitleSuffix')}</span>
             </h2>
 
             {/* Overall rating */}
@@ -249,7 +236,7 @@ export default async function AboutPage() {
                 <span className="text-sm text-muted-foreground">/ 5.0</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                {reviewsData.totalReviews.toLocaleString()}+ Reviews on Google
+                {t('reviewsCount', { count: reviewsData.totalReviews.toLocaleString() })}
               </p>
             </div>
 
@@ -268,7 +255,7 @@ export default async function AboutPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
               >
-                See all reviews on Google
+                {t('reviewsAllReviews')}
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
             </div>
@@ -279,10 +266,10 @@ export default async function AboutPage() {
       {/* ── CTA Band ── */}
       <section className="py-12 lg:py-16 bg-primary">
         <div className="section-max-width section-padding text-center">
-          <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">Come Visit Us</h2>
-          <p className="mb-6 text-white/80">Book your bay online or contact us on LINE</p>
+          <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">{t('ctaTitle')}</h2>
+          <p className="mb-6 text-white/80">{t('ctaSubtitle')}</p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <BookingCTA text="BOOK YOUR BAY" className="bg-white text-primary hover:bg-white/90" />
+            <BookingCTA text={tCommon('bookYourBay')} className="bg-white text-primary hover:bg-white/90" />
             <a
               href={SOCIAL_LINKS.line}
               target="_blank"
@@ -290,7 +277,7 @@ export default async function AboutPage() {
               className="inline-flex h-12 items-center gap-2 rounded-md border-2 border-white px-8 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              LINE @lengolf
+              {tCommon('lineAtLengolf')}
             </a>
           </div>
         </div>
@@ -299,8 +286,8 @@ export default async function AboutPage() {
       {/* ── Contact (merged info + form side by side) ── */}
       <SectionWrapper>
         <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-          <span style={{ color: '#007429' }}>GET IN</span>{' '}
-          <span className="text-foreground">TOUCH</span>
+          <span style={{ color: '#007429' }}>{t('contactTitle')}</span>{' '}
+          <span className="text-foreground">{t('contactTitleSuffix')}</span>
         </h2>
         <div className="mx-auto max-w-5xl flex flex-col gap-10 lg:flex-row lg:items-start">
           <div className="w-full lg:w-5/12">
@@ -316,12 +303,12 @@ export default async function AboutPage() {
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>FREQUENTLY ASKED</span>{' '}
-            <span className="text-foreground">QUESTIONS</span>
+            <span style={{ color: '#007429' }}>{t('faqTitle')}</span>{' '}
+            <span className="text-foreground">{t('faqTitleSuffix')}</span>
           </h2>
           <div className="mx-auto max-w-3xl">
             <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
-              {aboutFaqItems.map((item, i) => (
+              {faqItems.map((item, i) => (
                 <AccordionItem key={i} value={`item-${i}`} className="border-b border-border/60 px-1">
                   <AccordionTrigger className="text-left font-semibold py-5 hover:no-underline" style={{ color: '#007429' }}>
                     {item.question}

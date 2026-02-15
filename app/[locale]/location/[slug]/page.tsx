@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getLocationBySlug, getAllLocationSlugs } from '@/lib/locations'
@@ -5,7 +6,7 @@ import { SITE_URL } from '@/lib/constants'
 import LocationPageComponent from '@/components/location/LocationPage'
 
 interface Props {
-  params: Promise<{ slug: string }>
+  params: Promise<{ locale: string; slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -39,7 +40,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export const revalidate = 3600
 
 export default async function LocationPage({ params }: Props) {
-  const { slug } = await params
+  const { locale, slug } = await params
+  setRequestLocale(locale)
   const page = await getLocationBySlug(slug)
 
   if (!page) {
