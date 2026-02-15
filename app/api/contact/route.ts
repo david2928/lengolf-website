@@ -58,6 +58,16 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Validate controlled-set fields
+    const VALID_EVENT_TYPES = ['corporate', 'party', 'team_building', 'meet_greet', 'birthday', 'filming', 'other']
+    const VALID_GROUP_SIZES = ['under_10', '10_20', '20_30', '30_50', '50_plus']
+    if (event_type && !VALID_EVENT_TYPES.includes(event_type)) {
+      return NextResponse.json({ error: 'Invalid event type' }, { status: 400 })
+    }
+    if (group_size && !VALID_GROUP_SIZES.includes(group_size)) {
+      return NextResponse.json({ error: 'Invalid group size' }, { status: 400 })
+    }
+
     // Build structured message for storage (appends event details above user message)
     const structuredParts: string[] = []
     if (event_type) structuredParts.push(`Event Type: ${event_type}`)

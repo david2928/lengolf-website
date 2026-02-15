@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
-import { usePathname } from 'next/navigation'
+import { usePathname } from '@/i18n/navigation'
 import { CalendarDays } from 'lucide-react'
 import { BOOKING_URL } from '@/lib/constants'
 
@@ -14,9 +14,7 @@ export default function MobileStickyBar() {
   const t = useTranslations('Common')
   const pathname = usePathname()
 
-  // Strip locale prefix (e.g. /th/events → /events)
-  const cleanPath = pathname.replace(/^\/(en|th)/, '') || '/'
-  const isHidden = HIDDEN_PATHS.some((p) => cleanPath.startsWith(p))
+  const isHidden = HIDDEN_PATHS.some((p) => pathname.startsWith(p))
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 400)

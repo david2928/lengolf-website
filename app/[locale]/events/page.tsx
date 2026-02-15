@@ -38,8 +38,6 @@ function renderFaqAnswer(answer: string) {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'Events' })
-  const altLocale = locale === 'th' ? 'en' : 'th'
-  const altPrefix = altLocale === 'th' ? '/th' : ''
   return {
     title: t('metaTitle'),
     description: t('metaDescription'),

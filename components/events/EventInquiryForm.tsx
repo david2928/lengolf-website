@@ -116,7 +116,7 @@ export default function EventInquiryForm() {
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="preferred_date">{t('preferredDate')}</Label>
-          <Input id="preferred_date" name="preferred_date" type="date" />
+          <Input id="preferred_date" name="preferred_date" type="date" min={new Date().toISOString().split('T')[0]} />
         </div>
       </div>
       <div className="space-y-2">

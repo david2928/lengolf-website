@@ -18,25 +18,31 @@ interface InstagramEmbedProps {
 
 export default function InstagramEmbed({ shortcodes }: InstagramEmbedProps) {
   const [current, setCurrent] = useState(0)
+  const processedRef = useRef<Set<number>>(new Set())
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (!document.querySelector('script[src*="instagram.com/embed.js"]')) {
       const script = document.createElement('script')
-      script.src = '//www.instagram.com/embed.js'
+      script.src = 'https://www.instagram.com/embed.js'
       script.async = true
       script.onload = () => {
         window.instgrm?.Embeds.process()
+        processedRef.current.add(0)
       }
       document.body.appendChild(script)
     } else {
       window.instgrm?.Embeds.process()
+      processedRef.current.add(0)
     }
   }, [shortcodes])
 
+  // Only re-process when showing a slide for the first time
   useEffect(() => {
+    if (processedRef.current.has(current)) return
     const timer = setTimeout(() => {
       window.instgrm?.Embeds.process()
+      processedRef.current.add(current)
     }, 100)
     return () => clearTimeout(timer)
   }, [current])
@@ -58,7 +64,7 @@ export default function InstagramEmbed({ shortcodes }: InstagramEmbedProps) {
           type="button"
           onClick={prev}
           className="absolute -left-4 top-[280px] z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-gray-50 lg:-left-14"
-          aria-label="Previous"
+          aria-label="Previous post"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
@@ -68,7 +74,7 @@ export default function InstagramEmbed({ shortcodes }: InstagramEmbedProps) {
           type="button"
           onClick={next}
           className="absolute -right-4 top-[280px] z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-gray-50 lg:-right-14"
-          aria-label="Next"
+          aria-label="Next post"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
@@ -111,7 +117,8 @@ export default function InstagramEmbed({ shortcodes }: InstagramEmbedProps) {
             className={`h-2 rounded-full transition-all ${
               i === current ? 'w-6 bg-primary' : 'w-2 bg-gray-300'
             }`}
-            aria-label={`Go to slide ${i + 1}`}
+            aria-label={`Go to slide ${i + 1} of ${shortcodes.length}`}
+            aria-current={i === current ? 'true' : undefined}
           />
         ))}
       </div>

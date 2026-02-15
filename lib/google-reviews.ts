@@ -51,10 +51,10 @@ export async function getGoogleReviews(locale: string = 'en'): Promise<GoogleRev
       .map((r) => {
         let text = r.comment!
         // Strip "(Translated by Google) ... (Original)\n" prefix, keep only original text
-        const originalMarker = '(Original)\n'
-        const idx = text.indexOf(originalMarker)
-        if (idx !== -1) {
-          text = text.slice(idx + originalMarker.length).trim()
+        const originalMatch = text.match(/\(Original\)\r?\n/)
+        if (originalMatch) {
+          const idx = text.indexOf(originalMatch[0])
+          text = text.slice(idx + originalMatch[0].length).trim()
         }
         return {
           reviewer_name: r.reviewer_name,
