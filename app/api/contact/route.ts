@@ -67,6 +67,9 @@ export async function POST(request: NextRequest) {
     if (group_size && !VALID_GROUP_SIZES.includes(group_size)) {
       return NextResponse.json({ error: 'Invalid group size' }, { status: 400 })
     }
+    if (preferred_date && (!/^\d{4}-\d{2}-\d{2}$/.test(preferred_date) || isNaN(Date.parse(preferred_date)))) {
+      return NextResponse.json({ error: 'Invalid preferred date' }, { status: 400 })
+    }
 
     // Build structured message for storage (appends event details above user message)
     const structuredParts: string[] = []
