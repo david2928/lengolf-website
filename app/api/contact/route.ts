@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json()
-    const { name, email, phone, company, message, page_source } = body
+    const { name, email, phone, company, event_type, group_size, preferred_date, message, page_source } = body
 
     if (!name || !email || !message) {
       return NextResponse.json(
@@ -57,6 +57,15 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       )
     }
+
+    // Build structured message for storage (appends event details above user message)
+    const structuredParts: string[] = []
+    if (event_type) structuredParts.push(`Event Type: ${event_type}`)
+    if (group_size) structuredParts.push(`Group Size: ${group_size}`)
+    if (preferred_date) structuredParts.push(`Preferred Date: ${preferred_date}`)
+    const fullMessage = structuredParts.length > 0
+      ? `${structuredParts.join('\n')}\n\n${message}`
+      : message
 
     const supabase = createClient()
 
@@ -67,7 +76,7 @@ export async function POST(request: NextRequest) {
         email,
         phone: phone || null,
         company: company || null,
-        message,
+        message: fullMessage,
         page_source: page_source || null,
       })
 
@@ -85,14 +94,17 @@ export async function POST(request: NextRequest) {
         from: process.env.EMAIL_FROM || 'notification@len.golf',
         to: process.env.CONTACT_EMAIL_TO || 'info@len.golf',
         replyTo: email,
-        subject: `New Contact Form: ${name}`,
+        subject: `${page_source === 'events' ? 'Event Inquiry' : 'Contact Form'}: ${name}${company ? ` (${company})` : ''}`,
         html: `
-          <h2>New Contact Form Submission</h2>
+          <h2>${page_source === 'events' ? 'New Event Inquiry' : 'New Contact Form Submission'}</h2>
           <table style="border-collapse:collapse;width:100%;max-width:600px">
             <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee">Name</td><td style="padding:8px;border-bottom:1px solid #eee">${escapeHtml(name)}</td></tr>
             <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee">Email</td><td style="padding:8px;border-bottom:1px solid #eee"><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
             ${phone ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee">Phone</td><td style="padding:8px;border-bottom:1px solid #eee">${escapeHtml(phone)}</td></tr>` : ''}
             ${company ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee">Company</td><td style="padding:8px;border-bottom:1px solid #eee">${escapeHtml(company)}</td></tr>` : ''}
+            ${event_type ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee">Event Type</td><td style="padding:8px;border-bottom:1px solid #eee">${escapeHtml(event_type)}</td></tr>` : ''}
+            ${group_size ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee">Group Size</td><td style="padding:8px;border-bottom:1px solid #eee">${escapeHtml(group_size)}</td></tr>` : ''}
+            ${preferred_date ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee">Preferred Date</td><td style="padding:8px;border-bottom:1px solid #eee">${escapeHtml(preferred_date)}</td></tr>` : ''}
             <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee">Message</td><td style="padding:8px;border-bottom:1px solid #eee">${escapeHtml(message).replace(/\n/g, '<br>')}</td></tr>
             ${page_source ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee">Source</td><td style="padding:8px;border-bottom:1px solid #eee">${escapeHtml(page_source)}</td></tr>` : ''}
           </table>

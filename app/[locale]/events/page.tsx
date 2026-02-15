@@ -6,6 +6,8 @@ import SectionWrapper from '@/components/shared/SectionWrapper'
 import ImageGallery from '@/components/shared/ImageGallery'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
 import { eventTypes, eventPackages, eventPackageNotes } from '@/data/pricing'
+import { eventClients, instagramPosts } from '@/data/event-clients'
+import InstagramEmbed from '@/components/events/InstagramEmbed'
 import { getEventsPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import EventInquiryForm from '@/components/events/EventInquiryForm'
@@ -139,6 +141,9 @@ export default async function EventsPage({ params }: { params: Promise<{ locale:
           </h1>
           <p className="text-base font-semibold italic tracking-wide text-white/90 md:text-lg">
             {t('heroSubtitle')}
+          </p>
+          <p className="mt-3 inline-block rounded-full bg-white/20 backdrop-blur-sm px-5 py-1.5 text-sm font-bold tracking-wide text-white md:text-base">
+            {t('heroPricing')}
           </p>
         </div>
       </section>
@@ -295,6 +300,53 @@ export default async function EventsPage({ params }: { params: Promise<{ locale:
               ))}
             </ul>
           </div>
+        </div>
+      </section>
+
+      {/* ── Social Proof ── */}
+      <SectionWrapper>
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="mb-4 text-3xl font-bold italic lg:text-4xl">
+            <span style={{ color: '#007429' }}>{t('socialProofTitle')}</span>{' '}
+            <span className="text-foreground">{t('socialProofTitleSuffix')}</span>
+          </h2>
+          <p className="mb-8 text-sm text-muted-foreground">{t('trustedByLabel')}</p>
+
+          {/* Stat chips */}
+          <div className="mx-auto mb-10 grid max-w-md grid-cols-3 gap-4">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="rounded-lg border border-primary/15 bg-primary/5 px-4 py-4">
+                <div className="text-2xl font-bold" style={{ color: '#007429' }}>{t(`socialProofStat${i}Value`)}</div>
+                <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">{t(`socialProofStat${i}Label`)}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Client logos */}
+          <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-12">
+            {eventClients.map((client) => (
+              <div key={client.name} className="flex items-center justify-center">
+                <Image
+                  src={storageUrl(client.logo)}
+                  alt={client.name}
+                  width={client.width}
+                  height={client.height}
+                  className={`${client.className || 'h-8 lg:h-10'} w-auto object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100`}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </SectionWrapper>
+
+      {/* ── Instagram Highlights ── */}
+      <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
+        <div className="section-max-width section-padding">
+          <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
+            <span style={{ color: '#007429' }}>{t('instagramTitle')}</span>{' '}
+            <span className="text-foreground">{t('instagramTitleSuffix')}</span>
+          </h2>
+          <InstagramEmbed shortcodes={instagramPosts} />
         </div>
       </section>
 
