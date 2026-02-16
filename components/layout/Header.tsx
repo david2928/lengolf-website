@@ -108,8 +108,8 @@ export default function Header() {
           {/* Language Switcher */}
           <LanguageSwitcher />
 
-          {/* Social icons — hidden below xl */}
-          <div className="hidden xl:flex items-center" style={{ gap: '3px' }}>
+          {/* Social icons — hidden below 2xl */}
+          <div className="hidden 2xl:flex items-center" style={{ gap: '3px' }}>
             <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="p-0.5">
               <FacebookIcon size={20} color="#666666" />
             </a>
