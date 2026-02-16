@@ -2,11 +2,13 @@ import { MetadataRoute } from 'next'
 import { SITE_URL } from '@/lib/constants'
 import { getPostSlugs } from '@/lib/blog'
 import { getAllLocationSlugs } from '@/lib/locations'
+import { getAllSeoPageSlugs } from '@/lib/seo-pages'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [blogSlugs, locationSlugs] = await Promise.all([
+  const [blogSlugs, locationSlugs, activitySlugs] = await Promise.all([
     getPostSlugs(),
     getAllLocationSlugs(),
+    getAllSeoPageSlugs('activity_occasion'),
   ])
 
   // Pages with Thai translations get hreflang alternates
@@ -96,5 +98,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.5,
   }))
 
-  return [...translatedPages, ...newlyTranslatedPages, ...englishOnlyPages, ...blogPages, ...locationPages]
+  const activityPages: MetadataRoute.Sitemap = activitySlugs.map((slug) => ({
+    url: `${SITE_URL}/activities/${slug}/`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
+  return [...translatedPages, ...newlyTranslatedPages, ...englishOnlyPages, ...blogPages, ...locationPages, ...activityPages]
 }

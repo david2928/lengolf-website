@@ -482,6 +482,50 @@ export function getClubRentalServiceJsonLd() {
   }
 }
 
+export function getActivityPageJsonLd(page: {
+  title: string
+  slug: string
+  meta_description: string | null
+  content: { other_activities: { name: string; description: string }[] }
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: page.title,
+    description: page.meta_description || undefined,
+    url: `${SITE_URL}/activities/${page.slug}/`,
+    numberOfItems: page.content.other_activities.length + 1,
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        item: {
+          '@type': 'EntertainmentBusiness',
+          name: BUSINESS_INFO.name,
+          url: SITE_URL,
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: '540 Ploenchit Road, The Mercury Ville, Floor 4',
+            addressLocality: 'Pathum Wan',
+            addressRegion: 'Bangkok',
+            postalCode: '10330',
+            addressCountry: 'TH',
+          },
+        },
+      },
+      ...page.content.other_activities.map((activity, index) => ({
+        '@type': 'ListItem' as const,
+        position: index + 2,
+        item: {
+          '@type': 'Thing' as const,
+          name: activity.name,
+          description: activity.description,
+        },
+      })),
+    ],
+  }
+}
+
 export function getBreadcrumbJsonLd(items: { name: string; url: string }[]) {
   return {
     '@context': 'https://schema.org',
