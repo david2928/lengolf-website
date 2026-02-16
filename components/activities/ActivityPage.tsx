@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Star, ArrowRight, Check } from 'lucide-react'
+import { useLocale } from 'next-intl'
 import { BOOKING_URL, BUSINESS_INFO, SOCIAL_LINKS } from '@/lib/constants'
 import type { ActivityOccasionSeoPage } from '@/types/seo-pages'
 import AqiWidget from '@/components/shared/AqiWidget'
@@ -8,22 +9,30 @@ interface Props {
   data: ActivityOccasionSeoPage
 }
 
-const MONTH_NAMES = [
-  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
-]
+// TODO Phase 1B: Add i18n support
+// - Import useTranslations from 'next-intl'
+// - Add translation keys to messages/en.json and messages/th.json for:
+//   - Button text: "Book a Bay", "LINE Us", "Explore More"
+//   - Section headers: "Why LENGOLF Is a Great Option", "Other Options to Consider", "How LENGOLF Compares", "Ready to Try It?"
+//   - UI text: "Year-round", "Best:", feature chips, etc.
+// Currently all UI strings are hardcoded English (Phase 1A).
 
-function formatSeasonalRelevance(months: number[]): string {
+function getMonthName(month: number, locale: string): string {
+  return new Intl.DateTimeFormat(locale, { month: 'short' }).format(new Date(2024, month - 1))
+}
+
+function formatSeasonalRelevance(months: number[], locale: string): string {
   if (months.length === 12) return 'Year-round'
   if (months.length === 0) return ''
-  const names = months.map((m) => MONTH_NAMES[m - 1])
+  const names = months.map((m) => getMonthName(m, locale))
   if (months.length <= 3) return names.join(', ')
   return `${names[0]}–${names[names.length - 1]}`
 }
 
 export default function ActivityPageComponent({ data }: Props) {
+  const locale = useLocale()
   const { content } = data
-  const season = formatSeasonalRelevance(content.seasonal_relevance)
+  const season = formatSeasonalRelevance(content.seasonal_relevance, locale)
 
   return (
     <div className="activity-page">
