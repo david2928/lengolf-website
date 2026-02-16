@@ -212,10 +212,22 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      google_reviews_public: {
+        Row: {
+          reviewer_name: string
+          star_rating: string
+          comment: string | null
+          language: string | null
+          review_created_at: string
+        }
+        Relationships: []
+      }
     }
     Functions: {
-      [_ in never]: never
+      get_google_reviews_stats: {
+        Args: Record<string, never>
+        Returns: { total_reviews: number; avg_rating: number }[]
+      }
     }
     Enums: {
       [_ in never]: never

@@ -43,7 +43,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['var(--font-poppins)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-poppins)', 'var(--font-noto-thai)', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
         lg: '0.5rem',

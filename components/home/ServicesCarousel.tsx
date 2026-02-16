@@ -2,12 +2,13 @@
 
 import { useRef, useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { storageUrl } from '@/lib/constants'
 
 interface ServiceItem {
   title: string
+  displayTitle: string
   image: string
   href: string
 }
@@ -103,7 +104,7 @@ export default function ServicesCarousel({ services }: { services: ServiceItem[]
     }
   }, [menuOpen])
 
-  const isFoodDrinks = (service: ServiceItem) => service.title === 'Food & Drinks'
+  const isFoodDrinks = (service: ServiceItem) => service.title === 'Food & Drinks' || service.href.includes('menus/')
 
   return (
     <div className="relative">
@@ -147,7 +148,7 @@ export default function ServicesCarousel({ services }: { services: ServiceItem[]
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <h3 className="absolute bottom-6 left-8 text-xl font-bold text-white/60 sm:text-2xl lg:text-3xl tracking-wider">
-                {service.title.toUpperCase()}
+                {service.displayTitle.toUpperCase()}
               </h3>
             </button>
           ) : (
@@ -165,7 +166,7 @@ export default function ServicesCarousel({ services }: { services: ServiceItem[]
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <h3 className="absolute bottom-6 left-8 text-xl font-bold text-white/60 sm:text-2xl lg:text-3xl tracking-wider">
-                {service.title.toUpperCase()}
+                {service.displayTitle.toUpperCase()}
               </h3>
             </Link>
           )

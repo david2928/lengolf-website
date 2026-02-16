@@ -1,6 +1,7 @@
 export interface AqiBand {
   min: number
   max: number
+  key: string
   label: string
   bgColor: string
   accentColor: string
@@ -9,56 +10,62 @@ export interface AqiBand {
   healthTip: string
 }
 
+// Thailand PCD AQI bands (Pollution Control Department)
 export const AQI_BANDS: AqiBand[] = [
   {
     min: 0,
-    max: 50,
-    label: 'Excellent',
+    max: 25,
+    key: 'VeryGood',
+    label: 'Very Good',
     bgColor: '#f0faf4',
     accentColor: '#007429',
     borderColor: '#c6e9d4',
     golfMessage: 'Perfect day to hit the range — swing by LENGOLF to warm up',
-    healthTip: 'Air quality is great. Enjoy your round!',
+    healthTip: 'Air quality is excellent. Enjoy your round!',
+  },
+  {
+    min: 26,
+    max: 50,
+    key: 'Good',
+    label: 'Good',
+    bgColor: '#eff6ff',
+    accentColor: '#2563eb',
+    borderColor: '#bfdbfe',
+    golfMessage: 'Great conditions for a session',
+    healthTip: 'Air quality is satisfactory.',
   },
   {
     min: 51,
     max: 100,
+    key: 'Moderate',
     label: 'Moderate',
     bgColor: '#fefce8',
     accentColor: '#a16207',
     borderColor: '#fde68a',
-    golfMessage: 'Good conditions for a session',
+    golfMessage: 'Good conditions — indoor golf keeps you comfortable',
     healthTip: 'Acceptable for most people.',
   },
   {
     min: 101,
-    max: 150,
-    label: 'Unhealthy for Sensitive Groups',
+    max: 200,
+    key: 'Unhealthy',
+    label: 'Unhealthy',
     bgColor: '#fff7ed',
     accentColor: '#c2410c',
     borderColor: '#fed7aa',
-    golfMessage: 'Indoor golf keeps you comfortable',
-    healthTip: 'Sensitive groups should consider indoor activities.',
-  },
-  {
-    min: 151,
-    max: 200,
-    label: 'Unhealthy',
-    bgColor: '#fef2f2',
-    accentColor: '#dc2626',
-    borderColor: '#fecaca',
     golfMessage: 'Skip the outdoor course — play indoors',
-    healthTip: 'Health effects possible outdoors for everyone.',
+    healthTip: 'Health effects possible. Consider indoor activities.',
   },
   {
     min: 201,
     max: 999,
-    label: 'Very Unhealthy',
-    bgColor: '#faf5ff',
-    accentColor: '#7c3aed',
-    borderColor: '#e9d5ff',
-    golfMessage: 'Stay indoors — perfect time for simulator golf',
-    healthTip: 'Avoid outdoor activities.',
+    key: 'Hazardous',
+    label: 'Hazardous',
+    bgColor: '#fef2f2',
+    accentColor: '#dc2626',
+    borderColor: '#fecaca',
+    golfMessage: 'Stay indoors — simulator golf in clean, filtered air',
+    healthTip: 'Serious health risk. Stay indoors.',
   },
 ]
 
@@ -87,7 +94,8 @@ export function formatPollutant(code: string): string {
   return POLLUTANT_NAMES[code.toLowerCase()] || code
 }
 
-export function formatTime(iso: string): string {
+export function formatTime(iso: string, locale?: string): string {
   const d = new Date(iso)
-  return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })
+  const loc = locale === 'th' ? 'th-TH' : 'en-US'
+  return d.toLocaleTimeString(loc, { hour: 'numeric', minute: '2-digit', hour12: true })
 }

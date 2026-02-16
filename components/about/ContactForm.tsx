@@ -1,12 +1,14 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 
 export default function ContactForm() {
+  const t = useTranslations('ContactForm')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
@@ -43,8 +45,8 @@ export default function ContactForm() {
   if (submitted) {
     return (
       <div className="rounded-lg bg-primary/10 p-8 text-center">
-        <h3 className="text-xl font-semibold text-primary">Thank you!</h3>
-        <p className="mt-2 text-muted-foreground">We&apos;ll get back to you soon.</p>
+        <h3 className="text-xl font-semibold text-primary">{t('thankYou')}</h3>
+        <p className="mt-2 text-muted-foreground">{t('thankYouMessage')}</p>
       </div>
     )
   }
@@ -53,24 +55,24 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="space-y-2">
-          <Label htmlFor="contact-name">Name</Label>
+          <Label htmlFor="contact-name">{t('name')}</Label>
           <Input id="contact-name" name="name" required />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="contact-email">Email</Label>
+          <Label htmlFor="contact-email">{t('email')}</Label>
           <Input id="contact-email" name="email" type="email" required />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="contact-phone">Phone Number</Label>
+          <Label htmlFor="contact-phone">{t('phoneNumber')}</Label>
           <Input id="contact-phone" name="phone" type="tel" />
         </div>
       </div>
       <div className="space-y-2">
-        <Label htmlFor="contact-message">Message</Label>
+        <Label htmlFor="contact-message">{t('message')}</Label>
         <Textarea id="contact-message" name="message" rows={5} required />
       </div>
       <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
-        {isSubmitting ? 'Sending...' : 'Send Message'}
+        {isSubmitting ? t('sending') : t('sendMessage')}
       </Button>
     </form>
   )

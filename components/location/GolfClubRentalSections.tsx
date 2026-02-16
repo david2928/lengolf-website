@@ -1,3 +1,4 @@
+import { getTranslations } from 'next-intl/server'
 import { MapPin, Briefcase } from 'lucide-react'
 import type { LocationPage } from '@/lib/locations'
 import { parseList, parseSemicolonList } from '@/lib/locations'
@@ -6,7 +7,8 @@ interface Props {
   data: LocationPage
 }
 
-export default function GolfClubRentalSections({ data }: Props) {
+export default async function GolfClubRentalSections({ data }: Props) {
+  const t = await getTranslations('Location')
   const rentalInfo = parseSemicolonList(data.club_rental_info)
   const hotels = parseList(data.nearby_hotels)
 
@@ -28,7 +30,7 @@ export default function GolfClubRentalSections({ data }: Props) {
         <section className="py-12 md:py-16">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-6">
-              Club Rental Details
+              {t('clubRentalDetails')}
             </h2>
             <div className="space-y-3">
               {rentalInfo.map((item) => (
@@ -50,7 +52,7 @@ export default function GolfClubRentalSections({ data }: Props) {
         <section className="py-12 md:py-16 bg-[#f8f9fa]">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-4">
-              Golf Club Rental Near {data.location_name}
+              {t('golfClubRentalNear', { location: data.location_name })}
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
               {data.lengolf_pitch}
@@ -64,10 +66,10 @@ export default function GolfClubRentalSections({ data }: Props) {
         <section className="py-12 md:py-16">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-6">
-              Nearby Hotels
+              {t('nearbyHotels')}
             </h2>
             <p className="text-sm text-muted-foreground mb-4">
-              Staying nearby? Walk in without packing any golf equipment.
+              {t('stayingNearby')}
             </p>
             <div className="flex flex-wrap gap-2">
               {hotels.map((hotel) => (

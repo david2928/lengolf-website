@@ -1,10 +1,24 @@
-import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Mail } from 'lucide-react'
-import { FOOTER_MENU, SOCIAL_LINKS, BUSINESS_INFO, storageUrl } from '@/lib/constants'
+import { getTranslations } from 'next-intl/server'
+import { Link } from '@/i18n/navigation'
+import { SOCIAL_LINKS, BUSINESS_INFO, storageUrl } from '@/lib/constants'
 import { FacebookIcon, LineIcon, InstagramIcon } from '@/components/shared/SocialIcons'
 
-export default function Footer() {
+const FOOTER_MENU_KEYS = [
+  { key: 'home', href: '/' as const },
+  { key: 'aboutUs', href: '/about-us' as const },
+  { key: 'bayRates', href: '/golf' as const },
+  { key: 'events', href: '/events' as const },
+  { key: 'lessons', href: '/lessons' as const },
+  { key: 'clubRental', href: '/golf-club-rental' as const },
+  { key: 'blog', href: '/blog' as const },
+] as const
+
+export default async function Footer() {
+  const t = await getTranslations('Footer')
+  const tNav = await getTranslations('Nav')
+
   return (
     <footer>
       {/* Main footer */}
@@ -34,7 +48,7 @@ export default function Footer() {
               className="mx-auto h-auto w-[160px] lg:mx-0 lg:w-[180px]"
             />
             <p
-              className="mt-4"
+              className="mt-4 whitespace-pre-line"
               style={{
                 fontFamily: '"Poppins", sans-serif',
                 fontWeight: 400,
@@ -43,7 +57,7 @@ export default function Footer() {
                 lineHeight: '22px',
               }}
             >
-              The Mercury Ville @ BTS Chidlom<br />Floor 4
+              {t('address')}
             </p>
           </div>
 
@@ -58,10 +72,10 @@ export default function Footer() {
                 marginBottom: '12px',
               }}
             >
-              Menu
+              {t('menu')}
             </h3>
             <ul>
-              {FOOTER_MENU.map((item) => (
+              {FOOTER_MENU_KEYS.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -75,7 +89,7 @@ export default function Footer() {
                       paddingBottom: '7px',
                     }}
                   >
-                    {item.label}
+                    {tNav(item.key)}
                   </Link>
                 </li>
               ))}
@@ -93,7 +107,7 @@ export default function Footer() {
                 marginBottom: '12px',
               }}
             >
-              Opening Hours
+              {t('openingHours')}
             </h3>
             <p
               style={{
@@ -104,7 +118,7 @@ export default function Footer() {
                 lineHeight: '22px',
               }}
             >
-              10am – 11pm<br />Monday – Sunday
+              {t('hoursValue')}<br />{t('daysValue')}
             </p>
           </div>
 
@@ -119,7 +133,7 @@ export default function Footer() {
                 marginBottom: '12px',
               }}
             >
-              Keep in touch
+              {t('keepInTouch')}
             </h3>
             <div className="flex flex-col items-center gap-1.5 lg:items-start">
               <a
@@ -164,6 +178,16 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Copyright bar */}
+      <div className="border-t border-primary/10 bg-[#f0f9f4] px-[6%] py-4">
+        <div className="flex flex-col items-center gap-2 text-center text-xs text-muted-foreground sm:flex-row sm:justify-between sm:text-left">
+          <p>{t('copyright', { year: new Date().getFullYear() })}</p>
+          <div className="flex gap-4">
+            <Link href="/privacy-policy" className="transition-colors hover:text-primary">{t('privacyPolicy')}</Link>
+            <Link href="/terms-of-service" className="transition-colors hover:text-primary">{t('termsOfService')}</Link>
+          </div>
+        </div>
+      </div>
     </footer>
   )
 }

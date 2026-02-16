@@ -9,14 +9,75 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getAllLocationSlugs(),
   ])
 
-  const corePages: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
-    { url: `${SITE_URL}/golf/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${SITE_URL}/events/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${SITE_URL}/tournaments/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${SITE_URL}/lessons/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${SITE_URL}/about-us/`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${SITE_URL}/blog/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+  // Pages with Thai translations get hreflang alternates
+  const translatedPages: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE_URL}/`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 1.0,
+      alternates: {
+        languages: {
+          en: `${SITE_URL}/`,
+          th: `${SITE_URL}/th/`,
+        },
+      },
+    },
+    {
+      url: `${SITE_URL}/golf/`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+      alternates: {
+        languages: {
+          en: `${SITE_URL}/golf/`,
+          th: `${SITE_URL}/th/golf/`,
+        },
+      },
+    },
+  ]
+
+  // Pages with Thai translations
+  const newlyTranslatedPages: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE_URL}/events/`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+      alternates: { languages: { en: `${SITE_URL}/events/`, th: `${SITE_URL}/th/events/` } },
+    },
+    {
+      url: `${SITE_URL}/golf-club-rental/`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+      alternates: { languages: { en: `${SITE_URL}/golf-club-rental/`, th: `${SITE_URL}/th/golf-club-rental/` } },
+    },
+    {
+      url: `${SITE_URL}/lessons/`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+      alternates: { languages: { en: `${SITE_URL}/lessons/`, th: `${SITE_URL}/th/lessons/` } },
+    },
+    {
+      url: `${SITE_URL}/about-us/`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+      alternates: { languages: { en: `${SITE_URL}/about-us/`, th: `${SITE_URL}/th/about-us/` } },
+    },
+    {
+      url: `${SITE_URL}/blog/`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+      alternates: { languages: { en: `${SITE_URL}/blog/`, th: `${SITE_URL}/th/blog/` } },
+    },
+  ]
+
+  // English-only pages (no Thai content yet)
+  const englishOnlyPages: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/privacy-policy/`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
     { url: `${SITE_URL}/terms-of-service/`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
   ]
@@ -35,5 +96,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.5,
   }))
 
-  return [...corePages, ...blogPages, ...locationPages]
+  return [...translatedPages, ...newlyTranslatedPages, ...englishOnlyPages, ...blogPages, ...locationPages]
 }

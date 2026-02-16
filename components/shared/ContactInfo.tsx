@@ -1,13 +1,15 @@
 import { Phone, Mail, MapPin } from 'lucide-react'
+import { getTranslations } from 'next-intl/server'
 import { BUSINESS_INFO } from '@/lib/constants'
 
-export default function ContactInfo() {
+export default async function ContactInfo() {
+  const t = await getTranslations('ContactInfo')
+
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold lg:text-3xl">Contact Information</h2>
-      <p className="text-muted-foreground">
-        Get in touch through any of the channels below.<br />
-        We&apos;re eager to hear from you!
+      <h2 className="text-2xl font-bold lg:text-3xl">{t('title')}</h2>
+      <p className="text-muted-foreground whitespace-pre-line">
+        {t('subtitle')}
       </p>
       <div className="space-y-4">
         <a
@@ -37,7 +39,7 @@ export default function ContactInfo() {
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
             <MapPin className="h-5 w-5 text-primary" />
           </div>
-          <span className="font-medium">{BUSINESS_INFO.addressShort}</span>
+          <span className="font-medium">{t('address')}</span>
         </a>
       </div>
     </div>
