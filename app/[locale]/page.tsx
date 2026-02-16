@@ -170,7 +170,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           width={1280}
           height={720}
           priority
-          quality={85}
+          fetchPriority="high"
+          quality={75}
           className="absolute inset-0 h-full w-full object-cover"
           sizes="100vw"
         />
@@ -227,8 +228,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {stats.map((item) => (
               <div key={item.label} className="rounded-lg border border-primary/15 bg-primary/5 px-4 py-4">
-                <div className="text-2xl font-bold" style={{ color: '#007429' }}>{item.stat}</div>
-                <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">{item.label}</div>
+                <div className="text-2xl font-bold" style={{ color: '#005a32' }}>{item.stat}</div>
+                <div className="mt-1 text-xs font-medium uppercase tracking-wide text-foreground/70">{item.label}</div>
               </div>
             ))}
           </div>
@@ -264,7 +265,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-14 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>{t('whyLengolfTitle')}</span>{' '}
+            <span style={{ color: '#005a32' }}>{t('whyLengolfTitle')}</span>{' '}
             <span className="text-foreground">{t('whyLengolfTitleSuffix')}</span>
           </h2>
           <div className="mx-auto max-w-4xl space-y-8">
@@ -279,16 +280,17 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                     alt={item.title}
                     width={480}
                     height={320}
+                    quality={70}
                     className="h-52 w-full object-cover md:h-full"
                     sizes="(max-width: 768px) 100vw, 40vw"
                   />
                 </div>
                 <div className="flex flex-col justify-center p-6 md:p-8">
-                  <h3 className="mb-1 text-xl font-bold" style={{ color: '#007429' }}>
+                  <h3 className="mb-1 text-xl font-bold" style={{ color: '#005a32' }}>
                     {item.title}
                   </h3>
-                  <p className="mb-3 text-sm font-medium text-muted-foreground/70">{item.subtitle}</p>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
+                  <p className="mb-3 text-sm font-medium text-foreground/60">{item.subtitle}</p>
+                  <p className="text-sm leading-relaxed text-foreground/70">
                     {item.description}
                   </p>
                 </div>
@@ -305,7 +307,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             {/* Rating header */}
             <div className="mb-8 flex flex-col items-center gap-2">
               <h2 className="text-3xl font-bold italic lg:text-4xl">
-                <span style={{ color: '#007429' }}>{t('reviewsTitle')}</span>{' '}
+                <span style={{ color: '#005a32' }}>{t('reviewsTitle')}</span>{' '}
                 <span className="text-foreground">{t('reviewsTitleSuffix')}</span>
               </h2>
               <div className="flex items-center gap-2">
@@ -388,7 +390,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       {/* ── 6. Gallery ── */}
       <SectionWrapper>
         <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-          <span style={{ color: '#007429' }}>{t('galleryTitle')}</span>{' '}
+          <span style={{ color: '#005a32' }}>{t('galleryTitle')}</span>{' '}
           <span className="text-foreground">{t('galleryTitleSuffix')}</span>
         </h2>
         <ImageGallery images={galleryImages} rows={[5, 3]} />
@@ -398,7 +400,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>{t('servicesTitle')}</span>{' '}
+            <span style={{ color: '#005a32' }}>{t('servicesTitle')}</span>{' '}
             <span className="text-foreground">{t('servicesTitleSuffix')}</span>
           </h2>
           <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2">
@@ -414,18 +416,19 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                     alt={item.title}
                     width={600}
                     height={400}
+                    quality={70}
                     className="aspect-[3/2] w-full object-cover transition-transform duration-300 group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, 50vw"
                   />
                 </div>
                 <div className="p-5">
-                  <h3 className="mb-2 text-lg font-bold" style={{ color: '#007429' }}>
+                  <h3 className="mb-2 text-lg font-bold" style={{ color: '#005a32' }}>
                     {item.title}
                   </h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">
                     {item.description}
                   </p>
-                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold transition-colors" style={{ color: '#007429' }}>
+                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold transition-colors" style={{ color: '#005a32' }}>
                     {tCommon('learnMore')}
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                   </span>
@@ -439,7 +442,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       {/* ── 8. Find Us ── */}
       <SectionWrapper>
         <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-          <span style={{ color: '#007429' }}>{t('findUsTitle')}</span>{' '}
+          <span style={{ color: '#005a32' }}>{t('findUsTitle')}</span>{' '}
           <span className="text-foreground">{t('findUsTitleSuffix')}</span>
         </h2>
         <div className="mx-auto max-w-5xl flex flex-col gap-8 lg:flex-row lg:items-start">
@@ -455,19 +458,19 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
           <div className="flex flex-col gap-5 lg:w-2/5">
             <div>
-              <h3 className="mb-1 text-sm font-bold uppercase tracking-wide text-foreground">{t('addressLabel')}</h3>
+              <p className="mb-1 text-sm font-bold uppercase tracking-wide text-foreground">{t('addressLabel')}</p>
               <p className="text-sm leading-relaxed text-muted-foreground">{BUSINESS_INFO.address}</p>
             </div>
             <div>
-              <h3 className="mb-1 text-sm font-bold uppercase tracking-wide text-foreground">{t('openingHoursLabel')}</h3>
+              <p className="mb-1 text-sm font-bold uppercase tracking-wide text-foreground">{t('openingHoursLabel')}</p>
               <p className="text-sm text-muted-foreground">{BUSINESS_INFO.hours}</p>
             </div>
             <div>
-              <h3 className="mb-1 text-sm font-bold uppercase tracking-wide text-foreground">{t('phoneLabel')}</h3>
+              <p className="mb-1 text-sm font-bold uppercase tracking-wide text-foreground">{t('phoneLabel')}</p>
               <a href={`tel:${BUSINESS_INFO.phoneRaw}`} className="text-sm font-medium text-primary hover:underline">{BUSINESS_INFO.phone}</a>
             </div>
             <div>
-              <h3 className="mb-1 text-sm font-bold uppercase tracking-wide text-foreground">{t('emailLabel')}</h3>
+              <p className="mb-1 text-sm font-bold uppercase tracking-wide text-foreground">{t('emailLabel')}</p>
               <a href={`mailto:${BUSINESS_INFO.email}`} className="text-sm font-medium text-primary hover:underline">{BUSINESS_INFO.email}</a>
             </div>
             <a
@@ -475,7 +478,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 inline-flex items-center gap-2 text-sm font-semibold transition-colors hover:underline"
-              style={{ color: '#007429' }}
+              style={{ color: '#005a32' }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
               {t('getDirections')}
