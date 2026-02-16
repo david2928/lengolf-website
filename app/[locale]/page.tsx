@@ -163,6 +163,18 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       {/* ── 1. Video Hero ── */}
       <section className="relative flex min-h-[560px] items-center justify-center overflow-hidden bg-[#30884E] text-white md:min-h-[620px]">
+        {/* Hero background image (LCP element) */}
+        <Image
+          src={storageUrl('venue/venue-simulator-01.jpg')}
+          alt="LENGOLF indoor golf simulator facility in Bangkok"
+          width={1280}
+          height={720}
+          priority
+          quality={85}
+          className="absolute inset-0 h-full w-full object-cover"
+          sizes="100vw"
+        />
+        {/* Video overlay (loads after image) */}
         <video
           autoPlay
           muted
@@ -170,8 +182,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           playsInline
           poster={storageImageUrl('venue/venue-simulator-01.jpg', { width: 1280, quality: 60 })}
           className="absolute inset-0 h-full w-full object-cover"
+          preload="none"
         >
           <source src={storageUrl('videos/hero-video.mp4')} type="video/mp4" />
+          <track kind="captions" srcLang="en" label="English" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-[#005a32]/60" />
         <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
@@ -181,7 +195,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             width={400}
             height={100}
             className="mx-auto mb-6 h-auto w-48 sm:w-56 lg:w-64"
-            priority
           />
           <h1 className="mb-4 text-3xl font-black uppercase leading-tight sm:text-4xl md:text-5xl">
             {t('heroTitle')}
