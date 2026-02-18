@@ -60,6 +60,8 @@ export interface HotelConciergeContent {
   nearby_restaurants: { name: string; cuisine: string; distance_m: number }[]
   nearby_activities: { name: string; type: string; distance_m: number }[]
   google_maps_embed: string
+  area_guide: string
+  suggested_itinerary: { time: string; activity: string }[]
 }
 
 export interface BestOfListicleContent {

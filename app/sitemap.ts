@@ -5,10 +5,12 @@ import { getAllLocationSlugs } from '@/lib/locations'
 import { getAllSeoPageSlugs } from '@/lib/seo-pages'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [blogSlugs, locationSlugs, activitySlugs] = await Promise.all([
+  const [blogSlugs, locationSlugs, activitySlugs, faqSlugs, hotelSlugs] = await Promise.all([
     getPostSlugs(),
     getAllLocationSlugs(),
     getAllSeoPageSlugs('activity_occasion'),
+    getAllSeoPageSlugs('faq'),
+    getAllSeoPageSlugs('hotel_concierge'),
   ])
 
   // Pages with Thai translations get hreflang alternates
@@ -105,5 +107,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }))
 
-  return [...translatedPages, ...newlyTranslatedPages, ...englishOnlyPages, ...blogPages, ...locationPages, ...activityPages]
+  const faqPageEntries: MetadataRoute.Sitemap = faqSlugs.map((slug) => ({
+    url: `${SITE_URL}/faq/${slug}/`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
+  const hotelPages: MetadataRoute.Sitemap = hotelSlugs.map((slug) => ({
+    url: `${SITE_URL}/hotels/${slug}/`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
+  return [...translatedPages, ...newlyTranslatedPages, ...englishOnlyPages, ...blogPages, ...locationPages, ...activityPages, ...faqPageEntries, ...hotelPages]
 }

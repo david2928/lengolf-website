@@ -526,6 +526,99 @@ export function getActivityPageJsonLd(page: {
   }
 }
 
+export function getSeoFaqPageJsonLd(page: {
+  title: string
+  slug: string
+  content: {
+    answer_intro: string
+    answer_body: string
+    related_questions: { slug: string; question: string }[]
+  }
+}) {
+  // Main question + related questions as FAQPage schema
+  const mainQuestion = {
+    '@type': 'Question' as const,
+    name: page.title,
+    acceptedAnswer: {
+      '@type': 'Answer' as const,
+      text: page.content.answer_intro + '\n\n' + page.content.answer_body,
+    },
+  }
+
+  const relatedQuestions = page.content.related_questions.map((rq) => ({
+    '@type': 'Question' as const,
+    name: rq.question,
+    acceptedAnswer: {
+      '@type': 'Answer' as const,
+      text: `See our full answer at ${SITE_URL}/faq/${rq.slug}/`,
+    },
+  }))
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [mainQuestion, ...relatedQuestions],
+  }
+}
+
+export function getHotelConciergePageJsonLd(page: {
+  title: string
+  slug: string
+  meta_description: string | null
+  content: {
+    hotel_name: string
+    hotel_distance_m: number
+    walking_time_mins: number
+    nearby_restaurants: { name: string; cuisine: string; distance_m: number }[]
+    nearby_activities: { name: string; type: string; distance_m: number }[]
+  }
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'TouristTrip',
+    name: page.title,
+    description: page.meta_description || undefined,
+    url: `${SITE_URL}/hotels/${page.slug}/`,
+    touristType: 'Hotel Guest',
+    itinerary: {
+      '@type': 'ItemList',
+      numberOfItems: page.content.nearby_activities.length + 1,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          item: {
+            '@type': 'EntertainmentBusiness',
+            name: BUSINESS_INFO.name,
+            url: SITE_URL,
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: '540 Ploenchit Road, The Mercury Ville, Floor 4',
+              addressLocality: 'Pathum Wan',
+              addressRegion: 'Bangkok',
+              postalCode: '10330',
+              addressCountry: 'TH',
+            },
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: BUSINESS_INFO.coordinates.lat,
+              longitude: BUSINESS_INFO.coordinates.lng,
+            },
+          },
+        },
+        ...page.content.nearby_activities.map((activity, index) => ({
+          '@type': 'ListItem' as const,
+          position: index + 2,
+          item: {
+            '@type': 'Place' as const,
+            name: activity.name,
+          },
+        })),
+      ],
+    },
+  }
+}
+
 export function getBreadcrumbJsonLd(items: { name: string; url: string }[]) {
   return {
     '@context': 'https://schema.org',
