@@ -619,6 +619,44 @@ export function getHotelConciergePageJsonLd(page: {
   }
 }
 
+export function getPriceGuidePageJsonLd(page: {
+  title: string
+  slug: string
+  meta_description: string | null
+  content: {
+    price_breakdown: { item: string; price: string; notes: string }[]
+    last_verified: string
+  }
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: BUSINESS_INFO.name,
+    description: page.meta_description || page.title,
+    url: `${SITE_URL}/cost/${page.slug}/`,
+    brand: {
+      '@type': 'Brand',
+      name: BUSINESS_INFO.name,
+    },
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'THB',
+      lowPrice: '500',
+      highPrice: '900',
+      offerCount: page.content.price_breakdown.length,
+      offers: page.content.price_breakdown.map((item) => ({
+        '@type': 'Offer' as const,
+        name: item.item,
+        price: item.price.replace(/[^0-9]/g, '') || item.price,
+        priceCurrency: 'THB',
+        description: item.notes,
+        priceValidUntil: `${new Date().getFullYear()}-12-31`,
+        availability: 'https://schema.org/InStock',
+      })),
+    },
+  }
+}
+
 export function getBreadcrumbJsonLd(items: { name: string; url: string }[]) {
   return {
     '@context': 'https://schema.org',

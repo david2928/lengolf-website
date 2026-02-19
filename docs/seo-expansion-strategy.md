@@ -34,7 +34,7 @@
 | **1A** | Activity-Occasion Pages | **Done** | 10/10 | 2026-02-16 |
 | **1B** | FAQ / Answer Pages | **Built** (all draft) | 15/15 | 2026-02-16 |
 | **1C** | Hotel Concierge Pages | **Built** (all draft) | 12/12 | 2026-02-17 |
-| 1D | Price / Cost Guide Pages | Not Started | 0/6 | — |
+| **1D** | Price / Cost Guide Pages | **Built** (all draft) | 6/6 | 2026-02-19 |
 | 1E | Explainer Pages (LLM) | Not Started | 0/3 | — |
 | 2A | Best Of Listicles | Not Started | 0/7 | — |
 | 2B | Comparison Pages | Not Started | 0/6 | — |
@@ -47,7 +47,7 @@
 | — | AQI Widget | **Done** | — | 2026-02-15 |
 | — | Supabase `seo_pages` table | Not Started | — | — |
 
-**Total English pages shipped: 10 / 147** (+ 15 FAQ built as draft, + 12 Hotel Concierge built as draft)
+**Total English pages shipped: 10 / 147** (+ 15 FAQ built as draft, + 12 Hotel Concierge built as draft, + 6 Price Guide built as draft)
 
 ---
 
