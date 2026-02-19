@@ -3,6 +3,7 @@ import { activityOccasionPages } from '@/data/activity-occasions'
 import { faqPages } from '@/data/faq-pages'
 import { hotelConciergePages } from '@/data/hotel-pages'
 import { priceGuidePages } from '@/data/price-guide-pages'
+import { explainerPages } from '@/data/explainer-pages'
 
 // Static data lookup (no DB dependency)
 // When seo_pages table is created in Supabase, swap these to DB queries
@@ -25,6 +26,11 @@ export async function getAllSeoPageSlugs(pageType: SeoPageType): Promise<string[
   }
   if (pageType === 'price_guide') {
     return priceGuidePages
+      .filter((p) => p.status === 'published')
+      .map((p) => p.slug)
+  }
+  if (pageType === 'explainer') {
+    return explainerPages
       .filter((p) => p.status === 'published')
       .map((p) => p.slug)
   }
@@ -59,6 +65,12 @@ export async function getSeoPageBySlug(
     )
     return page || null
   }
+  if (pageType === 'explainer') {
+    const page = explainerPages.find(
+      (p) => p.slug === slug && p.status === 'published'
+    )
+    return page || null
+  }
   return null
 }
 
@@ -76,6 +88,9 @@ export async function getSeoPagesByType(
   }
   if (pageType === 'price_guide') {
     return priceGuidePages.filter((p) => p.status === 'published')
+  }
+  if (pageType === 'explainer') {
+    return explainerPages.filter((p) => p.status === 'published')
   }
   return []
 }

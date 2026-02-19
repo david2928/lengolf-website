@@ -5,12 +5,14 @@ import { getAllLocationSlugs } from '@/lib/locations'
 import { getAllSeoPageSlugs } from '@/lib/seo-pages'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [blogSlugs, locationSlugs, activitySlugs, faqSlugs, hotelSlugs] = await Promise.all([
+  const [blogSlugs, locationSlugs, activitySlugs, faqSlugs, hotelSlugs, costSlugs, explainerSlugs] = await Promise.all([
     getPostSlugs(),
     getAllLocationSlugs(),
     getAllSeoPageSlugs('activity_occasion'),
     getAllSeoPageSlugs('faq'),
     getAllSeoPageSlugs('hotel_concierge'),
+    getAllSeoPageSlugs('price_guide'),
+    getAllSeoPageSlugs('explainer'),
   ])
 
   // Pages with Thai translations get hreflang alternates
@@ -121,5 +123,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }))
 
-  return [...translatedPages, ...newlyTranslatedPages, ...englishOnlyPages, ...blogPages, ...locationPages, ...activityPages, ...faqPageEntries, ...hotelPages]
+  const costPages: MetadataRoute.Sitemap = costSlugs.map((slug) => ({
+    url: `${SITE_URL}/cost/${slug}/`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
+  const explainerPageEntries: MetadataRoute.Sitemap = explainerSlugs.map((slug) => ({
+    url: `${SITE_URL}/guide/${slug}/`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
+  return [...translatedPages, ...newlyTranslatedPages, ...englishOnlyPages, ...blogPages, ...locationPages, ...activityPages, ...faqPageEntries, ...hotelPages, ...costPages, ...explainerPageEntries]
 }

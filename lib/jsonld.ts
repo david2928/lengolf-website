@@ -657,6 +657,45 @@ export function getPriceGuidePageJsonLd(page: {
   }
 }
 
+export function getExplainerPageJsonLd(page: {
+  title: string
+  slug: string
+  meta_description: string | null
+  content: {
+    intro: string
+    sections: { heading: string; body: string }[]
+    key_takeaways: string[]
+  }
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: page.title,
+    description: page.meta_description || page.content.intro,
+    url: `${SITE_URL}/guide/${page.slug}/`,
+    author: {
+      '@type': 'Organization',
+      name: BUSINESS_INFO.name,
+      url: SITE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: BUSINESS_INFO.name,
+      url: SITE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: storageUrl('branding/logo.png'),
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}/guide/${page.slug}/`,
+    },
+    articleSection: 'Golf Simulator Guide',
+    inLanguage: 'en',
+  }
+}
+
 export function getBreadcrumbJsonLd(items: { name: string; url: string }[]) {
   return {
     '@context': 'https://schema.org',
