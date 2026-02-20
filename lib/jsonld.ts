@@ -612,9 +612,8 @@ export function getPriceGuidePageJsonLd(page: {
       return {
         '@type': 'Offer' as const,
         name: item.item,
+        price: rangeMatch[1].replace(/,/g, ''), // "starting at" lowPrice
         priceCurrency: 'THB',
-        lowPrice: rangeMatch[1].replace(/,/g, ''),
-        highPrice: rangeMatch[2].replace(/,/g, ''),
         description: item.notes,
         priceValidUntil: `${new Date().getFullYear()}-12-31`,
         availability: 'https://schema.org/InStock',
