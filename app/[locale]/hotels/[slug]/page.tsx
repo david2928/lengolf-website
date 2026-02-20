@@ -6,6 +6,7 @@ import { SITE_URL } from '@/lib/constants'
 import { getHotelConciergePageJsonLd } from '@/lib/jsonld'
 import HotelConciergePage from '@/components/hotels/HotelConciergePage'
 import type { HotelConciergeSeoPage } from '@/types/seo-pages'
+import { routing } from '@/i18n/routing'
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>
@@ -13,7 +14,9 @@ interface Props {
 
 export async function generateStaticParams() {
   const slugs = await getAllSeoPageSlugs('hotel_concierge')
-  return slugs.map((slug) => ({ slug }))
+  return routing.locales.flatMap((locale) =>
+    slugs.map((slug) => ({ locale, slug }))
+  )
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -38,8 +41,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   }
 }
-
-export const revalidate = 3600
 
 export default async function HotelConciergeSeoPage({ params }: Props) {
   const { locale, slug } = await params

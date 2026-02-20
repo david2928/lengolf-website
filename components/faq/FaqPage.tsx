@@ -197,6 +197,24 @@ export default function FaqPageComponent({ data }: Props) {
   )
 }
 
+/** Component to safely render text with **bold** markdown */
+function BoldText({ text }: { text: string }) {
+  const parts = text.split(/\*\*(.+?)\*\*/g)
+  return (
+    <>
+      {parts.map((part, i) =>
+        i % 2 === 1 ? (
+          <strong key={i} className="text-[#1a472a]">
+            {part}
+          </strong>
+        ) : (
+          part
+        )
+      )}
+    </>
+  )
+}
+
 /** Render a content paragraph, handling bullet lists and inline bold */
 function renderParagraph(text: string, key: string | number) {
   // Check if it's a list (lines starting with -)
@@ -210,7 +228,9 @@ function renderParagraph(text: string, key: string | number) {
         {items.map((item, j) => (
           <li key={j} className="text-muted-foreground flex items-start gap-2">
             <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2d6a4f]" />
-            <span dangerouslySetInnerHTML={{ __html: inlineBold(item.replace(/^-\s*/, '')) }} />
+            <span>
+              <BoldText text={item.replace(/^-\s*/, '')} />
+            </span>
           </li>
         ))}
       </ul>
@@ -218,15 +238,8 @@ function renderParagraph(text: string, key: string | number) {
   }
 
   return (
-    <p
-      key={key}
-      className="my-4 text-muted-foreground leading-relaxed"
-      dangerouslySetInnerHTML={{ __html: inlineBold(text) }}
-    />
+    <p key={key} className="my-4 text-muted-foreground leading-relaxed">
+      <BoldText text={text} />
+    </p>
   )
-}
-
-/** Convert **text** to <strong>text</strong> */
-function inlineBold(text: string): string {
-  return text.replace(/\*\*(.+?)\*\*/g, '<strong class="text-[#1a472a]">$1</strong>')
 }

@@ -6,6 +6,7 @@ import { SITE_URL } from '@/lib/constants'
 import { getExplainerPageJsonLd } from '@/lib/jsonld'
 import ExplainerPageComponent from '@/components/guides/ExplainerPage'
 import type { ExplainerSeoPage } from '@/types/seo-pages'
+import { routing } from '@/i18n/routing'
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>
@@ -13,7 +14,9 @@ interface Props {
 
 export async function generateStaticParams() {
   const slugs = await getAllSeoPageSlugs('explainer')
-  return slugs.map((slug) => ({ slug }))
+  return routing.locales.flatMap((locale) =>
+    slugs.map((slug) => ({ locale, slug }))
+  )
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -39,8 +42,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export const revalidate = 3600
-
 export default async function ExplainerPage({ params }: Props) {
   const { locale, slug } = await params
   setRequestLocale(locale)
@@ -50,7 +51,14 @@ export default async function ExplainerPage({ params }: Props) {
     notFound()
   }
 
-  const jsonLd = getExplainerPageJsonLd(page)
+  const jsonLd = getExplainerPageJsonLd({
+    title: page.title,
+    slug: page.slug,
+    meta_description: page.meta_description,
+    created_at: page.created_at,
+    updated_at: page.updated_at,
+    content: page.content,
+  })
 
   return (
     <>

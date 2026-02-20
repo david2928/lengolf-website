@@ -6,6 +6,7 @@ import { SITE_URL } from '@/lib/constants'
 import { getActivityPageJsonLd } from '@/lib/jsonld'
 import ActivityPageComponent from '@/components/activities/ActivityPage'
 import type { ActivityOccasionSeoPage } from '@/types/seo-pages'
+import { routing } from '@/i18n/routing'
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>
@@ -13,7 +14,9 @@ interface Props {
 
 export async function generateStaticParams() {
   const slugs = await getAllSeoPageSlugs('activity_occasion')
-  return slugs.map((slug) => ({ slug }))
+  return routing.locales.flatMap((locale) =>
+    slugs.map((slug) => ({ locale, slug }))
+  )
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -38,8 +41,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   }
 }
-
-export const revalidate = 3600
 
 export default async function ActivityPage({ params }: Props) {
   const { locale, slug } = await params

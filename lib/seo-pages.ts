@@ -8,89 +8,36 @@ import { explainerPages } from '@/data/explainer-pages'
 // Static data lookup (no DB dependency)
 // When seo_pages table is created in Supabase, swap these to DB queries
 
+const PAGE_DATA_MAP: Partial<Record<SeoPageType, SeoPage[]>> = {
+  activity_occasion: activityOccasionPages,
+  faq: faqPages,
+  hotel_concierge: hotelConciergePages,
+  price_guide: priceGuidePages,
+  explainer: explainerPages,
+}
+
 export async function getAllSeoPageSlugs(pageType: SeoPageType): Promise<string[]> {
-  if (pageType === 'activity_occasion') {
-    return activityOccasionPages
-      .filter((p) => p.status === 'published')
-      .map((p) => p.slug)
-  }
-  if (pageType === 'faq') {
-    return faqPages
-      .filter((p) => p.status === 'published')
-      .map((p) => p.slug)
-  }
-  if (pageType === 'hotel_concierge') {
-    return hotelConciergePages
-      .filter((p) => p.status === 'published')
-      .map((p) => p.slug)
-  }
-  if (pageType === 'price_guide') {
-    return priceGuidePages
-      .filter((p) => p.status === 'published')
-      .map((p) => p.slug)
-  }
-  if (pageType === 'explainer') {
-    return explainerPages
-      .filter((p) => p.status === 'published')
-      .map((p) => p.slug)
-  }
-  return []
+  const pages = PAGE_DATA_MAP[pageType]
+  if (!pages) return []
+  return pages
+    .filter((p) => p.status === 'published')
+    .map((p) => p.slug)
 }
 
 export async function getSeoPageBySlug(
   slug: string,
   pageType: SeoPageType
 ): Promise<SeoPage | null> {
-  if (pageType === 'activity_occasion') {
-    const page = activityOccasionPages.find(
-      (p) => p.slug === slug && p.status === 'published'
-    )
-    return page || null
-  }
-  if (pageType === 'faq') {
-    const page = faqPages.find(
-      (p) => p.slug === slug && p.status === 'published'
-    )
-    return page || null
-  }
-  if (pageType === 'hotel_concierge') {
-    const page = hotelConciergePages.find(
-      (p) => p.slug === slug && p.status === 'published'
-    )
-    return page || null
-  }
-  if (pageType === 'price_guide') {
-    const page = priceGuidePages.find(
-      (p) => p.slug === slug && p.status === 'published'
-    )
-    return page || null
-  }
-  if (pageType === 'explainer') {
-    const page = explainerPages.find(
-      (p) => p.slug === slug && p.status === 'published'
-    )
-    return page || null
-  }
-  return null
+  const pages = PAGE_DATA_MAP[pageType]
+  if (!pages) return null
+  const page = pages.find(
+    (p) => p.slug === slug && p.status === 'published'
+  )
+  return page || null
 }
 
-export async function getSeoPagesByType(
-  pageType: SeoPageType
-): Promise<SeoPage[]> {
-  if (pageType === 'activity_occasion') {
-    return activityOccasionPages.filter((p) => p.status === 'published')
-  }
-  if (pageType === 'faq') {
-    return faqPages.filter((p) => p.status === 'published')
-  }
-  if (pageType === 'hotel_concierge') {
-    return hotelConciergePages.filter((p) => p.status === 'published')
-  }
-  if (pageType === 'price_guide') {
-    return priceGuidePages.filter((p) => p.status === 'published')
-  }
-  if (pageType === 'explainer') {
-    return explainerPages.filter((p) => p.status === 'published')
-  }
-  return []
+export async function getSeoPagesByType(pageType: SeoPageType): Promise<SeoPage[]> {
+  const pages = PAGE_DATA_MAP[pageType]
+  if (!pages) return []
+  return pages.filter((p) => p.status === 'published')
 }

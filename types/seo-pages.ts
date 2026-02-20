@@ -56,7 +56,7 @@ export interface HotelConciergeContent {
   walking_directions: string
   hotel_star_rating: number
   hotel_type: string
-  guest_profile: string
+  guest_profile?: string // Optional - removed from data files but kept for backward compatibility
   nearby_restaurants: { name: string; cuisine: string; distance_m: number }[]
   nearby_activities: { name: string; type: string; distance_m: number }[]
   google_maps_embed: string

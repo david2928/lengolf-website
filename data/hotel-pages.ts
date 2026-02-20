@@ -26,7 +26,6 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
         'Exit Arnoma Grand Bangkok onto Ratchadamri Road. Walk north toward BTS Chidlom station — you\'ll see The Mercury Ville at BTS Chidlom on your left within 4 minutes. LENGOLF is on Floor 4. Take the escalator up from the ground floor.',
       hotel_star_rating: 4,
       hotel_type: 'mid-range',
-      guest_profile: 'Mid-range business and leisure travelers. Popular with Asian tourists and regional business visitors. Good location for shopping with CentralWorld across the road.',
       nearby_restaurants: [
         { name: 'Nara Thai Cuisine (CentralWorld)', cuisine: 'Thai', distance_m: 250 },
         { name: 'Din Tai Fung (CentralWorld)', cuisine: 'Taiwanese / Dim Sum', distance_m: 300 },
@@ -75,7 +74,6 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
         'Exit Sindhorn Midtown onto Soi Langsuan. Walk north to Ploenchit Road, then turn right (east). Continue toward BTS Chidlom station — The Mercury Ville is on your right, directly connected to the BTS. LENGOLF is on Floor 4.',
       hotel_star_rating: 4,
       hotel_type: 'mid-range',
-      guest_profile: 'Newer boutique-style hotel popular with younger travelers and digital nomads. Close to Lumpini Park for morning runs. Good base for exploring central Bangkok.',
       nearby_restaurants: [
         { name: 'Baan Khanitha (Langsuan)', cuisine: 'Thai Fine Dining', distance_m: 200 },
         { name: 'Pizza Mania (Mercury Ville)', cuisine: 'Italian', distance_m: 400 },
@@ -125,7 +123,6 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
         'Exit Grand Hyatt Erawan and walk west along Ploenchit Road toward BTS Chidlom. Pass Gaysorn Village on your right. The Mercury Ville is connected to BTS Chidlom station on your left — enter from street level and take the escalator to Floor 4 for LENGOLF.',
       hotel_star_rating: 5,
       hotel_type: 'luxury',
-      guest_profile: 'Luxury travelers and high-spending tourists. Strong mix of leisure and business guests. Many guests are golfers — the hotel concierge frequently arranges golf outings. Located directly next to the Erawan Shrine, one of Bangkok\'s most visited landmarks.',
       nearby_restaurants: [
         { name: 'Tables Grill (Grand Hyatt)', cuisine: 'Steakhouse', distance_m: 0 },
         { name: 'Erawan Tea Room', cuisine: 'Thai / Afternoon Tea', distance_m: 0 },
@@ -177,7 +174,6 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
         'Exit The Athenee Hotel onto Wireless Road. Walk north to the Ploenchit Road intersection. Turn left (west) on Ploenchit Road and walk toward BTS Chidlom — about 5 minutes from the intersection. The Mercury Ville is on your left, connected to BTS Chidlom. LENGOLF is on Floor 4.',
       hotel_star_rating: 5,
       hotel_type: 'luxury',
-      guest_profile: 'Luxury guests, often attending events at the hotel\'s extensive banquet facilities. Strong corporate event business. Embassy district location attracts diplomatic and business travelers. Large groups are common.',
       nearby_restaurants: [
         { name: 'The Rain Tree Café (Athenee)', cuisine: 'International Buffet', distance_m: 0 },
         { name: 'The House on Sathorn', cuisine: 'Thai Fine Dining', distance_m: 800 },
@@ -227,7 +223,6 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
         'Exit InterContinental Bangkok onto Ploenchit Road. Walk west past the Erawan Shrine and Gaysorn Village. Continue along Ploenchit Road toward BTS Chidlom — The Mercury Ville is connected to the station on your left. LENGOLF is on Floor 4. Alternatively, take BTS from Chit Lom to Chidlom (1 stop).',
       hotel_star_rating: 5,
       hotel_type: 'luxury',
-      guest_profile: 'Business travelers and corporate guests. Strong weekday occupancy from regional HQs. Many guests are familiar with golf and appreciate quality leisure options within walking distance. Near the Ploenchit business district.',
       nearby_restaurants: [
         { name: 'Theo Mio (InterContinental)', cuisine: 'Italian', distance_m: 0 },
         { name: 'Fireplace Grill (InterContinental)', cuisine: 'Steakhouse', distance_m: 0 },
@@ -278,7 +273,6 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
         'Exit Hotel Indigo onto Wireless Road. Walk north to Ploenchit Road, then turn left (west). Walk along Ploenchit Road for about 6 minutes past the Ploenchit BTS area. The Mercury Ville is connected to BTS Chidlom on your left. LENGOLF is on Floor 4.',
       hotel_star_rating: 4,
       hotel_type: 'boutique',
-      guest_profile: 'Younger, design-conscious travelers who prefer boutique experiences. Many are active and looking for unique activities beyond typical tourist attractions. The rooftop bar attracts a social crowd.',
       nearby_restaurants: [
         { name: 'Mesamis Café (Hotel Indigo)', cuisine: 'International', distance_m: 0 },
         { name: 'Café Kitsuné (Sindhorn Village)', cuisine: 'French Cafe', distance_m: 400 },
@@ -329,7 +323,6 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
         'Exit Novotel Ploenchit onto Sukhumvit Road. Walk to BTS Ploenchit station (2-minute walk). Take BTS one stop westbound to BTS Chidlom. Exit at Chidlom and walk directly into The Mercury Ville. LENGOLF is on Floor 4. Total travel time: ~8 minutes by BTS, or 10 minutes walking along Ploenchit Road.',
       hotel_star_rating: 4,
       hotel_type: 'mid-range',
-      guest_profile: 'Business travelers and mid-range tourists. Good Sukhumvit location with easy BTS access. Many guests are looking for after-work activities and local dining experiences. Family-friendly.',
       nearby_restaurants: [
         { name: 'The Square (Novotel)', cuisine: 'International Buffet', distance_m: 0 },
         { name: 'Soi 11 Food Street', cuisine: 'Street Food', distance_m: 400 },
@@ -379,7 +372,6 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
         'Exit Renaissance Bangkok onto Sukhumvit Road via the main entrance. Turn right and walk west along Ploenchit Road — The Mercury Ville will be on your right at BTS Chidlom within 6 minutes. LENGOLF is on Floor 4.',
       hotel_star_rating: 5,
       hotel_type: 'luxury',
-      guest_profile: 'Business travelers and upmarket tourists. Located in the Ratchaprasong shopping district — guests often combine shopping with dining and entertainment. Corporate events and meetings are common at this property.',
       nearby_restaurants: [
         { name: 'Flavors (Renaissance)', cuisine: 'International', distance_m: 0 },
         { name: 'Red Sky (Centara Grand)', cuisine: 'Mediterranean / Rooftop', distance_m: 300 },
@@ -431,7 +423,6 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
         'Exit The Okura Prestige onto Ploenchit Road. Walk west (right out of the hotel) along Ploenchit Road past BTS Ploenchit station. Continue along Ploenchit Road for about 10 minutes. The Mercury Ville is on your left at BTS Chidlom. LENGOLF is on Floor 4. Alternatively, take BTS Ploenchit one stop to Chidlom (faster in hot weather).',
       hotel_star_rating: 5,
       hotel_type: 'luxury',
-      guest_profile: 'Japanese business travelers and luxury tourists — The Okura is a prestigious Japanese hotel chain with a strong golf culture among its clientele. Many guests are avid golfers looking for convenient practice or entertainment options. High spending power.',
       nearby_restaurants: [
         { name: 'Yamazato (Okura)', cuisine: 'Japanese Fine Dining', distance_m: 0 },
         { name: 'Elements (Okura)', cuisine: 'French-Japanese', distance_m: 0 },
@@ -482,7 +473,6 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
         'Exit Anantara Siam onto Ratchadamri Road. Walk north to the Ratchaprasong intersection (Erawan Shrine). Turn right (east) onto Ploenchit Road and continue toward BTS Chidlom — about 8 minutes from the intersection. The Mercury Ville is on your right. LENGOLF is on Floor 4. Alternatively, take a short taxi (5 minutes, ~60 THB) or BTS from Ratchadamri to Chidlom (2 stops).',
       hotel_star_rating: 5,
       hotel_type: 'luxury',
-      guest_profile: 'Luxury tourists and well-heeled travelers. Strong repeat-guest base. Many guests are looking for unique experiences beyond shopping and temples. The hotel\'s own Anantara Spa is a major draw. Popular with couples and honeymooners.',
       nearby_restaurants: [
         { name: 'Biscotti (Anantara Siam)', cuisine: 'Italian', distance_m: 0 },
         { name: 'Shintaro (Anantara Siam)', cuisine: 'Japanese', distance_m: 0 },
@@ -533,7 +523,6 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
         'Exit Mercure Bangkok Siam and walk to BTS Siam station (3-minute walk). Take BTS one stop eastbound to BTS Chidlom. Exit and walk directly into The Mercury Ville. LENGOLF is on Floor 4. Total travel time: ~8 minutes by BTS. Walking takes about 13 minutes along Rama 1 / Ploenchit Road.',
       hotel_star_rating: 3,
       hotel_type: 'mid-range',
-      guest_profile: 'Budget-conscious tourists and families. Excellent location in the Siam shopping district with direct access to Siam Square, MBK, and Siam Paragon. Popular with younger travelers and families with kids due to proximity to SEA LIFE Bangkok and KidZania.',
       nearby_restaurants: [
         { name: 'Siam Square Street Food', cuisine: 'Thai Street Food', distance_m: 100 },
         { name: 'MBK Food Island', cuisine: 'Thai / International', distance_m: 200 },
@@ -585,7 +574,6 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
         'Exit Kimpton Maa-Lai onto Soi Tonson / Langsuan Road. Walk north to Ploenchit Road. Turn right (east) and walk along Ploenchit Road toward BTS Chidlom — about 10 minutes from the Langsuan intersection. The Mercury Ville is on your right at BTS Chidlom. LENGOLF is on Floor 4. In hot weather, consider a short taxi (5-8 minutes, ~70 THB) or grab a BTS from the nearest station.',
       hotel_star_rating: 5,
       hotel_type: 'boutique',
-      guest_profile: 'Trendy, design-focused travelers who seek unique experiences. The hotel\'s pet-friendly policy and rooftop bar (Bar.Yard) attract a younger, social crowd. Guests are typically active, looking for local experiences beyond standard tourist fare. Strong cocktail and nightlife interest.',
       nearby_restaurants: [
         { name: 'Stock.Room (Kimpton)', cuisine: 'Contemporary Thai', distance_m: 0 },
         { name: 'Ms. Jigger (Kimpton)', cuisine: 'Cocktail Bar', distance_m: 0 },

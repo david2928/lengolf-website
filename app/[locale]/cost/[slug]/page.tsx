@@ -6,6 +6,7 @@ import { SITE_URL } from '@/lib/constants'
 import { getPriceGuidePageJsonLd } from '@/lib/jsonld'
 import PriceGuidePageComponent from '@/components/prices/PriceGuidePage'
 import type { PriceGuideSeoPage } from '@/types/seo-pages'
+import { routing } from '@/i18n/routing'
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>
@@ -13,7 +14,9 @@ interface Props {
 
 export async function generateStaticParams() {
   const slugs = await getAllSeoPageSlugs('price_guide')
-  return slugs.map((slug) => ({ slug }))
+  return routing.locales.flatMap((locale) =>
+    slugs.map((slug) => ({ locale, slug }))
+  )
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -38,8 +41,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   }
 }
-
-export const revalidate = 3600
 
 export default async function PriceGuidePage({ params }: Props) {
   const { locale, slug } = await params

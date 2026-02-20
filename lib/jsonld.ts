@@ -575,46 +575,22 @@ export function getHotelConciergePageJsonLd(page: {
 }) {
   return {
     '@context': 'https://schema.org',
-    '@type': 'TouristTrip',
-    name: page.title,
-    description: page.meta_description || undefined,
+    '@type': 'LocalBusiness',
+    name: BUSINESS_INFO.name,
+    description: page.meta_description || `Things to do near ${page.content.hotel_name}`,
     url: `${SITE_URL}/hotels/${page.slug}/`,
-    touristType: 'Hotel Guest',
-    itinerary: {
-      '@type': 'ItemList',
-      numberOfItems: page.content.nearby_activities.length + 1,
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          item: {
-            '@type': 'EntertainmentBusiness',
-            name: BUSINESS_INFO.name,
-            url: SITE_URL,
-            address: {
-              '@type': 'PostalAddress',
-              streetAddress: '540 Ploenchit Road, The Mercury Ville, Floor 4',
-              addressLocality: 'Pathum Wan',
-              addressRegion: 'Bangkok',
-              postalCode: '10330',
-              addressCountry: 'TH',
-            },
-            geo: {
-              '@type': 'GeoCoordinates',
-              latitude: BUSINESS_INFO.coordinates.lat,
-              longitude: BUSINESS_INFO.coordinates.lng,
-            },
-          },
-        },
-        ...page.content.nearby_activities.map((activity, index) => ({
-          '@type': 'ListItem' as const,
-          position: index + 2,
-          item: {
-            '@type': 'Place' as const,
-            name: activity.name,
-          },
-        })),
-      ],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '540 Ploenchit Road, The Mercury Ville, Floor 4',
+      addressLocality: 'Pathum Wan',
+      addressRegion: 'Bangkok',
+      postalCode: '10330',
+      addressCountry: 'TH',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: BUSINESS_INFO.coordinates.lat,
+      longitude: BUSINESS_INFO.coordinates.lng,
     },
   }
 }
@@ -628,6 +604,66 @@ export function getPriceGuidePageJsonLd(page: {
     last_verified: string
   }
 }) {
+  // Parse price breakdown items and extract actual prices
+  const parsedOffers = page.content.price_breakdown.map((item) => {
+    // Check for price range (e.g., "500–900 THB/hr" or "500-900")
+    const rangeMatch = item.price.match(/^(\d[\d,]*)\s*[–-]\s*(\d[\d,]*)/)
+    if (rangeMatch) {
+      return {
+        '@type': 'Offer' as const,
+        name: item.item,
+        priceCurrency: 'THB',
+        lowPrice: rangeMatch[1].replace(/,/g, ''),
+        highPrice: rangeMatch[2].replace(/,/g, ''),
+        description: item.notes,
+        priceValidUntil: `${new Date().getFullYear()}-12-31`,
+        availability: 'https://schema.org/InStock',
+      }
+    }
+
+    // Check for single price (e.g., "1,800 THB/hr" or "150")
+    const singlePriceMatch = item.price.match(/(\d[\d,]*)/)
+    if (singlePriceMatch) {
+      return {
+        '@type': 'Offer' as const,
+        name: item.item,
+        price: singlePriceMatch[1].replace(/,/g, ''),
+        priceCurrency: 'THB',
+        description: item.notes,
+        priceValidUntil: `${new Date().getFullYear()}-12-31`,
+        availability: 'https://schema.org/InStock',
+      }
+    }
+
+    // Fallback if no match
+    return {
+      '@type': 'Offer' as const,
+      name: item.item,
+      price: item.price,
+      priceCurrency: 'THB',
+      description: item.notes,
+      priceValidUntil: `${new Date().getFullYear()}-12-31`,
+      availability: 'https://schema.org/InStock',
+    }
+  })
+
+  // Calculate aggregate lowPrice and highPrice from actual parsed offers
+  const allPrices: number[] = []
+  parsedOffers.forEach((offer) => {
+    if ('price' in offer && offer.price) {
+      allPrices.push(parseFloat(offer.price))
+    }
+    if ('lowPrice' in offer && offer.lowPrice) {
+      allPrices.push(parseFloat(offer.lowPrice))
+    }
+    if ('highPrice' in offer && offer.highPrice) {
+      allPrices.push(parseFloat(offer.highPrice))
+    }
+  })
+
+  const lowPrice = allPrices.length > 0 ? Math.min(...allPrices).toString() : '0'
+  const highPrice = allPrices.length > 0 ? Math.max(...allPrices).toString() : '0'
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -641,18 +677,10 @@ export function getPriceGuidePageJsonLd(page: {
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'THB',
-      lowPrice: '500',
-      highPrice: '900',
+      lowPrice,
+      highPrice,
       offerCount: page.content.price_breakdown.length,
-      offers: page.content.price_breakdown.map((item) => ({
-        '@type': 'Offer' as const,
-        name: item.item,
-        price: item.price.replace(/[^0-9]/g, '') || item.price,
-        priceCurrency: 'THB',
-        description: item.notes,
-        priceValidUntil: `${new Date().getFullYear()}-12-31`,
-        availability: 'https://schema.org/InStock',
-      })),
+      offers: parsedOffers,
     },
   }
 }
@@ -661,6 +689,8 @@ export function getExplainerPageJsonLd(page: {
   title: string
   slug: string
   meta_description: string | null
+  created_at: string
+  updated_at: string
   content: {
     intro: string
     sections: { heading: string; body: string }[]
@@ -673,6 +703,8 @@ export function getExplainerPageJsonLd(page: {
     headline: page.title,
     description: page.meta_description || page.content.intro,
     url: `${SITE_URL}/guide/${page.slug}/`,
+    datePublished: page.created_at,
+    dateModified: page.updated_at,
     author: {
       '@type': 'Organization',
       name: BUSINESS_INFO.name,

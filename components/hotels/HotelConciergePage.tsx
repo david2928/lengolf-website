@@ -81,6 +81,25 @@ export default function HotelConciergePage({ data }: Props) {
               </div>
             </div>
           </div>
+
+          {/* Google Maps Embed */}
+          {content.google_maps_embed && (
+            <div className="mt-8">
+              <h3 className="text-xl font-bold text-[#1a472a] mb-4">Map & Directions</h3>
+              <div className="rounded-xl overflow-hidden border">
+                <iframe
+                  src={content.google_maps_embed}
+                  width="100%"
+                  height="400"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={`Map from ${content.hotel_name} to LENGOLF`}
+                />
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
