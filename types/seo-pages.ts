@@ -55,11 +55,11 @@ export interface HotelConciergeContent {
   walking_time_mins: number
   walking_directions: string
   hotel_star_rating: number
-  hotel_type: string
-  guest_profile: string
   nearby_restaurants: { name: string; cuisine: string; distance_m: number }[]
   nearby_activities: { name: string; type: string; distance_m: number }[]
   google_maps_embed: string
+  area_guide: string
+  suggested_itinerary: { time: string; activity: string }[]
 }
 
 export interface BestOfListicleContent {
@@ -100,6 +100,21 @@ export interface PriceGuideContent {
   comparison_with_alternatives: string
   value_proposition: string
   last_verified: string
+  venue_comparison?: {
+    venues: {
+      name: string
+      location: string
+      tech: string
+      players_per_bay: number
+      cheapest_rate: string
+      peak_rate: string
+      price_includes_tax: boolean
+      notes: string
+    }[]
+    summary: string
+  }
+  sections?: { heading: string; body: string }[]
+  curated_reviews?: { reviewer_name: string; text: string }[]
 }
 
 export interface ExplainerContent {

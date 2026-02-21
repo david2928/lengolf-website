@@ -3,9 +3,9 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getAllSeoPageSlugs, getSeoPageBySlug } from '@/lib/seo-pages'
 import { SITE_URL } from '@/lib/constants'
-import { getActivityPageJsonLd } from '@/lib/jsonld'
-import ActivityPageComponent from '@/components/activities/ActivityPage'
-import type { ActivityOccasionSeoPage } from '@/types/seo-pages'
+import { getHotelConciergePageJsonLd } from '@/lib/jsonld'
+import HotelConciergePage from '@/components/hotels/HotelConciergePage'
+import type { HotelConciergeSeoPage } from '@/types/seo-pages'
 import { routing } from '@/i18n/routing'
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const slugs = await getAllSeoPageSlugs('activity_occasion')
+  const slugs = await getAllSeoPageSlugs('hotel_concierge')
   return routing.locales.flatMap((locale) =>
     slugs.map((slug) => ({ locale, slug }))
   )
@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const page = await getSeoPageBySlug(slug, 'activity_occasion')
+  const page = await getSeoPageBySlug(slug, 'hotel_concierge')
 
   if (!page) {
     return { title: 'Page Not Found' }
@@ -33,25 +33,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: page.title,
       description: page.meta_description || undefined,
-      url: `${SITE_URL}/activities/${slug}/`,
+      url: `${SITE_URL}/hotels/${slug}/`,
       type: 'website',
     },
     alternates: {
-      canonical: `${SITE_URL}/activities/${slug}/`,
+      canonical: `${SITE_URL}/hotels/${slug}/`,
     },
   }
 }
 
-export default async function ActivityPage({ params }: Props) {
+export default async function HotelConciergeSeoPage({ params }: Props) {
   const { locale, slug } = await params
   setRequestLocale(locale)
-  const page = await getSeoPageBySlug(slug, 'activity_occasion') as ActivityOccasionSeoPage | null
+  const page = await getSeoPageBySlug(slug, 'hotel_concierge') as HotelConciergeSeoPage | null
 
   if (!page) {
     notFound()
   }
 
-  const jsonLd = getActivityPageJsonLd(page)
+  const jsonLd = getHotelConciergePageJsonLd(page)
 
   return (
     <>
@@ -59,7 +59,7 @@ export default async function ActivityPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <ActivityPageComponent data={page} />
+      <HotelConciergePage data={page} />
     </>
   )
 }

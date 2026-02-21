@@ -23,7 +23,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       intro:
         'Bangkok receives heavy rain from May through October, often with sudden downpours that can last hours. When outdoor plans get washed out, the city has plenty of air-conditioned indoor activities — from golf simulators and escape rooms to cooking classes and bowling alleys. Here are the best options for a rainy day in Bangkok.',
       why_lengolf:
-        'LENGOLF is an indoor golf simulator bar at Mercury Ville, BTS Chidlom. With premium Trackman simulators, a full bar, and air-conditioning, it\'s one of Bangkok\'s best rainy day options — whether you\'re a golfer or have never picked up a club. Bay rental starts at 500 THB/hour for up to 5 people, making it just 100 THB per person for a group.',
+        'LENGOLF is an indoor golf simulator bar at Mercury Ville, BTS Chidlom. With premium Bravo golf simulators, a full bar, and air-conditioning, it\'s one of Bangkok\'s best rainy day options — whether you\'re a golfer or have never picked up a club. Bay rental starts at 500 THB/hour for up to 5 people, making it just 100 THB per person for a group.',
       other_activities: [
         { name: 'Escape Room Bangkok', description: 'Solve puzzles and clues in themed rooms. Great for groups of 3-6. Multiple locations across Bangkok.', type: 'entertainment' },
         { name: 'Thai Cooking Class', description: 'Learn to make pad thai, green curry, and mango sticky rice. Most classes run 3 hours and include market tours when weather permits.', type: 'culinary' },
@@ -63,7 +63,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
     content: {
       occasion_type: 'date-night',
       intro:
-        'The best date nights in Bangkok go beyond dinner. The city has no shortage of unique experiences — from cocktail bars with Trackman golf simulators to rooftop dining with skyline views. Here are the most memorable date night ideas in Bangkok for 2026.',
+        'The best date nights in Bangkok go beyond dinner. The city has no shortage of unique experiences — from cocktail bars with Bravo golf simulators to rooftop dining with skyline views. Here are the most memorable date night ideas in Bangkok for 2026.',
       why_lengolf:
         'LENGOLF combines indoor golf simulators with a premium bar in a moody, upscale setting at Mercury Ville, BTS Chidlom. It\'s a date that\'s interactive, fun, and different — even if neither of you has golfed before. Share a bay (500 THB/hour for two), order cocktails, and compete on virtual courses. The relaxed atmosphere makes it easy to talk and laugh without the pressure of a formal dinner.',
       other_activities: [
@@ -105,7 +105,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       intro:
         'Bangkok is one of the world\'s top bachelor party destinations. The best stag dos combine group activities with nightlife — and the city delivers both in spades. Here are the best bachelor party ideas in Bangkok that go beyond the obvious.',
       why_lengolf:
-        'Start the night at LENGOLF with a group golf competition. Our bays fit up to 5 people each, and the Trackman simulators track every shot — perfect for friendly rivalries. With a full bar, cocktails, and craft beer on tap, it sets the tone for the rest of the night. Located at BTS Chidlom, you\'re minutes from Bangkok\'s best nightlife areas. Bay rental is 500 THB/hour for up to 5 people.',
+        'Start the night at LENGOLF with a group golf competition. Our bays fit up to 5 people each, and the Bravo golf simulators track every shot — perfect for friendly rivalries. With a full bar, cocktails, and craft beer on tap, it sets the tone for the rest of the night. Located at BTS Chidlom, you\'re minutes from Bangkok\'s best nightlife areas. Bay rental is 500 THB/hour for up to 5 people.',
       other_activities: [
         { name: 'Go-Kart Bangkok (EasyKart)', description: 'Indoor karting at RCA. Competitive and adrenaline-filled, great for groups.', type: 'entertainment' },
         { name: 'Muay Thai Class', description: 'Group muay thai sessions available at multiple gyms. A unique Bangkok experience.', type: 'sport' },
@@ -145,7 +145,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       intro:
         'The best birthday party venues in Bangkok for adults combine a unique activity with great food and drinks. Whether you\'re hosting 10 friends or 25, Bangkok has venues that go far beyond a standard dinner reservation. Here are the top options for 2026.',
       why_lengolf:
-        'LENGOLF offers event packages designed for birthday parties: the Small Package (10-15 guests, 2 bays, 3 hours) at 9,999 THB includes 10 beers, 5 cocktails, unlimited soft drinks, and catered food. The Medium Package (15-25 guests, 4 bays, 3 hours, full venue rental) is 21,999 THB. Both include Trackman golf simulators — an activity everyone enjoys, golfer or not. Located at Mercury Ville, BTS Chidlom.',
+        'LENGOLF offers event packages designed for birthday parties: the Small Package (10-15 guests, 2 bays, 3 hours) at 9,999 THB includes 10 beers, 5 cocktails, unlimited soft drinks, and catered food. The Medium Package (15-25 guests, 4 bays, 3 hours, full venue rental) is 21,999 THB. Both include Bravo golf simulators — an activity everyone enjoys, golfer or not. Located at Mercury Ville, BTS Chidlom.',
       other_activities: [
         { name: 'Private Karaoke Room', description: 'KTV rooms at various price points across Bangkok. Good for singing groups. Rooms fit 8-20 people.', type: 'entertainment' },
         { name: 'Rooftop Private Dining', description: 'Book a private section at rooftop restaurants for dinner with a view. Typically 2,000-5,000 THB per person.', type: 'dining' },
@@ -185,7 +185,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       intro:
         'Bangkok comes alive at night, and the best evening activities go well beyond Khao San Road. From indoor golf with cocktails to night markets and rooftop bars, here\'s what to do in Bangkok after dark — whether you\'re looking for action, relaxation, or something different.',
       why_lengolf:
-        'LENGOLF is open until 11pm daily, making it one of Bangkok\'s best evening activities. Located at Mercury Ville, BTS Chidlom (Exit 4), it combines Trackman golf simulators with a full cocktail bar. It\'s a genuine activity — not just drinking — which makes it ideal for groups, dates, or solo visitors looking for something to do at night. 500 THB/hour for up to 5 people.',
+        'LENGOLF is open until 11pm daily, making it one of Bangkok\'s best evening activities. Located at Mercury Ville, BTS Chidlom (Exit 4), it combines Bravo golf simulators with a full cocktail bar. It\'s a genuine activity — not just drinking — which makes it ideal for groups, dates, or solo visitors looking for something to do at night. 500 THB/hour for up to 5 people.',
       other_activities: [
         { name: 'Rooftop Bars', description: 'Bangkok\'s skyline views are world-famous. Try Octave (Marriott), Vertigo (Banyan Tree), or Sky Bar (Lebua).', type: 'bar' },
         { name: 'Jodd Fairs Night Market', description: 'Open-air night market with street food, craft stalls, and live music. Free entry, MRT Phra Ram 9.', type: 'market' },
@@ -265,7 +265,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       intro:
         'Bangkok\'s heat (35°C+) and rain (May-October monsoon) make indoor activities essential. Whether you\'re escaping a downpour or the midday sun, these are the best air-conditioned things to do in Bangkok — from golf simulators and escape rooms to museums and bowling.',
       why_lengolf:
-        'LENGOLF is a premium indoor golf simulator bar at Mercury Ville, BTS Chidlom. Fully air-conditioned with Trackman simulators, a cocktail bar, and food menu. No golf experience needed — it\'s designed to be fun for everyone. Bay rental starts at 500 THB/hour for up to 5 people. Open 10am-11pm daily, it\'s the perfect escape from Bangkok\'s weather any time of day.',
+        'LENGOLF is a premium indoor golf simulator bar at Mercury Ville, BTS Chidlom. Fully air-conditioned with Bravo golf simulators, a cocktail bar, and food menu. No golf experience needed — it\'s designed to be fun for everyone. Bay rental starts at 500 THB/hour for up to 5 people. Open 10am-11pm daily, it\'s the perfect escape from Bangkok\'s weather any time of day.',
       other_activities: [
         { name: 'Escape Room Bangkok', description: 'Themed puzzle rooms for groups of 2-6. Air-conditioned, brain-teasing, and fun. 500-800 THB per person.', type: 'entertainment' },
         { name: 'Bowling at Blu-O', description: 'Modern bowling in major malls. Glow lanes, music, and food. Affordable for families and groups.', type: 'entertainment' },
@@ -345,9 +345,9 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
     content: {
       occasion_type: 'non-golfer',
       intro:
-        'You don\'t need to know anything about golf to have fun at a golf simulator. Modern simulators like Trackman are designed to be entertaining for complete beginners — with games, virtual courses, and instant feedback on every swing. At venues like LENGOLF, the bar atmosphere makes it social, not serious.',
+        'You don\'t need to know anything about golf to have fun at a golf simulator. Modern simulators like Bravo are designed to be entertaining for complete beginners — with games, virtual courses, and instant feedback on every swing. At venues like LENGOLF, the bar atmosphere makes it social, not serious.',
       why_lengolf:
-        'LENGOLF is built for non-golfers as much as golfers. Our Trackman simulators show ball flight, distance, and accuracy in real-time — it\'s satisfying even on your first swing. We provide premium club rentals (included with bay rental), so you don\'t need to bring anything. The bar atmosphere means it\'s about having fun with friends, not perfecting your technique. Staff can help you get started in 2 minutes.',
+        'LENGOLF is built for non-golfers as much as golfers. Our Bravo golf simulators show ball flight, distance, and accuracy in real-time — it\'s satisfying even on your first swing. We provide premium club rentals (included with bay rental), so you don\'t need to bring anything. The bar atmosphere means it\'s about having fun with friends, not perfecting your technique. Staff can help you get started in 2 minutes.',
       other_activities: [
         { name: 'Closest to the Pin Challenge', description: 'Simple target game — whoever hits closest to the pin on a virtual par-3 wins. No experience needed.', type: 'game' },
         { name: 'Longest Drive Competition', description: 'Just swing hard. The simulator tracks exact distance. Great for competitive groups.', type: 'game' },
@@ -386,7 +386,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       intro:
         'Bangkok has plenty of family-friendly activities beyond temples and tuk-tuks. The key for families is finding air-conditioned venues where kids stay entertained — especially during the hot season. Here are the best family activities in Bangkok for children of all ages.',
       why_lengolf:
-        'Kids love golf simulators. At LENGOLF, children can play alongside parents — the Trackman technology tracks every swing and shows animated ball flights that kids find fascinating. It\'s safe, air-conditioned, and the bay format means your family has a private space. Bay rental is 500 THB/hour for up to 5 people, and club rental is included. We welcome families during all hours, though weekday mornings are quietest.',
+        'Kids love golf simulators. At LENGOLF, children can play alongside parents — the Bravo simulator technology tracks every swing and shows animated ball flights that kids find fascinating. It\'s safe, air-conditioned, and the bay format means your family has a private space. Bay rental is 500 THB/hour for up to 5 people, and club rental is included. We welcome families during all hours, though weekday mornings are quietest.',
       other_activities: [
         { name: 'SEA LIFE Bangkok Ocean World', description: 'Massive aquarium under Siam Paragon with shark tanks, penguins, and interactive exhibits. Kids under 3 free.', type: 'attraction' },
         { name: 'KidZania Bangkok', description: 'Mini city where kids role-play adult jobs — pilot, firefighter, doctor. Ages 4-14. Located at Siam Paragon.', type: 'attraction' },

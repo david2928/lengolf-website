@@ -526,6 +526,207 @@ export function getActivityPageJsonLd(page: {
   }
 }
 
+export function getSeoFaqPageJsonLd(page: {
+  title: string
+  slug: string
+  content: {
+    answer_intro: string
+    answer_body: string
+    related_questions: { slug: string; question: string }[]
+  }
+}) {
+  // Main question + related questions as FAQPage schema
+  const mainQuestion = {
+    '@type': 'Question' as const,
+    name: page.title,
+    acceptedAnswer: {
+      '@type': 'Answer' as const,
+      text: page.content.answer_intro + '\n\n' + page.content.answer_body,
+    },
+  }
+
+  const relatedQuestions = page.content.related_questions.map((rq) => ({
+    '@type': 'Question' as const,
+    name: rq.question,
+    acceptedAnswer: {
+      '@type': 'Answer' as const,
+      text: `See our full answer at ${SITE_URL}/faq/${rq.slug}/`,
+    },
+  }))
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [mainQuestion, ...relatedQuestions],
+  }
+}
+
+export function getHotelConciergePageJsonLd(page: {
+  title: string
+  slug: string
+  meta_description: string | null
+  content: {
+    hotel_name: string
+    hotel_distance_m: number
+    walking_time_mins: number
+    nearby_restaurants: { name: string; cuisine: string; distance_m: number }[]
+    nearby_activities: { name: string; type: string; distance_m: number }[]
+  }
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: BUSINESS_INFO.name,
+    description: page.meta_description || `Things to do near ${page.content.hotel_name}`,
+    url: `${SITE_URL}/hotels/${page.slug}/`,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '540 Ploenchit Road, The Mercury Ville, Floor 4',
+      addressLocality: 'Pathum Wan',
+      addressRegion: 'Bangkok',
+      postalCode: '10330',
+      addressCountry: 'TH',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: BUSINESS_INFO.coordinates.lat,
+      longitude: BUSINESS_INFO.coordinates.lng,
+    },
+  }
+}
+
+export function getPriceGuidePageJsonLd(page: {
+  title: string
+  slug: string
+  meta_description: string | null
+  content: {
+    price_breakdown: { item: string; price: string; notes: string }[]
+    last_verified: string
+  }
+}) {
+  // Parse price breakdown items and extract actual prices
+  const parsedOffers = page.content.price_breakdown.map((item) => {
+    // Check for price range (e.g., "500–900 THB/hr" or "500-900")
+    const rangeMatch = item.price.match(/^(\d[\d,]*)\s*[–-]\s*(\d[\d,]*)/)
+    if (rangeMatch) {
+      return {
+        '@type': 'Offer' as const,
+        name: item.item,
+        price: rangeMatch[1].replace(/,/g, ''), // "starting at" lowPrice
+        priceCurrency: 'THB',
+        description: item.notes,
+        priceValidUntil: `${new Date().getFullYear()}-12-31`,
+        availability: 'https://schema.org/InStock',
+      }
+    }
+
+    // Check for single price (e.g., "1,800 THB/hr" or "150")
+    const singlePriceMatch = item.price.match(/(\d[\d,]*)/)
+    if (singlePriceMatch) {
+      return {
+        '@type': 'Offer' as const,
+        name: item.item,
+        price: singlePriceMatch[1].replace(/,/g, ''),
+        priceCurrency: 'THB',
+        description: item.notes,
+        priceValidUntil: `${new Date().getFullYear()}-12-31`,
+        availability: 'https://schema.org/InStock',
+      }
+    }
+
+    // Fallback if no match
+    return {
+      '@type': 'Offer' as const,
+      name: item.item,
+      price: item.price,
+      priceCurrency: 'THB',
+      description: item.notes,
+      priceValidUntil: `${new Date().getFullYear()}-12-31`,
+      availability: 'https://schema.org/InStock',
+    }
+  })
+
+  // Calculate aggregate lowPrice and highPrice from actual parsed offers
+  const allPrices: number[] = []
+  parsedOffers.forEach((offer) => {
+    if ('price' in offer && offer.price) {
+      allPrices.push(parseFloat(offer.price as string))
+    }
+    if ('lowPrice' in offer && offer.lowPrice) {
+      allPrices.push(parseFloat(offer.lowPrice as string))
+    }
+    if ('highPrice' in offer && offer.highPrice) {
+      allPrices.push(parseFloat(offer.highPrice as string))
+    }
+  })
+
+  const lowPrice = allPrices.length > 0 ? Math.min(...allPrices).toString() : '0'
+  const highPrice = allPrices.length > 0 ? Math.max(...allPrices).toString() : '0'
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: BUSINESS_INFO.name,
+    description: page.meta_description || page.title,
+    url: `${SITE_URL}/cost/${page.slug}/`,
+    brand: {
+      '@type': 'Brand',
+      name: BUSINESS_INFO.name,
+    },
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'THB',
+      lowPrice,
+      highPrice,
+      offerCount: page.content.price_breakdown.length,
+      offers: parsedOffers,
+    },
+  }
+}
+
+export function getExplainerPageJsonLd(page: {
+  title: string
+  slug: string
+  meta_description: string | null
+  created_at: string
+  updated_at: string
+  content: {
+    intro: string
+    sections: { heading: string; body: string }[]
+    key_takeaways: string[]
+  }
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: page.title,
+    description: page.meta_description || page.content.intro,
+    url: `${SITE_URL}/guide/${page.slug}/`,
+    datePublished: page.created_at,
+    dateModified: page.updated_at,
+    author: {
+      '@type': 'Organization',
+      name: BUSINESS_INFO.name,
+      url: SITE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: BUSINESS_INFO.name,
+      url: SITE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: storageUrl('branding/logo.png'),
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}/guide/${page.slug}/`,
+    },
+    articleSection: 'Golf Simulator Guide',
+    inLanguage: 'en',
+  }
+}
+
 export function getBreadcrumbJsonLd(items: { name: string; url: string }[]) {
   return {
     '@context': 'https://schema.org',

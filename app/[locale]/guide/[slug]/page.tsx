@@ -3,9 +3,9 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getAllSeoPageSlugs, getSeoPageBySlug } from '@/lib/seo-pages'
 import { SITE_URL } from '@/lib/constants'
-import { getActivityPageJsonLd } from '@/lib/jsonld'
-import ActivityPageComponent from '@/components/activities/ActivityPage'
-import type { ActivityOccasionSeoPage } from '@/types/seo-pages'
+import { getExplainerPageJsonLd } from '@/lib/jsonld'
+import ExplainerPageComponent from '@/components/guides/ExplainerPage'
+import type { ExplainerSeoPage } from '@/types/seo-pages'
 import { routing } from '@/i18n/routing'
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const slugs = await getAllSeoPageSlugs('activity_occasion')
+  const slugs = await getAllSeoPageSlugs('explainer')
   return routing.locales.flatMap((locale) =>
     slugs.map((slug) => ({ locale, slug }))
   )
@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const page = await getSeoPageBySlug(slug, 'activity_occasion')
+  const page = await getSeoPageBySlug(slug, 'explainer')
 
   if (!page) {
     return { title: 'Page Not Found' }
@@ -33,25 +33,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: page.title,
       description: page.meta_description || undefined,
-      url: `${SITE_URL}/activities/${slug}/`,
-      type: 'website',
+      url: `${SITE_URL}/guide/${slug}/`,
+      type: 'article',
     },
     alternates: {
-      canonical: `${SITE_URL}/activities/${slug}/`,
+      canonical: `${SITE_URL}/guide/${slug}/`,
     },
   }
 }
 
-export default async function ActivityPage({ params }: Props) {
+export default async function ExplainerPage({ params }: Props) {
   const { locale, slug } = await params
   setRequestLocale(locale)
-  const page = await getSeoPageBySlug(slug, 'activity_occasion') as ActivityOccasionSeoPage | null
+  const page = await getSeoPageBySlug(slug, 'explainer') as ExplainerSeoPage | null
 
   if (!page) {
     notFound()
   }
 
-  const jsonLd = getActivityPageJsonLd(page)
+  const jsonLd = getExplainerPageJsonLd({
+    title: page.title,
+    slug: page.slug,
+    meta_description: page.meta_description,
+    created_at: page.created_at,
+    updated_at: page.updated_at,
+    content: page.content,
+  })
 
   return (
     <>
@@ -59,7 +66,7 @@ export default async function ActivityPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <ActivityPageComponent data={page} />
+      <ExplainerPageComponent data={page} />
     </>
   )
 }
