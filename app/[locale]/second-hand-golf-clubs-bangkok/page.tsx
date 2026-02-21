@@ -26,8 +26,9 @@ const conditionBadge: Record<string, { bg: string; text: string; dot: string }> 
 
 function ClubCard({ club, enquireLabel }: { club: UsedClub; enquireLabel: string }) {
   const badge = conditionBadge[club.condition] ?? conditionBadge['Fair']
+  const clubDesc = `${club.brand}${club.model ? ` ${club.model}` : ''} (${club.club_type}${club.specification ? ` ${club.specification}` : ''})`
   const lineMsg = encodeURIComponent(
-    `Hi LENGOLF! I'm interested in the ${club.brand}${club.model ? ` ${club.model}` : ''} (${club.club_type}) listed on your website. Is it still available?`
+    `Hi LENGOLF! I'm interested in the ${clubDesc} listed on your website. Is it still available?`
   )
   const lineUrl = `https://line.me/R/oaMessage/%40lengolf/?${lineMsg}`
 
@@ -38,7 +39,10 @@ function ClubCard({ club, enquireLabel }: { club: UsedClub; enquireLabel: string
           <h3 className="font-bold text-foreground">
             {club.brand}{club.model ? ` ${club.model}` : ''}
           </h3>
-          <p className="text-sm text-muted-foreground">{club.club_type} · {club.gender}</p>
+          <p className="text-sm text-muted-foreground">
+            {club.club_type}{club.specification ? ` (${club.specification})` : ''} · {club.gender}
+            {club.shaft && <span className="block text-xs">{club.shaft}</span>}
+          </p>
         </div>
         <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${badge.bg} ${badge.text}`}>
           <span className={`h-1.5 w-1.5 rounded-full ${badge.dot}`} />
