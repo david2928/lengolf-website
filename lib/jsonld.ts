@@ -1,4 +1,5 @@
 import { SITE_URL, SITE_NAME, BUSINESS_INFO, SOCIAL_LINKS, storageUrl } from '@/lib/constants'
+import type { UsedClub } from '@/lib/clubs'
 
 export function getLocalBusinessJsonLd() {
   return {
@@ -724,6 +725,96 @@ export function getExplainerPageJsonLd(page: {
     },
     articleSection: 'Golf Simulator Guide',
     inLanguage: 'en',
+  }
+}
+
+export function getCourseClubRentalServiceJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Golf Course Club Rental Bangkok — LENGOLF',
+    description: 'Rent premium golf clubs for any Bangkok golf course. Callaway Warbird or Majesty Shuttle full sets. Full-day and multi-day packages. Delivery anywhere in Bangkok for 500 THB. Confirms within 2 hours via LINE.',
+    provider: {
+      '@type': 'EntertainmentBusiness',
+      name: BUSINESS_INFO.name,
+      url: SITE_URL,
+    },
+    serviceType: 'Golf Equipment Rental',
+    areaServed: {
+      '@type': 'City',
+      name: 'Bangkok',
+    },
+    offers: [
+      {
+        '@type': 'Offer',
+        name: '1-Day Golf Course Club Rental',
+        price: '1200',
+        priceCurrency: 'THB',
+        description: 'Full-day rental of Callaway Warbird or Majesty Shuttle set for any Bangkok golf course',
+      },
+      {
+        '@type': 'Offer',
+        name: '3-Day Golf Course Club Rental',
+        price: '2400',
+        priceCurrency: 'THB',
+        description: '3-day rental package — pay for 2 days, get 1 free',
+      },
+      {
+        '@type': 'Offer',
+        name: '7-Day Golf Course Club Rental',
+        price: '4800',
+        priceCurrency: 'THB',
+        description: '7-day rental package — pay for 4 days, get 3 free',
+      },
+      {
+        '@type': 'Offer',
+        name: '14-Day Golf Course Club Rental',
+        price: '8400',
+        priceCurrency: 'THB',
+        description: '14-day rental package — pay for 7 days, get 7 free',
+      },
+    ],
+  }
+}
+
+export function getUsedClubsListJsonLd(clubs: UsedClub[]) {
+  if (clubs.length === 0) {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'Second-Hand Golf Clubs Bangkok — LENGOLF',
+      description: 'Buy second-hand golf clubs in Bangkok at LENGOLF. Well-maintained Callaway and TaylorMade sets. Test any club in our simulators before you buy.',
+      url: `${SITE_URL}/second-hand-golf-clubs-bangkok/`,
+      numberOfItems: 0,
+    }
+  }
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Second-Hand Golf Clubs Bangkok — LENGOLF',
+    description: 'Buy second-hand golf clubs in Bangkok at LENGOLF. Well-maintained Callaway and TaylorMade sets. Test any club in our simulators before you buy.',
+    url: `${SITE_URL}/second-hand-golf-clubs-bangkok/`,
+    numberOfItems: clubs.length,
+    itemListElement: clubs.map((club, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Product',
+        name: `${club.brand}${club.model ? ` ${club.model}` : ''} — ${club.club_type} (${club.gender})`,
+        description: club.description || `${club.condition} condition ${club.club_type.toLowerCase()} set`,
+        offers: {
+          '@type': 'Offer',
+          price: club.price,
+          priceCurrency: 'THB',
+          availability: 'https://schema.org/InStock',
+          seller: {
+            '@type': 'EntertainmentBusiness',
+            name: BUSINESS_INFO.name,
+            url: SITE_URL,
+          },
+        },
+      },
+    })),
   }
 }
 
