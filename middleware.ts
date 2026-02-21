@@ -6,7 +6,19 @@ import { LEGACY_BLOG_SLUGS } from './lib/blog-slugs'
 const intlMiddleware = createMiddleware(routing)
 
 export default function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl
+  const { pathname, search } = request.nextUrl
+
+  // System routes - exclude from locale auto-detection
+  // These routes are either redirected in next.config.js or serve system functions
+  if (
+    pathname.startsWith('/feed') ||
+    pathname.endsWith('/feed/') ||
+    pathname.startsWith('/search') ||
+    search.includes('?s=') ||
+    search.includes('&s=')
+  ) {
+    return NextResponse.next()
+  }
 
   // Blog routes - exclude from locale auto-detection
   // This prevents browser language from auto-redirecting /blog/* to /th/blog/*
