@@ -46,7 +46,7 @@ export const NAV_ITEMS = [
   { label: 'BAY RATES', href: '/golf' },
   { label: 'EVENTS', href: '/events' },
   { label: 'LESSONS', href: '/lessons' },
-  { label: 'CLUB RENTAL', href: '/golf-club-rental' },
+  { label: 'CLUBS', href: '/golf-club-rental' },
   { label: 'ABOUT US', href: '/about-us' },
 ] as const
 
@@ -56,6 +56,8 @@ export const FOOTER_MENU = [
   { label: 'BAY RATES', href: '/golf' },
   { label: 'EVENTS', href: '/events' },
   { label: 'LESSONS', href: '/lessons' },
-  { label: 'CLUB RENTAL', href: '/golf-club-rental' },
+  { label: 'CLUBS AT LENGOLF', href: '/golf-club-rental' },
+  { label: 'RENT FOR A COURSE', href: '/golf-course-club-rental' },
+  { label: 'SECOND-HAND CLUBS', href: '/second-hand-golf-clubs-bangkok' },
   { label: 'BLOG', href: '/blog' },
 ] as const
