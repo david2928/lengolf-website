@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import DOMPurify from 'isomorphic-dompurify'
@@ -21,27 +21,37 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params
-  const post = await getPostBySlug(slug)
+  const { locale, slug } = await params
+  const post = await getPostBySlug(slug, locale)
 
   if (!post) {
     return { title: 'Post Not Found' }
+  }
+
+  // Determine the post's actual locale (defaults to 'en' if not set)
+  const postLocale = post.locale || 'en'
+
+  // Canonical URL uses the post's actual locale
+  const canonicalUrl = postLocale === 'en'
+    ? `${SITE_URL}/blog/${post.slug}/`
+    : `${SITE_URL}/${postLocale}/blog/${post.slug}/`
+
+  // Build language alternates based on what exists
+  const languages: Record<string, string> = {
+    [postLocale]: canonicalUrl,
   }
 
   return {
     title: post.meta_title || post.title,
     description: post.meta_description || post.excerpt || undefined,
     alternates: {
-      canonical: `${SITE_URL}/blog/${post.slug}/`,
-      languages: {
-        en: `${SITE_URL}/blog/${post.slug}/`,
-        th: `${SITE_URL}/th/blog/${post.slug}/`,
-      },
+      canonical: canonicalUrl,
+      languages,
     },
     openGraph: {
       title: post.meta_title || post.title,
       description: post.meta_description || post.excerpt || undefined,
-      url: `${SITE_URL}/blog/${post.slug}/`,
+      url: canonicalUrl,
       type: 'article',
       publishedTime: post.published_at || undefined,
       ...(post.featured_image && { images: [post.featured_image] }),
@@ -55,11 +65,25 @@ export default async function BlogPostPage({ params }: Props) {
   const { locale, slug } = await params
   setRequestLocale(locale)
   const t = await getTranslations('BlogPost')
-  const post = await getPostBySlug(slug)
+
+  // Try to find a post matching the slug and locale
+  const post = await getPostBySlug(slug, locale)
 
   if (!post) {
+    // Post doesn't exist at all
     notFound()
   }
+
+  // Check if the post's locale matches the requested locale
+  const postLocale = post.locale || 'en'
+
+  if (locale === 'th' && postLocale === 'en') {
+    // User requested Thai version, but only English exists - redirect to English
+    redirect(`/blog/${slug}/`)
+  }
+
+  // Future-proof: Thai posts will be served when they exist
+  // For now, all posts are English-only (post.locale is null or 'en')
 
   const readingTime = getReadingTime(post.content)
   const relatedPosts = await getRelatedPosts(slug, 3)

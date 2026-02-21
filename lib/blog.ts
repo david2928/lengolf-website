@@ -11,6 +11,7 @@ export interface BlogPost {
   meta_description: string | null
   published_at: string | null
   status: string
+  locale?: string | null // Future: 'en' | 'th', defaults to 'en' for existing posts
   created_at: string
   updated_at: string
 }
@@ -38,15 +39,22 @@ export async function getAllPosts(): Promise<BlogPost[]> {
   return data || []
 }
 
-export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
+export async function getPostBySlug(slug: string, locale?: string): Promise<BlogPost | null> {
   const supabase = createClient()
 
-  const { data, error } = await supabase
+  let query = supabase
     .from('blog_posts')
     .select('*')
     .eq('slug', slug)
     .eq('status', 'published')
-    .single()
+
+  // Future-proof: If locale is provided and locale column exists, filter by it
+  // For now, all posts default to 'en' if locale field is missing
+  if (locale) {
+    query = query.or(`locale.eq.${locale},locale.is.null`)
+  }
+
+  const { data, error } = await query.single()
 
   if (error) {
     return null

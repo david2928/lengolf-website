@@ -650,13 +650,13 @@ export function getPriceGuidePageJsonLd(page: {
   const allPrices: number[] = []
   parsedOffers.forEach((offer) => {
     if ('price' in offer && offer.price) {
-      allPrices.push(parseFloat(offer.price))
+      allPrices.push(parseFloat(offer.price as string))
     }
     if ('lowPrice' in offer && offer.lowPrice) {
-      allPrices.push(parseFloat(offer.lowPrice))
+      allPrices.push(parseFloat(offer.lowPrice as string))
     }
     if ('highPrice' in offer && offer.highPrice) {
-      allPrices.push(parseFloat(offer.highPrice))
+      allPrices.push(parseFloat(offer.highPrice as string))
     }
   })
 
