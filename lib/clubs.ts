@@ -5,6 +5,10 @@ export interface UsedClub {
   brand: string
   model: string | null
   club_type: string
+  /** Club-specific detail: iron numbers (3-PW), loft (56°), etc. */
+  specification: string | null
+  /** Shaft description: material + flex (e.g. "Graphite Regular") */
+  shaft: string | null
   gender: string
   condition: string
   price: number

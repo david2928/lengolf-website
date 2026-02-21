@@ -210,6 +210,8 @@ export type Database = {
           brand: string
           model: string | null
           club_type: string
+          specification: string | null
+          shaft: string | null
           gender: string
           condition: string
           price: number
@@ -227,6 +229,8 @@ export type Database = {
           brand: string
           model?: string | null
           club_type: string
+          specification?: string | null
+          shaft?: string | null
           gender?: string
           condition: string
           price: number
@@ -244,6 +248,8 @@ export type Database = {
           brand?: string
           model?: string | null
           club_type?: string
+          specification?: string | null
+          shaft?: string | null
           gender?: string
           condition?: string
           price?: number
