@@ -60,6 +60,8 @@ const routeTests: RouteTest[] = [
   { path: '/th/events/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/th/about-us/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/th/blog/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // Blog post detail (catches Supabase query errors on dynamic routes)
+  { path: '/blog/golf-lessons-in-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // API routes (no Google Maps key in CI, so 500 is acceptable — just not 404)
   { path: '/api/aqi/', expectedStatus: [200, 500, 502] },
 ]
