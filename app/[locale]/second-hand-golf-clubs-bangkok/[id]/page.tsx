@@ -64,10 +64,7 @@ export default async function ClubDetailPage({ params }: { params: Promise<{ loc
   const clubSpec = `${club.club_type}${club.specification ? `, ${club.specification}` : ''}`
   const clubDesc = `${clubTitle} (${clubSpec})`
 
-  const lineMsg = encodeURIComponent(
-    `Hi LENGOLF! I'm interested in the ${clubDesc} listed on your website. Is it still available?`
-  )
-  const lineUrl = `https://line.me/R/oaMessage/%40lengolf/?${lineMsg}`
+  const lineUrl = 'https://line.me/ti/p/@lengolf'
 
   const productJsonLd = getUsedClubProductJsonLd(club)
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
