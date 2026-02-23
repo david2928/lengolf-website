@@ -7,7 +7,7 @@ import { CalendarDays } from 'lucide-react'
 import { BOOKING_URL } from '@/lib/constants'
 
 // Pages that have their own CTAs — hide the generic "Book Your Bay" bar
-const HIDDEN_PATHS = ['/events', '/lessons']
+const HIDDEN_PATHS = ['/events', '/lessons', '/second-hand-golf-clubs-bangkok']
 
 export default function MobileStickyBar() {
   const [visible, setVisible] = useState(false)

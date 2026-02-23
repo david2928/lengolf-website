@@ -77,6 +77,7 @@ export default async function SecondHandGolfClubsBangkokPage({ params }: { param
     filterCondition: t('filterCondition'),
     clearAll: t('clearAll'),
     showingCount: t('showingCount'),
+    filtersLabel: t('filtersLabel'),
     noResults: t('noResults'),
     emptyStateTitle: t('emptyStateTitle'),
     emptyStateText: t('emptyStateText'),
@@ -106,30 +107,32 @@ export default async function SecondHandGolfClubsBangkokPage({ params }: { param
       />
 
       {/* ── Compact Header (no hero) ── */}
-      <section className="pt-10 pb-6 lg:pt-14 lg:pb-8" style={{ backgroundColor: '#F6FFFA' }}>
+      <section className="pt-6 pb-4 lg:pt-14 lg:pb-8" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
-          <h1 className="text-3xl font-black uppercase leading-tight md:text-4xl lg:text-5xl">
-            <span style={{ color: '#007429' }}>{t('heroTitle')}</span>
-          </h1>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <h1 className="text-xl font-black uppercase leading-tight sm:text-3xl lg:text-5xl">
+              <span style={{ color: '#007429' }}>{t('heroTitle')}</span>
+            </h1>
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
+              {trustSignals.map(({ icon: Icon, label }) => (
+                <span
+                  key={label}
+                  className="inline-flex items-center gap-1 rounded-full border border-primary/15 bg-white px-2 py-1 text-[10px] sm:text-xs sm:px-3 sm:py-1.5 sm:gap-1.5 font-medium text-muted-foreground"
+                >
+                  <Icon size={11} className="sm:w-[13px] sm:h-[13px]" style={{ color: '#007429' }} />
+                  {label}
+                </span>
+              ))}
+            </div>
+          </div>
+          <p className="mt-2 max-w-2xl text-xs leading-relaxed text-muted-foreground sm:text-sm md:text-base hidden sm:block">
             {t('introText')}
           </p>
-          <div className="mt-4 flex flex-wrap gap-3">
-            {trustSignals.map(({ icon: Icon, label }) => (
-              <span
-                key={label}
-                className="inline-flex items-center gap-1.5 rounded-full border border-primary/15 bg-white px-3 py-1.5 text-xs font-medium text-muted-foreground"
-              >
-                <Icon size={13} style={{ color: '#007429' }} />
-                {label}
-              </span>
-            ))}
-          </div>
         </div>
       </section>
 
       {/* ── Inventory Grid ── */}
-      <section className="py-10 lg:py-14" style={{ backgroundColor: '#F6FFFA' }}>
+      <section className="py-6 lg:py-14" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
           <UsedClubsGrid clubs={clubs} labels={gridLabels} />
         </div>
