@@ -3,7 +3,7 @@
 > Next.js 15 website for LENGOLF, a premier indoor golf simulator and bar in Bangkok.
 > Deployed at [https://len.golf](https://len.golf)
 
-Last updated: 2026-02-12
+Last updated: 2026-02-23
 
 ---
 
@@ -16,6 +16,7 @@ Last updated: 2026-02-12
 | [Supabase Storage](./supabase-storage.md) | Static asset management via Supabase Storage buckets | All developers |
 | [Content Management](./content-management.md) | Managing blog posts, location pages, pricing, and coach data | Content editors, developers |
 | [Deployment](./deployment.md) | Vercel deployment, environment variables, CI/CD | DevOps, developers |
+| [i18n Translation Strategy](./i18n-translation-strategy.md) | Internationalization, translation registry, and redirect handling for untranslated content | Developers, SEO team |
 | [WordPress Path Handling](./wordpress-path-handling.md) | 404 vs redirect strategy for legacy WordPress paths | Developers, SEO team |
 
 ---
