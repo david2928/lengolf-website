@@ -34,7 +34,8 @@ export default function ClubCard({ club, labels }: { club: UsedClub; labels: Clu
   const lineMsg = encodeURIComponent(
     `Hi LENGOLF! I'm interested in the ${clubDesc} listed on your website. Is it still available?`
   )
-  const lineUrl = `https://line.me/R/oaMessage/%40lengolf/?${lineMsg}`
+  const lineMobileUrl = `https://line.me/R/oaMessage/%40lengolf/?${lineMsg}`
+  const lineDesktopUrl = 'https://line.me/ti/p/@lengolf'
 
   return (
     <Link
@@ -93,7 +94,7 @@ export default function ClubCard({ club, labels }: { club: UsedClub; labels: Clu
             type="button"
             className="relative z-10 inline-flex items-center gap-1.5 rounded-md px-3.5 py-2 text-xs font-semibold text-white transition-opacity hover:opacity-90"
             style={{ backgroundColor: '#00B900' }}
-            onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(lineUrl, '_blank', 'noopener,noreferrer') }}
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent); window.open(isMobile ? lineMobileUrl : lineDesktopUrl, '_blank', 'noopener,noreferrer') }}
           >
             <MessageCircle size={13} />
             {labels.enquireButton}
