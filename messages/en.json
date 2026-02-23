@@ -683,6 +683,7 @@
     "filterGender": "Gender",
     "filterCondition": "Condition",
     "clearAll": "Clear all",
+    "filtersLabel": "Filters",
     "showingCount": "Showing __count__ of __total__",
     "noResults": "No clubs match your filters",
     "testTitle": "TEST BEFORE",

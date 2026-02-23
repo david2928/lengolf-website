@@ -683,6 +683,7 @@
     "filterGender": "เพศ",
     "filterCondition": "สภาพ",
     "clearAll": "ล้างทั้งหมด",
+    "filtersLabel": "ตัวกรอง",
     "showingCount": "แสดง __count__ จาก __total__",
     "noResults": "ไม่พบไม้กอล์ฟตามตัวกรอง",
     "testTitle": "ลองตี",

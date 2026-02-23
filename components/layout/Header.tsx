@@ -268,7 +268,7 @@ export default function Header() {
             {/* CLUBS section — always expanded on mobile */}
             <div className="w-full max-w-xs">
               <p
-                className="text-center mb-2"
+                className="text-center mb-3"
                 style={{
                   fontFamily: '"Poppins", sans-serif',
                   fontSize: '22px',
@@ -279,19 +279,19 @@ export default function Header() {
               >
                 {t('clubs')}
               </p>
-              <div className="flex flex-col gap-1 border-l-2 border-primary/20 pl-4">
+              <div className="flex flex-col gap-0.5 mx-auto w-fit">
                 {CLUBS_CHILDREN.map((child) => {
                   const isChildActive = pathname === child.href
                   return (
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="block py-1.5 transition-colors hover:text-[#316B39]"
+                      className="block py-2 px-4 rounded-lg transition-colors hover:bg-primary/5 text-center"
                       style={{
                         fontFamily: '"Poppins", sans-serif',
-                        fontSize: '16px',
-                        fontWeight: 500,
-                        color: isChildActive ? '#316B39' : '#555555',
+                        fontSize: '15px',
+                        fontWeight: isChildActive ? 600 : 400,
+                        color: isChildActive ? '#316B39' : '#666666',
                       }}
                       onClick={() => setMobileMenuOpen(false)}
                     >
