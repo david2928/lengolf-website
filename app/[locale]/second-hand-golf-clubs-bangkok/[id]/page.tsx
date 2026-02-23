@@ -194,7 +194,7 @@ export default async function ClubDetailPage({ params }: { params: Promise<{ loc
             <h2 className="mb-6 text-xl font-bold">
               <span style={{ color: '#007429' }}>{t('relatedTitle')}</span>
             </h2>
-            <div className="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-5">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
               {relatedClubs.map((rc) => (
                 <ClubCard key={rc.id} club={rc} labels={cardLabels} />
               ))}
