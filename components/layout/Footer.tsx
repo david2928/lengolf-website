@@ -68,7 +68,7 @@ export default async function Footer() {
                 fontFamily: '"Poppins", sans-serif',
                 fontSize: '18px',
                 fontWeight: 600,
-                color: '#007429',
+                color: '#005a32',
                 marginBottom: '12px',
               }}
             >
@@ -79,7 +79,7 @@ export default async function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="block transition-colors hover:text-[#007429]"
+                    className="block transition-colors hover:text-[#005a32]"
                     style={{
                       fontFamily: '"Poppins", sans-serif',
                       fontWeight: 400,
@@ -103,7 +103,7 @@ export default async function Footer() {
                 fontFamily: '"Poppins", sans-serif',
                 fontSize: '18px',
                 fontWeight: 600,
-                color: '#007429',
+                color: '#005a32',
                 marginBottom: '12px',
               }}
             >
@@ -129,7 +129,7 @@ export default async function Footer() {
                 fontFamily: '"Poppins", sans-serif',
                 fontSize: '18px',
                 fontWeight: 600,
-                color: '#007429D4',
+                color: '#005a32',
                 marginBottom: '12px',
               }}
             >
@@ -138,7 +138,7 @@ export default async function Footer() {
             <div className="flex flex-col items-center gap-1.5 lg:items-start">
               <a
                 href={`tel:${BUSINESS_INFO.phoneRaw}`}
-                className="inline-flex items-center gap-2 transition-colors hover:text-[#007429]"
+                className="inline-flex items-center gap-2 transition-colors hover:text-[#005a32]"
                 style={{
                   fontFamily: '"Poppins", sans-serif',
                   fontSize: '16px',
@@ -151,7 +151,7 @@ export default async function Footer() {
               </a>
               <a
                 href={`mailto:${BUSINESS_INFO.email}`}
-                className="inline-flex items-center gap-2 transition-colors hover:text-[#007429]"
+                className="inline-flex items-center gap-2 transition-colors hover:text-[#005a32]"
                 style={{
                   fontFamily: '"Poppins", sans-serif',
                   fontSize: '16px',
@@ -180,7 +180,7 @@ export default async function Footer() {
 
       {/* Copyright bar */}
       <div className="border-t border-primary/10 bg-[#f0f9f4] px-[6%] py-4">
-        <div className="flex flex-col items-center gap-2 text-center text-xs text-muted-foreground sm:flex-row sm:justify-between sm:text-left">
+        <div className="flex flex-col items-center gap-2 text-center text-xs text-foreground/70 sm:flex-row sm:justify-between sm:text-left">
           <p>{t('copyright', { year: new Date().getFullYear() })}</p>
           <div className="flex gap-4">
             <Link href="/privacy-policy" className="transition-colors hover:text-primary">{t('privacyPolicy')}</Link>

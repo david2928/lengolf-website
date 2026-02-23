@@ -102,11 +102,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.5,
   }))
 
+  // TODO: Activity pages are English-only in Phase 1A. Add Thai translations in Phase 1B.
   const activityPages: MetadataRoute.Sitemap = activitySlugs.map((slug) => ({
     url: `${SITE_URL}/activities/${slug}/`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
+    alternates: {
+      languages: {
+        en: `${SITE_URL}/activities/${slug}/`,
+        // th: `${SITE_URL}/th/activities/${slug}/`, // TODO: Add when Thai content is ready
+      },
+    },
   }))
 
   const faqPageEntries: MetadataRoute.Sitemap = faqSlugs.map((slug) => ({
