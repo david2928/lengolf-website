@@ -89,17 +89,15 @@ export default function ClubCard({ club, labels }: { club: UsedClub; labels: Clu
             <Tag size={14} className="shrink-0" />
             {club.price.toLocaleString('en-US')} <span className="text-sm font-semibold">THB</span>
           </span>
-          <a
-            href={lineUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
             className="relative z-10 inline-flex items-center gap-1.5 rounded-md px-3.5 py-2 text-xs font-semibold text-white transition-opacity hover:opacity-90"
             style={{ backgroundColor: '#00B900' }}
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(lineUrl, '_blank', 'noopener,noreferrer') }}
           >
             <MessageCircle size={13} />
             {labels.enquireButton}
-          </a>
+          </button>
         </div>
       </div>
     </Link>
