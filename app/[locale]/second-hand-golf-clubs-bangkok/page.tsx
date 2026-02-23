@@ -3,11 +3,12 @@ import type { Metadata } from 'next'
 import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import FaqSection from '@/components/shared/FaqSection'
-import { storageUrl, SITE_URL, BUSINESS_INFO, SOCIAL_LINKS } from '@/lib/constants'
+import { storageUrl, SITE_URL, SOCIAL_LINKS } from '@/lib/constants'
 import { getUsedClubsListJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { getAvailableUsedClubs } from '@/lib/clubs'
-import type { UsedClub } from '@/lib/clubs'
-import { MessageCircle, MapPin, Tag } from 'lucide-react'
+import UsedClubsGrid from '@/components/clubs/UsedClubsGrid'
+import type { GridLabels } from '@/components/clubs/UsedClubsGrid'
+import { MessageCircle, MapPin, Camera, Search, Shield } from 'lucide-react'
 
 export const revalidate = 3600
 
@@ -17,60 +18,6 @@ const faqLinks: Record<string, { href: string; external?: boolean }> = {
 }
 
 const FAQ_COUNT = 5
-
-const conditionBadge: Record<string, { bg: string; text: string; dot: string }> = {
-  Excellent: { bg: 'bg-green-50', text: 'text-green-700', dot: 'bg-green-500' },
-  Good: { bg: 'bg-amber-50', text: 'text-amber-700', dot: 'bg-amber-400' },
-  Fair: { bg: 'bg-gray-50', text: 'text-gray-600', dot: 'bg-gray-400' },
-}
-
-function ClubCard({ club, enquireLabel }: { club: UsedClub; enquireLabel: string }) {
-  const badge = conditionBadge[club.condition] ?? conditionBadge['Fair']
-  const clubDesc = `${club.brand}${club.model ? ` ${club.model}` : ''} (${club.club_type}${club.specification ? ` ${club.specification}` : ''})`
-  const lineMsg = encodeURIComponent(
-    `Hi LENGOLF! I'm interested in the ${clubDesc} listed on your website. Is it still available?`
-  )
-  const lineUrl = `https://line.me/R/oaMessage/%40lengolf/?${lineMsg}`
-
-  return (
-    <div className="rounded-xl border border-border/60 bg-white p-5 shadow-sm transition-shadow hover:shadow-md flex flex-col gap-3">
-      <div className="flex items-start justify-between gap-2">
-        <div>
-          <h3 className="font-bold text-foreground">
-            {club.brand}{club.model ? ` ${club.model}` : ''}
-          </h3>
-          <p className="text-sm text-muted-foreground">
-            {club.club_type}{club.specification ? ` (${club.specification})` : ''} · {club.gender}
-            {club.shaft && <span className="block text-xs">{club.shaft}</span>}
-          </p>
-        </div>
-        <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${badge.bg} ${badge.text}`}>
-          <span className={`h-1.5 w-1.5 rounded-full ${badge.dot}`} />
-          {club.condition}
-        </span>
-      </div>
-      {club.description && (
-        <p className="text-sm text-muted-foreground leading-relaxed">{club.description}</p>
-      )}
-      <div className="mt-auto flex items-center justify-between pt-2 border-t border-border/40">
-        <span className="flex items-center gap-1 text-lg font-bold" style={{ color: '#007429' }}>
-          <Tag size={14} className="shrink-0" />
-          {club.price.toLocaleString()} THB
-        </span>
-        <a
-          href={lineUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-md px-4 py-2 text-xs font-semibold text-white transition-opacity hover:opacity-90"
-          style={{ backgroundColor: '#00B900' }}
-        >
-          <MessageCircle size={13} />
-          {enquireLabel}
-        </a>
-      </div>
-    </div>
-  )
-}
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
@@ -114,6 +61,35 @@ export default async function SecondHandGolfClubsBangkokPage({ params }: { param
 
   const lineUrl = `https://line.me/R/oaMessage/%40lengolf/?${encodeURIComponent('Hi LENGOLF! I\'m interested in your second-hand golf clubs. What sets do you have available?')}`
 
+  const gridLabels: GridLabels = {
+    enquireButton: t('enquireButton'),
+    conditionExcellent: t('conditionExcellent'),
+    conditionGood: t('conditionGood'),
+    conditionFair: t('conditionFair'),
+    sortLabel: t('sortLabel'),
+    sortNewest: t('sortNewest'),
+    sortPriceLow: t('sortPriceLow'),
+    sortPriceHigh: t('sortPriceHigh'),
+    sortBrand: t('sortBrand'),
+    filterType: t('filterType'),
+    filterBrand: t('filterBrand'),
+    filterGender: t('filterGender'),
+    filterCondition: t('filterCondition'),
+    clearAll: t('clearAll'),
+    showingCount: t('showingCount'),
+    noResults: t('noResults'),
+    emptyStateTitle: t('emptyStateTitle'),
+    emptyStateText: t('emptyStateText'),
+    emptyStateCta: t('emptyStateCta'),
+  }
+
+  const trustSignals = [
+    { icon: Camera, label: t('trustTitle1') },
+    { icon: Search, label: t('trustTitle2') },
+    { icon: Shield, label: t('trustTitle3') },
+    { icon: MessageCircle, label: t('trustTitle4') },
+  ]
+
   return (
     <>
       <script
@@ -129,72 +105,33 @@ export default async function SecondHandGolfClubsBangkokPage({ params }: { param
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      {/* ── Hero ── */}
-      <section className="py-20 lg:py-28" style={{ background: 'linear-gradient(135deg, #003d22 0%, #005a32 50%, #007429 100%)' }}>
-        <div className="section-max-width section-padding text-center text-white">
-          <span
-            className="inline-block rounded px-5 py-2 text-base font-bold uppercase tracking-widest text-white mb-5 md:text-lg"
-            style={{ backgroundColor: '#7CB342' }}
-          >
-            {t('heroBadge')}
-          </span>
-          <h1 className="mb-4 text-4xl font-black uppercase leading-none md:text-5xl lg:text-6xl">
-            {t('heroTitle')}
+      {/* ── Compact Header (no hero) ── */}
+      <section className="pt-10 pb-6 lg:pt-14 lg:pb-8" style={{ backgroundColor: '#F6FFFA' }}>
+        <div className="section-max-width section-padding">
+          <h1 className="text-3xl font-black uppercase leading-tight md:text-4xl lg:text-5xl">
+            <span style={{ color: '#007429' }}>{t('heroTitle')}</span>
           </h1>
-          <p className="text-base font-semibold italic tracking-wide text-white/85 md:text-lg">
-            {t('heroSubtitle')}
-          </p>
-        </div>
-      </section>
-
-      {/* ── Intro + Trust chips ── */}
-      <SectionWrapper>
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
             {t('introText')}
           </p>
-
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="rounded-lg border border-primary/15 bg-primary/5 px-4 py-4">
-                <div className="text-xs font-medium uppercase tracking-wide text-muted-foreground leading-snug">{t(`stat${i}Label`)}</div>
-              </div>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {trustSignals.map(({ icon: Icon, label }) => (
+              <span
+                key={label}
+                className="inline-flex items-center gap-1.5 rounded-full border border-primary/15 bg-white px-3 py-1.5 text-xs font-medium text-muted-foreground"
+              >
+                <Icon size={13} style={{ color: '#007429' }} />
+                {label}
+              </span>
             ))}
           </div>
         </div>
-      </SectionWrapper>
+      </section>
 
       {/* ── Inventory Grid ── */}
-      <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
+      <section className="py-10 lg:py-14" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
-          <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>{t('inventoryTitle')}</span>{' '}
-            <span className="text-foreground">{t('inventoryTitleSuffix')}</span>
-          </h2>
-
-          {clubs.length === 0 ? (
-            <div className="mx-auto max-w-md text-center rounded-xl border border-border/60 bg-white p-10">
-              <MessageCircle className="mx-auto mb-4 text-primary/40" size={40} />
-              <h3 className="mb-2 text-lg font-bold text-foreground">{t('emptyStateTitle')}</h3>
-              <p className="mb-6 text-sm text-muted-foreground">{t('emptyStateText')}</p>
-              <a
-                href={lineUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                style={{ backgroundColor: '#00B900' }}
-              >
-                <MessageCircle size={15} />
-                {t('emptyStateCta')}
-              </a>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {clubs.map((club: UsedClub) => (
-                <ClubCard key={club.id} club={club} enquireLabel={t('enquireButton')} />
-              ))}
-            </div>
-          )}
+          <UsedClubsGrid clubs={clubs} labels={gridLabels} />
         </div>
       </section>
 

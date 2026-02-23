@@ -218,6 +218,8 @@ export type Database = {
           cost: number | null
           description: string | null
           image_url: string | null
+          image_urls: string[]
+          purchased_at: string | null
           available_for_sale: boolean
           available_for_rental: boolean
           set_id: string | null
@@ -237,6 +239,8 @@ export type Database = {
           cost?: number | null
           description?: string | null
           image_url?: string | null
+          image_urls?: string[]
+          purchased_at?: string | null
           available_for_sale?: boolean
           available_for_rental?: boolean
           set_id?: string | null
@@ -256,6 +260,8 @@ export type Database = {
           cost?: number | null
           description?: string | null
           image_url?: string | null
+          image_urls?: string[]
+          purchased_at?: string | null
           available_for_sale?: boolean
           available_for_rental?: boolean
           set_id?: string | null

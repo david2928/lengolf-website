@@ -802,6 +802,7 @@ export function getUsedClubsListJsonLd(clubs: UsedClub[]) {
         '@type': 'Product',
         name: `${club.brand}${club.model ? ` ${club.model}` : ''} — ${club.club_type} (${club.gender})`,
         description: club.description || `${club.condition} condition ${club.club_type.toLowerCase()} set`,
+        ...(club.image_url ? { image: club.image_url } : {}),
         offers: {
           '@type': 'Offer',
           price: club.price,
@@ -815,6 +816,29 @@ export function getUsedClubsListJsonLd(clubs: UsedClub[]) {
         },
       },
     })),
+  }
+}
+
+export function getUsedClubProductJsonLd(club: UsedClub) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: `${club.brand}${club.model ? ` ${club.model}` : ''} — ${club.club_type} (${club.gender})`,
+    description: club.description || `${club.condition} condition ${club.club_type.toLowerCase()} set`,
+    ...(club.image_url ? { image: club.image_url } : {}),
+    url: `${SITE_URL}/second-hand-golf-clubs-bangkok/${club.id}/`,
+    brand: { '@type': 'Brand', name: club.brand },
+    offers: {
+      '@type': 'Offer',
+      price: club.price,
+      priceCurrency: 'THB',
+      availability: 'https://schema.org/InStock',
+      seller: {
+        '@type': 'EntertainmentBusiness',
+        name: BUSINESS_INFO.name,
+        url: SITE_URL,
+      },
+    },
   }
 }
 
