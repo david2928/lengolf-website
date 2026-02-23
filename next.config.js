@@ -97,14 +97,9 @@ const nextConfig = {
       { source: '/feed/:path*', destination: '/blog/', permanent: true },
       { source: '/comments/feed', destination: '/blog/', permanent: true },
 
-      // WordPress internal paths -> homepage.
-      // These paths have no SEO value; 301 prevents infinite 404 crawl loops.
-      { source: '/wp-admin', destination: '/', permanent: true },
-      { source: '/wp-admin/:path*', destination: '/', permanent: true },
-      { source: '/wp-login.php', destination: '/', permanent: true },
-      { source: '/wp-json/:path*', destination: '/', permanent: true },
-      { source: '/wp-includes/:path*', destination: '/', permanent: true },
-      { source: '/xmlrpc.php', destination: '/', permanent: true },
+      // WordPress internal paths now return 404 (removed redirects).
+      // Modern crawlers handle 404s properly; returning 404 is more semantically
+      // correct than redirecting to homepage (which creates soft-404s).
 
       // WordPress image uploads -> relevant pages (not homepage).
       // Grouped by content type based on WordPress upload folder audit.

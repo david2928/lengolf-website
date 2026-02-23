@@ -356,6 +356,10 @@ title: {
 
 `app/robots.ts` allows all crawlers on all paths except `/api/`.
 
+### 404 Handling
+
+The site returns proper 404 status codes for non-existent resources, including WordPress paths from the previous installation (`/wp-admin/`, `/wp-login.php`, `/xmlrpc.php`, `/wp-json/`, `/wp-includes/`). These paths are not redirected to avoid creating soft-404s, which is bad for SEO. Modern crawlers handle 404s correctly, and returning the proper status code is semantically correct.
+
 ### Location Pages SEO
 
 The 101 location pages target local search queries across approximately 15 Bangkok neighborhoods using 6 template types. Each page has unique:

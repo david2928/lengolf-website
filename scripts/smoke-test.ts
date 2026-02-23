@@ -41,6 +41,11 @@ interface SeoTest {
   locale: 'en' | 'th'
 }
 
+interface NotFoundTest {
+  path: string
+  label: string
+}
+
 // A) Route smoke tests
 const routeTests: RouteTest[] = [
   // EN pages
@@ -77,8 +82,6 @@ const redirectTests: RedirectTest[] = [
   // Tag/category archives → /blog/
   { path: '/tag/bangkok/', expectedStatus: 308, expectedLocation: '/blog/' },
   { path: '/category/golf/', expectedStatus: 308, expectedLocation: '/blog/' },
-  // WordPress admin → /
-  { path: '/wp-admin/', expectedStatus: 308, expectedLocation: '/' },
   // Old pages
   { path: '/tournaments/', expectedStatus: 308, expectedLocation: '/events/' },
   // Location area taxonomy
@@ -103,6 +106,17 @@ const seoTests: SeoTest[] = [
   { path: '/blog/', locale: 'en' },
   { path: '/th/', locale: 'th' },
   { path: '/th/golf/', locale: 'th' },
+]
+
+// E) WordPress path 404 tests (prevent redirect regressions)
+const notFoundTests: NotFoundTest[] = [
+  { path: '/wp-admin/', label: 'WordPress admin root' },
+  { path: '/wp-admin/admin-ajax.php', label: 'WordPress admin AJAX' },
+  { path: '/wp-login.php', label: 'WordPress login' },
+  { path: '/xmlrpc.php', label: 'WordPress XML-RPC' },
+  { path: '/wp-json/', label: 'WordPress JSON API root' },
+  { path: '/wp-json/wp/v2/posts', label: 'WordPress REST API endpoint' },
+  { path: '/wp-includes/js/jquery/jquery.js', label: 'WordPress includes' },
 ]
 
 // ── Runner ──────────────────────────────────────────────────────────
@@ -255,6 +269,23 @@ async function runSeoTests() {
   }
 }
 
+async function runNotFoundTests() {
+  console.log('\n\x1b[1mE) WordPress path 404 tests\x1b[0m')
+  for (const t of notFoundTests) {
+    const label = `${t.label} (${t.path})`
+    try {
+      const res = await fetch(`${BASE}${t.path}`, { redirect: 'follow' })
+      if (res.status !== 404) {
+        fail(label, `expected 404, got ${res.status}`)
+        continue
+      }
+      pass(label)
+    } catch (err) {
+      fail(label, `fetch error: ${(err as Error).message}`)
+    }
+  }
+}
+
 // ── Main ────────────────────────────────────────────────────────────
 
 async function main() {
@@ -273,6 +304,7 @@ async function main() {
   await runRedirectTests()
   await runLinkTests()
   await runSeoTests()
+  await runNotFoundTests()
 
   console.log(`\n\x1b[1m${passed} passed, ${failed} failed\x1b[0m`)
   if (failures.length > 0) {

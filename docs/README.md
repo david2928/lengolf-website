@@ -16,6 +16,7 @@ Last updated: 2026-02-12
 | [Supabase Storage](./supabase-storage.md) | Static asset management via Supabase Storage buckets | All developers |
 | [Content Management](./content-management.md) | Managing blog posts, location pages, pricing, and coach data | Content editors, developers |
 | [Deployment](./deployment.md) | Vercel deployment, environment variables, CI/CD | DevOps, developers |
+| [WordPress Path Handling](./wordpress-path-handling.md) | 404 vs redirect strategy for legacy WordPress paths | Developers, SEO team |
 
 ---
 
