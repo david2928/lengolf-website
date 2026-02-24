@@ -315,7 +315,8 @@ async function runNotFoundTests() {
   for (const t of notFoundTests) {
     const label = `${t.label} (${t.path})`
     try {
-      const res = await fetch(`${BASE}${t.path}`, { redirect: 'manual' })
+      // Use redirect: 'follow' because trailingSlash:true causes 308 hops before 404
+      const res = await fetch(`${BASE}${t.path}`, { redirect: 'follow' })
       if (res.status !== 404) {
         fail(label, `expected 404, got ${res.status}`)
         continue
