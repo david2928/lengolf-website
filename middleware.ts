@@ -10,19 +10,23 @@ export default function middleware(request: NextRequest) {
 
   // Check if request is for Thai locale (includes bare /th without trailing slash)
   if (pathname === '/th' || pathname.startsWith('/th/')) {
-    // Extract the path without /th/ prefix
     const pathWithoutLocale = pathname.replace(/^\/th/, '') || '/'
 
-    // Check if this route has Thai translation
     if (!hasThaiTranslation(pathWithoutLocale)) {
-      // Redirect to English version with 301 permanent redirect
+      // Redirect untranslated Thai routes to English with 301
       const url = request.nextUrl.clone()
       url.pathname = pathWithoutLocale
       return NextResponse.redirect(url, 301)
     }
+  } else {
+    // English path — skip intlMiddleware for routes without Thai translation
+    // to prevent NEXT_LOCALE cookie from redirecting back to /th/ (causes loop)
+    if (!hasThaiTranslation(pathname)) {
+      return NextResponse.next()
+    }
   }
 
-  // Continue with next-intl middleware for translated routes
+  // Continue with next-intl middleware for translated routes only
   return intlMiddleware(request)
 }
 
