@@ -5,9 +5,6 @@
  * Tests actual middleware behavior with mock Next.js request objects
  */
 
-import { NextRequest, NextResponse } from 'next/server'
-
-// Import the actual middleware logic components
 import { hasThaiTranslation } from '../lib/translated-routes'
 
 interface TestCase {
@@ -87,6 +84,13 @@ const tests: TestCase[] = [
     description: 'Thai blog listing allowed',
   },
 
+  // Bare /th path (edge case — middleware runs before trailing slash normalization)
+  {
+    path: '/th',
+    expectedBehavior: 'allow',
+    description: 'Bare /th path (homepage) allowed',
+  },
+
   // English paths should always be allowed (no /th/ prefix)
   {
     path: '/golf/',
@@ -107,8 +111,8 @@ let failed = 0
 const failures: string[] = []
 
 tests.forEach(({ path, expectedBehavior, expectedRedirectTo, description }) => {
-  // Simulate middleware logic
-  const shouldRedirect = path.startsWith('/th/')
+  // Simulate middleware logic (must match actual middleware condition)
+  const shouldRedirect = path === '/th' || path.startsWith('/th/')
   const pathWithoutLocale = path.replace(/^\/th/, '') || '/'
   const hasTranslation = hasThaiTranslation(pathWithoutLocale)
 

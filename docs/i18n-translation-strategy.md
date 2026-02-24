@@ -58,21 +58,21 @@ export const THAI_TRANSLATED_ROUTES = {
 Checks if a given pathname has a Thai translation available.
 
 **Parameters:**
-- `pathname` (string) - The URL pathname to check, with or without `/th/` prefix
+- `pathname` (string) - The URL pathname to check (locale-free, without `/th/` prefix). Middleware strips the prefix before calling.
 
 **Returns:**
 - `true` if the route has Thai translation
 - `false` if no Thai translation exists
 
 **Logic:**
-1. Normalizes the pathname by removing `/th/` prefix and trailing slashes
+1. Normalizes the pathname by removing trailing slashes
 2. Checks against `staticRoutes` array
 3. Checks against `dynamicRoutePatterns` (currently empty, reserved for future use)
 
 **Example:**
 ```typescript
-hasThaiTranslation('/th/golf/')         // true
 hasThaiTranslation('/golf')             // true
+hasThaiTranslation('/golf/')            // true (trailing slash normalized)
 hasThaiTranslation('/location/indoor-golf-sathorn/')  // false
 ```
 
@@ -90,8 +90,8 @@ The middleware intercepts all Thai locale requests and enforces the translation 
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  // Check if request is for Thai locale
-  if (pathname.startsWith('/th/')) {
+  // Check if request is for Thai locale (includes bare /th without trailing slash)
+  if (pathname === '/th' || pathname.startsWith('/th/')) {
     const pathWithoutLocale = pathname.replace(/^\/th/, '') || '/'
 
     // Check if this route has Thai translation

@@ -25,13 +25,11 @@ const NORMALIZED_STATIC_ROUTES = THAI_TRANSLATED_ROUTES.staticRoutes.map(r =>
 )
 
 /**
- * Check if a given pathname has a Thai translation available
+ * Check if a given pathname has a Thai translation available.
+ * Expects a locale-free path (middleware strips /th prefix before calling).
  */
 export function hasThaiTranslation(pathname: string): boolean {
-  // Normalize: remove /th/ prefix if present and trailing slashes
-  const normalizedPath = pathname
-    .replace(/^\/th/, '')
-    .replace(/\/$/, '') || '/'
+  const normalizedPath = pathname.replace(/\/$/, '') || '/'
 
   // Check static routes
   if (NORMALIZED_STATIC_ROUTES.includes(normalizedPath)) {

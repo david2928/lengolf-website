@@ -35,12 +35,10 @@ const tests: TestCase[] = [
   { path: '/privacy-policy', expected: false, description: 'Privacy policy (English only)' },
   { path: '/terms-of-service', expected: false, description: 'Terms of service (English only)' },
 
-  // Edge cases with /th/ prefix (should normalize correctly)
-  { path: '/th/', expected: true, description: 'Thai root path' },
-  { path: '/th/golf', expected: true, description: 'Thai golf page' },
-  { path: '/th/golf/', expected: true, description: 'Thai golf with trailing slash' },
-  { path: '/th/location/indoor-golf-chidlom', expected: false, description: 'Thai location (should be false)' },
-  { path: '/th/blog/some-post', expected: false, description: 'Thai blog post (should be false)' },
+  // Edge cases — function expects locale-free paths (middleware strips /th prefix)
+  // Passing /th-prefixed paths should return false since the function no longer strips them
+  { path: '/th/', expected: false, description: 'Raw /th/ path (function expects locale-free input)' },
+  { path: '/th/golf', expected: false, description: 'Raw /th/golf (function expects locale-free input)' },
 ]
 
 console.log('Testing hasThaiTranslation logic:\n')
