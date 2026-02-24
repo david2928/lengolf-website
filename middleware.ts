@@ -8,8 +8,8 @@ const intlMiddleware = createMiddleware(routing)
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  // Check if request is for Thai locale
-  if (pathname.startsWith('/th/')) {
+  // Check if request is for Thai locale (includes bare /th without trailing slash)
+  if (pathname === '/th' || pathname.startsWith('/th/')) {
     // Extract the path without /th/ prefix
     const pathWithoutLocale = pathname.replace(/^\/th/, '') || '/'
 

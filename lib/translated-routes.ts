@@ -16,8 +16,13 @@ export const THAI_TRANSLATED_ROUTES = {
 
   // Dynamic route patterns with Thai translations
   // Empty for now - all dynamic routes are English-only
-  dynamicRoutePatterns: [] as string[],
+  dynamicRoutePatterns: [] as readonly string[],
 } as const
+
+// Pre-compute normalized static routes at module load time for performance
+const NORMALIZED_STATIC_ROUTES = THAI_TRANSLATED_ROUTES.staticRoutes.map(r =>
+  r === '/' ? '/' : r.replace(/\/$/, '')
+)
 
 /**
  * Check if a given pathname has a Thai translation available
@@ -29,11 +34,7 @@ export function hasThaiTranslation(pathname: string): boolean {
     .replace(/\/$/, '') || '/'
 
   // Check static routes
-  const normalizedStaticRoutes = THAI_TRANSLATED_ROUTES.staticRoutes.map(r =>
-    r === '/' ? '/' : r.replace(/\/$/, '')
-  )
-
-  if (normalizedStaticRoutes.includes(normalizedPath)) {
+  if (NORMALIZED_STATIC_ROUTES.includes(normalizedPath)) {
     return true
   }
 
