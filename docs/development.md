@@ -498,7 +498,29 @@ This runs Next.js-specific lint rules including checks for:
 
 ## Testing
 
-No test framework is currently configured. If you add tests in the future, consider:
+### Smoke Tests
+
+The project includes comprehensive smoke tests in `scripts/smoke-test.ts` that verify:
+- Route availability (200 status codes)
+- WordPress redirects (301/308 to correct destinations)
+- Critical external links (booking system, LINE, Supabase Storage assets)
+- SEO elements (title, meta description, canonical, JSON-LD, lang attributes)
+- 404 responses for WordPress paths (prevents soft-404 regressions)
+
+Run smoke tests:
+```bash
+# Start production build
+npm run build && npm run start
+
+# In another terminal
+npx tsx scripts/smoke-test.ts
+```
+
+The smoke tests include 37+ test cases covering all critical functionality.
+
+### Future Testing
+
+If you add additional test frameworks in the future, consider:
 
 - **Vitest** or **Jest** for unit tests
 - **Playwright** or **Cypress** for end-to-end tests

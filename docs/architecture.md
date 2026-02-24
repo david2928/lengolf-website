@@ -2,7 +2,7 @@
 
 > System architecture overview for the LENGOLF Next.js 15 website.
 
-Last updated: 2026-02-12
+Last updated: 2026-02-23
 
 ---
 
@@ -59,34 +59,40 @@ The site uses a hybrid rendering strategy. Core marketing pages are statically g
 
 ## Routing
 
-The project uses the Next.js 15 App Router (`app/` directory).
+The project uses the Next.js 15 App Router (`app/` directory) with internationalization support via next-intl. See [i18n Translation Strategy](./i18n-translation-strategy.md) for details on locale handling and translation redirects.
 
 ### Static Pages
 
-These pages have no dynamic data dependencies and are fully pre-rendered at build time:
+These pages have no dynamic data dependencies and are fully pre-rendered at build time. Routes marked with * have Thai translations available under `/th/*`:
 
-| Route | File | Purpose |
-|-------|------|---------|
-| `/` | `app/page.tsx` | Homepage with services carousel |
-| `/golf` | `app/golf/page.tsx` | Bay rates and simulator info |
-| `/events` | `app/events/page.tsx` | Event hosting and inquiry form |
-| `/lessons` | `app/lessons/page.tsx` | Coach profiles and lesson packages |
-| `/tournaments` | `app/tournaments/page.tsx` | Tournament information and FAQ |
-| `/about-us` | `app/about-us/page.tsx` | About page with contact form |
-| `/blog` | `app/blog/page.tsx` | Blog listing (fetches from Supabase) |
-| `/privacy-policy` | `app/privacy-policy/page.tsx` | Privacy policy |
-| `/terms-of-service` | `app/terms-of-service/page.tsx` | Terms of service |
+| Route | File | Purpose | Thai? |
+|-------|------|---------|-------|
+| `/` | `app/[locale]/page.tsx` | Homepage with services carousel | * |
+| `/golf` | `app/[locale]/golf/page.tsx` | Bay rates and simulator info | * |
+| `/events` | `app/[locale]/events/page.tsx` | Event hosting and inquiry form | * |
+| `/lessons` | `app/[locale]/lessons/page.tsx` | Coach profiles and lesson packages | * |
+| `/tournaments` | `app/[locale]/tournaments/page.tsx` | Tournament information and FAQ | |
+| `/about-us` | `app/[locale]/about-us/page.tsx` | About page with contact form | * |
+| `/blog` | `app/[locale]/blog/page.tsx` | Blog listing (fetches from Supabase) | * |
+| `/golf-club-rental` | `app/[locale]/golf-club-rental/page.tsx` | Golf club rental service page | * |
+| `/privacy-policy` | `app/[locale]/privacy-policy/page.tsx` | Privacy policy | |
+| `/terms-of-service` | `app/[locale]/terms-of-service/page.tsx` | Terms of service | |
 
 ### Dynamic Routes (ISR)
 
 These routes use `generateStaticParams` to pre-render all known slugs at build time, with ISR to pick up new content:
 
-| Route | File | Data Source | Revalidation |
-|-------|------|-------------|-------------|
-| `/blog/[slug]` | `app/blog/[slug]/page.tsx` | `blog_posts` table | 3600s (1 hour) |
-| `/location/[slug]` | `app/location/[slug]/page.tsx` | `location_pages` table | 3600s (1 hour) |
+| Route | File | Data Source | Revalidation | Thai? |
+|-------|------|-------------|-------------|-------|
+| `/blog/[slug]` | `app/[locale]/blog/[slug]/page.tsx` | `blog_posts` table | 3600s (1 hour) | No |
+| `/location/[slug]` | `app/[locale]/location/[slug]/page.tsx` | `location_pages` table | 3600s (1 hour) | No |
+| `/activities/[slug]` | `app/[locale]/activities/[slug]/page.tsx` | `seo_pages` table | 3600s (1 hour) | No |
+| `/faq/[slug]` | `app/[locale]/faq/[slug]/page.tsx` | `seo_pages` table | 3600s (1 hour) | No |
+| `/hotels/[slug]` | `app/[locale]/hotels/[slug]/page.tsx` | `seo_pages` table | 3600s (1 hour) | No |
+| `/cost/[slug]` | `app/[locale]/cost/[slug]/page.tsx` | `seo_pages` table | 3600s (1 hour) | No |
+| `/guide/[slug]` | `app/[locale]/guide/[slug]/page.tsx` | `seo_pages` table | 3600s (1 hour) | No |
 
-Both dynamic routes export `revalidate = 3600` and call `generateStaticParams` to enumerate all slugs at build time. New content added to Supabase will be picked up within 1 hour without a redeploy.
+All dynamic routes export `revalidate = 3600` and call `generateStaticParams` to enumerate all slugs at build time. New content added to Supabase will be picked up within 1 hour without a redeploy.
 
 ### API Routes
 
@@ -355,6 +361,10 @@ title: {
 ### Robots
 
 `app/robots.ts` allows all crawlers on all paths except `/api/`.
+
+### 404 Handling
+
+The site returns proper 404 status codes for non-existent resources, including WordPress paths from the previous installation (`/wp-admin/`, `/wp-login.php`, `/xmlrpc.php`, `/wp-json/`, `/wp-includes/`). These paths are not redirected to avoid creating soft-404s, which is bad for SEO. Modern crawlers handle 404s correctly, and returning the proper status code is semantically correct.
 
 ### Location Pages SEO
 
