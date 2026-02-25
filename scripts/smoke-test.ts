@@ -7,6 +7,9 @@
  *   B) WordPress redirects return 301 with correct Location (protects SEO)
  *   C) Critical external links resolve (booking system, LINE, storage assets)
  *   D) SEO elements are present (title, meta description, canonical, JSON-LD, lang)
+ *   E) Untranslated Thai routes redirect to English (301)
+ *   F) English pages work with NEXT_LOCALE=th cookie (no redirect loop / no 404)
+ *   G) WordPress admin paths return 404 (not redirect)
  *
  * Usage: tsx scripts/smoke-test.ts [base-url]
  * Default: http://localhost:3000
@@ -120,7 +123,19 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
   { path: '/th/terms-of-service/', expectedLocation: '/terms-of-service/', label: 'Untranslated terms of service' },
 ]
 
-// F) WordPress path 404 tests (prevent redirect regressions)
+// F) Thai cookie tests — English pages must work even with NEXT_LOCALE=th cookie
+// Catches redirect loops and middleware bypass issues
+interface ThaiCookieTest {
+  path: string
+  label: string
+}
+
+const thaiCookieTests: ThaiCookieTest[] = [
+  { path: '/blog/golf-lessons-in-bangkok/', label: 'Blog post with Thai cookie' },
+  { path: '/privacy-policy/', label: 'Privacy policy with Thai cookie' },
+]
+
+// G) WordPress path 404 tests (prevent redirect regressions)
 const notFoundTests: NotFoundTest[] = [
   { path: '/wp-admin/', label: 'WordPress admin root' },
   { path: '/wp-admin/admin-ajax.php', label: 'WordPress admin AJAX' },
@@ -310,8 +325,39 @@ async function runThaiRedirectTests() {
   }
 }
 
+async function runThaiCookieTests() {
+  console.log('\n\x1b[1mF) Thai cookie tests (no redirect loop / no 404)\x1b[0m')
+  for (const t of thaiCookieTests) {
+    const label = t.label
+    try {
+      // Send NEXT_LOCALE=th cookie — simulates a user who previously visited /th/ pages
+      const res = await fetch(`${BASE}${t.path}`, {
+        redirect: 'manual',
+        headers: { Cookie: 'NEXT_LOCALE=th' },
+      })
+      // Must NOT redirect (would cause loop) and must NOT 404 (middleware bypass)
+      if (res.status >= 300 && res.status < 400) {
+        const location = res.headers.get('location') || ''
+        fail(label, `unexpected redirect ${res.status} → ${location} (potential loop)`)
+        continue
+      }
+      if (res.status === 404) {
+        fail(label, `got 404 — intlMiddleware likely bypassed`)
+        continue
+      }
+      if (res.status !== 200) {
+        fail(label, `expected 200, got ${res.status}`)
+        continue
+      }
+      pass(label)
+    } catch (err) {
+      fail(label, `fetch error: ${(err as Error).message}`)
+    }
+  }
+}
+
 async function runNotFoundTests() {
-  console.log('\n\x1b[1mF) WordPress path 404 tests\x1b[0m')
+  console.log('\n\x1b[1mG) WordPress path 404 tests\x1b[0m')
   for (const t of notFoundTests) {
     const label = `${t.label} (${t.path})`
     try {
@@ -347,6 +393,7 @@ async function main() {
   await runLinkTests()
   await runSeoTests()
   await runThaiRedirectTests()
+  await runThaiCookieTests()
   await runNotFoundTests()
 
   console.log(`\n\x1b[1m${passed} passed, ${failed} failed\x1b[0m`)
