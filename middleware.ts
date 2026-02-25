@@ -8,26 +8,41 @@ const intlMiddleware = createMiddleware(routing)
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  // Check if request is for Thai locale (includes bare /th without trailing slash)
+  // Redirect untranslated Thai routes to English with 301
   if (pathname === '/th' || pathname.startsWith('/th/')) {
     const pathWithoutLocale = pathname.replace(/^\/th/, '') || '/'
 
     if (!hasThaiTranslation(pathWithoutLocale)) {
-      // Redirect untranslated Thai routes to English with 301
       const url = request.nextUrl.clone()
       url.pathname = pathWithoutLocale
       return NextResponse.redirect(url, 301)
     }
-  } else {
-    // English path — skip intlMiddleware for routes without Thai translation
-    // to prevent NEXT_LOCALE cookie from redirecting back to /th/ (causes loop)
-    if (!hasThaiTranslation(pathname)) {
-      return NextResponse.next()
+  }
+
+  // Always run intlMiddleware (it handles locale rewriting for [locale] param)
+  const response = intlMiddleware(request)
+
+  // Intercept: if intlMiddleware redirects to an untranslated /th/ route,
+  // strip the locale cookie and re-run to prevent redirect loop
+  const location = response.headers.get('location')
+  if (location && response.status >= 300 && response.status < 400) {
+    try {
+      const redirectUrl = new URL(location, request.url)
+      const redirectPath = redirectUrl.pathname
+      if (redirectPath === '/th' || redirectPath.startsWith('/th/')) {
+        const pathWithoutLocale = redirectPath.replace(/^\/th/, '') || '/'
+        if (!hasThaiTranslation(pathWithoutLocale)) {
+          // Cookie-based redirect to untranslated Thai route — block it
+          request.cookies.delete('NEXT_LOCALE')
+          return intlMiddleware(request)
+        }
+      }
+    } catch {
+      // Malformed location header — let original response through
     }
   }
 
-  // Continue with next-intl middleware for translated routes only
-  return intlMiddleware(request)
+  return response
 }
 
 export const config = {
