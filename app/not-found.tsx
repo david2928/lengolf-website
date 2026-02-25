@@ -34,20 +34,13 @@ export default function RootNotFound() {
           <p className="mt-4 max-w-md text-lg text-gray-500">
             The page you&apos;re looking for doesn&apos;t exist or has been moved.
           </p>
-          <div className="mt-8 flex gap-4">
+          <div className="mt-8">
             <Link
               href="/"
               className="rounded-lg px-6 py-3 text-sm font-semibold text-white transition-colors"
               style={{ backgroundColor: '#005a32' }}
             >
               Go Home
-            </Link>
-            <Link
-              href="/blog/"
-              className="rounded-lg border px-6 py-3 text-sm font-semibold transition-colors"
-              style={{ borderColor: '#005a32', color: '#005a32' }}
-            >
-              Read Our Blog
             </Link>
           </div>
         </main>
