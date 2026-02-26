@@ -76,10 +76,19 @@ const nextConfig = {
       permanent: true,
     }))
 
+    // Fix for GSC 404 errors: redirect root-level location pages to /location/ prefix
+    const rootLocationRedirects = [
+      { source: '/indoor-golf-ploenchit', destination: '/location/indoor-golf-ploenchit/', permanent: true },
+      { source: '/golf-near-sathorn', destination: '/location/golf-near-sathorn/', permanent: true },
+      { source: '/golf-near-phrom-phong', destination: '/location/golf-near-phrom-phong/', permanent: true },
+      { source: '/lesson', destination: '/lessons/', permanent: true },
+    ]
+
     return [
       ...blogRedirects,
       ...pageTypeRedirects,
       ...locationAreaRedirects,
+      ...rootLocationRedirects,
 
       // WordPress tag, category, and author archives -> blog listing
       { source: '/tag/:slug', destination: '/blog/', permanent: true },
