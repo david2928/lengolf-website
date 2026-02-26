@@ -84,86 +84,21 @@ For the complete redirect strategy, see the `async redirects()` function in `nex
 
 ---
 
-## Google Search Console 404 Fixes
+## GSC 404 Fixes (2026-02-26)
 
-As of 2026-02-26, four additional 301 redirects were added to fix 404 errors reported in Google Search Console (GSC). These errors occurred because external sites were linking to incorrect URL patterns that existed temporarily during the WordPress-to-Next.js migration.
-
-### Added Redirects
-
-The following redirects were added to the `rootLocationRedirects` array in `next.config.js`:
+Added 4 redirects in `next.config.js` to fix external links pointing to incorrect URL patterns:
 
 ```javascript
-// Fix for GSC 404 errors: redirect root-level location pages to /location/ prefix
 const rootLocationRedirects = [
   { source: '/indoor-golf-ploenchit', destination: '/location/indoor-golf-ploenchit/', permanent: true },
+  { source: '/indoor-golf-ploenchit/', destination: '/location/indoor-golf-ploenchit/', permanent: true },
   { source: '/golf-near-sathorn', destination: '/location/golf-near-sathorn/', permanent: true },
+  { source: '/golf-near-sathorn/', destination: '/location/golf-near-sathorn/', permanent: true },
   { source: '/golf-near-phrom-phong', destination: '/location/golf-near-phrom-phong/', permanent: true },
+  { source: '/golf-near-phrom-phong/', destination: '/location/golf-near-phrom-phong/', permanent: true },
   { source: '/lesson', destination: '/lessons/', permanent: true },
+  { source: '/lesson/', destination: '/lessons/', permanent: true },
 ]
 ```
 
-### Issue Details
-
-#### 1. Root-Level Location URLs (3 redirects)
-
-**Problem:** External sites were linking to location pages without the `/location/` prefix:
-- `/indoor-golf-ploenchit` instead of `/location/indoor-golf-ploenchit/`
-- `/golf-near-sathorn` instead of `/location/golf-near-sathorn/`
-- `/golf-near-phrom-phong` instead of `/location/golf-near-phrom-phong/`
-
-**Root cause:** During the WordPress migration, these pages may have been temporarily accessible at the root level, or external sites incorrectly inferred the URL structure from sitemap/navigation patterns.
-
-**Solution:** 301 permanent redirects from root-level URLs to the correct `/location/{slug}/` pattern.
-
-**SEO impact:**
-- Preserves link equity from external backlinks pointing to the incorrect URLs
-- Prevents GSC 404 reports from affecting crawl budget and site quality signals
-- Ensures consistent URL structure across all location pages
-
-#### 2. Lesson/Lessons Typo (1 redirect)
-
-**Problem:** External sites were linking to `/lesson` (singular) instead of `/lessons/` (plural).
-
-**Root cause:** Common grammatical variation. The site uses `/lessons/` but some external sites naturally linked to the singular form.
-
-**Solution:** 301 permanent redirect from `/lesson` to `/lessons/`.
-
-**SEO impact:**
-- Captures traffic from external links using the singular form
-- Consolidates all lesson-related link equity to the canonical `/lessons/` URL
-
-### Implementation Location
-
-File: `next.config.js` (lines 79-85)
-
-The redirects are defined in a dedicated `rootLocationRedirects` array and included in the main redirects array returned by the `async redirects()` function:
-
-```javascript
-return [
-  ...blogRedirects,
-  ...pageTypeRedirects,
-  ...locationAreaRedirects,
-  ...rootLocationRedirects,  // <-- New section added here
-  // ... other redirects
-]
-```
-
-### Related Documentation
-
-- [SEO Expansion Strategy: Location Pages](./seo-expansion-strategy.md#phase-2e-new-locations-tier-34)
-- [Architecture: URL Structure](./architecture.md#routing-conventions)
-
-### Maintenance Notes
-
-**When to add similar redirects:**
-- Monitor GSC 404 reports monthly
-- Add redirects for URLs with external inbound links (check "Referring page" in GSC)
-- Prioritize redirects for URLs with multiple referring domains
-- Use 301 (permanent) redirects for migration-related URL changes
-- Use 302 (temporary) redirects only for short-term URL changes
-
-**When NOT to add redirects:**
-- URLs with no external inbound links (let them return 404)
-- Spam/attack URLs in GSC reports
-- URLs that never existed on any version of the site
-- Random string patterns that don't match any historical URL structure
+Both trailing-slash variants are included to avoid 2-hop redirects with `trailingSlash: true`.

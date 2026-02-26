@@ -67,22 +67,22 @@ const supabase = createClient<Database>(supabaseUrl, supabaseKey)
 // Redirects to verify
 const redirectsToVerify = [
   {
-    source: '/indoor-golf-ploenchit/',
+    source: '/indoor-golf-ploenchit',
     destination: '/location/indoor-golf-ploenchit/',
     type: 'location' as const,
   },
   {
-    source: '/golf-near-sathorn/',
+    source: '/golf-near-sathorn',
     destination: '/location/golf-near-sathorn/',
     type: 'location' as const,
   },
   {
-    source: '/golf-near-phrom-phong/',
+    source: '/golf-near-phrom-phong',
     destination: '/location/golf-near-phrom-phong/',
     type: 'location' as const,
   },
   {
-    source: '/lessons/',
+    source: '/lesson',
     destination: '/lessons/',
     type: 'static' as const,
   },
@@ -110,13 +110,31 @@ async function checkLocationPageExists(slug: string): Promise<boolean> {
 }
 
 async function checkStaticPageExists(path: string): Promise<boolean> {
-  // For static pages, we just check if the file exists in the app directory
-  // The /lessons/ page is at app/[locale]/lessons/page.tsx
-  if (path === '/lessons/') {
-    console.log('   ✓ Static page exists at app/[locale]/lessons/page.tsx')
-    return true
+  // For static pages, verify they exist in the app directory
+  const fs = require('fs')
+  const pathModule = require('path')
+
+  // Map paths to their file locations
+  const pathMap: Record<string, string> = {
+    '/lessons/': 'app/[locale]/lessons/page.tsx',
   }
-  return false
+
+  const filePath = pathMap[path]
+  if (!filePath) {
+    console.log(`   ⚠️  No mapping for static page: ${path}`)
+    return false
+  }
+
+  const fullPath = pathModule.join(process.cwd(), filePath)
+  const exists = fs.existsSync(fullPath)
+
+  if (exists) {
+    console.log(`   ✓ Static page exists at ${filePath}`)
+  } else {
+    console.log(`   ✗ Static page NOT found at ${filePath}`)
+  }
+
+  return exists
 }
 
 async function verifyRedirects() {

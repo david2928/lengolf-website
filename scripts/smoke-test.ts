@@ -91,6 +91,9 @@ const redirectTests: RedirectTest[] = [
   { path: '/location-area/chidlom/', expectedStatus: 308, expectedLocation: '/location/indoor-golf-chidlom/' },
   // Page type taxonomy
   { path: '/page-type/golf-lessons/', expectedStatus: 308, expectedLocation: '/lessons/' },
+  // GSC 404 fixes
+  { path: '/indoor-golf-ploenchit/', expectedStatus: 308, expectedLocation: '/location/indoor-golf-ploenchit/' },
+  { path: '/lesson/', expectedStatus: 308, expectedLocation: '/lessons/' },
 ]
 
 // C) Critical external link checks
