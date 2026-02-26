@@ -177,6 +177,106 @@ export type Database = {
         }
         Relationships: []
       }
+      club_sets: {
+        Row: {
+          id: string
+          name: string
+          brand: string
+          description: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          brand: string
+          description?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          brand?: string
+          description?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      used_clubs_inventory: {
+        Row: {
+          id: string
+          brand: string
+          model: string | null
+          club_type: string
+          specification: string | null
+          shaft: string | null
+          gender: string
+          condition: string
+          price: number
+          cost: number | null
+          description: string | null
+          image_url: string | null
+          image_urls: string[]
+          purchased_at: string | null
+          available_for_sale: boolean
+          available_for_rental: boolean
+          set_id: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          brand: string
+          model?: string | null
+          club_type: string
+          specification?: string | null
+          shaft?: string | null
+          gender?: string
+          condition: string
+          price: number
+          cost?: number | null
+          description?: string | null
+          image_url?: string | null
+          image_urls?: string[]
+          purchased_at?: string | null
+          available_for_sale?: boolean
+          available_for_rental?: boolean
+          set_id?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          brand?: string
+          model?: string | null
+          club_type?: string
+          specification?: string | null
+          shaft?: string | null
+          gender?: string
+          condition?: string
+          price?: number
+          cost?: number | null
+          description?: string | null
+          image_url?: string | null
+          image_urls?: string[]
+          purchased_at?: string | null
+          available_for_sale?: boolean
+          available_for_rental?: boolean
+          set_id?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "used_clubs_inventory_set_id_fkey"
+            columns: ["set_id"]
+            referencedRelation: "club_sets"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       contact_submissions: {
         Row: {
           id: string

@@ -44,10 +44,9 @@ const whyChooseIconMap: Record<string, React.ReactNode> = {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  const t = await getTranslations({ locale, namespace: 'ClubRental' })
   return {
-    title: t('metaTitle'),
-    description: t('metaDescription'),
+    title: 'Clubs at LENGOLF | Premium Golf Club Rental for Simulator Sessions',
+    description: 'Upgrade your LENGOLF bay session with premium golf clubs. Free standard sets included. Callaway Warbird & Majesty Shuttle from 150 THB/hr — in-house simulator use only.',
     alternates: {
       canonical: `${SITE_URL}${locale === 'th' ? '/th' : ''}/golf-club-rental/`,
       languages: { en: `${SITE_URL}/golf-club-rental/`, th: `${SITE_URL}/th/golf-club-rental/` },
@@ -252,7 +251,7 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
                   </tr>
                 </thead>
                 <tbody>
-                  {[1, 2, 3, 4].map((i) => (
+                  {[1, 2, 3].map((i) => (
                     <tr key={i} className={i % 2 !== 0 ? 'bg-white' : 'bg-muted/30'}>
                       <td className="px-6 py-4 text-sm font-medium text-foreground">{t(`pricingRow${i}Duration`)}</td>
                       <td className="px-6 py-4 text-sm font-bold text-right" style={{ color: '#007429' }}>{t(`pricingRow${i}Price`)}</td>
@@ -293,46 +292,6 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
           </div>
         </div>
       </section>
-
-      {/* ── Second-Hand Clubs ── */}
-      <SectionWrapper>
-        <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-          <span style={{ color: '#007429' }}>{t('secondHandTitle')}</span>{' '}
-          <span className="text-foreground">{t('secondHandTitleSuffix')}</span>
-        </h2>
-        <div className="mx-auto max-w-4xl">
-          <div className="flex flex-col overflow-hidden rounded-xl bg-muted/40 md:flex-row md:items-stretch">
-            <div className="md:w-2/5 shrink-0">
-              <Image
-                src={storageUrl('venue/venue-simulator-01.jpg')}
-                alt="LENGOLF second-hand golf clubs available for purchase"
-                width={480}
-                height={320}
-                className="h-52 w-full object-cover md:h-full"
-                sizes="(max-width: 768px) 100vw, 40vw"
-              />
-            </div>
-            <div className="flex flex-col justify-center p-6 md:p-8">
-              <ul className="mb-5 space-y-2.5">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm leading-relaxed text-muted-foreground">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#007429" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 shrink-0"><path d="M20 6 9 17l-5-5"/></svg>
-                    {t(`secondHand${i}`)}
-                  </li>
-                ))}
-              </ul>
-              <div className="rounded-lg border border-primary/20 bg-primary/5 px-4 py-3 text-center">
-                <p className="text-sm font-bold" style={{ color: '#007429' }}>
-                  {t('tryBeforeBuy')}
-                </p>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  {t('tryBeforeBuyText')}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </SectionWrapper>
 
       {/* ── Why Choose LENGOLF ── */}
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
@@ -383,31 +342,34 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
       {/* ── FAQ ── */}
       <FaqSection items={faqItems} links={faqLinks} title={t('faqTitle')} titleSuffix={t('faqTitleSuffix')} bgColor="#F6FFFA" />
 
-      {/* ── Explore More ── */}
+      {/* ── Also Need Clubs? Cross-links ── */}
       <SectionWrapper>
         <h2 className="mb-3 text-center text-3xl font-bold italic lg:text-4xl">
           <span style={{ color: '#007429' }}>{t('exploreTitle')}</span>{' '}
           <span className="text-foreground">{t('exploreTitleSuffix')}</span>
         </h2>
         <p className="mb-8 text-center text-sm text-muted-foreground">{t('exploreSubtitle')}</p>
-        <div className="mx-auto max-w-xl">
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            {[
-              { label: t('exploreBayRates'), href: '/golf' },
-              { label: t('exploreLessons'), href: '/lessons' },
-              { label: t('exploreEvents'), href: '/events' },
-              { label: t('exploreBlog'), href: '/blog' },
-            ].map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="rounded-full border border-primary/20 bg-primary/5 px-5 py-2.5 text-sm font-medium transition-colors hover:bg-primary hover:text-white"
-                style={{ color: '#007429' }}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+        <div className="mx-auto max-w-3xl grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <Link
+            href="/golf-course-club-rental"
+            className="group rounded-xl border border-primary/15 bg-white p-6 transition-shadow hover:shadow-md"
+          >
+            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10" style={{ color: '#007429' }}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
+            </div>
+            <h3 className="mb-1 font-bold text-foreground group-hover:text-primary transition-colors">{t('crossLinkCourseLabel')}</h3>
+            <p className="text-sm text-muted-foreground">{t('crossLinkCourseDesc')}</p>
+          </Link>
+          <Link
+            href="/second-hand-golf-clubs-bangkok"
+            className="group rounded-xl border border-primary/15 bg-white p-6 transition-shadow hover:shadow-md"
+          >
+            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10" style={{ color: '#007429' }}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" x2="21" y1="6" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </div>
+            <h3 className="mb-1 font-bold text-foreground group-hover:text-primary transition-colors">{t('crossLinkSecondHandLabel')}</h3>
+            <p className="text-sm text-muted-foreground">{t('crossLinkSecondHandDesc')}</p>
+          </Link>
         </div>
       </SectionWrapper>
     </>
