@@ -1,8 +1,8 @@
 # WordPress Path Handling
 
-> Documentation of 404 vs redirect strategy for WordPress paths from the previous installation.
+> Documentation of 404 vs redirect strategy for WordPress paths from the previous installation, plus fixes for Google Search Console 404 errors.
 
-Last updated: 2026-02-23
+Last updated: 2026-02-26
 
 ---
 
@@ -81,3 +81,24 @@ All tests must pass before any commit that touches routing configuration.
 This site migrated from WordPress to Next.js 15. All legitimate WordPress content URLs (blog posts, pages, uploads) are handled via 301 redirects in `next.config.js`. Only internal WordPress administrative paths return 404.
 
 For the complete redirect strategy, see the `async redirects()` function in `next.config.js`.
+
+---
+
+## GSC 404 Fixes (2026-02-26)
+
+Added 4 redirects in `next.config.js` to fix external links pointing to incorrect URL patterns:
+
+```javascript
+const rootLocationRedirects = [
+  { source: '/indoor-golf-ploenchit', destination: '/location/indoor-golf-ploenchit/', permanent: true },
+  { source: '/indoor-golf-ploenchit/', destination: '/location/indoor-golf-ploenchit/', permanent: true },
+  { source: '/golf-near-sathorn', destination: '/location/golf-near-sathorn/', permanent: true },
+  { source: '/golf-near-sathorn/', destination: '/location/golf-near-sathorn/', permanent: true },
+  { source: '/golf-near-phrom-phong', destination: '/location/golf-near-phrom-phong/', permanent: true },
+  { source: '/golf-near-phrom-phong/', destination: '/location/golf-near-phrom-phong/', permanent: true },
+  { source: '/lesson', destination: '/lessons/', permanent: true },
+  { source: '/lesson/', destination: '/lessons/', permanent: true },
+]
+```
+
+Both trailing-slash variants are included to avoid 2-hop redirects with `trailingSlash: true`.
