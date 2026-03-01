@@ -6,6 +6,7 @@ import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
 import AqiWidget from '@/components/shared/AqiWidget'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
+import { getWebsitePromotions } from '@/lib/promotions'
 import { bayRates, bayRateNotes, monthlyPackages, monthlyPackageNotes } from '@/data/pricing'
 import { getGolfPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import FaqSection from '@/components/shared/FaqSection'
@@ -39,12 +40,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   }
 }
 
-const promoImages = [
-  { src: storageUrl('promotions/promo-new-customer.jpg'), alt: 'New customer offer: buy 1 hour get 1 hour free' },
-  { src: storageUrl('promotions/promo-early-bird.jpg'), alt: 'Early Bird special: discounted rates before 2 PM' },
-  { src: storageUrl('promotions/promo-03.jpg'), alt: 'LENGOLF AI Lab: AI-powered swing analysis and 4K course play' },
-  { src: storageUrl('promotions/promotion-1.jpg'), alt: '20% extra hours on monthly packages until March' },
-]
 
 const locationLinks = [
   { name: 'Sathorn', href: '/location/indoor-golf-sathorn' },
@@ -76,6 +71,8 @@ export default async function GolfPage({ params }: { params: Promise<{ locale: s
     question: tFaq(`q${i + 1}`),
     answer: tFaq(`a${i + 1}`),
   }))
+
+  const { gridPromotions, monthlyPackagesPromo } = await getWebsitePromotions()
 
   const pricingJsonLd = getGolfPricingJsonLd()
   const faqJsonLd = getFaqPageJsonLd(faqItems)
@@ -212,8 +209,8 @@ export default async function GolfPage({ params }: { params: Promise<{ locale: s
             </h2>
             <div className="mx-auto max-w-lg">
               <Image
-                src={storageUrl('golf/monthly-packages.jpg')}
-                alt="LENGOLF monthly packages: Bronze 3,000 THB, Silver 8,000 THB, Gold 14,000 THB, Diamond 8,000 THB, Diamond+ 18,000 THB"
+                src={monthlyPackagesPromo?.image_url || storageUrl('golf/monthly-packages.jpg')}
+                alt={monthlyPackagesPromo?.title_en || 'LENGOLF monthly packages'}
                 width={512} height={512}
                 className="w-full rounded-lg shadow-sm"
                 sizes="(max-width: 512px) 100vw, 512px"
@@ -280,19 +277,18 @@ export default async function GolfPage({ params }: { params: Promise<{ locale: s
           <span className="text-foreground">{t('promotionsTitleSuffix')}</span>
         </h2>
         <div className="mx-auto grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2">
-          {promoImages.map((img, i) => (
-            <div key={i} className="overflow-hidden rounded-lg shadow-sm transition-transform hover:scale-[1.02]">
-              <Image src={img.src} alt={img.alt} width={600} height={600} className="w-full" sizes="(max-width: 640px) 100vw, 50vw" />
+          {gridPromotions.map((promo) => (
+            <div key={promo.id} className="overflow-hidden rounded-lg shadow-sm transition-transform hover:scale-[1.02]">
+              <Image src={promo.image_url} alt={promo.title_en} width={600} height={600} className="w-full" sizes="(max-width: 640px) 100vw, 50vw" />
             </div>
           ))}
         </div>
         <div className="sr-only">
           <h3>Current Promotions at LENGOLF</h3>
           <ul>
-            <li>New Customer Offer: Buy 1 hour and get 1 hour free on your first visit</li>
-            <li>Early Bird Special: Discounted simulator bay rates before 2 PM on weekdays</li>
-            <li>LENGOLF AI Lab: AI-powered swing analysis with Uneekor technology and 4K virtual course play</li>
-            <li>Monthly Package Bonus: Get 20% extra hours on all monthly packages — limited-time offer</li>
+            {gridPromotions.map((promo) => (
+              <li key={promo.id}>{promo.title_en}: {promo.description_en}</li>
+            ))}
           </ul>
         </div>
       </SectionWrapper>
