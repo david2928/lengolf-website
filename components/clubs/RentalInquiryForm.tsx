@@ -274,21 +274,21 @@ export default function RentalInquiryForm({ labels, lineFallbackUrl, lineOaMessa
       )}
 
       {/* Action buttons */}
-      <div className="mt-5 flex flex-col sm:flex-row gap-3">
+      <div className="mt-5 flex flex-col gap-3 sm:flex-row">
         <a
           href={lineFallbackUrl}
           onClick={handleLineClick}
-          className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-md px-6 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+          className="flex h-14 w-full items-center justify-center gap-2 rounded-lg px-6 text-base font-semibold text-white transition-opacity hover:opacity-90 sm:h-12 sm:flex-1 sm:text-sm sm:rounded-md"
           style={{ backgroundColor: '#00B900' }}
         >
-          <MessageCircle size={16} />
+          <MessageCircle size={18} className="sm:w-4 sm:h-4" />
           {labels.lineButton}
         </a>
         <a
           href={emailUrl}
-          className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-md border-2 border-primary px-6 text-sm font-semibold text-primary transition-colors hover:bg-primary/5"
+          className="flex h-14 w-full items-center justify-center gap-2 rounded-lg border-2 border-primary px-6 text-base font-semibold text-primary transition-colors hover:bg-primary/5 sm:h-12 sm:flex-1 sm:text-sm sm:rounded-md"
         >
-          <Mail size={16} />
+          <Mail size={18} className="sm:w-4 sm:h-4" />
           {labels.emailButton}
         </a>
       </div>
