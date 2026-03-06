@@ -39,9 +39,10 @@ const whyChooseIconMap: Record<string, React.ReactNode> = {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'ClubRental' })
   return {
-    title: 'Clubs at LENGOLF | Premium Golf Club Rental for Simulator Sessions',
-    description: 'Upgrade your LENGOLF bay session with premium golf clubs. Free standard sets included. Callaway Warbird & Majesty Shuttle from 150 THB/hr — in-house simulator use only.',
+    title: t('metaTitle'),
+    description: t('metaDescription'),
     alternates: {
       canonical: `${SITE_URL}${locale === 'th' ? '/th' : ''}/golf-club-rental/`,
       languages: { en: `${SITE_URL}/golf-club-rental/`, th: `${SITE_URL}/th/golf-club-rental/` },

@@ -38,6 +38,18 @@ interface RentalInquiryFormProps {
     clubOptions: { value: string; tier: 'premium' | 'premiumPlus'; label: string }[]
     durationOptions: { value: string; label: string; premium: string; premiumPlus: string }[]
     addOns: AddOn[]
+    // Message template labels (locale-aware)
+    msgGreeting: string
+    msgClubsPrefix: string
+    msgDatePrefix: string
+    msgDurationPrefix: string
+    msgDeliveryPrefix: string
+    msgDeliveryYes: string
+    msgDeliveryAddressTbc: string
+    msgDeliveryPickup: string
+    msgAddOnsPrefix: string
+    emailSubject: string
+    breakdownDelivery: string
   }
   lineFallbackUrl: string
   lineOaMessageUrl: string
@@ -71,29 +83,31 @@ export default function RentalInquiryForm({ labels, lineFallbackUrl, lineOaMessa
     })
   }
 
-  const priceForDuration = (opt: { premium: string; premiumPlus: string }) =>
-    tier === 'premiumPlus' ? opt.premiumPlus : opt.premium
+  const priceForDuration = useCallback(
+    (opt: { premium: string; premiumPlus: string }) =>
+      tier === 'premiumPlus' ? opt.premiumPlus : opt.premium,
+    [tier]
+  )
 
   const message = useMemo(() => {
     const clubLabel = selectedClub?.label || '___'
     const price = selectedDuration ? priceForDuration(selectedDuration) : '___'
     const addOnsList = labels.addOns.filter((a) => selectedAddOns.has(a.key)).map((a) => `${a.label} (${a.price})`).join(', ')
     const lines = [
-      'Hi LENGOLF! I\'d like to hire golf clubs for an off-site round.',
-      `Clubs: ${clubLabel}`,
-      `Date: ${date || '___'}`,
-      `Duration: ${selectedDuration?.label || '___'} (${price})`,
-      `Delivery: ${delivery ? `Yes — ${address || '(address TBC)'}` : 'No, I\'ll pick up'}`,
+      labels.msgGreeting,
+      `${labels.msgClubsPrefix} ${clubLabel}`,
+      `${labels.msgDatePrefix} ${date || '___'}`,
+      `${labels.msgDurationPrefix} ${selectedDuration?.label || '___'} (${price})`,
+      `${labels.msgDeliveryPrefix} ${delivery ? `${labels.msgDeliveryYes} — ${address || labels.msgDeliveryAddressTbc}` : labels.msgDeliveryPickup}`,
     ]
-    if (addOnsList) lines.push(`Add-ons: ${addOnsList}`)
+    if (addOnsList) lines.push(`${labels.msgAddOnsPrefix} ${addOnsList}`)
     return lines.join('\n')
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [club, date, delivery, address, selectedClub, selectedDuration, selectedAddOns, labels.addOns])
+  }, [date, delivery, address, selectedClub, selectedDuration, selectedAddOns, labels.addOns, labels.msgGreeting, labels.msgClubsPrefix, labels.msgDatePrefix, labels.msgDurationPrefix, labels.msgDeliveryPrefix, labels.msgDeliveryYes, labels.msgDeliveryAddressTbc, labels.msgDeliveryPickup, labels.msgAddOnsPrefix, priceForDuration])
 
   const handleLineClick = useCallback(async (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (isMobile()) {
       e.preventDefault()
-      window.location.href = `${lineOaMessageUrl}/?${encodeURIComponent(message)}`
+      window.location.href = `${lineOaMessageUrl}?${encodeURIComponent(message)}`
       return
     }
     e.preventDefault()
@@ -107,8 +121,12 @@ export default function RentalInquiryForm({ labels, lineFallbackUrl, lineOaMessa
     window.open(lineFallbackUrl, '_blank', 'noopener,noreferrer')
   }, [message, lineOaMessageUrl, lineFallbackUrl])
 
-  const emailUrl = `mailto:${email}?subject=${encodeURIComponent('Club Rental Inquiry')}&body=${encodeURIComponent(message)}`
-  const minDate = new Date().toISOString().split('T')[0]
+  const emailUrl = useMemo(
+    () => `mailto:${email}?subject=${encodeURIComponent(labels.emailSubject)}&body=${encodeURIComponent(message)}`,
+    [email, labels.emailSubject, message]
+  )
+
+  const [minDate] = useState(() => new Date().toISOString().split('T')[0])
 
   return (
     <div className="rounded-2xl border border-primary/20 bg-white p-6 sm:p-8 shadow-sm">
@@ -243,7 +261,7 @@ export default function RentalInquiryForm({ labels, lineFallbackUrl, lineOaMessa
           </div>
           <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-0.5 text-xs text-muted-foreground">
             <span>{selectedDuration?.label}: {selectedDuration ? priceForDuration(selectedDuration) : '—'}</span>
-            {delivery && <span>Delivery: 500 THB</span>}
+            {delivery && <span>{labels.breakdownDelivery}: {labels.deliveryFeeNum.toLocaleString()} THB</span>}
             {labels.addOns.filter((a) => selectedAddOns.has(a.key)).map((a) => (
               <span key={a.key}>{a.label}: {a.price}</span>
             ))}

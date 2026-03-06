@@ -67,13 +67,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       alternates: { languages: { en: `${SITE_URL}/golf-course-club-rental/`, th: `${SITE_URL}/th/golf-course-club-rental/` } },
     },
     {
-      url: `${SITE_URL}/second-hand-golf-clubs-bangkok/`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-      alternates: { languages: { en: `${SITE_URL}/second-hand-golf-clubs-bangkok/`, th: `${SITE_URL}/th/second-hand-golf-clubs-bangkok/` } },
-    },
-    {
       url: `${SITE_URL}/lessons/`,
       lastModified: new Date(),
       changeFrequency: 'weekly',

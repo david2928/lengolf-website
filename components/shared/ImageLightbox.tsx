@@ -37,8 +37,8 @@ export default function ImageLightbox({
   useEffect(() => {
     if (!open) return
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') prev()
-      else if (e.key === 'ArrowRight') next()
+      if (e.key === 'ArrowLeft') { e.preventDefault(); prev() }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); next() }
     }
     window.addEventListener('keydown', handleKey)
     return () => window.removeEventListener('keydown', handleKey)
