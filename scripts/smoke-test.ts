@@ -60,6 +60,8 @@ const routeTests: RouteTest[] = [
   { path: '/blog/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-course-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/th/golf-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/th/golf-course-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/privacy-policy/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/terms-of-service/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // TH pages

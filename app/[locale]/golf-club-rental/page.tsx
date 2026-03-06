@@ -324,7 +324,7 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
       </section>
 
       {/* ── Why Choose LENGOLF ── */}
-      <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
+      <section className="py-16 lg:py-24">
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
             <span style={{ color: '#007429' }}>{t('whyChooseTitle')}</span>{' '}

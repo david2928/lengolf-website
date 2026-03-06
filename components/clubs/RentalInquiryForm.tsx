@@ -136,8 +136,9 @@ export default function RentalInquiryForm({ labels, lineFallbackUrl, lineOaMessa
       <div className="grid gap-4 sm:grid-cols-2">
         {/* Club selection */}
         <div className="sm:col-span-2">
-          <label className="block text-sm font-medium text-foreground mb-1.5">{labels.clubLabel}</label>
+          <label htmlFor="rental-club" className="block text-sm font-medium text-foreground mb-1.5">{labels.clubLabel}</label>
           <select
+            id="rental-club"
             value={club}
             onChange={(e) => setClub(e.target.value)}
             className="w-full rounded-md border border-border/60 bg-white px-3 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
@@ -151,8 +152,9 @@ export default function RentalInquiryForm({ labels, lineFallbackUrl, lineOaMessa
 
         {/* Date */}
         <div>
-          <label className="block text-sm font-medium text-foreground mb-1.5">{labels.dateLabel}</label>
+          <label htmlFor="rental-date" className="block text-sm font-medium text-foreground mb-1.5">{labels.dateLabel}</label>
           <input
+            id="rental-date"
             type="date"
             value={date}
             min={minDate}
@@ -163,8 +165,9 @@ export default function RentalInquiryForm({ labels, lineFallbackUrl, lineOaMessa
 
         {/* Duration — shows price based on selected club tier */}
         <div>
-          <label className="block text-sm font-medium text-foreground mb-1.5">{labels.durationLabel}</label>
+          <label htmlFor="rental-duration" className="block text-sm font-medium text-foreground mb-1.5">{labels.durationLabel}</label>
           <select
+            id="rental-duration"
             value={duration}
             onChange={(e) => setDuration(e.target.value)}
             className="w-full rounded-md border border-border/60 bg-white px-3 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
@@ -209,8 +212,9 @@ export default function RentalInquiryForm({ labels, lineFallbackUrl, lineOaMessa
         {/* Address (shown when delivery selected) */}
         {delivery && (
           <div className="sm:col-span-2">
-            <label className="block text-sm font-medium text-foreground mb-1.5">{labels.addressLabel}</label>
+            <label htmlFor="rental-address" className="block text-sm font-medium text-foreground mb-1.5">{labels.addressLabel}</label>
             <input
+              id="rental-address"
               type="text"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
@@ -255,13 +259,13 @@ export default function RentalInquiryForm({ labels, lineFallbackUrl, lineOaMessa
                 const deliveryPrice = delivery ? labels.deliveryFeeNum : 0
                 const addOnsPrice = labels.addOns.filter((a) => selectedAddOns.has(a.key)).reduce((sum, a) => sum + a.priceNum, 0)
                 const total = rentalPrice + deliveryPrice + addOnsPrice
-                return `${total.toLocaleString()} THB`
+                return `${total.toLocaleString('en-US')} THB`
               })()}
             </span>
           </div>
           <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-0.5 text-xs text-muted-foreground">
             <span>{selectedDuration?.label}: {selectedDuration ? priceForDuration(selectedDuration) : '—'}</span>
-            {delivery && <span>{labels.breakdownDelivery}: {labels.deliveryFeeNum.toLocaleString()} THB</span>}
+            {delivery && <span>{labels.breakdownDelivery}: {labels.deliveryFeeNum.toLocaleString('en-US')} THB</span>}
             {labels.addOns.filter((a) => selectedAddOns.has(a.key)).map((a) => (
               <span key={a.key}>{a.label}: {a.price}</span>
             ))}
