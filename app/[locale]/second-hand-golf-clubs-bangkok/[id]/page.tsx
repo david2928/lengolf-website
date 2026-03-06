@@ -38,6 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       images: club.image_url ? [{ url: club.image_url, alt: title }] : [],
     },
+    robots: { index: false, follow: false },
   }
 }
 

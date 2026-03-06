@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       },
     },
     openGraph: { images: [{ url: storageUrl('venue/venue-simulator-01.jpg'), alt: 'Second-hand golf clubs Bangkok' }] },
+    robots: { index: false, follow: false },
   }
 }
 

@@ -12,7 +12,6 @@ import LanguageSwitcher from '@/components/layout/LanguageSwitcher'
 const CLUBS_CHILDREN = [
   { key: 'clubsAtLengolf', href: '/golf-club-rental' as const, descKey: 'clubsAtLengolfDesc' },
   { key: 'clubsCourseRental', href: '/golf-course-club-rental' as const, descKey: 'clubsCourseRentalDesc' },
-  { key: 'clubsSecondHand', href: '/second-hand-golf-clubs-bangkok' as const, descKey: 'clubsSecondHandDesc' },
 ]
 
 const NAV_KEYS = [

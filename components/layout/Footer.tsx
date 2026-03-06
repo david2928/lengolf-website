@@ -13,7 +13,6 @@ const FOOTER_MENU_KEYS = [
   { key: 'lessons', href: '/lessons' as const },
   { key: 'clubsAtLengolf', href: '/golf-club-rental' as const },
   { key: 'clubsCourseRental', href: '/golf-course-club-rental' as const },
-  { key: 'clubsSecondHand', href: '/second-hand-golf-clubs-bangkok' as const },
   { key: 'blog', href: '/blog' as const },
 ] as const
 

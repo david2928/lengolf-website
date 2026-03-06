@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
+import ImageLightbox from '@/components/shared/ImageLightbox'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
 import { getClubRentalPricingJsonLd, getClubRentalServiceJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import FaqSection from '@/components/shared/FaqSection'
@@ -19,20 +20,14 @@ const gearIconMap: Record<string, React.ReactNode> = {
   hand: (
     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 17"/></svg>
   ),
-  circle: (
-    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/></svg>
-  ),
-  truck: (
-    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
-  ),
 }
 
 const whyChooseIconMap: Record<string, React.ReactNode> = {
   award: (
     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
   ),
-  'map-pin': (
-    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+  gift: (
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg>
   ),
   clock: (
     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -166,12 +161,14 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
             <span style={{ color: '#007429' }}>{t('tiersTitle')}</span>{' '}
             <span className="text-foreground">{t('tiersTitleSuffix')}</span>
           </h2>
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3 md:items-stretch">
             {[1, 2, 3].map((i) => (
               <div
                 key={i}
-                className={`rounded-xl border p-6 transition-shadow hover:shadow-md ${
-                  i > 1
+                className={`rounded-xl border p-6 transition-shadow hover:shadow-md flex flex-col ${
+                  i === 3
+                    ? 'border-2 border-primary bg-[#003d1f] text-white shadow-lg'
+                    : i === 2
                     ? 'border-primary/30 bg-white shadow-sm'
                     : 'border-border/60 bg-white'
                 }`}
@@ -181,25 +178,61 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
                     className={`inline-block rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide ${
                       i === 1
                         ? 'bg-primary/10 text-primary'
+                        : i === 3
+                        ? 'bg-[#c8a96e] text-[#003d1f]'
                         : 'bg-amber-50 text-amber-700'
                     }`}
                   >
                     {t(`tier${i}Tag`)}
                   </span>
                 </div>
-                <h3 className="mb-1 text-xl font-bold" style={{ color: '#007429' }}>{t(`tier${i}Name`)}</h3>
-                <p className="mb-1 text-sm font-semibold text-foreground">{t(`tier${i}Brand`)}</p>
-                <p className="mb-4 text-xs text-muted-foreground">{t(`tier${i}Type`)}</p>
-                <ul className="mb-5 space-y-2">
+
+                {/* Premium photo */}
+                {i === 2 && (
+                  <div className="relative h-[200px] rounded-md overflow-hidden bg-gray-100 mb-4 -mx-1">
+                    <Image
+                      src={storageUrl('clubs/warbird/warbird-full-set.webp')}
+                      alt="Callaway Warbird full set with Odyssey putter"
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 768px) 90vw, 30vw"
+                    />
+                  </div>
+                )}
+
+                {/* Premium+ photo strip — clickable lightbox (3 thumbnails, 6 in lightbox) */}
+                {i === 3 && (
+                  <div className="mb-4 -mx-1 h-[200px]">
+                    <ImageLightbox
+                      thumbnailCount={3}
+                      images={[
+                        { src: storageUrl('clubs/premium-plus/2.png'), alt: 'Paradym full set' },
+                        { src: storageUrl('clubs/premium-plus/4.png'), alt: 'Paradym driver' },
+                        { src: storageUrl('clubs/premium-plus/11.png'), alt: 'Paradym irons' },
+                        { src: storageUrl('clubs/premium-plus/13.png'), alt: 'Jaws Raw wedges' },
+                        { src: storageUrl('clubs/premium-plus/15.png'), alt: 'Odyssey putter' },
+                        { src: storageUrl('clubs/premium-plus/1.png'), alt: 'Callaway camo bag' },
+                      ]}
+                      gridClassName="grid grid-cols-3 gap-1.5 h-full"
+                      aspectClassName=""
+                      sizes="(max-width: 768px) 30vw, 10vw"
+                    />
+                  </div>
+                )}
+
+                <h3 className={`mb-1 text-xl font-bold ${i === 3 ? 'text-[#c8a96e]' : ''}`} style={i !== 3 ? { color: '#007429' } : undefined}>{t(`tier${i}Name`)}</h3>
+                <p className={`mb-1 text-sm font-semibold ${i === 3 ? 'text-white' : 'text-foreground'}`}>{t(`tier${i}Brand`)}</p>
+                <p className={`mb-4 text-xs ${i === 3 ? 'text-white/60' : 'text-muted-foreground'}`}>{t(`tier${i}Type`)}</p>
+                <ul className="mb-5 space-y-2 flex-1">
                   {[1, 2, 3].map((j) => (
-                    <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#007429" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 shrink-0"><path d="M20 6 9 17l-5-5"/></svg>
+                    <li key={j} className={`flex items-start gap-2 text-sm ${i === 3 ? 'text-white/80' : 'text-muted-foreground'}`}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={i === 3 ? '#c8a96e' : '#007429'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 shrink-0"><path d="M20 6 9 17l-5-5"/></svg>
                       {t(`tier${i}Spec${j}`)}
                     </li>
                   ))}
                 </ul>
-                <div className="border-t border-border/40 pt-4">
-                  <p className="text-lg font-bold" style={{ color: '#007429' }}>{t(`tier${i}Price`)}</p>
+                <div className={`border-t pt-4 mt-auto ${i === 3 ? 'border-white/20' : 'border-border/40'}`}>
+                  <p className={`text-lg font-bold ${i === 3 ? 'text-[#c8a96e]' : ''}`} style={i !== 3 ? { color: '#007429' } : undefined}>{t(`tier${i}Price`)}</p>
                 </div>
               </div>
             ))}
@@ -234,7 +267,7 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
         </div>
       </section>
 
-      {/* ── Premium Pricing ── */}
+      {/* ── Club Upgrade Pricing ── */}
       <section id="pricing" className="py-16 lg:py-24">
         <div className="section-max-width section-padding">
           <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
@@ -246,15 +279,17 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
               <table className="w-full text-left">
                 <thead>
                   <tr className="bg-primary text-white">
-                    <th className="px-6 py-3 text-sm font-semibold">{t('duration')}</th>
-                    <th className="px-6 py-3 text-sm font-semibold text-right">{t('price')}</th>
+                    <th className="px-5 py-3 text-sm font-semibold">{t('duration')}</th>
+                    <th className="px-5 py-3 text-sm font-semibold text-center">{t('pricingColPremium')}</th>
+                    <th className="px-5 py-3 text-sm font-semibold text-center">{t('pricingColPremiumPlus')}</th>
                   </tr>
                 </thead>
                 <tbody>
                   {[1, 2, 3].map((i) => (
                     <tr key={i} className={i % 2 !== 0 ? 'bg-white' : 'bg-muted/30'}>
-                      <td className="px-6 py-4 text-sm font-medium text-foreground">{t(`pricingRow${i}Duration`)}</td>
-                      <td className="px-6 py-4 text-sm font-bold text-right" style={{ color: '#007429' }}>{t(`pricingRow${i}Price`)}</td>
+                      <td className="px-5 py-4 text-sm font-medium text-foreground">{t(`pricingRow${i}Duration`)}</td>
+                      <td className="px-5 py-4 text-sm font-bold text-center" style={{ color: '#007429' }}>{t(`pricingRow${i}Premium`)}</td>
+                      <td className="px-5 py-4 text-sm font-bold text-center" style={{ color: '#007429' }}>{t(`pricingRow${i}PremiumPlus`)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -274,21 +309,15 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
             <span style={{ color: '#007429' }}>{t('gearUpTitle')}</span>{' '}
             <span className="text-foreground">{t('gearUpTitleSuffix')}</span>
           </h2>
-          <div className="mx-auto grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-3">
-            {([
-              { key: 1, icon: 'hand' },
-              { key: 2, icon: 'circle' },
-              { key: 3, icon: 'truck' },
-            ] as const).map((item) => (
-              <div key={item.key} className="rounded-lg border border-primary/15 bg-white px-5 py-6 text-center">
-                <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10" style={{ color: '#007429' }}>
-                  {gearIconMap[item.icon]}
-                </div>
-                <h3 className="mb-1 text-base font-bold text-foreground">{t(`gear${item.key}Name`)}</h3>
-                <p className="mb-2 text-lg font-bold" style={{ color: '#007429' }}>{t(`gear${item.key}Price`)}</p>
-                <p className="text-xs text-muted-foreground">{t(`gear${item.key}Description`)}</p>
+          <div className="mx-auto max-w-sm">
+            <div className="rounded-lg border border-primary/15 bg-white px-5 py-6 text-center">
+              <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10" style={{ color: '#007429' }}>
+                {gearIconMap['hand']}
               </div>
-            ))}
+              <h3 className="mb-1 text-base font-bold text-foreground">{t('gear1Name')}</h3>
+              <p className="mb-2 text-lg font-bold" style={{ color: '#007429' }}>{t('gear1Price')}</p>
+              <p className="text-xs text-muted-foreground">{t('gear1Description')}</p>
+            </div>
           </div>
         </div>
       </section>
@@ -303,7 +332,7 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
           <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2">
             {([
               { key: 1, icon: 'award' },
-              { key: 2, icon: 'map-pin' },
+              { key: 2, icon: 'gift' },
               { key: 3, icon: 'clock' },
               { key: 4, icon: 'calendar' },
             ] as const).map((item) => (
@@ -349,26 +378,16 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
           <span className="text-foreground">{t('exploreTitleSuffix')}</span>
         </h2>
         <p className="mb-8 text-center text-sm text-muted-foreground">{t('exploreSubtitle')}</p>
-        <div className="mx-auto max-w-3xl grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="mx-auto max-w-md">
           <Link
             href="/golf-course-club-rental"
-            className="group rounded-xl border border-primary/15 bg-white p-6 transition-shadow hover:shadow-md"
+            className="group rounded-xl border border-primary/15 bg-white p-6 transition-shadow hover:shadow-md block"
           >
             <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10" style={{ color: '#007429' }}>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
             </div>
             <h3 className="mb-1 font-bold text-foreground group-hover:text-primary transition-colors">{t('crossLinkCourseLabel')}</h3>
             <p className="text-sm text-muted-foreground">{t('crossLinkCourseDesc')}</p>
-          </Link>
-          <Link
-            href="/second-hand-golf-clubs-bangkok"
-            className="group rounded-xl border border-primary/15 bg-white p-6 transition-shadow hover:shadow-md"
-          >
-            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10" style={{ color: '#007429' }}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" x2="21" y1="6" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-            </div>
-            <h3 className="mb-1 font-bold text-foreground group-hover:text-primary transition-colors">{t('crossLinkSecondHandLabel')}</h3>
-            <p className="text-sm text-muted-foreground">{t('crossLinkSecondHandDesc')}</p>
           </Link>
         </div>
       </SectionWrapper>
