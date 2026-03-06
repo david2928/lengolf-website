@@ -60,6 +60,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       alternates: { languages: { en: `${SITE_URL}/golf-club-rental/`, th: `${SITE_URL}/th/golf-club-rental/` } },
     },
     {
+      url: `${SITE_URL}/golf-course-club-rental/`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+      alternates: { languages: { en: `${SITE_URL}/golf-course-club-rental/`, th: `${SITE_URL}/th/golf-course-club-rental/` } },
+    },
+    {
       url: `${SITE_URL}/lessons/`,
       lastModified: new Date(),
       changeFrequency: 'weekly',

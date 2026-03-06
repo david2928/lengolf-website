@@ -10,6 +10,7 @@ const Dialog = DialogPrimitive.Root
 const DialogTrigger = DialogPrimitive.Trigger
 const DialogPortal = DialogPrimitive.Portal
 const DialogClose = DialogPrimitive.Close
+const DialogTitle = DialogPrimitive.Title
 
 const DialogOverlay = React.forwardRef<
   React.ComponentRef<typeof DialogPrimitive.Overlay>,
@@ -50,4 +51,4 @@ const DialogContent = React.forwardRef<
 ))
 DialogContent.displayName = DialogPrimitive.Content.displayName
 
-export { Dialog, DialogTrigger, DialogContent, DialogClose, DialogOverlay, DialogPortal }
+export { Dialog, DialogTrigger, DialogContent, DialogClose, DialogOverlay, DialogPortal, DialogTitle }
