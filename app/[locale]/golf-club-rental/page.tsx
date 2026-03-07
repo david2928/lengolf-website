@@ -7,6 +7,7 @@ import BookingCTA from '@/components/shared/BookingCTA'
 import ImageLightbox from '@/components/shared/ImageLightbox'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
 import { getClubRentalPricingJsonLd, getClubRentalServiceJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
+import { getRentalClubPricing } from '@/lib/clubs'
 import FaqSection from '@/components/shared/FaqSection'
 
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
@@ -65,6 +66,7 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
     answer: tFaq(`a${i + 1}`),
   }))
 
+  const { indoor: indoorPricing } = await getRentalClubPricing()
   const pricingJsonLd = getClubRentalPricingJsonLd()
   const serviceJsonLd = getClubRentalServiceJsonLd()
   const faqJsonLd = getFaqPageJsonLd(faqItems)
@@ -286,11 +288,11 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
                   </tr>
                 </thead>
                 <tbody>
-                  {[1, 2, 3].map((i) => (
-                    <tr key={i} className={i % 2 !== 0 ? 'bg-white' : 'bg-muted/30'}>
-                      <td className="px-5 py-4 text-sm font-medium text-foreground">{t(`pricingRow${i}Duration`)}</td>
-                      <td className="px-5 py-4 text-sm font-bold text-center" style={{ color: '#007429' }}>{t(`pricingRow${i}Premium`)}</td>
-                      <td className="px-5 py-4 text-sm font-bold text-center" style={{ color: '#007429' }}>{t(`pricingRow${i}PremiumPlus`)}</td>
+                  {indoorPricing.map((row, i) => (
+                    <tr key={row.duration} className={i % 2 === 0 ? 'bg-white' : 'bg-muted/30'}>
+                      <td className="px-5 py-4 text-sm font-medium text-foreground">{row.duration}</td>
+                      <td className="px-5 py-4 text-sm font-bold text-center" style={{ color: '#007429' }}>{row.premium}</td>
+                      <td className="px-5 py-4 text-sm font-bold text-center" style={{ color: '#007429' }}>{row.premiumPlus}</td>
                     </tr>
                   ))}
                 </tbody>
