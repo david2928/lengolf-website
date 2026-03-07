@@ -7,10 +7,9 @@ import FaqSection from '@/components/shared/FaqSection'
 import { storageUrl, SITE_URL, BUSINESS_INFO, SOCIAL_LINKS } from '@/lib/constants'
 import { getCourseClubRentalServiceJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import ImageLightbox from '@/components/shared/ImageLightbox'
-import RentalInquiryForm from '@/components/clubs/RentalInquiryForm'
 import StickyBookCTA from '@/components/clubs/StickyBookCTA'
 import {
-  MessageCircle,
+  ExternalLink,
   Truck,
   Phone,
   MapPin,
@@ -61,8 +60,6 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
     { name: t('metaTitle'), url: `${SITE_URL}/golf-course-club-rental/` },
   ])
 
-  const lineUrl = `https://line.me/R/oaMessage/%40lengolf/?${encodeURIComponent(t('ctaLinePrefill'))}`
-
   const pricingRows: { duration: string; premium: string; premiumPlus: string; note?: string }[] = [
     { duration: t('pricingRow1Duration'), premium: t('pricingRow1Premium'), premiumPlus: t('pricingRow1PremiumPlus') },
     { duration: t('pricingRow2Duration'), premium: t('pricingRow2Premium'), premiumPlus: t('pricingRow2PremiumPlus'), note: t('pricingRow2Note') },
@@ -86,7 +83,7 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
       />
 
       {/* ── Sticky mobile CTA ── */}
-      <StickyBookCTA label={t('stickyBookCta')} targetId="inquiry-form" />
+      <StickyBookCTA label={t('stickyBookCta')} href="https://booking.len.golf/course-rental" />
 
       {/* ── Hero ── */}
       <section className="relative flex h-[50vh] min-h-[400px] max-h-[550px] items-center text-white overflow-hidden">
@@ -123,11 +120,13 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
             {t('heroSubtitle')}
           </p>
           <a
-            href="#inquiry-form"
+            href="https://booking.len.golf/course-rental"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex h-12 items-center gap-2 rounded-md px-8 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-            style={{ backgroundColor: '#00B900' }}
+            style={{ backgroundColor: '#007429' }}
           >
-            <MessageCircle size={16} />
+            <ExternalLink size={16} />
             {t('stickyBookCta')}
           </a>
         </div>
@@ -309,60 +308,40 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
         </div>
       </section>
 
-      {/* ── Inquiry Form ── */}
-      <section id="inquiry-form" className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
+      {/* ── Book Now CTA ── */}
+      <section id="book-now" className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
-          <div className="mx-auto max-w-xl">
-            <RentalInquiryForm
-              lineFallbackUrl={SOCIAL_LINKS.line}
-              lineOaMessageUrl="https://line.me/R/oaMessage/%40lengolf"
-              email={BUSINESS_INFO.email}
-              labels={{
-                title: t('formTitle'),
-                subtitle: t('formSubtitle'),
-                clubLabel: t('formClubLabel'),
-                clubPlaceholder: t('formClubPlaceholder'),
-                dateLabel: t('formDateLabel'),
-                durationLabel: t('formDurationLabel'),
-                deliveryLabel: t('formDeliveryLabel'),
-                deliveryYes: t('formDeliveryYes'),
-                deliveryNo: t('formDeliveryNo'),
-                addressLabel: t('formAddressLabel'),
-                addressPlaceholder: t('formAddressPlaceholder'),
-                lineButton: t('formLineButton'),
-                emailButton: t('formEmailButton'),
-                copiedToast: t('formCopiedToast'),
-                addOnsLabel: t('formAddOnsLabel'),
-                estimatedTotalLabel: t('formEstimatedTotal'),
-                deliveryFeeNum: 500,
-                msgGreeting: t('msgGreeting'),
-                msgClubsPrefix: t('msgClubsPrefix'),
-                msgDatePrefix: t('msgDatePrefix'),
-                msgDurationPrefix: t('msgDurationPrefix'),
-                msgDeliveryPrefix: t('msgDeliveryPrefix'),
-                msgDeliveryYes: t('msgDeliveryYes'),
-                msgDeliveryAddressTbc: t('msgDeliveryAddressTbc'),
-                msgDeliveryPickup: t('msgDeliveryPickup'),
-                msgAddOnsPrefix: t('msgAddOnsPrefix'),
-                emailSubject: t('msgEmailSubject'),
-                breakdownDelivery: t('msgBreakdownDelivery'),
-                clubOptions: [
-                  { value: 'paradym', tier: 'premiumPlus' as const, label: t('formClubParadym') },
-                  { value: 'warbird', tier: 'premium' as const, label: t('formClubWarbird') },
-                  { value: 'majesty', tier: 'premium' as const, label: t('formClubMajesty') },
-                ],
-                durationOptions: [
-                  { value: '1', label: t('pricingRow1Duration'), premium: t('pricingRow1Premium'), premiumPlus: t('pricingRow1PremiumPlus') },
-                  { value: '3', label: t('pricingRow2Duration'), premium: t('pricingRow2Premium'), premiumPlus: t('pricingRow2PremiumPlus') },
-                  { value: '7', label: t('pricingRow3Duration'), premium: t('pricingRow3Premium'), premiumPlus: t('pricingRow3PremiumPlus') },
-                  { value: '14', label: t('pricingRow4Duration'), premium: t('pricingRow4Premium'), premiumPlus: t('pricingRow4PremiumPlus') },
-                ],
-                addOns: [
-                  { key: 'gloves', label: t('formAddonGloves'), price: t('formAddonGlovesPrice'), priceNum: 600 },
-                  { key: 'balls', label: t('formAddonBalls'), price: t('formAddonBallsPrice'), priceNum: 400 },
-                ],
-              }}
-            />
+          <div className="mx-auto max-w-xl text-center">
+            <h2 className="mb-3 text-3xl font-bold italic lg:text-4xl">
+              <span style={{ color: '#007429' }}>{t('formTitle')}</span>
+            </h2>
+            <p className="mb-8 text-muted-foreground">{t('formSubtitle')}</p>
+
+            <a
+              href="https://booking.len.golf/course-rental"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-14 items-center gap-3 rounded-lg px-10 text-base font-bold text-white transition-opacity hover:opacity-90 shadow-lg"
+              style={{ backgroundColor: '#007429' }}
+            >
+              <ExternalLink size={20} />
+              {t('stickyBookCta')}
+            </a>
+
+            <p className="mt-6 text-sm text-muted-foreground">
+              Questions? Reach us on{' '}
+              <a href={SOCIAL_LINKS.line} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary hover:underline">
+                LINE @lengolf
+              </a>
+              , email{' '}
+              <a href={`mailto:${BUSINESS_INFO.email}`} className="font-semibold text-primary hover:underline">
+                {BUSINESS_INFO.email}
+              </a>
+              {' '}or call{' '}
+              <a href={`tel:${BUSINESS_INFO.phoneRaw}`} className="font-semibold text-primary hover:underline">
+                {BUSINESS_INFO.phone}
+              </a>
+            </p>
           </div>
         </div>
       </section>
@@ -385,9 +364,6 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
                 </li>
               ))}
             </ol>
-            <p className="mt-6 text-center text-sm italic text-muted-foreground">
-              {t('comingSoonNote')}
-            </p>
           </div>
         </div>
       </section>
@@ -402,14 +378,14 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
           <p className="mb-6 text-white/80">{t('ctaSubtitle')}</p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
-              href={lineUrl}
+              href="https://booking.len.golf/course-rental"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-12 items-center gap-2 rounded-md px-8 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-              style={{ backgroundColor: '#00B900' }}
+              className="inline-flex h-12 items-center gap-2 rounded-md bg-white px-8 text-sm font-semibold transition-opacity hover:opacity-90"
+              style={{ color: '#005a32' }}
             >
-              <MessageCircle size={16} />
-              {t('ctaLineButton')}
+              <ExternalLink size={16} />
+              {t('stickyBookCta')}
             </a>
             <a
               href={`tel:${BUSINESS_INFO.phoneRaw}`}
