@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import FaqSection from '@/components/shared/FaqSection'
-import { storageUrl, SITE_URL, BUSINESS_INFO, SOCIAL_LINKS } from '@/lib/constants'
+import { storageUrl, SITE_URL, BUSINESS_INFO, SOCIAL_LINKS, BOOKING_URL } from '@/lib/constants'
 import { getCourseClubRentalServiceJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import ImageLightbox from '@/components/shared/ImageLightbox'
 import StickyBookCTA from '@/components/clubs/StickyBookCTA'
@@ -52,6 +52,7 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
     answer: tFaq(`a${i + 1}`),
   }))
 
+  const courseRentalUrl = `${BOOKING_URL}course-rental`
   const serviceJsonLd = getCourseClubRentalServiceJsonLd()
   const faqJsonLd = getFaqPageJsonLd(faqItems)
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
@@ -83,7 +84,7 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
       />
 
       {/* ── Sticky mobile CTA ── */}
-      <StickyBookCTA label={t('stickyBookCta')} href="https://booking.len.golf/course-rental" />
+      <StickyBookCTA label={t('stickyBookCta')} href={courseRentalUrl} />
 
       {/* ── Hero ── */}
       <section className="relative flex h-[50vh] min-h-[400px] max-h-[550px] items-center text-white overflow-hidden">
@@ -120,7 +121,7 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
             {t('heroSubtitle')}
           </p>
           <a
-            href="https://booking.len.golf/course-rental"
+            href={courseRentalUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex h-12 items-center gap-2 rounded-md px-8 text-sm font-semibold text-white transition-opacity hover:opacity-90"
@@ -318,7 +319,7 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
             <p className="mb-8 text-muted-foreground">{t('formSubtitle')}</p>
 
             <a
-              href="https://booking.len.golf/course-rental"
+              href={courseRentalUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex h-14 items-center gap-3 rounded-lg px-10 text-base font-bold text-white transition-opacity hover:opacity-90 shadow-lg"
@@ -329,15 +330,15 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
             </a>
 
             <p className="mt-6 text-sm text-muted-foreground">
-              Questions? Reach us on{' '}
+              {t('contactPrefix')}{' '}
               <a href={SOCIAL_LINKS.line} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary hover:underline">
                 LINE @lengolf
               </a>
-              , email{' '}
+              {t('contactEmailSep')}{' '}
               <a href={`mailto:${BUSINESS_INFO.email}`} className="font-semibold text-primary hover:underline">
                 {BUSINESS_INFO.email}
               </a>
-              {' '}or call{' '}
+              {' '}{t('contactPhoneSep')}{' '}
               <a href={`tel:${BUSINESS_INFO.phoneRaw}`} className="font-semibold text-primary hover:underline">
                 {BUSINESS_INFO.phone}
               </a>
@@ -378,7 +379,7 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
           <p className="mb-6 text-white/80">{t('ctaSubtitle')}</p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
-              href="https://booking.len.golf/course-rental"
+              href={courseRentalUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex h-12 items-center gap-2 rounded-md bg-white px-8 text-sm font-semibold transition-opacity hover:opacity-90"

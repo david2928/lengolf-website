@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink, ChevronDown } from 'lucide-react'
 
 interface StickyBookCTAProps {
   label: string
@@ -71,7 +71,7 @@ export default function StickyBookCTA({ label, targetId, href }: StickyBookCTAPr
             className="flex w-full h-11 items-center justify-center gap-2 rounded-md text-sm font-semibold text-white"
             style={{ backgroundColor: '#00B900' }}
           >
-            <ExternalLink size={16} />
+            <ChevronDown size={16} />
             {label}
           </button>
         )}
