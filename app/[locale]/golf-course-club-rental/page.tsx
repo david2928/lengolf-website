@@ -6,6 +6,7 @@ import SectionWrapper from '@/components/shared/SectionWrapper'
 import FaqSection from '@/components/shared/FaqSection'
 import { storageUrl, SITE_URL, BUSINESS_INFO, SOCIAL_LINKS, BOOKING_URL } from '@/lib/constants'
 import { getCourseClubRentalServiceJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
+import { getRentalClubPricing } from '@/lib/clubs'
 import ImageLightbox from '@/components/shared/ImageLightbox'
 import StickyBookCTA from '@/components/clubs/StickyBookCTA'
 import {
@@ -61,12 +62,7 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
     { name: t('metaTitle'), url: `${SITE_URL}/golf-course-club-rental/` },
   ])
 
-  const pricingRows: { duration: string; premium: string; premiumPlus: string; note?: string }[] = [
-    { duration: t('pricingRow1Duration'), premium: t('pricingRow1Premium'), premiumPlus: t('pricingRow1PremiumPlus') },
-    { duration: t('pricingRow2Duration'), premium: t('pricingRow2Premium'), premiumPlus: t('pricingRow2PremiumPlus'), note: t('pricingRow2Note') },
-    { duration: t('pricingRow3Duration'), premium: t('pricingRow3Premium'), premiumPlus: t('pricingRow3PremiumPlus'), note: t('pricingRow3Note') },
-    { duration: t('pricingRow4Duration'), premium: t('pricingRow4Premium'), premiumPlus: t('pricingRow4PremiumPlus'), note: t('pricingRow4Note') },
-  ]
+  const { course: pricingRows } = await getRentalClubPricing()
 
   return (
     <>
