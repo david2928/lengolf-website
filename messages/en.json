@@ -648,7 +648,15 @@
     "q5": "Do you deliver to courses outside Bangkok?",
     "a5": "Our delivery service covers Bangkok. For courses further afield, please contact us on LINE and we'll discuss options. Self pick-up from LENGOLF at The Mercury Ville @ BTS Chidlom is always available.",
     "q6": "How do I pay?",
-    "a6": "After we confirm availability on LINE, we'll send payment details. We accept QR payment (PromptPay or bank transfer), or you can pay in-store by credit card or cash when picking up. Pre-payment is required for delivery orders."
+    "a6": "After we confirm availability on LINE, we'll send payment details. We accept QR payment (PromptPay or bank transfer), or you can pay in-store by credit card or cash when picking up. Pre-payment is required for delivery orders.",
+    "q7": "Can tourists rent golf clubs in Bangkok without a membership?",
+    "a7": "Absolutely! No membership, booking history, or Thai ID is required. Just message us on LINE @lengolf with your dates and preferred set. We confirm availability within 2 hours and deliver clubs to your hotel or any Bangkok golf course.",
+    "q8": "Can you deliver clubs to my hotel near Sukhumvit or Silom?",
+    "a8": "Yes — we deliver anywhere in Bangkok for 500 THB, including Sukhumvit, Silom, Sathorn, Riverside, and all popular tourist areas. Same-day delivery is available for morning orders. We'll drop off and pick up at your hotel lobby.",
+    "q9": "Is it cheaper to rent or buy golf clubs for a Bangkok golf trip?",
+    "a9": "Renting is almost always cheaper for trips under 2 weeks. A full Premium set starts at 1,200 THB/day with multi-day discounts up to 50% off. Even our tour-grade Premium+ Paradym set is just 1,800 THB/day — far less than buying or paying airline oversize baggage fees.",
+    "q10": "Can I rent clubs for multiple rounds over several days?",
+    "a10": "Yes! Our multi-day packages are designed for exactly this. Keep the clubs for 3, 7, or 14 days and play as many rounds as you like. The longer you rent, the more you save — our 14-day package is effectively 50% off the daily rate."
   },
   "SecondHandClubs": {
     "metaTitle": "Second-Hand Golf Clubs Bangkok | Buy Used Callaway & TaylorMade",

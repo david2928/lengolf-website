@@ -768,7 +768,7 @@ export function getCourseClubRentalServiceJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Golf Course Club Rental Bangkok — LENGOLF',
-    description: 'Rent premium golf clubs for any Bangkok golf course. Callaway Warbird or Majesty Shuttle full sets. Full-day and multi-day packages. Delivery anywhere in Bangkok for 500 THB. Confirms within 2 hours via LINE.',
+    description: 'Rent premium golf clubs for any Bangkok golf course. Callaway Paradym Forged Carbon (tour-grade), Callaway Warbird, or Majesty Shuttle full sets. Full-day and multi-day packages. Delivery anywhere in Bangkok for 500 THB. Confirms within 2 hours via LINE.',
     provider: {
       '@type': 'EntertainmentBusiness',
       name: BUSINESS_INFO.name,
@@ -782,32 +782,87 @@ export function getCourseClubRentalServiceJsonLd() {
     offers: [
       {
         '@type': 'Offer',
-        name: '1-Day Golf Course Club Rental',
+        name: '1-Day Premium Course Club Rental',
         price: '1200',
         priceCurrency: 'THB',
         description: 'Full-day rental of Callaway Warbird or Majesty Shuttle set for any Bangkok golf course',
       },
       {
         '@type': 'Offer',
-        name: '3-Day Golf Course Club Rental',
+        name: '3-Day Premium Course Club Rental',
         price: '2400',
         priceCurrency: 'THB',
-        description: '3-day rental package — pay for 2 days, get 1 free',
+        description: '3-day Premium rental package — pay for 2 days, get 1 free',
       },
       {
         '@type': 'Offer',
-        name: '7-Day Golf Course Club Rental',
+        name: '7-Day Premium Course Club Rental',
         price: '4800',
         priceCurrency: 'THB',
-        description: '7-day rental package — pay for 4 days, get 3 free',
+        description: '7-day Premium rental package — pay for 4 days, get 3 free',
       },
       {
         '@type': 'Offer',
-        name: '14-Day Golf Course Club Rental',
+        name: '14-Day Premium Course Club Rental',
         price: '8400',
         priceCurrency: 'THB',
-        description: '14-day rental package — pay for 7 days, get 7 free',
+        description: '14-day Premium rental package — pay for 7 days, get 7 free',
       },
+      {
+        '@type': 'Offer',
+        name: '1-Day Premium+ Course Club Rental',
+        price: '1800',
+        priceCurrency: 'THB',
+        description: 'Full-day rental of Callaway Paradym Forged Carbon tour-grade set for any Bangkok golf course',
+      },
+      {
+        '@type': 'Offer',
+        name: '3-Day Premium+ Course Club Rental',
+        price: '3600',
+        priceCurrency: 'THB',
+        description: '3-day Premium+ rental package — pay for 2 days, get 1 free',
+      },
+      {
+        '@type': 'Offer',
+        name: '7-Day Premium+ Course Club Rental',
+        price: '7200',
+        priceCurrency: 'THB',
+        description: '7-day Premium+ rental package — pay for 4 days, get 3 free',
+      },
+      {
+        '@type': 'Offer',
+        name: '14-Day Premium+ Course Club Rental',
+        price: '12600',
+        priceCurrency: 'THB',
+        description: '14-day Premium+ rental package — pay for 7 days, get 7 free',
+      },
+    ],
+  }
+}
+
+export function getCourseClubRentalPricingJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'OfferCatalog',
+    name: 'LENGOLF Golf Course Club Rental Pricing',
+    description: 'Premium and Premium+ golf club rental packages for Bangkok golf courses with delivery and add-ons',
+    provider: {
+      '@type': 'EntertainmentBusiness',
+      name: BUSINESS_INFO.name,
+      url: SITE_URL,
+    },
+    itemListElement: [
+      { '@type': 'Offer', name: '1-Day Premium Course Rental (Warbird / Majesty)', price: '1200', priceCurrency: 'THB' },
+      { '@type': 'Offer', name: '3-Day Premium Course Rental', price: '2400', priceCurrency: 'THB' },
+      { '@type': 'Offer', name: '7-Day Premium Course Rental', price: '4800', priceCurrency: 'THB' },
+      { '@type': 'Offer', name: '14-Day Premium Course Rental', price: '8400', priceCurrency: 'THB' },
+      { '@type': 'Offer', name: '1-Day Premium+ Course Rental (Paradym Forged Carbon)', price: '1800', priceCurrency: 'THB' },
+      { '@type': 'Offer', name: '3-Day Premium+ Course Rental', price: '3600', priceCurrency: 'THB' },
+      { '@type': 'Offer', name: '7-Day Premium+ Course Rental', price: '7200', priceCurrency: 'THB' },
+      { '@type': 'Offer', name: '14-Day Premium+ Course Rental', price: '12600', priceCurrency: 'THB' },
+      { '@type': 'Offer', name: 'Club Delivery (anywhere in Bangkok)', price: '500', priceCurrency: 'THB' },
+      { '@type': 'Offer', name: 'Golf Gloves Add-On', price: '600', priceCurrency: 'THB' },
+      { '@type': 'Offer', name: 'Golf Balls Add-On (1 dozen)', price: '400', priceCurrency: 'THB' },
     ],
   }
 }

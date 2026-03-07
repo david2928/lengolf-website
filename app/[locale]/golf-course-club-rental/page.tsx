@@ -5,7 +5,7 @@ import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import FaqSection from '@/components/shared/FaqSection'
 import { storageUrl, SITE_URL, BUSINESS_INFO, SOCIAL_LINKS, BOOKING_URL } from '@/lib/constants'
-import { getCourseClubRentalServiceJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
+import { getCourseClubRentalServiceJsonLd, getCourseClubRentalPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { getRentalClubPricing } from '@/lib/clubs'
 import ImageLightbox from '@/components/shared/ImageLightbox'
 import StickyBookCTA from '@/components/clubs/StickyBookCTA'
@@ -15,6 +15,7 @@ import {
   Phone,
   MapPin,
   CreditCard,
+  ShoppingBag,
 } from 'lucide-react'
 
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
@@ -23,7 +24,7 @@ const faqLinks: Record<string, { href: string; external?: boolean }> = {
   'Google Maps': { href: BUSINESS_INFO.googleMapsUrl, external: true },
 }
 
-const FAQ_COUNT = 6
+const FAQ_COUNT = 10
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
@@ -38,7 +39,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         th: `${SITE_URL}/th/golf-course-club-rental/`,
       },
     },
-    openGraph: { images: [{ url: storageUrl('golf/hero-golf.jpg'), alt: 'Golf course club rental Bangkok' }] },
+    openGraph: { images: [{ url: storageUrl('golf/hero-golf.jpg'), alt: 'Rent premium golf clubs for any Bangkok golf course — Callaway Paradym, Warbird, Majesty from 1,200 THB/day' }] },
   }
 }
 
@@ -55,6 +56,7 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
 
   const courseRentalUrl = `${BOOKING_URL}course-rental`
   const serviceJsonLd = getCourseClubRentalServiceJsonLd()
+  const pricingJsonLd = getCourseClubRentalPricingJsonLd()
   const faqJsonLd = getFaqPageJsonLd(faqItems)
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
@@ -76,6 +78,10 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
       />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
@@ -86,7 +92,7 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
       <section className="relative flex h-[50vh] min-h-[400px] max-h-[550px] items-center text-white overflow-hidden">
         <Image
           src={storageUrl('golf/hero-golf.jpg')}
-          alt="Golf course club rental Bangkok"
+          alt="Rent Callaway Paradym, Warbird or Majesty golf clubs for Bangkok golf courses — from 1,200 THB/day with delivery"
           fill
           className="object-cover object-center"
           priority
@@ -401,7 +407,7 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
           <span style={{ color: '#007429' }}>{t('crossLinksTitle')}</span>{' '}
           <span className="text-foreground">{t('crossLinksTitleSuffix')}</span>
         </h2>
-        <div className="mx-auto mt-8 max-w-md">
+        <div className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2">
           <Link
             href="/golf-club-rental"
             className="group rounded-xl border border-primary/15 bg-white p-6 transition-shadow hover:shadow-md block"
@@ -411,6 +417,16 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
             </div>
             <h3 className="mb-1 font-bold text-foreground group-hover:text-primary transition-colors">{t('crossLink1Label')}</h3>
             <p className="text-sm text-muted-foreground">{t('crossLink1Desc')}</p>
+          </Link>
+          <Link
+            href="/second-hand-golf-clubs-bangkok"
+            className="group rounded-xl border border-primary/15 bg-white p-6 transition-shadow hover:shadow-md block"
+          >
+            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10" style={{ color: '#007429' }}>
+              <ShoppingBag size={20} />
+            </div>
+            <h3 className="mb-1 font-bold text-foreground group-hover:text-primary transition-colors">{t('crossLink2Label')}</h3>
+            <p className="text-sm text-muted-foreground">{t('crossLink2Desc')}</p>
           </Link>
         </div>
       </SectionWrapper>
