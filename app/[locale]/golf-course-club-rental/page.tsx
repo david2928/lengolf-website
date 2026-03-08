@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         th: `${SITE_URL}/th/golf-course-club-rental/`,
       },
     },
-    openGraph: { images: [{ url: storageUrl('golf/hero-golf.jpg'), alt: 'Rent premium golf clubs for any Bangkok golf course — Callaway Paradym, Warbird, Majesty from 1,200 THB/day' }] },
+    openGraph: { images: [{ url: storageUrl('golf/hero-course-rental.webp'), alt: 'Rent premium golf clubs for any Bangkok golf course — Callaway Paradym, Warbird, Majesty from 1,200 THB/day' }] },
   }
 }
 
@@ -91,7 +91,7 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
       {/* ── Hero ── */}
       <section className="relative flex h-[50vh] min-h-[400px] max-h-[550px] items-center text-white overflow-hidden">
         <Image
-          src={storageUrl('golf/hero-golf.jpg')}
+          src={storageUrl('golf/hero-course-rental.webp')}
           alt="Rent Callaway Paradym, Warbird or Majesty golf clubs for Bangkok golf courses — from 1,200 THB/day with delivery"
           fill
           className="object-cover object-center"
