@@ -126,10 +126,10 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
             href={courseRentalUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-12 items-center gap-2 rounded-md px-8 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-            style={{ backgroundColor: '#007429' }}
+            className="inline-flex h-14 items-center gap-2.5 rounded-lg px-10 text-base font-bold text-[#005a32] shadow-lg transition-all hover:scale-105 hover:shadow-xl md:text-lg"
+            style={{ backgroundColor: '#c8a96e' }}
           >
-            <ExternalLink size={16} />
+            <ExternalLink size={18} />
             {t('stickyBookCta')}
           </a>
         </div>
