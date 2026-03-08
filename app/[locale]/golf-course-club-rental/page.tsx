@@ -126,7 +126,7 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
             href={courseRentalUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-14 items-center gap-2.5 rounded-lg bg-[#005a32] px-10 text-base font-bold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl md:text-lg"
+            className="inline-flex h-16 items-center gap-2.5 rounded-lg bg-[#005a32] px-12 text-lg font-extrabold uppercase tracking-wide text-white shadow-lg ring-2 ring-white/40 transition-all hover:scale-105 hover:shadow-xl md:text-xl"
           >
             <ExternalLink size={18} />
             {t('stickyBookCta')}
