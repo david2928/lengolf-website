@@ -94,7 +94,7 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
           src={storageUrl('golf/hero-course-rental.webp')}
           alt="Rent Callaway Paradym, Warbird or Majesty golf clubs for Bangkok golf courses — from 1,200 THB/day with delivery"
           fill
-          className="object-cover object-center"
+          className="object-cover object-[center_35%]"
           priority
         />
         <div
