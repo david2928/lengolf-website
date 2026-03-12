@@ -5,7 +5,7 @@ import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import ImageGallery from '@/components/shared/ImageGallery'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
-import { eventTypes, eventPackages, eventPackageNotes } from '@/data/pricing'
+import { eventTypes, getEventPackagesData } from '@/data/pricing'
 import { eventClients, instagramPosts } from '@/data/event-clients'
 import InstagramEmbed from '@/components/events/InstagramEmbed'
 import { getEventsPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
@@ -74,7 +74,9 @@ export default async function EventsPage({ params }: { params: Promise<{ locale:
     answer: tFaq(`a${i + 1}`),
   }))
 
-  const pricingJsonLd = getEventsPricingJsonLd()
+  const { eventPackages, eventPackageNotes } = await getEventPackagesData()
+
+  const pricingJsonLd = getEventsPricingJsonLd(eventPackages)
   const faqJsonLd = getFaqPageJsonLd(faqItems)
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },

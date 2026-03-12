@@ -7,7 +7,8 @@ import BookingCTA from '@/components/shared/BookingCTA'
 import AqiWidget from '@/components/shared/AqiWidget'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
 import { getWebsitePromotions } from '@/lib/promotions'
-import { bayRates, bayRateNotes, monthlyPackages, monthlyPackageNotes } from '@/data/pricing'
+import { getBayRatesData, getMonthlyPackagesData } from '@/data/pricing'
+import { getPricingCatalog } from '@/lib/pricing'
 import { getGolfPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import FaqSection from '@/components/shared/FaqSection'
 
@@ -74,9 +75,14 @@ export default async function GolfPage({ params }: { params: Promise<{ locale: s
     answer: tFaq(`a${i + 1}`),
   }))
 
-  const { gridPromotions, monthlyPackagesPromo } = await getWebsitePromotions()
+  const catalog = await getPricingCatalog()
+  const [{ gridPromotions, monthlyPackagesPromo }, { bayRates, bayRateNotes }, { monthlyPackages, monthlyPackageNotes }] = await Promise.all([
+    getWebsitePromotions(),
+    getBayRatesData(catalog),
+    getMonthlyPackagesData(catalog),
+  ])
 
-  const pricingJsonLd = getGolfPricingJsonLd()
+  const pricingJsonLd = getGolfPricingJsonLd(bayRates, monthlyPackages)
   const faqJsonLd = getFaqPageJsonLd(faqItems)
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },

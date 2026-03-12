@@ -1,5 +1,6 @@
 import { SITE_URL, SITE_NAME, BUSINESS_INFO, SOCIAL_LINKS, storageUrl } from '@/lib/constants'
 import type { UsedClub } from '@/lib/clubs'
+import type { BayRateRow, MonthlyPackageRow, LessonPackage, EventPackage } from '@/data/pricing'
 
 export function getLocalBusinessJsonLd() {
   return {
@@ -54,7 +55,104 @@ export function getWebSiteJsonLd() {
   }
 }
 
-export function getGolfPricingJsonLd() {
+/** Parse "X,XXX THB" → "XXXX" (string for JSON-LD price field) */
+function parseThbToString(thb: string): string {
+  return thb.replace(/[^0-9]/g, '')
+}
+
+export function getGolfPricingJsonLd(dynamicBayRates?: BayRateRow[], dynamicPackages?: MonthlyPackageRow[]) {
+  // Bay rate offers — use dynamic data if provided
+  const bayOffers = dynamicBayRates
+    ? [
+        ...dynamicBayRates.flatMap((row) => [
+          {
+            '@type': 'Offer' as const,
+            name: `Simulator Bay – Weekday ${row.timeSlot}`,
+            description: 'Mon–Thu, up to 5 players per bay, golf club rental included',
+            price: parseThbToString(row.weekday),
+            priceCurrency: 'THB',
+            unitCode: 'HUR',
+            eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'HUR' },
+          },
+          {
+            '@type': 'Offer' as const,
+            name: `Simulator Bay – Weekend ${row.timeSlot}`,
+            description: 'Fri–Sun & public holidays, up to 5 players per bay, golf club rental included',
+            price: parseThbToString(row.weekend),
+            priceCurrency: 'THB',
+            unitCode: 'HUR',
+            eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'HUR' },
+          },
+        ]),
+      ]
+    : [
+        {
+          '@type': 'Offer' as const,
+          name: 'Simulator Bay – Weekday Before 14:00',
+          description: 'Mon–Thu, up to 5 players per bay, golf club rental included',
+          price: '500',
+          priceCurrency: 'THB',
+          unitCode: 'HUR',
+          eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'HUR' },
+        },
+        {
+          '@type': 'Offer' as const,
+          name: 'Simulator Bay – Weekday 14:00–23:00',
+          description: 'Mon–Thu, up to 5 players per bay, golf club rental included',
+          price: '700',
+          priceCurrency: 'THB',
+          unitCode: 'HUR',
+          eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'HUR' },
+        },
+        {
+          '@type': 'Offer' as const,
+          name: 'Simulator Bay – Weekend Before 14:00',
+          description: 'Fri–Sun & public holidays, up to 5 players per bay, golf club rental included',
+          price: '700',
+          priceCurrency: 'THB',
+          unitCode: 'HUR',
+          eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'HUR' },
+        },
+        {
+          '@type': 'Offer' as const,
+          name: 'Simulator Bay – Weekend 14:00–23:00',
+          description: 'Fri–Sun & public holidays, up to 5 players per bay, golf club rental included',
+          price: '900',
+          priceCurrency: 'THB',
+          unitCode: 'HUR',
+          eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'HUR' },
+        },
+      ]
+
+  // Package descriptions keyed by name — used for both dynamic and static paths
+  const pkgDescriptions: Record<string, string> = {
+    'Early Bird*': '10 hours valid for 6 months, usable before 14:00 only',
+    'Early Bird+*': 'Unlimited hours for 1 month, usable before 14:00 only, 5% off food & drinks',
+    'Bronze': '5 hours valid for 1 month',
+    'Silver': '15 hours valid for 3 months, 5% off food & drinks',
+    'Gold': '30 hours valid for 6 months, 10% off food & drinks',
+    'Diamond': 'Unlimited hours for 1 month, 5% off food & drinks',
+    'Diamond+': 'Unlimited hours for 3 months, 10% off food & drinks',
+  }
+
+  const packageOffers = dynamicPackages
+    ? dynamicPackages.map((pkg) => ({
+        '@type': 'Offer' as const,
+        name: `${pkg.name.replace(/\*$/, '')} Package – ${pkg.hours === 'Unlimited' ? 'Unlimited' : `${pkg.hours} Hours`}`,
+        description: pkgDescriptions[pkg.name] || `${pkg.hours} hours, ${pkg.validity} validity`,
+        price: parseThbToString(pkg.price),
+        priceCurrency: 'THB',
+      }))
+    : [
+        { '@type': 'Offer' as const, name: 'Early Bird Package – 10 Hours', description: pkgDescriptions['Early Bird*'], price: '4800', priceCurrency: 'THB' },
+        { '@type': 'Offer' as const, name: 'Early Bird+ Package – Unlimited', description: pkgDescriptions['Early Bird+*'], price: '5000', priceCurrency: 'THB' },
+        { '@type': 'Offer' as const, name: 'Bronze Package – 5 Hours', description: pkgDescriptions['Bronze'], price: '3000', priceCurrency: 'THB' },
+        { '@type': 'Offer' as const, name: 'Silver Package – 15 Hours', description: pkgDescriptions['Silver'], price: '8000', priceCurrency: 'THB' },
+        { '@type': 'Offer' as const, name: 'Gold Package – 30 Hours', description: pkgDescriptions['Gold'], price: '14000', priceCurrency: 'THB' },
+        { '@type': 'Offer' as const, name: 'Diamond Package – Unlimited', description: pkgDescriptions['Diamond'], price: '8000', priceCurrency: 'THB' },
+        { '@type': 'Offer' as const, name: 'Diamond+ Package – Unlimited', description: pkgDescriptions['Diamond+'], price: '18000', priceCurrency: 'THB' },
+      ]
+
   return {
     '@context': 'https://schema.org',
     '@type': 'OfferCatalog',
@@ -65,99 +163,41 @@ export function getGolfPricingJsonLd() {
       name: BUSINESS_INFO.name,
       url: SITE_URL,
     },
-    itemListElement: [
-      // Bay rates
-      {
-        '@type': 'Offer',
-        name: 'Simulator Bay – Weekday Before 14:00',
-        description: 'Mon–Thu, up to 5 players per bay, golf club rental included',
-        price: '500',
-        priceCurrency: 'THB',
-        unitCode: 'HUR',
-        eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'HUR' },
-      },
-      {
-        '@type': 'Offer',
-        name: 'Simulator Bay – Weekday 14:00–23:00',
-        description: 'Mon–Thu, up to 5 players per bay, golf club rental included',
-        price: '700',
-        priceCurrency: 'THB',
-        unitCode: 'HUR',
-        eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'HUR' },
-      },
-      {
-        '@type': 'Offer',
-        name: 'Simulator Bay – Weekend Before 14:00',
-        description: 'Fri–Sun & public holidays, up to 5 players per bay, golf club rental included',
-        price: '700',
-        priceCurrency: 'THB',
-        unitCode: 'HUR',
-        eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'HUR' },
-      },
-      {
-        '@type': 'Offer',
-        name: 'Simulator Bay – Weekend 14:00–23:00',
-        description: 'Fri–Sun & public holidays, up to 5 players per bay, golf club rental included',
-        price: '900',
-        priceCurrency: 'THB',
-        unitCode: 'HUR',
-        eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'HUR' },
-      },
-      // Monthly packages
-      {
-        '@type': 'Offer',
-        name: 'Early Bird Package – 10 Hours',
-        description: '10 hours valid for 6 months, usable before 14:00 only',
-        price: '4800',
-        priceCurrency: 'THB',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Early Bird+ Package – Unlimited',
-        description: 'Unlimited hours for 1 month, usable before 14:00 only, 5% off food & drinks',
-        price: '5000',
-        priceCurrency: 'THB',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Bronze Package – 5 Hours',
-        description: '5 hours valid for 1 month',
-        price: '3000',
-        priceCurrency: 'THB',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Silver Package – 15 Hours',
-        description: '15 hours valid for 3 months, 5% off food & drinks',
-        price: '8000',
-        priceCurrency: 'THB',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Gold Package – 30 Hours',
-        description: '30 hours valid for 6 months, 10% off food & drinks',
-        price: '14000',
-        priceCurrency: 'THB',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Diamond Package – Unlimited',
-        description: 'Unlimited hours for 1 month, 5% off food & drinks',
-        price: '8000',
-        priceCurrency: 'THB',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Diamond+ Package – Unlimited',
-        description: 'Unlimited hours for 3 months, 10% off food & drinks',
-        price: '18000',
-        priceCurrency: 'THB',
-      },
-    ],
+    itemListElement: [...bayOffers, ...packageOffers],
   }
 }
 
-export function getEventsPricingJsonLd() {
+export function getEventsPricingJsonLd(dynamicEventPackages?: EventPackage[]) {
+  const eventDescriptions: Record<string, string> = {
+    'Small Package': '10–15 guests, 2 golf bays, 3 hours. Includes 10 beers, 5 cocktails, unlimited soft drinks, and catered food spread from Smith & Co.',
+    'Medium Package': '15–25 guests, 4 golf bays, 3 hours, exclusive full-location rental. Includes 20 beers, 10 cocktails, unlimited soft drinks, and catered food from Smith & Co. & Pizza Mania.',
+  }
+
+  const offers = dynamicEventPackages
+    ? dynamicEventPackages.map((pkg) => ({
+        '@type': 'Offer' as const,
+        name: `${pkg.name.replace(/ Package$/, '')} Event Package`,
+        description: eventDescriptions[pkg.name] || `${pkg.guests}, ${pkg.bays}, ${pkg.duration}`,
+        price: parseThbToString(pkg.price),
+        priceCurrency: 'THB',
+      }))
+    : [
+        {
+          '@type': 'Offer' as const,
+          name: 'Small Event Package',
+          description: eventDescriptions['Small Package'],
+          price: '9999',
+          priceCurrency: 'THB',
+        },
+        {
+          '@type': 'Offer' as const,
+          name: 'Medium Event Package',
+          description: eventDescriptions['Medium Package'],
+          price: '21999',
+          priceCurrency: 'THB',
+        },
+      ]
+
   return {
     '@context': 'https://schema.org',
     '@type': 'OfferCatalog',
@@ -168,26 +208,50 @@ export function getEventsPricingJsonLd() {
       name: BUSINESS_INFO.name,
       url: SITE_URL,
     },
-    itemListElement: [
-      {
-        '@type': 'Offer',
-        name: 'Small Event Package',
-        description: '10–15 guests, 2 golf bays, 3 hours. Includes 10 beers, 5 cocktails, unlimited soft drinks, and catered food spread from Smith & Co.',
-        price: '9999',
-        priceCurrency: 'THB',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Medium Event Package',
-        description: '15–25 guests, 4 golf bays, 3 hours, exclusive full-location rental. Includes 20 beers, 10 cocktails, unlimited soft drinks, and catered food from Smith & Co. & Pizza Mania.',
-        price: '21999',
-        priceCurrency: 'THB',
-      },
-    ],
+    itemListElement: offers,
   }
 }
 
-export function getLessonsPricingJsonLd() {
+export function getLessonsPricingJsonLd(dynamicLessonPricing?: LessonPackage[]) {
+  const lessonDescriptions: Record<string, { description: string; unitCode?: string; duration?: number }> = {
+    '1 Hour': { description: 'One-on-one coaching with a PGA-certified professional, golf simulator usage included', unitCode: 'HUR', duration: 1 },
+    '5 Hour': { description: '5 hours of coaching, valid for 6 months, golf simulator usage included' },
+    '10 Hour': { description: '10 hours of coaching, valid for 12 months, golf simulator usage included' },
+    '20 Hour': { description: '20 hours of coaching, valid for 24 months, golf simulator usage included' },
+    '30 Hour': { description: '30 hours of coaching, valid for 24 months, golf simulator usage included' },
+    '50 Hour': { description: '50 hours of coaching, valid for 24 months, golf simulator usage included' },
+    'Starter Package*': { description: '5 hours coaching + 5 hours practice, valid for 6 months, free golf glove included' },
+    'Sim to Fairway*': { description: '5 hours coaching + 1 on-course lesson, on-course fees covered by customer' },
+  }
+
+  const offers = dynamicLessonPricing
+    ? dynamicLessonPricing.map((pkg) => {
+        const meta = lessonDescriptions[pkg.name]
+        const offerName = pkg.name.replace(/\*$/, '').trim()
+        const offer: Record<string, unknown> = {
+          '@type': 'Offer',
+          name: offerName.includes('Package') ? offerName : `${offerName} Golf Lesson Package`,
+          description: meta?.description || `${pkg.name} golf coaching package`,
+          price: parseThbToString(pkg.oneGolfer),
+          priceCurrency: 'THB',
+        }
+        if (meta?.unitCode) {
+          offer.unitCode = meta.unitCode
+          offer.eligibleDuration = { '@type': 'QuantitativeValue', value: meta.duration, unitCode: meta.unitCode }
+        }
+        return offer
+      })
+    : [
+        { '@type': 'Offer', name: '1 Hour Golf Lesson', description: lessonDescriptions['1 Hour'].description, price: '1800', priceCurrency: 'THB', unitCode: 'HUR', eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'HUR' } },
+        { '@type': 'Offer', name: '5 Hour Golf Lesson Package', description: lessonDescriptions['5 Hour'].description, price: '8500', priceCurrency: 'THB' },
+        { '@type': 'Offer', name: '10 Hour Golf Lesson Package', description: lessonDescriptions['10 Hour'].description, price: '16000', priceCurrency: 'THB' },
+        { '@type': 'Offer', name: '20 Hour Golf Lesson Package', description: lessonDescriptions['20 Hour'].description, price: '31000', priceCurrency: 'THB' },
+        { '@type': 'Offer', name: '30 Hour Golf Lesson Package', description: lessonDescriptions['30 Hour'].description, price: '45000', priceCurrency: 'THB' },
+        { '@type': 'Offer', name: '50 Hour Golf Lesson Package', description: lessonDescriptions['50 Hour'].description, price: '72000', priceCurrency: 'THB' },
+        { '@type': 'Offer', name: 'Starter Package', description: lessonDescriptions['Starter Package*'].description, price: '11000', priceCurrency: 'THB' },
+        { '@type': 'Offer', name: 'Sim to Fairway Package', description: lessonDescriptions['Sim to Fairway*'].description, price: '13499', priceCurrency: 'THB' },
+      ]
+
   return {
     '@context': 'https://schema.org',
     '@type': 'OfferCatalog',
@@ -198,66 +262,7 @@ export function getLessonsPricingJsonLd() {
       name: BUSINESS_INFO.name,
       url: SITE_URL,
     },
-    itemListElement: [
-      {
-        '@type': 'Offer',
-        name: '1 Hour Golf Lesson',
-        description: 'One-on-one coaching with a PGA-certified professional, golf simulator usage included',
-        price: '1800',
-        priceCurrency: 'THB',
-        unitCode: 'HUR',
-        eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'HUR' },
-      },
-      {
-        '@type': 'Offer',
-        name: '5 Hour Golf Lesson Package',
-        description: '5 hours of coaching, valid for 6 months, golf simulator usage included',
-        price: '8500',
-        priceCurrency: 'THB',
-      },
-      {
-        '@type': 'Offer',
-        name: '10 Hour Golf Lesson Package',
-        description: '10 hours of coaching, valid for 12 months, golf simulator usage included',
-        price: '16000',
-        priceCurrency: 'THB',
-      },
-      {
-        '@type': 'Offer',
-        name: '20 Hour Golf Lesson Package',
-        description: '20 hours of coaching, valid for 24 months, golf simulator usage included',
-        price: '31000',
-        priceCurrency: 'THB',
-      },
-      {
-        '@type': 'Offer',
-        name: '30 Hour Golf Lesson Package',
-        description: '30 hours of coaching, valid for 24 months, golf simulator usage included',
-        price: '45000',
-        priceCurrency: 'THB',
-      },
-      {
-        '@type': 'Offer',
-        name: '50 Hour Golf Lesson Package',
-        description: '50 hours of coaching, valid for 24 months, golf simulator usage included',
-        price: '72000',
-        priceCurrency: 'THB',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Starter Package',
-        description: '5 hours coaching + 5 hours practice, valid for 6 months, free golf glove included',
-        price: '11000',
-        priceCurrency: 'THB',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Sim to Fairway Package',
-        description: '5 hours coaching + 1 on-course lesson, on-course fees covered by customer',
-        price: '13499',
-        priceCurrency: 'THB',
-      },
-    ],
+    itemListElement: offers,
   }
 }
 
@@ -458,7 +463,7 @@ export function getFaqPageJsonLd(faqItems: { question: string; answer: string }[
   }
 }
 
-export function getLessonsServiceJsonLd() {
+export function getLessonsServiceJsonLd(startingPrice?: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -476,7 +481,7 @@ export function getLessonsServiceJsonLd() {
     },
     offers: {
       '@type': 'Offer',
-      price: '1800',
+      price: startingPrice ? parseThbToString(startingPrice) : '1800',
       priceCurrency: 'THB',
       description: '1-hour lesson with a PGA-certified coach, simulator usage included',
     },

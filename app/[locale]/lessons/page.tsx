@@ -6,7 +6,7 @@ import SectionWrapper from '@/components/shared/SectionWrapper'
 import ImageGallery from '@/components/shared/ImageGallery'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
 import { coaches } from '@/data/coaches'
-import { lessonPricing, lessonNotes } from '@/data/pricing'
+import { getLessonPricingData } from '@/data/pricing'
 import { getLessonsPricingJsonLd, getLessonsServiceJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import FaqSection from '@/components/shared/FaqSection'
 
@@ -68,8 +68,10 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
     answer: tFaq(`a${i + 1}`),
   }))
 
-  const pricingJsonLd = getLessonsPricingJsonLd()
-  const serviceJsonLd = getLessonsServiceJsonLd()
+  const { lessonPricing, lessonNotes } = await getLessonPricingData()
+
+  const pricingJsonLd = getLessonsPricingJsonLd(lessonPricing)
+  const serviceJsonLd = getLessonsServiceJsonLd(lessonPricing[0]?.oneGolfer)
   const faqJsonLd = getFaqPageJsonLd(faqItems)
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },

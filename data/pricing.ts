@@ -1,4 +1,5 @@
 import { storageUrl } from '@/lib/constants'
+import { getPricingCatalog, formatThb, findPrice, type PricingCatalog } from '@/lib/pricing'
 
 export interface LessonPackage {
   name: string
@@ -422,3 +423,151 @@ export const homeFaqItems = [
     answer: 'Book online at booking.len.golf, add us on LINE @lengolf, or just walk in. Online booking lets you choose your date, bay, and time slot in advance. Walk-ins are welcome subject to availability.',
   },
 ]
+
+// ── Dynamic Pricing Getters ──
+// Fetch live prices from the API, fall back to hardcoded values above if unavailable.
+
+export async function getBayRatesData(catalog?: PricingCatalog | null): Promise<{
+  bayRates: BayRateRow[]
+  bayRateNotes: string[]
+}> {
+  catalog = catalog ?? await getPricingCatalog()
+  if (!catalog) return { bayRates, bayRateNotes }
+
+  const morningWD = findPrice(catalog.bayRates.morning, /weekday/i)
+  const morningWE = findPrice(catalog.bayRates.morning, /weekend/i)
+  const afternoonWD = findPrice(catalog.bayRates.afternoon, /weekday/i)
+  const afternoonWE = findPrice(catalog.bayRates.afternoon, /weekend/i)
+  const eveningWD = findPrice(catalog.bayRates.evening, /weekday/i)
+  const eveningWE = findPrice(catalog.bayRates.evening, /weekend/i)
+
+  return {
+    bayRates: [
+      { timeSlot: 'Before 14:00', weekday: formatThb(morningWD ?? 500), weekend: formatThb(morningWE ?? 700) },
+      { timeSlot: '14:00 – 17:00', weekday: formatThb(afternoonWD ?? 700), weekend: formatThb(afternoonWE ?? 900) },
+      { timeSlot: '17:00 – 23:00 (Promo)', weekday: formatThb(eveningWD ?? 700), weekend: formatThb(eveningWE ?? 900) },
+    ],
+    bayRateNotes,
+  }
+}
+
+export async function getMonthlyPackagesData(catalog?: PricingCatalog | null): Promise<{
+  monthlyPackages: MonthlyPackageRow[]
+  monthlyPackageNotes: string[]
+}> {
+  catalog = catalog ?? await getPricingCatalog()
+  if (!catalog) return { monthlyPackages, monthlyPackageNotes }
+
+  // Map API product names to package names. Only update prices; hours/validity/perks stay hardcoded.
+  const priceMap: Record<string, RegExp> = {
+    'Early Bird*': /early bird package/i,
+    'Early Bird+*': /early bird \+/i,
+    'Bronze': /^bronze/i,
+    'Silver': /^silver/i,
+    'Gold': /^gold/i,
+    'Diamond': /^diamond \(1/i,
+    'Diamond+': /^diamond\+/i,
+  }
+
+  return {
+    monthlyPackages: monthlyPackages.map((pkg) => {
+      const pattern = priceMap[pkg.name]
+      if (!pattern) return pkg
+      const price = findPrice(catalog.packages, pattern)
+      return price !== undefined ? { ...pkg, price: formatThb(price) } : pkg
+    }),
+    monthlyPackageNotes,
+  }
+}
+
+export async function getLessonPricingData(catalog?: PricingCatalog | null): Promise<{
+  lessonPricing: LessonPackage[]
+  lessonNotes: string[]
+}> {
+  catalog = catalog ?? await getPricingCatalog()
+  if (!catalog) return { lessonPricing, lessonNotes }
+
+  // Map lesson package names → API coaching product patterns (1 golfer)
+  const oneGolferMap: Record<string, RegExp> = {
+    '1 Hour': /^1 golf lessons?$/i,
+    '5 Hour': /^5 golf lessons? package$/i,
+    '10 Hour': /^10 golf lessons? package$/i,
+    '20 Hour': /^20 golf lessons? package$/i,
+    '30 Hour': /^30 golf lessons? package$/i,
+    '50 Hour': /^50 golf lessons? package$/i,
+  }
+  // 2 golfer patterns
+  const twoGolferMap: Record<string, RegExp> = {
+    '1 Hour': /1 golf lessons? \(2 pax\)/i,
+    '5 Hour': /5 golf lessons? package \(2 pax\)/i,
+    '10 Hour': /10 golf lessons? \(2 pax\)/i,
+    '20 Hour': /20 golf lessons? package \(2 pax\)/i,
+    '30 Hour': /30 golf lessons? package \(2 pax\)/i,
+    '50 Hour': /50 golf lessons? package \(2 pax\)/i,
+  }
+
+  // Starter Package comes from mixedPackages
+  const starterPrice = findPrice(catalog.mixedPackages, /^starter package$/i)
+  const starterTwoPrice = findPrice(catalog.mixedPackages, /starter package \(2/i)
+  // Sim to Fairway 2-person is in coaching
+  const simToFairwayTwoPrice = findPrice(catalog.coaching, /sim to fairway.*2/i)
+
+  return {
+    lessonPricing: lessonPricing.map((pkg) => {
+      const updated = { ...pkg }
+
+      // 1 golfer
+      const onePattern = oneGolferMap[pkg.name]
+      if (onePattern) {
+        const price = findPrice(catalog.coaching, onePattern)
+        if (price !== undefined) updated.oneGolfer = formatThb(price)
+      }
+      // Starter & Sim to Fairway
+      if (pkg.name === 'Starter Package*' && starterPrice !== undefined) {
+        updated.oneGolfer = formatThb(starterPrice)
+      }
+      if (pkg.name === 'Starter Package*' && starterTwoPrice !== undefined) {
+        updated.twoGolfers = formatThb(starterTwoPrice)
+      }
+
+      // 2 golfers
+      const twoPattern = twoGolferMap[pkg.name]
+      if (twoPattern) {
+        const price = findPrice(catalog.coaching, twoPattern)
+        if (price !== undefined) updated.twoGolfers = formatThb(price)
+      }
+      if (pkg.name === 'Sim to Fairway*' && simToFairwayTwoPrice !== undefined) {
+        updated.twoGolfers = formatThb(simToFairwayTwoPrice)
+      }
+
+      // 3-5 golfers: NOT available in API, keep hardcoded
+
+      return updated
+    }),
+    lessonNotes,
+  }
+}
+
+export async function getEventPackagesData(catalog?: PricingCatalog | null): Promise<{
+  eventPackages: EventPackage[]
+  eventPackageNotes: string[]
+}> {
+  catalog = catalog ?? await getPricingCatalog()
+  if (!catalog) return { eventPackages, eventPackageNotes }
+
+  // Only update price field — all other event details (guests, bays, food, etc.) stay hardcoded
+  const priceMap: Record<string, RegExp> = {
+    'Small Package': /small package/i,
+    'Medium Package': /medium package/i,
+  }
+
+  return {
+    eventPackages: eventPackages.map((pkg) => {
+      const pattern = priceMap[pkg.name]
+      if (!pattern) return pkg
+      const price = findPrice(catalog.events, pattern)
+      return price !== undefined ? { ...pkg, price: formatThb(price) } : pkg
+    }),
+    eventPackageNotes,
+  }
+}
