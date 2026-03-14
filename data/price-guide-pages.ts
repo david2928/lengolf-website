@@ -1,6 +1,123 @@
 import type { PriceGuideSeoPage } from '@/types/seo-pages'
+import { getPricingCatalog, formatThb, findPrice, type PricingCatalog } from '@/lib/pricing'
+import {
+  getBayRatesData,
+  getMonthlyPackagesData,
+  getLessonPricingData,
+  getEventPackagesData,
+} from '@/data/pricing'
 
 const now = new Date().toISOString()
+
+// ── Dynamic price tokens ──
+// Flat map of the key price strings used across all price guide pages.
+// Consumed by page components to replace hardcoded values in structured fields.
+
+export interface PriceGuideTokens {
+  // Bay rates
+  bayMorningWD: string   // weekday before 14:00
+  bayMorningWE: string   // weekend before 14:00
+  bayAfternoonWD: string // weekday 14:00–23:00
+  bayAfternoonWE: string // weekend 14:00–23:00
+  // Per-person at morning weekday rate, group of 5
+  bayPerPersonGroup5: string
+  // Monthly packages
+  pkgBronze: string
+  pkgSilver: string
+  pkgGold: string
+  pkgDiamond: string
+  pkgDiamondPlus: string
+  pkgEarlyBird: string
+  pkgEarlyBirdPlus: string
+  // Lessons (1 golfer)
+  lesson1hr: string
+  lesson5hr: string
+  lesson10hr: string
+  lessonStarter: string
+  lessonSimToFairway: string
+  // Event packages
+  eventSmall: string
+  eventMedium: string
+  // Derived per-person event costs
+  eventSmallPerPerson15: string  // small / 15 guests
+  eventMediumPerPerson25: string // medium / 25 guests
+}
+
+// Hardcoded fallback values (mirrors data/pricing.ts static arrays)
+const FALLBACK: PriceGuideTokens = {
+  bayMorningWD: '500 THB/hr',
+  bayMorningWE: '700 THB/hr',
+  bayAfternoonWD: '700 THB/hr',
+  bayAfternoonWE: '900 THB/hr',
+  bayPerPersonGroup5: '100 THB',
+  pkgBronze: '3,000 THB',
+  pkgSilver: '8,000 THB',
+  pkgGold: '14,000 THB',
+  pkgDiamond: '8,000 THB',
+  pkgDiamondPlus: '18,000 THB',
+  pkgEarlyBird: '4,800 THB',
+  pkgEarlyBirdPlus: '5,000 THB',
+  lesson1hr: '1,800 THB',
+  lesson5hr: '8,500 THB',
+  lesson10hr: '16,000 THB',
+  lessonStarter: '11,000 THB',
+  lessonSimToFairway: '13,499 THB',
+  eventSmall: '9,999 THB',
+  eventMedium: '21,999 THB',
+  eventSmallPerPerson15: '~667 THB',
+  eventMediumPerPerson25: '~880 THB',
+}
+
+export async function getPriceGuideTokens(catalog?: PricingCatalog | null): Promise<PriceGuideTokens> {
+  catalog = catalog ?? await getPricingCatalog()
+  if (!catalog) return FALLBACK
+
+  const [{ bayRates }, { monthlyPackages }, { lessonPricing }, { eventPackages }] = await Promise.all([
+    getBayRatesData(catalog),
+    getMonthlyPackagesData(catalog),
+    getLessonPricingData(catalog),
+    getEventPackagesData(catalog),
+  ])
+
+  const findPkg = (name: string) => monthlyPackages.find(p => p.name === name)?.price ?? FALLBACK[name as keyof PriceGuideTokens] as string
+  const findLesson = (name: string) => lessonPricing.find(p => p.name === name)?.oneGolfer ?? FALLBACK[name as keyof PriceGuideTokens] as string
+  const findEvent = (name: string) => eventPackages.find(p => p.name === name)?.price ?? FALLBACK[name as keyof PriceGuideTokens] as string
+
+  const morningWDPrice = bayRates[0]?.weekday ?? FALLBACK.bayMorningWD
+  const morningWDNum = parseInt(morningWDPrice.replace(/[^0-9]/g, ''), 10)
+  const perPerson = isNaN(morningWDNum) ? FALLBACK.bayPerPersonGroup5 : `${formatThb(Math.round(morningWDNum / 5))}`
+
+  const eventSmallPrice = findEvent('Small Package')
+  const eventMediumPrice = findEvent('Medium Package')
+  const eventSmallNum = parseInt(eventSmallPrice.replace(/[^0-9]/g, ''), 10)
+  const eventMediumNum = parseInt(eventMediumPrice.replace(/[^0-9]/g, ''), 10)
+  const eventSmallPP = isNaN(eventSmallNum) ? FALLBACK.eventSmallPerPerson15 : `~${formatThb(Math.round(eventSmallNum / 15))}`
+  const eventMediumPP = isNaN(eventMediumNum) ? FALLBACK.eventMediumPerPerson25 : `~${formatThb(Math.round(eventMediumNum / 25))}`
+
+  return {
+    bayMorningWD: bayRates[0]?.weekday ? `${bayRates[0].weekday}/hr` : FALLBACK.bayMorningWD,
+    bayMorningWE: bayRates[0]?.weekend ? `${bayRates[0].weekend}/hr` : FALLBACK.bayMorningWE,
+    bayAfternoonWD: bayRates[1]?.weekday ? `${bayRates[1].weekday}/hr` : FALLBACK.bayAfternoonWD,
+    bayAfternoonWE: bayRates[1]?.weekend ? `${bayRates[1].weekend}/hr` : FALLBACK.bayAfternoonWE,
+    bayPerPersonGroup5: perPerson,
+    pkgBronze: findPkg('Bronze'),
+    pkgSilver: findPkg('Silver'),
+    pkgGold: findPkg('Gold'),
+    pkgDiamond: findPkg('Diamond'),
+    pkgDiamondPlus: findPkg('Diamond+'),
+    pkgEarlyBird: findPkg('Early Bird*'),
+    pkgEarlyBirdPlus: findPkg('Early Bird+*'),
+    lesson1hr: findLesson('1 Hour'),
+    lesson5hr: findLesson('5 Hour'),
+    lesson10hr: findLesson('10 Hour'),
+    lessonStarter: findLesson('Starter Package*'),
+    lessonSimToFairway: findLesson('Sim to Fairway*'),
+    eventSmall: eventSmallPrice,
+    eventMedium: eventMediumPrice,
+    eventSmallPerPerson15: eventSmallPP,
+    eventMediumPerPerson25: eventMediumPP,
+  }
+}
 
 // Curated Google Reviews about value (all 5-star, English)
 const VALUE_REVIEWS = {
@@ -89,7 +206,7 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
       'Golf in Bangkok costs 500–4,000 THB depending on format. Compare indoor simulator rates (from 500 THB/hr for 5 people) vs outdoor course green fees, driving ranges, and lessons.',
     featured_image: null,
     schema_markup: null,
-    status: 'draft',
+    status: 'published',
     category: 'pricing',
     locale: 'en',
     related_slugs: ['/cost/golf-simulator-prices-bangkok', '/cost/lengolf-pricing-guide', '/cost/golf-lesson-prices-bangkok', '/golf'],
@@ -156,7 +273,7 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
       'Compare golf simulator prices in Bangkok: LENGOLF (from 500 THB/hr), Front 9, Fairway Golf & City Club, and Topgolf Megacity. Full rate cards, packages, and per-person costs.',
     featured_image: null,
     schema_markup: null,
-    status: 'draft',
+    status: 'published',
     category: 'pricing',
     locale: 'en',
     related_slugs: ['/cost/how-much-does-golf-cost-bangkok', '/cost/lengolf-pricing-guide', '/faq/how-much-does-indoor-golf-cost-in-bangkok', '/golf'],
@@ -233,7 +350,7 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
       'Complete LENGOLF pricing: bay rental from 500 THB/hr (up to 5 people), monthly packages from 3,000 THB, lessons from 1,800 THB/hr, event packages from 9,999 THB. All rates for 2026.',
     featured_image: null,
     schema_markup: null,
-    status: 'draft',
+    status: 'published',
     category: 'pricing',
     locale: 'en',
     related_slugs: ['/golf', '/lessons', '/events', '/golf-club-rental', '/cost/golf-simulator-prices-bangkok'],
@@ -295,7 +412,7 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
       'Golf club rental in Bangkok costs 150–1,500 THB depending on where you rent. Compare LENGOLF (free standard, 150 THB/hr premium), course rentals, and standalone services.',
     featured_image: null,
     schema_markup: null,
-    status: 'draft',
+    status: 'published',
     category: 'pricing',
     locale: 'en',
     related_slugs: ['/golf-club-rental', '/cost/how-much-does-golf-cost-bangkok', '/faq/should-i-bring-golf-clubs-to-thailand-or-rent', '/faq/cost-to-fly-with-golf-clubs-to-thailand'],
@@ -307,10 +424,9 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
       price_breakdown: [
         { item: 'LENGOLF — Standard set (in-house)', price: 'Free', notes: 'Included with every bay booking. Men\'s and ladies\' sets. In-house use only.' },
         { item: 'LENGOLF — Premium set (Callaway / Majesty)', price: '150 THB/hr', notes: '250 THB/2hr, 400 THB/4hr, 1,200 THB/day. Can be taken to any Bangkok course.' },
-        { item: 'Outdoor course rental (budget)', price: '500–800 THB/round', notes: 'Basic sets at public courses. Quality is hit-or-miss.' },
-        { item: 'Outdoor course rental (premium)', price: '1,000–1,500 THB/round', notes: 'Brand-name sets at top courses. Usually Callaway or TaylorMade.' },
+        { item: 'Outdoor course rental', price: '1,000–1,500 THB/round', notes: 'Sets available at most courses. Quality varies.' },
         { item: 'Standalone rental service', price: '800–1,500 THB/day', notes: 'Delivered to your hotel or course. Higher quality, more selection.' },
-        { item: 'Flying clubs to Thailand (airline fees)', price: '2,000–6,000+ THB each way', notes: 'Varies by airline. AirAsia: ~4,200–6,300 THB each way. Full-service carriers may include in checked luggage.' },
+        { item: 'Flying clubs to Thailand (airline fees)', price: '2,000–6,000+ THB each way', notes: 'Varies by airline. AirAsia: ~4,200–6,300 THB each way. Even full-service airlines do not include golf bags in checked luggage for free.' },
         { item: 'Hard travel case for clubs', price: '5,000–15,000 THB', notes: 'One-time purchase. Essential for protecting clubs in transit.' },
         { item: 'Golf gloves (LENGOLF)', price: '600 THB', notes: 'Available for purchase at LENGOLF.' },
         { item: 'Golf balls (LENGOLF)', price: '400 THB / 6 balls', notes: 'Srixon quality. Available at LENGOLF.' },
@@ -323,7 +439,7 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
       sections: [
         {
           heading: 'Should You Bring Your Clubs or Rent?',
-          body: 'If you\'re playing 3+ outdoor rounds during your trip and have your own clubs, it may be worth flying with them — especially on full-service airlines that include golf bags in checked luggage. For everyone else, renting in Bangkok is cheaper and easier. Our recommendation: use LENGOLF\'s free standard clubs for simulator sessions, and rent premium clubs for any outdoor course days.',
+          body: 'If you\'re playing 3+ outdoor rounds during your trip and have your own clubs, it may be worth flying with them — though even full-service airlines charge extra for golf bags, so factor those fees in. For everyone else, renting in Bangkok is cheaper and easier. Our recommendation: use LENGOLF\'s free standard clubs for simulator sessions, and rent premium clubs for any outdoor course days.',
         },
         {
           heading: 'LENGOLF Club Delivery Service',
@@ -348,7 +464,7 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
       'Corporate golf events in Bangkok cost 9,999–21,999 THB at LENGOLF (all-inclusive for 10–25 guests) vs 3,000–7,000 THB per person at outdoor courses. Full cost comparison inside.',
     featured_image: null,
     schema_markup: null,
-    status: 'draft',
+    status: 'published',
     category: 'pricing',
     locale: 'en',
     related_slugs: ['/events', '/cost/lengolf-pricing-guide', '/cost/how-much-does-golf-cost-bangkok', '/activities/group-activities-bangkok'],
@@ -404,7 +520,7 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
       'Golf lesson prices in Bangkok: LENGOLF from 1,800 THB/hr (free 1-hour trial), outdoor pros from 2,000–5,000 THB/hr. Compare indoor simulator coaching vs driving range lessons.',
     featured_image: null,
     schema_markup: null,
-    status: 'draft',
+    status: 'published',
     category: 'pricing',
     locale: 'en',
     related_slugs: ['/lessons', '/cost/lengolf-pricing-guide', '/cost/how-much-does-golf-cost-bangkok', '/faq/best-way-to-learn-golf-in-bangkok'],
