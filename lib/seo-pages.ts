@@ -4,6 +4,7 @@ import { faqPages } from '@/data/faq-pages'
 import { hotelConciergePages } from '@/data/hotel-pages'
 import { priceGuidePages } from '@/data/price-guide-pages'
 import { explainerPages } from '@/data/explainer-pages'
+import { bestOfListiclePages } from '@/data/best-of-listicle-pages'
 
 // Static data lookup (no DB dependency)
 // When seo_pages table is created in Supabase, swap these to DB queries
@@ -14,6 +15,7 @@ const PAGE_DATA_MAP: Partial<Record<SeoPageType, SeoPage[]>> = {
   hotel_concierge: hotelConciergePages,
   price_guide: priceGuidePages,
   explainer: explainerPages,
+  best_of_listicle: bestOfListiclePages,
 }
 
 export async function getAllSeoPageSlugs(pageType: SeoPageType): Promise<string[]> {
