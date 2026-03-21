@@ -634,7 +634,11 @@
     "crossLink1Label": "Clubs at LENGOLF",
     "crossLink1Desc": "Hourly club rental for your simulator session",
     "crossLink2Label": "Second-Hand Clubs",
-    "crossLink2Desc": "Buy used Callaway & TaylorMade in Bangkok"
+    "crossLink2Desc": "Buy used Callaway & TaylorMade in Bangkok",
+    "crossLink3Label": "Bay Rates & Simulators",
+    "crossLink3Desc": "Hourly simulator bay pricing and packages",
+    "crossLink4Label": "Golf Lessons",
+    "crossLink4Desc": "Private coaching with PGA-certified pros"
   },
   "CourseClubRentalFaq": {
     "q1": "Can you deliver clubs to my hotel in Bangkok?",

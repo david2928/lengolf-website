@@ -634,7 +634,11 @@
     "crossLink1Label": "ไม้กอล์ฟที่ LENGOLF",
     "crossLink1Desc": "เช่าไม้รายชั่วโมงสำหรับเซสชันซิมของคุณ",
     "crossLink2Label": "ไม้กอล์ฟมือสอง",
-    "crossLink2Desc": "ซื้อ Callaway & TaylorMade มือสองในกรุงเทพฯ"
+    "crossLink2Desc": "ซื้อ Callaway & TaylorMade มือสองในกรุงเทพฯ",
+    "crossLink3Label": "ราคาเช่าห้องซิม",
+    "crossLink3Desc": "ราคาเช่าห้องซิมรายชั่วโมงและแพ็กเกจ",
+    "crossLink4Label": "บทเรียนกอล์ฟ",
+    "crossLink4Desc": "เรียนส่วนตัวกับโปรระดับ PGA"
   },
   "CourseClubRentalFaq": {
     "q1": "จัดส่งไม้กอล์ฟถึงโรงแรมในกรุงเทพฯ ได้ไหม?",
