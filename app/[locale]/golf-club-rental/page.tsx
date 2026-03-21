@@ -5,7 +5,8 @@ import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
 import ImageLightbox from '@/components/shared/ImageLightbox'
-import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
+import { storageUrl, SITE_URL, BUSINESS_INFO, BOOKING_URL } from '@/lib/constants'
+import StickyBookCTA from '@/components/clubs/StickyBookCTA'
 import { getClubRentalPricingJsonLd, getClubRentalServiceJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { getRentalClubPricing } from '@/lib/clubs'
 import FaqSection from '@/components/shared/FaqSection'
@@ -15,6 +16,9 @@ const faqLinks: Record<string, { href: string; external?: boolean }> = {
   '@lengolf': { href: 'https://lin.ee/uxQpIXn', external: true },
   'Google Maps': { href: BUSINESS_INFO.googleMapsUrl, external: true },
   'bay rates page': { href: '/golf' },
+  'bay rates': { href: '/golf' },
+  'golf lessons': { href: '/lessons' },
+  'course rental': { href: '/golf-course-club-rental' },
 }
 
 const gearIconMap: Record<string, React.ReactNode> = {
@@ -48,7 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       canonical: `${SITE_URL}${locale === 'th' ? '/th' : ''}/golf-club-rental/`,
       languages: { en: `${SITE_URL}/golf-club-rental/`, th: `${SITE_URL}/th/golf-club-rental/` },
     },
-    openGraph: { images: [{ url: storageUrl('venue/venue-simulator-01.jpg'), alt: 'Golf club rental at LENGOLF Bangkok' }] },
+    openGraph: { images: [{ url: storageUrl('venue/venue-simulator-01.jpg'), alt: 'Rent Callaway Warbird, Majesty or Paradym golf clubs at LENGOLF Bangkok — free Standard set with every bay booking, Premium from 150 THB/hr' }] },
   }
 }
 
@@ -97,11 +101,14 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
+      {/* ── Sticky mobile CTA ── */}
+      <StickyBookCTA label={t('ctaTitle')} href={BOOKING_URL} />
+
       {/* ── Hero ── */}
       <section className="relative flex h-[50vh] min-h-[400px] max-h-[550px] items-center text-white overflow-hidden">
         <Image
           src={storageUrl('golf/hero-golf.jpg')}
-          alt="Premium golf club rental at LENGOLF Bangkok"
+          alt="Rent premium Callaway and Majesty golf clubs at LENGOLF Bangkok indoor simulator — free Standard set included, Premium from 150 THB/hr"
           fill
           className="object-cover object-center"
           priority
@@ -209,12 +216,12 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
                     <ImageLightbox
                       thumbnailCount={3}
                       images={[
-                        { src: storageUrl('clubs/premium-plus/2.png'), alt: 'Paradym full set' },
-                        { src: storageUrl('clubs/premium-plus/4.png'), alt: 'Paradym driver' },
-                        { src: storageUrl('clubs/premium-plus/11.png'), alt: 'Paradym irons' },
-                        { src: storageUrl('clubs/premium-plus/13.png'), alt: 'Jaws Raw wedges' },
-                        { src: storageUrl('clubs/premium-plus/15.png'), alt: 'Odyssey putter' },
-                        { src: storageUrl('clubs/premium-plus/1.png'), alt: 'Callaway camo bag' },
+                        { src: storageUrl('clubs/premium-plus/2.png'), alt: 'Callaway Paradym Forged Carbon full set in bag' },
+                        { src: storageUrl('clubs/premium-plus/4.png'), alt: 'Callaway Paradym Forged Carbon driver 10.5 degree with Ventus TR shaft' },
+                        { src: storageUrl('clubs/premium-plus/11.png'), alt: 'Callaway Paradym irons set 5-PW' },
+                        { src: storageUrl('clubs/premium-plus/13.png'), alt: 'Callaway Jaws Raw wedges 52 and 56 degree' },
+                        { src: storageUrl('clubs/premium-plus/15.png'), alt: 'Odyssey White Hot Black Series Five putter' },
+                        { src: storageUrl('clubs/premium-plus/1.png'), alt: 'Callaway camo golf bag included with Premium+ rental' },
                       ]}
                       gridClassName="grid grid-cols-3 gap-1.5 h-full"
                       aspectClassName=""
