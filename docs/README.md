@@ -3,8 +3,6 @@
 > Next.js 15 website for LENGOLF, a premier indoor golf simulator and bar in Bangkok.
 > Deployed at [https://len.golf](https://len.golf)
 
-Last updated: 2026-02-26
-
 ---
 
 ## Documentation Index
@@ -16,9 +14,9 @@ Last updated: 2026-02-26
 | [Supabase Storage](./supabase-storage.md) | Static asset management via Supabase Storage buckets | All developers |
 | [Content Management](./content-management.md) | Managing blog posts, location pages, pricing, and coach data | Content editors, developers |
 | [Deployment](./deployment.md) | Vercel deployment, environment variables, CI/CD | DevOps, developers |
-| [i18n Translation Strategy](./i18n-translation-strategy.md) | Internationalization, translation registry, and redirect handling for untranslated content | Developers, SEO team |
-| [WordPress Path Handling](./wordpress-path-handling.md) | 404 vs redirect strategy for legacy WordPress paths; GSC 404 fixes | Developers, SEO team |
-| [SEO Changelog](./CHANGELOG-SEO.md) | Track SEO-related changes, fixes, and optimizations over time | SEO team, developers |
+| [Dynamic Pricing](./DYNAMIC_PRICING.md) | Live pricing from forms app API with ISR and fallback | Developers |
+| [i18n Translation Strategy](./i18n-translation-strategy.md) | Internationalization, translation registry, and redirect handling | Developers, SEO team |
+| [WordPress Path Handling](./wordpress-path-handling.md) | 404 vs redirect strategy for legacy WordPress paths | Developers, SEO team |
 
 ---
 
@@ -56,11 +54,3 @@ npm run dev
 | Icons | Lucide React, React Icons |
 | Analytics | Vercel Analytics + Google Tag Manager |
 | Hosting | Vercel |
-
----
-
-## Project Background
-
-This site is a complete rebuild of a WordPress installation that used Elementor page builder, 24+ plugins, and the Twenty Twenty-Four theme. The Next.js rebuild replaces all WordPress functionality with a statically generated site backed by Supabase for dynamic content (blog posts, location pages, contact form submissions) and Supabase Storage for all image and video assets.
-
-Migration artifacts (WordPress backup, markdown exports, import scripts) are stored in the `_migration/` directory, which is excluded from git and builds.
