@@ -85,6 +85,12 @@ const nextConfig = {
       { source: '/golf-near-sathorn/', destination: '/location/golf-near-sathorn/', permanent: true },
       { source: '/golf-near-phrom-phong', destination: '/location/golf-near-phrom-phong/', permanent: true },
       { source: '/golf-near-phrom-phong/', destination: '/location/golf-near-phrom-phong/', permanent: true },
+      { source: '/golf-near-thong-lo', destination: '/location/golf-near-thong-lo/', permanent: true },
+      { source: '/golf-near-thong-lo/', destination: '/location/golf-near-thong-lo/', permanent: true },
+      { source: '/golf-near-silom', destination: '/location/golf-near-silom/', permanent: true },
+      { source: '/golf-near-silom/', destination: '/location/golf-near-silom/', permanent: true },
+      { source: '/golf-near-sukhumvit', destination: '/location/golf-near-sukhumvit/', permanent: true },
+      { source: '/golf-near-sukhumvit/', destination: '/location/golf-near-sukhumvit/', permanent: true },
       { source: '/lesson', destination: '/lessons/', permanent: true },
       { source: '/lesson/', destination: '/lessons/', permanent: true },
     ]
