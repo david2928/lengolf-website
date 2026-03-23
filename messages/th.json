@@ -661,7 +661,7 @@
     "contactLanguageNote": "",
     "majestyCalloutTitle": "Majesty — แบรนด์พรีเมียมจากญี่ปุ่น",
     "majestyCalloutText": "Majesty เป็นแบรนด์กอล์ฟระดับพรีเมียมจากญี่ปุ่น มีชื่อเสียงด้านการออกแบบน้ำหนักเบาและความประณีต เป็นที่นิยมในหมู่นักกอล์ฟหญิง",
-    "pricingCurrencyNote": "เริ่มต้น {price} บาท/วัน ({approx})"
+    "pricingCurrencyNote": "เริ่มต้น {price} บาท/วัน ({approx})",
     "crossLink3Label": "ราคาเช่าห้องซิม",
     "crossLink3Desc": "ราคาเช่าห้องซิมรายชั่วโมงและแพ็กเกจ",
     "crossLink4Label": "บทเรียนกอล์ฟ",

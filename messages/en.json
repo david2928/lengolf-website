@@ -661,7 +661,7 @@
     "contactLanguageNote": "",
     "majestyCalloutTitle": "Majesty — Japanese Premium Brand",
     "majestyCalloutText": "Majesty is a prestigious Japanese golf brand renowned for lightweight design and premium craftsmanship, especially popular with female golfers.",
-    "pricingCurrencyNote": "Starting from {price} THB/day ({approx})"
+    "pricingCurrencyNote": "Starting from {price} THB/day ({approx})",
     "crossLink3Label": "Bay Rates & Simulators",
     "crossLink3Desc": "Hourly simulator bay pricing and packages",
     "crossLink4Label": "Golf Lessons",
