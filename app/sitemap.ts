@@ -88,6 +88,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
       alternates: { languages: { en: `${SITE_URL}/blog/`, th: `${SITE_URL}/th/blog/` } },
     },
+    {
+      url: `${SITE_URL}/rent-golf-clubs-bangkok/`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+      alternates: {
+        languages: {
+          en: `${SITE_URL}/rent-golf-clubs-bangkok/`,
+          th: `${SITE_URL}/th/rent-golf-clubs-bangkok/`,
+          ko: `${SITE_URL}/ko/rent-golf-clubs-bangkok/`,
+          ja: `${SITE_URL}/ja/rent-golf-clubs-bangkok/`,
+          zh: `${SITE_URL}/zh/rent-golf-clubs-bangkok/`,
+        },
+      },
+    },
   ]
 
   // English-only pages (no Thai content yet)

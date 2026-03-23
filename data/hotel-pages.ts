@@ -9,7 +9,7 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     slug: 'things-to-do-near-arnoma-grand-bangkok',
     title: 'Things to Do Near Arnoma Grand Bangkok | Activities & Dining',
     meta_description:
-      'Staying at Arnoma Grand Bangkok? Discover the best things to do nearby — from indoor golf at LENGOLF (300m walk) to dining, shopping, and nightlife around BTS Chidlom.',
+      'Staying at Arnoma Grand Bangkok? Discover the best things to do nearby — from indoor golf at LENGOLF (700m walk) to dining, shopping, and nightlife around BTS Chidlom.',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -20,10 +20,10 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'Arnoma Grand Bangkok',
-      hotel_distance_m: 300,
-      walking_time_mins: 4,
+      hotel_distance_m: 700,
+      walking_time_mins: 11,
       walking_directions:
-        'Exit Arnoma Grand Bangkok onto Ratchadamri Road. Walk north toward BTS Chidlom station — you\'ll see The Mercury Ville at BTS Chidlom on your left within 4 minutes. LENGOLF is on Floor 4. Take the escalator up from the ground floor.',
+        'Exit Arnoma Grand Bangkok onto Ratchadamri Road. Turn left and then left again (east) onto Rama I Road. Walk east along Rama I Road — LENGOLF at Mercury Ville will be on your right within 11 minutes. LENGOLF is on Floor 4. Take the escalator up from the ground floor.',
       hotel_star_rating: 4,
       nearby_restaurants: [
         { name: 'Nara Thai Cuisine (CentralWorld)', cuisine: 'Thai', distance_m: 250 },
@@ -67,7 +67,7 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'Sindhorn Midtown Hotel',
-      hotel_distance_m: 400,
+      hotel_distance_m: 350,
       walking_time_mins: 5,
       walking_directions:
         'Exit Sindhorn Midtown onto Soi Langsuan. Walk north to Ploenchit Road, then turn right (east). Continue toward BTS Chidlom station — The Mercury Ville is on your right, directly connected to the BTS. LENGOLF is on Floor 4.',
@@ -154,7 +154,7 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     slug: 'things-to-do-near-athenee-hotel',
     title: 'Things to Do Near The Athenee Hotel Bangkok | Activities Guide',
     meta_description:
-      'Staying at The Athenee Hotel Bangkok? Discover nearby activities — indoor golf at LENGOLF (600m), Lumpini Park, shopping, and fine dining around Wireless Road.',
+      'Staying at The Athenee Hotel Bangkok? Discover nearby activities — indoor golf at LENGOLF (700m), Lumpini Park, shopping, and fine dining around Wireless Road.',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -165,10 +165,10 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'The Athenee Hotel Bangkok, a Luxury Collection Hotel',
-      hotel_distance_m: 600,
-      walking_time_mins: 8,
+      hotel_distance_m: 700,
+      walking_time_mins: 10,
       walking_directions:
-        'Exit The Athenee Hotel onto Wireless Road. Walk north to the Ploenchit Road intersection. Turn left (west) on Ploenchit Road and walk toward BTS Chidlom — about 5 minutes from the intersection. The Mercury Ville is on your left, connected to BTS Chidlom. LENGOLF is on Floor 4.',
+        'Exit The Athenee Hotel onto Wireless Road. Walk north to the Ploenchit Road intersection. Turn left (west) on Ploenchit Road and walk toward BTS Chidlom — about 7 minutes from the intersection. The Mercury Ville is on your left, connected to BTS Chidlom. LENGOLF is on Floor 4.',
       hotel_star_rating: 5,
       nearby_restaurants: [
         { name: 'The Rain Tree Café (Athenee)', cuisine: 'International Buffet', distance_m: 0 },
@@ -202,7 +202,7 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     slug: 'things-to-do-near-intercontinental-bangkok',
     title: 'Things to Do Near InterContinental Bangkok | Guest Activities',
     meta_description:
-      'Staying at InterContinental Bangkok? Discover activities nearby — indoor golf at LENGOLF (600m), Erawan Shrine, CentralWorld shopping, and dining options.',
+      'Staying at InterContinental Bangkok? Discover activities nearby — indoor golf at LENGOLF (just across the street), Erawan Shrine, CentralWorld shopping, and dining options.',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -213,10 +213,10 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'InterContinental Bangkok',
-      hotel_distance_m: 600,
-      walking_time_mins: 8,
+      hotel_distance_m: 150,
+      walking_time_mins: 2,
       walking_directions:
-        'Exit InterContinental Bangkok onto Ploenchit Road. Walk west past the Erawan Shrine and Gaysorn Village. Continue along Ploenchit Road toward BTS Chidlom — The Mercury Ville is connected to the station on your left. LENGOLF is on Floor 4. Alternatively, take BTS from Chit Lom to Chidlom (1 stop).',
+        'Exit InterContinental Bangkok onto Ploenchit Road and walk east — LENGOLF at Mercury Ville is essentially across the street. Walk east along Ploenchit Road and The Mercury Ville is on your right within 2 minutes. LENGOLF is on Floor 4.',
       hotel_star_rating: 5,
       nearby_restaurants: [
         { name: 'Theo Mio (InterContinental)', cuisine: 'Italian', distance_m: 0 },
@@ -311,10 +311,10 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'Novotel Bangkok Ploenchit Sukhumvit',
-      hotel_distance_m: 800,
-      walking_time_mins: 10,
+      hotel_distance_m: 1500,
+      walking_time_mins: 21,
       walking_directions:
-        'Exit Novotel Ploenchit onto Sukhumvit Road. Walk to BTS Ploenchit station (2-minute walk). Take BTS one stop westbound to BTS Chidlom. Exit at Chidlom and walk directly into The Mercury Ville. LENGOLF is on Floor 4. Total travel time: ~8 minutes by BTS, or 10 minutes walking along Ploenchit Road.',
+        'It\'s a 1.5km, 21-minute walk — doable, but in Bangkok\'s heat we\'d recommend the BTS or a cab instead. Walk to BTS Ploenchit station (2-minute walk from the hotel), take the BTS one stop westbound to BTS Chidlom, and walk directly into The Mercury Ville. Total door-to-door by BTS: about 10 minutes. A taxi or Grab from the hotel takes around 5 minutes and costs ~60 THB. LENGOLF is on Floor 4.',
       hotel_star_rating: 4,
       nearby_restaurants: [
         { name: 'The Square (Novotel)', cuisine: 'International Buffet', distance_m: 0 },
@@ -398,7 +398,7 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     slug: 'things-to-do-near-okura-prestige-bangkok',
     title: 'Things to Do Near The Okura Prestige Bangkok | Activities Guide',
     meta_description:
-      'Staying at The Okura Prestige Bangkok? Discover nearby activities — indoor golf at LENGOLF (900m), Ploenchit shopping, Lumpini Park, and fine dining.',
+      'Staying at The Okura Prestige Bangkok? Discover nearby activities — indoor golf at LENGOLF (600m), Ploenchit shopping, Lumpini Park, and fine dining.',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -409,10 +409,10 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'The Okura Prestige Bangkok',
-      hotel_distance_m: 900,
-      walking_time_mins: 12,
+      hotel_distance_m: 600,
+      walking_time_mins: 9,
       walking_directions:
-        'Exit The Okura Prestige onto Ploenchit Road. Walk west (right out of the hotel) along Ploenchit Road past BTS Ploenchit station. Continue along Ploenchit Road for about 10 minutes. The Mercury Ville is on your left at BTS Chidlom. LENGOLF is on Floor 4. Alternatively, take BTS Ploenchit one stop to Chidlom (faster in hot weather).',
+        'Exit The Okura Prestige onto Ploenchit Road. Walk west (right out of the hotel) along Ploenchit Road past BTS Ploenchit station. Continue along Ploenchit Road for about 7 minutes. The Mercury Ville is on your left at BTS Chidlom. LENGOLF is on Floor 4. Alternatively, take BTS Ploenchit one stop to Chidlom (faster in hot weather).',
       hotel_star_rating: 5,
       nearby_restaurants: [
         { name: 'Yamazato (Okura)', cuisine: 'Japanese Fine Dining', distance_m: 0 },
@@ -458,10 +458,10 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'Anantara Siam Bangkok Hotel',
-      hotel_distance_m: 1000,
-      walking_time_mins: 13,
+      hotel_distance_m: 800,
+      walking_time_mins: 11,
       walking_directions:
-        'Exit Anantara Siam onto Ratchadamri Road. Walk north to the Ratchaprasong intersection (Erawan Shrine). Turn right (east) onto Ploenchit Road and continue toward BTS Chidlom — about 8 minutes from the intersection. The Mercury Ville is on your right. LENGOLF is on Floor 4. Alternatively, take a short taxi (5 minutes, ~60 THB) or BTS from Ratchadamri to Chidlom (2 stops).',
+        'Exit Anantara Siam onto Ratchadamri Road. Walk north to the Ratchaprasong intersection (Erawan Shrine). Turn right (east) onto Ploenchit Road and continue toward BTS Chidlom — about 6 minutes from the intersection. The Mercury Ville is on your right. LENGOLF is on Floor 4. Alternatively, take a short taxi (5 minutes, ~60 THB) or BTS from Ratchadamri to Chidlom (2 stops).',
       hotel_star_rating: 5,
       nearby_restaurants: [
         { name: 'Biscotti (Anantara Siam)', cuisine: 'Italian', distance_m: 0 },
@@ -507,10 +507,10 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'Mercure Bangkok Siam',
-      hotel_distance_m: 1000,
-      walking_time_mins: 13,
+      hotel_distance_m: 2100,
+      walking_time_mins: 30,
       walking_directions:
-        'Exit Mercure Bangkok Siam and walk to BTS Siam station (3-minute walk). Take BTS one stop eastbound to BTS Chidlom. Exit and walk directly into The Mercury Ville. LENGOLF is on Floor 4. Total travel time: ~8 minutes by BTS. Walking takes about 13 minutes along Rama 1 / Ploenchit Road.',
+        'Walking is 2.1km and around 30 minutes — not ideal in Bangkok\'s heat. We recommend the BTS or a cab instead. Walk to BTS Siam station (3-minute walk), take the BTS one stop eastbound to BTS Chidlom, and walk directly into The Mercury Ville. Total door-to-door by BTS: about 10 minutes. A taxi or Grab takes around 8 minutes and costs ~80 THB. LENGOLF is on Floor 4.',
       hotel_star_rating: 3,
       nearby_restaurants: [
         { name: 'Siam Square Street Food', cuisine: 'Thai Street Food', distance_m: 100 },
@@ -546,7 +546,7 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     slug: 'things-to-do-near-kimpton-maa-lai',
     title: 'Things to Do Near Kimpton Maa-Lai Bangkok | Activities Guide',
     meta_description:
-      'Staying at Kimpton Maa-Lai Bangkok? Discover nearby activities — indoor golf at LENGOLF (1.2km), Langsuan dining, Lumpini Park, and unique nightlife.',
+      'Staying at Kimpton Maa-Lai Bangkok? Discover nearby activities — indoor golf at LENGOLF (800m), Langsuan dining, Lumpini Park, and unique nightlife.',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -557,10 +557,10 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'Kimpton Maa-Lai Bangkok',
-      hotel_distance_m: 1200,
-      walking_time_mins: 15,
+      hotel_distance_m: 800,
+      walking_time_mins: 11,
       walking_directions:
-        'Exit Kimpton Maa-Lai onto Soi Tonson / Langsuan Road. Walk north to Ploenchit Road. Turn right (east) and walk along Ploenchit Road toward BTS Chidlom — about 10 minutes from the Langsuan intersection. The Mercury Ville is on your right at BTS Chidlom. LENGOLF is on Floor 4. In hot weather, consider a short taxi (5-8 minutes, ~70 THB) or grab a BTS from the nearest station.',
+        'Exit Kimpton Maa-Lai onto Soi Tonson / Langsuan Road. Walk north to Ploenchit Road. Turn right (east) and walk along Ploenchit Road toward BTS Chidlom — about 8 minutes from the Langsuan intersection. The Mercury Ville is on your right at BTS Chidlom. LENGOLF is on Floor 4. In hot weather, consider a short taxi (5-7 minutes, ~60 THB) or grab a BTS from the nearest station.',
       hotel_star_rating: 5,
       nearby_restaurants: [
         { name: 'Stock.Room (Kimpton)', cuisine: 'Contemporary Thai', distance_m: 0 },

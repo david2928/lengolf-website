@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { Poppins, Noto_Sans_Thai } from 'next/font/google'
+import { Poppins, Noto_Sans_Thai, Noto_Sans_KR, Noto_Sans_JP, Noto_Sans_SC } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, setRequestLocale } from 'next-intl/server'
 import { Analytics } from '@vercel/analytics/react'
@@ -24,6 +24,27 @@ const notoSansThai = Noto_Sans_Thai({
   subsets: ['thai'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-noto-thai',
+  display: 'swap',
+})
+
+const notoSansKR = Noto_Sans_KR({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-noto-kr',
+  display: 'swap',
+})
+
+const notoSansJP = Noto_Sans_JP({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-noto-jp',
+  display: 'swap',
+})
+
+const notoSansSC = Noto_Sans_SC({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-noto-sc',
   display: 'swap',
 })
 
@@ -67,7 +88,7 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params
 
-  if (!routing.locales.includes(locale as 'en' | 'th')) {
+  if (!routing.locales.includes(locale as 'en' | 'th' | 'ko' | 'ja' | 'zh')) {
     notFound()
   }
 
@@ -77,7 +98,7 @@ export default async function LocaleLayout({
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID
 
   return (
-    <html lang={locale} className={`${poppins.variable} ${notoSansThai.variable}`}>
+    <html lang={locale} className={`${poppins.variable} ${notoSansThai.variable} ${notoSansKR.variable} ${notoSansJP.variable} ${notoSansSC.variable}`}>
       <head>
         {/* Google tag (gtag.js) - Google Ads */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16456389020" />

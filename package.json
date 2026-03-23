@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test:smoke": "tsx scripts/smoke-test.ts"
+    "test:smoke": "tsx scripts/smoke-test.ts",
+    "test:mobile": "playwright test tests/landing-page-mobile.spec.ts",
+    "test:mobile:ui": "playwright test tests/landing-page-mobile.spec.ts --ui",
+    "test:mobile:report": "playwright show-report"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
@@ -35,6 +38,7 @@
     "zod": "^3.24.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "@supabase/mcp-server-supabase": "^0.6.3",
     "@types/node": "^20.17.19",
     "@types/nodemailer": "^7.0.9",

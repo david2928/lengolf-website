@@ -28,6 +28,8 @@ export const BUSINESS_INFO = {
   phoneRaw: '0966682335',
   email: 'info@len.golf',
   hours: '10am – 11pm, Monday – Sunday',
+  googleRating: 5.0,
+  googleReviewCount: 579,
   googleMapsUrl: 'https://www.google.com/maps?ll=13.743447,100.544115&z=16&t=m&hl=en-US&gl=US&mapclient=embed&q=540+Phloen+Chit+Rd+Khwaeng+Lumphini,+Pathum+Wan+Krung+Thep+Maha+Nakhon+10330',
   googleMapsEmbed: 'https://maps.google.com/maps?q=LENGOLF&t=m&z=16&output=embed&iwloc=near',
   coordinates: { lat: 13.743447, lng: 100.544115 },
