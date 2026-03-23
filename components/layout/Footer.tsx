@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { Phone, Mail } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { SOCIAL_LINKS, BUSINESS_INFO, storageUrl } from '@/lib/constants'
@@ -15,6 +14,21 @@ const FOOTER_MENU_KEYS = [
   { key: 'clubsCourseRental', href: '/golf-course-club-rental' as const },
   { key: 'blog', href: '/blog' as const },
 ] as const
+
+const DISCOVER_LINKS = [
+  { key: 'thingsToDoLink', href: '/activities/' as const },
+  { key: 'planningLink', href: '/golf-in-thailand-guide/' as const },
+  { key: 'hotelsLink', href: '/hotels/' as const },
+] as const
+
+const linkStyle = {
+  fontFamily: '"Poppins", sans-serif',
+  fontWeight: 400,
+  color: '#333333',
+  fontSize: '14px',
+  paddingTop: '7px',
+  paddingBottom: '7px',
+} as const
 
 export default async function Footer() {
   const t = await getTranslations('Footer')
@@ -39,7 +53,7 @@ export default async function Footer() {
             gap: '30px',
           }}
         >
-          {/* Logo & Address — 36% */}
+          {/* Col 1: Logo, Address & Hours — 36% */}
           <div className="w-full lg:w-[36%] flex-shrink-0">
             <Image
               src={storageUrl('branding/logo.png')}
@@ -60,9 +74,21 @@ export default async function Footer() {
             >
               {t('address')}
             </p>
+            <p
+              className="mt-1"
+              style={{
+                fontFamily: '"Poppins", sans-serif',
+                fontWeight: 400,
+                color: '#333333',
+                fontSize: '14px',
+                lineHeight: '22px',
+              }}
+            >
+              {t('hoursInline')}
+            </p>
           </div>
 
-          {/* Menu — 22% */}
+          {/* Col 2: Menu — 22% */}
           <div className="w-full lg:w-[22%]">
             <h3
               style={{
@@ -81,14 +107,7 @@ export default async function Footer() {
                   <Link
                     href={item.href}
                     className="block transition-colors hover:text-[#005a32]"
-                    style={{
-                      fontFamily: '"Poppins", sans-serif',
-                      fontWeight: 400,
-                      color: '#333333',
-                      fontSize: '14px',
-                      paddingTop: '7px',
-                      paddingBottom: '7px',
-                    }}
+                    style={linkStyle}
                   >
                     {tNav(item.key)}
                   </Link>
@@ -97,8 +116,8 @@ export default async function Footer() {
             </ul>
           </div>
 
-          {/* Opening Hours — 22% */}
-          <div className="w-full lg:w-[22%]">
+          {/* Col 3: Discover More — 20% */}
+          <div className="w-full lg:w-[20%]">
             <h3
               style={{
                 fontFamily: '"Poppins", sans-serif',
@@ -108,23 +127,25 @@ export default async function Footer() {
                 marginBottom: '12px',
               }}
             >
-              {t('openingHours')}
+              {t('discoverMore')}
             </h3>
-            <p
-              style={{
-                fontFamily: '"Poppins", sans-serif',
-                fontWeight: 400,
-                color: '#333333',
-                fontSize: '14px',
-                lineHeight: '22px',
-              }}
-            >
-              {t('hoursValue')}<br />{t('daysValue')}
-            </p>
+            <ul>
+              {DISCOVER_LINKS.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="block transition-colors hover:text-[#005a32]"
+                    style={linkStyle}
+                  >
+                    {t(item.key)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Keep in touch — 20% */}
-          <div className="w-full lg:w-[20%]">
+          {/* Col 4: Keep in Touch — 22% */}
+          <div className="w-full lg:w-[22%]">
             <h3
               style={{
                 fontFamily: '"Poppins", sans-serif',
@@ -136,34 +157,22 @@ export default async function Footer() {
             >
               {t('keepInTouch')}
             </h3>
-            <div className="flex flex-col items-center gap-1.5 lg:items-start">
+            <div className="flex flex-col items-center lg:items-start">
               <a
                 href={`tel:${BUSINESS_INFO.phoneRaw}`}
-                className="inline-flex items-center gap-2 transition-colors hover:text-[#005a32]"
-                style={{
-                  fontFamily: '"Poppins", sans-serif',
-                  fontSize: '16px',
-                  fontWeight: 400,
-                  color: '#333333',
-                }}
+                className="block transition-colors hover:text-[#005a32]"
+                style={linkStyle}
               >
-                <Phone style={{ width: '16px', height: '16px', color: '#25923E' }} />
                 {BUSINESS_INFO.phone}
               </a>
               <a
                 href={`mailto:${BUSINESS_INFO.email}`}
-                className="inline-flex items-center gap-2 transition-colors hover:text-[#005a32]"
-                style={{
-                  fontFamily: '"Poppins", sans-serif',
-                  fontSize: '16px',
-                  fontWeight: 400,
-                  color: '#333333',
-                }}
+                className="block transition-colors hover:text-[#005a32]"
+                style={linkStyle}
               >
-                <Mail style={{ width: '16px', height: '16px', color: '#25923E' }} />
                 {BUSINESS_INFO.email}
               </a>
-              <div className="flex items-center mt-2" style={{ gap: '5px' }}>
+              <div className="flex items-center mt-3" style={{ gap: '5px' }}>
                 <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                   <FacebookIcon size={22} color="#007429" />
                 </a>

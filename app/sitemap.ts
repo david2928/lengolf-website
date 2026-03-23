@@ -105,6 +105,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]
 
+  // Hub / index pages for SEO section groups
+  const hubPages: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}/activities/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${SITE_URL}/golf-in-thailand-guide/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${SITE_URL}/hotels/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+  ]
+
   // English-only pages (no Thai content yet)
   const englishOnlyPages: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/privacy-policy/`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
@@ -174,5 +181,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }))
 
-  return [...translatedPages, ...newlyTranslatedPages, ...englishOnlyPages, ...blogPages, ...locationPages, ...activityPages, ...faqPageEntries, ...hotelPages, ...costPages, ...explainerPageEntries, ...bestOfPageEntries]
+  return [...translatedPages, ...newlyTranslatedPages, ...hubPages, ...englishOnlyPages, ...blogPages, ...locationPages, ...activityPages, ...faqPageEntries, ...hotelPages, ...costPages, ...explainerPageEntries, ...bestOfPageEntries]
 }
