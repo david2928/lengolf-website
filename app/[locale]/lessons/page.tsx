@@ -395,10 +395,10 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
                 { label: t('exploreEvents'), href: '/events' },
                 { label: t('exploreClubRental'), href: '/golf-club-rental' },
                 { label: t('exploreBlog'), href: '/blog' },
-                { label: 'Best Way to Learn Golf in Bangkok', href: '/faq/best-way-to-learn-golf-in-bangkok' },
-                { label: 'Bangkok Golf Lesson Prices', href: '/cost/golf-lesson-prices-bangkok' },
-                { label: 'Can Beginners Play Golf Simulators?', href: '/faq/can-beginners-play-golf-simulators' },
-                { label: 'Plan Your Golf Trip to Thailand', href: '/golf-in-thailand-guide/' },
+                { label: t('exploreBestWayToLearn'), href: '/faq/best-way-to-learn-golf-in-bangkok' },
+                { label: t('exploreLessonPrices'), href: '/cost/golf-lesson-prices-bangkok' },
+                { label: t('exploreBeginnersFaq'), href: '/faq/can-beginners-play-golf-simulators' },
+                { label: t('explorePlanTrip'), href: '/golf-in-thailand-guide/' },
               ].map((link) => (
                 <Link
                   key={link.href}

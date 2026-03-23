@@ -8,13 +8,17 @@ import { SITE_URL } from '@/lib/constants'
 import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 import type { SeoPage } from '@/types/seo-pages'
 
-export const metadata: Metadata = {
-  title: 'Plan Your Golf Trip to Thailand | Prices, FAQs & Guides',
-  description:
-    'Everything you need to plan your golf trip to Thailand — how much it costs, what to expect, club rental, lessons, and corporate events. Updated 2026.',
-  alternates: {
-    canonical: `${SITE_URL}/golf-in-thailand-guide/`,
-  },
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const prefix = locale === 'en' ? '' : `/${locale}`
+  return {
+    title: 'Plan Your Golf Trip to Thailand | Prices, FAQs & Guides',
+    description:
+      'Everything you need to plan your golf trip to Thailand — how much it costs, what to expect, club rental, lessons, and corporate events. Updated 2026.',
+    alternates: {
+      canonical: `${SITE_URL}${prefix}/golf-in-thailand-guide/`,
+    },
+  }
 }
 
 type Section = {

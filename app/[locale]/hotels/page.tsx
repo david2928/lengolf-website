@@ -8,13 +8,17 @@ import { SITE_URL } from '@/lib/constants'
 import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 import type { HotelConciergeSeoPage } from '@/types/seo-pages'
 
-export const metadata: Metadata = {
-  title: 'Things To Do Near Your Hotel in Bangkok | LENGOLF',
-  description:
-    'Staying near BTS Chidlom? LENGOLF is minutes from Bangkok\'s top hotels — Grand Hyatt, InterContinental, Anantara, Okura and more. Find walking directions from your hotel.',
-  alternates: {
-    canonical: `${SITE_URL}/hotels/`,
-  },
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const prefix = locale === 'en' ? '' : `/${locale}`
+  return {
+    title: 'Things To Do Near Your Hotel in Bangkok | LENGOLF',
+    description:
+      'Staying near BTS Chidlom? LENGOLF is minutes from Bangkok\'s top hotels — Grand Hyatt, InterContinental, Anantara, Okura and more. Find walking directions from your hotel.',
+    alternates: {
+      canonical: `${SITE_URL}${prefix}/hotels/`,
+    },
+  }
 }
 
 function StarRating({ stars }: { stars: number }) {

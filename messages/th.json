@@ -317,7 +317,11 @@
     "exploreLessons": "เรียนกอล์ฟ",
     "exploreClubRental": "เช่าไม้กอล์ฟ",
     "exploreEvents": "อีเว้นท์",
-    "exploreBlog": "บล็อก"
+    "exploreBlog": "บล็อก",
+    "exploreCorporateEventCostFaq": "จัดงานกอล์ฟองค์กรราคาเท่าไหร่?",
+    "exploreCorporateEventCostGuide": "รายละเอียดค่าใช้จ่ายจัดงานองค์กร",
+    "exploreTeamBuilding": "กิจกรรม Team Building ที่ดีที่สุดในกรุงเทพฯ",
+    "exploreGroupActivities": "กิจกรรมกลุ่มในกรุงเทพฯ"
   },
   "EventsFaq": {
     "q1": "LENGOLF รองรับงานอีเว้นท์ได้กี่คน?",
@@ -378,7 +382,11 @@
     "exploreBayRates": "ราคาห้อง",
     "exploreEvents": "อีเว้นท์",
     "exploreClubRental": "เช่าไม้กอล์ฟ",
-    "exploreBlog": "บล็อก"
+    "exploreBlog": "บล็อก",
+    "exploreBestWayToLearn": "วิธีที่ดีที่สุดในการเรียนกอล์ฟในกรุงเทพฯ",
+    "exploreLessonPrices": "ราคาเรียนกอล์ฟในกรุงเทพฯ",
+    "exploreBeginnersFaq": "มือใหม่เล่นกอล์ฟซิมมูเลเตอร์ได้ไหม?",
+    "explorePlanTrip": "วางแผนทริปกอล์ฟในไทย"
   },
   "LessonsFaq": {
     "q1": "มีเรียนทดลองฟรีไหม?",

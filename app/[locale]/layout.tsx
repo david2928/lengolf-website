@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import Script from 'next/script'
 import { Poppins, Noto_Sans_Thai, Noto_Sans_KR, Noto_Sans_JP, Noto_Sans_SC } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, setRequestLocale } from 'next-intl/server'
@@ -101,8 +102,10 @@ export default async function LocaleLayout({
     <html lang={locale} className={`${poppins.variable} ${notoSansThai.variable} ${notoSansKR.variable} ${notoSansJP.variable} ${notoSansSC.variable}`}>
       <head>
         {/* Google tag (gtag.js) - Google Ads */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16456389020" />
-        <script
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-16456389020" strategy="afterInteractive" />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -112,7 +115,9 @@ gtag('config', 'AW-16456389020');`,
         />
         {/* Google Tag Manager */}
         {gtmId && (
-          <script
+          <Script
+            id="gtm-init"
+            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

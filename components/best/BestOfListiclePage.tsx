@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { ArrowRight, Check, ExternalLink, MapPin, ThumbsDown, ThumbsUp, Trophy } from 'lucide-react'
 import { BOOKING_URL, BUSINESS_INFO, SOCIAL_LINKS } from '@/lib/constants'
 import type { BestOfListicleSeoPage } from '@/types/seo-pages'
@@ -135,7 +135,7 @@ export default function BestOfListiclePage({ data }: Props) {
                 return (
                   <Link
                     key={path}
-                    href={path}
+                    href={path as Parameters<typeof Link>[0]['href']}
                     className="group flex items-center justify-between rounded-lg border p-4 transition-colors hover:border-[#2d6a4f] hover:bg-[#e8f5e9]"
                   >
                     <span className="text-sm font-medium text-[#1a472a] group-hover:text-[#2d6a4f]">

@@ -8,13 +8,17 @@ import { SITE_URL } from '@/lib/constants'
 import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 import type { SeoPage } from '@/types/seo-pages'
 
-export const metadata: Metadata = {
-  title: 'Things To Do in Bangkok | Indoor Activities & Entertainment',
-  description:
-    'Discover the best things to do in Bangkok — from rainy day activities and date night ideas to group outings, indoor entertainment, and team building. Updated 2026.',
-  alternates: {
-    canonical: `${SITE_URL}/activities/`,
-  },
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const prefix = locale === 'en' ? '' : `/${locale}`
+  return {
+    title: 'Things To Do in Bangkok | Indoor Activities & Entertainment',
+    description:
+      'Discover the best things to do in Bangkok — from rainy day activities and date night ideas to group outings, indoor entertainment, and team building. Updated 2026.',
+    alternates: {
+      canonical: `${SITE_URL}${prefix}/activities/`,
+    },
+  }
 }
 
 // Category label map — converts slug-style category to readable label
