@@ -17,15 +17,16 @@
   },
   "Footer": {
     "menu": "メニュー",
-    "openingHours": "営業時間",
-    "hoursValue": "午前10時 〜 午後11時",
-    "daysValue": "月曜日 〜 日曜日",
     "keepInTouch": "お問い合わせ",
     "copyright": "© {year} LENGOLF CO., LTD. All rights reserved.",
     "privacyPolicy": "プライバシーポリシー",
     "termsOfService": "利用規約",
     "address": "The Mercury Ville @ BTS Chidlom\n4階",
-    "planningLink": "タイゴルフ旅行を計画する"
+    "planningLink": "タイゴルフ旅行を計画する",
+    "discoverMore": "もっと探す",
+    "thingsToDoLink": "バンコクでできること",
+    "hotelsLink": "ホテル周辺",
+    "hoursInline": "毎日午前10時〜午後11時営業"
   },
   "Common": {
     "bookNow": "今すぐ予約",

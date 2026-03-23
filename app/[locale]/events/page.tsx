@@ -400,10 +400,14 @@ export default async function EventsPage({ params }: { params: Promise<{ locale:
                 { label: t('exploreLessons'), href: '/lessons' },
                 { label: t('exploreClubRental'), href: '/golf-club-rental' },
                 { label: t('exploreBlog'), href: '/blog' },
+                { label: 'How Much Does a Corporate Golf Event Cost?', href: '/faq/how-much-does-corporate-golf-event-cost-bangkok' },
+                { label: 'Corporate Event Cost Breakdown', href: '/cost/corporate-golf-event-cost-bangkok' },
+                { label: 'Best Team Building Activities in Bangkok', href: '/best/best-team-building-activities-bangkok' },
+                { label: 'Group Activities in Bangkok', href: '/activities/group-activities-bangkok' },
               ].map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  href={link.href as Parameters<typeof Link>[0]['href']}
                   className="rounded-full border border-primary/20 bg-primary/5 px-5 py-2.5 text-sm font-medium transition-colors hover:bg-primary hover:text-white"
                   style={{ color: '#007429' }}
                 >

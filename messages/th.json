@@ -17,15 +17,16 @@
   },
   "Footer": {
     "menu": "เมนู",
-    "openingHours": "เวลาเปิดทำการ",
-    "hoursValue": "10.00 – 23.00 น.",
-    "daysValue": "จันทร์ – อาทิตย์",
     "keepInTouch": "ติดต่อเรา",
     "copyright": "© {year} LENGOLF CO., LTD. สงวนลิขสิทธิ์",
     "privacyPolicy": "นโยบายความเป็นส่วนตัว",
     "termsOfService": "เงื่อนไขการใช้บริการ",
     "address": "The Mercury Ville @ BTS ชิดลม\nชั้น 4",
-    "planningLink": "วางแผนทริปกอล์ฟในไทย"
+    "planningLink": "วางแผนทริปกอล์ฟในไทย",
+    "discoverMore": "ค้นพบเพิ่มเติม",
+    "thingsToDoLink": "สิ่งที่น่าทำในกรุงเทพฯ",
+    "hotelsLink": "ใกล้โรงแรมของคุณ",
+    "hoursInline": "เปิดทุกวัน 10.00–23.00 น."
   },
   "Common": {
     "bookNow": "จองเลย",

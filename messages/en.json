@@ -17,15 +17,16 @@
   },
   "Footer": {
     "menu": "Menu",
-    "openingHours": "Opening Hours",
-    "hoursValue": "10am – 11pm",
-    "daysValue": "Monday – Sunday",
     "keepInTouch": "Keep in touch",
     "copyright": "© {year} LENGOLF CO., LTD. All rights reserved.",
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",
     "address": "The Mercury Ville @ BTS Chidlom\nFloor 4",
-    "planningLink": "Plan Your Golf Trip to Thailand"
+    "planningLink": "Plan Your Golf Trip to Thailand",
+    "discoverMore": "Discover More",
+    "thingsToDoLink": "Things To Do in Bangkok",
+    "hotelsLink": "Near Your Hotel",
+    "hoursInline": "Open Daily 10am–11pm"
   },
   "Common": {
     "bookNow": "BOOK NOW",
