@@ -937,6 +937,56 @@ export function getUsedClubProductJsonLd(club: UsedClub) {
   }
 }
 
+export function getBestOfListiclePageJsonLd(page: {
+  title: string
+  slug: string
+  meta_description: string | null
+  content: {
+    list_items: {
+      rank: number
+      name: string
+      description: string
+      is_lengolf: boolean
+      address?: string
+      website?: string
+    }[]
+  }
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: page.title,
+    description: page.meta_description || undefined,
+    url: `${SITE_URL}/best/${page.slug}/`,
+    numberOfItems: page.content.list_items.length,
+    itemListElement: page.content.list_items.map((item) => ({
+      '@type': 'ListItem',
+      position: item.rank,
+      item: item.is_lengolf
+        ? {
+            '@type': 'EntertainmentBusiness',
+            name: BUSINESS_INFO.name,
+            url: SITE_URL,
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: '540 Ploenchit Road, The Mercury Ville, Floor 4',
+              addressLocality: 'Pathum Wan',
+              addressRegion: 'Bangkok',
+              postalCode: '10330',
+              addressCountry: 'TH',
+            },
+          }
+        : {
+            '@type': 'LocalBusiness',
+            name: item.name,
+            description: item.description,
+            ...(item.address ? { address: { '@type': 'PostalAddress', streetAddress: item.address, addressRegion: 'Bangkok', addressCountry: 'TH' } } : {}),
+            ...(item.website ? { url: item.website } : {}),
+          },
+    })),
+  }
+}
+
 export function getBreadcrumbJsonLd(items: { name: string; url: string }[]) {
   return {
     '@context': 'https://schema.org',

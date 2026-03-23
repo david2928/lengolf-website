@@ -52,7 +52,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'Where to Try a Golf Simulator in Bangkok',
-          body: 'Bangkok has several golf simulator venues, each with different technology and price points. LENGOLF at Mercury Ville (BTS Chidlom) uses Bravo launch monitors with rates starting at 500 THB per hour for up to 5 people. Front 9 in Sukhumvit uses Trackman technology starting at 600 THB per hour. Fairway Golf & City Club near BTS Phrom Phong offers Trackman bays from 1,000 THB per hour.\n\nFor first-timers, the key factors to consider are location convenience, group size limits per bay, whether club rental is included (it\'s free at LENGOLF), and whether the venue serves food and drinks. Most simulator venues in Bangkok welcome beginners and non-golfers — no experience or equipment is needed.',
+          body: 'Bangkok has several golf simulator venues, each with different technology and price points. LENGOLF at Mercury Ville (BTS Chidlom) uses Bravo launch monitors with rates starting at ~500 THB per hour for up to 5 people. Front 9 in Sukhumvit uses Trackman technology starting at ~600 THB per hour. Fairway Golf & City Club near BTS Phrom Phong offers Trackman bays from ~1,000 THB per hour.\n\nFor first-timers, the key factors to consider are location convenience, group size limits per bay, whether club rental is included (it\'s free at LENGOLF), and whether the venue serves food and drinks. Most simulator venues in Bangkok welcome beginners and non-golfers — no experience or equipment is needed.',
         },
       ],
 
@@ -62,7 +62,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         'You can play full 18-hole rounds on 100,000+ real courses, practice with instant swing data, or play non-golf games',
         'No golf experience or equipment is needed — venues provide clubs and guidance',
         'In Bangkok, indoor golf solves the heat and rain problem with air-conditioned, year-round play',
-        'LENGOLF rates start at 500 THB/hour for up to 5 people at BTS Chidlom',
+        'LENGOLF rates start at ~500 THB/hour for up to 5 people at BTS Chidlom',
       ],
 
       related_services: ['/golf', '/lessons', '/golf-club-rental'],
@@ -70,7 +70,7 @@ export const explainerPages: ExplainerSeoPage[] = [
       comparison_table: [
         { feature: 'Weather dependence', simulator: 'None — air-conditioned indoors', real_golf: 'Cancelled in rain, uncomfortable in heat' },
         { feature: 'Time for 18 holes', simulator: '60–90 minutes (solo)', real_golf: '4–5 hours including transport' },
-        { feature: 'Cost per person (group of 4)', simulator: '125–225 THB/hr', real_golf: '2,500–4,000+ THB per round' },
+        { feature: 'Cost per person (group of 4)', simulator: '~125–225 THB/hr', real_golf: '2,500–4,000+ THB per round' },
         { feature: 'Equipment needed', simulator: 'None — clubs provided free', real_golf: 'Full set or rental (500–1,500 THB)' },
         { feature: 'Swing data & analytics', simulator: 'Instant: speed, angle, spin, path', real_golf: 'Requires separate launch monitor' },
         { feature: 'Course variety', simulator: '100,000+ courses worldwide', real_golf: 'One course per visit' },
@@ -188,7 +188,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'What to Expect on Your First Visit',
-          body: 'Here\'s what a first visit to LENGOLF looks like:\n\n**Arrival** — Walk into Mercury Ville at BTS Chidlom, take the elevator to the 4th floor. No reservation required for walk-ins, though booking ahead guarantees a bay during peak hours.\n\n**Setup** — Staff will set you up with a bay and clubs. If you mention it\'s your first time, they\'ll show you how to hold the club, where to stand, and how the screen works. This takes about 5 minutes.\n\n**Playing** — Choose a game mode. For beginners, the driving range mode is a great start — just hit balls at targets with no pressure. When you\'re comfortable, try a course round where each person takes turns.\n\n**Duration** — Most first-time groups book 1–2 hours. That\'s enough time to get comfortable, have some fun, and decide if you want to come back.\n\n**Cost** — Bays start at 500 THB per hour for up to 5 people. That\'s 100 THB per person in a group of 5 — less than a movie ticket.',
+          body: 'Here\'s what a first visit to LENGOLF looks like:\n\n**Arrival** — Walk into Mercury Ville at BTS Chidlom, take the elevator to the 4th floor. No reservation required for walk-ins, though booking ahead guarantees a bay during peak hours.\n\n**Setup** — Staff will set you up with a bay and clubs. If you mention it\'s your first time, they\'ll show you how to hold the club, where to stand, and how the screen works. This takes about 5 minutes.\n\n**Playing** — Choose a game mode. For beginners, the driving range mode is a great start — just hit balls at targets with no pressure. When you\'re comfortable, try a course round where each person takes turns.\n\n**Duration** — Most first-time groups book 1–2 hours. That\'s enough time to get comfortable, have some fun, and decide if you want to come back.\n\n**Cost** — Bays start at ~500 THB per hour for up to 5 people. That\'s ~100 THB per person in a group of 5 — less than a movie ticket.',
         },
         {
           heading: 'Games Beyond Golf',
@@ -204,7 +204,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'From Simulator to Real Golf: Is It a Good Starting Point?',
-          body: 'Golf simulators are an excellent way to discover whether you enjoy golf before investing in equipment, lessons, and course fees.\n\nIf you find yourself wanting to improve after a simulator session, LENGOLF offers lessons with PGA-certified coaches starting at 1,800 THB per hour. The coach uses the simulator\'s data to teach you proper grip, stance, and swing mechanics in a comfortable, private environment — far less intimidating than a driving range full of experienced players.\n\nMany people who start on simulators progress to outdoor golf within a few months. The swing mechanics you develop indoors transfer directly to the course. The main adjustment is adapting to outdoor conditions: wind, uneven lies, and real putting greens.\n\nBut there\'s no obligation to ever play outdoor golf. Plenty of regular LENGOLF customers exclusively play indoors because they enjoy the social format, the convenience, and the air conditioning.',
+          body: 'Golf simulators are an excellent way to discover whether you enjoy golf before investing in equipment, lessons, and course fees.\n\nIf you find yourself wanting to improve after a simulator session, LENGOLF offers lessons with PGA-certified coaches starting at ~1,800 THB per hour. The coach uses the simulator\'s data to teach you proper grip, stance, and swing mechanics in a comfortable, private environment — far less intimidating than a driving range full of experienced players.\n\nMany people who start on simulators progress to outdoor golf within a few months. The swing mechanics you develop indoors transfer directly to the course. The main adjustment is adapting to outdoor conditions: wind, uneven lies, and real putting greens.\n\nBut there\'s no obligation to ever play outdoor golf. Plenty of regular LENGOLF customers exclusively play indoors because they enjoy the social format, the convenience, and the air conditioning.',
         },
       ],
 
@@ -212,7 +212,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         'No golf experience, equipment, or special clothing is needed — just show up',
         'About half of LENGOLF guests have never played golf before',
         'Party-friendly games like target practice and long drive contests are immediately fun for everyone',
-        'A group of 5 can play for 100 THB per person per hour — cheaper than most entertainment options',
+        'A group of 5 can play for ~100 THB per person per hour — cheaper than most entertainment options',
         'Flat shoes or sneakers are recommended but there\'s no dress code',
         'Simulators are a low-pressure way to try golf before committing to equipment and course fees',
       ],
@@ -226,7 +226,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         { feature: 'Time commitment', simulator: '1–2 hours', real_golf: '5+ hours including transport' },
         { feature: 'Intimidation factor', simulator: 'Low — private bay, no audience', real_golf: 'High — other groups watching, pace pressure' },
         { feature: 'Social atmosphere', simulator: 'Music, drinks, food, group-friendly', real_golf: 'Quiet, etiquette-focused, limited group size' },
-        { feature: 'Cost for first-timer', simulator: '100–180 THB/person/hour', real_golf: '3,000+ THB (green fee, rental, caddie)' },
+        { feature: 'Cost for first-timer', simulator: '~100–180 THB/person/hour', real_golf: '3,000+ THB (green fee, rental, caddie)' },
         { feature: 'Learning curve', simulator: 'Fun from the first swing', real_golf: 'May take several rounds to enjoy' },
       ],
     },

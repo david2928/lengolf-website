@@ -23,7 +23,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       intro:
         'Bangkok receives heavy rain from May through October, often with sudden downpours that can last hours. When outdoor plans get washed out, the city has plenty of air-conditioned indoor activities — from golf simulators and escape rooms to cooking classes and bowling alleys. Here are the best options for a rainy day in Bangkok.',
       why_lengolf:
-        'LENGOLF is an indoor golf simulator bar at Mercury Ville, BTS Chidlom. With premium Bravo golf simulators, a full bar, and air-conditioning, it\'s one of Bangkok\'s best rainy day options — whether you\'re a golfer or have never picked up a club. Bay rental starts at 500 THB/hour for up to 5 people, making it just 100 THB per person for a group.',
+        'LENGOLF is an indoor golf simulator bar at Mercury Ville, BTS Chidlom. With premium Bravo golf simulators, a full bar, and air-conditioning, it\'s one of Bangkok\'s best rainy day options — whether you\'re a golfer or have never picked up a club. Bay rental starts at ~500 THB/hour for up to 5 people, making it just ~100 THB per person for a group.',
       other_activities: [
         { name: 'Escape Room Bangkok', description: 'Solve puzzles and clues in themed rooms. Great for groups of 3-6. Multiple locations across Bangkok.', type: 'entertainment' },
         { name: 'Thai Cooking Class', description: 'Learn to make pad thai, green curry, and mango sticky rice. Most classes run 3 hours and include market tours when weather permits.', type: 'culinary' },
@@ -41,7 +41,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
         { feature: 'Food & drinks on-site', lengolf: 'Full bar + food menu', alternative: 'Usually separate' },
         { feature: 'Beginner friendly', lengolf: 'No experience needed', alternative: 'Depends on activity' },
         { feature: 'Near BTS station', lengolf: 'BTS Chidlom (Exit 4)', alternative: 'Varies' },
-        { feature: 'Price per person (group of 5)', lengolf: 'From 100 THB/person/hour', alternative: '200-800 THB/person' },
+        { feature: 'Price per person (group of 5)', lengolf: 'From ~100 THB/person/hour', alternative: '200-800 THB/person' },
       ],
     },
   },
@@ -65,7 +65,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       intro:
         'The best date nights in Bangkok go beyond dinner. The city has no shortage of unique experiences — from cocktail bars with Bravo golf simulators to rooftop dining with skyline views. Here are the most memorable date night ideas in Bangkok for 2026.',
       why_lengolf:
-        'LENGOLF combines indoor golf simulators with a premium bar in a moody, upscale setting at Mercury Ville, BTS Chidlom. It\'s a date that\'s interactive, fun, and different — even if neither of you has golfed before. Share a bay (500 THB/hour for two), order cocktails, and compete on virtual courses. The relaxed atmosphere makes it easy to talk and laugh without the pressure of a formal dinner.',
+        'LENGOLF combines indoor golf simulators with a premium bar in a moody, upscale setting at Mercury Ville, BTS Chidlom. It\'s a date that\'s interactive, fun, and different — even if neither of you has golfed before. Share a bay (~500 THB/hour for two), order cocktails, and compete on virtual courses. The relaxed atmosphere makes it easy to talk and laugh without the pressure of a formal dinner.',
       other_activities: [
         { name: 'Rooftop Bar at Banyan Tree', description: 'Vertigo rooftop bar offers 360-degree skyline views at 61 floors up. Ideal for a special occasion.', type: 'bar' },
         { name: 'Dinner Cruise on the Chao Phraya', description: 'Floating dinner along the river with views of Wat Arun and the Grand Palace illuminated at night.', type: 'dining' },
@@ -78,7 +78,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       show_aqi_widget: false,
       comparison_table: [
         { feature: 'Interactive / active', lengolf: 'Yes — play together', alternative: 'Mostly passive (dining, views)' },
-        { feature: 'Budget for two', lengolf: 'From 500 THB + drinks', alternative: '1,500-5,000+ THB' },
+        { feature: 'Budget for two', lengolf: 'From ~500 THB + drinks', alternative: '1,500-5,000+ THB' },
         { feature: 'Conversation-friendly', lengolf: 'Private bay, relaxed', alternative: 'Loud music at some bars' },
         { feature: 'No golf experience needed', lengolf: 'Yes — it\'s the fun part', alternative: 'N/A' },
         { feature: 'Rain-proof', lengolf: 'Yes — fully indoor', alternative: 'Rooftops affected by rain' },
@@ -105,7 +105,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       intro:
         'Bangkok is one of the world\'s top bachelor party destinations. The best stag dos combine group activities with nightlife — and the city delivers both in spades. Here are the best bachelor party ideas in Bangkok that go beyond the obvious.',
       why_lengolf:
-        'Start the night at LENGOLF with a group golf competition. Our bays fit up to 5 people each, and the Bravo golf simulators track every shot — perfect for friendly rivalries. With a full bar, cocktails, and craft beer on tap, it sets the tone for the rest of the night. Located at BTS Chidlom, you\'re minutes from Bangkok\'s best nightlife areas. Bay rental is 500 THB/hour for up to 5 people.',
+        'Start the night at LENGOLF with a group golf competition. Our bays fit up to 5 people each, and the Bravo golf simulators track every shot — perfect for friendly rivalries. With a full bar, cocktails, and craft beer on tap, it sets the tone for the rest of the night. Located at BTS Chidlom, you\'re minutes from Bangkok\'s best nightlife areas. Bay rental is ~500 THB/hour for up to 5 people.',
       other_activities: [
         { name: 'Go-Kart Bangkok (EasyKart)', description: 'Indoor karting at RCA. Competitive and adrenaline-filled, great for groups.', type: 'entertainment' },
         { name: 'Muay Thai Class', description: 'Group muay thai sessions available at multiple gyms. A unique Bangkok experience.', type: 'sport' },
@@ -145,7 +145,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       intro:
         'The best birthday party venues in Bangkok for adults combine a unique activity with great food and drinks. Whether you\'re hosting 10 friends or 25, Bangkok has venues that go far beyond a standard dinner reservation. Here are the top options for 2026.',
       why_lengolf:
-        'LENGOLF offers event packages designed for birthday parties: the Small Package (10-15 guests, 2 bays, 3 hours) at 9,999 THB includes 10 beers, 5 cocktails, unlimited soft drinks, and catered food. The Medium Package (15-25 guests, 4 bays, 3 hours, full venue rental) is 21,999 THB. Both include Bravo golf simulators — an activity everyone enjoys, golfer or not. Located at Mercury Ville, BTS Chidlom.',
+        'LENGOLF offers event packages designed for birthday parties: the Small Package (10-15 guests, 2 bays, 3 hours) at ~9,999 THB includes 10 beers, 5 cocktails, unlimited soft drinks, and catered food. The Medium Package (15-25 guests, 4 bays, 3 hours, full venue rental) is ~21,999 THB. Both include Bravo golf simulators — an activity everyone enjoys, golfer or not. Located at Mercury Ville, BTS Chidlom.',
       other_activities: [
         { name: 'Private Karaoke Room', description: 'KTV rooms at various price points across Bangkok. Good for singing groups. Rooms fit 8-20 people.', type: 'entertainment' },
         { name: 'Rooftop Private Dining', description: 'Book a private section at rooftop restaurants for dinner with a view. Typically 2,000-5,000 THB per person.', type: 'dining' },
@@ -157,11 +157,11 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       target_audience: 'Individuals planning birthday parties for 10+ adults',
       show_aqi_widget: false,
       comparison_table: [
-        { feature: 'All-inclusive package', lengolf: 'From 9,999 THB (food, drinks, activity)', alternative: 'Usually food/venue separate' },
+        { feature: 'All-inclusive package', lengolf: 'From ~9,999 THB (food, drinks, activity)', alternative: 'Usually food/venue separate' },
         { feature: 'Interactive activity', lengolf: 'Golf simulators for all levels', alternative: 'Karaoke, bowling, dining' },
         { feature: 'Capacity', lengolf: 'Up to 25 (full venue rental)', alternative: 'Varies — rooftops often 10-15' },
         { feature: 'Customizable', lengolf: 'Decorations, music, menu', alternative: 'Depends on venue' },
-        { feature: 'Cost per person (15 guests)', lengolf: '~667 THB all-in', alternative: '1,000-3,000 THB' },
+        { feature: 'Cost per person (15 guests)', lengolf: '~667 THB all-in (est.)', alternative: '1,000-3,000 THB' },
       ],
     },
   },
@@ -185,7 +185,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       intro:
         'Bangkok comes alive at night, and the best evening activities go well beyond Khao San Road. From indoor golf with cocktails to night markets and rooftop bars, here\'s what to do in Bangkok after dark — whether you\'re looking for action, relaxation, or something different.',
       why_lengolf:
-        'LENGOLF is open until 11pm daily, making it one of Bangkok\'s best evening activities. Located at Mercury Ville, BTS Chidlom (Exit 4), it combines Bravo golf simulators with a full cocktail bar. It\'s a genuine activity — not just drinking — which makes it ideal for groups, dates, or solo visitors looking for something to do at night. 500 THB/hour for up to 5 people.',
+        'LENGOLF is open until 11pm daily, making it one of Bangkok\'s best evening activities. Located at Mercury Ville, BTS Chidlom (Exit 4), it combines Bravo golf simulators with a full cocktail bar. It\'s a genuine activity — not just drinking — which makes it ideal for groups, dates, or solo visitors looking for something to do at night. ~500 THB/hour for up to 5 people.',
       other_activities: [
         { name: 'Rooftop Bars', description: 'Bangkok\'s skyline views are world-famous. Try Octave (Marriott), Vertigo (Banyan Tree), or Sky Bar (Lebua).', type: 'bar' },
         { name: 'Jodd Fairs Night Market', description: 'Open-air night market with street food, craft stalls, and live music. Free entry, MRT Phra Ram 9.', type: 'market' },
@@ -200,7 +200,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
         { feature: 'Active vs. passive', lengolf: 'Active — play golf, compete', alternative: 'Mostly passive (watching, eating)' },
         { feature: 'Weather-proof', lengolf: 'Fully indoor, air-conditioned', alternative: 'Rooftops/markets weather-dependent' },
         { feature: 'Good for groups', lengolf: 'Up to 5 per bay', alternative: 'Varies' },
-        { feature: 'Budget-friendly', lengolf: 'From 100 THB/person/hour', alternative: '200-2,000 THB per person' },
+        { feature: 'Budget-friendly', lengolf: 'From ~100 THB/person/hour', alternative: '200-2,000 THB per person' },
         { feature: 'Open late', lengolf: 'Until 11pm daily', alternative: 'Bars until late; markets until 11pm' },
       ],
     },
@@ -225,7 +225,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       intro:
         'Finding group activities in Bangkok for 10 or more people is harder than it sounds — most venues cap at small groups or require expensive private bookings. Here are the best options that genuinely accommodate larger groups with a shared, interactive experience.',
       why_lengolf:
-        'LENGOLF handles groups of 10-25 people easily. With multiple bays available (up to 5 people per bay), groups can compete across bays with leaderboards and scoring. Our event packages start at 9,999 THB for 10-15 guests (includes food, drinks, and 3 hours of play) or 21,999 THB for 15-25 guests with full venue rental. Located at Mercury Ville, BTS Chidlom — easy for everyone to reach.',
+        'LENGOLF handles groups of 10-25 people easily. With multiple bays available (up to 5 people per bay), groups can compete across bays with leaderboards and scoring. Our event packages start at ~9,999 THB for 10-15 guests (includes food, drinks, and 3 hours of play) or ~21,999 THB for 15-25 guests with full venue rental. Located at Mercury Ville, BTS Chidlom — easy for everyone to reach.',
       other_activities: [
         { name: 'Escape Room (Multiple Rooms)', description: 'Book multiple escape rooms and compete between teams. Several venues in Sukhumvit and Silom.', type: 'entertainment' },
         { name: 'Group Cooking Class', description: 'Some schools accommodate 15-20 people. Everyone cooks and eats together. Usually 1,500-2,500 THB per person.', type: 'culinary' },
@@ -239,7 +239,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       comparison_table: [
         { feature: 'Capacity', lengolf: '10-25 people (full venue)', alternative: 'Usually 6-15 per session' },
         { feature: 'Competition format', lengolf: 'Cross-bay leaderboards', alternative: 'Team vs. team (escape rooms)' },
-        { feature: 'All-inclusive option', lengolf: 'From 9,999 THB (food + drinks + play)', alternative: 'Usually activity fee only' },
+        { feature: 'All-inclusive option', lengolf: 'From ~9,999 THB (food + drinks + play)', alternative: 'Usually activity fee only' },
         { feature: 'BTS accessible', lengolf: 'BTS Chidlom (Exit 4)', alternative: 'Varies' },
         { feature: 'No experience needed', lengolf: 'Yes — everyone can play', alternative: 'Some need coordination' },
       ],
@@ -265,7 +265,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       intro:
         'Bangkok\'s heat (35°C+) and rain (May-October monsoon) make indoor activities essential. Whether you\'re escaping a downpour or the midday sun, these are the best air-conditioned things to do in Bangkok — from golf simulators and escape rooms to museums and bowling.',
       why_lengolf:
-        'LENGOLF is a premium indoor golf simulator bar at Mercury Ville, BTS Chidlom. Fully air-conditioned with Bravo golf simulators, a cocktail bar, and food menu. No golf experience needed — it\'s designed to be fun for everyone. Bay rental starts at 500 THB/hour for up to 5 people. Open 10am-11pm daily, it\'s the perfect escape from Bangkok\'s weather any time of day.',
+        'LENGOLF is a premium indoor golf simulator bar at Mercury Ville, BTS Chidlom. Fully air-conditioned with Bravo golf simulators, a cocktail bar, and food menu. No golf experience needed — it\'s designed to be fun for everyone. Bay rental starts at ~500 THB/hour for up to 5 people. Open 10am-11pm daily, it\'s the perfect escape from Bangkok\'s weather any time of day.',
       other_activities: [
         { name: 'Escape Room Bangkok', description: 'Themed puzzle rooms for groups of 2-6. Air-conditioned, brain-teasing, and fun. 500-800 THB per person.', type: 'entertainment' },
         { name: 'Bowling at Blu-O', description: 'Modern bowling in major malls. Glow lanes, music, and food. Affordable for families and groups.', type: 'entertainment' },
@@ -283,7 +283,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
         { feature: 'Food & drinks', lengolf: 'Full bar + food menu', alternative: 'Mall food courts nearby' },
         { feature: 'Activity duration', lengolf: '1-3 hours', alternative: '1-2 hours typical' },
         { feature: 'Near BTS', lengolf: 'BTS Chidlom (Exit 4)', alternative: 'Most are mall-based (BTS accessible)' },
-        { feature: 'Starting price', lengolf: '100 THB/person/hour (group of 5)', alternative: '200-800 THB/person' },
+        { feature: 'Starting price', lengolf: '~100 THB/person/hour (group of 5)', alternative: '200-800 THB/person' },
       ],
     },
   },
@@ -307,7 +307,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       intro:
         'Bangkok weekends are for exploring — but the heat means you need a mix of outdoor mornings and indoor afternoons. Here are the best weekend activities in Bangkok, organized from morning to evening, so you can plan a full day without melting.',
       why_lengolf:
-        'LENGOLF is ideal for a weekend afternoon or evening activity. Open 10am-11pm on weekends, with bay rates starting at 700 THB/hour (up to 5 people) on Saturdays and Sundays. Located at Mercury Ville, BTS Chidlom, it\'s easy to combine with lunch or dinner nearby. The air-conditioned venue is a welcome break from Bangkok\'s weekend heat.',
+        'LENGOLF is ideal for a weekend afternoon or evening activity. Open 10am-11pm on weekends, with bay rates starting at ~700 THB/hour (up to 5 people) on Saturdays and Sundays. Located at Mercury Ville, BTS Chidlom, it\'s easy to combine with lunch or dinner nearby. The air-conditioned venue is a welcome break from Bangkok\'s weekend heat.',
       other_activities: [
         { name: 'Chatuchak Weekend Market', description: 'The world\'s largest weekend market with 15,000+ stalls. Open Saturday and Sunday 8am-6pm. BTS Mo Chit.', type: 'market' },
         { name: 'Lumphini Park Morning Run', description: 'Bangkok\'s central park is best before 8am when it\'s cool. Monitor lizards, paddle boats, and tai chi groups.', type: 'outdoor' },
@@ -322,7 +322,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
         { feature: 'Weather-proof', lengolf: 'Fully indoor, air-conditioned', alternative: 'Markets and parks are outdoor' },
         { feature: 'Afternoon-friendly', lengolf: 'Perfect 2-5pm (escape the heat)', alternative: 'Chatuchak best before noon' },
         { feature: 'Group-friendly', lengolf: 'Great for weekend catch-ups', alternative: 'Markets/parks are go-at-your-pace' },
-        { feature: 'Weekend pricing', lengolf: '700 THB/hour (up to 5 people)', alternative: 'Free-2,000 THB depending on activity' },
+        { feature: 'Weekend pricing', lengolf: '~700 THB/hour (up to 5 people)', alternative: 'Free-2,000 THB depending on activity' },
         { feature: 'Easy to reach', lengolf: 'BTS Chidlom (1 min walk)', alternative: 'Chatuchak is 30 min by BTS' },
       ],
     },
@@ -386,7 +386,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       intro:
         'Bangkok has plenty of family-friendly activities beyond temples and tuk-tuks. The key for families is finding air-conditioned venues where kids stay entertained — especially during the hot season. Here are the best family activities in Bangkok for children of all ages.',
       why_lengolf:
-        'Kids love golf simulators. At LENGOLF, children can play alongside parents — the Bravo simulator technology tracks every swing and shows animated ball flights that kids find fascinating. It\'s safe, air-conditioned, and the bay format means your family has a private space. Bay rental is 500 THB/hour for up to 5 people, and club rental is included. We welcome families during all hours, though weekday mornings are quietest.',
+        'Kids love golf simulators. At LENGOLF, children can play alongside parents — the Bravo simulator technology tracks every swing and shows animated ball flights that kids find fascinating. It\'s safe, air-conditioned, and the bay format means your family has a private space. Bay rental is ~500 THB/hour for up to 5 people, and club rental is included. We welcome families during all hours, though weekday mornings are quietest.',
       other_activities: [
         { name: 'SEA LIFE Bangkok Ocean World', description: 'Massive aquarium under Siam Paragon with shark tanks, penguins, and interactive exhibits. Kids under 3 free.', type: 'attraction' },
         { name: 'KidZania Bangkok', description: 'Mini city where kids role-play adult jobs — pilot, firefighter, doctor. Ages 4-14. Located at Siam Paragon.', type: 'attraction' },
@@ -402,7 +402,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
         { feature: 'Air-conditioned', lengolf: 'Yes — fully indoor', alternative: 'Parks/Safari World are outdoor' },
         { feature: 'Private space', lengolf: 'Private bay for your family', alternative: 'Shared spaces at most venues' },
         { feature: 'Adults enjoy it too', lengolf: 'Bar + golf for parents', alternative: 'KidZania mainly for kids' },
-        { feature: 'Price for family of 4', lengolf: '500 THB/hour (all 4 play)', alternative: '600-3,000 THB total' },
+        { feature: 'Price for family of 4', lengolf: '~500 THB/hour (all 4 play)', alternative: '600-3,000 THB total' },
       ],
     },
   },

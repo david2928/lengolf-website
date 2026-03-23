@@ -1,48 +1,68 @@
 /**
- * Registry of routes that have Thai translations.
- * Routes NOT in this list will redirect from /th/* to English equivalent.
+ * Registry of routes that have translations per locale.
+ * Routes NOT in this list will redirect from /<locale>/* to the English equivalent.
  */
-export const THAI_TRANSLATED_ROUTES = {
-  // Static routes with Thai translations (from sitemap.ts analysis)
-  staticRoutes: [
-    '/',
-    '/golf',
-    '/events',
-    '/golf-club-rental',
-    '/lessons',
-    '/about-us',
-    '/blog',
-  ],
+const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynamicRoutePatterns: readonly string[] }> = {
+  th: {
+    staticRoutes: [
+      '/',
+      '/golf',
+      '/events',
+      '/golf-club-rental',
+      '/golf-course-club-rental',
+      '/lessons',
+      '/about-us',
+      '/blog',
+      '/rent-golf-clubs-bangkok',
+    ],
+    dynamicRoutePatterns: [],
+  },
+  ko: {
+    staticRoutes: ['/rent-golf-clubs-bangkok'],
+    dynamicRoutePatterns: [],
+  },
+  ja: {
+    staticRoutes: ['/rent-golf-clubs-bangkok'],
+    dynamicRoutePatterns: [],
+  },
+  zh: {
+    staticRoutes: ['/rent-golf-clubs-bangkok'],
+    dynamicRoutePatterns: [],
+  },
+}
 
-  // Dynamic route patterns with Thai translations
-  // Empty for now - all dynamic routes are English-only
-  dynamicRoutePatterns: [] as readonly string[],
-} as const
-
-// Pre-compute normalized static routes at module load time for performance
-const NORMALIZED_STATIC_ROUTES = THAI_TRANSLATED_ROUTES.staticRoutes.map(r =>
-  r === '/' ? '/' : r.replace(/\/$/, '')
+// Pre-compute normalized static routes per locale at module load time
+const NORMALIZED_ROUTES = Object.fromEntries(
+  Object.entries(TRANSLATED_ROUTES).map(([locale, { staticRoutes }]) => [
+    locale,
+    staticRoutes.map(r => (r === '/' ? '/' : r.replace(/\/$/, ''))),
+  ])
 )
 
 /**
- * Check if a given pathname has a Thai translation available.
- * Expects a locale-free path (middleware strips /th prefix before calling).
+ * Check if a given pathname has a translation available for the given locale.
+ * Expects a locale-free path (middleware strips /<locale> prefix before calling).
  */
-export function hasThaiTranslation(pathname: string): boolean {
+export function hasTranslationForLocale(locale: string, pathname: string): boolean {
+  const entry = TRANSLATED_ROUTES[locale]
+  if (!entry) return false
+
   const normalizedPath = pathname.replace(/\/$/, '') || '/'
+  const normalizedStatic = NORMALIZED_ROUTES[locale] ?? []
 
-  // Check static routes
-  if (NORMALIZED_STATIC_ROUTES.includes(normalizedPath)) {
-    return true
-  }
+  if (normalizedStatic.includes(normalizedPath)) return true
 
-  // Check dynamic route patterns (for future use when Thai content exists)
-  for (const pattern of THAI_TRANSLATED_ROUTES.dynamicRoutePatterns) {
+  for (const pattern of entry.dynamicRoutePatterns) {
     const regex = new RegExp('^' + pattern.replace(/\[slug\]/g, '[^/]+') + '$')
-    if (regex.test(normalizedPath)) {
-      return true
-    }
+    if (regex.test(normalizedPath)) return true
   }
 
   return false
+}
+
+/**
+ * @deprecated Use hasTranslationForLocale('th', pathname) instead.
+ */
+export function hasThaiTranslation(pathname: string): boolean {
+  return hasTranslationForLocale('th', pathname)
 }

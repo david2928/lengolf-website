@@ -8,7 +8,7 @@ export default function LanguageSwitcher() {
   const pathname = usePathname()
   const router = useRouter()
 
-  function switchLocale(newLocale: 'en' | 'th') {
+  function switchLocale(newLocale: 'en' | 'th' | 'ko' | 'ja' | 'zh') {
     if (newLocale === locale) return
     router.replace(pathname, { locale: newLocale })
   }

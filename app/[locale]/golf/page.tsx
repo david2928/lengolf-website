@@ -511,6 +511,38 @@ export default async function GolfPage({ params }: { params: Promise<{ locale: s
           </div>
         </div>
       </section>
+
+      {/* ── Related Guides ── */}
+      <section className="py-16 lg:py-24">
+        <div className="section-max-width section-padding">
+          <h2 className="mb-3 text-center text-3xl font-bold italic lg:text-4xl">
+            <span style={{ color: '#007429' }}>Planning</span>{' '}
+            <span className="text-foreground">your visit?</span>
+          </h2>
+          <p className="mb-8 text-center text-sm text-muted-foreground">Guides and answers to help you get the most out of LENGOLF.</p>
+          <div className="mx-auto max-w-2xl">
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              {[
+                { label: 'How Much Does Indoor Golf Cost?', href: '/cost/how-much-does-golf-cost-bangkok' },
+                { label: 'Golf Simulator Prices Compared', href: '/cost/golf-simulator-prices-bangkok' },
+                { label: 'LENGOLF Pricing Guide', href: '/cost/lengolf-pricing-guide' },
+                { label: 'Do I Need Experience?', href: '/faq/do-i-need-experience-to-play-golf-simulator' },
+                { label: 'How Long Does a Round Take?', href: '/faq/how-long-does-simulator-golf-take' },
+                { label: 'Things To Do in Bangkok', href: '/activities/' },
+              ].map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href as Parameters<typeof Link>[0]['href']}
+                  className="rounded-full border border-primary/20 bg-primary/5 px-5 py-2.5 text-sm font-medium transition-colors hover:bg-primary hover:text-white"
+                  style={{ color: '#007429' }}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   )
 }

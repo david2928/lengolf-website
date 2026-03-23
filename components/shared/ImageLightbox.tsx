@@ -1,9 +1,8 @@
 'use client'
 
-import { useState, useCallback, useEffect } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
-import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+
 
 interface LightboxImage {
   src: string
@@ -12,7 +11,6 @@ interface LightboxImage {
 
 interface ImageLightboxProps {
   images: LightboxImage[]
-  /** Number of thumbnails to show in grid (default: all). Extra images are still browsable in lightbox. */
   thumbnailCount?: number
   className?: string
   gridClassName?: string
@@ -28,21 +26,7 @@ export default function ImageLightbox({
   aspectClassName = 'aspect-[3/4]',
   sizes = '(max-width: 640px) 50vw, 25vw',
 }: ImageLightboxProps) {
-  const [open, setOpen] = useState(false)
-  const [index, setIndex] = useState(0)
-
-  const prev = useCallback(() => setIndex((i) => (i === 0 ? images.length - 1 : i - 1)), [images.length])
-  const next = useCallback(() => setIndex((i) => (i === images.length - 1 ? 0 : i + 1)), [images.length])
-
-  useEffect(() => {
-    if (!open) return
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') { e.preventDefault(); prev() }
-      else if (e.key === 'ArrowRight') { e.preventDefault(); next() }
-    }
-    window.addEventListener('keydown', handleKey)
-    return () => window.removeEventListener('keydown', handleKey)
-  }, [open, prev, next])
+  const [active, setActive] = useState<LightboxImage | null>(null)
 
   const visibleImages = thumbnailCount ? images.slice(0, thumbnailCount) : images
 
@@ -53,7 +37,7 @@ export default function ImageLightbox({
           <button
             key={idx}
             type="button"
-            onClick={() => { setIndex(idx); setOpen(true) }}
+            onClick={() => setActive(img)}
             className={`relative ${aspectClassName || 'h-full'} rounded-lg overflow-hidden bg-gray-100 cursor-zoom-in group`}
           >
             <Image
@@ -67,48 +51,23 @@ export default function ImageLightbox({
         ))}
       </div>
 
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-[90vw] max-h-[90vh] p-0 border-0 bg-transparent shadow-none overflow-hidden">
-          <DialogTitle className="sr-only">{images[index]?.alt}</DialogTitle>
-          <div className="relative flex items-center justify-center w-full" style={{ height: '85vh' }}>
-            {images[index] && (
-              <Image
-                src={images[index].src}
-                alt={images[index].alt}
-                fill
-                className="object-contain"
-                sizes="90vw"
-                priority
-              />
-            )}
-
-            {images.length > 1 && (
-              <>
-                <button
-                  type="button"
-                  onClick={(e) => { e.stopPropagation(); prev() }}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
-                  aria-label="Previous image"
-                >
-                  <ChevronLeft size={24} />
-                </button>
-                <button
-                  type="button"
-                  onClick={(e) => { e.stopPropagation(); next() }}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
-                  aria-label="Next image"
-                >
-                  <ChevronRight size={24} />
-                </button>
-              </>
-            )}
-
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-black/50 px-3 py-1 text-xs text-white">
-              {index + 1} / {images.length}
-            </div>
+      {active && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 cursor-pointer"
+          onClick={() => setActive(null)}
+        >
+          <div className="relative cursor-default" style={{ maxWidth: '90vw', maxHeight: '90vh' }} onClick={e => e.stopPropagation()}>
+            <Image
+              src={active.src}
+              alt={active.alt}
+              width={900}
+              height={900}
+              className="rounded-lg shadow-2xl object-contain"
+              style={{ maxWidth: '90vw', maxHeight: '90vh', width: 'auto', height: 'auto' }}
+            />
           </div>
-        </DialogContent>
-      </Dialog>
+        </div>
+      )}
     </>
   )
 }
