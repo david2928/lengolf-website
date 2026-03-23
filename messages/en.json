@@ -116,8 +116,8 @@
     "a8": "Book online at booking.len.golf, add us on LINE @lengolf, or just walk in. Online booking lets you choose your date, bay, and time slot in advance. Walk-ins are welcome subject to availability."
   },
   "Golf": {
-    "metaTitle": "Golf Simulator Rentals & Bay Rates",
-    "metaDescription": "Book a golf simulator bay at LENGOLF Bangkok. Korean Bravo Golf tech, 500–900 THB/hr for up to 5 players. 100+ courses and free club rental included.",
+    "metaTitle": "Golf Simulator Bangkok — Bay Rates from 500 THB/hr",
+    "metaDescription": "Book a golf simulator bay at LENGOLF Bangkok. 100+ courses on Korean Bravo Golf tech, 500–900 THB/hr for up to 5 players. Free club rental, full bar, BTS Chidlom.",
     "heroBadge": "Simulator Rentals",
     "heroTitle": "Indoor Golf Anytime",
     "heroSubtitle": "Book Your Bay Now at LENGOLF",
@@ -662,6 +662,10 @@
     "majestyCalloutTitle": "Majesty — Japanese Premium Brand",
     "majestyCalloutText": "Majesty is a prestigious Japanese golf brand renowned for lightweight design and premium craftsmanship, especially popular with female golfers.",
     "pricingCurrencyNote": "Starting from {price} THB/day ({approx})"
+    "crossLink3Label": "Bay Rates & Simulators",
+    "crossLink3Desc": "Hourly simulator bay pricing and packages",
+    "crossLink4Label": "Golf Lessons",
+    "crossLink4Desc": "Private coaching with PGA-certified pros"
   },
   "CourseClubRentalFaq": {
     "q1": "Can you deliver clubs to my hotel in Bangkok?",

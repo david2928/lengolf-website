@@ -16,12 +16,16 @@ import {
   MapPin,
   CreditCard,
   ShoppingBag,
+  Target,
+  GraduationCap,
 } from 'lucide-react'
 
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
   '@lengolf': { href: SOCIAL_LINKS.line, external: true },
   'LINE @lengolf': { href: SOCIAL_LINKS.line, external: true },
   'Google Maps': { href: BUSINESS_INFO.googleMapsUrl, external: true },
+  'bay rates': { href: '/golf' },
+  'golf lessons': { href: '/lessons' },
 }
 
 const FAQ_COUNT = 10
@@ -406,7 +410,7 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
           <span style={{ color: '#007429' }}>{t('crossLinksTitle')}</span>{' '}
           <span className="text-foreground">{t('crossLinksTitleSuffix')}</span>
         </h2>
-        <div className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="mx-auto mt-8 grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2">
           <Link
             href="/golf-club-rental"
             className="group rounded-xl border border-primary/15 bg-white p-6 transition-shadow hover:shadow-md block"
@@ -426,6 +430,26 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
             </div>
             <h3 className="mb-1 font-bold text-foreground group-hover:text-primary transition-colors">{t('crossLink2Label')}</h3>
             <p className="text-sm text-muted-foreground">{t('crossLink2Desc')}</p>
+          </Link>
+          <Link
+            href="/golf"
+            className="group rounded-xl border border-primary/15 bg-white p-6 transition-shadow hover:shadow-md block"
+          >
+            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10" style={{ color: '#007429' }}>
+              <Target size={20} />
+            </div>
+            <h3 className="mb-1 font-bold text-foreground group-hover:text-primary transition-colors">{t('crossLink3Label')}</h3>
+            <p className="text-sm text-muted-foreground">{t('crossLink3Desc')}</p>
+          </Link>
+          <Link
+            href="/lessons"
+            className="group rounded-xl border border-primary/15 bg-white p-6 transition-shadow hover:shadow-md block"
+          >
+            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10" style={{ color: '#007429' }}>
+              <GraduationCap size={20} />
+            </div>
+            <h3 className="mb-1 font-bold text-foreground group-hover:text-primary transition-colors">{t('crossLink4Label')}</h3>
+            <p className="text-sm text-muted-foreground">{t('crossLink4Desc')}</p>
           </Link>
         </div>
       </SectionWrapper>
