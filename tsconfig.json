@@ -36,6 +36,9 @@
   ],
   "exclude": [
     "node_modules",
-    "_migration"
+    "_migration",
+    "docs",
+    "scripts",
+    "wireframes"
   ]
 }

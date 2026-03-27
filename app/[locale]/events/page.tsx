@@ -400,10 +400,10 @@ export default async function EventsPage({ params }: { params: Promise<{ locale:
                 { label: t('exploreLessons'), href: '/lessons' },
                 { label: t('exploreClubRental'), href: '/golf-club-rental' },
                 { label: t('exploreBlog'), href: '/blog' },
-                { label: 'How Much Does a Corporate Golf Event Cost?', href: '/faq/how-much-does-corporate-golf-event-cost-bangkok' },
-                { label: 'Corporate Event Cost Breakdown', href: '/cost/corporate-golf-event-cost-bangkok' },
-                { label: 'Best Team Building Activities in Bangkok', href: '/best/best-team-building-activities-bangkok' },
-                { label: 'Group Activities in Bangkok', href: '/activities/group-activities-bangkok' },
+                { label: t('exploreCorpGolfCost'), href: '/faq/how-much-does-corporate-golf-event-cost-bangkok' },
+                { label: t('exploreCorpEventCost'), href: '/cost/corporate-golf-event-cost-bangkok' },
+                { label: t('exploreBestTeamBuilding'), href: '/best/best-team-building-activities-bangkok' },
+                { label: t('exploreGroupActivities'), href: '/activities/group-activities-bangkok' },
               ].map((link) => (
                 <Link
                   key={link.href}

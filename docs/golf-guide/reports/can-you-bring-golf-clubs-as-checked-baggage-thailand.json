@@ -1,0 +1,38 @@
+{
+  "slug": "can-you-bring-golf-clubs-as-checked-baggage-thailand",
+  "generated": "2026-03-24",
+  "overall_status": "APPROVED",
+  "disputed_claims": [],
+  "disclaimer_flags": [
+    {
+      "claim": "Fee ranges USD 0–100 full-service; USD 30–80 budget",
+      "reason": "Fees change frequently",
+      "action": "Disclaimer present at end of article — acceptable"
+    }
+  ],
+  "seo_issues": [],
+  "unverifiable_claims": [
+    {
+      "claim": "Regular golf bag without travel case may not be accepted by some carriers",
+      "reason": "Airline-specific policy; general advisory",
+      "risk": "low"
+    },
+    {
+      "claim": "Soft bag weight 1–3 kg empty",
+      "reason": "General estimate not in knowledge base",
+      "risk": "low"
+    }
+  ],
+  "seo_check": {
+    "title_length": 60,
+    "title_pass": true,
+    "meta_length": 157,
+    "meta_pass": true,
+    "primary_keyword_in_title": true,
+    "primary_keyword_in_meta": true,
+    "h2_count": 7,
+    "internal_links_present": ["/golf-club-rental", "/guide/bring-golf-clubs-thailand-or-rent", "/guide/golf-club-baggage-fees-airlines-bangkok"],
+    "date_qualifier_present": true
+  },
+  "recommendations": []
+}

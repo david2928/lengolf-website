@@ -3,18 +3,26 @@ import { Link } from '@/i18n/navigation'
 import { setRequestLocale } from 'next-intl/server'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
+import CategoryPill from '@/components/shared/CategoryPill'
 import { getSeoPagesByType } from '@/lib/seo-pages'
 import { SITE_URL } from '@/lib/constants'
 import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 import type { SeoPage } from '@/types/seo-pages'
 
-export const metadata: Metadata = {
-  title: 'Things To Do in Bangkok | Indoor Activities & Entertainment',
-  description:
-    'Discover the best things to do in Bangkok — from rainy day activities and date night ideas to group outings, indoor entertainment, and team building. Updated 2026.',
-  alternates: {
-    canonical: `${SITE_URL}/activities/`,
-  },
+export async function generateStaticParams() {
+  return [{ locale: 'en' }]
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const path = '/activities/'
+  return {
+    title: 'Things To Do in Bangkok | Indoor Activities & Entertainment',
+    description:
+      'Discover the best things to do in Bangkok — from rainy day activities and date night ideas to group outings, indoor entertainment, and team building. Updated 2026.',
+    alternates: {
+      canonical: `${SITE_URL}${path}`,
+    },
+  }
 }
 
 // Category label map — converts slug-style category to readable label
@@ -41,19 +49,6 @@ function pageHref(page: SeoPage): string {
   return `/activities/${page.slug}`
 }
 
-function CategoryPill({ category }: { category: string | null }) {
-  if (!category) return null
-  const label = CATEGORY_LABELS[category] ?? category
-  return (
-    <span
-      className="inline-block rounded-full px-3 py-0.5 text-xs font-medium"
-      style={{ backgroundColor: '#E6F4EC', color: '#005a32' }}
-    >
-      {label}
-    </span>
-  )
-}
-
 function PageCard({ page }: { page: SeoPage }) {
   return (
     <Link
@@ -61,7 +56,7 @@ function PageCard({ page }: { page: SeoPage }) {
       className="group flex flex-col rounded-lg border bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
     >
       <div className="mb-3">
-        <CategoryPill category={page.category} />
+        <CategoryPill category={page.category} labelMap={CATEGORY_LABELS} />
       </div>
       <h2 className="mb-2 text-base font-semibold leading-snug group-hover:text-[#005a32] transition-colors">
         {page.title}

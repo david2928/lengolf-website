@@ -51,6 +51,7 @@ export interface FaqContent {
 
 export interface HotelConciergeContent {
   hotel_name: string
+  hotel_neighbourhood: string
   hotel_distance_m: number
   walking_time_mins: number
   walking_directions: string
@@ -123,6 +124,9 @@ export interface ExplainerContent {
   key_takeaways: string[]
   related_services: string[]
   comparison_table: { feature: string; simulator: string; real_golf: string }[]
+  table_heading?: string
+  col_a_label?: string
+  col_b_label?: string
 }
 
 // --- Discriminated union ---

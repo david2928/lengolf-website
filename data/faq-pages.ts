@@ -430,6 +430,504 @@ export const faqPages: FaqSeoPage[] = [
       related_service_pages: ['/events', '/golf'],
     },
   },
+
+  // ─── Golf Guide: can-you-bring-golf-clubs-as-checked-baggage-thailand ───
+  {
+    id: 'faq-16',
+    page_type: 'faq',
+    slug: 'can-you-bring-golf-clubs-as-checked-baggage-thailand',
+    title: `Can You Bring Golf Clubs as Checked Baggage to Thailand?`,
+    meta_description: `Yes — golf clubs are accepted as checked baggage on flights to Bangkok. Here's what every airline requires, weight limits, and what to expect at the airport.`,
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'airlines-baggage',
+    locale: 'en',
+    related_slugs: ['/golf-in-thailand-guide', '/guide/golf-club-baggage-fees-airlines-bangkok', '/guide/how-to-pack-golf-clubs-flight-thailand', '/guide/bring-golf-clubs-thailand-or-rent', '/golf-club-rental'],
+    created_at: now,
+    updated_at: now,
+    content: {
+      answer_intro: `Yes — you can bring golf clubs as checked baggage on flights to Bangkok. All major airlines accept golf bags as checked luggage. On full-service carriers, your golf bag travels within your standard baggage allowance — there is no separate golf equipment surcharge.`,
+      answer_body: `Here's everything you need to know before you pack your clubs.\n\n**Are Golf Clubs Allowed on Flights to Thailand?**\n\nGolf clubs are permitted as checked baggage on virtually every major airline flying to Bangkok's Suvarnabhumi Airport (BKK) or Don Mueang Airport (DMK). They are not allowed in the cabin — clubs must go in the hold.\n\nGolf clubs are not classified as dangerous goods or prohibited items. There are no special entry restrictions on bringing golf equipment into Thailand.\n\n**Will You Be Charged Extra?**\n\nOn major full-service carriers (Thai Airways, Emirates, Qatar Airways, Singapore Airlines, Cathay Pacific), your golf bag counts as one of your standard checked baggage pieces. There is no upfront sporting equipment fee or golf surcharge. You only pay extra if your total checked baggage weight exceeds your free allowance — standard excess baggage rates apply.\n\nSingapore Airlines and Cathay Pacific have a golfer-friendly concession: if the golf bag causes you to exceed your allowance, you are charged at a flat 6 kg rate (up to 15 kg excess) rather than the full bag weight.\n\nBudget carriers (AirAsia, Nok Air, Scoot) are different — they do not include any checked baggage in the base fare, so the golf bag must be added as a paid item at booking.\n\n**Weight and Size Limits**\n\nStandard limits: 20–30 kg per bag in economy; 30–32 kg in business/first. Most airlines will not accept any single bag over 32 kg. A typical setup — 14 clubs, golf shoes, balls and tees in a soft travel bag — weighs roughly 12–18 kg, within most economy allowances.\n\n**Do You Need a Golf Travel Bag?**\n\nStrongly recommended. Options: soft golf travel bag (1–3 kg empty, lightweight, padded) or hard travel case (5–10 kg empty, maximum protection). Most airlines require clubs to be adequately packaged.\n\n**Should You Bring Your Clubs or Rent in Bangkok?**\n\nFor short trips (1–2 rounds), renting clubs in Bangkok is worth considering. Quality rental clubs including Callaway sets are available at LENGOLF (/golf-club-rental) and at most Bangkok golf courses. For longer trips, bringing your own clubs usually makes more sense.\n\nAlways confirm your airline's current baggage policy before travel — fees and allowances change.`,
+      related_questions: [
+        { slug: 'golf-club-baggage-fees-airlines-bangkok', question: 'Golf club baggage fees — every major airline to Bangkok compared' },
+        { slug: 'how-to-pack-golf-clubs-flight-thailand', question: 'How to pack golf clubs for a flight to Thailand' },
+        { slug: 'bring-golf-clubs-thailand-or-rent', question: 'Should you bring golf clubs to Thailand or rent?' },
+      ],
+      related_service_pages: ['/golf-club-rental', '/golf-in-thailand-guide'],
+    },
+  },
+
+  // ─── Golf Guide: thailand-visa-guide-golf-tourists (GG-008) ───
+  {
+    id: 'faq-17',
+    page_type: 'faq',
+    slug: 'thailand-visa-guide-golf-tourists',
+    title: 'Thailand Visa Guide for Golf Tourists',
+    meta_description: 'Planning a golf trip to Thailand? Learn about visa requirements, entry options, and what to expect at Bangkok airports — as of early 2026.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'visa-entry',
+    locale: 'en',
+    related_slugs: ['/golf-in-thailand-guide', '/guide/thailand-entry-requirements-golfers', '/guide/suvarnabhumi-airport-to-bangkok-golf'],
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    content: {
+      answer_intro: `For most visitors, a golf holiday in Thailand requires nothing more than a standard tourist entry — there is no special golf visa or sports permit. The key question is simply which entry pathway applies to your passport: visa exemption, visa on arrival, or e-Visa.`,
+      answer_body: `**Disclaimer:** Visa rules change frequently. All information below reflects the situation as of early 2026 and is provided as general guidance only. Always verify your specific requirements with your nearest Thai embassy or the official Thai immigration website before booking travel.\n\n**The Three Entry Pathways**\n\n1. **Visa Exemption** — many nationalities can enter Thailand without applying for any visa in advance. Golf holidays fall comfortably within the activities permitted under tourist entry. Do not rely on any list you find online for exemption eligibility — check the Thai Ministry of Foreign Affairs website directly.\n\n2. **Visa on Arrival (VOA)** — nationalities not covered by visa exemption may be eligible for a VOA at designated international airports including Suvarnabhumi (BKK) and Don Mueang (DMK). You will need a photo, evidence of onward travel, proof of sufficient funds, and payment in Thai baht at the counter. VOA queues can be long at peak times — factor this into your arrival planning if you have an early tee time.\n\n3. **e-Visa** — Thailand's e-Visa system allows eligible nationalities to apply online before departing via the official Thai e-Visa portal at thaievisa.go.th.\n\n**Before You Travel**\n\n- Confirm your entry pathway at the Thai Ministry of Foreign Affairs website or your country's Thai embassy\n- Ensure at least 6 months passport validity from your date of entry\n- Carry your return or onward flight confirmation\n- Check whether your entry type permits re-entry if crossing into a neighbouring country\n\n**At the Airport**\n\nAs of May 2025, the paper TM6 arrival card has been replaced by the Thailand Digital Arrival Card (TDAC). Most foreign visitors must complete this online within 72 hours before their flight — free at tdac.immigration.go.th. You will receive a QR code to present at the immigration counter.\n\n**Practical Tips for Golf Tourists**\n\n- No golf-specific visa exists — standard tourist entry covers all golf activities at public courses, private clubs, and indoor simulators like LENGOLF in Bangkok\n- Travelling with your own clubs is common and generally uncomplicated; there is no duty on personal-use equipment brought for your trip\n- Book tee times in advance — visa and entry logistics aside, early booking is the main practical consideration\n\n**Official Sources:** Thai Ministry of Foreign Affairs (mfa.go.th) · Thai Immigration Bureau (immigration.go.th) · Thailand e-Visa Portal (thaievisa.go.th)`,
+      related_questions: [
+        { slug: 'thailand-entry-requirements-golfers', question: 'Thailand entry requirements 2026 — quick guide for golfers' },
+        { slug: 'suvarnabhumi-airport-to-bangkok-golf', question: 'Getting from Suvarnabhumi Airport to Bangkok — golf traveller\'s guide' },
+      ],
+      related_service_pages: ['/golf-in-thailand-guide', '/golf'],
+    },
+  },
+
+  // ─── Golf Guide: thailand-entry-requirements-golfers (GG-009) ───
+  {
+    id: 'faq-18',
+    page_type: 'faq',
+    slug: 'thailand-entry-requirements-golfers',
+    title: 'Thailand Entry Requirements 2026 — Quick Guide for Golfers',
+    meta_description: 'Planning a golf trip to Thailand in 2026? Here\'s what you need to know about entry requirements, customs rules for clubs, and what\'s changed since COVID.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'visa-entry',
+    locale: 'en',
+    related_slugs: ['/golf-in-thailand-guide', '/guide/thailand-visa-guide-golf-tourists'],
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    content: {
+      answer_intro: `Thailand's entry requirements for golf tourists in 2026 are straightforward — there are no COVID-era restrictions, no golf-specific permits, and no special customs requirements for personal-use clubs. The main thing to complete before flying is the Thailand Digital Arrival Card (TDAC), which replaced the old paper TM6 form in May 2025.`,
+      answer_body: `**Disclaimer:** Entry requirements can change without notice. Always verify current rules with the Thai Immigration Bureau (immigration.go.th) or your nearest Thai embassy before travel.\n\n**Pre-Flight Checklist**\n\n1. **Valid passport** — Thai immigration recommends at least 6 months validity beyond your intended departure date\n2. **Onward or return ticket** — evidence of onward travel is standard practice at immigration\n3. **Accommodation details** — hotel name and address for your first night\n4. **Proof of funds** — carry a bank card and some cash; specific amounts are at the officer's discretion\n5. **Travel / health insurance** — not mandatory but strongly recommended, especially for sports activities\n6. **TDAC completed** — Thailand Digital Arrival Card must be submitted online within 72 hours before your flight at tdac.immigration.go.th (free; generates a QR code for immigration)\n\n**What's Changed Since COVID**\n\nThailand removed all pandemic-era entry restrictions in 2022. As of 2026: no vaccination proof required, no pre-arrival health declarations, no testing on arrival. The main procedural change since COVID is the TDAC replacing the paper TM6 arrival card from May 2025.\n\n**Golf Equipment at Customs**\n\nTravelling through Suvarnabhumi (BKK) or Don Mueang (DMK) with a full set of clubs is routine — no special declaration or permit is required for personal-use equipment. If you are bringing brand-new clubs in retail packaging or high-value items, declare them to be safe. Renting at the course is a straightforward alternative; rental sets (including Callaway) are available at most Bangkok-area courses and at LENGOLF.\n\n**Health and Travel Insurance**\n\nNot a mandatory entry requirement, but strongly recommended. Check that your policy covers golf-related injuries and includes medical evacuation if you are travelling from a distant country.\n\n**Official Sources:** Thai Immigration Bureau (immigration.go.th) · Thai Customs Department (customs.go.th) · TDAC portal (tdac.immigration.go.th)`,
+      related_questions: [
+        { slug: 'thailand-visa-guide-golf-tourists', question: 'Thailand visa guide for golf tourists' },
+        { slug: 'suvarnabhumi-airport-to-bangkok-golf', question: 'Getting from Suvarnabhumi Airport to Bangkok — golf traveller\'s guide' },
+      ],
+      related_service_pages: ['/golf-in-thailand-guide', '/golf'],
+    },
+  },
+
+  // ─── GG-046: Best Time of Day to Play Golf in Bangkok ────────────────────────
+  {
+    id: 'faq-30',
+    page_type: 'faq',
+    slug: 'best-time-of-day-golf-bangkok',
+    title: 'Best Time of Day to Play Golf in Bangkok',
+    meta_description:
+      'Morning tee times beat Bangkok\'s heat and traffic. Find out why 6–9am is the sweet spot, when twilight golf makes sense, and how seasons shift the calculus.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'on-the-ground',
+    locale: 'en',
+    related_slugs: [
+      '/guide/best-time-play-golf-thailand',
+      '/guide/golf-weather-bangkok-by-month',
+      '/guide/first-time-golf-thailand',
+      '/golf-in-thailand-guide',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      answer_intro:
+        'Tee off between 6am and 9am. This window gives you cooler temperatures, manageable humidity, better pace of play, and enough time to finish before midday heat peaks.',
+      answer_body:
+        'Bangkok sits at roughly 13° north of the equator — heat is a constant, not a variable. The gap between a 7am tee time and a 1pm tee time is the difference between a comfortable round and an uncomfortable one.\n\n**Why morning is the right call:**\n1. **Temperature** — Bangkok mornings run 25–30°C year-round. By noon that climbs to 32–36°C; in the hottest months (March–May) afternoon fairways can reach 37–39°C in direct sun\n2. **Humidity** — relative humidity is lower in the morning before solar heating peaks\n3. **Course conditions** — turf and greens are at their best in the morning\n4. **Finish time** — a 7am start finishes by noon or 12:30, before peak heat\n5. **Traffic** — a 7am tee time means a 5:30–6am hotel departure, before Bangkok\'s worst congestion\n\n**Time-of-day comparison:**\n- 6:00–7:00am: 25–28°C, best overall, fast pace\n- 7:00–9:00am: 27–30°C, ideal window for most visitors\n- 9:00–11:00am: 30–33°C, acceptable with extra water\n- After 1:00pm (twilight): 34–39°C, discounts apply but heat is punishing\n\n**Weekends vs weekdays:** Bangkok courses fill up fast on Saturday and Sunday mornings — the 6:30–8:30am window is often gone days in advance at popular courses. Weekday mornings offer more flexibility and faster pace of play.\n\n**Twilight golf:** Discounted afternoon rates (typically 30–50% cheaper) are available from ~1–2pm. Makes sense if you\'re heat-tolerant, on a budget, or only want 9 holes. Not recommended for visitors from cooler climates or those with an evening flight.\n\n**Seasonal variation:**\n- November–February (cool season): 7–9am tee times are comfortable; afternoon rounds manageable\n- March–May (hot season): Stick strictly to 6–8am; afternoon play is genuinely punishing\n- June–October (wet season): Early starts also dodge the afternoon thunderstorms common from 2–4pm\n\nIf early mornings are not your thing, LENGOLF offers indoor simulator golf in central Bangkok with no tee time window and no weather dependency — air-conditioned bays bookable throughout the day and evening.',
+      related_questions: [
+        { slug: '/guide/best-time-play-golf-thailand', question: 'What is the best time of year to play golf in Thailand?' },
+        { slug: '/guide/golf-weather-bangkok-by-month', question: 'What is the weather like for golf in Bangkok each month?' },
+      ],
+      related_service_pages: ['/golf', '/golf-in-thailand-guide'],
+    },
+  },
+
+  // ─── GG-038: Grab vs Taxi Bangkok Golf ───────────────────────────────────────
+  {
+    id: 'faq-31',
+    page_type: 'faq',
+    slug: 'grab-vs-taxi-bangkok-golf',
+    title: 'Grab vs Taxi in Bangkok for Golf Trips — Which Is Better?',
+    meta_description:
+      'Grab vs metered taxi for Bangkok golf trips — upfront pricing, advance booking, and tips for travelling with clubs. Know which to use and when.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'getting-around',
+    locale: 'en',
+    related_slugs: [
+      '/guide/bangkok-hotels-to-golf-courses-transport',
+      '/guide/suvarnabhumi-airport-to-bangkok-golf',
+      '/guide/don-mueang-airport-to-bangkok',
+      '/golf-in-thailand-guide',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      answer_intro:
+        'Grab is generally the better option for golf trips in Bangkok. Upfront pricing, the ability to book the night before, and vehicle size options make it the more reliable choice when travelling with clubs. Metered taxis still have their place in specific situations.',
+      answer_body:
+        '**Why Grab works better for golfers:**\n\n1. **Book in advance** — You can schedule a Grab pickup the night before your tee time. For early morning departures (5:30–7am), this is significant. Metered taxis cannot be pre-booked\n2. **Upfront fare** — The price is fixed before you confirm the ride. No negotiating at the kerb with clubs at your feet\n3. **Choose the right vehicle** — GrabCar Plus and GrabSUV give a larger boot. For two bags or a cart bag, upgrading the vehicle type removes most space uncertainty\n4. **Add a note to the booking** — A simple note ("travelling with one golf bag, need boot space") filters out reluctant drivers before the job is accepted\n5. **Driver accountability** — Ratings, names, and number plates are visible before pickup, reducing the chance of last-minute refusal\n\n**When a metered taxi is fine:**\n- At Suvarnabhumi or Don Mueang airport — the official taxi queues are well-managed and metered; no app needed after a long flight\n- Travelling without clubs — for a spontaneous trip to a driving range with no equipment, any cab works\n- Very light traffic — early on public holidays or late at night, a metered fare can come in slightly cheaper than a Grab surge price\n\n**Practical tips for booking Grab with golf clubs:**\n1. Select GrabCar as minimum — GrabCar Plus or GrabSUV recommended for more than one standard bag\n2. Add a note in the booking: "1 golf bag in boot" is enough\n3. Message the driver after matching to confirm they\'re comfortable with the club bag — better to cancel at that point than after arrival\n4. Book the night before for early morning tee times — driver availability is thinner at 5:30–7am\n\n**If the driver cancels after seeing the clubs:**\n1. Accept the cancellation and re-book immediately\n2. Upgrade the vehicle type on the next booking\n3. Have a backup: ask hotel reception to call a metered taxi or use the hotel car service\n\n**Cost comparison:** Grab and metered taxis are broadly similar. Central Bangkok to northern suburbs: metered ~250–350 THB; Grab ~280–380 THB. The predictability of Grab\'s upfront fare is usually worth the small premium — particularly with advance booking convenience and reduced refusal risk.',
+      related_questions: [
+        { slug: '/guide/bangkok-hotels-to-golf-courses-transport', question: 'How do I get from Bangkok hotels to golf courses?' },
+        { slug: '/guide/suvarnabhumi-airport-to-bangkok-golf', question: 'How do I get from Suvarnabhumi Airport to Bangkok golf courses?' },
+      ],
+      related_service_pages: ['/golf', '/golf-in-thailand-guide'],
+    },
+  },
+
+  // ─── GG-018: How Many Golf Courses Are There in Thailand? ────────────────
+  {
+    id: 'faq-26',
+    page_type: 'faq',
+    slug: 'how-many-golf-courses-thailand',
+    title: 'How Many Golf Courses Are There in Thailand?',
+    meta_description: 'Thailand has hundreds of golf courses spread across Bangkok, Hua Hin, Phuket, Chiang Mai, and Pattaya — making it one of Asia\'s top golf destinations.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'golf-courses',
+    locale: 'en',
+    related_slugs: ['/golf-in-thailand-guide', '/guide/best-golf-courses-near-bangkok', '/guide/best-time-play-golf-thailand'],
+    created_at: now,
+    updated_at: now,
+    content: {
+      answer_intro: `Thailand is home to approximately 250–300 golf courses, with around 100–150 considered suitable for international visitors. The country ranks among Asia's most golf-dense destinations — Bangkok alone has more than 50 courses within an hour of the city centre.`,
+      answer_body: `**Regional Breakdown**\n\n1. **Bangkok and Central Thailand** — The largest concentration in the country, with 50+ courses within roughly one hour of central Bangkok. Courses range from premium championship layouts to accessible daily-fee venues.\n\n2. **Hua Hin and Pranburi** — A significant concentration of courses lines the Gulf coast south of Bangkok. Many of the country's most celebrated layouts are found here.\n\n3. **Phuket and the Andaman Coast** — Phuket hosts a meaningful cluster of courses, typically set against dramatic hillside scenery, trending upmarket.\n\n4. **Chiang Mai and Northern Thailand** — A growing concentration of courses benefits from cooler highland temperatures; course conditions are often excellent during the cool season (November–February).\n\n5. **Pattaya and the Eastern Seaboard** — Historically popular with expat golfers and weekend visitors from Bangkok.\n\n**Why Thailand Has So Many Courses**\n\n1. Favorable climate — Golf is possible year-round with no frost; courses operate continuously\n2. Strong expat and tourism base — A large residential expat community plus millions of annual visitors from Japan, South Korea, China, and Europe sustain year-round demand\n3. Golf culture in the region — Golf carries significant social and business cachet across East and Southeast Asia\n4. Relatively low development and operating costs — Land availability and competitive labour costs have historically made course development viable\n\n**What This Means for Visitors**\n\nThe sheer number of courses means visitors are genuinely spoiled for choice. Budget-conscious golfers can find quality daily-fee courses for under 1,000 THB; those seeking a premium experience will find championship venues at a fraction of what they would pay in Europe or North America. Tee-time availability is rarely a problem outside peak holiday weekends, and most courses welcome walk-in bookings.\n\nFor first-time visitors, Bangkok is the logical base. The density of courses within the city's orbit means you can play every day of a week-long trip without repeating a venue.`,
+      related_questions: [
+        { slug: 'best-golf-courses-near-bangkok', question: 'Best golf courses near Bangkok' },
+        { slug: 'is-thailand-good-for-golf', question: 'Is Thailand good for golf?' },
+        { slug: 'best-time-play-golf-thailand', question: 'Best time of year to play golf in Thailand' },
+      ],
+      related_service_pages: ['/golf-in-thailand-guide', '/golf'],
+    },
+  },
+
+  // ─── GG-024: Is It Cheaper to Book Golf in Thailand Last Minute? ──────────
+  {
+    id: 'faq-27',
+    page_type: 'faq',
+    slug: 'last-minute-golf-tee-times-thailand',
+    title: 'Is It Cheaper to Book Golf in Thailand Last Minute?',
+    meta_description: 'Wondering if last-minute golf in Thailand saves money? Learn when it works, when it backfires, and how to guarantee a lower rate without the gamble.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'tee-time-booking',
+    locale: 'en',
+    related_slugs: ['/golf-in-thailand-guide', '/guide/how-to-book-golf-tee-times-thailand', '/faq/how-far-in-advance-book-golf-bangkok'],
+    created_at: now,
+    updated_at: now,
+    content: {
+      answer_intro: `Sometimes — but not reliably. The idea that courses discount unsold tee times at the last minute is partly true, but it depends on the day, the season, and the course. In many cases, waiting to book simply means paying the same rate with fewer good times left to choose from.`,
+      answer_body: `**Twilight Rates vs True Last-Minute Discounts**\n\nThese are two different things.\n\n**Twilight rates** are structured discounts for tee times after a fixed cut-off — typically 2:00–3:00 pm. These lower rates are published in advance and available to anyone who books them. They are not last-minute deals; they are time-of-day pricing. Booking a twilight slot in advance is the most reliable way to get a guaranteed lower green fee.\n\n**True last-minute discounts** — where a course drops its rate on the day to fill an unsold spot — are uncommon in Thailand. A small number of courses use platforms such as Deemples or GolfNow to release discounted same-day tee times, but most clubs hold their published rates regardless of how full the sheet is.\n\n**When Last-Minute Booking Works**\n\n1. Weekdays during low season (March–November) — Courses outside Bangkok's most popular circuit rarely fill their midweek mornings\n2. Less popular or newer courses — These often have availability on short notice throughout the week\n3. Flexible plans across 50+ Bangkok courses — If you're genuinely flexible about where you play, you can almost always find somewhere to tee off same-day\n\n**When Last-Minute Doesn't Work**\n\n1. Weekends year-round — Bangkok's most popular courses fill their weekend morning slots well in advance\n2. Peak season (December–February) — Courses at better facilities can be fully booked days out, and rates are not discounted because demand is high\n3. Public holidays and long weekends — These are the hardest days to find any availability, at any price\n\n**The Smart Strategy**\n\n1. Book your preferred course in advance for the day and time you actually want\n2. Identify a backup course so you have an option if your first choice is unavailable\n3. Book a twilight slot if budget is the priority — you get a confirmed tee time at a lower rate, without relying on a discount that may never materialise`,
+      related_questions: [
+        { slug: 'how-far-in-advance-book-golf-bangkok', question: 'How far in advance should you book golf in Bangkok?' },
+        { slug: 'how-to-book-golf-tee-times-thailand', question: 'How to book golf tee times in Thailand' },
+        { slug: 'golfnow-thailand-review', question: 'GolfNow Thailand — does it work and is it the best price?' },
+      ],
+      related_service_pages: ['/golf-in-thailand-guide', '/golf'],
+    },
+  },
+
+  // ─── GG-041: Golf Shoes in Thailand ──────────────────────────────────────
+  {
+    id: 'faq-28',
+    page_type: 'faq',
+    slug: 'golf-shoes-thailand',
+    title: 'Golf Shoes in Thailand — Do You Need to Bring Your Own?',
+    meta_description: 'Planning golf in Bangkok? Find out whether to pack golf shoes, what Thai courses require, rental availability, and why spikeless beats spiked in Thailand\'s heat.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'packing-preparation',
+    locale: 'en',
+    related_slugs: ['/golf-in-thailand-guide', '/guide/what-to-wear-golf-thailand'],
+    created_at: now,
+    updated_at: now,
+    content: {
+      answer_intro: `Yes, bring your own golf shoes. Rental footwear exists at some courses, but availability is inconsistent enough that you should not rely on it. Packing a pair you trust is the safer and more comfortable choice.`,
+      answer_body: `**What Most Thai Golf Courses Require**\n\nThe vast majority of Bangkok-area courses enforce a proper footwear policy — dedicated golf shoes (spiked or spikeless), rather than running shoes, sneakers, or sandals. A handful of more relaxed municipal or resort courses permit clean athletic trainers, but this is the exception. If you plan to play multiple venues without checking each one in advance, assume golf shoes are required.\n\nDo not show up in flip flops or sandals. You are almost certain to be turned away.\n\n**Spikeless vs. Spiked in Thailand's Conditions**\n\nThailand's heat and humidity tip the balance firmly toward spikeless shoes for most visiting golfers.\n\n- **Spikeless shoes:** Lighter, breathe better, dry faster — advantages that matter greatly when temperatures regularly sit above 30°C. They also double as casual footwear off the course, saving bag space.\n- **Spiked shoes:** Provide maximum traction, which can be an advantage on courses that stay wet during the rainy season (roughly May–October). If you play predominantly during that window and prioritise grip on sodden fairways, spiked shoes remain a solid choice.\n\nFor most visitors playing a mix of dry and wet season rounds, a quality waterproof or water-resistant spikeless shoe covers both scenarios well.\n\n**Rental Shoe Availability — Do Not Count on It**\n\nSome courses include rental golf shoes as part of a package; others offer them at the pro shop for a small fee. However, stock is limited, sizing tends to skew toward smaller Asian fit widths, and hygiene quality varies. It is not unusual to arrive and find no shoes in your size. If rental shoes are your only option, call the course ahead to confirm availability and sizing.\n\n**Indoor Golf at LENGOLF — No Special Shoes Required**\n\nPlaying on an indoor golf simulator at LENGOLF removes the footwear question entirely. The simulator bays are played on artificial turf mats — no shoe requirement beyond being clean and comfortable. Regular trainers are perfectly fine.\n\n**Packing Tip**\n\nGolf shoes are the bulkiest single item most golfers pack. Choosing a versatile spikeless pair lets you wear them to dinner, around the resort, or exploring after your round — effectively replacing a second pair of casual shoes.`,
+      related_questions: [
+        { slug: 'what-to-wear-golf-thailand', question: 'What to wear for golf in Thailand' },
+        { slug: 'do-you-need-golf-travel-bag-thailand', question: 'Do you need a golf travel bag for Thailand?' },
+        { slug: 'bring-golf-clubs-thailand-or-rent', question: 'Should you bring golf clubs to Thailand or rent?' },
+      ],
+      related_service_pages: ['/golf-in-thailand-guide', '/golf'],
+    },
+  },
+
+  // ─── GG-047: How Fit Do You Need to Be to Play Golf in Thailand's Heat? ───
+  {
+    id: 'faq-29',
+    page_type: 'faq',
+    slug: 'golf-fitness-heat-thailand',
+    title: 'How Fit Do You Need to Be to Play Golf in Thailand\'s Heat?',
+    meta_description: 'Most visitors can play golf in Thailand\'s heat comfortably. Buggies and caddies handle the exertion — the real challenge is dehydration, not fitness.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'golf-in-thailand',
+    locale: 'en',
+    related_slugs: ['/golf-in-thailand-guide', '/guide/what-to-wear-golf-thailand', '/guide/best-time-play-golf-thailand'],
+    created_at: now,
+    updated_at: now,
+    content: {
+      answer_intro: `Less fit than you might think. At the vast majority of Bangkok-area courses, you ride a buggy and a caddie carries your bag. The physical effort of a Thai golf round is genuinely modest — but the heat and humidity are real, and knowing how to manage them matters.`,
+      answer_body: `**What Makes Thai Golf Less Physically Demanding Than Assumed**\n\n1. **Golf carts (buggies) are standard** — at virtually every course in and around Bangkok, a buggy is included or available as standard. You drive from shot to shot, not walk.\n2. **Your caddie carries the bag** — caddies are mandatory at almost all Bangkok courses. Your clubs are carried by someone else for all 18 holes.\n\nThe result: a typical round runs 4.5 to 5 hours, most of it spent sitting in a buggy or standing at your ball. For most healthy adults, the exertion is comparable to a slow walk in the park.\n\n**The Real Risk — Heat and Dehydration, Not Fitness**\n\nBangkok temperatures sit between 25°C and 35°C year-round. In the wet season (roughly May to October), humidity can exceed 80%. The conditions you need to manage:\n\n1. **Dehydration** — you sweat heavily without always feeling it in high humidity; fluid loss is faster than it seems\n2. **Heat exhaustion** — sustained exposure on open fairways without shade can catch golfers off guard, especially in the first round or two after arrival\n3. **Sun exposure** — UV index in Thailand is extreme by European and North American standards; sunburn accumulates fast\n\n**Practical Tips to Manage the Heat**\n\n1. Book an early tee time — rounds starting between 6am and 9am play in significantly cooler conditions; temperatures and UV index climb sharply after 10am\n2. Drink before you are thirsty — most courses provide water at every hole; use it proactively\n3. Wear the right clothing — lightweight, moisture-wicking fabric makes a real difference\n4. Use shade and the buggy — stay in the buggy between shots rather than standing in direct sun\n5. Eat lightly beforehand — a heavy meal before playing in heat increases discomfort\n6. Apply sunscreen generously — SPF 50+ on face, neck, ears, and forearms, reapplied at the turn\n\n**Who Should Take Extra Care**\n\n1. Older golfers (65+) — heat regulation becomes less efficient with age; extra hydration stops and earlier tee times help\n2. Anyone with cardiovascular conditions — consult your doctor before playing in high heat and humidity\n3. Golfers arriving from cold climates — acclimatisation takes a few days; plan a lighter first round\n4. Anyone who has not played recently — returning to golf after a long break plus tropical heat is a combination worth easing into\n\nIf you feel dizzy, nauseous, or unusually fatigued, stop. Thai courses are experienced with international visitors — nobody will object to a comfortable pace.`,
+      related_questions: [
+        { slug: 'what-to-wear-golf-thailand', question: 'What to wear for golf in Thailand' },
+        { slug: 'best-time-play-golf-thailand', question: 'Best time of year to play golf in Thailand' },
+        { slug: 'golf-bangkok-rainy-season', question: 'Golf in Bangkok during the rainy season' },
+      ],
+      related_service_pages: ['/golf-in-thailand-guide', '/golf'],
+    },
+  },
+
+  // ─── GG-043: Do You Need a Caddie at Thai Golf Courses? ──────────────────
+  {
+    id: 'faq-19',
+    page_type: 'faq',
+    slug: 'do-you-need-caddie-thailand-golf',
+    title: 'Do You Need a Caddie at Thai Golf Courses?',
+    meta_description: 'Caddies are mandatory at almost all Bangkok-area golf courses. Learn what the caddie fee covers, how much to tip, and how to work with your caddie in Thailand.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'golf-in-thailand',
+    locale: 'en',
+    related_slugs: ['/golf-in-thailand-guide', '/guide/thai-golf-course-etiquette', '/faq/how-much-tip-caddie-thailand'],
+    created_at: now,
+    updated_at: now,
+    content: {
+      answer_intro: `Yes — at almost all golf courses in and around Bangkok, a caddie is mandatory. You cannot walk the course carrying your own bag. A caddie will be assigned to you before your round begins, regardless of your preference.`,
+      answer_body: `This surprises many visiting golfers who are used to optional caddies or pull-trolley rounds back home. In Thailand, the caddie system is a core part of the golf experience, not an add-on.\n\n**What "Mandatory Caddie" Means in Practice**\n\nWhen you check in at a Thai golf course, a caddie will be waiting for you at the first tee or allocated to you at the pro shop. There is no opt-out. The course assigns the caddie — you do not choose one, though regular visitors sometimes request a favourite over time.\n\nA typical loop:\n1. Caddie meets you at the bag drop or first tee\n2. She carries your bag for the full 18 holes\n3. She stays by your side throughout the round\n4. After the round, she returns your bag to the bag drop\n\nMost caddies at Bangkok-area courses are women. It is a significant source of employment, and the caddie system is a social institution as much as a logistical one.\n\n**The Caddie Fee vs. the Tip — They Are Not the Same**\n\n- **Caddie fee (mandatory):** typically 400–600 THB, charged at check-in; goes to the course, not entirely to the caddie\n- **Caddie tip:** paid directly to the caddie in cash at the 18th green — the standard is 400–500 THB per round; this is the caddie's primary income and is considered obligatory, not optional\n\nAlways have THB cash ready for the tip.\n\n**What Caddies Actually Do**\n\nA good Thai caddie is significantly more than a bag-carrier:\n1. Carries your bag for all 18 holes in Bangkok's heat and humidity\n2. Reads greens — points out slope, grain, and break before you putt\n3. Advises on yardages and carry distances to the pin or to hazards\n4. Rakes bunkers after your shot\n5. Cleans clubs between shots\n6. Manages course logistics — cart paths, local rules, where to stand\n7. Offers course management advice — which side of the fairway to favour, where the trouble is\n\n**How to Work Well With Your Caddie**\n\n1. Say hello and introduce yourself — she will be with you for four or five hours\n2. Ask her name early and use it\n3. Tell her your game — how far you carry a 7-iron, your typical miss\n4. Listen to her reads on greens — she likely plays this course several times a week\n5. Keep your pace — caddies appreciate golfers who are ready when it's their turn\n6. Tip in cash at the end — do not pay through the clubhouse or add to a card\n\n**Exceptions — Courses That Allow Self-Carry**\n\nA small number of courses — typically more casual layouts or resort-style facilities outside Bangkok — do permit self-carry or offer pull trolleys. These are the exception. If self-carry is important to you, call the course directly before booking to confirm their policy.`,
+      related_questions: [
+        { slug: 'how-much-tip-caddie-thailand', question: 'How much to tip a caddie in Thailand' },
+        { slug: 'thai-golf-course-etiquette', question: 'Thai golf course etiquette guide' },
+        { slug: 'round-of-golf-cost-bangkok', question: 'How much does a round of golf cost in Bangkok?' },
+      ],
+      related_service_pages: ['/golf-in-thailand-guide', '/golf'],
+    },
+  },
+
+  // ─── GG-044: How Much to Tip a Caddie in Thailand ─────────────────────────
+  {
+    id: 'faq-20',
+    page_type: 'faq',
+    slug: 'how-much-tip-caddie-thailand',
+    title: 'How Much to Tip a Caddie in Thailand',
+    meta_description: 'Caddie tips in Thailand run 300–600 THB per round depending on the course tier. Learn the standard ranges, when to tip more, and how to hand it over correctly.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'golf-in-thailand',
+    locale: 'en',
+    related_slugs: ['/golf-in-thailand-guide', '/guide/thai-golf-course-etiquette', '/faq/do-you-need-caddie-thailand-golf'],
+    created_at: now,
+    updated_at: now,
+    content: {
+      answer_intro: `Tip your caddie 300–400 THB at mid-range courses, or 400–600 THB at premium resorts. Hand the cash directly to your caddie at the 18th green — not at the pro shop counter.`,
+      answer_body: `**Quick-Reference Tip Table**\n\n| Course Tier | Tip Range (THB) | Notes |\n|---|---|---|\n| Public / municipal | 300–400 | Lower end of market |\n| Mid-range | 400–500 | Most common amount |\n| Premium / resort | 500–600 | Expected baseline at top venues |\n| Exceptional service | 700–1,000 | Great reads, lost balls found, extra effort in heat |\n\n**The Standard Tip Range**\n\nMost golfers playing mid-range courses leave 400–500 THB for a standard 18-hole round. This covers normal caddie duties: carrying the bag, cleaning clubs, advising on yardages, and raking bunkers.\n\nAt public or municipal tracks, 300–400 THB is perfectly respectful. At resort and championship venues, 500–600 THB is the baseline. Tipping is not legally required, but it is a firmly established norm — caddies rely on tips as a meaningful part of their income.\n\n**Mandatory Caddie Fee vs. Tip — They Are Not the Same**\n\nAlmost every course charges a mandatory caddie fee (typically 400–600 THB) collected at check-in. This goes to the club — not directly to your individual caddie. The tip is entirely separate and is given directly to your caddie in cash. Budget accordingly: between the mandatory fee and the tip, your total caddie-related cost will typically be 900–1,200 THB at mid-range courses.\n\n**When to Tip More**\n\nGo above the standard range — 700 THB or higher — when your caddie delivers genuine added value:\n1. Exceptional green reading that saves you strokes\n2. Helping locate a lost ball in rough or jungle\n3. Carrying extra water or snacks on a hot day without being asked\n4. Handling a difficult situation calmly and professionally\n5. Going the extra mile on club selection advice throughout the round\n\n**Practical Tips: Cash, Timing, and What to Say**\n\n1. Bring THB cash before you arrive — most caddies cannot accept card payments\n2. Tip at the 18th green after your final putt, before returning to the clubhouse\n3. Hand the cash directly — fold the notes neatly and pass with both hands or your right hand; a simple "khob khun krap" (male) or "khob khun ka" (female) — "thank you" in Thai — is appreciated\n4. Do not leave the tip on the golf cart or in the bag — always hand it over in person\n\n**Group Rounds**\n\nEach golfer tips their own assigned caddie separately. If two golfers share one caddie, a combined tip of 600–800 THB is reasonable.`,
+      related_questions: [
+        { slug: 'do-you-need-caddie-thailand-golf', question: 'Do you need a caddie at Thai golf courses?' },
+        { slug: 'thai-golf-course-etiquette', question: 'Thai golf course etiquette guide' },
+        { slug: 'round-of-golf-cost-bangkok', question: 'How much does a round of golf cost in Bangkok?' },
+      ],
+      related_service_pages: ['/golf-in-thailand-guide', '/golf'],
+    },
+  },
+
+  // ─── GG-050: Where to Play Golf in Bangkok at Night ───────────────────────
+  {
+    id: 'faq-21',
+    page_type: 'faq',
+    slug: 'where-play-golf-night-bangkok',
+    title: 'Where to Play Golf in Bangkok at Night',
+    meta_description: 'Outdoor night golf in Bangkok is essentially unavailable. Learn why, what driving range options exist after dark, and where to play evening golf at LENGOLF.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'golf-in-thailand',
+    locale: 'en',
+    related_slugs: ['/golf-in-thailand-guide', '/guide/best-golf-simulators-bangkok'],
+    created_at: now,
+    updated_at: now,
+    content: {
+      answer_intro: `Outdoor night golf on a full course in Bangkok is not a realistic option. Almost every course closes to new tee times at or before sunset — typically 6:00–6:30 pm. If you want to play golf after dark in Bangkok, an indoor simulator is the practical answer.`,
+      answer_body: `**Why Outdoor Bangkok Courses Do Not Offer Night Golf**\n\nBangkok golf courses set their last tee time so that players finish 18 holes before darkness. Given Thailand's latitude, sunset falls consistently between 6:00 and 6:45 pm throughout the year — there is no long summer evening here.\n\nRunning floodlit fairways requires significant infrastructure across 60–80 hectares. No Bangkok-area course currently operates floodlit 18-hole rounds as a regular product. If you arrive at a Bangkok course after 5:30 pm expecting to tee off a full round, you will almost certainly be turned away.\n\n**Evening Driving Ranges — What Exists**\n\nA handful of driving ranges in Bangkok do stay open until 9:00–10:00 pm. These are useful for warm-up or swing practice, but are not a substitute for a round of golf:\n\n1. Floodlit hitting bays — standard multi-storey range format\n2. Limited game feedback — basic target markers, no shot data\n3. No course simulation — you are hitting balls into a lit range, not playing holes\n4. Weather dependency — Bangkok's rainy season can make outdoor ranges unusable in the evenings\n\nRanges near central Bangkok fill up quickly after office hours.\n\n**LENGOLF — The Practical Evening Golf Option in Bangkok**\n\nFor a genuine round of golf after dark in Bangkok, LENGOLF is the most practical option — a climate-controlled indoor golf simulator venue in central Bangkok, open during evening hours.\n\nKey advantages for evening play:\n1. No sunset cutoff — indoor bays are available regardless of time of day or season\n2. Air-conditioned — consistently cool regardless of outside conditions\n3. No weather dependency — rain, humidity, or lightning do not affect your session\n4. Full round simulation — play 9 or 18 holes on accurately modelled courses from around the world\n5. Shot data — ball speed, launch angle, carry distance, and spin data on every shot\n\n**What You Can Do at LENGOLF in the Evening**\n\n1. Full simulated round — choose from a global library and play 9 or 18 holes solo or with a group\n2. Casual group session — up to four players per bay; popular for after-work groups\n3. Practice and range mode — high-feedback driving range with live shot data\n4. Lesson with a pro — coaching sessions available in the evening\n\n**Booking Tips**\n\n1. Book in advance — evening bays on Fridays and weekends fill quickly\n2. Check the LENGOLF website for real-time availability\n3. Arrive 10–15 minutes early to warm up before your session clock starts\n4. Groups of three or four significantly reduce the per-person cost`,
+      related_questions: [
+        { slug: 'best-golf-simulators-bangkok', question: 'Best golf simulators in Bangkok' },
+        { slug: 'do-you-need-caddie-thailand-golf', question: 'Do you need a caddie at Thai golf courses?' },
+        { slug: 'golf-bangkok-rainy-season', question: 'Golf in Bangkok during the rainy season' },
+      ],
+      related_service_pages: ['/golf', '/golf-in-thailand-guide'],
+    },
+  },
+
+  // ─── GG-052: Is It Worth Taking Golf Lessons in Bangkok on Holiday? ────────
+  {
+    id: 'faq-22',
+    page_type: 'faq',
+    slug: 'worth-taking-golf-lessons-bangkok-holiday',
+    title: 'Is It Worth Taking Golf Lessons in Bangkok on Holiday?',
+    meta_description: 'One golf lesson in Bangkok can sharpen your game for the trip ahead. Find out what to expect, who benefits most, and how to book the right format.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'golf-lessons',
+    locale: 'en',
+    related_slugs: ['/golf-in-thailand-guide', '/guide/golf-lessons-bangkok-coaches', '/guide/best-golf-simulators-bangkok'],
+    created_at: now,
+    updated_at: now,
+    content: {
+      answer_intro: `Yes — with honest caveats. A single lesson will not rebuild your swing, but it can surface one or two actionable cues that you carry through the rest of your trip. Bangkok's simulator facilities make this format more useful than at a typical driving range, because the data is specific rather than impressionistic.`,
+      answer_body: `**What One Lesson on Holiday Can Realistically Do**\n\nA single hour cannot change your muscle memory — that takes weeks of repetition. What it can do:\n1. Identify the one or two things that are costing you the most strokes\n2. Give you a feel cue that holds for the trip\n3. Correct a recurring fault before it becomes more ingrained\n4. Calibrate your distances — simulator data shows carry and total distance for every club\n\nWhat it will not do: rebuild your address position, rework grip fundamentals, or produce lasting technique change without follow-up practice. Be upfront with the coach about this context.\n\n**Why Bangkok Makes Lessons More Useful Than a Typical Range**\n\nAt a simulator facility like LENGOLF, a lesson produces data, not just feedback:\n1. Ball speed and carry distance for each club\n2. Launch angle and spin rate — revealing strike quality, not just trajectory\n3. Shot shape measured precisely, not estimated\n4. Consistent ball position so the coach can isolate swing variables\n\nThis means a Bangkok lesson can produce specific, verifiable feedback. If your 7-iron is launching at 16 degrees when it should be 20, that is a measurable problem with a specific cause.\n\n**Who Benefits Most from a Holiday Lesson**\n\n1. Mid-handicappers with one persistent fault — a fresh set of eyes with good data can help\n2. Golfers who are more relaxed on holiday — away from routine, many golfers are more receptive to instruction\n3. Beginners on a longer trip — if you have a week of golf planned and have never had a lesson, one session before your first round is time well spent\n4. Anyone who has just changed equipment — simulator data confirms whether the club change is working\n\nA holiday lesson is less useful for high-handicappers who need fundamental changes across multiple areas.\n\n**What to Ask for When Booking**\n\n1. Request data analysis as part of the session — not all instructors default to it\n2. Tell the coach your handicap, your typical miss, and how many rounds you have coming up\n3. Ask for a maximum of two takeaways — one swing thought and one feel drill\n4. Clarify session length — 45 minutes of focused work is usually more productive than 90 minutes of mixed input\n\n**Fitting a Lesson into a Bangkok Golf Trip**\n\nA practical structure for a week-long trip:\n1. Day 1 or 2: Take the lesson — identify your cues\n2. Days 2–5: Play your course rounds — apply the one or two things from the lesson\n3. Day 5 or 6 (optional): Return for a 30-minute follow-up to see if the change is holding\n\nAvoid booking a lesson on the morning of a course round you care about — you want a day between the lesson and the competitive round.`,
+      related_questions: [
+        { slug: 'golf-lessons-bangkok-coaches', question: 'Golf lessons in Bangkok — coaches and formats' },
+        { slug: 'best-golf-simulators-bangkok', question: 'Best golf simulators in Bangkok' },
+        { slug: 'golf-thailand-beginners', question: 'Golf in Thailand for beginners' },
+      ],
+      related_service_pages: ['/golf', '/golf-in-thailand-guide'],
+    },
+  },
+
+  // ─── GG-029: Are Rental Golf Clubs Good Enough for Serious Golfers? ────────
+  {
+    id: 'faq-23',
+    page_type: 'faq',
+    slug: 'are-rental-golf-clubs-good-enough',
+    title: 'Are Rental Golf Clubs Good Enough for Serious Golfers?',
+    meta_description: 'Premium Bangkok courses offer Callaway, TaylorMade, and Titleist rentals that serious golfers can play with confidence. Here\'s how to find them.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'clubs-rental',
+    locale: 'en',
+    related_slugs: ['/golf-in-thailand-guide', '/golf-club-rental', '/guide/bring-golf-clubs-thailand-or-rent', '/guide/golf-club-rental-bangkok-guide'],
+    created_at: now,
+    updated_at: now,
+    content: {
+      answer_intro: `At premium venues, yes. At budget courses, probably not. If you're playing at a top-tier Bangkok course or a simulator venue like LENGOLF, you'll find modern Callaway, TaylorMade, or Titleist rental sets that are genuinely playable for a serious golfer.`,
+      answer_body: `**The Variables That Determine Rental Club Quality**\n\n1. **Brand and model age** — A current or recent-generation Callaway Rogue or TaylorMade Stealth iron is forgiving and consistent. A 10-year-old no-name iron is not.\n2. **Shaft flex** — Most rental sets come in standard (regular) flex. If you have a fast swing, you'll lose control; if you're slower, you'll lose distance. Premium venues sometimes offer multiple flex options — always ask.\n3. **Set condition** — Grooves wear down, grips get slick. A well-maintained premium rental outperforms a neglected mid-range set every time.\n\n**Where Quality Rentals Are Actually Found in Bangkok**\n\nPremium Bangkok courses — particularly those in the Nichada, Bangna, and eastern corridors — typically stock Callaway or TaylorMade sets in men's, ladies', and occasionally left-handed configurations. Budget and resort courses are less predictable — call ahead and ask specifically which brand and model they stock.\n\nLENGOLF's indoor simulator facility uses Callaway rental clubs across men's, ladies', and left-handed options — a good benchmark for what quality rental equipment looks like in practice.\n\n**What You Still Sacrifice Renting Premium Clubs**\n\nEven with a quality rental set, a serious golfer gives up two things:\n1. **Familiarity** — You know your own clubs. That internal reference disappears entirely with a rental.\n2. **Custom fitting** — Rental clubs are built for average measurements. If you're tall, have an unusual lie angle preference, or play with a non-standard grip size, a rental simply won't fit you the way your own clubs do.\n\n**The Verdict**\n\n- For a casual trip where golf is one of several activities — premium rental clubs are more than adequate\n- For a competitive round, a society match with a handicap at stake, or any course where you've specifically travelled to play your best golf — bring your own clubs\n\n**The Hybrid Approach**\n\nMany experienced golf travellers bring their own clubs for courses that matter and rent at venues where it doesn't — a spontaneous round at an unfamiliar course, a simulator session, or a casual twilight round. This avoids dragging a bag everywhere while keeping your own equipment available when it counts.`,
+      related_questions: [
+        { slug: 'bring-golf-clubs-thailand-or-rent', question: 'Should you bring golf clubs to Thailand or rent?' },
+        { slug: 'golf-club-rental-bangkok-guide', question: 'Golf club rental in Bangkok — complete guide' },
+        { slug: 'what-golf-clubs-available-rent-bangkok', question: 'What golf clubs are available to rent in Bangkok?' },
+      ],
+      related_service_pages: ['/golf-club-rental', '/golf-in-thailand-guide'],
+    },
+  },
+
+  // ─── GG-040: Golf Travel Bag — Do You Need One for Thailand? ──────────────
+  {
+    id: 'faq-24',
+    page_type: 'faq',
+    slug: 'do-you-need-golf-travel-bag-thailand',
+    title: 'Golf Travel Bag — Do You Need One for Thailand?',
+    meta_description: 'Bringing clubs to Thailand? Learn whether a hard case or soft case is worth it, what happens without one, and when renting in Bangkok makes more sense.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'packing-preparation',
+    locale: 'en',
+    related_slugs: ['/golf-in-thailand-guide', '/guide/golf-club-baggage-fees-airlines-bangkok', '/guide/bring-golf-clubs-thailand-or-rent', '/guide/golf-club-rental-bangkok-guide'],
+    created_at: now,
+    updated_at: now,
+    content: {
+      answer_intro: `Yes — if you are bringing your own clubs to Thailand, a golf travel bag is strongly recommended. Airlines will accept a standard golf bag as checked luggage, but without a travel bag your clubs are exposed to the full force of baggage handling, and damage during transit is common enough that most experienced golf travellers consider a travel bag non-negotiable.`,
+      answer_body: `**Hard Case vs Soft Case — An Honest Comparison**\n\n**Hard cases:**\n- Best protection against impact and compression\n- Clubs arrive in the same condition they left in, even on rough-handled flights\n- Heavy — typically 5–8 kg before clubs are added\n- Bulkier to store at the hotel and transport between courses\n- More expensive (THB 6,000–18,000+ for a quality case)\n\n**Soft cases:**\n- Lighter and easier to manoeuvre through airports and hotel lobbies\n- Fold or compress for storage when not in use\n- Less protection — relies heavily on padding inserts and packing technique\n- More vulnerable to being crushed under heavy luggage in the hold\n- Generally cheaper (THB 2,500–8,000 for a decent option)\n\nFor a short trip to Bangkok staying at one property, a well-padded soft case is usually sufficient. For a multi-stop itinerary with several flights, a hard case is the safer investment.\n\n**What Happens Without a Travel Bag**\n\nMost airlines will accept a bare golf bag as checked luggage, but:\n1. Club heads and shafts have no protection from other luggage pressing against them\n2. Graphite shafts are particularly vulnerable to cracking or snapping under lateral pressure\n3. Airlines typically limit or deny liability for items that were not adequately packed\n\n**What to Look for in a Golf Travel Bag**\n\n1. Wheel quality — four spinner wheels are easier to manage than two fixed wheels across long terminal walks\n2. TSA-approved locks — required for US-routed flights; useful for any international travel\n3. Padding or internal frame — soft cases should have a rigid top insert to protect club heads\n4. Club divider compatibility — check your existing stand bag or cart bag fits without forcing the zipper\n5. Airline size compliance — verify against your airline's specific limits\n\n**The Alternative: Rent Clubs in Bangkok**\n\nIf you are travelling light or only planning a round or two, renting clubs in Bangkok is a practical alternative. Rental clubs are available at most Bangkok courses and at dedicated rental services.\n\n**Tips for Packing Clubs Safely**\n\n1. Remove your driver head cover and wrap the driver head separately in a thick towel — it is the most vulnerable club in transit\n2. Fill any empty space in the bag with soft items to prevent clubs shifting\n3. Extend irons to their full length and arrange them so heads do not contact each other directly\n4. If using a soft case, place a stiff foam insert or pipe insulation around the shafts\n5. Photograph your clubs before checking in — this provides evidence if you need to make a damage claim\n6. Attach a luggage tag to both the travel bag and the golf bag inside it`,
+      related_questions: [
+        { slug: 'golf-club-baggage-fees-airlines-bangkok', question: 'Golf club baggage fees — every major airline to Bangkok compared' },
+        { slug: 'bring-golf-clubs-thailand-or-rent', question: 'Should you bring golf clubs to Thailand or rent?' },
+        { slug: 'how-to-pack-golf-clubs-flight-thailand', question: 'How to pack golf clubs for a flight to Thailand' },
+      ],
+      related_service_pages: ['/golf-club-rental', '/golf-in-thailand-guide'],
+    },
+  },
+
+  // ─── GG-021: How Far in Advance Should You Book Golf in Bangkok? ───────────
+  {
+    id: 'faq-25',
+    page_type: 'faq',
+    slug: 'how-far-in-advance-book-golf-bangkok',
+    title: 'How Far in Advance Should You Book Golf in Bangkok?',
+    meta_description: 'Find out how far ahead to book golf tee times in Bangkok — from same-day walk-ins to peak season reservations at top courses. Plan your round right.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'tee-time-booking',
+    locale: 'en',
+    related_slugs: ['/golf-in-thailand-guide', '/guide/how-to-book-golf-tee-times-thailand', '/guide/best-golf-courses-near-bangkok'],
+    created_at: now,
+    updated_at: now,
+    content: {
+      answer_intro: `For weekday rounds at most public courses, 1–3 days in advance is usually sufficient. For weekends, book 1–2 weeks ahead. During peak season (December–February), allow 2–4 weeks — especially for popular courses.`,
+      answer_body: `**The General Rule of Thumb**\n\n- Weekdays: 1–3 days in advance is usually sufficient at most public courses\n- Weekends (Saturday/Sunday): Book 1–2 weeks ahead to secure your preferred tee time\n- Peak season (December–February): Allow 2–4 weeks, especially for popular or well-regarded courses\n- Premium or private-access courses: Book as early as possible — 4+ weeks is not unreasonable during busy periods\n\nThe best tee times — generally 6:00 am to 9:00 am — go earliest. If you want an early start, add at least a few extra days to whatever lead time applies.\n\n**Why Weekends Fill Up Faster**\n\nBangkok has a large and active local golf community. On Saturdays and Sundays, resident golfers, golf societies, and corporate groups compete for the same tee sheets as visiting players. Many courses offer weekend membership deals that give local players priority booking. Prime weekend slots can be gone 7–10 days out at the most popular venues.\n\nIf your schedule is flexible, shifting your round to Monday or Tuesday often means better availability, faster pace of play, and — at some courses — lower green fees.\n\n**Peak Season: Book Before You Arrive (December–February)**\n\nThailand's cool, dry season draws the largest number of international visitors, and golf traffic rises sharply with them. During this window, it is strongly advisable to book tee times before you board your flight to Bangkok. Waiting until you arrive can leave you with limited choices or inconvenient tee times.\n\n**Same-Day and Walk-In Bookings**\n\nWalk-in or same-day bookings are sometimes possible, particularly on weekday mornings when a slot opens due to a cancellation. However, relying on this approach is risky — you may end up with a tee time much later than wanted, or no availability at all. Treat same-day play as a bonus, not a plan.\n\n**Quick Booking Tips**\n\n1. Book weekday rounds to maximise flexibility and reduce lead times\n2. Use a reputable booking platform — see our guide to booking golf tee times in Thailand\n3. Prioritise early tee times — if you want 7:00 am, book earlier than you think you need to\n4. Confirm your booking by phone or email 24–48 hours before your round, especially during peak season\n5. Research courses first — some venues require more advance planning than others`,
+      related_questions: [
+        { slug: 'how-to-book-golf-tee-times-thailand', question: 'How to book golf tee times in Thailand' },
+        { slug: 'best-golf-courses-near-bangkok', question: 'Best golf courses near Bangkok' },
+        { slug: 'last-minute-golf-tee-times-thailand', question: 'Can you get last-minute golf tee times in Thailand?' },
+      ],
+      related_service_pages: ['/golf-in-thailand-guide', '/golf'],
+    },
+  },
+
+  // ─── GG-002: Can You Bring Golf Clubs as Checked Baggage ──────────────────
+  {
+    id: 'gg-can-you-bring-golf-clubs-as-checked-baggage-thailand',
+    page_type: 'faq',
+    slug: 'can-you-bring-golf-clubs-as-checked-baggage-thailand',
+    title: 'Can You Bring Golf Clubs as Checked Baggage to Thailand?',
+    meta_description: 'Yes — golf clubs are accepted as checked baggage on flights to Bangkok. Here\'s what every airline requires, weight limits, and what to expect at the airport.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'airlines-baggage',
+    locale: 'en',
+    related_slugs: ['/golf-in-thailand-guide', '/guide/golf-club-baggage-fees-airlines-bangkok', '/guide/how-to-pack-golf-clubs-flight-thailand', '/guide/bring-golf-clubs-thailand-or-rent', '/golf-club-rental'],
+    created_at: now,
+    updated_at: now,
+    content: {
+      answer_intro: `Yes — you can bring golf clubs as checked baggage on flights to Bangkok. All major airlines accept golf bags as checked luggage. On full-service carriers, your golf bag travels within your standard baggage allowance — there is no separate golf equipment surcharge.`,
+      answer_body: `**Are Golf Clubs Allowed on Flights to Thailand?**\n\nGolf clubs are permitted as checked baggage on virtually every major airline flying to Bangkok's Suvarnabhumi Airport (BKK) or Don Mueang Airport (DMK). They are not allowed in the cabin — clubs must go in the hold.\n\nGolf clubs are not classified as dangerous goods or prohibited items. There are no special entry restrictions on bringing golf equipment into Thailand.\n\n**Will You Be Charged Extra?**\n\nOn major full-service carriers (Thai Airways, Emirates, Qatar Airways, Singapore Airlines, Cathay Pacific), your golf bag counts as one of your standard checked baggage pieces. There is no upfront "sporting equipment fee" or golf surcharge.\n\nYou only pay extra if your total checked baggage weight exceeds your free allowance — standard excess baggage rates then apply.\n\nTwo carriers have a particularly golfer-friendly excess structure: Singapore Airlines and Cathay Pacific charge a flat 6 kg rate (up to 15 kg of excess) rather than the full weight of the bag if you go over.\n\nBudget carriers (AirAsia, Nok Air, Scoot) do not include any checked baggage in the base fare, so the golf bag must be added as a paid item at booking.\n\n**Weight and Size Limits**\n\n- Economy weight limit: 20–30 kg per bag depending on airline and route\n- Business/first: 30–32 kg typically\n- Maximum accepted weight: Most airlines will not accept any single bag over 32 kg (70 lbs)\n- Size limit: Most airlines use a total dimensions limit of 158 cm (62 linear inches)\n\nA typical golf travel setup — 14 clubs, golf shoes, some balls and tees in a soft travel bag — weighs roughly 12–18 kg. This fits within most economy allowances without excess charges.\n\n**Do You Need a Golf Travel Bag?**\n\nMost airlines require clubs to be "adequately packaged." A soft padded travel bag (1–3 kg empty) offers good protection for most trips. A hard case gives maximum protection but adds 5–10 kg — watch your total weight allowance. A regular stand bag without travel protection may be refused by some carriers.\n\n**Should You Bring Your Clubs or Rent?**\n\nFor short trips (1–2 rounds), renting clubs in Bangkok is worth considering. Quality rental clubs including Callaway sets are available at LENGOLF and at most Bangkok golf courses — no baggage fee, no packing hassle, and no risk of damage in transit. For longer trips with multiple rounds, bringing your own clubs usually makes more sense.`,
+      related_questions: [
+        { slug: 'do-you-need-caddie-thailand-golf', question: 'Do you need a caddie at Thai golf courses?' },
+        { slug: 'how-much-tip-caddie-thailand', question: 'How much to tip a caddie in Thailand' },
+        { slug: 'where-play-golf-night-bangkok', question: 'Where to play golf in Bangkok at night' },
+      ],
+      related_service_pages: ['/golf-club-rental', '/golf-in-thailand-guide'],
+    },
+  },
+
+  // ─── GG-028: What Golf Clubs Are Available to Rent in Bangkok ─────────────
+  {
+    id: 'gg-what-golf-clubs-available-rent-bangkok',
+    page_type: 'faq',
+    slug: 'what-golf-clubs-available-rent-bangkok',
+    title: 'What Golf Clubs Are Available to Rent in Bangkok?',
+    meta_description: 'Discover which golf club brands you can rent in Bangkok — Callaway, TaylorMade, Titleist and more — plus tips on left-handed and ladies\' sets.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'clubs-rental',
+    locale: 'en',
+    related_slugs: ['/golf-in-thailand-guide', '/guide/golf-club-rental-bangkok-guide', '/guide/renting-golf-clubs-thai-golf-courses', '/guide/bring-golf-clubs-thailand-or-rent'],
+    created_at: now,
+    updated_at: now,
+    content: {
+      answer_intro: `The most common rental brands at quality Bangkok golf venues are Callaway, TaylorMade, and Titleist. At LENGOLF, all rental sets are Callaway — available in mens, ladies, and left-handed configurations. Budget courses typically stock older or mixed-brand sets, and condition can vary considerably.`,
+      answer_body: `**Rental Quality by Venue Type**\n\nHigher-end Bangkok golf courses and indoor simulators invest in name-brand rental inventory. Callaway and TaylorMade are the most widely stocked, while Titleist sets appear at a smaller number of quality venues. You can generally expect clubs that are less than a few years old, clean grips, and a complete set from driver to putter.\n\nLENGOLF specifically uses Callaway rental sets across all categories — a consistent choice that suits most mid-handicap players and beginners alike.\n\nOlder or mixed-brand sets are standard at budget courses around Bangkok. Clubs may be from several generations back, grips can be worn, and the overall condition varies from venue to venue.\n\n**What a Full Set Typically Includes**\n\nMost rental sets in Bangkok are rented as a complete package and usually contain:\n1. Driver\n2. Fairway wood (typically 3-wood or 5-wood)\n3. Hybrids or long irons (varies by set)\n4. Irons — 5 through 9\n5. Pitching wedge and sand wedge\n6. Putter\n7. Golf bag\n\nSome venues include a stand bag; others use a cart bag. If you need a specific wedge loft (60°, for example) it is best to bring your own.\n\n**Left-Handed and Ladies' Sets**\n\nLeft-handed and ladies' rental sets are less commonly stocked at standard Bangkok courses — many venues carry only standard right-handed mens sets. LENGOLF is an exception: dedicated left-handed and ladies' Callaway sets are available for rental.\n\n**Practical Tips Before You Book**\n\n1. **Call or message ahead** if you are left-handed, need a ladies' set, or have a shaft-flex preference.\n2. **Ask about the brand and age** of rental sets if equipment quality matters to your game.\n3. **Check rental fees in advance** — costs vary widely between premium and budget venues.\n4. **Bring your own glove and balls** — these are rarely included in rental packages.\n5. **Shoe rentals** are usually available separately; confirm at the same time you confirm clubs.`,
+      related_questions: [
+        { slug: 'golf-club-rental-bangkok-guide', question: 'Golf club rental in Bangkok — complete guide' },
+        { slug: 'renting-golf-clubs-thai-golf-courses', question: 'Renting golf clubs at Thai golf courses' },
+        { slug: 'bring-golf-clubs-thailand-or-rent', question: 'Should you bring golf clubs to Thailand or rent?' },
+      ],
+      related_service_pages: ['/golf-club-rental', '/golf-in-thailand-guide'],
+    },
+  },
 ]
 
 // ── Dynamic content getters for high-intent FAQ pages ──

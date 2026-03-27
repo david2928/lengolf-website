@@ -1,0 +1,45 @@
+{
+  "slug": "how-to-pack-golf-clubs-flight-thailand",
+  "generated": "2026-03-24",
+  "overall_status": "APPROVED",
+  "disputed_claims": [],
+  "disclaimer_flags": [
+    {
+      "claim": "USD 50–100+ overweight fees per sector",
+      "reason": "Fees change; knowledge base confirms this range",
+      "action": "Acceptable — consistent with knowledge base"
+    },
+    {
+      "claim": "Titleist and Callaway rental brands available at Bangkok courses",
+      "reason": "Brand names not confirmed in knowledge base",
+      "action": "Verify with LENGOLF before publishing, or remove brand names"
+    }
+  ],
+  "seo_issues": [],
+  "unverifiable_claims": [
+    {
+      "claim": "Titleist and Callaway rental brands",
+      "reason": "Knowledge base does not name specific rental brands",
+      "risk": "low — in context of LENGOLF promotion; verify with client"
+    },
+    {
+      "claim": "Some airlines apply fragile stickers on request",
+      "reason": "General industry knowledge; airline-dependent",
+      "risk": "low"
+    }
+  ],
+  "seo_check": {
+    "title_length": 52,
+    "title_pass": true,
+    "meta_length": 155,
+    "meta_pass": true,
+    "primary_keyword_in_title": true,
+    "primary_keyword_in_meta": true,
+    "h2_count": 7,
+    "internal_links_present": ["/golf-club-rental", "/guide/bring-golf-clubs-thailand-or-rent"],
+    "date_qualifier_present": true
+  },
+  "recommendations": [
+    "Verify or remove Titleist/Callaway brand names — confirm with LENGOLF which brands they stock"
+  ]
+}

@@ -317,7 +317,11 @@
     "exploreLessons": "Lessons",
     "exploreClubRental": "Club Rental",
     "exploreEvents": "Events",
-    "exploreBlog": "Blog"
+    "exploreBlog": "Blog",
+    "exploreCorpGolfCost": "How Much Does a Corporate Golf Event Cost?",
+    "exploreCorpEventCost": "Corporate Event Cost Breakdown",
+    "exploreBestTeamBuilding": "Best Team Building Activities in Bangkok",
+    "exploreGroupActivities": "Group Activities in Bangkok"
   },
   "EventsFaq": {
     "q1": "How many people can LENGOLF accommodate for events?",
@@ -378,7 +382,11 @@
     "exploreBayRates": "Bay Rates",
     "exploreEvents": "Events",
     "exploreClubRental": "Club Rental",
-    "exploreBlog": "Blog"
+    "exploreBlog": "Blog",
+    "exploreBestWayLearn": "Best Way to Learn Golf in Bangkok",
+    "exploreLessonPrices": "Bangkok Golf Lesson Prices",
+    "exploreBeginnersSimulator": "Can Beginners Play Golf Simulators?",
+    "explorePlanGolfTrip": "Plan Your Golf Trip to Thailand"
   },
   "LessonsFaq": {
     "q1": "Do you offer a free trial golf lesson?",
