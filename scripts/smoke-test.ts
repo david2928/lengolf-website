@@ -78,6 +78,10 @@ const routeTests: RouteTest[] = [
   { path: '/th/blog/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Blog post detail (catches Supabase query errors on dynamic routes)
   { path: '/blog/golf-lessons-in-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // SEO hub pages
+  { path: '/activities/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/golf-in-thailand-guide/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/hotels/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Best-of listicle pages
   { path: '/best/best-team-building-activities-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/best/best-corporate-event-venues-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
@@ -133,10 +137,10 @@ const redirectTests: RedirectTest[] = [
   // GSC 404 fixes
   { path: '/indoor-golf-ploenchit/', expectedStatus: 308, expectedLocation: '/location/indoor-golf-ploenchit/' },
   { path: '/lesson/', expectedStatus: 308, expectedLocation: '/lessons/' },
-  // GSC 404 golf-near redirects
-  { path: '/golf-near-thong-lo', expectedStatus: 308, expectedLocation: '/location/golf-near-thong-lo/' },
-  { path: '/golf-near-silom', expectedStatus: 308, expectedLocation: '/location/golf-near-silom/' },
-  { path: '/golf-near-sukhumvit', expectedStatus: 308, expectedLocation: '/location/golf-near-sukhumvit/' },
+  // GSC 404 golf-near redirects (trailing slash required — trailingSlash:true fires 308 before middleware)
+  { path: '/golf-near-thong-lo/', expectedStatus: 308, expectedLocation: '/location/golf-near-thong-lo/' },
+  { path: '/golf-near-silom/', expectedStatus: 308, expectedLocation: '/location/golf-near-silom/' },
+  { path: '/golf-near-sukhumvit/', expectedStatus: 308, expectedLocation: '/location/golf-near-sukhumvit/' },
 ]
 
 // C) Critical external link checks

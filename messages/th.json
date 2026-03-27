@@ -318,9 +318,9 @@
     "exploreClubRental": "เช่าไม้กอล์ฟ",
     "exploreEvents": "อีเว้นท์",
     "exploreBlog": "บล็อก",
-    "exploreCorpGolfCost": "กิจกรรมกอล์ฟองค์กรค่าใช้จ่ายเท่าไร?",
-    "exploreCorpEventCost": "รายละเอียดค่าใช้จ่ายกิจกรรมองค์กร",
-    "exploreBestTeamBuilding": "กิจกรรม Team Building ที่ดีที่สุดในกรุงเทพฯ",
+    "exploreCorporateEventCostFaq": "จัดงานกอล์ฟองค์กรราคาเท่าไหร่?",
+    "exploreCorporateEventCostGuide": "รายละเอียดค่าใช้จ่ายจัดงานองค์กร",
+    "exploreTeamBuilding": "กิจกรรม Team Building ที่ดีที่สุดในกรุงเทพฯ",
     "exploreGroupActivities": "กิจกรรมกลุ่มในกรุงเทพฯ"
   },
   "EventsFaq": {
@@ -383,10 +383,10 @@
     "exploreEvents": "อีเว้นท์",
     "exploreClubRental": "เช่าไม้กอล์ฟ",
     "exploreBlog": "บล็อก",
-    "exploreBestWayLearn": "วิธีที่ดีที่สุดในการเรียนกอล์ฟในกรุงเทพฯ",
+    "exploreBestWayToLearn": "วิธีที่ดีที่สุดในการเรียนกอล์ฟในกรุงเทพฯ",
     "exploreLessonPrices": "ราคาเรียนกอล์ฟในกรุงเทพฯ",
-    "exploreBeginnersSimulator": "ผู้เริ่มต้นเล่นกอล์ฟซิมูเลเตอร์ได้ไหม?",
-    "explorePlanGolfTrip": "วางแผนทริปกอล์ฟในไทย"
+    "exploreBeginnersFaq": "มือใหม่เล่นกอล์ฟซิมมูเลเตอร์ได้ไหม?",
+    "explorePlanTrip": "วางแผนทริปกอล์ฟในไทย"
   },
   "LessonsFaq": {
     "q1": "มีเรียนทดลองฟรีไหม?",

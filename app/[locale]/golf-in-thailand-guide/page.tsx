@@ -11,17 +11,15 @@ import { SITE_URL, BOOKING_URL } from '@/lib/constants'
 import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 import type { SeoPage } from '@/types/seo-pages'
 
-export async function generateStaticParams() {
-  return [{ locale: 'en' }]
-}
-
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const prefix = locale === 'en' ? '' : `/${locale}`
   return {
     title: 'Golf in Thailand — The Complete Planning Guide | LENGOLF',
     description:
       'Plan your golf trip to Thailand from scratch — best courses near Bangkok, when to go, how to book tee times, club rental vs bringing your own, airport transfers, and on-the-ground tips. Updated 2026.',
     alternates: {
-      canonical: `${SITE_URL}/golf-in-thailand-guide/`,
+      canonical: `${SITE_URL}${prefix}/golf-in-thailand-guide/`,
     },
   }
 }

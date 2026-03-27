@@ -39,6 +39,8 @@
     "_migration",
     "docs",
     "scripts",
-    "wireframes"
+    "wireframes",
+    "tests",
+    "playwright.config.ts"
   ]
 }

@@ -318,9 +318,9 @@
     "exploreClubRental": "Club Rental",
     "exploreEvents": "Events",
     "exploreBlog": "Blog",
-    "exploreCorpGolfCost": "How Much Does a Corporate Golf Event Cost?",
-    "exploreCorpEventCost": "Corporate Event Cost Breakdown",
-    "exploreBestTeamBuilding": "Best Team Building Activities in Bangkok",
+    "exploreCorporateEventCostFaq": "How Much Does a Corporate Golf Event Cost?",
+    "exploreCorporateEventCostGuide": "Corporate Event Cost Breakdown",
+    "exploreTeamBuilding": "Best Team Building Activities in Bangkok",
     "exploreGroupActivities": "Group Activities in Bangkok"
   },
   "EventsFaq": {
@@ -383,10 +383,10 @@
     "exploreEvents": "Events",
     "exploreClubRental": "Club Rental",
     "exploreBlog": "Blog",
-    "exploreBestWayLearn": "Best Way to Learn Golf in Bangkok",
+    "exploreBestWayToLearn": "Best Way to Learn Golf in Bangkok",
     "exploreLessonPrices": "Bangkok Golf Lesson Prices",
-    "exploreBeginnersSimulator": "Can Beginners Play Golf Simulators?",
-    "explorePlanGolfTrip": "Plan Your Golf Trip to Thailand"
+    "exploreBeginnersFaq": "Can Beginners Play Golf Simulators?",
+    "explorePlanTrip": "Plan Your Golf Trip to Thailand"
   },
   "LessonsFaq": {
     "q1": "Do you offer a free trial golf lesson?",
