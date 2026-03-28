@@ -75,7 +75,7 @@ function ResourceCard({ href, cat, title, desc, iconBg }: {
     <Link
       href={href as Parameters<typeof Link>[0]['href']}
       className="group flex items-start gap-4 rounded-lg border bg-white p-5 transition-all hover:shadow-md hover:border-primary/30 hover:-translate-y-px"
-      style={{ borderColor: 'rgba(0,66,37,0.12)', borderLeftWidth: '3px', borderLeftColor: iconBg.includes('200,160') ? '#C8A050' : '#4A8B6F' }}
+      style={{ borderColor: 'rgba(0,66,37,0.12)', borderLeftWidth: '3px', borderLeftColor: iconBg.includes('200,160') ? '#C8A050' : iconBg.includes('232,123') ? '#E87B4A' : '#4A8B6F' }}
     >
       <div className="flex-1 min-w-0">
         <p
