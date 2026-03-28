@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 
 
@@ -28,6 +28,15 @@ export default function ImageLightbox({
 }: ImageLightboxProps) {
   const [active, setActive] = useState<LightboxImage | null>(null)
 
+  const close = useCallback(() => setActive(null), [])
+
+  useEffect(() => {
+    if (!active) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') close() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [active, close])
+
   const visibleImages = thumbnailCount ? images.slice(0, thumbnailCount) : images
 
   return (
@@ -53,9 +62,20 @@ export default function ImageLightbox({
 
       {active && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={active.alt}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 cursor-pointer"
-          onClick={() => setActive(null)}
+          onClick={close}
         >
+          <button
+            type="button"
+            aria-label="Close image"
+            onClick={close}
+            className="absolute top-4 right-4 text-white/70 hover:text-white text-3xl leading-none"
+          >
+            &times;
+          </button>
           <div className="relative cursor-default" style={{ maxWidth: '90vw', maxHeight: '90vh' }} onClick={e => e.stopPropagation()}>
             <Image
               src={active.src}

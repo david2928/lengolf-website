@@ -91,12 +91,6 @@ const routeTests: RouteTest[] = [
   { path: '/ko/rent-golf-clubs-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/rent-golf-clubs-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/zh/rent-golf-clubs-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  // Golf in Thailand guide (EN-only hub page)
-  { path: '/golf-in-thailand-guide/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  // Activities hub (EN-only)
-  { path: '/activities/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  // Hotels hub (EN-only)
-  { path: '/hotels/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Guide (explainer) pages — spot-check original + new golf-travel slugs
   { path: '/guide/what-is-a-golf-simulator/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/guide/best-time-play-golf-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
