@@ -445,7 +445,11 @@
     "exploreLessons": "Lessons",
     "exploreClubRental": "Club Rental",
     "exploreEvents": "Events",
-    "exploreBlog": "Blog"
+    "exploreBlog": "Blog",
+    "exploreCorpGolfCost": "法人ゴルフイベントの費用は？",
+    "exploreCorpEventCost": "法人イベント費用の内訳",
+    "exploreBestTeamBuilding": "バンコク最高のチームビルディング活動",
+    "exploreGroupActivities": "バンコクのグループアクティビティ"
   },
   "EventsFaq": {
     "q1": "How many people can LENGOLF accommodate for events?",
@@ -506,7 +510,11 @@
     "exploreBayRates": "Bay Rates",
     "exploreEvents": "Events",
     "exploreClubRental": "Club Rental",
-    "exploreBlog": "Blog"
+    "exploreBlog": "Blog",
+    "exploreBestWayLearn": "バンコクでゴルフを学ぶ最良の方法",
+    "exploreLessonPrices": "バンコクのゴルフレッスン料金",
+    "exploreBeginnersSimulator": "初心者はゴルフシミュレーターを楽しめますか？",
+    "explorePlanGolfTrip": "タイゴルフ旅行を計画する"
   },
   "LessonsFaq": {
     "q1": "Do you offer a free trial golf lesson?",

@@ -20,6 +20,7 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'Arnoma Grand Bangkok',
+      hotel_neighbourhood: 'Ratchaprasong / Chidlom',
       hotel_distance_m: 700,
       walking_time_mins: 11,
       walking_directions:
@@ -67,6 +68,7 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'Sindhorn Midtown Hotel',
+      hotel_neighbourhood: 'Langsuan / Chidlom',
       hotel_distance_m: 350,
       walking_time_mins: 5,
       walking_directions:
@@ -115,6 +117,7 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'Grand Hyatt Erawan Bangkok',
+      hotel_neighbourhood: 'Ratchaprasong / Chidlom',
       hotel_distance_m: 500,
       walking_time_mins: 6,
       walking_directions:
@@ -165,6 +168,7 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'The Athenee Hotel Bangkok, a Luxury Collection Hotel',
+      hotel_neighbourhood: 'Wireless Road / Ploenchit',
       hotel_distance_m: 700,
       walking_time_mins: 10,
       walking_directions:
@@ -213,6 +217,7 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'InterContinental Bangkok',
+      hotel_neighbourhood: 'Ratchaprasong / Chidlom',
       hotel_distance_m: 150,
       walking_time_mins: 2,
       walking_directions:
@@ -262,6 +267,7 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'Hotel Indigo Bangkok Wireless Road',
+      hotel_neighbourhood: 'Wireless Road / Ploenchit',
       hotel_distance_m: 700,
       walking_time_mins: 9,
       walking_directions:
@@ -311,6 +317,7 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'Novotel Bangkok Ploenchit Sukhumvit',
+      hotel_neighbourhood: 'Sukhumvit / Ploenchit',
       hotel_distance_m: 1500,
       walking_time_mins: 21,
       walking_directions:
@@ -359,6 +366,7 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'Renaissance Bangkok Ratchaprasong Hotel',
+      hotel_neighbourhood: 'Ratchaprasong / Chidlom',
       hotel_distance_m: 450,
       walking_time_mins: 6,
       walking_directions:
@@ -409,6 +417,7 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'The Okura Prestige Bangkok',
+      hotel_neighbourhood: 'Wireless Road / Ploenchit',
       hotel_distance_m: 600,
       walking_time_mins: 9,
       walking_directions:
@@ -458,6 +467,7 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'Anantara Siam Bangkok Hotel',
+      hotel_neighbourhood: 'Ratchadamri / Ratchaprasong',
       hotel_distance_m: 800,
       walking_time_mins: 11,
       walking_directions:
@@ -507,6 +517,7 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'Mercure Bangkok Siam',
+      hotel_neighbourhood: 'Siam / CentralWorld',
       hotel_distance_m: 2100,
       walking_time_mins: 30,
       walking_directions:
@@ -557,6 +568,7 @@ export const hotelConciergePages: HotelConciergeSeoPage[] = [
     updated_at: now,
     content: {
       hotel_name: 'Kimpton Maa-Lai Bangkok',
+      hotel_neighbourhood: 'Langsuan / Chidlom',
       hotel_distance_m: 800,
       walking_time_mins: 11,
       walking_directions:

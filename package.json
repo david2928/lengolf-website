@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test:smoke": "tsx scripts/smoke-test.ts",
+    "golf-guide:publish": "tsx docs/golf-guide/agents/4.publishContent.ts",
     "test:mobile": "playwright test tests/landing-page-mobile.spec.ts",
     "test:mobile:ui": "playwright test tests/landing-page-mobile.spec.ts --ui",
     "test:mobile:report": "playwright show-report"

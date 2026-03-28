@@ -3,6 +3,7 @@ import { Link } from '@/i18n/navigation'
 import { setRequestLocale } from 'next-intl/server'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
+import CategoryPill from '@/components/shared/CategoryPill'
 import { getSeoPagesByType } from '@/lib/seo-pages'
 import { SITE_URL } from '@/lib/constants'
 import { getBreadcrumbJsonLd } from '@/lib/jsonld'
@@ -45,19 +46,6 @@ function pageHref(page: SeoPage): string {
   return `/activities/${page.slug}`
 }
 
-function CategoryPill({ category }: { category: string | null }) {
-  if (!category) return null
-  const label = CATEGORY_LABELS[category] ?? category
-  return (
-    <span
-      className="inline-block rounded-full px-3 py-0.5 text-xs font-medium"
-      style={{ backgroundColor: '#E6F4EC', color: '#005a32' }}
-    >
-      {label}
-    </span>
-  )
-}
-
 function PageCard({ page }: { page: SeoPage }) {
   return (
     <Link
@@ -65,7 +53,7 @@ function PageCard({ page }: { page: SeoPage }) {
       className="group flex flex-col rounded-lg border bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
     >
       <div className="mb-3">
-        <CategoryPill category={page.category} />
+        <CategoryPill category={page.category} labelMap={CATEGORY_LABELS} />
       </div>
       <h2 className="mb-2 text-base font-semibold leading-snug group-hover:text-[#005a32] transition-colors">
         {page.title}
@@ -157,7 +145,7 @@ export default async function ActivitiesHubPage({
             Ready to Experience Bangkok&apos;s Best Indoor Golf?
           </h2>
           <p className="mb-6 text-white/80">
-            LENGOLF at Mercury Ville (BTS Chidlom) — open daily 9am–11pm, no experience needed.
+            LENGOLF at Mercury Ville (BTS Chidlom) — open daily 10am–11pm, no experience needed.
           </p>
           <BookingCTA text="Book a Bay" className="bg-white text-primary hover:bg-white/90" />
         </div>

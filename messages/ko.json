@@ -445,7 +445,11 @@
     "exploreLessons": "Lessons",
     "exploreClubRental": "Club Rental",
     "exploreEvents": "Events",
-    "exploreBlog": "Blog"
+    "exploreBlog": "Blog",
+    "exploreCorpGolfCost": "기업 골프 이벤트 비용은 얼마인가요?",
+    "exploreCorpEventCost": "기업 이벤트 비용 분석",
+    "exploreBestTeamBuilding": "방콕 최고의 팀 빌딩 활동",
+    "exploreGroupActivities": "방콕 그룹 활동"
   },
   "EventsFaq": {
     "q1": "How many people can LENGOLF accommodate for events?",
@@ -506,7 +510,11 @@
     "exploreBayRates": "Bay Rates",
     "exploreEvents": "Events",
     "exploreClubRental": "Club Rental",
-    "exploreBlog": "Blog"
+    "exploreBlog": "Blog",
+    "exploreBestWayLearn": "방콕에서 골프를 배우는 최선의 방법",
+    "exploreLessonPrices": "방콕 골프 레슨 가격",
+    "exploreBeginnersSimulator": "초보자도 골프 시뮬레이터를 즐길 수 있나요?",
+    "explorePlanGolfTrip": "태국 골프 여행 계획"
   },
   "LessonsFaq": {
     "q1": "Do you offer a free trial golf lesson?",
