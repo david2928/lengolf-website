@@ -173,7 +173,7 @@ export default async function GolfPage({ params }: { params: Promise<{ locale: s
             </h2>
             <div className="mx-auto max-w-lg">
               <Image
-                src={storageUrl('golf/bay-rates.jpg')}
+                src={`${storageUrl('golf/bay-rates.jpg')}?v=20260331`}
                 alt="LENGOLF bay rates: weekday 550–750 THB/hr, weekend 750–950 THB/hr, up to 5 players per bay, golf club rental included"
                 width={512} height={512}
                 className="w-full rounded-lg shadow-sm"
