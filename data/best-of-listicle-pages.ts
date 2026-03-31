@@ -921,7 +921,7 @@ export const bestOfListiclePages: BestOfListicleSeoPage[] = [
           rank: 1,
           name: 'LENGOLF — Indoor Golf Simulator Bar',
           description:
-            'LENGOLF is directly in Mercury Ville at BTS Chidlom Exit 4 — the most accessible activity venue in the entire Chidlom–Ploenchit area. Open from 10am to 11pm daily, it\'s a strong option for an afternoon or evening activity regardless of weather. Private simulator bays, a full bar, and easy walk-in booking make it uniquely convenient in an area where most entertainment is dining or shopping.',
+            'LENGOLF is directly in Mercury Ville at BTS Chidlom Exit 4 — the most accessible activity venue in the entire Chidlom–Ploenchit area. Open from 9am to 11pm daily, it\'s a strong option for an afternoon or evening activity regardless of weather. Private simulator bays, a full bar, and easy walk-in booking make it uniquely convenient in an area where most entertainment is dining or shopping.',
           pros: [
             'Right at BTS Chidlom Exit 4 — zero travel required',
             'Open all day, no advance booking needed for walk-ins',

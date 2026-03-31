@@ -265,7 +265,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       intro:
         'Bangkok\'s heat (35°C+) and rain (May-October monsoon) make indoor activities essential. Whether you\'re escaping a downpour or the midday sun, these are the best air-conditioned things to do in Bangkok — from golf simulators and escape rooms to museums and bowling.',
       why_lengolf:
-        'LENGOLF is a premium indoor golf simulator bar at Mercury Ville, BTS Chidlom. Fully air-conditioned with Bravo golf simulators, a cocktail bar, and food menu. No golf experience needed — it\'s designed to be fun for everyone. Bay rental starts at ~550 THB/hour for up to 5 people. Open 10am-11pm daily, it\'s the perfect escape from Bangkok\'s weather any time of day.',
+        'LENGOLF is a premium indoor golf simulator bar at Mercury Ville, BTS Chidlom. Fully air-conditioned with Bravo golf simulators, a cocktail bar, and food menu. No golf experience needed — it\'s designed to be fun for everyone. Bay rental starts at ~550 THB/hour for up to 5 people. Open 9am-11pm daily, it\'s the perfect escape from Bangkok\'s weather any time of day.',
       other_activities: [
         { name: 'Escape Room Bangkok', description: 'Themed puzzle rooms for groups of 2-6. Air-conditioned, brain-teasing, and fun. 500-800 THB per person.', type: 'entertainment' },
         { name: 'Bowling at Blu-O', description: 'Modern bowling in major malls. Glow lanes, music, and food. Affordable for families and groups.', type: 'entertainment' },
@@ -307,7 +307,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       intro:
         'Bangkok weekends are for exploring — but the heat means you need a mix of outdoor mornings and indoor afternoons. Here are the best weekend activities in Bangkok, organized from morning to evening, so you can plan a full day without melting.',
       why_lengolf:
-        'LENGOLF is ideal for a weekend afternoon or evening activity. Open 10am-11pm on weekends, with bay rates starting at ~750 THB/hour (up to 5 people) on Saturdays and Sundays. Located at Mercury Ville, BTS Chidlom, it\'s easy to combine with lunch or dinner nearby. The air-conditioned venue is a welcome break from Bangkok\'s weekend heat.',
+        'LENGOLF is ideal for a weekend afternoon or evening activity. Open 9am-11pm on weekends, with bay rates starting at ~750 THB/hour (up to 5 people) on Saturdays and Sundays. Located at Mercury Ville, BTS Chidlom, it\'s easy to combine with lunch or dinner nearby. The air-conditioned venue is a welcome break from Bangkok\'s weekend heat.',
       other_activities: [
         { name: 'Chatuchak Weekend Market', description: 'The world\'s largest weekend market with 15,000+ stalls. Open Saturday and Sunday 8am-6pm. BTS Mo Chit.', type: 'market' },
         { name: 'Lumphini Park Morning Run', description: 'Bangkok\'s central park is best before 8am when it\'s cool. Monitor lizards, paddle boats, and tai chi groups.', type: 'outdoor' },

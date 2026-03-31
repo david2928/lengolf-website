@@ -76,7 +76,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         { feature: 'Course variety', simulator: '100,000+ courses worldwide', real_golf: 'One course per visit' },
         { feature: 'Putting accuracy', simulator: 'Simplified (flat mat)', real_golf: 'Real greens with slope and speed' },
         { feature: 'Social atmosphere', simulator: 'Bar, food, music, groups up to 5', real_golf: 'Quiet, etiquette-focused' },
-        { feature: 'Availability', simulator: 'Walk-in, open 10:00–23:00 daily', real_golf: 'Tee time required, daylight hours only' },
+        { feature: 'Availability', simulator: 'Walk-in, open 9:00–23:00 daily', real_golf: 'Tee time required, daylight hours only' },
       ],
     },
   },

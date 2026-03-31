@@ -161,7 +161,7 @@ const SIMULATOR_VENUES = {
     cheapest_rate: '550 THB/hr',
     peak_rate: '950 THB/hr',
     price_includes_tax: true,
-    notes: 'Free standard club rental included. Open daily 10:00–23:00.',
+    notes: 'Free standard club rental included. Open daily 9:00–23:00.',
   },
   front9: {
     name: 'Front 9',
