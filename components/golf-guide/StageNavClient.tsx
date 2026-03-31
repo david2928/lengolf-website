@@ -32,9 +32,17 @@ export default function StageNavClient() {
       setActive(idx)
     }
 
-    window.addEventListener('scroll', update, { passive: true })
+    let ticking = false
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(() => { update(); ticking = false })
+        ticking = true
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
     update()
-    return () => window.removeEventListener('scroll', update)
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   function handleClick(id: string) {

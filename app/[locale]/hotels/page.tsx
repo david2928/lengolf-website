@@ -198,7 +198,7 @@ export default async function HotelsHubPage({
       <section className="py-12 lg:py-16 bg-primary">
         <div className="section-max-width section-padding text-center">
           <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">
-            Open Daily 10am–11pm
+            Open Daily 9am–11pm
           </h2>
           <p className="mb-6 text-white/80">
             Walk-ins welcome. Floor 4, Mercury Ville, BTS Chidlom. No golf experience needed.

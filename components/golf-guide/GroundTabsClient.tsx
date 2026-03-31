@@ -146,8 +146,10 @@ export default function GroundTabsClient() {
         {TABS.map((tab, i) => (
           <button
             key={tab.label}
+            id={`ground-tab-${i}`}
             role="tab"
             aria-selected={activeTab === i}
+            aria-controls={`ground-panel-${i}`}
             onClick={() => setActiveTab(i)}
             className="px-5 py-3 text-sm font-semibold whitespace-nowrap border-b-2 transition-all duration-200 flex-shrink-0"
             style={{
@@ -163,9 +165,11 @@ export default function GroundTabsClient() {
 
       {/* Article list */}
       <div
+        id={`ground-panel-${activeTab}`}
         className="divide-y"
         style={{ borderColor: 'rgba(255,255,255,0.06)' }}
         role="tabpanel"
+        aria-labelledby={`ground-tab-${activeTab}`}
       >
         {articles.map((article) => (
           <Link
@@ -257,7 +261,7 @@ export default function GroundTabsClient() {
               LENGOLF — Best-rated in Bangkok
             </p>
             <p className="text-sm text-white/70 leading-relaxed">
-              Mercury Ville @BTS Chidlom, Floor 4. Open daily 10am–11pm. Walk-in or book online — no experience needed.
+              Mercury Ville @BTS Chidlom, Floor 4. Open daily 9am–11pm. Walk-in or book online — no experience needed.
             </p>
           </div>
           <a

@@ -64,18 +64,24 @@ function ArrowRight({ className }: { className?: string }) {
   )
 }
 
-function ResourceCard({ href, cat, title, desc, iconBg }: {
+const RESOURCE_CARD_BORDER_COLORS = {
+  gold: '#C8A050',
+  green: '#4A8B6F',
+  orange: '#E87B4A',
+} as const
+
+function ResourceCard({ href, cat, title, desc, variant }: {
   href: string
   cat: string
   title: string
   desc: string
-  iconBg: string
+  variant: 'gold' | 'green' | 'orange'
 }) {
   return (
     <Link
       href={href as Parameters<typeof Link>[0]['href']}
       className="group flex items-start gap-4 rounded-lg border bg-white p-5 transition-all hover:shadow-md hover:border-primary/30 hover:-translate-y-px"
-      style={{ borderColor: 'rgba(0,66,37,0.12)', borderLeftWidth: '3px', borderLeftColor: iconBg.includes('200,160') ? '#C8A050' : iconBg.includes('232,123') ? '#E87B4A' : '#4A8B6F' }}
+      style={{ borderColor: 'rgba(0,66,37,0.12)', borderLeftWidth: '3px', borderLeftColor: RESOURCE_CARD_BORDER_COLORS[variant] }}
     >
       <div className="flex-1 min-w-0">
         <p
@@ -513,42 +519,42 @@ export default async function GolfInThailandGuidePage({
                 cat="Airlines & Baggage"
                 title="Golf club baggage fees — every major airline to Bangkok compared"
                 desc="Current fees for Thai Airways, Emirates, Qatar, Singapore Airlines, and more."
-                iconBg="rgba(200,160,80,0.12)"
+                variant="gold"
               />
               <ResourceCard
                 href="/faq/can-you-bring-golf-clubs-as-checked-baggage-thailand"
                 cat="FAQ"
                 title="Can you bring golf clubs as checked baggage to Thailand?"
                 desc="Allowances, packing rules, hard case vs soft case — everything you need to know."
-                iconBg="rgba(200,160,80,0.12)"
+                variant="gold"
               />
               <ResourceCard
                 href="/faq/cost-to-fly-with-golf-clubs-to-thailand"
                 cat="FAQ"
                 title="How much does it cost to fly with golf clubs to Thailand?"
                 desc="Actual baggage fees by airline, plus tips for keeping costs down."
-                iconBg="rgba(200,160,80,0.12)"
+                variant="gold"
               />
               <ResourceCard
                 href="/guide/how-to-pack-golf-clubs-flight-thailand"
                 cat="Packing Guide"
                 title="How to pack golf clubs for a flight to Thailand"
                 desc="Hard case vs soft case, what to protect, and how to avoid damage claims."
-                iconBg="rgba(200,160,80,0.12)"
+                variant="gold"
               />
               <ResourceCard
                 href="/guide/best-time-play-golf-thailand"
                 cat="Planning Guide"
                 title="Best time of year to play golf in Thailand"
                 desc="Month-by-month breakdown with temperature, humidity, and rainfall data."
-                iconBg="rgba(74,139,111,0.12)"
+                variant="green"
               />
               <ResourceCard
                 href="/guide/golf-weather-bangkok-by-month"
                 cat="Planning Guide"
                 title="Golf weather in Bangkok by month"
                 desc="Temperature, rainfall, and humidity data for every month of the year."
-                iconBg="rgba(74,139,111,0.12)"
+                variant="green"
               />
             </div>
             {/* Visa quick note — spans full width */}
@@ -790,14 +796,14 @@ export default async function GolfInThailandGuidePage({
                 cat="Booking Guide"
                 title="How to book golf tee times in Thailand — the full guide"
                 desc="Platform comparison, when to book, caddie culture, and common mistakes."
-                iconBg="rgba(74,139,111,0.12)"
+                variant="green"
               />
               <ResourceCard
                 href="/cost/how-much-does-golf-cost-bangkok"
                 cat="Cost Guide"
                 title="How much does a round of golf cost in Bangkok?"
                 desc="Green fees, caddie fees, cart hire, and total cost breakdown for Bangkok courses."
-                iconBg="rgba(200,160,80,0.12)"
+                variant="gold"
               />
             </div>
           </div>
@@ -1079,7 +1085,7 @@ export default async function GolfInThailandGuidePage({
                 cat="Travel Guide"
                 title="Getting from Suvarnabhumi Airport to Bangkok with golf clubs"
                 desc="Full walkthrough with costs, timings, and what to do if your bags are oversized at the rail link."
-                iconBg="rgba(232,123,74,0.12)"
+                variant="orange"
               />
             </div>
 
@@ -1197,7 +1203,7 @@ export default async function GolfInThailandGuidePage({
                   cat="Packing Guide"
                   title="What to wear for golf in Thailand — dress codes explained"
                   desc="Collared shirts, dress codes by course, and what to wear at golf simulators vs outdoor courses."
-                  iconBg="rgba(232,123,74,0.12)"
+                  variant="orange"
                 />
               </div>
             </div>
@@ -1411,7 +1417,7 @@ export default async function GolfInThailandGuidePage({
             </Link>
           </div>
           <p className="mt-6 text-xs" style={{ color: 'rgba(255,255,255,0.25)' }}>
-            No experience needed &nbsp;·&nbsp; Walk-ins welcome &nbsp;·&nbsp; Open daily 10am–11pm
+            No experience needed &nbsp;·&nbsp; Walk-ins welcome &nbsp;·&nbsp; Open daily 9am–11pm
           </p>
         </div>
       </section>

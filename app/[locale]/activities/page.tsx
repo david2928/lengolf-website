@@ -145,7 +145,7 @@ export default async function ActivitiesHubPage({
             Ready to Experience Bangkok&apos;s Best Indoor Golf?
           </h2>
           <p className="mb-6 text-white/80">
-            LENGOLF at Mercury Ville (BTS Chidlom) — open daily 10am–11pm, no experience needed.
+            LENGOLF at Mercury Ville (BTS Chidlom) — open daily 9am–11pm, no experience needed.
           </p>
           <BookingCTA text="Book a Bay" className="bg-white text-primary hover:bg-white/90" />
         </div>

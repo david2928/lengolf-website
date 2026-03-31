@@ -1,6 +1,6 @@
 import type { ExplainerSeoPage } from '@/types/seo-pages'
 
-const now = new Date().toISOString()
+const now = '2026-03-28T00:00:00.000Z'
 
 export const explainerPages: ExplainerSeoPage[] = [
   // ─── Page 1: What Is a Golf Simulator and How Does It Work? ───
@@ -245,8 +245,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'best-time-visit',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/golf-bangkok-rainy-season', '/guide/golf-weather-bangkok-by-month'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `Thailand is one of Asia's top golf destinations, with over 40 courses within an hour of central Bangkok alone. But the country's tropical climate means timing matters. Play at the wrong time of year — or the wrong time of day — and heat, humidity, or afternoon downpours can take the edge off your round. Play it right, and you'll find immaculate fairways, fast greens, and comfortable conditions that make the game genuinely enjoyable.\n\nThis guide breaks down Thailand's three seasons, explains what each means for golfers, and gives you a clear recommendation for when to book your tee times.`,
       sections: [
@@ -296,8 +296,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'best-time-visit',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/best-time-play-golf-thailand', '/guide/golf-weather-bangkok-by-month'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `If you're planning a golf trip to Bangkok between May and October, the rainy season is probably on your mind. The short answer: yes, you can absolutely play golf — and many visiting golfers do, without their rounds being washed out. The key is understanding how the rain actually behaves here, and adjusting your approach accordingly.`,
       sections: [
@@ -351,8 +351,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'best-time-visit',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/best-time-play-golf-thailand', '/guide/golf-bangkok-rainy-season'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `Bangkok sits just 14 degrees north of the equator, which means it is warm all year. For golfers, that is mostly good news — there is no off-season, snow, or frost. What you do need to plan around is the tropical rainfall cycle, which divides the calendar into three distinct phases: a cool dry season, a hot dry season, and a long rainy season defined by afternoon thunderstorms. Get the timing right and you can play 40+ courses within an hour of central Bangkok in near-perfect conditions.`,
       sections: [
@@ -1551,8 +1551,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'tee-time-booking',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/how-to-book-golf-tee-times-thailand', '/guide/best-golf-courses-near-bangkok'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `If you've booked tee times in the US, UK, or Australia, GolfNow is probably already in your browser history. It's one of the world's largest golf booking platforms, with a slick interface and a reputation for last-minute deals. But when you land in Bangkok and want to book a round, is GolfNow the right tool for the job? The honest answer is: it depends — and in Thailand, the answer is more often "not quite" than "yes."`,
       sections: [
@@ -1602,8 +1602,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'destination-guides',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/is-thailand-good-for-golf', '/guide/best-golf-courses-near-bangkok'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `Southeast Asia is home to three of the most popular golf destinations outside of Japan and South Korea. Thailand, Bali, and Vietnam each offer compelling reasons to book a flight with your clubs — and each has genuine drawbacks. This guide compares all three honestly, so you can choose the destination that fits your priorities.`,
       sections: [
@@ -1653,8 +1653,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'on-the-ground',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/how-to-book-golf-tee-times-thailand', '/guide/thai-golf-course-etiquette'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `Thailand is one of the world's best golf destinations — and it's genuinely excellent for solo travel. The infrastructure is easy to navigate, the courses are affordable, caddies are built into the experience, and Bangkok alone gives you over 50 courses within an hour of the city centre. If you're wondering whether a solo golf trip to Thailand is worth it, the short answer is yes.`,
       sections: [
@@ -1708,8 +1708,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'getting-started',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/golf-lessons-bangkok-coaches', '/guide/best-golf-simulators-bangkok', '/guide/first-time-golf-thailand'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `Thailand might seem like an ambitious destination for your first round of golf — but in many ways, it's one of the most forgiving places in the world to start. Caddies guide you through every hole, club rental is widely available, the culture is relaxed and welcoming, and you can ease in at an indoor simulator before setting foot on a full course.`,
       sections: [
@@ -1764,8 +1764,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'golf-courses',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/best-golf-courses-near-bangkok', '/guide/nikanti-golf-club-bangkok', '/guide/thai-golf-course-etiquette'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `Alpine Golf Club is one of Bangkok's most established championship courses. Located in Pathum Thani province, about 30 minutes north of the city, it has a pedigree that few Bangkok-area courses can match — it has hosted events on the Asian Tour, including the 2000 Johnnie Walker Classic won by Tiger Woods. For golfers looking for a serious round close to the capital, Alpine is a natural choice.`,
       sections: [
@@ -1815,8 +1815,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'getting-around',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/bangkok-hotels-to-golf-courses-transport', '/faq/grab-vs-taxi-bangkok-golf'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `Bangkok's BTS Skytrain is one of the best urban rail systems in Southeast Asia — fast, clean, air-conditioned, and affordable. If you're staying in the city for a golf trip, you'll almost certainly use it. You'll just never use it to get to a golf course. This guide explains what the skytrain is actually useful for, where it hands off to Grab, and the one golf-related destination in the city that the BTS does reach directly.`,
       sections: [
@@ -1866,8 +1866,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'getting-around',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/best-golf-courses-near-bangkok', '/faq/grab-vs-taxi-bangkok-golf'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `Bangkok has more than 50 golf courses within an hour of the city centre — which sounds perfect until you check the time it takes to actually get there. Traffic is the defining variable of any golf morning in Bangkok. Get it right and you arrive relaxed with time to warm up. Get it wrong and you're watching your tee time tick past from the back of a stationary taxi.`,
       sections: [
@@ -1909,8 +1909,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'getting-to-bangkok',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/black-mountain-golf-club-hua-hin', '/guide/banyan-golf-club-hua-hin'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `Hua Hin is the top golf destination within easy reach of Bangkok. Sitting roughly 200 km south of the capital, it offers a strong lineup of courses — including Black Mountain Golf Club and Banyan Golf Club — alongside a relaxed seaside atmosphere that makes it a natural choice for a golf weekend or short trip.`,
       sections: [
@@ -1964,8 +1964,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'golf-courses',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/black-mountain-golf-club-hua-hin', '/guide/best-golf-courses-near-bangkok', '/guide/bangkok-to-hua-hin-golf-transport'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `Banyan Golf Club — now operating as Pineapple Valley Golf Club — is consistently mentioned among Hua Hin's top courses. Located around three hours south of Bangkok by car, it draws serious golfers who want to combine a quality round with Hua Hin's wider resort appeal.`,
       sections: [
@@ -2011,8 +2011,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'hotels',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/best-golf-courses-near-bangkok', '/guide/bangkok-hotels-to-golf-courses-transport'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `Bangkok is one of the best bases in Southeast Asia for a golf trip — not because the city itself has courses, but because it sits at the centre of a region with over 50 courses within an hour's drive. Choose the right neighbourhood to stay in, know what to ask your hotel, and you can tee off at world-class layouts in every direction without changing accommodation once.`,
       sections: [
@@ -2062,8 +2062,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'golf-courses',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/nikanti-golf-club-bangkok', '/guide/alpine-golf-club-bangkok', '/guide/thai-country-club-bangkok', '/guide/black-mountain-golf-club-hua-hin'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `Bangkok is one of the best cities in the world for a golfer to be based. With 50+ courses within roughly an hour of the city centre, you could play a different course every day for several weeks without repeating. Prices are a fraction of equivalent courses in Europe, Japan, or Australia. Caddies are included. And tee times are available year-round.`,
       sections: [
@@ -2113,8 +2113,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'golf-courses',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/best-golf-courses-near-bangkok', '/guide/best-time-play-golf-thailand'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `Phuket is one of Southeast Asia's most popular resort destinations, and its golf scene is built to match. While Bangkok draws serious golfers with sheer volume, Phuket offers something different: golf in a tropical resort setting, often with sea views, lush mountain backdrops, and a relaxed pace that suits a golf holiday rather than a regular weekend round.`,
       sections: [
@@ -2164,8 +2164,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'golf-in-thailand',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/best-golf-courses-near-bangkok', '/guide/best-time-play-golf-thailand'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `Thailand is one of the best golf destinations in the world. The combination of well-maintained courses, low costs, warm weather, and a deeply ingrained caddie culture makes it genuinely hard to match anywhere else. But "good for golf" covers a lot of ground, so this guide gives you the full picture.`,
       sections: [
@@ -2220,8 +2220,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'getting-to-bangkok',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/don-mueang-airport-to-bangkok', '/guide/grab-vs-taxi-bangkok-golf', '/guide/best-golf-courses-near-bangkok'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `Suvarnabhumi International Airport (BKK) is the arrival point for the vast majority of international golf visitors to Bangkok. Situated roughly 30 km east of the city centre, it handles most long-haul and regional flights into Thailand. Getting from the terminal to your hotel or directly to a course sounds straightforward — until you factor in a golf bag. This guide walks through every realistic transfer option for golfers, with honest cost ranges, journey times, and practical tips.`,
       sections: [
@@ -2276,8 +2276,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'golf-courses',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/nikanti-golf-club-bangkok', '/guide/alpine-golf-club-bangkok', '/guide/best-golf-courses-near-bangkok'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `Thai Country Club is widely regarded as one of the most prestigious golf clubs in Thailand. Located in Chonburi province east of Bangkok, it operates primarily as a private members' club — which means visiting it requires more planning than a typical Bangkok-area course. For serious golfers who can arrange access, it represents one of the finest rounds available in the country.`,
       sections: [
@@ -2328,8 +2328,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'on-course-experience',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/first-time-golf-thailand', '/guide/do-you-need-caddie-thailand-golf', '/guide/how-to-book-golf-tee-times-thailand'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `Golf in Thailand is a relaxed, welcoming experience — local courses are friendly to visitors, formal stuffiness is rare, and the atmosphere is generally more social than strict. That said, a handful of conventions differ meaningfully from what golfers expect in the UK, US, or Australia. Understanding them before you arrive means you spend your round enjoying the course instead of navigating awkward moments at the first tee or the 18th green.`,
       sections: [
@@ -2384,8 +2384,8 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'planning',
     locale: 'en',
     related_slugs: ['/golf-in-thailand-guide', '/guide/green-fees-bangkok-golf-courses', '/guide/best-bangkok-hotels-golfers', '/guide/bring-golf-clubs-thailand-or-rent'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: '2026-03-28T00:00:00.000Z',
+    updated_at: '2026-03-28T00:00:00.000Z',
     content: {
       intro: `A week of golf in Thailand costs roughly $600–$2,500 USD on the ground depending on your choices. This guide breaks down every line item — green fees, caddies, transport, accommodation, and food — so you can build a realistic budget before you book. Flights are excluded throughout; this covers on-the-ground costs from arrival to departure.`,
       sections: [

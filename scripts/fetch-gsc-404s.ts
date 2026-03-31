@@ -4,7 +4,7 @@ import { google } from 'googleapis';
 import * as fs from 'fs';
 import * as path from 'path';
 
-const CREDENTIALS_PATH = path.join(process.cwd(), 'search-console-access-487306-dbcd7b7eecec.json');
+const CREDENTIALS_PATH = process.env.GSC_CREDENTIALS_PATH ?? path.join(process.cwd(), 'search-console-access.json');
 
 async function fetch404Errors() {
   try {
