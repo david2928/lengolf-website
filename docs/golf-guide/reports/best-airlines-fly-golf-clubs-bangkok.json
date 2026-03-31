@@ -1,0 +1,50 @@
+{
+  "slug": "best-airlines-fly-golf-clubs-bangkok",
+  "generated": "2026-03-24",
+  "overall_status": "REVIEW REQUIRED",
+  "disputed_claims": [],
+  "disclaimer_flags": [
+    {
+      "claim": "Per-airline allowance figures and fee ranges",
+      "reason": "Airline policies change; figures are estimates",
+      "action": "Disclaimer present at top and bottom of article — acceptable"
+    },
+    {
+      "claim": "Budget carrier USD 30–80 per sector",
+      "reason": "Reasonable estimate; unverified",
+      "action": "Covered by general disclaimer"
+    }
+  ],
+  "seo_issues": [],
+  "unverifiable_claims": [
+    {
+      "claim": "Japan Airlines via Tokyo routing recommendation",
+      "reason": "Not in knowledge base; general industry knowledge",
+      "risk": "low — routing recommendation only"
+    },
+    {
+      "claim": "Cathay Pacific routes from North America to Bangkok",
+      "reason": "Route networks change",
+      "risk": "low"
+    },
+    {
+      "claim": "Per-airline specific allowance ranges",
+      "reason": "Vary by booking class, route, and FFP status",
+      "risk": "low — article uses appropriate qualifiers"
+    }
+  ],
+  "seo_check": {
+    "title_length": 51,
+    "title_pass": true,
+    "meta_length": 159,
+    "meta_pass": true,
+    "primary_keyword_in_title": true,
+    "primary_keyword_in_meta": true,
+    "h2_count": 5,
+    "internal_links_present": ["/golf-club-rental", "/guide/bring-golf-clubs-thailand-or-rent", "/guide/golf-club-baggage-fees-airlines-bangkok", "/golf-in-thailand-guide"],
+    "date_qualifier_present": true
+  },
+  "recommendations": [
+    "Optional: add caveat that Japan Airlines recommendation is based on general knowledge, not verified policy"
+  ]
+}

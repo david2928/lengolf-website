@@ -47,3 +47,20 @@ next-env.d.ts
 # Playwright
 playwright-report/
 test-results/
+
+# Local strategy docs (sensitive — keep off git)
+docs/seo-expansion-strategy.md
+docs/seo-action-plan.md
+
+# Google service account credentials (never commit)
+search-console-access-*.json
+
+# Raw GSC data dumps and local research artifacts
+docs/gsc-*.json
+docs/old/
+docs/pr-comment-for-em.md
+docs/content-gaps-golf-guide.md
+
+# Internal tooling / design artifacts
+.reviews
+wireframes/

@@ -85,15 +85,15 @@ export default function ExplainerPageComponent({ data }: Props) {
         <section className="py-12 md:py-16 bg-[#f8f9fa]">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-6">
-              Simulator vs Real Golf
+              {content.table_heading ?? 'Simulator vs Real Golf'}
             </h2>
             <div className="overflow-x-auto">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="border-b-2 border-[#2d6a4f]">
                     <th className="py-3 pr-4 text-left font-semibold text-[#1a472a]">Feature</th>
-                    <th className="py-3 px-4 text-left font-semibold text-[#2d6a4f]">Golf Simulator</th>
-                    <th className="py-3 pl-4 text-left font-semibold text-muted-foreground">Real Golf</th>
+                    <th className="py-3 px-4 text-left font-semibold text-[#2d6a4f]">{content.col_a_label ?? 'Golf Simulator'}</th>
+                    <th className="py-3 pl-4 text-left font-semibold text-muted-foreground">{content.col_b_label ?? 'Real Golf'}</th>
                   </tr>
                 </thead>
                 <tbody>

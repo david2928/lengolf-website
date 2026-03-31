@@ -445,7 +445,11 @@
     "exploreLessons": "Lessons",
     "exploreClubRental": "Club Rental",
     "exploreEvents": "Events",
-    "exploreBlog": "Blog"
+    "exploreBlog": "Blog",
+    "exploreCorpGolfCost": "企业高尔夫活动费用是多少？",
+    "exploreCorpEventCost": "企业活动费用明细",
+    "exploreBestTeamBuilding": "曼谷最佳团队建设活动",
+    "exploreGroupActivities": "曼谷团体活动"
   },
   "EventsFaq": {
     "q1": "How many people can LENGOLF accommodate for events?",
@@ -506,7 +510,11 @@
     "exploreBayRates": "Bay Rates",
     "exploreEvents": "Events",
     "exploreClubRental": "Club Rental",
-    "exploreBlog": "Blog"
+    "exploreBlog": "Blog",
+    "exploreBestWayLearn": "在曼谷学习高尔夫的最佳方式",
+    "exploreLessonPrices": "曼谷高尔夫课程价格",
+    "exploreBeginnersSimulator": "初学者可以玩高尔夫模拟器吗？",
+    "explorePlanGolfTrip": "规划您的泰国高尔夫之旅"
   },
   "LessonsFaq": {
     "q1": "Do you offer a free trial golf lesson?",

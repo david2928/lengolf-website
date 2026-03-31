@@ -21,6 +21,29 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   }
 }
 
+// Neighbourhood display order and BTS context
+const NEIGHBOURHOOD_ORDER = [
+  'Ratchaprasong / Chidlom',
+  'Langsuan / Chidlom',
+  'Ratchadamri / Ratchaprasong',
+  'Wireless Road / Ploenchit',
+  'Sukhumvit / Ploenchit',
+  'Siam / CentralWorld',
+] as const
+
+const NEIGHBOURHOOD_BTS: Record<string, string> = {
+  'Ratchaprasong / Chidlom': 'BTS Chidlom — walk direct',
+  'Langsuan / Chidlom': 'BTS Chidlom — short walk',
+  'Ratchadamri / Ratchaprasong': 'BTS Ratchadamri or Chidlom',
+  'Wireless Road / Ploenchit': 'BTS Ploenchit — 1 stop or walk',
+  'Sukhumvit / Ploenchit': 'BTS Ploenchit — 1 stop to Chidlom',
+  'Siam / CentralWorld': 'BTS Siam — 1 stop to Chidlom',
+}
+
+function neighbourhoodAnchor(n: string) {
+  return n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+}
+
 function StarRating({ stars }: { stars: number }) {
   return (
     <span className="text-xs" style={{ color: '#7CB342' }}>
@@ -30,7 +53,7 @@ function StarRating({ stars }: { stars: number }) {
 }
 
 function HotelCard({ page }: { page: HotelConciergeSeoPage }) {
-  const { hotel_name, hotel_distance_m, walking_time_mins, hotel_star_rating } = page.content
+  const { hotel_name, hotel_distance_m, walking_time_mins, hotel_star_rating, hotel_neighbourhood } = page.content
   return (
     <Link
       href={`/hotels/${page.slug}` as Parameters<typeof Link>[0]['href']}
@@ -43,6 +66,9 @@ function HotelCard({ page }: { page: HotelConciergeSeoPage }) {
       <h2 className="mb-1 text-base font-semibold leading-snug group-hover:text-[#005a32] transition-colors">
         {hotel_name}
       </h2>
+      <p className="text-xs text-muted-foreground mb-1">
+        {hotel_neighbourhood}
+      </p>
       <p className="text-xs text-muted-foreground mb-3">
         {walking_time_mins} min walk to LENGOLF
       </p>
@@ -65,10 +91,20 @@ export default async function HotelsHubPage({
 
   const pages = (await getSeoPagesByType('hotel_concierge')) as HotelConciergeSeoPage[]
 
-  // Sort by walking distance
-  const sorted = [...pages].sort(
-    (a, b) => a.content.hotel_distance_m - b.content.hotel_distance_m
-  )
+  // Group by neighbourhood, then sort each group by distance
+  const grouped = new Map<string, HotelConciergeSeoPage[]>()
+  for (const n of NEIGHBOURHOOD_ORDER) grouped.set(n, [])
+
+  for (const page of pages) {
+    const n = page.content.hotel_neighbourhood
+    if (!grouped.has(n)) grouped.set(n, [])
+    grouped.get(n)!.push(page)
+  }
+  for (const [, hotels] of grouped) {
+    hotels.sort((a, b) => a.content.hotel_distance_m - b.content.hotel_distance_m)
+  }
+
+  const totalCount = pages.length
 
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
@@ -82,7 +118,7 @@ export default async function HotelsHubPage({
     description:
       'Walking directions and activity guides from Bangkok\'s top hotels to LENGOLF at Mercury Ville, BTS Chidlom.',
     url: `${SITE_URL}/hotels/`,
-    numberOfItems: sorted.length,
+    numberOfItems: totalCount,
   }
 
   return (
@@ -110,18 +146,50 @@ export default async function HotelsHubPage({
             Near Your Hotel<br />
             <span style={{ color: '#7CB342' }}>in Bangkok</span>
           </h1>
-          <p className="text-base text-white/80 max-w-xl">
-            LENGOLF is a short walk from {sorted.length} of Bangkok&apos;s top hotels. Find step-by-step walking directions from your hotel.
+          <p className="text-base text-white/80 max-w-xl mb-8">
+            LENGOLF is a short walk from {totalCount} of Bangkok&apos;s top hotels. Find step-by-step walking directions from your hotel.
           </p>
+          {/* Neighbourhood jump links */}
+          <div className="flex flex-wrap gap-2">
+            {NEIGHBOURHOOD_ORDER.filter((n) => (grouped.get(n)?.length ?? 0) > 0).map((n) => (
+              <a
+                key={n}
+                href={`#${neighbourhoodAnchor(n)}`}
+                className="rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/80 transition-colors hover:bg-white/20 hover:text-white"
+              >
+                {n}
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Card grid */}
+      {/* Neighbourhood sections */}
       <SectionWrapper>
-        <p className="mb-8 text-sm text-muted-foreground">Sorted by walking distance to LENGOLF</p>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {sorted.map((page) => (
-            <HotelCard key={page.id} page={page} />
+        <div className="flex flex-col gap-16">
+          {NEIGHBOURHOOD_ORDER.filter((n) => (grouped.get(n)?.length ?? 0) > 0).map((n) => (
+            <div key={n} id={neighbourhoodAnchor(n)} style={{ scrollMarginTop: '100px' }}>
+              {/* Section header */}
+              <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 mb-6 pb-4 border-b border-border">
+                <div>
+                  <p
+                    className="text-[11px] uppercase tracking-widest font-semibold mb-1"
+                    style={{ color: '#7CB342' }}
+                  >
+                    {NEIGHBOURHOOD_BTS[n] ?? 'BTS accessible'}
+                  </p>
+                  <h2 className="text-xl font-bold text-[#004225]">{n}</h2>
+                </div>
+                <span className="text-sm text-muted-foreground">
+                  {grouped.get(n)!.length} hotel{grouped.get(n)!.length !== 1 ? 's' : ''}
+                </span>
+              </div>
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {grouped.get(n)!.map((page) => (
+                  <HotelCard key={page.id} page={page} />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </SectionWrapper>

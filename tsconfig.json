@@ -37,6 +37,9 @@
   "exclude": [
     "node_modules",
     "_migration",
+    "docs",
+    "scripts",
+    "wireframes",
     "tests",
     "playwright.config.ts"
   ]

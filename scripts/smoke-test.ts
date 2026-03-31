@@ -4,11 +4,16 @@
  * Smoke tests for lengolf-website CI pipeline.
  * Hits key routes on a running Next.js server and verifies:
  *   A) Pages return 200 with correct layout (catches middleware/routing breaks)
+ *      Covered routes: core pages, best-of listicles, rent-golf-clubs (5 locales),
+ *      golf-in-thailand-guide, activities hub, hotels hub, /guide/[slug] (explainer),
+ *      /faq/[slug], /hotels/[slug] (hotel concierge), /activities/[slug]
  *   B) WordPress redirects return 301 with correct Location (protects SEO)
  *   C) Critical external links resolve (booking system, LINE, storage assets)
  *   D) SEO elements are present (title, meta description, canonical, JSON-LD, lang)
+ *      Includes golf-in-thailand-guide, /guide/[slug], /faq/[slug]
  *   E) Untranslated Thai routes redirect to English (301)
  *   F) English pages work with NEXT_LOCALE=th cookie (no redirect loop / no 404)
+ *      Includes golf-in-thailand-guide, /guide/, /faq/, /hotels/, /activities/
  *   G) WordPress admin paths return 404 (not redirect)
  *
  * Usage: tsx scripts/smoke-test.ts [base-url]
@@ -86,6 +91,22 @@ const routeTests: RouteTest[] = [
   { path: '/ko/rent-golf-clubs-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/rent-golf-clubs-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/zh/rent-golf-clubs-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // Guide (explainer) pages — spot-check original + new golf-travel slugs
+  { path: '/guide/what-is-a-golf-simulator/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/guide/best-time-play-golf-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/guide/golf-club-baggage-fees-airlines-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/guide/best-golf-simulators-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // FAQ pages — spot-check original + newly added slugs
+  { path: '/faq/can-i-rent-golf-clubs-in-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/faq/can-you-bring-golf-clubs-as-checked-baggage-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/faq/thailand-visa-guide-golf-tourists/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/faq/how-many-golf-courses-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // Hotel concierge pages — spot-check a few slugs
+  { path: '/hotels/things-to-do-near-grand-hyatt-erawan/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/hotels/things-to-do-near-intercontinental-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // Activities detail pages — spot-check one slug
+  { path: '/activities/rainy-day-activities-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // API routes (no Google Maps key in CI, so 500 is acceptable — just not 404)
   { path: '/api/aqi/', expectedStatus: [200, 500, 502] },
 ]
@@ -132,6 +153,9 @@ const seoTests: SeoTest[] = [
   { path: '/blog/', locale: 'en' },
   { path: '/th/', locale: 'th' },
   { path: '/th/golf/', locale: 'th' },
+  { path: '/golf-in-thailand-guide/', locale: 'en' },
+  { path: '/guide/what-is-a-golf-simulator/', locale: 'en' },
+  { path: '/faq/can-i-rent-golf-clubs-in-bangkok/', locale: 'en' },
 ]
 
 // E) Thai redirect tests (untranslated Thai routes → 301 to English)
@@ -156,6 +180,11 @@ interface ThaiCookieTest {
 const thaiCookieTests: ThaiCookieTest[] = [
   { path: '/blog/golf-lessons-in-bangkok/', label: 'Blog post with Thai cookie' },
   { path: '/privacy-policy/', label: 'Privacy policy with Thai cookie' },
+  { path: '/golf-in-thailand-guide/', label: 'Golf in Thailand guide with Thai cookie' },
+  { path: '/guide/what-is-a-golf-simulator/', label: 'Guide page with Thai cookie' },
+  { path: '/faq/can-i-rent-golf-clubs-in-bangkok/', label: 'FAQ page with Thai cookie' },
+  { path: '/hotels/', label: 'Hotels hub with Thai cookie' },
+  { path: '/activities/', label: 'Activities hub with Thai cookie' },
 ]
 
 // G) WordPress path 404 tests (prevent redirect regressions)
