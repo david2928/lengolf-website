@@ -190,15 +190,15 @@ export interface BayRateRow {
 }
 
 export const bayRates: BayRateRow[] = [
-  { timeSlot: 'Before 14:00', weekday: '500 THB', weekend: '700 THB' },
-  { timeSlot: '14:00 – 17:00', weekday: '700 THB', weekend: '900 THB' },
-  { timeSlot: '17:00 – 23:00 (Promo)', weekday: '700 THB', weekend: '900 THB' },
+  { timeSlot: 'Before 14:00', weekday: '550 THB', weekend: '750 THB' },
+  { timeSlot: '14:00 – 17:00', weekday: '750 THB', weekend: '950 THB' },
+  { timeSlot: '17:00 – 23:00 (Promo)', weekday: '750 THB', weekend: '950 THB' },
 ]
 
 export const bayRateNotes = [
   'Price per hour, per bay (up to 5 players)',
   'Weekday = Mon–Thu, Weekend = Fri–Sun & Public Holidays',
-  'Open daily 10:00 – 23:00',
+  'Open daily 9:00 – 23:00',
   'Free golf club rental included',
 ]
 
@@ -231,7 +231,7 @@ export const monthlyPackageNotes = [
 export const golfFaqItems = [
   {
     question: 'How much does it cost to play at LENGOLF?',
-    answer: 'Our simulator bays start at 500 THB per hour on weekdays (Mon–Thu) before 14:00, and go up to 900 THB per hour on weekends (Fri–Sun & public holidays) after 14:00. Each bay holds up to 5 players, and standard golf club rental is included at no extra charge.',
+    answer: 'Our simulator bays start at 550 THB per hour on weekdays (Mon–Thu) before 14:00, and go up to 950 THB per hour on weekends (Fri–Sun & public holidays) after 14:00. Each bay holds up to 5 players, and standard golf club rental is included at no extra charge.',
   },
   {
     question: 'Do I need to bring my own golf clubs?',
@@ -243,7 +243,7 @@ export const golfFaqItems = [
   },
   {
     question: 'What are your opening hours?',
-    answer: 'LENGOLF is open daily from 10:00 AM to 11:00 PM, Monday through Sunday, including public holidays.',
+    answer: 'LENGOLF is open daily from 9:00 AM to 11:00 PM, Monday through Sunday, including public holidays.',
   },
   {
     question: 'What golf courses can I play on the simulator?',
@@ -342,7 +342,7 @@ export const aboutFaqItems = [
   },
   {
     question: 'What are your opening hours?',
-    answer: 'LENGOLF is open daily from 10:00 AM to 11:00 PM, Monday through Sunday, including public holidays.',
+    answer: 'LENGOLF is open daily from 9:00 AM to 11:00 PM, Monday through Sunday, including public holidays.',
   },
   {
     question: 'Can I book LENGOLF for a group or event?',
@@ -396,7 +396,7 @@ export const homeFaqItems = [
   },
   {
     question: 'How much does it cost to play at LENGOLF?',
-    answer: 'Simulator bay rates start at 500 THB per hour on weekdays before 14:00, and go up to 900 THB per hour on weekends after 14:00. Each bay holds up to 5 players and free standard golf clubs are included. We also offer monthly packages from 3,000 THB. See our bay rates page for full pricing.',
+    answer: 'Simulator bay rates start at 550 THB per hour on weekdays before 14:00, and go up to 950 THB per hour on weekends after 14:00. Each bay holds up to 5 players and free standard golf clubs are included. We also offer monthly packages from 3,000 THB. See our bay rates page for full pricing.',
   },
   {
     question: 'Where is LENGOLF located?',
@@ -404,7 +404,7 @@ export const homeFaqItems = [
   },
   {
     question: 'What are your opening hours?',
-    answer: 'LENGOLF is open daily from 10:00 AM to 11:00 PM, Monday through Sunday, including public holidays.',
+    answer: 'LENGOLF is open daily from 9:00 AM to 11:00 PM, Monday through Sunday, including public holidays.',
   },
   {
     question: 'Do I need to bring my own golf clubs?',
@@ -443,9 +443,9 @@ export async function getBayRatesData(catalog?: PricingCatalog | null): Promise<
 
   return {
     bayRates: [
-      { timeSlot: 'Before 14:00', weekday: formatThb(morningWD ?? 500), weekend: formatThb(morningWE ?? 700) },
-      { timeSlot: '14:00 – 17:00', weekday: formatThb(afternoonWD ?? 700), weekend: formatThb(afternoonWE ?? 900) },
-      { timeSlot: '17:00 – 23:00 (Promo)', weekday: formatThb(eveningWD ?? 700), weekend: formatThb(eveningWE ?? 900) },
+      { timeSlot: 'Before 14:00', weekday: formatThb(morningWD ?? 550), weekend: formatThb(morningWE ?? 750) },
+      { timeSlot: '14:00 – 17:00', weekday: formatThb(afternoonWD ?? 750), weekend: formatThb(afternoonWE ?? 950) },
+      { timeSlot: '17:00 – 23:00 (Promo)', weekday: formatThb(eveningWD ?? 750), weekend: formatThb(eveningWE ?? 950) },
     ],
     bayRateNotes,
   }
