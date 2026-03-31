@@ -90,7 +90,7 @@ export function getGolfPricingJsonLd(dynamicBayRates?: BayRateRow[], dynamicPack
           '@type': 'Offer' as const,
           name: 'Simulator Bay – Weekday Before 14:00',
           description: 'Mon–Thu, up to 5 players per bay, golf club rental included',
-          price: '500',
+          price: '550',
           priceCurrency: 'THB',
           unitCode: 'HUR',
           eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'HUR' },
@@ -99,7 +99,7 @@ export function getGolfPricingJsonLd(dynamicBayRates?: BayRateRow[], dynamicPack
           '@type': 'Offer' as const,
           name: 'Simulator Bay – Weekday 14:00–23:00',
           description: 'Mon–Thu, up to 5 players per bay, golf club rental included',
-          price: '700',
+          price: '750',
           priceCurrency: 'THB',
           unitCode: 'HUR',
           eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'HUR' },
@@ -108,7 +108,7 @@ export function getGolfPricingJsonLd(dynamicBayRates?: BayRateRow[], dynamicPack
           '@type': 'Offer' as const,
           name: 'Simulator Bay – Weekend Before 14:00',
           description: 'Fri–Sun & public holidays, up to 5 players per bay, golf club rental included',
-          price: '700',
+          price: '750',
           priceCurrency: 'THB',
           unitCode: 'HUR',
           eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'HUR' },
@@ -117,7 +117,7 @@ export function getGolfPricingJsonLd(dynamicBayRates?: BayRateRow[], dynamicPack
           '@type': 'Offer' as const,
           name: 'Simulator Bay – Weekend 14:00–23:00',
           description: 'Fri–Sun & public holidays, up to 5 players per bay, golf club rental included',
-          price: '900',
+          price: '950',
           priceCurrency: 'THB',
           unitCode: 'HUR',
           eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'HUR' },
@@ -400,7 +400,7 @@ export function getHomePricingJsonLd() {
         '@type': 'Offer',
         name: 'Bay Rental',
         description: 'Indoor golf simulator bay rental, up to 5 players per bay, golf club rental included',
-        price: '500',
+        price: '550',
         priceCurrency: 'THB',
         unitCode: 'HUR',
         eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'HUR' },
@@ -647,7 +647,7 @@ export function getPriceGuidePageJsonLd(page: {
 }) {
   // Parse price breakdown items and extract actual prices
   const parsedOffers = page.content.price_breakdown.map((item) => {
-    // Check for price range (e.g., "500–900 THB/hr" or "500-900")
+    // Check for price range (e.g., "550–950 THB/hr" or "550-950")
     const rangeMatch = item.price.match(/^(\d[\d,]*)\s*[–-]\s*(\d[\d,]*)/)
     if (rangeMatch) {
       return {

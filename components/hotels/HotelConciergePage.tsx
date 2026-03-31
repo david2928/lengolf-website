@@ -113,12 +113,12 @@ export default function HotelConciergePage({ data }: Props) {
             LENGOLF is an indoor golf simulator bar at Mercury Ville, BTS Chidlom — just a {content.walking_time_mins}-minute
             walk from {content.hotel_name}. With premium Bravo golf simulators, a full bar, and air-conditioning,
             it&apos;s a great activity for hotel guests — whether you&apos;re a golfer or have never picked up a club.
-            Bay rental starts at 500 THB/hour for up to 5 people.
+            Bay rental starts at 550 THB/hour for up to 5 people.
           </p>
           <div className="flex flex-wrap gap-3">
             <div className="flex items-center gap-2 rounded-full bg-[#e8f5e9] px-4 py-2 text-sm text-[#2d6a4f]">
               <Check className="h-4 w-4" />
-              500 THB/hour for up to 5 people
+              550 THB/hour for up to 5 people
             </div>
             <div className="flex items-center gap-2 rounded-full bg-[#e8f5e9] px-4 py-2 text-sm text-[#2d6a4f]">
               <Check className="h-4 w-4" />

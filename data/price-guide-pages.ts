@@ -45,10 +45,10 @@ export interface PriceGuideTokens {
 
 // Hardcoded fallback values (mirrors data/pricing.ts static arrays)
 const FALLBACK: PriceGuideTokens = {
-  bayMorningWD: '500 THB/hr',
-  bayMorningWE: '700 THB/hr',
-  bayAfternoonWD: '700 THB/hr',
-  bayAfternoonWE: '900 THB/hr',
+  bayMorningWD: '550 THB/hr',
+  bayMorningWE: '750 THB/hr',
+  bayAfternoonWD: '750 THB/hr',
+  bayAfternoonWE: '950 THB/hr',
   bayPerPersonGroup5: '100 THB',
   pkgBronze: '3,000 THB',
   pkgSilver: '8,000 THB',
@@ -158,8 +158,8 @@ const SIMULATOR_VENUES = {
     location: 'Mercury Ville, BTS Chidlom',
     tech: 'Bravo',
     players_per_bay: 5,
-    cheapest_rate: '500 THB/hr',
-    peak_rate: '900 THB/hr',
+    cheapest_rate: '550 THB/hr',
+    peak_rate: '950 THB/hr',
     price_includes_tax: true,
     notes: 'Free standard club rental included. Open daily 10:00–23:00.',
   },
@@ -203,7 +203,7 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
     slug: 'how-much-does-golf-cost-bangkok',
     title: 'How Much Does Golf Cost in Bangkok? (2026 Complete Guide)',
     meta_description:
-      'Golf in Bangkok costs 500–4,000 THB depending on format. Compare indoor simulator rates (from 500 THB/hr for 5 people) vs outdoor course green fees, driving ranges, and lessons.',
+      'Golf in Bangkok costs 550–4,000 THB depending on format. Compare indoor simulator rates (from 550 THB/hr for 5 people) vs outdoor course green fees, driving ranges, and lessons.',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -214,9 +214,9 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
     updated_at: now,
     content: {
       intro:
-        'Golf in Bangkok typically costs between 500 and 4,000 THB, depending on whether you play indoors on a simulator or outdoors on a course. Indoor golf simulators start at 500 THB per hour for up to 5 people — just 100 THB per person. Outdoor courses range from 1,500 to 4,000 THB per round, plus caddie fees and transport.',
+        'Golf in Bangkok typically costs between 550 and 4,000 THB, depending on whether you play indoors on a simulator or outdoors on a course. Indoor golf simulators start at 550 THB per hour for up to 5 people — just 110 THB per person. Outdoor courses range from 1,500 to 4,000 THB per round, plus caddie fees and transport.',
       price_breakdown: [
-        { item: 'Indoor golf simulator (LENGOLF)', price: '500–900 THB/hr', notes: 'Per bay, up to 5 players. Free club rental included. BTS Chidlom.' },
+        { item: 'Indoor golf simulator (LENGOLF)', price: '550–950 THB/hr', notes: 'Per bay, up to 5 players. Free club rental included. BTS Chidlom.' },
         { item: 'Indoor golf simulator (other venues)', price: '550–1,400 THB/hr', notes: 'Varies by venue, time, and day. Some exclude tax.' },
         { item: 'Outdoor course green fee (weekday)', price: '1,500–3,000 THB', notes: 'Per round. Courses like Alpine, Lakewood, Bangkok Golf Club.' },
         { item: 'Outdoor course green fee (weekend)', price: '2,500–4,000 THB', notes: 'Premium rates on Sat–Sun and public holidays.' },
@@ -227,9 +227,9 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
         { item: 'Golf club rental (outdoor courses)', price: '500–1,500 THB', notes: 'Per round. Quality varies significantly.' },
       ],
       comparison_with_alternatives:
-        'The cost difference between indoor and outdoor golf in Bangkok is significant. An outdoor round at a mid-range course costs approximately 2,500 THB (green fee) + 400 THB (caddie) + 700 THB (cart) + 500 THB (club rental if needed) = 4,100 THB minimum per person, plus 1–2 hours of transport each way. At LENGOLF, a group of 5 can play for 500 THB total per hour — 100 THB per person — in air-conditioned comfort at BTS Chidlom. For practice, social outings, or anyone who wants to experience golf without the full-day commitment, indoor simulators are dramatically more accessible.',
+        'The cost difference between indoor and outdoor golf in Bangkok is significant. An outdoor round at a mid-range course costs approximately 2,500 THB (green fee) + 400 THB (caddie) + 700 THB (cart) + 500 THB (club rental if needed) = 4,100 THB minimum per person, plus 1–2 hours of transport each way. At LENGOLF, a group of 5 can play for 550 THB total per hour — 110 THB per person — in air-conditioned comfort at BTS Chidlom. For practice, social outings, or anyone who wants to experience golf without the full-day commitment, indoor simulators are dramatically more accessible.',
       value_proposition:
-        'At 100 THB per person per hour (group of 5), LENGOLF is the most affordable way to play golf in Bangkok. No caddie fees, no transport costs, no dress code. Just show up at BTS Chidlom and play.',
+        'At 110 THB per person per hour (group of 5), LENGOLF is the most affordable way to play golf in Bangkok. No caddie fees, no transport costs, no dress code. Just show up at BTS Chidlom and play.',
       last_verified: '2026-02-19',
       venue_comparison: {
         venues: [
@@ -239,7 +239,7 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
           SIMULATOR_VENUES.topgolf,
         ],
         summary:
-          'LENGOLF offers the lowest per-person cost of any simulator venue in central Bangkok. For a group of 5 at off-peak rates, that\'s 100 THB per person per hour — less than a driving range bucket. Topgolf\'s headline rates look competitive but exclude service charge and VAT (adding ~17%), and the venue is 30–45 minutes from central Bangkok. Fairway Golf & City Club uses premium Trackman technology but at 2x the base rate. Front 9 is closest in pricing to LENGOLF but caps at 4 players per bay.',
+          'LENGOLF offers the lowest per-person cost of any simulator venue in central Bangkok. For a group of 5 at off-peak rates, that\'s 110 THB per person per hour — less than a driving range bucket. Topgolf\'s headline rates look competitive but exclude service charge and VAT (adding ~17%), and the venue is 30–45 minutes from central Bangkok. Fairway Golf & City Club uses premium Trackman technology but at 2x the base rate. Front 9 is closest in pricing to LENGOLF but caps at 4 players per bay.',
       },
       sections: [
         {
@@ -248,7 +248,7 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
         },
         {
           heading: 'Indoor Simulator Golf: What You Get',
-          body: 'Indoor golf simulators let you play famous courses like Pebble Beach, St Andrews, and TPC Sawgrass in air-conditioned comfort. Modern simulators track ball speed, launch angle, spin, and carry distance with high accuracy. At LENGOLF, each bay accommodates up to 5 players, and the price covers the bay — not per person. A 2-hour session for 4 friends costs 1,000 THB weekday morning (250 THB each). Free standard club rental is included, so you don\'t need to bring or rent equipment.',
+          body: 'Indoor golf simulators let you play famous courses like Pebble Beach, St Andrews, and TPC Sawgrass in air-conditioned comfort. Modern simulators track ball speed, launch angle, spin, and carry distance with high accuracy. At LENGOLF, each bay accommodates up to 5 players, and the price covers the bay — not per person. A 2-hour session for 4 friends costs 1,100 THB weekday morning (275 THB each). Free standard club rental is included, so you don\'t need to bring or rent equipment.',
         },
         {
           heading: 'Which Option Is Best for You?',
@@ -270,7 +270,7 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
     slug: 'golf-simulator-prices-bangkok',
     title: 'Golf Simulator Prices in Bangkok Compared (2026)',
     meta_description:
-      'Compare golf simulator prices in Bangkok: LENGOLF (from 500 THB/hr), Front 9, Fairway Golf & City Club, and Topgolf Megacity. Full rate cards, packages, and per-person costs.',
+      'Compare golf simulator prices in Bangkok: LENGOLF (from 550 THB/hr), Front 9, Fairway Golf & City Club, and Topgolf Megacity. Full rate cards, packages, and per-person costs.',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -281,11 +281,11 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
     updated_at: now,
     content: {
       intro:
-        'Golf simulator prices in Bangkok range from 500 to 1,400 THB per hour per bay, depending on the venue, time of day, and day of week. LENGOLF starts at 500 THB/hour for up to 5 players. Here\'s an honest comparison of every major simulator venue in central Bangkok.',
+        'Golf simulator prices in Bangkok range from 550 to 1,400 THB per hour per bay, depending on the venue, time of day, and day of week. LENGOLF starts at 550 THB/hour for up to 5 players. Here\'s an honest comparison of every major simulator venue in central Bangkok.',
       price_breakdown: [
-        { item: 'LENGOLF — Weekday before 14:00', price: '500 THB/hr', notes: 'Up to 5 players. Free standard clubs. BTS Chidlom. VAT included.' },
-        { item: 'LENGOLF — Weekday 14:00–23:00', price: '700 THB/hr', notes: 'Up to 5 players. Free standard clubs. VAT included.' },
-        { item: 'LENGOLF — Weekend / Holiday', price: '700–900 THB/hr', notes: 'Fri–Sun & PH. Up to 5 players. VAT included.' },
+        { item: 'LENGOLF — Weekday before 14:00', price: '550 THB/hr', notes: 'Up to 5 players. Free standard clubs. BTS Chidlom. VAT included.' },
+        { item: 'LENGOLF — Weekday 14:00–23:00', price: '750 THB/hr', notes: 'Up to 5 players. Free standard clubs. VAT included.' },
+        { item: 'LENGOLF — Weekend / Holiday', price: '750–950 THB/hr', notes: 'Fri–Sun & PH. Up to 5 players. VAT included.' },
         { item: 'Front 9 — Weekday before 12:00', price: '600 THB/hr', notes: 'Up to 4 players. Trackman. Sukhumvit 47. VAT included.' },
         { item: 'Front 9 — Weekday 12:00–17:00', price: '700 THB/hr', notes: 'Up to 4 players. VAT included.' },
         { item: 'Front 9 — Weekday 17:00–22:00 (promo)', price: '800 THB/hr', notes: 'Promo rate (regular: 1,200 THB). VAT included.' },
@@ -298,7 +298,7 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
       comparison_with_alternatives:
         'When comparing prices, always check whether tax is included. LENGOLF and Front 9 quote VAT-inclusive prices. Fairway Golf & City Club excludes VAT (add ~7%), and Topgolf Megacity excludes both service charge and VAT (add ~17%), which makes their posted rates 17% lower than the actual cost you\'ll pay. Location also matters: Topgolf is in Mega Bangna — a 30–45 minute drive from central Bangkok — while LENGOLF, Front 9, and Fairway are all on the BTS Sukhumvit line.',
       value_proposition:
-        'LENGOLF offers the lowest bay rate in central Bangkok at 500 THB/hour, and the lowest per-person rate at 100 THB (group of 5). With free standard club rental, no joining fees, and prices inclusive of tax, what you see is what you pay.',
+        'LENGOLF offers the lowest bay rate in central Bangkok at 550 THB/hour, and the lowest per-person rate at 110 THB (group of 5). With free standard club rental, no joining fees, and prices inclusive of tax, what you see is what you pay.',
       last_verified: '2026-02-19',
       venue_comparison: {
         venues: [
@@ -308,12 +308,12 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
           SIMULATOR_VENUES.topgolf,
         ],
         summary:
-          'For per-person value, LENGOLF is the clear winner at 100 THB per person (5 players, weekday off-peak). Front 9 is the closest competitor at 150 THB per person (4 players). Fairway Golf\'s higher capacity (8 players) helps its per-person cost (125 THB at off-peak), but the base rate is double LENGOLF\'s. Topgolf\'s true cost after tax is 643–1,463 THB/hr, and the Bangna location adds significant transport time and cost from central Bangkok.',
+          'For per-person value, LENGOLF is the clear winner at 110 THB per person (5 players, weekday off-peak). Front 9 is the closest competitor at 150 THB per person (4 players). Fairway Golf\'s higher capacity (8 players) helps its per-person cost (125 THB at off-peak), but the base rate is double LENGOLF\'s. Topgolf\'s true cost after tax is 643–1,463 THB/hr, and the Bangna location adds significant transport time and cost from central Bangkok.',
       },
       sections: [
         {
           heading: 'LENGOLF: Full Rate Card',
-          body: 'LENGOLF is at Mercury Ville, directly connected to BTS Chidlom (Exit 4). Weekday rates: 500 THB/hr before 14:00, 700 THB/hr from 14:00–23:00. Weekend/holiday rates: 700 THB/hr before 14:00, 900 THB/hr from 14:00–23:00. All prices per bay (up to 5 players), inclusive of VAT. Free standard club rental is included with every booking. Premium club rental (Callaway, Majesty) is available from 150 THB/hr. Monthly packages: Bronze (5 hrs, 3,000 THB), Silver (15 hrs, 8,000 THB), Gold (30 hrs, 14,000 THB), Diamond Unlimited (8,000 THB/month), Diamond+ Unlimited (18,000 THB/3 months). Early Bird packages (before 14:00 only): 10 hrs for 4,800 THB, or unlimited for 5,000 THB/month.',
+          body: 'LENGOLF is at Mercury Ville, directly connected to BTS Chidlom (Exit 4). Weekday rates: 550 THB/hr before 14:00, 750 THB/hr from 14:00–23:00. Weekend/holiday rates: 750 THB/hr before 14:00, 950 THB/hr from 14:00–23:00. All prices per bay (up to 5 players), inclusive of VAT. Free standard club rental is included with every booking. Premium club rental (Callaway, Majesty) is available from 150 THB/hr. Monthly packages: Bronze (5 hrs, 3,000 THB), Silver (15 hrs, 8,000 THB), Gold (30 hrs, 14,000 THB), Diamond Unlimited (8,000 THB/month), Diamond+ Unlimited (18,000 THB/3 months). Early Bird packages (before 14:00 only): 10 hrs for 4,800 THB, or unlimited for 5,000 THB/month.',
         },
         {
           heading: 'Front 9: Full Rate Card',
@@ -347,7 +347,7 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
     slug: 'lengolf-pricing-guide',
     title: 'LENGOLF Pricing Guide: Bay Rates, Packages & Lessons (2026)',
     meta_description:
-      'Complete LENGOLF pricing: bay rental from 500 THB/hr (up to 5 people), monthly packages from 3,000 THB, lessons from 1,800 THB/hr, event packages from 9,999 THB. All rates for 2026.',
+      'Complete LENGOLF pricing: bay rental from 550 THB/hr (up to 5 people), monthly packages from 3,000 THB, lessons from 1,800 THB/hr, event packages from 9,999 THB. All rates for 2026.',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -358,12 +358,12 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
     updated_at: now,
     content: {
       intro:
-        'LENGOLF bay rental starts at 500 THB per hour for up to 5 people — that\'s 100 THB per person. We also offer monthly packages, golf lessons, event packages, and premium club rental. Here\'s our complete 2026 pricing.',
+        'LENGOLF bay rental starts at 550 THB per hour for up to 5 people — that\'s 110 THB per person. We also offer monthly packages, golf lessons, event packages, and premium club rental. Here\'s our complete 2026 pricing.',
       price_breakdown: [
-        { item: 'Bay rental — Weekday before 14:00', price: '500 THB/hr', notes: 'Mon–Thu. Per bay, up to 5 players.' },
-        { item: 'Bay rental — Weekday 14:00–23:00', price: '700 THB/hr', notes: 'Mon–Thu. Per bay, up to 5 players.' },
-        { item: 'Bay rental — Weekend before 14:00', price: '700 THB/hr', notes: 'Fri–Sun & public holidays. Per bay, up to 5 players.' },
-        { item: 'Bay rental — Weekend 14:00–23:00', price: '900 THB/hr', notes: 'Fri–Sun & public holidays. Per bay, up to 5 players.' },
+        { item: 'Bay rental — Weekday before 14:00', price: '550 THB/hr', notes: 'Mon–Thu. Per bay, up to 5 players.' },
+        { item: 'Bay rental — Weekday 14:00–23:00', price: '750 THB/hr', notes: 'Mon–Thu. Per bay, up to 5 players.' },
+        { item: 'Bay rental — Weekend before 14:00', price: '750 THB/hr', notes: 'Fri–Sun & public holidays. Per bay, up to 5 players.' },
+        { item: 'Bay rental — Weekend 14:00–23:00', price: '950 THB/hr', notes: 'Fri–Sun & public holidays. Per bay, up to 5 players.' },
         { item: 'Bronze Package (5 hrs / 1 month)', price: '3,000 THB', notes: '600 THB/hr effective rate. Good for occasional visitors.' },
         { item: 'Silver Package (15 hrs / 3 months)', price: '8,000 THB', notes: '533 THB/hr effective rate. 5% off food & drinks.' },
         { item: 'Gold Package (30 hrs / 6 months)', price: '14,000 THB', notes: '467 THB/hr effective rate. 10% off food & drinks.' },
@@ -382,7 +382,7 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
       comparison_with_alternatives:
         'All LENGOLF prices are inclusive of VAT. What you see is what you pay — no hidden fees, no joining fees, no minimum spend requirements. Standard club rental is free with every bay booking, which is unique among Bangkok simulator venues. Our monthly packages provide the best per-hour rates in the city: the Diamond+ Unlimited package at 18,000 THB for 3 months of unlimited play is unmatched for regular golfers.',
       value_proposition:
-        'LENGOLF is designed to make golf accessible. At 100 THB per person (group of 5, weekday morning), it\'s less than a movie ticket. Free standard clubs mean you can walk in with nothing and play immediately. And with a free 1-hour trial lesson, there\'s zero risk to try.',
+        'LENGOLF is designed to make golf accessible. At 110 THB per person (group of 5, weekday morning), it\'s less than a movie ticket. Free standard clubs mean you can walk in with nothing and play immediately. And with a free 1-hour trial lesson, there\'s zero risk to try.',
       last_verified: '2026-02-19',
       sections: [
         {
