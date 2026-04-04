@@ -10,7 +10,7 @@ import UsedClubsGrid from '@/components/clubs/UsedClubsGrid'
 import type { GridLabels } from '@/components/clubs/UsedClubsGrid'
 import { MessageCircle, MapPin, Camera, Search, Shield } from 'lucide-react'
 
-export const revalidate = 3600
+export const revalidate = 86400
 
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
   '@lengolf': { href: SOCIAL_LINKS.line, external: true },

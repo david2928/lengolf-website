@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   }
 }
 
-export const revalidate = 3600 // ISR: revalidate every hour
+export const revalidate = 86400 // ISR: revalidate daily to reduce Vercel ISR write quota
 
 export default async function BlogPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params

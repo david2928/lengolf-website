@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 // Revalidate every hour so promotion changes propagate from DB
-export const revalidate = 3600
+export const revalidate = 86400
 
 const locationLinks = [
   { name: 'Sathorn', href: '/location/indoor-golf-sathorn' },

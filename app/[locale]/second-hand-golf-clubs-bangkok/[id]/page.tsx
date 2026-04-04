@@ -9,7 +9,7 @@ import ClubDetailGallery from '@/components/clubs/ClubDetailGallery'
 import ClubCard from '@/components/clubs/ClubCard'
 import { ArrowLeft, MessageCircle, Layers, User, Shield, Tag } from 'lucide-react'
 
-export const revalidate = 3600
+export const revalidate = 86400
 
 export async function generateStaticParams() {
   const ids = await getUsedClubIds()
