@@ -9,6 +9,7 @@ import { coaches } from '@/data/coaches'
 import { getLessonPricingData } from '@/data/pricing'
 import { getLessonsPricingJsonLd, getLessonsServiceJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import FaqSection from '@/components/shared/FaqSection'
+import ClickableImage from '@/components/shared/ClickableImage'
 
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
   'booking.len.golf': { href: 'https://booking.len.golf/', external: true },
@@ -266,7 +267,7 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
             <span className="text-foreground">{t('lessonPricingTitleSuffix')}</span>
           </h2>
           <div className="mx-auto max-w-lg">
-            <Image
+            <ClickableImage
               src={storageUrl('lessons/lesson-packages.jpg')}
               alt="LENGOLF lesson packages: 1 hour from 1,800 THB, 5–50 hour packages available, Starter Package 11,000 THB, Sim to Fairway 13,499 THB"
               width={512}
@@ -345,8 +346,8 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
         </h2>
         <div className="mx-auto grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2">
           {promoImages.map((img) => (
-            <div key={img.src} className="overflow-hidden rounded-lg">
-              <Image
+            <div key={img.src} className="overflow-hidden rounded-lg shadow-sm">
+              <ClickableImage
                 src={img.src}
                 alt={img.alt}
                 width={600}
