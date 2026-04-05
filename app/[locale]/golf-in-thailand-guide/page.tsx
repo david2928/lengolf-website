@@ -1446,8 +1446,7 @@ export default async function GolfInThailandGuidePage({
               <Link
                 key={link.href}
                 href={link.href as Parameters<typeof Link>[0]['href']}
-                className="rounded-full border bg-white px-5 py-2.5 text-sm font-medium transition-colors hover:bg-primary hover:text-white hover:border-primary"
-                style={{ borderColor: 'rgba(0,66,37,0.15)', color: '#005A32' }}
+                className="rounded-full border border-[rgba(0,66,37,0.15)] bg-white px-5 py-2.5 text-sm font-medium text-[#005A32] transition-colors hover:bg-primary hover:text-white hover:border-primary"
               >
                 {link.label}
               </Link>

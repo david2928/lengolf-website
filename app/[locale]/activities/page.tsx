@@ -168,8 +168,7 @@ export default async function ActivitiesHubPage({
               <Link
                 key={link.href}
                 href={link.href as Parameters<typeof Link>[0]['href']}
-                className="rounded-full border border-primary/20 bg-primary/5 px-5 py-2.5 text-sm font-medium transition-colors hover:bg-primary hover:text-white"
-                style={{ color: '#007429' }}
+                className="rounded-full border border-primary/20 bg-primary/5 px-5 py-2.5 text-sm font-medium text-[#007429] transition-colors hover:bg-primary hover:text-white"
               >
                 {link.label}
               </Link>
