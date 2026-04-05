@@ -11,6 +11,7 @@ import { getBayRatesData, getMonthlyPackagesData } from '@/data/pricing'
 import { getPricingCatalog } from '@/lib/pricing'
 import { getGolfPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import FaqSection from '@/components/shared/FaqSection'
+import ImageLightbox from '@/components/shared/ImageLightbox'
 
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
   'booking.len.golf': { href: 'https://booking.len.golf/', external: true },
@@ -172,11 +173,10 @@ export default async function GolfPage({ params }: { params: Promise<{ locale: s
               <span className="text-foreground">{t('ourRatesTitleSuffix')}</span>
             </h2>
             <div className="mx-auto max-w-lg">
-              <Image
-                src={`${storageUrl('golf/bay-rates.jpg')}?v=20260331`}
-                alt="LENGOLF bay rates: weekday 550–750 THB/hr, weekend 750–950 THB/hr, up to 5 players per bay, golf club rental included"
-                width={512} height={512}
-                className="w-full rounded-lg shadow-sm"
+              <ImageLightbox
+                images={[{ src: `${storageUrl('golf/bay-rates.jpg')}?v=20260331`, alt: 'LENGOLF bay rates: weekday 550–750 THB/hr, weekend 750–950 THB/hr, up to 5 players per bay, golf club rental included' }]}
+                gridClassName="grid grid-cols-1"
+                aspectClassName="aspect-square"
                 sizes="(max-width: 512px) 100vw, 512px"
               />
             </div>
@@ -216,11 +216,10 @@ export default async function GolfPage({ params }: { params: Promise<{ locale: s
               <span className="text-foreground">{t('monthlyPackagesTitleSuffix')}</span>
             </h2>
             <div className="mx-auto max-w-lg">
-              <Image
-                src={monthlyPackagesPromo?.image_url || storageUrl('golf/monthly-packages.jpg')}
-                alt={monthlyPackagesPromo?.title_en || 'LENGOLF monthly packages'}
-                width={512} height={512}
-                className="w-full rounded-lg shadow-sm"
+              <ImageLightbox
+                images={[{ src: monthlyPackagesPromo?.image_url || storageUrl('golf/monthly-packages.jpg'), alt: monthlyPackagesPromo?.title_en || 'LENGOLF monthly packages' }]}
+                gridClassName="grid grid-cols-1"
+                aspectClassName="aspect-square"
                 sizes="(max-width: 512px) 100vw, 512px"
               />
             </div>
@@ -284,12 +283,13 @@ export default async function GolfPage({ params }: { params: Promise<{ locale: s
           <span style={{ color: '#007429' }}>{t('promotionsTitle')}</span>{' '}
           <span className="text-foreground">{t('promotionsTitleSuffix')}</span>
         </h2>
-        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2">
-          {gridPromotions.map((promo) => (
-            <div key={promo.id} className="overflow-hidden rounded-lg shadow-sm transition-transform hover:scale-[1.02]">
-              <Image src={promo.image_url} alt={promo.title_en} width={600} height={600} className="w-full" sizes="(max-width: 640px) 100vw, 50vw" />
-            </div>
-          ))}
+        <div className="mx-auto max-w-4xl">
+          <ImageLightbox
+            images={gridPromotions.map((promo) => ({ src: promo.image_url, alt: promo.title_en }))}
+            gridClassName="grid grid-cols-1 gap-5 sm:grid-cols-2"
+            aspectClassName="aspect-square"
+            sizes="(max-width: 640px) 100vw, 50vw"
+          />
         </div>
         <div className="sr-only">
           <h3>Current Promotions at LENGOLF</h3>
