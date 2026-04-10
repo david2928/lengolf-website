@@ -28,6 +28,8 @@ const faqLinks: Record<string, { href: string; external?: boolean }> = {
   'golf lessons': { href: '/lessons' },
 }
 
+export const revalidate = 3600
+
 const FAQ_COUNT = 10
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {

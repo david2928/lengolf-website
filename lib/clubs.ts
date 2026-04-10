@@ -77,23 +77,9 @@ export interface RentalPricingRow {
   note?: string
 }
 
-interface RentalClubSetRow {
-  tier: string
-  indoor_price_1h: string | null
-  indoor_price_2h: string | null
-  indoor_price_3h: string | null
-  indoor_price_4h: string | null
-  indoor_price_5h: string | null
-  course_price_1d: string | null
-  course_price_3d: string | null
-  course_price_7d: string | null
-  course_price_14d: string | null
-}
-
-function formatThb(value: string | null): string {
-  if (!value) return '—'
-  const num = parseFloat(value)
-  return num >= 1000 ? `${num.toLocaleString('en-US')} THB` : `${num} THB`
+function formatThb(value: number | null): string {
+  if (value == null) return '—'
+  return value >= 1000 ? `${value.toLocaleString('en-US')} THB` : `${value} THB`
 }
 
 export async function getRentalClubPricing(): Promise<{
@@ -102,10 +88,10 @@ export async function getRentalClubPricing(): Promise<{
 }> {
   const supabase = createClient()
 
-  const { data, error } = await (supabase
-    .from('rental_club_sets' as 'used_clubs_inventory')
+  const { data, error } = await supabase
+    .from('rental_club_sets')
     .select('tier, indoor_price_1h, indoor_price_2h, indoor_price_3h, indoor_price_4h, indoor_price_5h, course_price_1d, course_price_3d, course_price_7d, course_price_14d')
-    .eq('is_active' as 'available_for_sale', true) as unknown as Promise<{ data: RentalClubSetRow[] | null; error: unknown }>)
+    .eq('is_active', true)
 
   if (error || !data) {
     console.error('Error fetching rental pricing:', error)
@@ -119,7 +105,9 @@ export async function getRentalClubPricing(): Promise<{
     return { indoor: [], course: [] }
   }
 
-  const indoorDurations: { key: keyof RentalClubSetRow; label: string }[] = [
+  type PriceKey = 'indoor_price_1h' | 'indoor_price_2h' | 'indoor_price_3h' | 'indoor_price_4h' | 'indoor_price_5h' | 'course_price_1d' | 'course_price_3d' | 'course_price_7d' | 'course_price_14d'
+
+  const indoorDurations: { key: PriceKey; label: string }[] = [
     { key: 'indoor_price_1h', label: '1 Hour' },
     { key: 'indoor_price_2h', label: '2 Hours' },
     { key: 'indoor_price_3h', label: '3 Hours' },
@@ -128,7 +116,7 @@ export async function getRentalClubPricing(): Promise<{
   ]
 
   const indoor: RentalPricingRow[] = indoorDurations
-    .filter((d) => premium[d.key] && premiumPlus[d.key])
+    .filter((d) => premium[d.key] != null && premiumPlus[d.key] != null)
     .map((d) => ({
       duration: d.label,
       premium: formatThb(premium[d.key]),
@@ -141,7 +129,7 @@ export async function getRentalClubPricing(): Promise<{
     course_price_14d: 'Pay 7, get 7 free',
   }
 
-  const courseDurations: { key: keyof RentalClubSetRow; label: string }[] = [
+  const courseDurations: { key: PriceKey; label: string }[] = [
     { key: 'course_price_1d', label: '1 Day' },
     { key: 'course_price_3d', label: '3 Days' },
     { key: 'course_price_7d', label: '7 Days' },
@@ -149,7 +137,7 @@ export async function getRentalClubPricing(): Promise<{
   ]
 
   const course: RentalPricingRow[] = courseDurations
-    .filter((d) => premium[d.key] && premiumPlus[d.key])
+    .filter((d) => premium[d.key] != null && premiumPlus[d.key] != null)
     .map((d) => ({
       duration: d.label,
       premium: formatThb(premium[d.key]),

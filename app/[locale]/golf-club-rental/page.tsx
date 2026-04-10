@@ -11,6 +11,8 @@ import { getClubRentalPricingJsonLd, getClubRentalServiceJsonLd, getFaqPageJsonL
 import { getRentalClubPricing } from '@/lib/clubs'
 import FaqSection from '@/components/shared/FaqSection'
 
+export const revalidate = 3600
+
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
   'booking.len.golf': { href: 'https://booking.len.golf/', external: true },
   '@lengolf': { href: 'https://lin.ee/uxQpIXn', external: true },

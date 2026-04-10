@@ -13,6 +13,8 @@ import PageLanguageSwitcher from '@/components/course-rental/PageLanguageSwitche
 import { storageUrl, SITE_URL, BUSINESS_INFO, SOCIAL_LINKS, BOOKING_URL } from '@/lib/constants'
 import { getCourseClubRentalServiceJsonLd, getCourseClubRentalPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { getRentalClubPricing } from '@/lib/clubs'
+export const revalidate = 3600
+
 import { getApproxCurrency } from '@/lib/currency-rates'
 import {
   ExternalLink,

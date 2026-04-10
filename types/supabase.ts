@@ -277,6 +277,90 @@ export type Database = {
           }
         ]
       }
+      rental_club_sets: {
+        Row: {
+          id: string
+          name: string
+          slug: string
+          tier: string
+          gender: string
+          brand: string | null
+          model: string | null
+          description: string | null
+          specifications: Json | null
+          image_url: string | null
+          rental_type: string
+          indoor_price_1h: number | null
+          indoor_price_2h: number | null
+          indoor_price_3h: number | null
+          indoor_price_4h: number | null
+          indoor_price_5h: number | null
+          course_price_1d: number | null
+          course_price_3d: number | null
+          course_price_7d: number | null
+          course_price_14d: number | null
+          quantity: number
+          is_active: boolean
+          display_order: number
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          slug: string
+          tier: string
+          gender: string
+          brand?: string | null
+          model?: string | null
+          description?: string | null
+          specifications?: Json | null
+          image_url?: string | null
+          rental_type: string
+          indoor_price_1h?: number | null
+          indoor_price_2h?: number | null
+          indoor_price_3h?: number | null
+          indoor_price_4h?: number | null
+          indoor_price_5h?: number | null
+          course_price_1d?: number | null
+          course_price_3d?: number | null
+          course_price_7d?: number | null
+          course_price_14d?: number | null
+          quantity?: number
+          is_active?: boolean
+          display_order?: number
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          slug?: string
+          tier?: string
+          gender?: string
+          brand?: string | null
+          model?: string | null
+          description?: string | null
+          specifications?: Json | null
+          image_url?: string | null
+          rental_type?: string
+          indoor_price_1h?: number | null
+          indoor_price_2h?: number | null
+          indoor_price_3h?: number | null
+          indoor_price_4h?: number | null
+          indoor_price_5h?: number | null
+          course_price_1d?: number | null
+          course_price_3d?: number | null
+          course_price_7d?: number | null
+          course_price_14d?: number | null
+          quantity?: number
+          is_active?: boolean
+          display_order?: number
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       contact_submissions: {
         Row: {
           id: string
