@@ -82,6 +82,13 @@ const routeTests: RouteTest[] = [
   { path: '/activities/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-in-thailand-guide/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/hotels/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // Golf courses hub + region index
+  { path: '/golf-courses/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/golf-courses/bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // Golf course pages (Bangkok batch — spot-check 3 courses)
+  { path: '/golf-courses/bangkok/alpine-golf-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/golf-courses/bangkok/nikanti-golf-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/golf-courses/bangkok/summit-windmill-golf-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Best-of listicle pages
   { path: '/best/best-team-building-activities-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/best/best-corporate-event-venues-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
@@ -135,6 +142,11 @@ const redirectTests: RedirectTest[] = [
   { path: '/golf-near-thong-lo/', expectedStatus: 308, expectedLocation: '/location/golf-near-thong-lo/' },
   { path: '/golf-near-silom/', expectedStatus: 308, expectedLocation: '/location/golf-near-silom/' },
   { path: '/golf-near-sukhumvit/', expectedStatus: 308, expectedLocation: '/location/golf-near-sukhumvit/' },
+  { path: '/golf-near-phaya-thai/', expectedStatus: 308, expectedLocation: '/location/golf-near-phaya-thai/' },
+  { path: '/indoor-golf-thong-lo/', expectedStatus: 308, expectedLocation: '/location/indoor-golf-thong-lo/' },
+  { path: '/corporate-events-asok/', expectedStatus: 308, expectedLocation: '/location/corporate-events-asok/' },
+  { path: '/golf-near-ari/', expectedStatus: 308, expectedLocation: '/location/golf-near-ari/' },
+  { path: '/golf-near-ekkamai/', expectedStatus: 308, expectedLocation: '/location/golf-near-ekkamai/' },
 ]
 
 // C) Critical external link checks

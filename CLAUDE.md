@@ -21,13 +21,13 @@ LENGOLF website — a Next.js 15 (App Router) site for an indoor golf simulator 
 GitHub Actions workflow (`.github/workflows/ci.yml`) runs on every PR to `main`:
 
 - **`lint`** — `npm run lint` with ESLint flat config (`eslint.config.mjs`)
-- **`build-and-smoke`** — builds the app, starts the production server, runs 49 smoke tests across 7 categories:
-  - **A) Route tests (20)** — all EN + TH pages return 200 with `<main id="main-content">`
-  - **B) Redirect tests (9)** — WordPress legacy URLs (blog slugs, tags, wp-admin) redirect correctly
+- **`build-and-smoke`** — builds the app, starts the production server, runs smoke tests across 7 categories:
+  - **A) Route tests (46)** — all EN + TH pages return 200 with `<main id="main-content">`
+  - **B) Redirect tests (21)** — WordPress legacy URLs, GSC 404 fixes, and location redirects
   - **C) Link checks (4)** — booking.len.golf, LINE, Supabase Storage assets are reachable
-  - **D) SEO checks (5)** — title, meta description, canonical (www.len.golf), JSON-LD, `lang` attribute
+  - **D) SEO checks (8)** — title, meta description, canonical (www.len.golf), JSON-LD, `lang` attribute
   - **E) Thai redirect tests (2)** — untranslated Thai routes redirect to English
-  - **F) Thai cookie tests (2)** — English pages work with NEXT_LOCALE=th cookie
+  - **F) Thai cookie tests (7)** — English pages work with NEXT_LOCALE=th cookie
   - **G) WordPress 404 tests (7)** — legacy WordPress paths return 404 (prevent redirect regressions)
 
 Both jobs are **required checks** via branch protection — PRs cannot merge if either fails.
