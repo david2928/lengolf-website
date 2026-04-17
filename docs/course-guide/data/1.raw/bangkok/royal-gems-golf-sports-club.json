@@ -1,0 +1,29 @@
+{
+  "slug": "royal-gems-golf-sports-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-16",
+  "fields": {
+    "name": { "value": "The RG City Golf Club", "source": "official-website", "url": "https://rggolfcity.com/", "note": "Formerly Royal Gems Golf City" },
+    "province": { "value": "Pathum Thani", "source": "web-search", "url": "https://www.1golf.eu/en/club/the-royal-gems-golf-city/" },
+    "designer": { "value": null, "source": "model", "url": null, "note": "Replica course — front 9 replicates world signature holes; back 9 mirrors Augusta National holes 10-18" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://rggolfcity.com/", "note": "Primary 18-hole course. Full facility has 63 holes (world's largest replica complex)." },
+    "par": { "value": 71, "source": "web-search", "url": "https://www.golftripz.com/golf-course/the-royal-gems-golf-city-dream-arena" },
+    "year_opened": { "value": null, "source": "model", "url": null },
+    "green_fee_weekday_thb": { "value": 5100, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/the-royal-gems-golf-city-dream-arena", "note": "Approximate low end — range 5,100-8,200 THB inclusive of caddy, buggy, hotel transfers" },
+    "green_fee_weekend_thb": { "value": 8200, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/the-royal-gems-golf-city-dream-arena", "note": "Approximate high end of range" },
+    "caddie_fee_thb": { "value": 0, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/the-royal-gems-golf-city-dream-arena", "note": "Included" },
+    "cart_fee_thb": { "value": 0, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/the-royal-gems-golf-city-dream-arena", "note": "Included" },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": true, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "model", "url": null },
+    "website": { "value": "https://rggolfcity.com/", "source": "web-search", "url": null },
+    "phone": { "value": null, "source": "model", "url": null },
+    "latitude": { "value": 14.0120, "source": "model", "url": null, "note": "Approximate — Rangsit-Nakornnayok Road, Pathum Thani. Verify." },
+    "longitude": { "value": 100.7810, "source": "model", "url": null, "note": "Approximate. Verify." },
+    "distance_from_bangkok_km": { "value": 40, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/the-royal-gems-golf-city-dream-arena" },
+    "drive_time_from_bangkok_min": { "value": 35, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/the-royal-gems-golf-city-dream-arena" },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "address": { "value": "Rangsit-Nakornnayok Road, Pathum Thani", "source": "web-search", "url": "https://rggolfcity.com/" }
+  }
+}

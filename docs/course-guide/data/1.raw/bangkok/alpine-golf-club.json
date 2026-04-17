@@ -1,0 +1,29 @@
+{
+  "slug": "alpine-golf-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-16",
+  "fields": {
+    "name": { "value": "Alpine Golf & Sports Club", "source": "official-website", "url": "https://www.alpinegolfclub.com/" },
+    "province": { "value": "Pathum Thani", "source": "official-website", "url": "https://www.alpinegolfclub.com/" },
+    "designer": { "value": "Ronald M. Garl", "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/alpine-golf-sports-club-bangkok" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/alpine-golf-sports-club-bangkok" },
+    "par": { "value": 72, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/alpine-golf-sports-club-bangkok" },
+    "year_opened": { "value": null, "source": "model", "url": null },
+    "green_fee_weekday_thb": { "value": 5400, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/alpine-golf-sports-club-bangkok", "note": "Inclusive of caddie and cart" },
+    "green_fee_weekend_thb": { "value": 7400, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/alpine-golf-sports-club-bangkok", "note": "Inclusive of caddie and cart" },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Included in green fee package" },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null, "note": "Included in green fee package" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/alpine-golf-sports-club-bangkok" },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.soidb.com/bangkok/driving-range/alpine-golf-sports-club.html" },
+    "website": { "value": "https://www.alpinegolfclub.com/", "source": "web-search", "url": null },
+    "phone": { "value": "+66 2 577 3333", "source": "web-search", "url": "https://www.alpinegolfclub.com/" },
+    "latitude": { "value": 13.9636, "source": "model", "url": null, "note": "Approximate — Khlong Ha, Khlong Luang, Pathum Thani. Verify." },
+    "longitude": { "value": 100.6353, "source": "model", "url": null, "note": "Approximate. Verify." },
+    "distance_from_bangkok_km": { "value": 40, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/alpine-golf-sports-club-bangkok" },
+    "drive_time_from_bangkok_min": { "value": 50, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "address": { "value": "99 M.9, Khlong Ha, Khlong Luang, Pathum Thani 12120", "source": "web-search", "url": "https://www.alpinegolfclub.com/" }
+  }
+}

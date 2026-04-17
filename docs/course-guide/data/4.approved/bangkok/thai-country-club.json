@@ -1,0 +1,37 @@
+{
+  "slug": "thai-country-club",
+  "region": "bangkok",
+  "status": "enriched",
+  "collected_at": "2026-04-16",
+  "enriched_at": "2026-04-16",
+  "fields": {
+    "name": { "value": "Thai Country Club", "source": "official-website", "url": "https://www.thaicountryclub.com/" },
+    "province": { "value": "Chachoengsao", "source": "web-search", "url": "https://www.1golf.eu/en/club/thai-country-club/" },
+    "designer": { "value": "Denis Griffiths", "source": "web-search", "url": "https://www.taigolf.com/thai-country-club" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.taigolf.com/thai-country-club" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.taigolf.com/thai-country-club" },
+    "year_opened": { "value": 1996, "source": "web-search", "url": "https://www.taigolf.com/thai-country-club" },
+    "green_fee_weekday_thb": { "value": 4500, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/thai-country-club" },
+    "green_fee_weekend_thb": { "value": 5500, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/thai-country-club" },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "model", "url": null },
+    "website": { "value": "https://www.thaicountryclub.com/", "source": "web-search", "url": null },
+    "phone": { "value": null, "source": "model", "url": null },
+    "latitude": { "value": 13.6056, "source": "model", "url": null, "note": "Approximate — verify" },
+    "longitude": { "value": 100.8912, "source": "model", "url": null, "note": "Approximate — verify" },
+    "distance_from_bangkok_km": { "value": 45, "source": "web-search", "url": "https://www.taigolf.com/thai-country-club" },
+    "drive_time_from_bangkok_min": { "value": 45, "source": "web-search", "url": "https://www.taigolf.com/thai-country-club" },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "address": { "value": "KM 35.5, Bangna-Trad Road, Chachoengsao", "source": "web-search", "url": "https://www.taigolf.com/thai-country-club" }
+  },
+  "prose": {
+    "overview": "Thai Country Club is consistently ranked among the top golf courses in Bangkok and all of Thailand. Designed by Denis Griffiths to US PGA international standards and opened in December 1996, the club is managed by The Peninsula Hotels group — a hospitality standard reflected in every aspect of the on-course and clubhouse experience. The 7,157-yard, par-72 layout stretches across Chachoengsao province at KM 35.5 on the Bangna-Trad expressway. A plaque on the back nine marks the spot where Tiger Woods drove the 14th green during the 1997 Honda Classic, adding a piece of golf history to an already prestigious venue.",
+    "layout_and_experience": "The course plays long and strategically demanding from the championship tees. Griffiths designed the layout with an emphasis on bold risk-and-reward decisions — generous fairways invite aggressive driving, while approaches to the undulating greens require precise distance control. The 14th, a long par-5 rated the most difficult hole on the course, is a defining test of accuracy and nerve. Water hazards come into play on several key holes and trees frame many fairways, demanding a thoughtful game plan from tee to green. Course conditioning is exceptionally high year-round, consistent with the Peninsula Hotels standard of management.",
+    "tips": "Book early — Thai Country Club operates a seasonal pricing structure with high season running November to March. Visiting during low season (April–October) saves approximately 1,000 THB on green fees. The Bangna-Trad expressway can be slow during Bangkok rush hours — allow extra time if teeing off before 9am or after 3pm. The course is approximately 25 minutes from Suvarnabhumi Airport, making it a natural choice for a round on arrival or before departure.",
+    "location_and_access": "Thai Country Club is located at KM 35.5 on the Bangna-Trad Road in Chachoengsao province, approximately 45 minutes from central Bangkok and 25 minutes from Suvarnabhumi International Airport. The expressway access is straightforward by car or Grab. It is also about 1 hour from Pattaya, making it a viable stop-off for golfers travelling between the two destinations.",
+    "rental_cta_context": "Teeing off at Thai Country Club from Bangkok? Have premium golf clubs waiting at your hotel — delivered by LenGolf, no baggage fees required."
+  }
+}

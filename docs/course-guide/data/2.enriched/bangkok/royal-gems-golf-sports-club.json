@@ -1,0 +1,37 @@
+{
+  "slug": "royal-gems-golf-sports-club",
+  "region": "bangkok",
+  "status": "enriched",
+  "collected_at": "2026-04-16",
+  "enriched_at": "2026-04-16",
+  "fields": {
+    "name": { "value": "The RG City Golf Club", "source": "official-website", "url": "https://rggolfcity.com/" },
+    "province": { "value": "Pathum Thani", "source": "web-search", "url": "https://www.1golf.eu/en/club/the-royal-gems-golf-city/" },
+    "designer": { "value": null, "source": "model", "url": null },
+    "holes": { "value": 18, "source": "web-search", "url": "https://rggolfcity.com/" },
+    "par": { "value": 71, "source": "web-search", "url": "https://www.golftripz.com/golf-course/the-royal-gems-golf-city-dream-arena" },
+    "year_opened": { "value": null, "source": "model", "url": null },
+    "green_fee_weekday_thb": { "value": 5100, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/the-royal-gems-golf-city-dream-arena" },
+    "green_fee_weekend_thb": { "value": 8200, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/the-royal-gems-golf-city-dream-arena" },
+    "caddie_fee_thb": { "value": 0, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/the-royal-gems-golf-city-dream-arena" },
+    "cart_fee_thb": { "value": 0, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/the-royal-gems-golf-city-dream-arena" },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": true, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "model", "url": null },
+    "website": { "value": "https://rggolfcity.com/", "source": "web-search", "url": null },
+    "phone": { "value": null, "source": "model", "url": null },
+    "latitude": { "value": 14.0120, "source": "model", "url": null, "note": "Approximate — verify" },
+    "longitude": { "value": 100.7810, "source": "model", "url": null, "note": "Approximate — verify" },
+    "distance_from_bangkok_km": { "value": 40, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/the-royal-gems-golf-city-dream-arena" },
+    "drive_time_from_bangkok_min": { "value": 35, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/the-royal-gems-golf-city-dream-arena" },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "address": { "value": "Rangsit-Nakornnayok Road, Pathum Thani", "source": "web-search", "url": "https://rggolfcity.com/" }
+  },
+  "prose": {
+    "overview": "The RG City Golf Club (formerly Royal Gems Golf City) offers one of the most unusual golf experiences in Thailand and the world. The 18-hole, par-71 Dream Arena course is a replica layout: the front nine recreates famous signature holes from courses around the globe — including the island 17th at TPC Sawgrass, the Road Hole at St Andrews, and the Postage Stamp at Royal Troon — while the back nine mirrors holes 10–18 of Augusta National. The full facility contains 63 holes, claimed to be the world's largest replica golf complex. For international visitors, it offers the novelty of playing iconic holes without the travel, membership requirements, or green fees those originals demand. It is a genuinely unique golfing experience with no direct equivalent elsewhere in Asia.",
+    "layout_and_experience": "Playing the Dream Arena is an experience driven by recognition rather than pure strategic challenge. The reproductions of world-famous holes are impressively faithful — the island green holes in particular are visually striking and come with the same psychological pressure as their originals. The Augusta back nine carries enormous prestige for golfers who follow professional golf and have a connection to the Masters. The par-71 layout plays to a moderate difficulty level overall, though individual replica holes can be demanding when the pins are positioned aggressively. The conditioning is well maintained and the turf quality is high. This is more about the experience of the course than a traditional competitive round.",
+    "tips": "Book in advance — The RG City is a popular destination for golf groups and international visitors looking for something different. The all-inclusive package (caddie, buggy, and hotel transfers in some packages) simplifies logistics. Bring your camera — the replica holes make for excellent photographs, particularly on the Augusta-themed back nine. Pace of play can be slower than average when the course is busy with groups celebrating the unique hole experiences.",
+    "location_and_access": "The RG City Golf Club is located on Rangsit-Nakornnayok Road in Pathum Thani province, approximately 40km north of central Bangkok. The drive takes around 35 minutes under normal traffic, heading north past Don Mueang Airport and continuing northeast on the Rangsit-Nakornnayok route. Grab is available for the journey.",
+    "rental_cta_context": "Planning to play Augusta's back nine near Bangkok? Have premium clubs delivered to your Bangkok hotel so you arrive at RG City ready to play."
+  }
+}

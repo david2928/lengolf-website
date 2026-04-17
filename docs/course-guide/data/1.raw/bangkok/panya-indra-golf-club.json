@@ -1,0 +1,30 @@
+{
+  "slug": "panya-indra-golf-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-16",
+  "fields": {
+    "name": { "value": "Panya Indra Golf Club", "source": "official-website", "url": "https://www.panyagolf.com/en/" },
+    "province": { "value": "Bangkok", "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/panya-indra-golf-club" },
+    "designer": { "value": "Ronald Fream & David Dale", "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/panya-indra-golf-club" },
+    "holes": { "value": 27, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/panya-indra-golf-club", "note": "3 x 9: Lagoon, Palm, and Garden courses" },
+    "par": { "value": 36, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/panya-indra-golf-club", "note": "Per 9 holes (108 total for 27 holes)" },
+    "year_opened": { "value": null, "source": "model", "url": null },
+    "green_fee_weekday_thb": { "value": 3950, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/panya-indra-golf-club", "note": "18 holes. Afternoon/night rates lower." },
+    "green_fee_weekend_thb": { "value": null, "source": "model", "url": null, "note": "Weekend rate not confirmed — needs verification" },
+    "caddie_fee_thb": { "value": 500, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/panya-indra-golf-club", "note": "Regular caddie. Premium 'pretty caddie' 1,000 THB." },
+    "cart_fee_thb": { "value": 1000, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/panya-indra-golf-club" },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "model", "url": null },
+    "website": { "value": "https://www.panyagolf.com/en/", "source": "web-search", "url": null },
+    "phone": { "value": null, "source": "model", "url": null },
+    "latitude": { "value": 13.8200, "source": "model", "url": null, "note": "Approximate — Minburi/Ram Indra area. Verify." },
+    "longitude": { "value": 100.7150, "source": "model", "url": null, "note": "Approximate. Verify." },
+    "distance_from_bangkok_km": { "value": 20, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/panya-indra-golf-club" },
+    "drive_time_from_bangkok_min": { "value": 25, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/panya-indra-golf-club" },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "address": { "value": "Minburi / Ram Indra District, Bangkok", "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/panya-indra-golf-club" },
+    "notable": { "value": "Offers night golf", "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/panya-indra-golf-club" }
+  }
+}

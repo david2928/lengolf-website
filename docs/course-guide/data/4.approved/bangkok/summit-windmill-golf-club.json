@@ -1,0 +1,38 @@
+{
+  "slug": "summit-windmill-golf-club",
+  "region": "bangkok",
+  "status": "approved",
+  "collected_at": "2026-04-16",
+  "enriched_at": "2026-04-16",
+  "approved_at": "2026-04-16",
+  "fields": {
+    "name": { "value": "Summit Windmill Golf Club", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/summit-windmill-golf-club/" },
+    "province": { "value": "Samut Prakan", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/38036-summit-windmill-golf-club" },
+    "designer": { "value": "Nick Faldo", "source": "web-search", "url": "https://huahintravel.com/thailand/bangkok/bangkok-golf-courses/summit-windmill-golf-club-bangkok/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/summit-windmill-golf-club-bangkok" },
+    "par": { "value": 72, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/summit-windmill-golf-club-bangkok" },
+    "year_opened": { "value": 1993, "source": "web-search", "url": null, "note": "Confirmed via multiple web sources during Stage 3 verification" },
+    "green_fee_weekday_thb": { "value": 3000, "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/38036-summit-windmill-golf-club", "note": "Confirmed by GolfPass, GolfBangkok, Thailand Golfers (multiple sources). Prior Stage 1 figure of 3,800 THB from gogolf.co.id rejected as outlier." },
+    "green_fee_weekend_thb": { "value": 4000, "source": "web-search", "url": null, "note": "Confirmed during Stage 3 verification" },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Needs verification — call course" },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null, "note": "Needs verification — call course" },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "model", "url": null },
+    "website": { "value": null, "source": "model", "url": null, "note": "summitwindmillgolfclub.com found but official status unconfirmed" },
+    "phone": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "latitude": { "value": 13.6680, "source": "model", "url": null, "note": "Approximate — verify" },
+    "longitude": { "value": 100.6850, "source": "model", "url": null, "note": "Approximate — verify" },
+    "distance_from_bangkok_km": { "value": 25, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/summit-windmill-golf-club-bangkok" },
+    "drive_time_from_bangkok_min": { "value": 30, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/summit-windmill-golf-club-bangkok" },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "address": { "value": "2 Moo 14, Bangna-Trad Rd KM 10.5, Bang Phli Yai, Samut Prakan", "source": "web-search", "url": null, "note": "Address confirmed during Stage 3 verification" }
+  },
+  "prose": {
+    "overview": "Summit Windmill Golf Club is a Nick Faldo-designed course in Samut Prakan province, located just minutes from Suvarnabhumi International Airport on Srinakarin Road. The 6,964-yard, par-72 layout is one of very few courses in Thailand bearing the design signature of a six-time major champion, and it has developed a strong following among Bangkok-based golfers and international visitors. The club introduced night golf in 2004, making it one of the longer-established floodlit courses in the region — a practical option for golfers whose schedules don't allow for daytime rounds. The adjacent Le Méridien Suvarnabhumi Bangkok Golf Resort & Spa adds an accommodation option for golfers wanting to stay on-site.",
+    "layout_and_experience": "Faldo designed the course as a strategic challenge that punishes imprecision rather than rewarding power alone. Water hazards feature on 16 of the 18 holes — one of the highest ratios of any Bangkok-area course — keeping the round demanding from the first tee to the last green. The 1st hole, a 624-yard opening, sets an immediate tone of length and discipline. The signature 12th features an island green, one of three water-protected par-3s on the course. The artificial landscape, built on flat terrain, has matured well since opening, with established bunkering and water features that create consistent visual and strategic pressure. Night golf under floodlights adds a different dimension — shadows and lighting change the feel of well-known holes considerably.",
+    "tips": "Night golf rates from 3,200 THB are discounted versus the standard weekday rate of 3,000 THB — good value for an evening round. Tee times open one month in advance for weekdays and six days in advance for weekends and holidays, so plan accordingly. The proximity to Suvarnabhumi Airport (10–15 minutes) makes this a strong choice for a round immediately after checking out or before a late-evening flight.",
+    "location_and_access": "Summit Windmill Golf Club is located at 2 Moo 14, Bangna-Trad Road KM 10.5, Bang Phli Yai, Samut Prakan — approximately 25km southeast of central Bangkok and a 10–15 minute drive from Suvarnabhumi International Airport. The Bangna-Trad Road route is straightforward by car or Grab.",
+    "rental_cta_context": "Playing Summit Windmill near Suvarnabhumi? Have clubs waiting at your Bangkok hotel — delivered by LenGolf, day or evening rounds covered."
+  }
+}

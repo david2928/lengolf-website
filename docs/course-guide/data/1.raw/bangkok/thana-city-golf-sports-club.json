@@ -1,0 +1,29 @@
+{
+  "slug": "thana-city-golf-sports-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-16",
+  "fields": {
+    "name": { "value": "Thana City Golf & Sports Club", "source": "official-website", "url": "https://www.thanacitycountryclub.com/" },
+    "province": { "value": "Samut Prakan", "source": "web-search", "url": "https://www.tripadvisor.com/Attraction_Review-g15137623-d3748352-Reviews-Thana_City_Country_Club-Bang_Chalong_Samut_Prakan_Province.html" },
+    "designer": { "value": "Greg Norman", "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/thana-city-golf-country-club" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/thana-city-golf-country-club" },
+    "par": { "value": 72, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/thana-city-golf-country-club" },
+    "year_opened": { "value": null, "source": "model", "url": null },
+    "green_fee_weekday_thb": { "value": 2900, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/thana-city-golf-&-country-club", "note": "Inclusive of caddie. Cart extra ~800 THB." },
+    "green_fee_weekend_thb": { "value": 4100, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/thana-city-golf-&-country-club", "note": "Approx 1,200 THB surcharge on weekends. Total with cart ~4,000-5,000 THB." },
+    "caddie_fee_thb": { "value": 0, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/thana-city-golf-country-club", "note": "Included in green fee" },
+    "cart_fee_thb": { "value": 800, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/thana-city-golf-country-club" },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "model", "url": null },
+    "website": { "value": "https://www.thanacitycountryclub.com/", "source": "web-search", "url": null },
+    "phone": { "value": "+66 2 336 1968", "source": "web-search", "url": "https://www.thanacitycountryclub.com/" },
+    "latitude": { "value": 13.6120, "source": "model", "url": null, "note": "Approximate — KM 14 Bangna-Trad, near Suvarnabhumi. Verify." },
+    "longitude": { "value": 100.7490, "source": "model", "url": null, "note": "Approximate. Verify." },
+    "distance_from_bangkok_km": { "value": 20, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/thana-city-golf-country-club" },
+    "drive_time_from_bangkok_min": { "value": 30, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "address": { "value": "100/2 M.4 KM.14, Bangna-Trad Road, Bang Chalong, Bang Phli, Samut Prakan 10540", "source": "web-search", "url": "https://www.soidb.com/bangkok/golf-course/thana-city-golf-sports-club.html" }
+  }
+}

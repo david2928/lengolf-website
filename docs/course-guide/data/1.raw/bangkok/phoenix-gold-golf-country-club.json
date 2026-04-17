@@ -1,0 +1,30 @@
+{
+  "slug": "phoenix-gold-golf-country-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-16",
+  "fields": {
+    "name": { "value": "Phoenix Gold Golf & Country Club", "source": "official-website", "url": "https://www.phoenixgoldgolf.com/" },
+    "province": { "value": "Bangkok", "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/phoenix-gold-golf-bangkok", "note": "Nong Chok district, eastern Bangkok" },
+    "designer": { "value": "Robert Trent Jones Jr.", "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/phoenix-gold-golf-bangkok" },
+    "holes": { "value": 36, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/phoenix-gold-golf-bangkok", "note": "36-hole facility (East and West courses)" },
+    "par": { "value": 72, "source": "model", "url": null },
+    "year_opened": { "value": null, "source": "model", "url": null },
+    "green_fee_weekday_thb": { "value": 3000, "source": "web-search", "url": "https://www.phoenixgoldgolf.com/price-list", "note": "18 holes" },
+    "green_fee_weekend_thb": { "value": null, "source": "model", "url": null, "note": "Weekend rate not confirmed — needs verification" },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "model", "url": null },
+    "website": { "value": "https://www.phoenixgoldgolf.com/", "source": "web-search", "url": null },
+    "phone": { "value": null, "source": "model", "url": null },
+    "latitude": { "value": 13.8620, "source": "model", "url": null, "note": "Approximate — Soi Suwinthawong 96, Nong Chok, Bangkok. Verify." },
+    "longitude": { "value": 100.9140, "source": "model", "url": null, "note": "Approximate. Verify." },
+    "distance_from_bangkok_km": { "value": 55, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/phoenix-gold-golf-bangkok" },
+    "drive_time_from_bangkok_min": { "value": 70, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/phoenix-gold-golf-bangkok" },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "address": { "value": "54 Moo 5, Soi Suwinthawong 96, Lam Toi Ting, Nong Chok, Bangkok 10530", "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/phoenix-gold-golf-bangkok" },
+    "notable": { "value": "Flat paddy-field and marshland landscape. Rich birdlife. Formerly called Suvarnabhumi Golf & Country Club (not to be confused with Suvarnabhumi Golf near the airport).", "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/phoenix-gold-golf-bangkok" }
+  }
+}

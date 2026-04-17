@@ -1,0 +1,30 @@
+{
+  "slug": "suwan-golf-country-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-16",
+  "fields": {
+    "name": { "value": "Suwan Golf & Country Club", "source": "official-website", "url": "https://www.suwangolf.com/home/" },
+    "province": { "value": "Nakhon Pathom", "source": "web-search", "url": "https://www.1golf.eu/en/club/suwan-golf-country-club/" },
+    "designer": { "value": "Weeyos Golf Design", "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/suwan-golf-country-club" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/suwan-golf-country-club" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/suwan-golf-country-club" },
+    "year_opened": { "value": 2005, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/suwan-golf-country-club" },
+    "green_fee_weekday_thb": { "value": 4050, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/suwan-golf-country-club" },
+    "green_fee_weekend_thb": { "value": null, "source": "model", "url": null, "note": "Weekend rate not found — likely 4,500-5,500 THB. Needs verification." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "model", "url": null },
+    "website": { "value": "https://www.suwangolf.com/home/", "source": "web-search", "url": null },
+    "phone": { "value": null, "source": "model", "url": null },
+    "latitude": { "value": 13.7460, "source": "model", "url": null, "note": "Approximate — Nakhon Chai Si, Nakhon Pathom. Verify." },
+    "longitude": { "value": 100.1120, "source": "model", "url": null, "note": "Approximate. Verify." },
+    "distance_from_bangkok_km": { "value": 45, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/suwan-golf-country-club" },
+    "drive_time_from_bangkok_min": { "value": 60, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/suwan-golf-country-club" },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "address": { "value": "15/3 Moo 2, Tha Phraya, Nakhon Chai Si, Nakhon Pathom 73120", "source": "web-search", "url": "https://www.1golf.eu/en/club/suwan-golf-country-club/" },
+    "notable": { "value": "Hosted 2010 Asian Tour International and 2011 Thailand Open", "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/suwan-golf-country-club" }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "slug": "summit-windmill-golf-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-16",
+  "fields": {
+    "name": { "value": "Summit Windmill Golf Club", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/summit-windmill-golf-club/" },
+    "province": { "value": "Samut Prakan", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/38036-summit-windmill-golf-club" },
+    "designer": { "value": "Nick Faldo", "source": "web-search", "url": "https://huahintravel.com/thailand/bangkok/bangkok-golf-courses/summit-windmill-golf-club-bangkok/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/summit-windmill-golf-club-bangkok" },
+    "par": { "value": 72, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/summit-windmill-golf-club-bangkok" },
+    "year_opened": { "value": null, "source": "model", "url": null, "note": "Night golf introduced 2004" },
+    "green_fee_weekday_thb": { "value": 3800, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/summit-windmill-golf-club-bangkok", "note": "Day rate. Night golf from 3,200 THB." },
+    "green_fee_weekend_thb": { "value": null, "source": "model", "url": null, "note": "Weekend rate not confirmed — needs verification" },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "model", "url": null },
+    "website": { "value": null, "source": "model", "url": null },
+    "phone": { "value": null, "source": "model", "url": null },
+    "latitude": { "value": 13.6680, "source": "model", "url": null, "note": "Approximate — Srinakarin Road, Nongbon, Pravet. Verify." },
+    "longitude": { "value": 100.6850, "source": "model", "url": null, "note": "Approximate. Verify." },
+    "distance_from_bangkok_km": { "value": 25, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/summit-windmill-golf-club-bangkok" },
+    "drive_time_from_bangkok_min": { "value": 30, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/summit-windmill-golf-club-bangkok" },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "address": { "value": "333 Srinakarin Road, Nongbon, Pravet, Bangkok 10250", "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/summit-windmill-golf-club-bangkok" },
+    "notable": { "value": "Water hazards on 16 of 18 holes. Night golf available. Adjacent to Le Méridien Suvarnabhumi hotel.", "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/summit-windmill-golf-club-bangkok" }
+  }
+}

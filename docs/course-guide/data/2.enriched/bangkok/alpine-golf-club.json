@@ -1,0 +1,37 @@
+{
+  "slug": "alpine-golf-club",
+  "region": "bangkok",
+  "status": "enriched",
+  "collected_at": "2026-04-16",
+  "enriched_at": "2026-04-16",
+  "fields": {
+    "name": { "value": "Alpine Golf & Sports Club", "source": "official-website", "url": "https://www.alpinegolfclub.com/" },
+    "province": { "value": "Pathum Thani", "source": "official-website", "url": "https://www.alpinegolfclub.com/" },
+    "designer": { "value": "Ronald M. Garl", "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/alpine-golf-sports-club-bangkok" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/alpine-golf-sports-club-bangkok" },
+    "par": { "value": 72, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/alpine-golf-sports-club-bangkok" },
+    "year_opened": { "value": null, "source": "model", "url": null },
+    "green_fee_weekday_thb": { "value": 5400, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/alpine-golf-sports-club-bangkok" },
+    "green_fee_weekend_thb": { "value": 7400, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/alpine-golf-sports-club-bangkok" },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Included in green fee" },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null, "note": "Included in green fee" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/alpine-golf-sports-club-bangkok" },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.soidb.com/bangkok/driving-range/alpine-golf-sports-club.html" },
+    "website": { "value": "https://www.alpinegolfclub.com/", "source": "web-search", "url": null },
+    "phone": { "value": "+66 2 577 3333", "source": "web-search", "url": "https://www.alpinegolfclub.com/" },
+    "latitude": { "value": 13.9636, "source": "model", "url": null, "note": "Approximate — verify" },
+    "longitude": { "value": 100.6353, "source": "model", "url": null, "note": "Approximate — verify" },
+    "distance_from_bangkok_km": { "value": 40, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/alpine-golf-sports-club-bangkok" },
+    "drive_time_from_bangkok_min": { "value": 50, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "address": { "value": "99 M.9, Khlong Ha, Khlong Luang, Pathum Thani 12120", "source": "web-search", "url": "https://www.alpinegolfclub.com/" }
+  },
+  "prose": {
+    "overview": "Alpine Golf & Sports Club is widely regarded as one of the finest golf courses in Thailand and among the best in Asia. Designed by Ronald M. Garl and built on former rice paddy fields in Pathum Thani province, the course has been sculpted into a rolling, elevated landscape that belies its flat origins. Alpine earned its international reputation by hosting the 2000 Johnnie Walker Classic, won by Tiger Woods — one of the most prestigious events ever held in Thailand. The greens consistently run at Stimpmeter speeds of 10.5 or higher, making precision putting essential. Green fees are at the premium end of the Bangkok market, reflecting the course's conditioning and prestige.",
+    "layout_and_experience": "The 7,044-yard, par-72 layout is technically demanding throughout. Garl's design favours strategic risk-and-reward decisions rather than brute length, with water hazards, elevated greens, and tight landing zones requiring accurate shot-making from every category of player. Signature holes include the 7th and 11th, both featuring island greens accessible only via narrow land bridges — visually striking and punishing for wayward approaches. Sixteen of eighteen holes incorporate water in some form. The course routing weaves through landscaped terrain that feels markedly more varied than most Bangkok-area courses, with mature trees and well-maintained turf throughout. The pace of play is well managed and the caddies are experienced, making this a comfortable round despite the difficulty.",
+    "tips": "Book early — Alpine is consistently in demand and weekend tee times fill quickly. Aim for an early morning weekday round to avoid heat and to experience the course at its best-conditioned. Bring your A-game on the greens: the fast, undulating surfaces reward a confident putting stroke and punish hesitation. The island green holes require a straight ball flight — lay up if the wind is up. Green fees include caddie and cart, so no separate arrangements are needed. Club rental is available on-site for travellers who didn't bring their own equipment.",
+    "location_and_access": "Alpine Golf & Sports Club is located approximately 40km north of central Bangkok in Khlong Luang, Pathum Thani province. The drive from central Bangkok takes around 50 minutes under normal traffic, travelling via the expressway north toward Don Mueang Airport then continuing northeast. The course is not directly accessible by BTS or MRT — Grab or a golf transfer service is the practical option for visitors staying in Bangkok hotels.",
+    "rental_cta_context": "Planning to play Alpine Golf Club during your Bangkok trip? Skip the baggage fees and rent premium clubs delivered to your Bangkok hotel."
+  }
+}

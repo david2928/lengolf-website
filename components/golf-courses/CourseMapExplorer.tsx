@@ -1,0 +1,254 @@
+'use client'
+
+import { useState, useCallback } from 'react'
+import { Link } from '@/i18n/navigation'
+import { ArrowRight, Clock, Flag, X, ExternalLink } from 'lucide-react'
+import type { GolfCourse } from '@/types/golf-courses'
+
+interface Props {
+  courses: GolfCourse[]
+  region: string
+}
+
+function formatFee(n: number | null): string | null {
+  if (n === null) return null
+  return n.toLocaleString('en-US') + ' THB'
+}
+
+
+// Fallback: plain iframe with a Google Maps search URL (no API key)
+function buildEmbedUrl(courses: GolfCourse[]): string {
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_KEY
+  if (!apiKey) {
+    // Fallback: no-API-key embed (limited but functional)
+    return `https://maps.google.com/maps?q=${encodeURIComponent('golf courses Bangkok Thailand')}&t=m&z=10&output=embed&iwloc=near`
+  }
+  // Place search centred on Bangkok showing all courses
+  const query = courses.map((c) => c.name).join(' OR ')
+  return `https://www.google.com/maps/embed/v1/search?key=${apiKey}&q=${encodeURIComponent(query)}&zoom=10`
+}
+
+export default function CourseMapExplorer({ courses, region }: Props) {
+  const [activeSlug, setActiveSlug] = useState<string | null>(null)
+  const activeCourse = courses.find((c) => c.slug === activeSlug) ?? null
+
+  const handleListRow = useCallback((slug: string) => {
+    setActiveSlug((prev) => (prev === slug ? null : slug))
+  }, [])
+
+  // If a course has a google_maps_url, use it directly; otherwise build a search
+  const activeMapsUrl = activeCourse?.google_maps_url
+    ?? (activeCourse?.latitude && activeCourse?.longitude
+      ? `https://www.google.com/maps/search/?api=1&query=${activeCourse.latitude},${activeCourse.longitude}`
+      : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(activeCourse?.name ?? '')}+Bangkok`)
+
+  const embedUrl = buildEmbedUrl(courses)
+
+  return (
+    <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+
+      {/* ── Map + detail panel ── */}
+      <div
+        id="course-map"
+        className="relative mb-0 overflow-hidden rounded-3xl border border-[#003d22]/15 shadow-xl"
+      >
+        <div className="flex flex-col lg:flex-row">
+
+          {/* Google Maps iframe */}
+          <div className="relative flex-1" style={{ minHeight: 420 }}>
+            <iframe
+              src={embedUrl}
+              width="100%"
+              height="100%"
+              style={{ border: 0, display: 'block', minHeight: 420 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Golf courses map"
+            />
+          </div>
+
+          {/* Info panel — slides in when a course is selected from the list */}
+          <div
+            className={[
+              'transition-all duration-300',
+              activeCourse
+                ? 'w-full border-t border-[#003d22]/10 bg-white lg:w-80 lg:border-l lg:border-t-0'
+                : 'w-0 overflow-hidden',
+            ].join(' ')}
+          >
+            {activeCourse && (
+              <div className="flex h-full flex-col p-6">
+                <div className="mb-4 flex items-start justify-between gap-2">
+                  <div>
+                    <p className="mb-0.5 text-[10px] font-bold uppercase tracking-widest text-[#c8a96e]">
+                      {activeCourse.province}
+                    </p>
+                    <h3 className="text-base font-black leading-snug text-[#003d22]">
+                      {activeCourse.name}
+                    </h3>
+                  </div>
+                  <button
+                    onClick={() => setActiveSlug(null)}
+                    className="mt-0.5 shrink-0 rounded-full p-1 text-muted-foreground transition-colors hover:bg-muted"
+                    aria-label="Close"
+                  >
+                    <X className="h-3.5 w-3.5" />
+                  </button>
+                </div>
+
+                <div className="mb-4 grid grid-cols-2 gap-2">
+                  {activeCourse.holes && (
+                    <div className="rounded-xl bg-[#f0f7f2] px-3 py-2.5">
+                      <p className="text-xs font-bold text-[#003d22]">{activeCourse.holes} holes</p>
+                      <p className="text-[10px] text-muted-foreground">Par {activeCourse.par}</p>
+                    </div>
+                  )}
+                  {activeCourse.drive_time_from_bangkok_min && (
+                    <div className="rounded-xl bg-[#f0f7f2] px-3 py-2.5">
+                      <p className="text-xs font-bold text-[#003d22]">~{activeCourse.drive_time_from_bangkok_min} min</p>
+                      <p className="text-[10px] text-muted-foreground">from Bangkok</p>
+                    </div>
+                  )}
+                </div>
+
+                {(activeCourse.green_fee_weekday_thb || activeCourse.green_fee_weekend_thb) && (
+                  <div className="mb-4 space-y-2 rounded-xl border border-[#003d22]/10 p-3">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Green Fees</p>
+                    {activeCourse.green_fee_weekday_thb && (
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs text-muted-foreground">Weekday</span>
+                        <span className="text-xs font-bold text-foreground">{formatFee(activeCourse.green_fee_weekday_thb)}</span>
+                      </div>
+                    )}
+                    {activeCourse.green_fee_weekend_thb && (
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs text-muted-foreground">Weekend</span>
+                        <span className="text-xs font-bold text-foreground">{formatFee(activeCourse.green_fee_weekend_thb)}</span>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                <div className="mt-auto flex flex-col gap-2">
+                  <Link
+                    href={`/golf-courses/${region}/${activeCourse.slug}`}
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#003d22] px-4 py-2.5 text-xs font-bold text-white transition-all hover:bg-[#005a32]"
+                  >
+                    Full course guide <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                  <a
+                    href={activeMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-[#003d22]/20 px-4 py-2.5 text-xs font-semibold text-[#003d22] transition-all hover:bg-[#f0f7f2]"
+                  >
+                    Open in Google Maps <ExternalLink className="h-3 w-3" />
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* ── Course roster ── */}
+      <div className="mt-2 overflow-hidden rounded-3xl border border-[#003d22]/10 bg-white shadow-sm">
+        <div className="grid grid-cols-[32px_1fr_auto] items-center gap-3 border-b border-[#003d22]/10 bg-[#003d22] px-5 py-3 sm:grid-cols-[32px_1fr_140px_100px]">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">#</span>
+          <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">Course</span>
+          <span className="hidden text-right text-[10px] font-bold uppercase tracking-widest text-white/40 sm:block">Green fee</span>
+          <span className="text-right text-[10px] font-bold uppercase tracking-widest text-white/40">Drive</span>
+        </div>
+
+        {courses.map((course, i) => {
+          const isActive = activeSlug === course.slug
+          const weekday = course.green_fee_weekday_thb
+          const weekend = course.green_fee_weekend_thb
+
+          return (
+            <button
+              key={course.slug}
+              onClick={() => handleListRow(course.slug)}
+              className={[
+                'grid w-full grid-cols-[32px_1fr_auto] items-center gap-3 px-5 py-4 text-left transition-all',
+                'sm:grid-cols-[32px_1fr_140px_100px]',
+                'border-b border-[#003d22]/5 last:border-0',
+                isActive ? 'bg-[#f0f7f2]' : 'hover:bg-[#f9fcfa]',
+              ].join(' ')}
+              aria-pressed={isActive}
+            >
+              <span className={[
+                'flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-black transition-all',
+                isActive ? 'bg-[#c8a96e] text-[#1a1a1a]' : 'bg-[#003d22]/10 text-[#003d22]',
+              ].join(' ')}>
+                {i + 1}
+              </span>
+
+              <div className="min-w-0">
+                <p className={['truncate text-sm font-bold leading-tight transition-colors', isActive ? 'text-[#003d22]' : 'text-foreground'].join(' ')}>
+                  {course.name}
+                </p>
+                <div className="mt-1 flex flex-wrap items-center gap-2">
+                  <span className="text-[11px] text-muted-foreground">{course.province}</span>
+                  {course.holes && (
+                    <span className="text-[11px] text-muted-foreground/60">{course.holes}H · Par {course.par}</span>
+                  )}
+                  {weekday && (
+                    <span className="text-[11px] font-semibold text-[#003d22] sm:hidden">
+                      {weekday.toLocaleString('en-US')} THB
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              <div className="hidden text-right sm:block">
+                {weekday ? (
+                  <>
+                    <p className="text-sm font-bold text-foreground">
+                      {weekday.toLocaleString('en-US')}
+                      <span className="ml-0.5 text-[10px] font-medium text-muted-foreground">THB</span>
+                    </p>
+                    {weekend && (
+                      <p className="text-[11px] text-muted-foreground">{weekend.toLocaleString('en-US')} wknd</p>
+                    )}
+                  </>
+                ) : (
+                  <span className="text-xs text-muted-foreground/50">—</span>
+                )}
+              </div>
+
+              <div className="flex items-center justify-end gap-1 text-xs text-muted-foreground">
+                {course.drive_time_from_bangkok_min ? (
+                  <><Clock className="h-3 w-3 shrink-0" />~{course.drive_time_from_bangkok_min}m</>
+                ) : (
+                  <span className="text-muted-foreground/40">—</span>
+                )}
+              </div>
+            </button>
+          )
+        })}
+      </div>
+
+      {activeCourse && (
+        <div className="mt-3 flex items-center justify-between rounded-2xl border border-[#003d22]/15 bg-[#f0f7f2] px-5 py-3.5">
+          <div className="flex items-center gap-2.5">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#003d22] text-white">
+              <Flag className="h-3.5 w-3.5" />
+            </span>
+            <div>
+              <p className="text-xs font-bold text-[#003d22]">{activeCourse.name}</p>
+              <p className="text-[10px] text-muted-foreground">View full guide, tips & directions</p>
+            </div>
+          </div>
+          <Link
+            href={`/golf-courses/${region}/${activeCourse.slug}`}
+            className="inline-flex items-center gap-1.5 rounded-xl bg-[#003d22] px-4 py-2 text-xs font-bold text-white transition-all hover:bg-[#005a32]"
+          >
+            Open guide <ArrowRight className="h-3 w-3" />
+          </Link>
+        </div>
+      )}
+    </div>
+  )
+}

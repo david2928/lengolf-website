@@ -1,0 +1,48 @@
+export interface GolfCourseLocale {
+  title: string
+  meta_description: string
+}
+
+export interface GolfCourseProse {
+  overview: string
+  layout_and_experience: string
+  tips: string
+  location_and_access: string
+  rental_cta_context: string
+}
+
+export interface GolfCourse {
+  slug: string
+  region: string
+  name: string
+  province: string
+  designer: string | null
+  holes: number
+  par: number
+  year_opened: number | null
+  green_fee_weekday_thb: number | null
+  green_fee_weekend_thb: number | null
+  caddie_fee_thb: number | null
+  cart_fee_thb: number | null
+  caddie_required: boolean
+  cart_required: boolean
+  driving_range: boolean | null
+  website: string | null
+  phone: string | null
+  latitude: number | null
+  longitude: number | null
+  distance_from_bangkok_km: number | null
+  drive_time_from_bangkok_min: number | null
+  google_maps_url: string | null
+  /** Serialised JSON-LD string (Schema.org GolfCourse) */
+  schema_markup: string
+  prose: GolfCourseProse
+  locales: {
+    en: GolfCourseLocale
+    ko: GolfCourseLocale | null
+    zh: GolfCourseLocale | null
+    ja: GolfCourseLocale | null
+  }
+  status: 'published' | 'draft'
+  published_at: string
+}

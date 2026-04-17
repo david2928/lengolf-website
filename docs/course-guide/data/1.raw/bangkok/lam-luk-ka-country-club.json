@@ -1,0 +1,29 @@
+{
+  "slug": "lam-luk-ka-country-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-16",
+  "fields": {
+    "name": { "value": "Lam Luk Ka Country Club", "source": "official-website", "url": "https://www.lamlukkacc.com/" },
+    "province": { "value": "Pathum Thani", "source": "official-website", "url": "https://www.lamlukkacc.com/" },
+    "designer": { "value": "Roger Packard", "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/lam-luk-ka-country-club" },
+    "holes": { "value": 36, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/lam-luk-ka-country-club", "note": "36-hole facility: Championship East (A+B nines) and Resort West (C+D nines)" },
+    "par": { "value": 72, "source": "model", "url": null },
+    "year_opened": { "value": 1994, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/lam-luk-ka-country-club" },
+    "green_fee_weekday_thb": { "value": 2600, "source": "web-search", "url": "https://www.lamlukkacc.com/rate.html", "note": "Visitor rate inclusive of green fee, caddie, cart. Member rate 2,200 THB." },
+    "green_fee_weekend_thb": { "value": 3800, "source": "web-search", "url": "https://www.lamlukkacc.com/rate.html", "note": "Visitor rate. Reduced rates after 11:24 (3,400 THB) and after 13:30 (member only)." },
+    "caddie_fee_thb": { "value": 0, "source": "web-search", "url": "https://www.lamlukkacc.com/rate.html", "note": "Included in green fee" },
+    "cart_fee_thb": { "value": 0, "source": "web-search", "url": "https://www.lamlukkacc.com/rate.html", "note": "Included in green fee" },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "model", "url": null },
+    "website": { "value": "https://www.lamlukkacc.com/", "source": "web-search", "url": null },
+    "phone": { "value": null, "source": "model", "url": null },
+    "latitude": { "value": 13.9310, "source": "model", "url": null, "note": "Approximate — Lam Luk Ka District, Pathum Thani. Verify." },
+    "longitude": { "value": 100.7830, "source": "model", "url": null, "note": "Approximate. Verify." },
+    "distance_from_bangkok_km": { "value": 30, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/lam-luk-ka-country-club" },
+    "drive_time_from_bangkok_min": { "value": 70, "source": "web-search", "url": "https://gogolf.co.id/en/golf-course/lam-luk-ka-country-club" },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "address": { "value": "29 Lam Sai, Lam Luk Ka District, Pathum Thani 12150", "source": "official-website", "url": "https://www.lamlukkacc.com/" }
+  }
+}
