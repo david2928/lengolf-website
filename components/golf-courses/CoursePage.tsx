@@ -193,86 +193,7 @@ export default function CoursePage({ course }: Props) {
           {/* ── Right sidebar ── */}
           <aside className="space-y-5">
 
-            {/* Green fees card */}
-            {(course.green_fee_weekday_thb || course.green_fee_weekend_thb) && (
-              <div className="overflow-hidden rounded-2xl border shadow-sm">
-                <div className="bg-primary px-5 py-3">
-                  <h2 className="text-xs font-bold uppercase tracking-widest text-white/80">
-                    Green Fees
-                  </h2>
-                </div>
-                <div className="divide-y bg-white">
-                  {course.green_fee_weekday_thb && (
-                    <div className="flex items-center justify-between px-5 py-3.5">
-                      <span className="text-sm text-muted-foreground">Weekday</span>
-                      <span className="font-bold text-foreground">
-                        {course.green_fee_weekday_thb.toLocaleString('en-US')} THB
-                      </span>
-                    </div>
-                  )}
-                  {course.green_fee_weekend_thb && (
-                    <div className="flex items-center justify-between px-5 py-3.5">
-                      <span className="text-sm text-muted-foreground">Weekend</span>
-                      <span className="font-bold text-foreground">
-                        {course.green_fee_weekend_thb.toLocaleString('en-US')} THB
-                      </span>
-                    </div>
-                  )}
-                  {course.caddie_fee_thb !== null && course.caddie_fee_thb > 0 && (
-                    <div className="flex items-center justify-between px-5 py-3.5">
-                      <span className="text-sm text-muted-foreground">Caddie</span>
-                      <span className="font-bold text-foreground">
-                        {course.caddie_fee_thb.toLocaleString('en-US')} THB
-                      </span>
-                    </div>
-                  )}
-                  {course.cart_fee_thb !== null && course.cart_fee_thb > 0 && (
-                    <div className="flex items-center justify-between px-5 py-3.5">
-                      <span className="text-sm text-muted-foreground">Cart</span>
-                      <span className="font-bold text-foreground">
-                        {course.cart_fee_thb.toLocaleString('en-US')} THB
-                      </span>
-                    </div>
-                  )}
-                </div>
-                <p className="bg-muted/50 px-5 py-2.5 text-[11px] text-muted-foreground">
-                  Verify with the course before booking.
-                </p>
-              </div>
-            )}
-
-            {/* Facilities */}
-            <div className="overflow-hidden rounded-2xl border shadow-sm">
-              <div className="bg-[#f6fffa] px-5 py-3">
-                <h2 className="text-xs font-bold uppercase tracking-widest text-primary">
-                  Facilities
-                </h2>
-              </div>
-              <div className="divide-y bg-white">
-                {[
-                  { label: 'Caddie required', value: course.caddie_required },
-                  { label: 'Cart required', value: course.cart_required },
-                  { label: 'Driving range', value: course.driving_range },
-                ]
-                  .filter((f) => f.value !== null)
-                  .map((f) => (
-                    <div key={f.label} className="flex items-center justify-between px-5 py-3">
-                      <span className="text-sm text-muted-foreground">{f.label}</span>
-                      {f.value ? (
-                        <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary">
-                          <Check className="h-3 w-3" /> Yes
-                        </span>
-                      ) : (
-                        <span className="inline-flex items-center gap-1 rounded-full bg-muted px-2.5 py-0.5 text-xs font-semibold text-muted-foreground">
-                          <X className="h-3 w-3" /> No
-                        </span>
-                      )}
-                    </div>
-                  ))}
-              </div>
-            </div>
-
-            {/* Contact */}
+            {/* Contact & Links — top of sidebar */}
             {(course.phone || course.website || course.google_maps_url) && (
               <div className="overflow-hidden rounded-2xl border shadow-sm">
                 <div className="bg-[#f6fffa] px-5 py-3">
@@ -322,13 +243,122 @@ export default function CoursePage({ course }: Props) {
               </div>
             )}
 
-            {/* LENGOLF rental nudge */}
+            {/* Green fees */}
+            {(course.green_fee_weekday_thb || course.green_fee_weekend_thb) && (
+              <div className="overflow-hidden rounded-2xl border shadow-sm">
+                <div className="bg-primary px-5 py-3">
+                  <h2 className="text-xs font-bold uppercase tracking-widest text-white/80">
+                    Green Fees
+                  </h2>
+                </div>
+                <div className="divide-y bg-white">
+                  {course.green_fee_weekday_thb && (
+                    <div className="flex items-center justify-between px-5 py-3.5">
+                      <span className="text-sm text-muted-foreground">Weekday</span>
+                      <span className="font-bold text-foreground">
+                        {course.green_fee_weekday_thb.toLocaleString('en-US')} THB
+                      </span>
+                    </div>
+                  )}
+                  {course.green_fee_weekend_thb && (
+                    <div className="flex items-center justify-between px-5 py-3.5">
+                      <span className="text-sm text-muted-foreground">Weekend</span>
+                      <span className="font-bold text-foreground">
+                        {course.green_fee_weekend_thb.toLocaleString('en-US')} THB
+                      </span>
+                    </div>
+                  )}
+                  {course.caddie_fee_thb !== null && course.caddie_fee_thb > 0 && (
+                    <div className="flex items-center justify-between px-5 py-3.5">
+                      <span className="text-sm text-muted-foreground">Caddie</span>
+                      <span className="font-bold text-foreground">
+                        {course.caddie_fee_thb.toLocaleString('en-US')} THB
+                      </span>
+                    </div>
+                  )}
+                  {course.cart_fee_thb !== null && course.cart_fee_thb > 0 && (
+                    <div className="flex items-center justify-between px-5 py-3.5">
+                      <span className="text-sm text-muted-foreground">Cart</span>
+                      <span className="font-bold text-foreground">
+                        {course.cart_fee_thb.toLocaleString('en-US')} THB
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <p className="bg-muted/50 px-5 py-2.5 text-[11px] text-muted-foreground">
+                  Verify with the course before booking.
+                </p>
+              </div>
+            )}
+
+            {/* Facilities — club rental at the bottom, bridging to LENGOLF nudge */}
+            <div className="overflow-hidden rounded-2xl border shadow-sm">
+              <div className="bg-[#f6fffa] px-5 py-3">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-primary">
+                  Facilities
+                </h2>
+              </div>
+              <div className="divide-y bg-white">
+                {[
+                  { label: 'Caddie required', value: course.caddie_required },
+                  { label: 'Cart required', value: course.cart_required },
+                  { label: 'Driving range', value: course.driving_range },
+                ]
+                  .filter((f) => f.value !== null)
+                  .map((f) => (
+                    <div key={f.label} className="flex items-center justify-between px-5 py-3">
+                      <span className="text-sm text-muted-foreground">{f.label}</span>
+                      {f.value ? (
+                        <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary">
+                          <Check className="h-3 w-3" /> Yes
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-1 rounded-full bg-muted px-2.5 py-0.5 text-xs font-semibold text-muted-foreground">
+                          <X className="h-3 w-3" /> No
+                        </span>
+                      )}
+                    </div>
+                  ))}
+
+                {/* Club rental row — always shown, drives into LENGOLF nudge below */}
+                {course.club_rental_available === true ? (
+                  <div className="flex items-start justify-between px-5 py-3">
+                    <span className="text-sm text-muted-foreground">Club rental</span>
+                    <div className="text-right">
+                      <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary">
+                        <Check className="h-3 w-3" /> Available
+                      </span>
+                      {course.club_rental_fee_thb && (
+                        <p className="mt-1 text-xs text-muted-foreground">
+                          {course.club_rental_fee_thb.toLocaleString('en-US')} THB / round
+                          {course.club_rental_brands && ` · ${course.club_rental_brands}`}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                ) : course.club_rental_available === false ? (
+                  <div className="flex items-center justify-between px-5 py-3">
+                    <span className="text-sm text-muted-foreground">Club rental</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-muted px-2.5 py-0.5 text-xs font-semibold text-muted-foreground">
+                      <X className="h-3 w-3" /> Not offered
+                    </span>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+
+            {/* LENGOLF rental nudge — sits directly below Facilities club rental row */}
             <div className="rounded-2xl border border-accent/40 bg-gradient-to-br from-accent/10 to-accent/5 p-5">
-              <p className="mb-1 text-xs font-bold uppercase tracking-widest text-accent" style={{ color: '#b8892e' }}>
-                LENGOLF Club Rental
+              <p className="mb-1 text-xs font-bold uppercase tracking-widest" style={{ color: '#b8892e' }}>
+                {course.club_rental_available === false
+                  ? 'No rentals at this course?'
+                  : 'LENGOLF Club Rental'}
               </p>
               <p className="mb-3 text-sm leading-relaxed text-foreground">
-                Premium clubs delivered to your Bangkok hotel. Callaway Paradym, Warbird, Majesty. From <strong>1,200 THB/day</strong>.
+                {course.club_rental_available === false
+                  ? "This course doesn't offer club rental — but LENGOLF does. Premium Callaway Paradym, Warbird & Majesty sets delivered to your Bangkok hotel from "
+                  : 'Premium clubs delivered to your Bangkok hotel. Callaway Paradym, Warbird, Majesty. From '}
+                <strong>1,200 THB/day</strong>.
               </p>
               <Link
                 href="/golf-course-club-rental"

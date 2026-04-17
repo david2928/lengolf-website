@@ -2,9 +2,10 @@ import { setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { Link } from '@/i18n/navigation'
 import { SITE_URL } from '@/lib/constants'
-import { REGION_META } from '@/lib/golf-courses'
+import { REGION_META, getCoursesByRegion } from '@/lib/golf-courses'
 import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { MapPin, ArrowRight, Flag } from 'lucide-react'
+import HubMapExplorer from '@/components/golf-courses/HubMapExplorer'
 
 interface Props {
   params: Promise<{ locale: string }>
@@ -29,11 +30,11 @@ export const metadata: Metadata = {
 /** Regions shown on the hub — extend as batches are published. */
 const PUBLISHED_REGIONS = [
   { slug: 'bangkok', comingSoon: false },
+  { slug: 'pattaya', comingSoon: false },
 ] as const
 
 /** Regions coming soon — display as greyed-out teasers. */
 const COMING_SOON_REGIONS = [
-  { slug: 'pattaya', label: 'Pattaya & Eastern Seaboard', courses: 6 },
   { slug: 'hua-hin', label: 'Hua Hin & Pranburi', courses: 5 },
   { slug: 'phuket', label: 'Phuket', courses: 5 },
   { slug: 'khao-yai', label: 'Khao Yai & Central Highlands', courses: 4 },
@@ -43,6 +44,15 @@ const COMING_SOON_REGIONS = [
 export default async function GolfCoursesHubPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
+
+  const [bangkokCourses, pattayaCourses] = await Promise.all([
+    getCoursesByRegion('bangkok'),
+    getCoursesByRegion('pattaya'),
+  ])
+  const hubRegions = [
+    { region: 'bangkok', label: REGION_META.bangkok.label, courses: bangkokCourses },
+    { region: 'pattaya', label: REGION_META.pattaya.label, courses: pattayaCourses },
+  ]
 
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
@@ -131,6 +141,11 @@ export default async function GolfCoursesHubPage({ params }: Props) {
               </Link>
             )
           })}
+        </div>
+
+        {/* Hub map */}
+        <div className="mb-12">
+          <HubMapExplorer regions={hubRegions} />
         </div>
 
         {/* Coming soon regions */}

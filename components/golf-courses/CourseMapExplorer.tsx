@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { Link } from '@/i18n/navigation'
 import { ArrowRight, Clock, Flag, X, ExternalLink } from 'lucide-react'
 import type { GolfCourse } from '@/types/golf-courses'
@@ -15,34 +15,150 @@ function formatFee(n: number | null): string | null {
   return n.toLocaleString('en-US') + ' THB'
 }
 
+const REGION_CENTER: Record<string, { lat: number; lng: number; zoom: number }> = {
+  bangkok: { lat: 13.75,  lng: 100.52, zoom: 10 },
+  pattaya: { lat: 12.985, lng: 100.94, zoom: 11 },
+}
 
-// Fallback: plain iframe with a Google Maps search URL (no API key)
-function buildEmbedUrl(courses: GolfCourse[]): string {
-  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_KEY
-  if (!apiKey) {
-    // Fallback: no-API-key embed (limited but functional)
-    return `https://maps.google.com/maps?q=${encodeURIComponent('golf courses Bangkok Thailand')}&t=m&z=10&output=embed&iwloc=near`
-  }
-  // Place search centred on Bangkok showing all courses
-  const query = courses.map((c) => c.name).join(' OR ')
-  return `https://www.google.com/maps/embed/v1/search?key=${apiKey}&q=${encodeURIComponent(query)}&zoom=10`
+// Module-level promise so the script is only injected once
+let mapsReady: Promise<void> | null = null
+
+function loadMapsApi(apiKey: string): Promise<void> {
+  if (typeof window === 'undefined') return Promise.resolve()
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  if ((window as any).google?.maps?.Map) return Promise.resolve()
+  if (mapsReady) return mapsReady
+  mapsReady = new Promise<void>((resolve, reject) => {
+    const script = document.createElement('script')
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=marker&v=weekly`
+    script.async = true
+    script.onload = () => resolve()
+    script.onerror = () => { mapsReady = null; reject(new Error('Maps JS API failed to load')) }
+    document.head.appendChild(script)
+  })
+  return mapsReady
+}
+
+function makePin(index: number, active: boolean): HTMLDivElement {
+  const el = document.createElement('div')
+  el.style.cssText = [
+    'width:28px;height:28px;border-radius:50%;',
+    `background:${active ? '#c8a96e' : '#003d22'};`,
+    `color:${active ? '#1a1a1a' : '#fff'};`,
+    'display:flex;align-items:center;justify-content:center;',
+    'font-size:11px;font-weight:900;',
+    'cursor:pointer;',
+    'box-shadow:0 2px 6px rgba(0,0,0,.45);',
+    'border:2px solid #fff;',
+    `transform:${active ? 'scale(1.3)' : 'scale(1)'};`,
+    'transition:transform .15s,background .15s;',
+  ].join('')
+  el.textContent = String(index + 1)
+  return el
 }
 
 export default function CourseMapExplorer({ courses, region }: Props) {
   const [activeSlug, setActiveSlug] = useState<string | null>(null)
   const activeCourse = courses.find((c) => c.slug === activeSlug) ?? null
 
+  const mapDivRef  = useRef<HTMLDivElement>(null)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const mapRef     = useRef<any>(null)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const markersRef = useRef<{ marker: any; pin: HTMLDivElement; slug: string }[]>([])
+
   const handleListRow = useCallback((slug: string) => {
     setActiveSlug((prev) => (prev === slug ? null : slug))
   }, [])
 
-  // If a course has a google_maps_url, use it directly; otherwise build a search
+  // ── Load map + place markers ──────────────────────────────────────────────
+  useEffect(() => {
+    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_KEY
+    if (!apiKey || !mapDivRef.current) return
+    let cancelled = false
+
+    loadMapsApi(apiKey).then(() => {
+      if (cancelled || !mapDivRef.current) return
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const gmaps = (window as any).google.maps
+      const center = REGION_CENTER[region] ?? { lat: 13.0, lng: 100.5, zoom: 10 }
+
+      const map = new gmaps.Map(mapDivRef.current, {
+        center:              { lat: center.lat, lng: center.lng },
+        zoom:                center.zoom,
+        mapId:               'DEMO_MAP_ID',
+        zoomControl:         true,
+        streetViewControl:   false,
+        mapTypeControl:      false,
+        fullscreenControl:   false,
+      })
+      mapRef.current = map
+
+      const bounds = new gmaps.LatLngBounds()
+
+      markersRef.current = courses
+        .map((course, i) => {
+          if (!course.latitude || !course.longitude) return null
+          const pin = makePin(i, false)
+          const position = { lat: course.latitude, lng: course.longitude }
+          const marker = new gmaps.marker.AdvancedMarkerElement({
+            map,
+            position,
+            content:  pin,
+            title:    course.name,
+          })
+          marker.addListener('gmp-click', () =>
+            setActiveSlug((prev) => (prev === course.slug ? null : course.slug))
+          )
+          bounds.extend(position)
+          return { marker, pin, slug: course.slug }
+        })
+        .filter(Boolean) as { marker: unknown; pin: HTMLDivElement; slug: string }[]
+
+      // Fit all markers into view (with a small padding)
+      if (!bounds.isEmpty()) map.fitBounds(bounds, 48)
+    }).catch(console.error)
+
+    return () => {
+      cancelled = true
+      markersRef.current.forEach(({ marker }) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ;(marker as any).map = null
+      })
+      markersRef.current = []
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [region]) // re-init only if region changes; courses are stable per page
+
+  // ── Sync marker styles + pan map when active slug changes ─────────────────
+  useEffect(() => {
+    markersRef.current.forEach(({ pin, slug }, i) => {
+      const active = slug === activeSlug
+      pin.style.background = active ? '#c8a96e' : '#003d22'
+      pin.style.color       = active ? '#1a1a1a' : '#fff'
+      pin.style.transform   = active ? 'scale(1.3)' : 'scale(1)'
+    })
+
+    const map = mapRef.current
+    if (!map) return
+
+    if (activeSlug) {
+      const course = courses.find((c) => c.slug === activeSlug)
+      if (course?.latitude && course?.longitude) {
+        map.panTo({ lat: course.latitude, lng: course.longitude })
+        map.setZoom(13)
+      }
+    } else {
+      const center = REGION_CENTER[region] ?? { lat: 13.0, lng: 100.5, zoom: 10 }
+      map.panTo({ lat: center.lat, lng: center.lng })
+      map.setZoom(center.zoom)
+    }
+  }, [activeSlug, courses, region])
+
   const activeMapsUrl = activeCourse?.google_maps_url
     ?? (activeCourse?.latitude && activeCourse?.longitude
       ? `https://www.google.com/maps/search/?api=1&query=${activeCourse.latitude},${activeCourse.longitude}`
       : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(activeCourse?.name ?? '')}+Bangkok`)
-
-  const embedUrl = buildEmbedUrl(courses)
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -54,21 +170,15 @@ export default function CourseMapExplorer({ courses, region }: Props) {
       >
         <div className="flex flex-col lg:flex-row">
 
-          {/* Google Maps iframe */}
+          {/* Google Maps JS div */}
           <div className="relative flex-1" style={{ minHeight: 420 }}>
-            <iframe
-              src={embedUrl}
-              width="100%"
-              height="100%"
-              style={{ border: 0, display: 'block', minHeight: 420 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Golf courses map"
+            <div
+              ref={mapDivRef}
+              style={{ width: '100%', height: '100%', minHeight: 420, display: 'block' }}
             />
           </div>
 
-          {/* Info panel — slides in when a course is selected from the list */}
+          {/* Info panel — slides in when a course is selected */}
           <div
             className={[
               'transition-all duration-300',
@@ -163,8 +273,8 @@ export default function CourseMapExplorer({ courses, region }: Props) {
 
         {courses.map((course, i) => {
           const isActive = activeSlug === course.slug
-          const weekday = course.green_fee_weekday_thb
-          const weekend = course.green_fee_weekend_thb
+          const weekday  = course.green_fee_weekday_thb
+          const weekend  = course.green_fee_weekend_thb
 
           return (
             <button
