@@ -1,6 +1,6 @@
 # Golf Course Guide — Project Progress
 
-Last updated: 2026-04-16
+Last updated: 2026-04-17
 
 ---
 
@@ -16,7 +16,7 @@ Live URL pattern: `https://www.len.golf/golf-courses/[region]/[slug]/`
 
 | Phase | Courses | Regions | Status |
 |---|---|---|---|
-| Phase 1 | 34 | Bangkok, Pattaya, Hua Hin, Phuket, Khao Yai | Bangkok done · rest pending |
+| Phase 1 | 34 | Bangkok, Pattaya, Hua Hin, Phuket, Khao Yai | Bangkok done · Pattaya done · rest pending |
 | Phase 2 | 118 | All regions (deeper cuts) | Not started |
 | Phase 3 | 37 | Niche / remote regions | Not started |
 | Skip | 17 | Military, private members-only | — |
@@ -61,6 +61,23 @@ Pipeline run: 2026-04-16
 
 ---
 
+## Pattaya batch — DONE (6 / 6 courses published)
+
+Pipeline run: 2026-04-17
+
+| # | Course | Pipeline status | Page live |
+|---|---|---|---|
+| 1 | Siam Country Club Old Course | approved | ✅ /golf-courses/pattaya/siam-country-club-old-course/ |
+| 2 | Siam Country Club Plantation | approved (weekend fee estimate — see data-gaps) | ✅ /golf-courses/pattaya/siam-country-club-plantation/ |
+| 3 | Burapha Golf & Resort | approved (phone missing — see data-gaps) | ✅ /golf-courses/pattaya/burapha-golf-club/ |
+| 4 | Laem Chabang International Country Club | approved | ✅ /golf-courses/pattaya/laem-chabang-international/ |
+| 5 | Chee Chan Golf Resort | approved | ✅ /golf-courses/pattaya/chee-chan-golf-resort/ |
+| 6 | Amata Spring Country Club | approved (private club; null green fees) | ✅ /golf-courses/pattaya/amata-spring-country-club/ |
+
+**Outstanding:** GPS coordinates approximate, club rental brands unconfirmed, Siam CC Plantation weekend fee estimated — all tracked in `data/data-gaps.md`.
+
+---
+
 ## Pending — Phase 1 regions
 
 Run each region through the full pipeline (Stages 1–5) in order.
@@ -68,7 +85,7 @@ Run each region through the full pipeline (Stages 1–5) in order.
 | Region | Phase 1 courses | Status |
 |---|---|---|
 | Bangkok | 11 | ✅ Done |
-| Pattaya & Eastern Seaboard | 6 | Not started |
+| Pattaya & Eastern Seaboard | 6 | ✅ Done |
 | Hua Hin & Pranburi | 5 | Not started |
 | Phuket | 5 | Not started |
 | Khao Yai & Central Highlands | 4 | Not started |
@@ -82,7 +99,7 @@ Run each region through the full pipeline (Stages 1–5) in order.
 |---|---|---|---|
 | Region index page `/golf-courses/bangkok/` | High | ✅ Done | Lists all Bangkok courses with fee + distance |
 | Hub page `/golf-courses/` | High | ✅ Done | Landing page linking to all regions + coming-soon teasers |
-| Smoke tests — hub + Bangkok index | Low | ✅ Done | Added `/golf-courses/` and `/golf-courses/bangkok/` to CI |
+| Smoke tests — hub + region indexes | Low | ✅ Done | Hub, Bangkok, Pattaya indexes + 3 course detail routes in CI |
 | GPS coordinates + Google Maps URLs | Medium | Pending | All 11 Bangkok courses approximate — see `data-gaps.md` |
 | Phone number verification | Medium | Pending | 9 courses missing — see `data-gaps.md` |
 | Multilingual pages (KO / ZH / JA) | Phase 2 | Pending | Infrastructure in place (`locales` field), content not written |

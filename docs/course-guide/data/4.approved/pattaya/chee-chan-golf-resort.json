@@ -1,0 +1,40 @@
+{
+  "slug": "chee-chan-golf-resort",
+  "region": "pattaya",
+  "status": "enriched",
+  "collected_at": "2026-04-17",
+  "enriched_at": "2026-04-17",
+  "fields": {
+    "name": { "value": "Chee Chan Golf Resort", "source": "official-website", "url": "https://cheechangolf.com/" },
+    "province": { "value": "Chonburi", "source": "official-website", "url": "https://cheechangolf.com/" },
+    "designer": { "value": "Golfplan — Dale & Ramsey Golf Course Architects", "source": "web-search", "url": "https://www.golfplan.com/chee-chan-golf-resort/" },
+    "holes": { "value": 18, "source": "official-website", "url": "https://cheechangolf.com/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/chee-chan-golf-resort/" },
+    "year_opened": { "value": 2018, "source": "web-search", "url": "https://www.golfplan.com/chee-chan-golf-resort/" },
+    "green_fee_weekday_thb": { "value": 4000, "source": "web-search", "url": "https://cheechangolf.com/events/event/green-coring-promotion-6/", "note": "Regular weekday green fee only (caddie and cart charged separately). Verify current 2025 rate." },
+    "green_fee_weekend_thb": { "value": 5000, "source": "web-search", "url": "https://cheechangolf.com/events/event/green-coring-promotion-6/", "note": "Regular weekend green fee only (caddie and cart charged separately). Verify current 2025 rate." },
+    "caddie_fee_thb": { "value": 450, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/chee-chan-golf-resort/" },
+    "cart_fee_thb": { "value": 850, "source": "web-search", "url": "https://www.pattayagolf.net/golf.php?golf_id=38", "note": "850 THB per person, compulsory. Verify current rate." },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/chee-chan-golf-resort/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/chee-chan-golf-resort/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/chee-chan-golf-resort/" },
+    "website": { "value": "https://cheechangolf.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 38 196 555", "source": "web-search", "url": "https://cheechangolf.com/contact-us/" },
+    "latitude": { "value": 12.772, "source": "model", "url": null, "note": "Approximate — verify. Na Jomtien, Sattahip district, Chonburi." },
+    "longitude": { "value": 100.916, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 145, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 110, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "address": { "value": "108/18 Moo 6, Na Jomtien, Sattahip, Chonburi 20250", "source": "web-search", "url": "https://cheechangolf.com/contact-us/" },
+    "club_rental_available": { "value": null, "source": "model", "url": null, "note": "Not confirmed via web search — call to verify." },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Chee Chan Golf Resort is the newest and most acclaimed course in the Pattaya region. Designed by Golfplan (Dale & Ramsey Golf Course Architects) and opened in 2018, it occupies a spectacular hillside site in Na Jomtien, Sattahip, directly below the giant Buddha image on Khao Chi Chan mountain — a landmark visible throughout the round. Golf Digest Thailand named it the Best Course in Thailand in 2020, and the World Golf Awards recognised it the same year, remarkable achievements for a course only two years old at the time. The 7,345-yard, par-72 layout plays across an exposed ridge with sweeping views of the Gulf of Thailand and the Pattaya coastline. Green fees are at the premium end for the region, reflecting the course's conditioning and reputation.",
+    "layout_and_experience": "The course plays across dramatically undulating terrain that demands both power and precision. From the championship tees at 7,345 yards, the layout presents a genuine test for skilled golfers, while the forward tees at 6,527 yards make it accessible for a broader range of players. The exposed hillside setting means wind is a persistent factor — rarely destructive, but enough to require an extra club on uphill approaches and careful trajectory management on shorter shots. Approach play is especially demanding: many greens are perched on ridges or plateaux with significant run-off areas, rewarding a controlled ball flight and penalising the player who tries to fire at every pin. The backdrop of the Khao Chi Chan Buddha and the Gulf of Thailand makes this one of the most visually impressive golf settings in Thailand.",
+    "tips": "Morning tee times offer the best light and typically the calmest conditions before the sea breeze picks up — book early as the course fills quickly, especially on weekends. The exposed layout plays differently in every wind direction; trust the caddie's club recommendations, particularly on approach shots where the wind swirls near the greens. Cart fee is separate from the green fee — confirm the combined total at booking. The course is approximately 30 minutes south of central Pattaya along the coastal road via Na Jomtien, making it an easy addition to a Pattaya golf itinerary.",
+    "location_and_access": "Chee Chan Golf Resort is located approximately 145km from central Bangkok in Na Jomtien, Sattahip district, Chonburi — about 30 minutes' drive south of central Pattaya via the Na Jomtien coastal road. The drive from Bangkok takes around 110 minutes via the Bang Na–Trat Expressway (Highway 7). The course sits directly below the Khao Chi Chan mountain Buddha, making it easy to spot on approach. Grab taxis and pre-arranged golf transfers are the recommended option for visitors staying in Pattaya or Bangkok.",
+    "rental_cta_context": "Heading to Chee Chan Golf Resort — Thailand's award-winning links? Rent premium clubs at your Bangkok hotel and arrive ready to play this breathtaking course above the Gulf of Thailand."
+  }
+}
