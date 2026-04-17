@@ -135,6 +135,11 @@ const redirectTests: RedirectTest[] = [
   { path: '/golf-near-thong-lo/', expectedStatus: 308, expectedLocation: '/location/golf-near-thong-lo/' },
   { path: '/golf-near-silom/', expectedStatus: 308, expectedLocation: '/location/golf-near-silom/' },
   { path: '/golf-near-sukhumvit/', expectedStatus: 308, expectedLocation: '/location/golf-near-sukhumvit/' },
+  { path: '/golf-near-phaya-thai/', expectedStatus: 308, expectedLocation: '/location/golf-near-phaya-thai/' },
+  { path: '/indoor-golf-thong-lo/', expectedStatus: 308, expectedLocation: '/location/indoor-golf-thong-lo/' },
+  { path: '/corporate-events-asok/', expectedStatus: 308, expectedLocation: '/location/corporate-events-asok/' },
+  { path: '/golf-near-ari/', expectedStatus: 308, expectedLocation: '/location/golf-near-ari/' },
+  { path: '/golf-near-ekkamai/', expectedStatus: 308, expectedLocation: '/location/golf-near-ekkamai/' },
 ]
 
 // C) Critical external link checks
