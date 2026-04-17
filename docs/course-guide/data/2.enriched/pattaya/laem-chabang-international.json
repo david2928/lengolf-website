@@ -25,7 +25,10 @@
     "distance_from_bangkok_km": { "value": 100, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/laem-chabang-international-country-club/" },
     "drive_time_from_bangkok_min": { "value": 80, "source": "model", "url": null },
     "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
-    "address": { "value": "106/8 Moo 4, Bueng, Sriracha, Chonburi 20230", "source": "web-search", "url": "https://www.laemchabanggolf.com/" }
+    "address": { "value": "106/8 Moo 4, Bueng, Sriracha, Chonburi 20230", "source": "web-search", "url": "https://www.laemchabanggolf.com/" },
+    "club_rental_available": { "value": false, "source": "web-search", "url": "https://golfdigg.com/en/courses/laem-chabang-international-country-club", "note": "No club rental found across multiple booking sources." },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
   },
   "prose": {
     "overview": "Laem Chabang International Country Club is a 27-hole Jack Nicklaus design set across 700 acres of diverse terrain in Si Racha, Chonburi — one of six Nicklaus designs in Thailand completed in the early 1990s. The course opened in 1993 and takes its name from the nearby Laem Chabang deep-water port, one of Southeast Asia's busiest container facilities. The three nine-hole loops are named Lake, Mountain, and Valley after the distinct environments through which each is routed, offering golfers a genuine change of character between nines. Night golf from approximately 15:30 is available and popular with Pattaya-based golfers looking to avoid the daytime heat. The all-inclusive pricing covers green fee, caddie, and cart in a single rate.",

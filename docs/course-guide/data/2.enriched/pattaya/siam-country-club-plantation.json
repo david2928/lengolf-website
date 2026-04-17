@@ -25,7 +25,10 @@
     "distance_from_bangkok_km": { "value": 130, "source": "model", "url": null },
     "drive_time_from_bangkok_min": { "value": 100, "source": "model", "url": null },
     "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
-    "address": { "value": "50 Moo 9, Pong, Bang Lamung, Chonburi 20150", "source": "web-search", "url": "https://siamcountryclub.com/" }
+    "address": { "value": "50 Moo 9, Pong, Bang Lamung, Chonburi 20150", "source": "web-search", "url": "https://siamcountryclub.com/" },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.pattayagolf.net/golf.php?golf_id=11" },
+    "club_rental_fee_thb": { "value": 2500, "source": "web-search", "url": "https://www.pattayagolf.net/golf.php?golf_id=11" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null, "note": "Brand not specified — confirm via phone." }
   },
   "prose": {
     "overview": "Siam Country Club Pattaya's Plantation Course is a 27-hole championship layout opened in 2008, designed by Schmidt-Curley Design on land that was once an active pineapple plantation. The three nine-hole loops — named Sugar Cane, Tapioca, and Pineapple after the crops historically grown on the property — are routed across a dramatically rolling hillside that stands in striking contrast to the flat terrain typical of most Bangkok-area courses. The Plantation is home to the only 'Triple Greens' complex in Asia: a single putting surface shared by the closing holes of three different nines, covering almost 3,000 square metres. Golfers can choose any combination of two nines for an 18-hole round, giving the course an unusual degree of variety and replayability.",

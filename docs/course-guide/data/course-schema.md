@@ -37,6 +37,9 @@ All fields used in the course guide pipeline. Every course JSON file follows thi
 | `phone` | string | International format, e.g. `+66 2 482 5353` |
 | `distance_from_bangkok_km` | number | Driving distance from central Bangkok |
 | `drive_time_from_bangkok_min` | number | Typical drive time in minutes (off-peak) |
+| `club_rental_available` | boolean | Whether the course rents golf clubs to visitors |
+| `club_rental_fee_thb` | number | Fee for a full club set rental in Thai Baht |
+| `club_rental_brands` | string | Club brands available (e.g. "TaylorMade, Callaway") |
 
 ---
 

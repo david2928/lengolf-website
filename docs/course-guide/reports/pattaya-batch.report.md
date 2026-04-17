@@ -1,7 +1,8 @@
 # Pattaya Batch Verification Report
 Generated: 2026-04-17
+Updated: 2026-04-17
 Courses: 6
-Status: 1 BLOCKED, 2 REVIEW_REQUIRED, 3 APPROVED
+Status: 5 APPROVED (pending call-confirms), 1 REVIEW_REQUIRED (Plantation weekend fee)
 
 ---
 
@@ -11,24 +12,10 @@ Status: 1 BLOCKED, 2 REVIEW_REQUIRED, 3 APPROVED
 |---|---|---|---|
 | 1 | Siam Country Club Old Course | APPROVED | — |
 | 2 | Siam Country Club Plantation | REVIEW_REQUIRED | Weekend green fee is model estimate |
-| 3 | Burapha Golf & Resort | REVIEW_REQUIRED | Website + phone not confirmed; GPS approximate |
+| 3 | Burapha Golf & Resort | APPROVED | Website = Facebook page; phone pending call |
 | 4 | Laem Chabang International Country Club | APPROVED | GPS approximate |
-| 5 | Chee Chan Golf Resort | APPROVED | Cart fee not confirmed separately |
-| 6 | Amata Spring Country Club | BLOCKED | Private members-only — no public green fees |
-
----
-
-## BLOCKED — requires your decision
-
-### 6. Amata Spring Country Club
-
-**Issue:** Private members-only club. No public visitor green fees are available. The general public cannot book a tee time. Members of a small number of affiliated overseas clubs (e.g. SICC, TMCC Singapore) may play via reciprocal arrangement at approximately 4,600 THB weekday / 5,800 THB weekend (all-in), but this is not accessible to independent visitors or tourist golfers.
-
-**Consequence:** A published page cannot serve its intended purpose — visitors cannot book a round based on the information.
-
-**Recommendation:** Change status to `skip` in `data/regions.md` with note "Private — members and affiliated clubs only."
-
-**Your call:** Skip / Keep (provide rationale for publishing despite private access)
+| 5 | Chee Chan Golf Resort | APPROVED | Cart fee 850 THB added; club rental pending call |
+| 6 | Amata Spring Country Club | APPROVED | Private club; page will publish with null fees + editorial prose |
 
 ---
 
@@ -41,13 +28,11 @@ Status: 1 BLOCKED, 2 REVIEW_REQUIRED, 3 APPROVED
 - Recommendation: Verify directly at siamcountryclub.com or by calling +66 38 909 700 before publishing
 - **Your call:** Accept model estimate / Provide correct value / Hold until confirmed
 
-### 3. Burapha Golf & Resort — website + phone
+### 3. Burapha Golf & Resort — website resolved, phone still pending
 
-- Website URL: **null** — no official website confirmed via web search. Booking is handled through third-party platforms.
-- Phone: **null** — phone numbers found (+66 38 372 700, +66 94 654 4544) are unverified across multiple conflicting sources
-- GPS coordinates: **model estimate** (13.155°N, 101.010°E)
-- Recommendation: Verify website URL and one confirmed phone number before publishing
-- **Your call:** Accept nulls / Provide correct values
+- Website: **Updated** — Facebook page URL used as primary online presence
+- Phone: **null** — added to `data-gaps.md` for phone verification
+- GPS coordinates: **model estimate** (13.155°N, 101.010°E) — see data-gaps.md
 
 ---
 

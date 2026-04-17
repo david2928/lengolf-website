@@ -25,7 +25,10 @@
     "distance_from_bangkok_km": { "value": 130, "source": "web-search", "url": "https://gonggolf.com/golf-resorts/thailand/pattaya-golf-clubs/siam-country-club-pattaya-old-course/" },
     "drive_time_from_bangkok_min": { "value": 100, "source": "model", "url": null },
     "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
-    "address": { "value": "50 Moo 9, Pong, Bang Lamung, Chonburi 20150", "source": "web-search", "url": "https://siamcountryclub.com/" }
+    "address": { "value": "50 Moo 9, Pong, Bang Lamung, Chonburi 20150", "source": "web-search", "url": "https://siamcountryclub.com/" },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.pattayagolf.net/golf.php?golf_id=10" },
+    "club_rental_fee_thb": { "value": 2500, "source": "web-search", "url": "https://www.pattayagolf.net/golf.php?golf_id=10" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null, "note": "Brand not specified in sources — confirm via phone." }
   },
   "prose": {
     "overview": "Siam Country Club Pattaya's Old Course is one of the most storied layouts in Southeast Asian golf. Originally opened in 1971 and designed by Japanese architect Ichisuke Izumi, the course was completely rebuilt between 2006 and 2007 by Lee Schmidt and Brian Curley of Schmidt-Curley Design — a transformation that elevated it from a modest regional facility to a world-class tournament venue. The rebuilt course has hosted the Honda LPGA Thailand championship every year since 2006, bringing the world's best female golfers to Pattaya. With 101 bunkers, a par-72 layout measuring 7,162 yards from the tips, and some of the fastest greens in Thailand, the Old Course sets a high technical standard. Green fees are at the premium end for the Pattaya region, befitting its reputation.",

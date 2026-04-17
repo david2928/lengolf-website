@@ -4,7 +4,6 @@
   "status": "enriched",
   "collected_at": "2026-04-17",
   "enriched_at": "2026-04-17",
-  "pipeline_note": "BLOCKED — private members-only club. No public visitor green fees. Recommend moving to 'skip' status. Members of select affiliated clubs (e.g. SICC, TMCC Singapore) may play via reciprocal arrangements at ~4,600–5,800 THB all-in, but no general public tee times are available. A course page cannot serve its primary purpose (tourist tee-time conversion) for this property.",
   "fields": {
     "name": { "value": "Amata Spring Country Club", "source": "official-website", "url": "https://amataspring.com/" },
     "province": { "value": "Chonburi", "source": "official-website", "url": "https://amataspring.com/" },
@@ -20,13 +19,16 @@
     "cart_required": { "value": true, "source": "model", "url": null },
     "driving_range": { "value": null, "source": "model", "url": null },
     "website": { "value": "https://amataspring.com/", "source": "official-website", "url": null },
-    "phone": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "phone": { "value": "+66 33 141 000", "source": "web-search", "url": "https://amataspring.com/contacts/" },
     "latitude": { "value": 13.218, "source": "model", "url": null, "note": "Approximate — verify. Amata City Chonburi industrial estate." },
     "longitude": { "value": 100.987, "source": "model", "url": null, "note": "Approximate — verify." },
     "distance_from_bangkok_km": { "value": 115, "source": "model", "url": null },
     "drive_time_from_bangkok_min": { "value": 90, "source": "model", "url": null },
     "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
-    "address": { "value": "Amata City Chonburi, Chonburi Province, Thailand", "source": "web-search", "url": "https://amataspring.com/" }
+    "address": { "value": "700/3-9 Moo 6, Nongmaidang, Mueang Chonburi, Chonburi 20000", "source": "web-search", "url": "https://amataspring.com/contacts/" },
+    "club_rental_available": { "value": null, "source": "model", "url": null, "note": "Private club — contact to confirm if rental available for guests." },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
   },
   "prose": {
     "overview": "Amata Spring Country Club is a private, members-only championship course set within the Amata City Chonburi industrial estate, opened in April 2005. Designed by Lee Schmidt of Schmidt-Curley Design, the 18-hole, par-72 layout has hosted the Thailand Golf Championship — the event that launched Lee Westwood's 37th career title in 2011 — cementing its status as one of Thailand's premier tournament venues. The course is best known for its island green on the 17th hole, accessible only by a small boat, which has become one of the most photographed holes in Thai golf. Access is restricted to members and guests of members; a limited number of reciprocal arrangements with affiliated overseas clubs allow their members to play. No public visitor tee times are available.",

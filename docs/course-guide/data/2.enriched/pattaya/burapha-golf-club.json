@@ -18,14 +18,17 @@
     "caddie_required": { "value": true, "source": "web-search", "url": "https://golfdigg.com/en/courses/burapha-golf-and-resort" },
     "cart_required": { "value": true, "source": "web-search", "url": "https://golfdigg.com/en/courses/burapha-golf-and-resort" },
     "driving_range": { "value": null, "source": "model", "url": null },
-    "website": { "value": null, "source": "model", "url": null, "note": "Official website URL not confirmed — needs verification." },
-    "phone": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "website": { "value": "https://www.facebook.com/p/Burapha-Golf-Resort-Thailand-100057382482955/", "source": "web-search", "url": null, "note": "No official website found — Facebook page is primary online presence." },
+    "phone": { "value": null, "source": "model", "url": null, "note": "Needs phone verification — call to confirm." },
     "latitude": { "value": 13.155, "source": "model", "url": null, "note": "Approximate — verify. Bo Win district, Si Racha, Chonburi." },
     "longitude": { "value": 101.010, "source": "model", "url": null, "note": "Approximate — verify." },
     "distance_from_bangkok_km": { "value": 100, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/burapha-golf-club/" },
     "drive_time_from_bangkok_min": { "value": 80, "source": "model", "url": null },
     "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
-    "address": { "value": "281 Moo 4, Bo Win, Si Racha, Chon Buri 20230", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37869-burapha-golf-club-west-course" }
+    "address": { "value": "281 Moo 4, Bo Win, Si Racha, Chon Buri 20230", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37869-burapha-golf-club-west-course" },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.pattayagolf.net/golf.php?golf_id=5" },
+    "club_rental_fee_thb": { "value": 1000, "source": "web-search", "url": "https://www.pattayagolf.net/golf.php?golf_id=5" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null, "note": "Brand not specified — confirm via phone." }
   },
   "prose": {
     "overview": "Burapha Golf & Resort is one of the most popular golf destinations in the Pattaya region, offering 36 championship holes designed by architect Gary Panks with input from PGA Tour professional David Graham. The four nine-hole loops — American Wood and British Links forming the East course, and Crystal Spring and Dune forming the West course — were built on rolling terrain close to the Chonburi–Pattaya highway in Si Racha district. The resort gained international recognition as the host venue for the 2010 Thailand Open, and its combination of challenging layouts, well-maintained facilities, and accessible pricing keeps it consistently busy with both Bangkok-based golfers and overseas visitors. The all-inclusive pricing model — green fee, caddie, and cart bundled into a single rate — simplifies the booking process.",

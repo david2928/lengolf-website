@@ -19,12 +19,12 @@
     "cart_required": { "value": true, "source": "model", "url": null },
     "driving_range": { "value": null, "source": "model", "url": null },
     "website": { "value": "https://amataspring.com/", "source": "official-website", "url": null },
-    "phone": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "phone": { "value": "+66 33 141 000", "source": "web-search", "url": "https://amataspring.com/contacts/" },
     "latitude": { "value": 13.218, "source": "model", "url": null, "note": "Approximate — verify. Amata City Chonburi industrial estate." },
     "longitude": { "value": 100.987, "source": "model", "url": null, "note": "Approximate — verify." },
     "distance_from_bangkok_km": { "value": 115, "source": "model", "url": null },
     "drive_time_from_bangkok_min": { "value": 90, "source": "model", "url": null },
     "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
-    "address": { "value": "Amata City Chonburi, Chonburi Province, Thailand", "source": "web-search", "url": "https://amataspring.com/" }
+    "address": { "value": "700/3-9 Moo 6, Nongmaidang, Mueang Chonburi, Chonburi 20000", "source": "web-search", "url": "https://amataspring.com/contacts/" }
   }
 }

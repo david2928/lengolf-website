@@ -17,7 +17,7 @@
     "caddie_required": { "value": true, "source": "web-search", "url": "https://golfdigg.com/en/courses/burapha-golf-and-resort" },
     "cart_required": { "value": true, "source": "web-search", "url": "https://golfdigg.com/en/courses/burapha-golf-and-resort" },
     "driving_range": { "value": null, "source": "model", "url": null },
-    "website": { "value": null, "source": "model", "url": null, "note": "Official website URL not confirmed — needs verification." },
+    "website": { "value": "https://www.facebook.com/p/Burapha-Golf-Resort-Thailand-100057382482955/", "source": "web-search", "url": null, "note": "No official website found — Facebook page is primary online presence." },
     "phone": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
     "latitude": { "value": 13.155, "source": "model", "url": null, "note": "Approximate — verify. Bo Win district, Si Racha, Chonburi." },
     "longitude": { "value": 101.010, "source": "model", "url": null, "note": "Approximate — verify." },
