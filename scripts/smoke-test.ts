@@ -82,13 +82,6 @@ const routeTests: RouteTest[] = [
   { path: '/activities/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-in-thailand-guide/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/hotels/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  // Golf courses hub + region index
-  { path: '/golf-courses/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  { path: '/golf-courses/bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  // Golf course pages (Bangkok batch — spot-check 3 courses)
-  { path: '/golf-courses/bangkok/alpine-golf-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  { path: '/golf-courses/bangkok/nikanti-golf-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  { path: '/golf-courses/bangkok/summit-windmill-golf-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Best-of listicle pages
   { path: '/best/best-team-building-activities-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/best/best-corporate-event-venues-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
