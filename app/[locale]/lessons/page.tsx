@@ -5,6 +5,7 @@ import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import ImageGallery from '@/components/shared/ImageGallery'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
+import { getAlternates, getCanonical } from '@/lib/translated-routes'
 import { coaches } from '@/data/coaches'
 import { getLessonPricingData } from '@/data/pricing'
 import { getLessonsPricingJsonLd, getLessonsServiceJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
@@ -24,8 +25,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t('metaTitle'),
     description: t('metaDescription'),
     alternates: {
-      canonical: `${SITE_URL}${locale === 'th' ? '/th' : ''}/lessons/`,
-      languages: { en: `${SITE_URL}/lessons/`, th: `${SITE_URL}/th/lessons/` },
+      canonical: getCanonical(locale, '/lessons/'),
+      languages: getAlternates('/lessons/'),
     },
     openGraph: { images: [{ url: storageUrl('lessons/promo-free-trial.jpg'), alt: 'Golf lessons with PGA Pro at LENGOLF' }] },
   }
