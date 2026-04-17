@@ -1,0 +1,29 @@
+{
+  "slug": "siam-country-club-old-course",
+  "region": "pattaya",
+  "status": "raw",
+  "collected_at": "2026-04-17",
+  "fields": {
+    "name": { "value": "Siam Country Club Pattaya, Old Course", "source": "official-website", "url": "https://siamcountryclub.com/old-course/" },
+    "province": { "value": "Chonburi", "source": "official-website", "url": "https://siamcountryclub.com/" },
+    "designer": { "value": "Ichisuke Izumi (original 1971); Schmidt-Curley Design (2007 renovation)", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/siam-country-club-old-course/" },
+    "holes": { "value": 18, "source": "official-website", "url": "https://siamcountryclub.com/old-course/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/siam-country-club-old-course/" },
+    "year_opened": { "value": 1971, "source": "web-search", "url": "https://www.taigolf.com/blog/8054/discover-siam-country-club-old-course-the-crown-jewel-of-thailand-golf-courses" },
+    "green_fee_weekday_thb": { "value": 3550, "source": "web-search", "url": "https://gonggolf.com/golf-resorts/thailand/pattaya-golf-clubs/siam-country-club-pattaya-old-course/", "note": "Green fee only. Caddie fee (500 THB) charged separately. Twilight rate ~1,000 THB." },
+    "green_fee_weekend_thb": { "value": 4350, "source": "web-search", "url": "https://gonggolf.com/golf-resorts/thailand/pattaya-golf-clubs/siam-country-club-pattaya-old-course/", "note": "Green fee only. Caddie fee (500 THB) charged separately." },
+    "caddie_fee_thb": { "value": 500, "source": "web-search", "url": "https://siamcountryclub.com/old-course/", "note": "Caddie drives the cart. Cart access is included with caddie." },
+    "cart_fee_thb": { "value": null, "source": "web-search", "url": "https://siamcountryclub.com/old-course/", "note": "Carts are driven by caddies — cart access is included in the caddie fee." },
+    "caddie_required": { "value": true, "source": "official-website", "url": "https://siamcountryclub.com/old-course/" },
+    "cart_required": { "value": true, "source": "official-website", "url": "https://siamcountryclub.com/old-course/" },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": "https://siamcountryclub.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 38 909 700", "source": "web-search", "url": "https://siamcountryclub.com/" },
+    "latitude": { "value": 12.836, "source": "model", "url": null, "note": "Approximate — verify. Pong district, Bang Lamung, Chonburi." },
+    "longitude": { "value": 101.067, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 130, "source": "web-search", "url": "https://gonggolf.com/golf-resorts/thailand/pattaya-golf-clubs/siam-country-club-pattaya-old-course/" },
+    "drive_time_from_bangkok_min": { "value": 100, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "address": { "value": "50 Moo 9, Pong, Bang Lamung, Chonburi 20150", "source": "web-search", "url": "https://siamcountryclub.com/" }
+  }
+}

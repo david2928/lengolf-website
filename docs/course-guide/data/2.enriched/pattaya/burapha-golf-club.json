@@ -1,0 +1,37 @@
+{
+  "slug": "burapha-golf-club",
+  "region": "pattaya",
+  "status": "enriched",
+  "collected_at": "2026-04-17",
+  "enriched_at": "2026-04-17",
+  "fields": {
+    "name": { "value": "Burapha Golf & Resort", "source": "web-search", "url": "https://golfdigg.com/en/courses/burapha-golf-and-resort" },
+    "province": { "value": "Chonburi", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/burapha-golf-club/" },
+    "designer": { "value": "Gary Panks / David Graham", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/burapha-golf-club/" },
+    "holes": { "value": 36, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/burapha-golf-club/", "note": "Four nine-hole loops: American Wood, British Links (East A+B); Crystal Spring, Dune (West C+D). Rounds are 18 holes — any two nines." },
+    "par": { "value": 144, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/burapha-golf-club/", "note": "72 per 18 holes. Total for all 36 holes." },
+    "year_opened": { "value": 1993, "source": "web-search", "url": "https://www.hole19golf.com/courses/burapha-golf-resort" },
+    "green_fee_weekday_thb": { "value": 5060, "source": "web-search", "url": "https://golfdigg.com/en/courses/burapha-golf-and-resort", "note": "All-inclusive: green fee + caddie + cart. 2025 rate valid Apr–Oct 2025. Caddie tip (~400 THB) paid separately in cash." },
+    "green_fee_weekend_thb": { "value": 5960, "source": "web-search", "url": "https://golfdigg.com/en/courses/burapha-golf-and-resort", "note": "All-inclusive: green fee + caddie + cart. 2025 rate." },
+    "caddie_fee_thb": { "value": 0, "source": "web-search", "url": "https://golfdigg.com/en/courses/burapha-golf-and-resort", "note": "Included in all-inclusive green fee. Caddie tip (~400 THB) paid separately." },
+    "cart_fee_thb": { "value": 0, "source": "web-search", "url": "https://golfdigg.com/en/courses/burapha-golf-and-resort", "note": "Included in all-inclusive green fee." },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://golfdigg.com/en/courses/burapha-golf-and-resort" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://golfdigg.com/en/courses/burapha-golf-and-resort" },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": null, "source": "model", "url": null, "note": "Official website URL not confirmed — needs verification." },
+    "phone": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "latitude": { "value": 13.155, "source": "model", "url": null, "note": "Approximate — verify. Bo Win district, Si Racha, Chonburi." },
+    "longitude": { "value": 101.010, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 100, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/burapha-golf-club/" },
+    "drive_time_from_bangkok_min": { "value": 80, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "address": { "value": "281 Moo 4, Bo Win, Si Racha, Chon Buri 20230", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37869-burapha-golf-club-west-course" }
+  },
+  "prose": {
+    "overview": "Burapha Golf & Resort is one of the most popular golf destinations in the Pattaya region, offering 36 championship holes designed by architect Gary Panks with input from PGA Tour professional David Graham. The four nine-hole loops — American Wood and British Links forming the East course, and Crystal Spring and Dune forming the West course — were built on rolling terrain close to the Chonburi–Pattaya highway in Si Racha district. The resort gained international recognition as the host venue for the 2010 Thailand Open, and its combination of challenging layouts, well-maintained facilities, and accessible pricing keeps it consistently busy with both Bangkok-based golfers and overseas visitors. The all-inclusive pricing model — green fee, caddie, and cart bundled into a single rate — simplifies the booking process.",
+    "layout_and_experience": "The four nines at Burapha offer meaningfully different experiences, making it worth playing multiple combinations across a two-day stay. The East course's American Wood and British Links nines feature wide fairways and a more forgiving layout that suits mid-to-high handicappers comfortable with water hazards. The West course presents a stiffer challenge: the Crystal Spring nine winds through more heavily contoured terrain, while the Dune nine is the signature highlight, offering elevated tees with sweeping panoramic views across the Pattaya bay, the Laem Chabang industrial port, and the Gulf of Thailand coastline. The par-4 4th hole on the East course is widely cited as the signature hole across the property. Throughout, the course blends natural lakes, palm trees, and rolling tropical vegetation into each routing. Caddies and carts are mandatory, and both are included in the all-inclusive green fee.",
+    "tips": "First-time visitors should consider starting with the East course — the wider fairways and more straightforward routing allow you to find your rhythm before tackling the more demanding West course. The Dune nine on the West course is best played in the morning, when the elevated views are clearest before haze builds. Caddie tip (~400 THB) is expected and paid in cash after the round, separate from the all-inclusive green fee. Burapha is approximately 30 minutes' drive from central Pattaya and about 20 minutes from the Si Racha town centre, making it easily combined with a broader Eastern Seaboard itinerary.",
+    "location_and_access": "Burapha Golf & Resort is located approximately 100km southeast of central Bangkok in Bo Win district, Si Racha, Chonburi — roughly halfway between Bangkok and Pattaya. The drive from Bangkok takes around 80 minutes via the Bang Na–Trat Expressway (Highway 7). From central Pattaya, the course is approximately 30 minutes by car. Grab taxis and pre-arranged golf transfers from Bangkok or Pattaya hotels are the practical transport options, as no direct public transport connects to the course.",
+    "rental_cta_context": "Playing Burapha Golf & Resort on your Eastern Seaboard golf trip? Rent premium clubs delivered to your Bangkok hotel before you head out — no baggage fees, ready on arrival."
+  }
+}

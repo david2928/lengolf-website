@@ -1,0 +1,37 @@
+{
+  "slug": "laem-chabang-international",
+  "region": "pattaya",
+  "status": "enriched",
+  "collected_at": "2026-04-17",
+  "enriched_at": "2026-04-17",
+  "fields": {
+    "name": { "value": "Laem Chabang International Country Club", "source": "official-website", "url": "https://www.laemchabanggolf.com/" },
+    "province": { "value": "Chonburi", "source": "official-website", "url": "https://www.laemchabanggolf.com/" },
+    "designer": { "value": "Jack Nicklaus", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/laem-chabang-international-country-club/" },
+    "holes": { "value": 27, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/laem-chabang-international-country-club/", "note": "Three nine-hole loops: Lake, Mountain, Valley. Green fees are for 18 holes (any two nines)." },
+    "par": { "value": 108, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/laem-chabang-international-country-club/", "note": "36 per nine. A standard round plays any two nines." },
+    "year_opened": { "value": 1993, "source": "web-search", "url": "https://www.hole19golf.com/courses/laem-chabang-international-country-club" },
+    "green_fee_weekday_thb": { "value": 4930, "source": "web-search", "url": "https://www.laemchabanggolf.com/golf-charge/", "note": "All-inclusive: green fee + caddie (450 THB) + cart (980 THB). 2024–2025 rate. Caddie tip (~300 THB) paid separately." },
+    "green_fee_weekend_thb": { "value": 5430, "source": "web-search", "url": "https://www.laemchabanggolf.com/golf-charge/", "note": "All-inclusive: green fee + caddie + cart. 2024–2025 rate." },
+    "caddie_fee_thb": { "value": 0, "source": "web-search", "url": "https://www.laemchabanggolf.com/golf-charge/", "note": "450 THB caddie fee included in all-inclusive rate. Caddie tip (~300 THB) paid separately." },
+    "cart_fee_thb": { "value": 0, "source": "web-search", "url": "https://www.laemchabanggolf.com/golf-charge/", "note": "980 THB cart fee per cart, included in all-inclusive rate." },
+    "caddie_required": { "value": true, "source": "official-website", "url": "https://www.laemchabanggolf.com/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.laemchabanggolf.com/golf-charge/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/laem-chabang-international-country-club/" },
+    "website": { "value": "https://www.laemchabanggolf.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 82 222 3031", "source": "web-search", "url": "https://www.laemchabanggolf.com/" },
+    "latitude": { "value": 13.170, "source": "model", "url": null, "note": "Approximate — verify. Bueng sub-district, Sriracha, Chonburi." },
+    "longitude": { "value": 100.990, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 100, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/laem-chabang-international-country-club/" },
+    "drive_time_from_bangkok_min": { "value": 80, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "address": { "value": "106/8 Moo 4, Bueng, Sriracha, Chonburi 20230", "source": "web-search", "url": "https://www.laemchabanggolf.com/" }
+  },
+  "prose": {
+    "overview": "Laem Chabang International Country Club is a 27-hole Jack Nicklaus design set across 700 acres of diverse terrain in Si Racha, Chonburi — one of six Nicklaus designs in Thailand completed in the early 1990s. The course opened in 1993 and takes its name from the nearby Laem Chabang deep-water port, one of Southeast Asia's busiest container facilities. The three nine-hole loops are named Lake, Mountain, and Valley after the distinct environments through which each is routed, offering golfers a genuine change of character between nines. Night golf from approximately 15:30 is available and popular with Pattaya-based golfers looking to avoid the daytime heat. The all-inclusive pricing covers green fee, caddie, and cart in a single rate.",
+    "layout_and_experience": "The three nines at Laem Chabang each present a distinct visual and strategic identity. The Lake nine (3,419 yards) is routed alongside a stream that winds through the course, requiring accurate carries and disciplined approaches. The Mountain nine (3,446 yards) climbs and falls across hilly terrain, favouring a controlled ball flight and placing a premium on positioning from the tee. The Valley nine (3,619 yards) is the longest of the three and plays through a more open landscape surrounded by ridgelines — it suits the longer hitter but is also the most exposed to wind. The Nicklaus design philosophy of risk-and-reward is present throughout: every hole offers a clear choice between a conservative and an aggressive line, with the payoff calibrated carefully. Caddies are knowledgeable and familiar with the contours of all three nines.",
+    "tips": "The most popular 18-hole combination is Mountain and Valley, which packages the most varied terrain in a single round. For a first visit, the Lake nine pairs well with either of the others to give a complete cross-section of the course's character. Night golf is a genuine attraction — the course is well-lit and the cooler evening air makes for more comfortable conditions from around 15:30. Caddie tip (~300 THB) is paid separately in cash after the round. Golfers staying in Pattaya can combine Laem Chabang with a morning round at Burapha, as the two courses are approximately 15 minutes apart.",
+    "location_and_access": "Laem Chabang International Country Club is located approximately 100km southeast of central Bangkok in Bueng sub-district, Sriracha, Chonburi. The drive from Bangkok takes around 80 minutes via the Bang Na–Trat Expressway (Highway 7). The course is roughly 40 minutes' drive from central Pattaya and about 15 minutes from the Burapha Golf & Resort. Grab taxis and pre-arranged golf transfers from Bangkok or Pattaya hotels are the recommended transport options.",
+    "rental_cta_context": "Teeing it up at Laem Chabang on your Thailand trip? Rent TaylorMade or Callaway clubs delivered to your Bangkok hotel and travel light to the Eastern Seaboard."
+  }
+}
