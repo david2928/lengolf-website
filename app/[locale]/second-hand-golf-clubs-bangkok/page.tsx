@@ -4,6 +4,7 @@ import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import FaqSection from '@/components/shared/FaqSection'
 import { storageUrl, SITE_URL, SOCIAL_LINKS } from '@/lib/constants'
+import { getAlternates, getCanonical } from '@/lib/translated-routes'
 import { getUsedClubsListJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { getAvailableUsedClubs } from '@/lib/clubs'
 import UsedClubsGrid from '@/components/clubs/UsedClubsGrid'
@@ -26,11 +27,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t('metaTitle'),
     description: t('metaDescription'),
     alternates: {
-      canonical: `${SITE_URL}${locale === 'th' ? '/th' : ''}/second-hand-golf-clubs-bangkok/`,
-      languages: {
-        en: `${SITE_URL}/second-hand-golf-clubs-bangkok/`,
-        th: `${SITE_URL}/th/second-hand-golf-clubs-bangkok/`,
-      },
+      canonical: getCanonical(locale, '/second-hand-golf-clubs-bangkok/'),
+      languages: getAlternates('/second-hand-golf-clubs-bangkok/'),
     },
     openGraph: { images: [{ url: storageUrl('venue/venue-simulator-01.jpg'), alt: 'Second-hand golf clubs Bangkok' }] },
     robots: { index: false, follow: false },

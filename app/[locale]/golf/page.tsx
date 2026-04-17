@@ -6,6 +6,7 @@ import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
 import AqiWidget from '@/components/shared/AqiWidget'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
+import { getAlternates, getCanonical, OG_LOCALES, type Locale } from '@/lib/translated-routes'
 import { getWebsitePromotions } from '@/lib/promotions'
 import { getBayRatesData, getMonthlyPackagesData } from '@/data/pricing'
 import { getPricingCatalog } from '@/lib/pricing'
@@ -29,15 +30,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t('metaTitle'),
     description: t('metaDescription'),
     alternates: {
-      canonical: `${SITE_URL}/golf/`,
-      languages: {
-        en: `${SITE_URL}/golf/`,
-        th: `${SITE_URL}/th/golf/`,
-      },
+      canonical: getCanonical(locale, '/golf/'),
+      languages: getAlternates('/golf/'),
     },
     openGraph: {
       images: [{ url: storageUrl('golf/driving-range.png'), alt: 'LENGOLF indoor golf simulator bay' }],
-      locale: locale === 'th' ? 'th_TH' : 'en_US',
+      locale: OG_LOCALES[locale as Locale] ?? OG_LOCALES.en,
     },
   }
 }

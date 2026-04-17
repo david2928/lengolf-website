@@ -5,6 +5,7 @@ import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import FaqSection from '@/components/shared/FaqSection'
 import { storageUrl, SITE_URL, BUSINESS_INFO, SOCIAL_LINKS, BOOKING_URL } from '@/lib/constants'
+import { getAlternates, getCanonical } from '@/lib/translated-routes'
 import { getCourseClubRentalServiceJsonLd, getCourseClubRentalPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { getRentalClubPricing } from '@/lib/clubs'
 import ImageLightbox from '@/components/shared/ImageLightbox'
@@ -39,11 +40,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t('metaTitle'),
     description: t('metaDescription'),
     alternates: {
-      canonical: `${SITE_URL}${locale === 'th' ? '/th' : ''}/golf-course-club-rental/`,
-      languages: {
-        en: `${SITE_URL}/golf-course-club-rental/`,
-        th: `${SITE_URL}/th/golf-course-club-rental/`,
-      },
+      canonical: getCanonical(locale, '/golf-course-club-rental/'),
+      languages: getAlternates('/golf-course-club-rental/'),
     },
     openGraph: { images: [{ url: storageUrl('golf/hero-course-rental.webp'), alt: 'Rent premium golf clubs for any Bangkok golf course — Callaway Paradym, Warbird, Majesty from 1,200 THB/day' }] },
   }

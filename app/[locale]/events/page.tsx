@@ -5,6 +5,7 @@ import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import ImageGallery from '@/components/shared/ImageGallery'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
+import { getAlternates, getCanonical } from '@/lib/translated-routes'
 import { eventTypes, getEventPackagesData } from '@/data/pricing'
 import { eventClients, instagramPosts } from '@/data/event-clients'
 import InstagramEmbed from '@/components/events/InstagramEmbed'
@@ -28,8 +29,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t('metaTitle'),
     description: t('metaDescription'),
     alternates: {
-      canonical: `${SITE_URL}${locale === 'th' ? '/th' : ''}/events/`,
-      languages: { en: `${SITE_URL}/events/`, th: `${SITE_URL}/th/events/` },
+      canonical: getCanonical(locale, '/events/'),
+      languages: getAlternates('/events/'),
     },
     openGraph: { images: [{ url: storageUrl('events/event-01.jpg'), alt: 'Corporate event at LENGOLF indoor golf' }] },
   }
