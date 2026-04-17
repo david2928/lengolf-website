@@ -107,6 +107,14 @@ const routeTests: RouteTest[] = [
   { path: '/hotels/things-to-do-near-intercontinental-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Activities detail pages — spot-check one slug
   { path: '/activities/rainy-day-activities-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // Golf courses hub + region index pages
+  { path: '/golf-courses/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/golf-courses/bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/golf-courses/pattaya/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // Golf course detail pages — spot-check one Bangkok + two Pattaya
+  { path: '/golf-courses/bangkok/nikanti-golf-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/golf-courses/pattaya/siam-country-club-old-course/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/golf-courses/pattaya/laem-chabang-international/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // API routes (no Google Maps key in CI, so 500 is acceptable — just not 404)
   { path: '/api/aqi/', expectedStatus: [200, 500, 502] },
 ]

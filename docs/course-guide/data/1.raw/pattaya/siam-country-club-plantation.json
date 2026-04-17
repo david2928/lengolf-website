@@ -1,0 +1,29 @@
+{
+  "slug": "siam-country-club-plantation",
+  "region": "pattaya",
+  "status": "raw",
+  "collected_at": "2026-04-17",
+  "fields": {
+    "name": { "value": "Siam Country Club Pattaya, Plantation Course", "source": "official-website", "url": "https://siamcountryclub.com/plantation/" },
+    "province": { "value": "Chonburi", "source": "official-website", "url": "https://siamcountryclub.com/" },
+    "designer": { "value": "Schmidt-Curley Design", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/siam-country-club-plantation-course/" },
+    "holes": { "value": 27, "source": "official-website", "url": "https://siamcountryclub.com/plantation/", "note": "Three nine-hole loops: Sugar Cane, Tapioca, Pineapple. Green fees are for any 18-hole combination." },
+    "par": { "value": 108, "source": "web-search", "url": "https://enth.asiagolf.com/user/product/product_info.php?product_id=992654534", "note": "36 per nine. A standard 18-hole round plays any two nines." },
+    "year_opened": { "value": 2008, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/siam-country-club-plantation-course/" },
+    "green_fee_weekday_thb": { "value": 3300, "source": "web-search", "url": "https://enth.asiagolf.com/user/product/product_info.php?product_id=992654534", "note": "For 18 holes. Caddie fee (500 THB) charged separately." },
+    "green_fee_weekend_thb": { "value": 4000, "source": "model", "url": null, "note": "Model estimate — verify against official price list." },
+    "caddie_fee_thb": { "value": 500, "source": "web-search", "url": "https://siamcountryclub.com/plantation/", "note": "Required. Caddie drives the cart — cart included with caddie fee." },
+    "cart_fee_thb": { "value": null, "source": "web-search", "url": "https://siamcountryclub.com/plantation/", "note": "Carts driven by caddies; access included in caddie fee." },
+    "caddie_required": { "value": true, "source": "official-website", "url": "https://siamcountryclub.com/plantation/" },
+    "cart_required": { "value": true, "source": "official-website", "url": "https://siamcountryclub.com/plantation/" },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": "https://siamcountryclub.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 38 909 700", "source": "web-search", "url": "https://siamcountryclub.com/" },
+    "latitude": { "value": 12.836, "source": "model", "url": null, "note": "Approximate — same complex as Old Course, Pong district, Bang Lamung." },
+    "longitude": { "value": 101.067, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 130, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 100, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "address": { "value": "50 Moo 9, Pong, Bang Lamung, Chonburi 20150", "source": "web-search", "url": "https://siamcountryclub.com/" }
+  }
+}

@@ -34,6 +34,10 @@ export interface GolfCourse {
   distance_from_bangkok_km: number | null
   drive_time_from_bangkok_min: number | null
   google_maps_url: string | null
+  club_rental_available?: boolean | null
+  club_rental_fee_thb?: number | null
+  /** Club brands available for rental, e.g. "TaylorMade, Callaway" */
+  club_rental_brands?: string | null
   /** Serialised JSON-LD string (Schema.org GolfCourse) */
   schema_markup: string
   prose: GolfCourseProse

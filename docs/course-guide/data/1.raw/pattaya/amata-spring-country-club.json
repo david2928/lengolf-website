@@ -1,0 +1,30 @@
+{
+  "slug": "amata-spring-country-club",
+  "region": "pattaya",
+  "status": "raw",
+  "collected_at": "2026-04-17",
+  "pipeline_note": "BLOCKED — private members-only club. No visitor green fees. Recommend moving to 'skip' status. Members of affiliated clubs (e.g. SICC, TMCC Singapore) may play with green fees around 4,600–5,800 THB, but no public tee times are available.",
+  "fields": {
+    "name": { "value": "Amata Spring Country Club", "source": "official-website", "url": "https://amataspring.com/" },
+    "province": { "value": "Chonburi", "source": "official-website", "url": "https://amataspring.com/" },
+    "designer": { "value": "Schmidt-Curley Design (Lee Schmidt, Principal Architect)", "source": "web-search", "url": "https://www.schmidt-curley.com/featured-courses/amata-spring-country-club" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.1golf.eu/en/club/amata-spring-country-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.1golf.eu/en/club/amata-spring-country-club/" },
+    "year_opened": { "value": 2005, "source": "web-search", "url": "https://amata.com/news-media/355-welcome-to-amata-spring-country-club-thailand-s-best-golf-course" },
+    "green_fee_weekday_thb": { "value": null, "source": "model", "url": null, "note": "PRIVATE — no public visitor green fees. Affiliated club members pay ~4,600 THB weekday (all-in). Source: Singapore club fact sheet 2025." },
+    "green_fee_weekend_thb": { "value": null, "source": "model", "url": null, "note": "PRIVATE — no public visitor green fees. Affiliated club members pay ~5,800 THB weekend (all-in)." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Included in affiliated member rates." },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null, "note": "Included in affiliated member rates." },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": true, "source": "model", "url": null },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": "https://amataspring.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 33 141 000", "source": "web-search", "url": "https://amataspring.com/contacts/" },
+    "latitude": { "value": 13.218, "source": "model", "url": null, "note": "Approximate — verify. Amata City Chonburi industrial estate." },
+    "longitude": { "value": 100.987, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 115, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 90, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "address": { "value": "700/3-9 Moo 6, Nongmaidang, Mueang Chonburi, Chonburi 20000", "source": "web-search", "url": "https://amataspring.com/contacts/" }
+  }
+}

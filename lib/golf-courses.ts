@@ -2,7 +2,7 @@ import 'server-only'
 import type { GolfCourse } from '@/types/golf-courses'
 
 // Supported regions — extend as new batches are published
-const REGIONS = ['bangkok'] as const
+const REGIONS = ['bangkok', 'pattaya'] as const
 type Region = (typeof REGIONS)[number]
 
 /** Display metadata for each published region — used by index and hub pages. */
@@ -12,6 +12,12 @@ export const REGION_META: Record<string, { label: string; province: string; desc
     province: 'Bangkok & surrounding provinces',
     description: 'Bangkok and its surrounding provinces are home to some of Thailand\'s finest golf courses — from championship-grade layouts in Pathum Thani to accessible resort courses within 90 minutes of the city centre.',
     courseCount: 11,
+  },
+  pattaya: {
+    label: 'Pattaya',
+    province: 'Chonburi & Eastern Seaboard',
+    description: 'Pattaya and Thailand\'s Eastern Seaboard offer some of the country\'s most spectacular golf — championship venues that have hosted Asian Tour events, coastal courses with sea views, and private members\' clubs set among tropical hills.',
+    courseCount: 6,
   },
 }
 

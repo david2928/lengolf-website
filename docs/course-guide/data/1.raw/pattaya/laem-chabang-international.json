@@ -1,0 +1,29 @@
+{
+  "slug": "laem-chabang-international",
+  "region": "pattaya",
+  "status": "raw",
+  "collected_at": "2026-04-17",
+  "fields": {
+    "name": { "value": "Laem Chabang International Country Club", "source": "official-website", "url": "https://www.laemchabanggolf.com/" },
+    "province": { "value": "Chonburi", "source": "official-website", "url": "https://www.laemchabanggolf.com/" },
+    "designer": { "value": "Jack Nicklaus", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/laem-chabang-international-country-club/" },
+    "holes": { "value": 27, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/laem-chabang-international-country-club/", "note": "Three nine-hole loops: Lake, Mountain, Valley. Green fees are for 18 holes (any two nines)." },
+    "par": { "value": 108, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/laem-chabang-international-country-club/", "note": "36 per nine. A standard round plays any two nines." },
+    "year_opened": { "value": 1993, "source": "web-search", "url": "https://www.hole19golf.com/courses/laem-chabang-international-country-club" },
+    "green_fee_weekday_thb": { "value": 4930, "source": "web-search", "url": "https://www.laemchabanggolf.com/golf-charge/", "note": "All-inclusive: green fee + caddie (450 THB) + cart (980 THB). 2024–2025 rate. Caddie tip (~300 THB) paid separately." },
+    "green_fee_weekend_thb": { "value": 5430, "source": "web-search", "url": "https://www.laemchabanggolf.com/golf-charge/", "note": "All-inclusive: green fee + caddie + cart. 2024–2025 rate." },
+    "caddie_fee_thb": { "value": 0, "source": "web-search", "url": "https://www.laemchabanggolf.com/golf-charge/", "note": "450 THB caddie fee included in all-inclusive rate. Caddie tip (~300 THB) paid separately in cash." },
+    "cart_fee_thb": { "value": 0, "source": "web-search", "url": "https://www.laemchabanggolf.com/golf-charge/", "note": "980 THB cart fee per cart, included in all-inclusive rate." },
+    "caddie_required": { "value": true, "source": "official-website", "url": "https://www.laemchabanggolf.com/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.laemchabanggolf.com/golf-charge/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/laem-chabang-international-country-club/" },
+    "website": { "value": "https://www.laemchabanggolf.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 82 222 3031", "source": "web-search", "url": "https://www.laemchabanggolf.com/" },
+    "latitude": { "value": 13.170, "source": "model", "url": null, "note": "Approximate — verify. Bueng sub-district, Sriracha, Chonburi." },
+    "longitude": { "value": 100.990, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 100, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/laem-chabang-international-country-club/" },
+    "drive_time_from_bangkok_min": { "value": 80, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "address": { "value": "106/8 Moo 4, Bueng, Sriracha, Chonburi 20230", "source": "web-search", "url": "https://www.laemchabanggolf.com/" }
+  }
+}

@@ -144,6 +144,9 @@ export const course: GolfCourse = {
   distance_from_bangkok_km: ${v(fields['distance_from_bangkok_km']) ?? null},
   drive_time_from_bangkok_min: ${v(fields['drive_time_from_bangkok_min']) ?? null},
   google_maps_url: ${v(fields['google_maps_url']) ? `'${v(fields['google_maps_url'])}'` : 'null'},
+  club_rental_available: ${v(fields['club_rental_available']) ?? null},
+  club_rental_fee_thb: ${v(fields['club_rental_fee_thb']) ?? null},
+  club_rental_brands: ${v(fields['club_rental_brands']) ? `'${v(fields['club_rental_brands'])}'` : 'null'},
   schema_markup: ${JSON.stringify(schema)},
   prose: {
     overview: \`${escapeForTs(prose?.['overview'] ?? '')}\`,
