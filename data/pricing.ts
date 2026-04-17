@@ -216,6 +216,7 @@ export const monthlyPackages: MonthlyPackageRow[] = [
   { name: 'Early Bird*', hours: '10', validity: '6 months', perks: '—', price: '4,800 THB' },
   { name: 'Early Bird+*', hours: 'Unlimited', validity: '1 month', perks: '5% Off F&D', price: '5,000 THB' },
   { name: 'Bronze', hours: '5', validity: '1 month', perks: '—', price: '3,000 THB' },
+  { name: 'Iron', hours: '8', validity: '2 months', perks: '—', price: '4,500 THB' },
   { name: 'Silver', hours: '15', validity: '3 months', perks: '5% Off F&D', price: '8,000 THB' },
   { name: 'Gold', hours: '30', validity: '6 months', perks: '10% Off F&D', price: '14,000 THB' },
   { name: 'Diamond', hours: 'Unlimited', validity: '1 month', perks: '5% Off F&D', price: '8,000 THB' },
@@ -259,7 +260,7 @@ export const golfFaqItems = [
   },
   {
     question: 'What monthly packages do you offer?',
-    answer: 'We offer 7 monthly packages ranging from 3,000 THB (Bronze, 5 hours) to 18,000 THB (Diamond+, unlimited hours for 3 months). Packages include perks like food & drink discounts. We also have Early Bird packages starting at 4,800 THB for use before 14:00.',
+    answer: 'We offer 8 monthly packages ranging from 3,000 THB (Bronze, 5 hours) to 18,000 THB (Diamond+, unlimited hours for 3 months). Packages include perks like food & drink discounts. We also have Early Bird packages starting at 4,800 THB for use before 14:00.',
   },
   {
     question: 'Do you offer golf lessons?',
