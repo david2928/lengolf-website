@@ -320,6 +320,44 @@ function renderParagraph(text: string, key: string | number, headingContext?: st
     )
   }
 
+  // Handle mixed content: intro text followed by bullet list
+  const firstBulletIdx = lines.findIndex((line) => line.trim().startsWith('- '))
+  if (firstBulletIdx > 0) {
+    const introLines = lines.slice(0, firstBulletIdx).filter((l) => l.trim() !== '')
+    const bulletLines = lines.slice(firstBulletIdx).filter((l) => l.trim().startsWith('- '))
+    const isPricingContext = headingContext && PRICING_HEADING_RE.test(headingContext)
+
+    return (
+      <div key={key}>
+        <p className="my-4 text-muted-foreground leading-relaxed">
+          <BoldText text={introLines.join(' ')} />
+        </p>
+        {isPricingContext ? (
+          renderPriceTable(bulletLines, `${key}-table`)
+        ) : (
+          <ul className="my-4 list-disc pl-6 space-y-2">
+            {bulletLines.map((item, j) => (
+              <li key={j} className="text-muted-foreground">
+                <BoldText text={item.replace(/^-\s*/, '')} />
+              </li>
+            ))}
+          </ul>
+        )}
+        {/* Render any trailing text after bullets */}
+        {lines.slice(firstBulletIdx).some((l) => l.trim() !== '' && !l.trim().startsWith('- ')) && (
+          <p className="my-4 text-muted-foreground leading-relaxed">
+            <BoldText
+              text={lines
+                .slice(firstBulletIdx)
+                .filter((l) => l.trim() !== '' && !l.trim().startsWith('- '))
+                .join(' ')}
+            />
+          </p>
+        )}
+      </div>
+    )
+  }
+
   return (
     <p key={key} className="my-4 text-muted-foreground leading-relaxed">
       <BoldText text={text} />
