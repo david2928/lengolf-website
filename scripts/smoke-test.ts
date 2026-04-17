@@ -181,11 +181,14 @@ interface ThaiRedirectTest {
 const thaiRedirectTests: ThaiRedirectTest[] = [
   { path: '/th/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated privacy policy' },
   { path: '/th/terms-of-service/', expectedLocation: '/terms-of-service/', label: 'Untranslated terms of service' },
-  // Regression guard — non-whitelisted /ja/ and /ko/ paths must still 301 to EN so the
-  // middleware allowlist (lib/translated-routes.ts) continues to work.
+  // Regression guard — non-whitelisted /ja/, /ko/, /zh/ paths must still 301 to EN so the
+  // middleware allowlist (lib/translated-routes.ts) continues to work. Particularly
+  // important for ko/zh where the message files have populated (but English-stub)
+  // namespaces that would render as mislabelled content without the allowlist.
   { path: '/ja/events/', expectedLocation: '/events/', label: 'Untranslated JA events page' },
   { path: '/ja/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated JA privacy policy' },
   { path: '/ko/hotels/', expectedLocation: '/hotels/', label: 'Untranslated KO hotels hub' },
+  { path: '/zh/golf/', expectedLocation: '/golf/', label: 'Untranslated ZH golf page' },
 ]
 
 // F) Thai cookie tests — English pages must work even with NEXT_LOCALE=th cookie

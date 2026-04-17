@@ -115,6 +115,11 @@ function localePrefix(locale: Locale): string {
   return locale === 'en' ? '' : `/${locale}`
 }
 
+function pathSuffix(pathname: string): string {
+  const normalized = normalizePath(pathname)
+  return normalized === '/' ? '/' : `${normalized}/`
+}
+
 /**
  * Build an hreflang alternates object for `Metadata.alternates.languages` and
  * `sitemap.alternates.languages`. The returned object maps each available locale
@@ -124,11 +129,10 @@ function localePrefix(locale: Locale): string {
  *   { en: 'https://www.len.golf/golf/', th: 'https://www.len.golf/th/golf/', ... }
  */
 export function getAlternates(pathname: string): Record<string, string> {
-  const normalized = normalizePath(pathname)
-  const suffix = normalized === '/' ? '/' : `${normalized}/`
-  const locales = getLocalesForPath(normalized)
+  const suffix = pathSuffix(pathname)
+  const locales = getLocalesForPath(pathname)
   return Object.fromEntries(
-    locales.map((l) => [l, `${SITE_URL}${localePrefix(l)}${suffix === '/' ? '/' : suffix}`])
+    locales.map((l) => [l, `${SITE_URL}${localePrefix(l)}${suffix}`])
   )
 }
 
@@ -137,8 +141,7 @@ export function getAlternates(pathname: string): Record<string, string> {
  * prefix scheme used by `getAlternates`.
  */
 export function getCanonical(locale: string, pathname: string): string {
-  const normalized = normalizePath(pathname)
-  const suffix = normalized === '/' ? '/' : `${normalized}/`
+  const suffix = pathSuffix(pathname)
   const l: Locale = (ALL_LOCALES as readonly string[]).includes(locale) ? (locale as Locale) : 'en'
-  return `${SITE_URL}${localePrefix(l)}${suffix === '/' ? '/' : suffix}`
+  return `${SITE_URL}${localePrefix(l)}${suffix}`
 }

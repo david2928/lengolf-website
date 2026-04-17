@@ -17,7 +17,6 @@ const faqLinks: Record<string, { href: string; external?: boolean }> = {
   '@lengolf': { href: SOCIAL_LINKS.line, external: true },
   'LINE @lengolf': { href: SOCIAL_LINKS.line, external: true },
   'booking.len.golf': { href: BOOKING_URL, external: true },
-  'Googleマップ': { href: BUSINESS_INFO.googleMapsUrl, external: true },
 }
 
 export default async function JapanLandingPage() {
@@ -285,10 +284,8 @@ export default async function JapanLandingPage() {
                 <MapPin className="mt-0.5 shrink-0 text-primary" size={18} />
                 <div>
                   <p className="text-sm font-bold text-foreground">{t('accessAddressLabel')}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                    The Mercury Ville @ BTS Chidlom, 4階<br />
-                    540 Ploenchit Road, Lumpini,<br />
-                    Pathumwan, Bangkok 10330
+                  <p className="mt-1 whitespace-pre-line text-sm leading-relaxed text-muted-foreground">
+                    {t('accessAddress')}
                   </p>
                 </div>
               </div>
