@@ -192,12 +192,12 @@ export interface BayRateRow {
 export const bayRates: BayRateRow[] = [
   { timeSlot: 'Before 14:00', weekday: '550 THB', weekend: '750 THB' },
   { timeSlot: '14:00 – 17:00', weekday: '750 THB', weekend: '950 THB' },
-  { timeSlot: '17:00 – 23:00 (Promo)', weekday: '750 THB', weekend: '950 THB' },
+  { timeSlot: '17:00 – 23:00', weekday: '750 THB', weekend: '950 THB' },
 ]
 
 export const bayRateNotes = [
   'Price per hour, per bay (up to 5 players)',
-  'Weekday = Mon–Thu, Weekend = Fri–Sun & Public Holidays',
+  'Weekday = Mon–Thu, Weekend = Fri–Sun',
   'Open daily 9:00 – 23:00',
   'Free golf club rental included',
 ]
@@ -232,7 +232,7 @@ export const monthlyPackageNotes = [
 export const golfFaqItems = [
   {
     question: 'How much does it cost to play at LENGOLF?',
-    answer: 'Our simulator bays start at 550 THB per hour on weekdays (Mon–Thu) before 14:00, and go up to 950 THB per hour on weekends (Fri–Sun & public holidays) after 14:00. Each bay holds up to 5 players, and standard golf club rental is included at no extra charge.',
+    answer: 'Our simulator bays start at 550 THB per hour on weekdays (Mon–Thu) before 14:00, and go up to 950 THB per hour on weekends (Fri–Sun) after 14:00. Each bay holds up to 5 players, and standard golf club rental is included at no extra charge.',
   },
   {
     question: 'Do I need to bring my own golf clubs?',
@@ -446,7 +446,7 @@ export async function getBayRatesData(catalog?: PricingCatalog | null): Promise<
     bayRates: [
       { timeSlot: 'Before 14:00', weekday: formatThb(morningWD ?? 550), weekend: formatThb(morningWE ?? 750) },
       { timeSlot: '14:00 – 17:00', weekday: formatThb(afternoonWD ?? 750), weekend: formatThb(afternoonWE ?? 950) },
-      { timeSlot: '17:00 – 23:00 (Promo)', weekday: formatThb(eveningWD ?? 750), weekend: formatThb(eveningWE ?? 950) },
+      { timeSlot: '17:00 – 23:00', weekday: formatThb(eveningWD ?? 750), weekend: formatThb(eveningWE ?? 950) },
     ],
     bayRateNotes,
   }

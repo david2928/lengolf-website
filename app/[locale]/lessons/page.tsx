@@ -7,10 +7,11 @@ import ImageGallery from '@/components/shared/ImageGallery'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
 import { getAlternates, getCanonical } from '@/lib/translated-routes'
 import { coaches } from '@/data/coaches'
-import { getLessonPricingData } from '@/data/pricing'
+import { getLessonPricingData, type LessonPackage } from '@/data/pricing'
 import { getLessonsPricingJsonLd, getLessonsServiceJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import FaqSection from '@/components/shared/FaqSection'
 import ClickableImage from '@/components/shared/ClickableImage'
+import PricingTable from '@/components/shared/PricingTable'
 
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
   'booking.len.golf': { href: 'https://booking.len.golf/', external: true },
@@ -70,7 +71,25 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
     answer: tFaq(`a${i + 1}`),
   }))
 
-  const { lessonPricing, lessonNotes } = await getLessonPricingData()
+  const { lessonPricing, lessonNotes: _ignoredLessonNotes } = await getLessonPricingData()
+
+  // ── Row-level i18n helpers (English data → translated display) ──
+  const translateRemark = (r: string): string => {
+    if (r === '-' || r === '—') return t('remarkDash')
+    const months = r.match(/^Valid for (\d+)\s+months?$/i)
+    if (months) return t('validForMonths', { n: Number(months[1]) })
+    if (/6 months.*Free.*glove/i.test(r)) return t('starterPackageRemark')
+    if (/On courses?\s+fee/i.test(r)) return t('simToFairwayRemark')
+    return r
+  }
+  const translatedLessonPricing = lessonPricing.map((p) => ({
+    ...p,
+    remark: translateRemark(p.remark),
+  }))
+  const lessonNotes = [t('lessonNote1'), t('lessonNote2'), t('lessonNote3')]
+
+  const lessonBadge = (row: LessonPackage) =>
+    row.name === '10 Hour' ? { label: tCommon('badgeBestValue'), tone: 'gold' as const } : null
 
   const pricingJsonLd = getLessonsPricingJsonLd(lessonPricing)
   const serviceJsonLd = getLessonsServiceJsonLd(lessonPricing[0]?.oneGolfer)
@@ -267,46 +286,21 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
             <span style={{ color: '#007429' }}>{t('lessonPricingTitle')}</span>{' '}
             <span className="text-foreground">{t('lessonPricingTitleSuffix')}</span>
           </h2>
-          <div className="mx-auto max-w-lg">
-            <ClickableImage
-              src={storageUrl('lessons/lesson-packages.jpg')}
-              alt="LENGOLF lesson packages: 1 hour from 1,800 THB, 5–50 hour packages available, Starter Package 11,000 THB, Sim to Fairway 13,499 THB"
-              width={512}
-              height={512}
-              className="w-full rounded-lg shadow-sm"
-              sizes="(max-width: 512px) 100vw, 512px"
+          <div className="mx-auto max-w-4xl">
+            <PricingTable<LessonPackage>
+              caption={t('pkgCaption')}
+              rowKey={(row) => row.name}
+              columns={[
+                { key: 'name', label: t('pkgCourse'), primary: true },
+                { key: 'oneGolfer', label: t('pkg1Golfer'), align: 'right', emphasis: true },
+                { key: 'twoGolfers', label: t('pkg2Golfers'), align: 'right' },
+                { key: 'threeToFiveGolfers', label: t('pkg3To5Golfers'), align: 'right' },
+                { key: 'remark', label: t('pkgRemark') },
+              ]}
+              rows={translatedLessonPricing}
+              notes={lessonNotes}
+              badgeFor={lessonBadge}
             />
-          </div>
-          {/* Screen-reader / crawler-visible pricing table */}
-          <div className="sr-only">
-            <table>
-              <caption>LENGOLF Lesson Packages (golf simulator usage included)</caption>
-              <thead>
-                <tr>
-                  <th>Course Package</th>
-                  <th>1 Golfer</th>
-                  <th>2 Golfers</th>
-                  <th>3-5 Golfers</th>
-                  <th>Remark</th>
-                </tr>
-              </thead>
-              <tbody>
-                {lessonPricing.map((row) => (
-                  <tr key={row.name}>
-                    <td>{row.name}</td>
-                    <td>{row.oneGolfer}</td>
-                    <td>{row.twoGolfers}</td>
-                    <td>{row.threeToFiveGolfers}</td>
-                    <td>{row.remark}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <ul>
-              {lessonNotes.map((note) => (
-                <li key={note}>{note}</li>
-              ))}
-            </ul>
           </div>
         </div>
       </section>

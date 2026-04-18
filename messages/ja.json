@@ -38,7 +38,15 @@
     "skipToContent": "メインコンテンツへ",
     "goHome": "ホームへ",
     "pageNotFound": "ページが見つかりません",
-    "pageNotFoundDescription": "お探しのページは存在しないか、移動されました。"
+    "pageNotFoundDescription": "お探しのページは存在しないか、移動されました。",
+    "badgeBestValue": "おすすめ",
+    "badgeTrending": "人気上昇中",
+    "badgePromo": "プロモ",
+    "perHour": "≈ {rate} THB/時",
+    "unlimited": "無制限",
+    "months": "{n}ヶ月",
+    "month": "1ヶ月",
+    "perksFbDiscount": "F&D {pct}%オフ"
   },
   "LanguageSwitcher": {
     "en": "EN",
@@ -417,14 +425,20 @@
     "nearYouSubtitle": "BTSチットロム駅という便利な立地から、バンコク全域のゴルファーをお迎えしています",
     "srBayRatesCaption": "LENGOLF シミュレーターベイ料金（1時間・1ベイ）",
     "srTimeSlot": "時間帯",
-    "srWeekday": "平日（月〜木）",
-    "srWeekend": "週末（金〜日・祝日）",
+    "srWeekday": "平日",
+    "srWeekend": "週末",
     "srPackagesCaption": "LENGOLF 月額シミュレーターパッケージ",
     "srPackage": "パッケージ",
     "srHours": "時間数",
     "srValidity": "有効期限",
     "srPerks": "特典",
-    "srPrice": "料金"
+    "srPrice": "料金",
+    "timeSlotBefore": "{time}以前",
+    "bayRateNote1": "1時間あたり・1ベイあたりの料金（最大5名）",
+    "bayRateNote2": "平日 = 月〜木、週末 = 金〜日",
+    "bayRateNote3": "毎日 9:00 – 23:00 営業",
+    "bayRateNote4": "ゴルフクラブレンタル無料",
+    "earlyBirdNote": "*Early Birdパッケージは14:00以前のみ利用可能"
   },
   "Aqi": {
     "header": "Air Quality Near LENGOLF",
@@ -448,7 +462,7 @@
   },
   "GolfFaq": {
     "q1": "LENGOLFの料金はいくらですか？",
-    "a1": "シミュレーターベイは平日（月〜木）14時前で1時間550THBから、週末（金〜日・祝日）14時以降は1時間950THBまでのご料金です。1ベイ最大5名様までご利用いただけ、スタンダードゴルフクラブのレンタルも追加料金なしで含まれます。",
+    "a1": "シミュレーターベイは平日（月〜木）14時前で1時間550THBから、週末（金〜日）14時以降は1時間950THBまでのご料金です。1ベイ最大5名様までご利用いただけ、スタンダードゴルフクラブのレンタルも追加料金なしで含まれます。",
     "q2": "自分のゴルフクラブを持参する必要はありますか？",
     "a2": "いいえ、スタンダードクラブセットはベイレンタルに無料で含まれます（レディースセットもご用意）。プレミアムクラブレンタルとして、Callaway Warbird（メンズ）とMajesty Shuttle（レディース）を1時間150THBからご利用いただけます。プレミアムクラブは店内利用はもちろん、バンコク市内のゴルフ場にもお持ちいただけます。詳しい料金はクラブレンタルページをご覧ください。もちろんご自身のクラブの持ち込みも歓迎しております。",
     "q3": "1ベイに何名までプレーできますか？",
@@ -603,7 +617,20 @@
     "exploreBestWayToLearn": "バンコクでゴルフを学ぶ最良の方法",
     "exploreLessonPrices": "バンコクのゴルフレッスン料金",
     "exploreBeginnersFaq": "初心者はゴルフシミュレーターを楽しめますか？",
-    "explorePlanTrip": "タイゴルフ旅行を計画する"
+    "explorePlanTrip": "タイゴルフ旅行を計画する",
+    "pkgCaption": "LENGOLFレッスンパッケージ（ゴルフシミュレーター利用込み）",
+    "pkgCourse": "パッケージ",
+    "pkg1Golfer": "1名",
+    "pkg2Golfers": "2名",
+    "pkg3To5Golfers": "3〜5名",
+    "pkgRemark": "備考",
+    "remarkDash": "—",
+    "validForMonths": "有効期限 {n}ヶ月",
+    "starterPackageRemark": "有効期限6ヶ月・ゴルフグローブ1枚プレゼント（1名につき）",
+    "simToFairwayRemark": "実コースでの生徒・コーチのコースフィーはお客様負担",
+    "lessonNote1": "*Starter Package: 5時間レッスン + 5時間練習",
+    "lessonNote2": "*Sim to Fairway: 5時間レッスン + 実コースレッスン1回",
+    "lessonNote3": "*全レッスンパッケージにゴルフシミュレーター利用料込み"
   },
   "LessonsFaq": {
     "q1": "無料の体験レッスンはありますか？",

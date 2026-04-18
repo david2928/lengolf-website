@@ -201,7 +201,7 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <div className="flex items-center gap-2 lg:hidden">
-          <LanguageSwitcher />
+          <LanguageSwitcher compact />
           <button
             type="button"
             className="p-2"

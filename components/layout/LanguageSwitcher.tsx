@@ -4,6 +4,7 @@ import { useLocale } from 'next-intl'
 import { usePathname, useRouter } from '@/i18n/navigation'
 import { getLocalesForPath, type Locale } from '@/lib/translated-routes'
 
+/** Long labels — used on desktop where space allows. */
 const LOCALE_LABELS: Record<Locale, string> = {
   en: 'EN',
   th: 'TH',
@@ -12,7 +13,22 @@ const LOCALE_LABELS: Record<Locale, string> = {
   zh: '中文',
 }
 
-export default function LanguageSwitcher() {
+/** Compact 2-letter codes — used on mobile so all pills are equal width. */
+const LOCALE_LABELS_COMPACT: Record<Locale, string> = {
+  en: 'EN',
+  th: 'TH',
+  ja: 'JA',
+  ko: 'KO',
+  zh: 'ZH',
+}
+
+interface Props {
+  /** When true, render 2-letter uppercase codes (EN / TH / JA / KO / ZH)
+   *  so the control fits on narrow mobile headers without wrapping. */
+  compact?: boolean
+}
+
+export default function LanguageSwitcher({ compact = false }: Props) {
   const locale = useLocale()
   const pathname = usePathname()
   const router = useRouter()
@@ -31,6 +47,8 @@ export default function LanguageSwitcher() {
     router.replace(pathname, { locale: newLocale })
   }
 
+  const labels = compact ? LOCALE_LABELS_COMPACT : LOCALE_LABELS
+
   return (
     <div className="flex items-center gap-0.5 rounded-full border border-border/60 p-0.5">
       {locales.map((l) => (
@@ -43,7 +61,7 @@ export default function LanguageSwitcher() {
               : 'text-muted-foreground hover:text-foreground'
           }`}
         >
-          {LOCALE_LABELS[l]}
+          {labels[l]}
         </button>
       ))}
     </div>
