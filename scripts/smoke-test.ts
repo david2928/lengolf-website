@@ -95,6 +95,9 @@ const routeTests: RouteTest[] = [
   { path: '/ja/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/golf/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/lessons/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // KO / ZH bespoke landing pages (Home only — Golf/Lessons still English-stubbed)
+  { path: '/ko/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Guide (explainer) pages — spot-check original + new golf-travel slugs
   { path: '/guide/what-is-a-golf-simulator/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/guide/best-time-play-golf-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
@@ -166,6 +169,8 @@ const seoTests: SeoTest[] = [
   { path: '/ja/golf/', locale: 'ja' },
   { path: '/ja/lessons/', locale: 'ja' },
   { path: '/ja/rent-golf-clubs-bangkok/', locale: 'ja' },
+  { path: '/ko/', locale: 'ko' },
+  { path: '/zh/', locale: 'zh' },
   { path: '/golf-in-thailand-guide/', locale: 'en' },
   { path: '/guide/what-is-a-golf-simulator/', locale: 'en' },
   { path: '/faq/can-i-rent-golf-clubs-in-bangkok/', locale: 'en' },
