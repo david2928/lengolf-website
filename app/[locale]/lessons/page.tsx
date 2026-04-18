@@ -73,23 +73,27 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
 
   const { lessonPricing, lessonNotes: _ignoredLessonNotes } = await getLessonPricingData()
 
-  // ── Row-level i18n helpers (English data → translated display) ──
-  const translateRemark = (r: string): string => {
-    if (r === '-' || r === '—') return t('remarkDash')
-    const months = r.match(/^Valid for (\d+)\s+months?$/i)
-    if (months) return t('validForMonths', { n: Number(months[1]) })
-    if (/6 months.*Free.*glove/i.test(r)) return t('starterPackageRemark')
-    if (/On courses?\s+fee/i.test(r)) return t('simToFairwayRemark')
-    return r
+  // ── Row-level i18n helpers (structured → translated display) ──
+  // Remarks are translated via their `remarkKind` + `remarkMonths` fields
+  // (set in data/pricing.ts). Keeps the lesson page decoupled from the
+  // exact English text.
+  const translateRemark = (row: LessonPackage): string => {
+    switch (row.remarkKind) {
+      case 'dash':         return t('remarkDash')
+      case 'validity':     return t('validForMonths', { n: row.remarkMonths ?? 0 })
+      case 'starter':      return t('starterPackageRemark')
+      case 'simToFairway': return t('simToFairwayRemark')
+      default:             return row.remark
+    }
   }
   const translatedLessonPricing = lessonPricing.map((p) => ({
     ...p,
-    remark: translateRemark(p.remark),
+    remark: translateRemark(p),
   }))
   const lessonNotes = [t('lessonNote1'), t('lessonNote2'), t('lessonNote3')]
 
   const lessonBadge = (row: LessonPackage) =>
-    row.name === '10 Hour' ? { label: tCommon('badgeBestValue'), tone: 'gold' as const } : null
+    row.featured === 'bestValue' ? { label: tCommon('badgeBestValue'), tone: 'gold' as const } : null
 
   const pricingJsonLd = getLessonsPricingJsonLd(lessonPricing)
   const serviceJsonLd = getLessonsServiceJsonLd(lessonPricing[0]?.oneGolfer)

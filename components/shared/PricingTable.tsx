@@ -201,15 +201,20 @@ export default function PricingTable<T>({
               }`}
               style={isFeatured ? { borderColor: '#c8a96e', borderTopWidth: '3px' } : undefined}
             >
-              {/* Title row — primary column + inline chip if any */}
+              {/* Title row — primary column + inline chip if any.
+                  Uses <div role="rowheader"> rather than a heading tag: the
+                  row label isn't a section heading (the section <h2> above
+                  already covers that), and an <h4> here would skip levels
+                  since the enclosing page has no <h3>. */}
               <div className={`flex items-center justify-between gap-3 ${isMatrix ? '' : 'items-baseline'}`}>
                 <div className="flex items-center gap-2 flex-wrap">
-                  <h4
+                  <div
+                    role="rowheader"
                     className="font-semibold text-base"
                     style={isFeatured ? { color: '#003d22' } : undefined}
                   >
                     {row[primaryCol.key] as ReactNode}
-                  </h4>
+                  </div>
                   {badge ? renderBadge(badge) : null}
                 </div>
                 {/* Single-emphasis mode: price sits on the right of the title */}

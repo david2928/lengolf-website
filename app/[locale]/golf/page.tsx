@@ -109,15 +109,17 @@ export default async function GolfPage({ params }: { params: Promise<{ locale: s
   const bayRateNotes = [t('bayRateNote1'), t('bayRateNote2'), t('bayRateNote3'), t('bayRateNote4')]
   const monthlyPackageNotes = [t('earlyBirdNote')]
 
-  // Featured-row predicates (match against the *original* English name — the
-  // translated-rows map preserves row shape so predicates still work by name).
+  // Featured-row predicates — driven by the `featured` field on the row
+  // (set in data/pricing.ts), not by string-matching on `name` or `timeSlot`.
+  // This way marketing can rename a package or retranslate a time-slot
+  // without silently breaking the badge wiring.
   const packageBadge = (row: MonthlyPackageRow) => {
-    if (row.name === 'Gold') return { label: tCommon('badgeBestValue'), tone: 'gold' as const }
-    if (row.name === 'Early Bird+*') return { label: tCommon('badgeTrending'), tone: 'green' as const }
+    if (row.featured === 'bestValue') return { label: tCommon('badgeBestValue'), tone: 'gold' as const }
+    if (row.featured === 'trending') return { label: tCommon('badgeTrending'), tone: 'green' as const }
     return null
   }
   const bayRateBadge = (row: BayRateRow) =>
-    row.timeSlot.startsWith('17:00') ? { label: tCommon('badgePromo'), tone: 'amber' as const } : null
+    row.featured === 'promo' ? { label: tCommon('badgePromo'), tone: 'amber' as const } : null
 
   const pricingJsonLd = getGolfPricingJsonLd(bayRates, monthlyPackages)
   const faqJsonLd = getFaqPageJsonLd(faqItems)

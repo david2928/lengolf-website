@@ -1,23 +1,42 @@
 import { storageUrl } from '@/lib/constants'
 import { getPricingCatalog, formatThb, findPrice, type PricingCatalog } from '@/lib/pricing'
 
+/**
+ * Structured kind for a lesson-package remark. Drives translation in the
+ * page layer — replaces fragile regex matching on the English `remark` text.
+ * - `dash`         → plain em-dash placeholder
+ * - `validity`     → "Valid for {remarkMonths} months"
+ * - `starter`      → Starter Package remark (6 months + free glove)
+ * - `simToFairway` → Sim to Fairway remark (on-course fee disclosure)
+ */
+export type LessonRemarkKind = 'dash' | 'validity' | 'starter' | 'simToFairway'
+
+/** Identifier for a featured row's badge — independent of the row's `name`
+ *  so marketing can rename packages without breaking badge wiring. */
+export type FeaturedKind = 'bestValue' | 'trending' | 'promo'
+
 export interface LessonPackage {
   name: string
   oneGolfer: string
   twoGolfers: string
   threeToFiveGolfers: string
+  /** Raw English remark — retained for fallback / JSON-LD / non-i18n callers. */
   remark: string
+  remarkKind?: LessonRemarkKind
+  /** Months value for `remarkKind === 'validity'`. */
+  remarkMonths?: number
+  featured?: FeaturedKind
 }
 
 export const lessonPricing: LessonPackage[] = [
-  { name: '1 Hour', oneGolfer: '1,800 THB', twoGolfers: '2,400 THB', threeToFiveGolfers: '2,900 THB', remark: '-' },
-  { name: '5 Hour', oneGolfer: '8,500 THB', twoGolfers: '11,000 THB', threeToFiveGolfers: '13,650 THB', remark: 'Valid for 6 months' },
-  { name: '10 Hour', oneGolfer: '16,000 THB', twoGolfers: '20,500 THB', threeToFiveGolfers: '25,500 THB', remark: 'Valid for 12 months' },
-  { name: '20 Hour', oneGolfer: '31,000 THB', twoGolfers: '39,000 THB', threeToFiveGolfers: '49,000 THB', remark: 'Valid for 24 months' },
-  { name: '30 Hour', oneGolfer: '45,000 THB', twoGolfers: '57,000 THB', threeToFiveGolfers: '72,000 THB', remark: 'Valid for 24 months' },
-  { name: '50 Hour', oneGolfer: '72,000 THB', twoGolfers: '92,500 THB', threeToFiveGolfers: '117,500 THB', remark: 'Valid for 24 months' },
-  { name: 'Starter Package*', oneGolfer: '11,000 THB', twoGolfers: '13,500 THB', threeToFiveGolfers: '-', remark: 'Valid for 6 months & Free 1 golf glove/golfer' },
-  { name: 'Sim to Fairway*', oneGolfer: '13,499 THB', twoGolfers: '-', threeToFiveGolfers: '-', remark: 'On courses fee for both student and coach must be covered by the customer' },
+  { name: '1 Hour',           oneGolfer: '1,800 THB',  twoGolfers: '2,400 THB',  threeToFiveGolfers: '2,900 THB',  remark: '-',                                                                  remarkKind: 'dash' },
+  { name: '5 Hour',           oneGolfer: '8,500 THB',  twoGolfers: '11,000 THB', threeToFiveGolfers: '13,650 THB', remark: 'Valid for 6 months',                                                  remarkKind: 'validity',     remarkMonths: 6 },
+  { name: '10 Hour',          oneGolfer: '16,000 THB', twoGolfers: '20,500 THB', threeToFiveGolfers: '25,500 THB', remark: 'Valid for 12 months',                                                 remarkKind: 'validity',     remarkMonths: 12, featured: 'bestValue' },
+  { name: '20 Hour',          oneGolfer: '31,000 THB', twoGolfers: '39,000 THB', threeToFiveGolfers: '49,000 THB', remark: 'Valid for 24 months',                                                 remarkKind: 'validity',     remarkMonths: 24 },
+  { name: '30 Hour',          oneGolfer: '45,000 THB', twoGolfers: '57,000 THB', threeToFiveGolfers: '72,000 THB', remark: 'Valid for 24 months',                                                 remarkKind: 'validity',     remarkMonths: 24 },
+  { name: '50 Hour',          oneGolfer: '72,000 THB', twoGolfers: '92,500 THB', threeToFiveGolfers: '117,500 THB', remark: 'Valid for 24 months',                                                remarkKind: 'validity',     remarkMonths: 24 },
+  { name: 'Starter Package*', oneGolfer: '11,000 THB', twoGolfers: '13,500 THB', threeToFiveGolfers: '-',           remark: 'Valid for 6 months & Free 1 golf glove/golfer',                      remarkKind: 'starter' },
+  { name: 'Sim to Fairway*',  oneGolfer: '13,499 THB', twoGolfers: '-',          threeToFiveGolfers: '-',           remark: 'On courses fee for both student and coach must be covered by the customer', remarkKind: 'simToFairway' },
 ]
 
 export const lessonNotes = [
@@ -187,12 +206,13 @@ export interface BayRateRow {
   timeSlot: string
   weekday: string
   weekend: string
+  featured?: FeaturedKind
 }
 
 export const bayRates: BayRateRow[] = [
-  { timeSlot: 'Before 14:00', weekday: '550 THB', weekend: '750 THB' },
+  { timeSlot: 'Before 14:00',  weekday: '550 THB', weekend: '750 THB' },
   { timeSlot: '14:00 – 17:00', weekday: '750 THB', weekend: '950 THB' },
-  { timeSlot: '17:00 – 23:00', weekday: '750 THB', weekend: '950 THB' },
+  { timeSlot: '17:00 – 23:00', weekday: '750 THB', weekend: '950 THB', featured: 'promo' },
 ]
 
 export const bayRateNotes = [
@@ -210,17 +230,18 @@ export interface MonthlyPackageRow {
   validity: string
   perks: string
   price: string
+  featured?: FeaturedKind
 }
 
 export const monthlyPackages: MonthlyPackageRow[] = [
-  { name: 'Early Bird*', hours: '10', validity: '6 months', perks: '—', price: '4,800 THB' },
-  { name: 'Early Bird+*', hours: 'Unlimited', validity: '1 month', perks: '5% Off F&D', price: '5,000 THB' },
-  { name: 'Bronze', hours: '5', validity: '1 month', perks: '—', price: '3,000 THB' },
-  { name: 'Iron', hours: '8', validity: '2 months', perks: '—', price: '4,500 THB' },
-  { name: 'Silver', hours: '15', validity: '3 months', perks: '5% Off F&D', price: '8,000 THB' },
-  { name: 'Gold', hours: '30', validity: '6 months', perks: '10% Off F&D', price: '14,000 THB' },
-  { name: 'Diamond', hours: 'Unlimited', validity: '1 month', perks: '5% Off F&D', price: '8,000 THB' },
-  { name: 'Diamond+', hours: 'Unlimited', validity: '3 months', perks: '10% Off F&D', price: '18,000 THB' },
+  { name: 'Early Bird*',  hours: '10',        validity: '6 months', perks: '—',           price: '4,800 THB'  },
+  { name: 'Early Bird+*', hours: 'Unlimited', validity: '1 month',  perks: '5% Off F&D',  price: '5,000 THB', featured: 'trending' },
+  { name: 'Bronze',       hours: '5',         validity: '1 month',  perks: '—',           price: '3,000 THB'  },
+  { name: 'Iron',         hours: '8',         validity: '2 months', perks: '—',           price: '4,500 THB'  },
+  { name: 'Silver',       hours: '15',        validity: '3 months', perks: '5% Off F&D',  price: '8,000 THB'  },
+  { name: 'Gold',         hours: '30',        validity: '6 months', perks: '10% Off F&D', price: '14,000 THB', featured: 'bestValue' },
+  { name: 'Diamond',      hours: 'Unlimited', validity: '1 month',  perks: '5% Off F&D',  price: '8,000 THB'  },
+  { name: 'Diamond+',     hours: 'Unlimited', validity: '3 months', perks: '10% Off F&D', price: '18,000 THB' },
 ]
 
 export const monthlyPackageNotes = [
@@ -444,9 +465,9 @@ export async function getBayRatesData(catalog?: PricingCatalog | null): Promise<
 
   return {
     bayRates: [
-      { timeSlot: 'Before 14:00', weekday: formatThb(morningWD ?? 550), weekend: formatThb(morningWE ?? 750) },
+      { timeSlot: 'Before 14:00',  weekday: formatThb(morningWD ?? 550),   weekend: formatThb(morningWE ?? 750) },
       { timeSlot: '14:00 – 17:00', weekday: formatThb(afternoonWD ?? 750), weekend: formatThb(afternoonWE ?? 950) },
-      { timeSlot: '17:00 – 23:00', weekday: formatThb(eveningWD ?? 750), weekend: formatThb(eveningWE ?? 950) },
+      { timeSlot: '17:00 – 23:00', weekday: formatThb(eveningWD ?? 750),   weekend: formatThb(eveningWE ?? 950),  featured: 'promo' },
     ],
     bayRateNotes,
   }
