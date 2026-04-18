@@ -95,9 +95,14 @@ const routeTests: RouteTest[] = [
   { path: '/ja/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/golf/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/lessons/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  // KO / ZH bespoke landing pages (Home only — Golf/Lessons still English-stubbed)
+  // KO pages (bespoke landing at '/', plus translated Golf + Lessons)
   { path: '/ko/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/golf/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/lessons/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // ZH pages (bespoke landing at '/', plus translated Golf + Lessons)
   { path: '/zh/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/golf/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/lessons/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Guide (explainer) pages — spot-check original + new golf-travel slugs
   { path: '/guide/what-is-a-golf-simulator/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/guide/best-time-play-golf-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
@@ -170,7 +175,11 @@ const seoTests: SeoTest[] = [
   { path: '/ja/lessons/', locale: 'ja' },
   { path: '/ja/rent-golf-clubs-bangkok/', locale: 'ja' },
   { path: '/ko/', locale: 'ko' },
+  { path: '/ko/golf/', locale: 'ko' },
+  { path: '/ko/lessons/', locale: 'ko' },
   { path: '/zh/', locale: 'zh' },
+  { path: '/zh/golf/', locale: 'zh' },
+  { path: '/zh/lessons/', locale: 'zh' },
   { path: '/golf-in-thailand-guide/', locale: 'en' },
   { path: '/guide/what-is-a-golf-simulator/', locale: 'en' },
   { path: '/faq/can-i-rent-golf-clubs-in-bangkok/', locale: 'en' },
@@ -193,7 +202,9 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
   { path: '/ja/events/', expectedLocation: '/events/', label: 'Untranslated JA events page' },
   { path: '/ja/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated JA privacy policy' },
   { path: '/ko/hotels/', expectedLocation: '/hotels/', label: 'Untranslated KO hotels hub' },
-  { path: '/zh/golf/', expectedLocation: '/golf/', label: 'Untranslated ZH golf page' },
+  { path: '/ko/events/', expectedLocation: '/events/', label: 'Untranslated KO events page' },
+  { path: '/zh/about-us/', expectedLocation: '/about-us/', label: 'Untranslated ZH about-us page' },
+  { path: '/zh/blog/', expectedLocation: '/blog/', label: 'Untranslated ZH blog page' },
 ]
 
 // F) Thai cookie tests — English pages must work even with NEXT_LOCALE=th cookie

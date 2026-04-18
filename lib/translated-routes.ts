@@ -20,16 +20,18 @@ const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynam
     dynamicRoutePatterns: [],
   },
   // KO / ZH: bespoke KoreaLandingPage / ChinaLandingPage at '/' (HomeKo / HomeZh
-  // namespaces) plus /rent-golf-clubs-bangkok. Other namespaces (Golf, Lessons,
-  // etc.) in ko.json / zh.json are still English stubs — do not whitelist more
-  // routes until the target namespace is translated, or English text will be served
-  // under a /ko/ or /zh/ URL and Google will flag the hreflang as mismatched.
+  // namespaces), plus /golf, /lessons, and /rent-golf-clubs-bangkok. The Golf,
+  // GolfFaq, Lessons, LessonsFaq namespaces in ko.json / zh.json are now fully
+  // translated. Other namespaces (Events, AboutUs, Blog, etc.) remain English
+  // stubs — do not whitelist more routes until translated, or English text will
+  // be served under a /ko/ or /zh/ URL and Google will flag the hreflang as
+  // mismatched.
   ko: {
-    staticRoutes: ['/', '/rent-golf-clubs-bangkok'],
+    staticRoutes: ['/', '/golf', '/lessons', '/rent-golf-clubs-bangkok'],
     dynamicRoutePatterns: [],
   },
   zh: {
-    staticRoutes: ['/', '/rent-golf-clubs-bangkok'],
+    staticRoutes: ['/', '/golf', '/lessons', '/rent-golf-clubs-bangkok'],
     dynamicRoutePatterns: [],
   },
   // JA is broader: Home, Golf, Lessons + their FAQ namespaces translated
