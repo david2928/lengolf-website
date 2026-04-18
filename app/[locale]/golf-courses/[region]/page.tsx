@@ -49,13 +49,6 @@ export default async function RegionIndexPage({ params }: Props) {
     { name: meta.label, url: `${SITE_URL}/golf-courses/${region}/` },
   ])
 
-  // Compute fee range across all courses
-  const fees = courses
-    .map((c) => c.green_fee_weekday_thb)
-    .filter((f): f is number => f !== null)
-  const feeMin = fees.length ? Math.min(...fees) : null
-  const feeMax = fees.length ? Math.max(...fees) : null
-
   return (
     <>
       <script
@@ -102,50 +95,33 @@ export default async function RegionIndexPage({ params }: Props) {
             <span className="uppercase text-white/60">{meta.label}</span>
           </nav>
 
-          <div className="grid gap-8 lg:grid-cols-[1fr_auto]">
-            <div className="max-w-xl">
-              {/* Eyebrow */}
-              <div className="mb-4 flex items-center gap-3">
-                <span className="h-px w-8 bg-[#c8a96e]" />
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#c8a96e]">
-                  {meta.province}
-                </span>
-              </div>
-
-              <h1 className="mb-5 font-sans text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Golf Courses<br />
-                <span className="text-white/60">in {meta.label}</span>
-              </h1>
-              <p className="max-w-lg text-sm leading-relaxed text-white/60">{meta.description}</p>
+          <div className="max-w-xl">
+            {/* Eyebrow */}
+            <div className="mb-4 flex items-center gap-3">
+              <span className="h-px w-8 bg-[#c8a96e]" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#c8a96e]">
+                {meta.province}
+              </span>
             </div>
 
-            {/* Stats column */}
-            <div className="flex flex-row gap-3 lg:flex-col lg:items-end lg:justify-end">
-              <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-center backdrop-blur-sm">
-                <p className="text-4xl font-black tabular-nums text-white">{courses.length}</p>
-                <p className="mt-0.5 text-[10px] font-bold uppercase tracking-widest text-white/40">Courses</p>
-              </div>
-              {feeMin !== null && feeMax !== null && (
-                <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-center backdrop-blur-sm">
-                  <p className="text-lg font-black tabular-nums text-[#c8a96e]">
-                    {feeMin.toLocaleString('en-US')}
-                    <span className="text-sm text-white/40"> – </span>
-                    {feeMax.toLocaleString('en-US')}
-                  </p>
-                  <p className="mt-0.5 text-[10px] font-bold uppercase tracking-widest text-white/40">THB weekday</p>
-                </div>
-              )}
-            </div>
+            <h1 className="mb-5 font-sans text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Golf Courses<br />
+              <span className="text-white/60">in {meta.label}</span>
+            </h1>
+            <p className="max-w-lg text-sm leading-relaxed text-white/60">{meta.description}</p>
           </div>
         </div>
 
-        {/* Bottom fade to page bg — no wave, clean edge */}
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-[#f8faf9]" />
       </section>
 
       {/* ── Map explorer + roster ── */}
-      <div className="bg-[#f8faf9] pb-16 pt-6">
-        <CourseMapExplorer courses={courses} region={region} />
+      <div className="bg-[#f8faf9] pb-8 pt-0">
+        {/* Map card overlaps hero — negative margin pulls it up into the dark section */}
+        <div className="mx-auto -mt-12 max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-black/5">
+            <CourseMapExplorer courses={courses} region={region} />
+          </div>
+        </div>
 
         {/* ── LENGOLF rental CTA ── */}
         <div className="mx-auto mt-8 max-w-6xl px-4 sm:px-6 lg:px-8">
