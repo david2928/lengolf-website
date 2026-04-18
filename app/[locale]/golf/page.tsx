@@ -8,11 +8,12 @@ import AqiWidget from '@/components/shared/AqiWidget'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
 import { getAlternates, getCanonical, OG_LOCALES, type Locale } from '@/lib/translated-routes'
 import { getWebsitePromotions } from '@/lib/promotions'
-import { getBayRatesData, getMonthlyPackagesData } from '@/data/pricing'
+import { getBayRatesData, getMonthlyPackagesData, type BayRateRow, type MonthlyPackageRow } from '@/data/pricing'
 import { getPricingCatalog } from '@/lib/pricing'
 import { getGolfPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import FaqSection from '@/components/shared/FaqSection'
 import ClickableImage from '@/components/shared/ClickableImage'
+import PricingTable from '@/components/shared/PricingTable'
 
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
   'booking.len.golf': { href: 'https://booking.len.golf/', external: true },
@@ -75,11 +76,50 @@ export default async function GolfPage({ params }: { params: Promise<{ locale: s
   }))
 
   const catalog = await getPricingCatalog()
-  const [{ gridPromotions, monthlyPackagesPromo }, { bayRates, bayRateNotes }, { monthlyPackages, monthlyPackageNotes }] = await Promise.all([
+  const [{ gridPromotions }, { bayRates, bayRateNotes: _ignoredBayRateNotes }, { monthlyPackages, monthlyPackageNotes: _ignoredPackageNotes }] = await Promise.all([
     getWebsitePromotions(),
     getBayRatesData(catalog),
     getMonthlyPackagesData(catalog),
   ])
+
+  // ── Row-level i18n helpers (English data → translated display) ──
+  const translateTimeSlot = (s: string): string => {
+    const before = s.match(/^Before\s+(.+)$/i)
+    return before ? t('timeSlotBefore', { time: before[1] }) : s
+  }
+  const translateHours = (h: string): string =>
+    h.toLowerCase() === 'unlimited' ? tCommon('unlimited') : h
+  const translateValidity = (v: string): string => {
+    if (v === '1 month') return tCommon('month')
+    const m = v.match(/^(\d+)\s+months?$/i)
+    return m ? tCommon('months', { n: Number(m[1]) }) : v
+  }
+  const translatePerks = (p: string): string => {
+    const m = p.match(/^(\d+)%\s*Off\s*F&D$/i)
+    return m ? tCommon('perksFbDiscount', { pct: Number(m[1]) }) : p
+  }
+
+  const translatedBayRates = bayRates.map((r) => ({ ...r, timeSlot: translateTimeSlot(r.timeSlot) }))
+  const translatedMonthlyPackages = monthlyPackages.map((p) => ({
+    ...p,
+    hours: translateHours(p.hours),
+    validity: translateValidity(p.validity),
+    perks: translatePerks(p.perks),
+  }))
+  const bayRateNotes = [t('bayRateNote1'), t('bayRateNote2'), t('bayRateNote3'), t('bayRateNote4')]
+  const monthlyPackageNotes = [t('earlyBirdNote')]
+
+  // Featured-row predicates — driven by the `featured` field on the row
+  // (set in data/pricing.ts), not by string-matching on `name` or `timeSlot`.
+  // This way marketing can rename a package or retranslate a time-slot
+  // without silently breaking the badge wiring.
+  const packageBadge = (row: MonthlyPackageRow) => {
+    if (row.featured === 'bestValue') return { label: tCommon('badgeBestValue'), tone: 'gold' as const }
+    if (row.featured === 'trending') return { label: tCommon('badgeTrending'), tone: 'green' as const }
+    return null
+  }
+  const bayRateBadge = (row: BayRateRow) =>
+    row.featured === 'promo' ? { label: tCommon('badgePromo'), tone: 'amber' as const } : null
 
   const pricingJsonLd = getGolfPricingJsonLd(bayRates, monthlyPackages)
   const faqJsonLd = getFaqPageJsonLd(faqItems)
@@ -170,41 +210,19 @@ export default async function GolfPage({ params }: { params: Promise<{ locale: s
               <span style={{ color: '#007429' }}>{t('ourRatesTitle')}</span>{' '}
               <span className="text-foreground">{t('ourRatesTitleSuffix')}</span>
             </h2>
-            <div className="mx-auto max-w-lg">
-              <ClickableImage
-                src={`${storageUrl('golf/bay-rates.jpg')}?v=20260331`}
-                alt="LENGOLF bay rates: weekday 550–750 THB/hr, weekend 750–950 THB/hr, up to 5 players per bay, golf club rental included"
-                width={512} height={512}
-                className="w-full rounded-lg shadow-sm"
-                sizes="(max-width: 512px) 100vw, 512px"
+            <div className="mx-auto max-w-3xl">
+              <PricingTable<BayRateRow>
+                caption={t('srBayRatesCaption')}
+                rowKey={(row) => row.timeSlot}
+                columns={[
+                  { key: 'timeSlot', label: t('srTimeSlot'), primary: true, tdClassName: 'whitespace-nowrap' },
+                  { key: 'weekday', label: t('srWeekday'), align: 'right', emphasis: true },
+                  { key: 'weekend', label: t('srWeekend'), align: 'right', emphasis: true },
+                ]}
+                rows={translatedBayRates}
+                notes={bayRateNotes}
+                badgeFor={bayRateBadge}
               />
-            </div>
-            {/* Screen-reader / crawler-visible pricing table */}
-            <div className="sr-only">
-              <table>
-                <caption>{t('srBayRatesCaption')}</caption>
-                <thead>
-                  <tr>
-                    <th>{t('srTimeSlot')}</th>
-                    <th>{t('srWeekday')}</th>
-                    <th>{t('srWeekend')}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {bayRates.map((row) => (
-                    <tr key={row.timeSlot}>
-                      <td>{row.timeSlot}</td>
-                      <td>{row.weekday}</td>
-                      <td>{row.weekend}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              <ul>
-                {bayRateNotes.map((note) => (
-                  <li key={note}>{note}</li>
-                ))}
-              </ul>
             </div>
           </div>
 
@@ -214,44 +232,21 @@ export default async function GolfPage({ params }: { params: Promise<{ locale: s
               <span style={{ color: '#007429' }}>{t('monthlyPackagesTitle')}</span>{' '}
               <span className="text-foreground">{t('monthlyPackagesTitleSuffix')}</span>
             </h2>
-            <div className="mx-auto max-w-lg">
-              <ClickableImage
-                src={monthlyPackagesPromo?.image_url || storageUrl('golf/monthly-packages.jpg')}
-                alt={monthlyPackagesPromo?.title_en || 'LENGOLF monthly packages'}
-                width={512} height={512}
-                className="w-full rounded-lg shadow-sm"
-                sizes="(max-width: 512px) 100vw, 512px"
+            <div className="mx-auto max-w-4xl">
+              <PricingTable<MonthlyPackageRow>
+                caption={t('srPackagesCaption')}
+                rowKey={(row) => row.name}
+                columns={[
+                  { key: 'name', label: t('srPackage'), primary: true },
+                  { key: 'hours', label: t('srHours') },
+                  { key: 'validity', label: t('srValidity') },
+                  { key: 'perks', label: t('srPerks') },
+                  { key: 'price', label: t('srPrice'), align: 'right', emphasis: true },
+                ]}
+                rows={translatedMonthlyPackages}
+                notes={monthlyPackageNotes}
+                badgeFor={packageBadge}
               />
-            </div>
-            <div className="sr-only">
-              <table>
-                <caption>{t('srPackagesCaption')}</caption>
-                <thead>
-                  <tr>
-                    <th>{t('srPackage')}</th>
-                    <th>{t('srHours')}</th>
-                    <th>{t('srValidity')}</th>
-                    <th>{t('srPerks')}</th>
-                    <th>{t('srPrice')}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {monthlyPackages.map((pkg) => (
-                    <tr key={pkg.name}>
-                      <td>{pkg.name}</td>
-                      <td>{pkg.hours}</td>
-                      <td>{pkg.validity}</td>
-                      <td>{pkg.perks}</td>
-                      <td>{pkg.price}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              <ul>
-                {monthlyPackageNotes.map((note) => (
-                  <li key={note}>{note}</li>
-                ))}
-              </ul>
             </div>
           </div>
         </div>

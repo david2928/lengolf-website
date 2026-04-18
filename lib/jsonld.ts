@@ -77,7 +77,7 @@ export function getGolfPricingJsonLd(dynamicBayRates?: BayRateRow[], dynamicPack
           {
             '@type': 'Offer' as const,
             name: `Simulator Bay – Weekend ${row.timeSlot}`,
-            description: 'Fri–Sun & public holidays, up to 5 players per bay, golf club rental included',
+            description: 'Fri–Sun, up to 5 players per bay, golf club rental included',
             price: parseThbToString(row.weekend),
             priceCurrency: 'THB',
             unitCode: 'HUR',
@@ -107,7 +107,7 @@ export function getGolfPricingJsonLd(dynamicBayRates?: BayRateRow[], dynamicPack
         {
           '@type': 'Offer' as const,
           name: 'Simulator Bay – Weekend Before 14:00',
-          description: 'Fri–Sun & public holidays, up to 5 players per bay, golf club rental included',
+          description: 'Fri–Sun, up to 5 players per bay, golf club rental included',
           price: '750',
           priceCurrency: 'THB',
           unitCode: 'HUR',
@@ -116,7 +116,7 @@ export function getGolfPricingJsonLd(dynamicBayRates?: BayRateRow[], dynamicPack
         {
           '@type': 'Offer' as const,
           name: 'Simulator Bay – Weekend 14:00–23:00',
-          description: 'Fri–Sun & public holidays, up to 5 players per bay, golf club rental included',
+          description: 'Fri–Sun, up to 5 players per bay, golf club rental included',
           price: '950',
           priceCurrency: 'THB',
           unitCode: 'HUR',
