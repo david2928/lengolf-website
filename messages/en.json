@@ -413,7 +413,66 @@
     "simToFairwayRemark": "On-course fee for both student and coach must be covered by the customer",
     "lessonNote1": "*Starter Package: 5 Hrs Coaching + 5 Hrs Practice",
     "lessonNote2": "*Sim to Fairway: 5 Hrs Coaching + 1 On-course Lesson",
-    "lessonNote3": "*Golf simulator usage included in all lesson packages"
+    "lessonNote3": "*Golf simulator usage included in all lesson packages",
+    "hourPackage": "{n} Hour",
+    "starterPackageName": "Starter Package*",
+    "simToFairwayName": "Sim to Fairway*",
+    "coaches": {
+      "boss": {
+        "expertise": [
+          "Drive Training",
+          "Course Management",
+          "Advanced shot shaping",
+          "Junior Golf Development"
+        ],
+        "achievements": [
+          "Lone Star Men's Championship 2022, USA: Finished T44",
+          "DBU Men's Classic 2022, USA: Finished T22",
+          "Singha-SAT TDT Nakhon Nayok 2022: Finished T59"
+        ],
+        "education": [
+          "New Mexico Military Institute, Roswell, NW",
+          "Texas A&M International University, Laredo, TX",
+          "Became a Golf Instructor licensed by Thailand PGA in Sep 2022 / GI 1416"
+        ]
+      },
+      "ratchavin": {
+        "expertise": [
+          "Beginner Golf Programs",
+          "Short Game",
+          "Junior Golf Development"
+        ],
+        "achievements": [
+          "Turn pro as Thailand PGA Tournament player, 2020",
+          "All Thailand Golf Tour Thailand PGA, 2021",
+          "Golf Instructor - 9Vision Golf Performance, 2022"
+        ],
+        "education": [
+          "TrackMan Certified Professional Level 2",
+          "Scott Cowx Certified 8.0 Level 2",
+          "Smart2Move BioSwing Dynamics Level 1",
+          "Swing Catalyst Certified Instructor",
+          "U.S. Kids Golf Certified Coach 1"
+        ]
+      },
+      "min": {
+        "expertise": [
+          "Beginner Golf Programs",
+          "Course Management",
+          "Advanced shot shaping",
+          "Putting Program"
+        ],
+        "achievements": [
+          "Champion of VPG Vietnam Heron Lake Match Play 2019 (T-1)",
+          "VPG Tour Trang An Championship 2019 (T-2)",
+          "VGA Tour Nam A Bank Vietnam Masters 2023 (T-6)"
+        ],
+        "education": [
+          "Bachelor of Sport Science",
+          "Became Professional Golfer Licensed by PGA Thailand since 2019 (TP0944)"
+        ]
+      }
+    }
   },
   "LessonsFaq": {
     "q1": "Do you offer a free trial golf lesson?",

@@ -11,12 +11,25 @@ import { getPricingCatalog, formatThb, findPrice, type PricingCatalog } from '@/
  */
 export type LessonRemarkKind = 'dash' | 'validity' | 'starter' | 'simToFairway'
 
+/**
+ * Structured kind for a lesson-package `name` column. Drives translation in
+ * the page layer so the hour-count and branded package names localize.
+ * - `hour`         → "{n} Hour" (uses `nameHours`)
+ * - `starter`      → "Starter Package*"
+ * - `simToFairway` → "Sim to Fairway*"
+ */
+export type LessonNameKind = 'hour' | 'starter' | 'simToFairway'
+
 /** Identifier for a featured row's badge — independent of the row's `name`
  *  so marketing can rename packages without breaking badge wiring. */
 export type FeaturedKind = 'bestValue' | 'trending' | 'promo'
 
 export interface LessonPackage {
+  /** Raw English name — retained for JSON-LD / pricing-match logic. */
   name: string
+  nameKind?: LessonNameKind
+  /** Hour count for `nameKind === 'hour'`. */
+  nameHours?: number
   oneGolfer: string
   twoGolfers: string
   threeToFiveGolfers: string
@@ -29,14 +42,14 @@ export interface LessonPackage {
 }
 
 export const lessonPricing: LessonPackage[] = [
-  { name: '1 Hour',           oneGolfer: '1,800 THB',  twoGolfers: '2,400 THB',  threeToFiveGolfers: '2,900 THB',  remark: '-',                                                                  remarkKind: 'dash' },
-  { name: '5 Hour',           oneGolfer: '8,500 THB',  twoGolfers: '11,000 THB', threeToFiveGolfers: '13,650 THB', remark: 'Valid for 6 months',                                                  remarkKind: 'validity',     remarkMonths: 6 },
-  { name: '10 Hour',          oneGolfer: '16,000 THB', twoGolfers: '20,500 THB', threeToFiveGolfers: '25,500 THB', remark: 'Valid for 12 months',                                                 remarkKind: 'validity',     remarkMonths: 12, featured: 'bestValue' },
-  { name: '20 Hour',          oneGolfer: '31,000 THB', twoGolfers: '39,000 THB', threeToFiveGolfers: '49,000 THB', remark: 'Valid for 24 months',                                                 remarkKind: 'validity',     remarkMonths: 24 },
-  { name: '30 Hour',          oneGolfer: '45,000 THB', twoGolfers: '57,000 THB', threeToFiveGolfers: '72,000 THB', remark: 'Valid for 24 months',                                                 remarkKind: 'validity',     remarkMonths: 24 },
-  { name: '50 Hour',          oneGolfer: '72,000 THB', twoGolfers: '92,500 THB', threeToFiveGolfers: '117,500 THB', remark: 'Valid for 24 months',                                                remarkKind: 'validity',     remarkMonths: 24 },
-  { name: 'Starter Package*', oneGolfer: '11,000 THB', twoGolfers: '13,500 THB', threeToFiveGolfers: '-',           remark: 'Valid for 6 months & Free 1 golf glove/golfer',                      remarkKind: 'starter' },
-  { name: 'Sim to Fairway*',  oneGolfer: '13,499 THB', twoGolfers: '-',          threeToFiveGolfers: '-',           remark: 'On courses fee for both student and coach must be covered by the customer', remarkKind: 'simToFairway' },
+  { name: '1 Hour',           nameKind: 'hour', nameHours: 1,  oneGolfer: '1,800 THB',  twoGolfers: '2,400 THB',  threeToFiveGolfers: '2,900 THB',  remark: '-',                                                                  remarkKind: 'dash' },
+  { name: '5 Hour',           nameKind: 'hour', nameHours: 5,  oneGolfer: '8,500 THB',  twoGolfers: '11,000 THB', threeToFiveGolfers: '13,650 THB', remark: 'Valid for 6 months',                                                  remarkKind: 'validity',     remarkMonths: 6 },
+  { name: '10 Hour',          nameKind: 'hour', nameHours: 10, oneGolfer: '16,000 THB', twoGolfers: '20,500 THB', threeToFiveGolfers: '25,500 THB', remark: 'Valid for 12 months',                                                 remarkKind: 'validity',     remarkMonths: 12, featured: 'bestValue' },
+  { name: '20 Hour',          nameKind: 'hour', nameHours: 20, oneGolfer: '31,000 THB', twoGolfers: '39,000 THB', threeToFiveGolfers: '49,000 THB', remark: 'Valid for 24 months',                                                 remarkKind: 'validity',     remarkMonths: 24 },
+  { name: '30 Hour',          nameKind: 'hour', nameHours: 30, oneGolfer: '45,000 THB', twoGolfers: '57,000 THB', threeToFiveGolfers: '72,000 THB', remark: 'Valid for 24 months',                                                 remarkKind: 'validity',     remarkMonths: 24 },
+  { name: '50 Hour',          nameKind: 'hour', nameHours: 50, oneGolfer: '72,000 THB', twoGolfers: '92,500 THB', threeToFiveGolfers: '117,500 THB', remark: 'Valid for 24 months',                                                remarkKind: 'validity',     remarkMonths: 24 },
+  { name: 'Starter Package*', nameKind: 'starter',             oneGolfer: '11,000 THB', twoGolfers: '13,500 THB', threeToFiveGolfers: '-',           remark: 'Valid for 6 months & Free 1 golf glove/golfer',                      remarkKind: 'starter' },
+  { name: 'Sim to Fairway*',  nameKind: 'simToFairway',        oneGolfer: '13,499 THB', twoGolfers: '-',          threeToFiveGolfers: '-',           remark: 'On courses fee for both student and coach must be covered by the customer', remarkKind: 'simToFairway' },
 ]
 
 export const lessonNotes = [

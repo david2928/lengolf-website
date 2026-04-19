@@ -541,7 +541,66 @@
     "simToFairwayRemark": "学员和教练的球场费用均由客户承担",
     "lessonNote1": "*Starter Package：5小时教学 + 5小时练习",
     "lessonNote2": "*Sim to Fairway：5小时教学 + 1次实地教学",
-    "lessonNote3": "*所有教学套餐均含高尔夫模拟器使用"
+    "lessonNote3": "*所有教学套餐均含高尔夫模拟器使用",
+    "hourPackage": "{n}小时",
+    "starterPackageName": "Starter Package*",
+    "simToFairwayName": "Sim to Fairway*",
+    "coaches": {
+      "boss": {
+        "expertise": [
+          "一号木训练",
+          "球场策略管理",
+          "高级击球塑形",
+          "青少年高尔夫培养"
+        ],
+        "achievements": [
+          "Lone Star Men's Championship 2022, USA：并列第44名",
+          "DBU Men's Classic 2022, USA：并列第22名",
+          "Singha-SAT TDT Nakhon Nayok 2022：并列第59名"
+        ],
+        "education": [
+          "New Mexico Military Institute, Roswell, NW",
+          "Texas A&M International University, Laredo, TX",
+          "2022年9月获Thailand PGA高尔夫教练认证 / GI 1416"
+        ]
+      },
+      "ratchavin": {
+        "expertise": [
+          "新手高尔夫课程",
+          "短杆技术",
+          "青少年高尔夫培养"
+        ],
+        "achievements": [
+          "2020年以Thailand PGA Tournament球员身份转为职业",
+          "All Thailand Golf Tour Thailand PGA, 2021",
+          "9Vision Golf Performance高尔夫教练, 2022"
+        ],
+        "education": [
+          "TrackMan Certified Professional Level 2",
+          "Scott Cowx Certified 8.0 Level 2",
+          "Smart2Move BioSwing Dynamics Level 1",
+          "Swing Catalyst Certified Instructor",
+          "U.S. Kids Golf Certified Coach 1"
+        ]
+      },
+      "min": {
+        "expertise": [
+          "新手高尔夫课程",
+          "球场策略管理",
+          "高级击球塑形",
+          "推杆训练课程"
+        ],
+        "achievements": [
+          "VPG Vietnam Heron Lake Match Play 2019 冠军 (T-1)",
+          "VPG Tour Trang An Championship 2019 (T-2)",
+          "VGA Tour Nam A Bank Vietnam Masters 2023 (T-6)"
+        ],
+        "education": [
+          "体育科学学士",
+          "2019年起获PGA Thailand认证职业高尔夫球员 (TP0944)"
+        ]
+      }
+    }
   },
   "LessonsFaq": {
     "q1": "有免费体验课吗？",

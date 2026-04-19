@@ -630,7 +630,66 @@
     "simToFairwayRemark": "実コースでの生徒・コーチのコースフィーはお客様負担",
     "lessonNote1": "*Starter Package: 5時間レッスン + 5時間練習",
     "lessonNote2": "*Sim to Fairway: 5時間レッスン + 実コースレッスン1回",
-    "lessonNote3": "*全レッスンパッケージにゴルフシミュレーター利用料込み"
+    "lessonNote3": "*全レッスンパッケージにゴルフシミュレーター利用料込み",
+    "hourPackage": "{n}時間",
+    "starterPackageName": "Starter Package*",
+    "simToFairwayName": "Sim to Fairway*",
+    "coaches": {
+      "boss": {
+        "expertise": [
+          "ドライバートレーニング",
+          "コースマネジメント",
+          "上級ショットシェイピング",
+          "ジュニアゴルフ育成"
+        ],
+        "achievements": [
+          "Lone Star Men's Championship 2022, USA: T44フィニッシュ",
+          "DBU Men's Classic 2022, USA: T22フィニッシュ",
+          "Singha-SAT TDT Nakhon Nayok 2022: T59フィニッシュ"
+        ],
+        "education": [
+          "New Mexico Military Institute, Roswell, NW",
+          "Texas A&M International University, Laredo, TX",
+          "2022年9月 Thailand PGA公認ゴルフインストラクター資格取得 / GI 1416"
+        ]
+      },
+      "ratchavin": {
+        "expertise": [
+          "初心者向けゴルフプログラム",
+          "ショートゲーム",
+          "ジュニアゴルフ育成"
+        ],
+        "achievements": [
+          "2020年 Thailand PGA Tournamentプレーヤーとしてプロ転向",
+          "All Thailand Golf Tour Thailand PGA, 2021",
+          "9Vision Golf Performance ゴルフインストラクター, 2022"
+        ],
+        "education": [
+          "TrackMan Certified Professional Level 2",
+          "Scott Cowx Certified 8.0 Level 2",
+          "Smart2Move BioSwing Dynamics Level 1",
+          "Swing Catalyst Certified Instructor",
+          "U.S. Kids Golf Certified Coach 1"
+        ]
+      },
+      "min": {
+        "expertise": [
+          "初心者向けゴルフプログラム",
+          "コースマネジメント",
+          "上級ショットシェイピング",
+          "パッティングプログラム"
+        ],
+        "achievements": [
+          "VPG Vietnam Heron Lake Match Play 2019 優勝 (T-1)",
+          "VPG Tour Trang An Championship 2019 (T-2)",
+          "VGA Tour Nam A Bank Vietnam Masters 2023 (T-6)"
+        ],
+        "education": [
+          "スポーツサイエンス学士",
+          "2019年より PGA Thailand公認プロゴルファー (TP0944)"
+        ]
+      }
+    }
   },
   "LessonsFaq": {
     "q1": "無料の体験レッスンはありますか？",
