@@ -18,8 +18,12 @@
   /* Locale-aware CJK font stack. Without this, the global Tailwind font-sans
      stack in tailwind.config.ts puts Noto Sans KR before JP/SC, so Kanji on
      /ja/ and Hanzi on /zh/ render with Korean glyph variants (traditional
-     radicals that look like "old letters" to native readers). Overriding by
-     [lang] attribute wins on specificity against body.font-sans. */
+     radicals that look like "old letters" to native readers). These rules
+     outrank body.font-sans on specificity (0,1,2 vs 0,1,1), so applying a
+     font-sans utility to <body> still can't override them.
+     Inline `style={{ fontFamily: ... }}` in components does bypass this — if
+     a JA/ZH page ever renders CJK text inside such a component, that element
+     will fall through to the browser default. None do today. */
   html[lang="ja"] body {
     font-family: var(--font-poppins), var(--font-noto-jp), var(--font-noto-kr), var(--font-noto-sc), var(--font-noto-thai), system-ui, sans-serif;
   }
