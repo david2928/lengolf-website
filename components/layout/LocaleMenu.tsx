@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
 import { useLocale } from 'next-intl'
 import { Globe, ChevronDown, Check } from 'lucide-react'
 import { usePathname, useRouter } from '@/i18n/navigation'
@@ -39,15 +39,20 @@ export default function LocaleMenu({ variant = 'header' }: Props) {
   const router = useRouter()
   const [open, setOpen] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLButtonElement>(null)
+  const itemRefs = useRef<Array<HTMLButtonElement | null>>([])
 
-  // Close on outside click + Escape
+  // Close on outside click + Escape (Esc also returns focus to trigger for a11y)
   useEffect(() => {
     if (!open) return
     function onPointerDown(e: PointerEvent) {
       if (!containerRef.current?.contains(e.target as Node)) setOpen(false)
     }
     function onKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape') setOpen(false)
+      if (e.key === 'Escape') {
+        setOpen(false)
+        triggerRef.current?.focus()
+      }
     }
     document.addEventListener('pointerdown', onPointerDown)
     document.addEventListener('keydown', onKeyDown)
@@ -59,12 +64,35 @@ export default function LocaleMenu({ variant = 'header' }: Props) {
 
   // Only render locales that actually have a translation for the current path.
   const locales = getLocalesForPath(pathname)
+
+  // Focus the active item when the menu opens, so screen-reader + keyboard
+  // users land inside the menu without a stray Tab.
+  useEffect(() => {
+    if (!open) return
+    const activeIdx = Math.max(0, locales.indexOf(locale))
+    requestAnimationFrame(() => itemRefs.current[activeIdx]?.focus())
+  }, [open, locale, locales])
+
   if (locales.length <= 1) return null
 
   function switchLocale(next: Locale) {
     setOpen(false)
     if (next === locale) return
     router.replace(pathname, { locale: next })
+  }
+
+  function onMenuKeyDown(e: ReactKeyboardEvent<HTMLDivElement>) {
+    const items = itemRefs.current.filter(Boolean) as HTMLButtonElement[]
+    if (!items.length) return
+    const current = items.indexOf(document.activeElement as HTMLButtonElement)
+    let next = current
+    if (e.key === 'ArrowDown') next = (current + 1) % items.length
+    else if (e.key === 'ArrowUp') next = (current - 1 + items.length) % items.length
+    else if (e.key === 'Home') next = 0
+    else if (e.key === 'End') next = items.length - 1
+    else return
+    e.preventDefault()
+    items[next]?.focus()
   }
 
   const isHero = variant === 'hero'
@@ -75,6 +103,7 @@ export default function LocaleMenu({ variant = 'header' }: Props) {
   return (
     <div ref={containerRef} className="relative">
       <button
+        ref={triggerRef}
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="menu"
@@ -91,13 +120,15 @@ export default function LocaleMenu({ variant = 'header' }: Props) {
         <div
           role="menu"
           aria-label="Select language"
-          className="absolute right-0 top-full z-50 mt-2 w-40 overflow-hidden rounded-lg border border-border/60 bg-white text-foreground shadow-lg"
+          onKeyDown={onMenuKeyDown}
+          className="absolute right-0 top-full z-[60] mt-2 w-40 overflow-hidden rounded-lg border border-border/60 bg-white text-foreground shadow-lg"
         >
-          {locales.map((l) => {
+          {locales.map((l, i) => {
             const active = l === locale
             return (
               <button
                 key={l}
+                ref={(el) => { itemRefs.current[i] = el }}
                 role="menuitemradio"
                 aria-checked={active}
                 onClick={() => switchLocale(l)}
