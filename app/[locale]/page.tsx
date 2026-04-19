@@ -14,11 +14,20 @@ import { getGoogleReviews } from '@/lib/google-reviews'
 import FaqSection from '@/components/shared/FaqSection'
 import { StarIcon } from '@/components/shared/StarRating'
 import JapanLandingPage from '@/components/home/JapanLandingPage'
+import KoreaLandingPage from '@/components/home/KoreaLandingPage'
+import ChinaLandingPage from '@/components/home/ChinaLandingPage'
+
+const BESPOKE_HOME_NAMESPACE: Record<string, string> = {
+  ja: 'HomeJa',
+  ko: 'HomeKo',
+  zh: 'HomeZh',
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  // JA home is a bespoke tourist-landing page — use its own meta targeting JP search intent
-  const namespace = locale === 'ja' ? 'HomeJa' : 'Home'
+  // JA / KO / ZH each ship a bespoke tourist-landing page with its own meta
+  // targeting that market's search intent. See BESPOKE_HOME_NAMESPACE.
+  const namespace = BESPOKE_HOME_NAMESPACE[locale] ?? 'Home'
   const t = await getTranslations({ locale, namespace })
 
   return {
@@ -62,11 +71,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   setRequestLocale(locale)
 
-  // JA gets a bespoke tourist-landing-page layout (different sections, JP-market framing,
-  // JPY approximate pricing, JP testimonial, tourist-specific FAQ). See components/home/JapanLandingPage.tsx.
-  if (locale === 'ja') {
-    return <JapanLandingPage />
-  }
+  // JA / KO / ZH each get a bespoke tourist-landing layout tailored to that market
+  // (market-specific hero/framing, approximate local-currency pricing, native
+  // testimonial, tourist-specific FAQ). See components/home/*LandingPage.tsx.
+  if (locale === 'ja') return <JapanLandingPage />
+  if (locale === 'ko') return <KoreaLandingPage />
+  if (locale === 'zh') return <ChinaLandingPage />
 
   const t = await getTranslations('Home')
   const tCommon = await getTranslations('Common')
