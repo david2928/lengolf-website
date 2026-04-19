@@ -91,18 +91,30 @@ const routeTests: RouteTest[] = [
   { path: '/ko/rent-golf-clubs-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/rent-golf-clubs-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/zh/rent-golf-clubs-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  // JA pages (Home/Golf/Lessons translated in ja.json)
+  // JA pages (Home/Golf/Lessons/Events/AboutUs/ClubRental/CourseClubRental translated in ja.json)
   { path: '/ja/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/golf/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/lessons/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  // KO pages (bespoke landing at '/', plus translated Golf + Lessons)
+  { path: '/ja/events/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/about-us/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/golf-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/golf-course-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // KO pages (bespoke landing at '/', plus translated Golf/Lessons/Events/AboutUs/ClubRental/CourseClubRental)
   { path: '/ko/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ko/golf/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ko/lessons/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  // ZH pages (bespoke landing at '/', plus translated Golf + Lessons)
+  { path: '/ko/events/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/about-us/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/golf-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/golf-course-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // ZH pages (bespoke landing at '/', plus translated Golf/Lessons/Events/AboutUs/ClubRental/CourseClubRental)
   { path: '/zh/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/zh/golf/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/zh/lessons/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/events/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/about-us/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/golf-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/golf-course-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Guide (explainer) pages — spot-check original + new golf-travel slugs
   { path: '/guide/what-is-a-golf-simulator/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/guide/best-time-play-golf-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
@@ -199,12 +211,11 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
   // middleware allowlist (lib/translated-routes.ts) continues to work. Particularly
   // important for ko/zh where the message files have populated (but English-stub)
   // namespaces that would render as mislabelled content without the allowlist.
-  { path: '/ja/events/', expectedLocation: '/events/', label: 'Untranslated JA events page' },
   { path: '/ja/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated JA privacy policy' },
   { path: '/ko/hotels/', expectedLocation: '/hotels/', label: 'Untranslated KO hotels hub' },
-  { path: '/ko/events/', expectedLocation: '/events/', label: 'Untranslated KO events page' },
-  { path: '/zh/about-us/', expectedLocation: '/about-us/', label: 'Untranslated ZH about-us page' },
+  { path: '/ko/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated KO privacy policy' },
   { path: '/zh/blog/', expectedLocation: '/blog/', label: 'Untranslated ZH blog page' },
+  { path: '/zh/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated ZH privacy policy' },
 ]
 
 // F) Thai cookie tests — English pages must work even with NEXT_LOCALE=th cookie
