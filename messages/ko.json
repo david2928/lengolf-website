@@ -541,7 +541,66 @@
     "simToFairwayRemark": "코스 이용료는 수강생과 코치 모두 고객 부담입니다",
     "lessonNote1": "*스타터 패키지: 5시간 코칭 + 5시간 연습",
     "lessonNote2": "*Sim to Fairway: 5시간 코칭 + 1회 온코스 레슨",
-    "lessonNote3": "*모든 레슨 패키지에 골프 시뮬레이터 사용이 포함됩니다"
+    "lessonNote3": "*모든 레슨 패키지에 골프 시뮬레이터 사용이 포함됩니다",
+    "hourPackage": "{n}시간",
+    "starterPackageName": "Starter Package*",
+    "simToFairwayName": "Sim to Fairway*",
+    "coaches": {
+      "boss": {
+        "expertise": [
+          "드라이버 훈련",
+          "코스 매니지먼트",
+          "고급 샷 쉐이핑",
+          "주니어 골프 육성"
+        ],
+        "achievements": [
+          "Lone Star Men's Championship 2022, USA: T44 피니시",
+          "DBU Men's Classic 2022, USA: T22 피니시",
+          "Singha-SAT TDT Nakhon Nayok 2022: T59 피니시"
+        ],
+        "education": [
+          "New Mexico Military Institute, Roswell, NW",
+          "Texas A&M International University, Laredo, TX",
+          "2022년 9월 Thailand PGA 공인 골프 인스트럭터 자격 취득 / GI 1416"
+        ]
+      },
+      "ratchavin": {
+        "expertise": [
+          "초보자 골프 프로그램",
+          "숏 게임",
+          "주니어 골프 육성"
+        ],
+        "achievements": [
+          "2020년 Thailand PGA Tournament 선수로 프로 전향",
+          "All Thailand Golf Tour Thailand PGA, 2021",
+          "9Vision Golf Performance 골프 인스트럭터, 2022"
+        ],
+        "education": [
+          "TrackMan Certified Professional Level 2",
+          "Scott Cowx Certified 8.0 Level 2",
+          "Smart2Move BioSwing Dynamics Level 1",
+          "Swing Catalyst Certified Instructor",
+          "U.S. Kids Golf Certified Coach 1"
+        ]
+      },
+      "min": {
+        "expertise": [
+          "초보자 골프 프로그램",
+          "코스 매니지먼트",
+          "고급 샷 쉐이핑",
+          "퍼팅 프로그램"
+        ],
+        "achievements": [
+          "VPG Vietnam Heron Lake Match Play 2019 우승 (T-1)",
+          "VPG Tour Trang An Championship 2019 (T-2)",
+          "VGA Tour Nam A Bank Vietnam Masters 2023 (T-6)"
+        ],
+        "education": [
+          "스포츠 과학 학사",
+          "2019년부터 PGA Thailand 공인 프로 골퍼 (TP0944)"
+        ]
+      }
+    }
   },
   "LessonsFaq": {
     "q1": "무료 체험 레슨이 있나요?",

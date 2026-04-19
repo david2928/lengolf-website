@@ -413,7 +413,66 @@
     "simToFairwayRemark": "ค่ากรีนฟีของผู้เรียนและโปรลูกค้าเป็นผู้รับผิดชอบ",
     "lessonNote1": "*Starter Package: สอน 5 ชม. + ซ้อม 5 ชม.",
     "lessonNote2": "*Sim to Fairway: สอน 5 ชม. + ออกรอบสนามจริง 1 ครั้ง",
-    "lessonNote3": "*ทุกแพ็กเกจเรียนรวมค่าใช้ห้องซิมกอล์ฟ"
+    "lessonNote3": "*ทุกแพ็กเกจเรียนรวมค่าใช้ห้องซิมกอล์ฟ",
+    "hourPackage": "{n} ชั่วโมง",
+    "starterPackageName": "Starter Package*",
+    "simToFairwayName": "Sim to Fairway*",
+    "coaches": {
+      "boss": {
+        "expertise": [
+          "การฝึกตีไดรเวอร์",
+          "การวางแผนการเล่นในสนาม",
+          "เทคนิคการตีขั้นสูง",
+          "พัฒนาจูเนียร์กอล์ฟ"
+        ],
+        "achievements": [
+          "Lone Star Men's Championship 2022, USA: จบอันดับ T44",
+          "DBU Men's Classic 2022, USA: จบอันดับ T22",
+          "Singha-SAT TDT Nakhon Nayok 2022: จบอันดับ T59"
+        ],
+        "education": [
+          "New Mexico Military Institute, Roswell, NW",
+          "Texas A&M International University, Laredo, TX",
+          "ได้รับใบอนุญาตโปรกอล์ฟจาก Thailand PGA ก.ย. 2022 / GI 1416"
+        ]
+      },
+      "ratchavin": {
+        "expertise": [
+          "โปรแกรมสำหรับผู้เริ่มต้น",
+          "ลูกสั้น (Short Game)",
+          "พัฒนาจูเนียร์กอล์ฟ"
+        ],
+        "achievements": [
+          "เทิร์นโปรเป็นนักกอล์ฟ Thailand PGA Tournament ปี 2020",
+          "All Thailand Golf Tour Thailand PGA, 2021",
+          "โปรสอนกอล์ฟ - 9Vision Golf Performance, 2022"
+        ],
+        "education": [
+          "TrackMan Certified Professional Level 2",
+          "Scott Cowx Certified 8.0 Level 2",
+          "Smart2Move BioSwing Dynamics Level 1",
+          "Swing Catalyst Certified Instructor",
+          "U.S. Kids Golf Certified Coach 1"
+        ]
+      },
+      "min": {
+        "expertise": [
+          "โปรแกรมสำหรับผู้เริ่มต้น",
+          "การวางแผนการเล่นในสนาม",
+          "เทคนิคการตีขั้นสูง",
+          "โปรแกรมการพัตต์"
+        ],
+        "achievements": [
+          "แชมป์ VPG Vietnam Heron Lake Match Play 2019 (T-1)",
+          "VPG Tour Trang An Championship 2019 (T-2)",
+          "VGA Tour Nam A Bank Vietnam Masters 2023 (T-6)"
+        ],
+        "education": [
+          "ปริญญาตรีวิทยาศาสตร์การกีฬา",
+          "นักกอล์ฟอาชีพใบอนุญาต PGA Thailand ตั้งแต่ปี 2019 (TP0944)"
+        ]
+      }
+    }
   },
   "LessonsFaq": {
     "q1": "มีเรียนทดลองฟรีไหม?",

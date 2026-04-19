@@ -74,9 +74,17 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
   const { lessonPricing, lessonNotes: _ignoredLessonNotes } = await getLessonPricingData()
 
   // ── Row-level i18n helpers (structured → translated display) ──
-  // Remarks are translated via their `remarkKind` + `remarkMonths` fields
-  // (set in data/pricing.ts). Keeps the lesson page decoupled from the
+  // Names and remarks are translated via their `nameKind` / `remarkKind`
+  // fields (set in data/pricing.ts). Keeps the lesson page decoupled from the
   // exact English text.
+  const translateName = (row: LessonPackage): string => {
+    switch (row.nameKind) {
+      case 'hour':         return t('hourPackage', { n: row.nameHours ?? 0 })
+      case 'starter':      return t('starterPackageName')
+      case 'simToFairway': return t('simToFairwayName')
+      default:             return row.name
+    }
+  }
   const translateRemark = (row: LessonPackage): string => {
     switch (row.remarkKind) {
       case 'dash':         return t('remarkDash')
@@ -88,6 +96,7 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
   }
   const translatedLessonPricing = lessonPricing.map((p) => ({
     ...p,
+    name: translateName(p),
     remark: translateRemark(p),
   }))
   const lessonNotes = [t('lessonNote1'), t('lessonNote2'), t('lessonNote3')]
@@ -202,7 +211,11 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
             <span className="text-foreground">{t('ourCoachTitleSuffix')}</span>
           </h2>
           <div className="space-y-20">
-            {coaches.map((coach, i) => (
+            {coaches.map((coach, i) => {
+              const expertise = t.raw(`coaches.${coach.i18nKey}.expertise`) as string[]
+              const achievements = t.raw(`coaches.${coach.i18nKey}.achievements`) as string[]
+              const education = t.raw(`coaches.${coach.i18nKey}.education`) as string[]
+              return (
               <div key={coach.nickname} className={`flex flex-col items-start gap-8 lg:flex-row ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                 <div className="w-full lg:w-1/3">
                   <Image
@@ -227,7 +240,7 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
                     <div>
                       <h4 className="mb-2 font-semibold" style={{ color: '#007429' }}>{t('coachingExpertise')}</h4>
                       <ul className="space-y-1 text-sm text-muted-foreground">
-                        {coach.expertise.map((item) => (
+                        {expertise.map((item) => (
                           <li key={item}>• {item}</li>
                         ))}
                       </ul>
@@ -235,7 +248,7 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
                     <div>
                       <h4 className="mb-2 font-semibold" style={{ color: '#007429' }}>{t('careerAchievements')}</h4>
                       <ul className="space-y-1 text-sm text-muted-foreground">
-                        {coach.achievements.map((item) => (
+                        {achievements.map((item) => (
                           <li key={item}>• {item}</li>
                         ))}
                       </ul>
@@ -243,7 +256,7 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
                     <div>
                       <h4 className="mb-2 font-semibold" style={{ color: '#007429' }}>{t('education')}</h4>
                       <ul className="space-y-1 text-sm text-muted-foreground">
-                        {coach.education.map((item) => (
+                        {education.map((item) => (
                           <li key={item}>• {item}</li>
                         ))}
                       </ul>
@@ -265,7 +278,8 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
                   </div>
                 </div>
               </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
