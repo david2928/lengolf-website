@@ -19,30 +19,48 @@ const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynam
     ],
     dynamicRoutePatterns: [],
   },
-  // KO / ZH: bespoke KoreaLandingPage / ChinaLandingPage at '/' (HomeKo / HomeZh
-  // namespaces), plus /golf, /lessons, and /rent-golf-clubs-bangkok. The Golf,
-  // GolfFaq, Lessons, LessonsFaq namespaces in ko.json / zh.json are now fully
-  // translated. Other namespaces (Events, AboutUs, Blog, etc.) remain English
-  // stubs — do not whitelist more routes until translated, or English text will
-  // be served under a /ko/ or /zh/ URL and Google will flag the hreflang as
-  // mismatched.
+  // KO / JA / ZH: bespoke landing pages at '/' (HomeKo/HomeJa/HomeZh namespaces),
+  // plus /golf, /lessons, /rent-golf-clubs-bangkok, and — as of the events/
+  // about-us/club-rental/course-club-rental translation pass — /events,
+  // /about-us, /golf-club-rental, /golf-course-club-rental. Expand this list
+  // only after translating the target page's namespace — otherwise mixed-
+  // language content ships to Google and hreflang gets flagged as mismatched.
   ko: {
-    staticRoutes: ['/', '/golf', '/lessons', '/rent-golf-clubs-bangkok'],
+    staticRoutes: [
+      '/',
+      '/golf',
+      '/lessons',
+      '/rent-golf-clubs-bangkok',
+      '/events',
+      '/about-us',
+      '/golf-club-rental',
+      '/golf-course-club-rental',
+    ],
     dynamicRoutePatterns: [],
   },
   zh: {
-    staticRoutes: ['/', '/golf', '/lessons', '/rent-golf-clubs-bangkok'],
+    staticRoutes: [
+      '/',
+      '/golf',
+      '/lessons',
+      '/rent-golf-clubs-bangkok',
+      '/events',
+      '/about-us',
+      '/golf-club-rental',
+      '/golf-course-club-rental',
+    ],
     dynamicRoutePatterns: [],
   },
-  // JA is broader: Home, Golf, Lessons + their FAQ namespaces translated
-  // (see messages/ja.json). Expand this list only after translating the target
-  // page's namespace — otherwise mixed-language content ships to Google.
   ja: {
     staticRoutes: [
       '/',
       '/golf',
       '/lessons',
       '/rent-golf-clubs-bangkok',
+      '/events',
+      '/about-us',
+      '/golf-club-rental',
+      '/golf-course-club-rental',
     ],
     dynamicRoutePatterns: [],
   },
