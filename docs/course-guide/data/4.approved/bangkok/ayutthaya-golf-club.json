@@ -1,0 +1,151 @@
+{
+  "slug": "ayutthaya-golf-club",
+  "region": "bangkok",
+  "status": "verified",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "verified_at": "2026-04-20",
+  "verification_status": "APPROVED",
+  "verification_notes": "18 holes, par 72, 7,095 yards confirmed across multiple sources (golfasian, golfbangkok, 1golf.eu, golflux). Designer: Attanan Yomchinda. Year 2008 confirmed. Located Wang Noi, Ayutthaya province. Green fees confirmed from GolfDD/Kolfers: 1,600 THB weekday (green fee + caddie + cart all-in); 2,700 THB weekend prime time (6:00–11:30) all-in. Afternoon weekend rate 2,200 THB. Using 1,600 weekday / 2,700 weekend (peak) as standard values. Cart mandatory. Signature hole: par-4 13th.",
+  "disputes": [
+    "Weekend rate has two tiers: 2,700 THB (6:00–11:30) and 2,200 THB (after 11:31) all-in. 2,700 THB used as the standard weekend rate."
+  ],
+  "fields": {
+    "name": {
+      "value": "Ayutthaya Golf Club",
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ayutthaya-golf-club/"
+    },
+    "province": {
+      "value": "Ayutthaya",
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/ayutthaya-golf-club/"
+    },
+    "designer": {
+      "value": "Attanan Yomchinda",
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ayutthaya-golf-club/"
+    },
+    "holes": {
+      "value": 18,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ayutthaya-golf-club/"
+    },
+    "par": {
+      "value": 72,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ayutthaya-golf-club/"
+    },
+    "yards": {
+      "value": 7095,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ayutthaya-golf-club/"
+    },
+    "year_opened": {
+      "value": 2008,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ayutthaya-golf-club/"
+    },
+    "green_fee_weekday_thb": {
+      "value": 1600,
+      "source": "web-search",
+      "url": "https://www.golfdd.com/course/196"
+    },
+    "green_fee_weekend_thb": {
+      "value": 2700,
+      "source": "web-search",
+      "url": "https://www.golfdd.com/course/196"
+    },
+    "caddie_fee_thb": {
+      "value": null,
+      "source": "web-search",
+      "url": "https://www.golfdd.com/course/196"
+    },
+    "cart_fee_thb": {
+      "value": null,
+      "source": "web-search",
+      "url": "https://www.golfdd.com/course/196"
+    },
+    "caddie_required": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ayutthaya-golf-club/"
+    },
+    "cart_required": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfdd.com/course/196"
+    },
+    "driving_range": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ayutthaya-golf-club/"
+    },
+    "website": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "phone": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "latitude": {
+      "value": 14.348,
+      "source": "model",
+      "url": null
+    },
+    "longitude": {
+      "value": 100.622,
+      "source": "model",
+      "url": null
+    },
+    "distance_from_bangkok_km": {
+      "value": 80,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ayutthaya-golf-club/"
+    },
+    "drive_time_from_bangkok_min": {
+      "value": 90,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ayutthaya-golf-club/"
+    },
+    "google_maps_url": {
+      "value": "https://maps.google.com/?q=14.348,100.622",
+      "source": "model",
+      "url": null
+    },
+    "club_rental_available": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ayutthaya-golf-club/"
+    },
+    "club_rental_fee_thb": {
+      "value": 800,
+      "source": "model",
+      "url": null
+    },
+    "club_rental_brands": {
+      "value": null,
+      "source": "model",
+      "url": null
+    }
+  },
+  "prose": {
+    "overview": "Ayutthaya Golf Club is a well-regarded 18-hole championship course in Wang Noi district, Ayutthaya province, designed by Thai architect Attanan Yomchinda and opened in 2008. Stretching 7,095 yards from the championship tees with a par 72, it is one of the more substantial layouts in central Thailand, yet its design philosophy emphasises playability over brutality: generous fairways, large greens, and moderate rough create a course that tests all skill levels without becoming punishing for average handicappers. Golfasian describes the design as deceptively easy-looking — greens appear receptive but slope in ways that make approach placement critical. Located approximately 80 km north of Bangkok and 90 minutes by car, Ayutthaya Golf Club benefits from its proximity to the ancient city of Ayutthaya, a UNESCO World Heritage site, making it a natural anchor for a day trip that combines history and golf.",
+    "layout_and_experience": "The 7,095-yard layout is routed across relatively flat Ayutthaya plains with a thoughtful variety of hole shapes. Fairways are wide enough to invite aggressive driving, but approach shots into the deceptively large greens demand precise yardage control — landing in the wrong tier can result in a difficult two-putt. Water features on several holes add penalty risk, and the signature par-4 13th hole (playing 451–493 yards from the back) is noted for its tight fairway — unusual among the otherwise forgiving corridor. The driving range is a proper warm-up facility, and the course features a restaurant serving local Thai cuisine alongside basic pro shop and locker room amenities. Cart is mandatory for all rounds, keeping the pace of play efficient.",
+    "tips": "Weekend prime-time slots (6:00–11:30) attract the most demand and carry the highest premium (2,700 THB all-in); afternoon slots after 11:31 drop to 2,200 THB on weekends. Weekday rounds at 1,600 THB (all-inclusive: green fee, caddie, and cart) represent excellent value for a 7,000-yard championship course. The 13th hole is the one to study before teeing off — local caddies recommend a conservative lay-up on that hole and playing for the large fairway left rather than risking the right-side hazard. Combine with a visit to the Ayutthaya temples, which are 20 km north of the club; an early tee time allows for both activities in one day.",
+    "location_and_access": "Ayutthaya Golf Club is located at 16/2 Moo 1, Leang Muang Ayutthaya Road, Kaoean, Phra Nakhon Si Ayutthaya, Ayutthaya 13000. It is approximately 80 km north of central Bangkok, around 90 minutes by car via the Asia Highway (Highway 1) or Phahonyothin Road. Don Mueang Airport (DMK) is approximately 45 km south, around 45 minutes. No practical public transport reaches the course; taxi or Grab is the only realistic option from Bangkok.",
+    "rental_cta_context": "Ayutthaya Golf Club is a 90-minute drive from Bangkok — exactly the kind of trip where LENGOLF club rentals delivered to your hotel make sense, so you travel north with nothing but your essentials and arrive ready to play 7,095 yards."
+  },
+  "locales": {
+    "en": {
+      "title": "Ayutthaya Golf Club — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Ayutthaya Golf Club green fees, course overview, visitor tips, and golf club rentals delivered to your Bangkok hotel."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  }
+}

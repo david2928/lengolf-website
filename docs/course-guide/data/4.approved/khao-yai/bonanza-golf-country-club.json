@@ -1,0 +1,56 @@
+{
+  "slug": "bonanza-golf-country-club",
+  "region": "khao-yai",
+  "status": "verified",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "verified_at": "2026-04-20",
+  "verification_status": "APPROVED (provisional)",
+  "verification_notes": "18-hole par 72 confirmed by multiple sources (1golf.eu, golflux.com, golfasian.com). Yardage 7,124 (GolfLux/GolfAsian) vs 7,482 (1golf.eu/GolfShake) — discrepancy between sources; GolfLux and GolfAsian tend to use current/measured data, using 7,124 yards. Designer John Gray confirmed by golflux.com and golfasian.com; 1golf.eu does not list designer. Year 1996 confirmed by golflux.com and golfasian.com. Address confirmed: 236 Moo 5 Thanarat Road, Tambon Khanong Phra, Pak Chong, Nakhon Ratchasima 30130. Website: bonanza-khaoyai.com confirmed via web search. Phone: +66 44 365 1912 from 1golf.eu. Green fees: 1golf.eu lists THB 800 weekday / 1,200 weekend — consistent with low-budget Khao Yai course. Some reviews and golfsavers suggest 1,000–1,500 range; using 1golf.eu as primary source, flagging as provisional. Caddie available, not explicitly mandatory (1golf.eu shows no mandatory flag). Cart optional at 600 THB, caddie 400 THB (per player reviews and booking platform data). Driving range: yes per golfasian.com listing. priceRange note for Stage 5: ฿฿ (total typical round ~1,800–2,200 THB with caddie + cart).",
+  "disputes": [
+    "Yardage discrepancy: 1golf.eu and GolfShake list 7,482 yards; GolfLux and GolfAsian list 7,124 yards (Black tees). Using 7,124 as GolfLux/GolfAsian typically reflect current measured data. Provisional.",
+    "Green fees: 1golf.eu shows 800/1,200 THB. Golfsavers and some reviews suggest 1,000–1,500 THB range, with reports of visitors being charged 1,800 THB. Significant pricing inconsistency; set to 1golf.eu values as baseline, marked provisional. Confirm directly before publishing."
+  ],
+  "fields": {
+    "name": { "value": "Bonanza Golf & Country Club", "source": "web-search", "url": "https://www.1golf.eu/en/club/bonanza-golf-country-club/" },
+    "province": { "value": "Nakhon Ratchasima", "source": "web-search", "url": "https://www.1golf.eu/en/club/bonanza-golf-country-club/" },
+    "designer": { "value": "John Gray", "source": "web-search", "url": "https://www.golflux.com/course/bonanza-golf-country-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.1golf.eu/en/club/bonanza-golf-country-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.1golf.eu/en/club/bonanza-golf-country-club/" },
+    "yards": { "value": 7124, "source": "web-search", "url": "https://www.golflux.com/course/bonanza-golf-country-club/" },
+    "year_opened": { "value": 1996, "source": "web-search", "url": "https://www.golflux.com/course/bonanza-golf-country-club/" },
+    "green_fee_weekday_thb": { "value": 800, "source": "web-search", "url": "https://www.1golf.eu/en/club/bonanza-golf-country-club/" },
+    "green_fee_weekend_thb": { "value": 1200, "source": "web-search", "url": "https://www.1golf.eu/en/club/bonanza-golf-country-club/" },
+    "caddie_fee_thb": { "value": 400, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/khao-yai/bonanza-golf-country-club/" },
+    "cart_fee_thb": { "value": 600, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/khao-yai/bonanza-golf-country-club/" },
+    "caddie_required": { "value": false, "source": "web-search", "url": "https://www.1golf.eu/en/club/bonanza-golf-country-club/" },
+    "cart_required": { "value": false, "source": "web-search", "url": "https://www.1golf.eu/en/club/bonanza-golf-country-club/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/khao-yai/bonanza-golf-country-club/" },
+    "website": { "value": "https://bonanzakhaoyai.thebonanzakhaoyai.com/", "source": "web-search", "url": "https://bonanzakhaoyai.thebonanzakhaoyai.com/" },
+    "phone": { "value": "+66 44 365 1912", "source": "web-search", "url": "https://www.1golf.eu/en/club/bonanza-golf-country-club/" },
+    "latitude": { "value": 14.727, "source": "model", "url": null },
+    "longitude": { "value": 101.398, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 155, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 120, "source": "model", "url": null },
+    "google_maps_url": { "value": "https://maps.google.com/?q=14.727,101.398", "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.1golf.eu/en/club/bonanza-golf-country-club/" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Bonanza Golf & Country Club is an 18-hole par-72 course in Pak Chong, Nakhon Ratchasima, opened in 1996 and designed by John Gray. Located along Thanarat Road — the main corridor into Khao Yai National Park — Bonanza occupies a distinctive position among Khao Yai area courses: wide open, minimally bunkered, and relatively flat by regional standards. It offers some of the most accessible green fees in the Khao Yai area, making it a popular choice for budget-conscious golfers and those visiting the national park who want to add a round without the premium pricing of resort-style neighbours. The on-site Bonanza Lodge provides accommodation, giving golfers the option of a self-contained golf break. The course is public and welcomes walk-in rounds, though advance booking is advisable on weekends during peak domestic tourism periods.",
+    "layout_and_experience": "The 18-hole layout measures 7,124 yards from the black tees, placing it in the long-course category despite its relatively accessible fee structure. John Gray's design philosophy here emphasises open fairways and minimal bunkering — described by multiple reviewers as 'the fewest bunkers of any course in Thailand.' This rewards confident drivers who can take advantage of generous landing areas and generate momentum through the par-5s. The course features approximately 120 feet of elevation change, providing some visual interest without the dramatic drops of the highland courses further into the national park. The condition of greens is the most commonly noted variable in visitor reviews — at its best, Bonanza plays fast and true; maintenance levels have been inconsistent across seasons. An after-2pm discounted rate is available, making the course one of the few in Khao Yai where twilight golf at a budget price point is a realistic option. Caddie and cart services are available but not mandatory, giving independent golfers flexibility on cost.",
+    "tips": "Bonanza offers excellent value at the weekday green fee, which is among the lowest for any 18-hole course in the Khao Yai area. The after-2pm rate drops the green fee further — useful for golfers who prefer a late afternoon round in the cooler air. The course is located on Route 2090 (Thanarat Road), making it easily accessible on the way to or from the national park entrance. Confirm pricing directly with the club before arrival, as multiple visitors have reported discrepancies between listed and charged rates. The course is relatively straightforward from a navigation perspective — a pull-cart round without a caddie is practical for experienced golfers familiar with Thai course etiquette.",
+    "location_and_access": "Bonanza Golf & Country Club is located at 236 Moo 5 Thanarat Road, Tambon Khanong Phra, Pak Chong District, Nakhon Ratchasima 30130, on Route 2090 leading into Khao Yai National Park. From central Bangkok, the drive takes approximately two hours via Route 1 (Mitraphap Highway) north to Pak Chong, then Thanarat Road toward the national park. The course is roughly 155 km from Bangkok. A private car is required; no public transport covers this route directly.",
+    "rental_cta_context": "Planning a Khao Yai trip with a round at Bonanza? LENGOLF delivers premium club sets to your Bangkok hotel the night before so you can drive straight to the course without checking airport baggage."
+  },
+  "locales": {
+    "en": {
+      "title": "Bonanza Golf & Country Club — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Bonanza Golf & Country Club Khao Yai: 18-hole par-72 course guide, green fees from 800 THB, visitor tips, and golf club rentals delivered to your Bangkok hotel."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  }
+}

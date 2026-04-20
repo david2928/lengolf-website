@@ -1,0 +1,149 @@
+{
+  "slug": "iyara-park-golf-course",
+  "region": "bangkok",
+  "status": "held",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "verified_at": "2026-04-20",
+  "verification_status": "HELD",
+  "verification_notes": "HELD — CONFIRMED CLOSED. Multiple sources confirm Iyara Park Golf Course is permanently closed. GolfDD.com (Thai real-time booking platform) lists it as 'Iyara (Closed) / ไอยรา (ปิดบริการ)'. A 2019 review on a golf forum states the club closed approximately 6–7 years prior (i.e. c.2012–2013) due to severe flooding and never reopened. The course is listed in Uthai Thani province — also a significant distance from Bangkok (approximately 200 km north). Do not publish a course guide page for this slug. Course data recorded for reference only.",
+  "disputes": [
+    "CLOSED: Confirmed closed by GolfDD.com Thai booking platform listing as '(ปิดบริการ)' = closed.",
+    "LOCATION: Uthai Thani province, ~200 km north of Bangkok — outside the Bangkok day-trip zone even if it were open."
+  ],
+  "fields": {
+    "name": {
+      "value": "Iyara Park Golf Course",
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/iyara-park-golf-course/"
+    },
+    "province": {
+      "value": "Uthai Thani",
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/iyara-park-golf-course/"
+    },
+    "designer": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "holes": {
+      "value": 18,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/iyara-park-golf-course/"
+    },
+    "par": {
+      "value": 72,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/iyara-park-golf-course/"
+    },
+    "yards": {
+      "value": 5708,
+      "source": "web-search",
+      "url": "https://www.golflux.com/course/iyara-park-golf-course/"
+    },
+    "year_opened": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "green_fee_weekday_thb": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "green_fee_weekend_thb": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "caddie_fee_thb": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "cart_fee_thb": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "caddie_required": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "cart_required": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "driving_range": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "website": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "phone": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "latitude": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "longitude": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "distance_from_bangkok_km": {
+      "value": 200,
+      "source": "model",
+      "url": null
+    },
+    "drive_time_from_bangkok_min": {
+      "value": 180,
+      "source": "model",
+      "url": null
+    },
+    "google_maps_url": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "club_rental_available": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "club_rental_fee_thb": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "club_rental_brands": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    }
+  },
+  "prose": {
+    "overview": "HELD — Course confirmed closed. No guide content produced.",
+    "layout_and_experience": "HELD — Course confirmed closed. No guide content produced.",
+    "tips": "HELD — Course confirmed closed. No guide content produced.",
+    "location_and_access": "HELD — Course confirmed closed. No guide content produced.",
+    "rental_cta_context": "HELD — Course confirmed closed. No guide content produced."
+  },
+  "locales": {
+    "en": null,
+    "ko": null,
+    "zh": null,
+    "ja": null
+  }
+}

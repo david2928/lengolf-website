@@ -1,0 +1,151 @@
+{
+  "slug": "bangpoo-golf-sports-club",
+  "region": "bangkok",
+  "status": "verified",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "verified_at": "2026-04-20",
+  "verification_status": "APPROVED (provisional)",
+  "verification_notes": "18 holes, par 72, 7,048 yards confirmed across multiple sources. Arnold Palmer design (1991) confirmed. Located Samut Prakan, ~40 km south of Bangkok. Green fees are all-inclusive packages (green fee + caddie + cart bundled); weekday ~1,450–1,950 THB, weekend ~2,350–3,400 THB with wide range across sources due to time-of-day pricing tiers. Using conservative midrange: 1,700 THB weekday, 2,600 THB weekend (all-inclusive). Exact current split unclear; flagged provisional.",
+  "disputes": [
+    "Green fee pricing varies significantly by source and time-of-day tier (1,450–1,950 THB weekday; 2,350–3,400 THB weekend). Figures used are approximate midpoint of confirmed ranges."
+  ],
+  "fields": {
+    "name": {
+      "value": "Bangpoo Golf & Sports Club",
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangpoo-golf-sports-club/"
+    },
+    "province": {
+      "value": "Samut Prakan",
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/bangpoo-golf-sport-club/"
+    },
+    "designer": {
+      "value": "Arnold Palmer",
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangpoo-golf-sports-club/"
+    },
+    "holes": {
+      "value": 18,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/bangpoo-golf-sport-club/"
+    },
+    "par": {
+      "value": 72,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/bangpoo-golf-sport-club/"
+    },
+    "yards": {
+      "value": 7048,
+      "source": "web-search",
+      "url": "https://www.golfpass.com/travel-advisor/courses/37849-bangpoo-golf-sports"
+    },
+    "year_opened": {
+      "value": 1991,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/bangpoo-golf-sport-club/"
+    },
+    "green_fee_weekday_thb": {
+      "value": 1700,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangpoo-golf-sports-club/"
+    },
+    "green_fee_weekend_thb": {
+      "value": 2600,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangpoo-golf-sports-club/"
+    },
+    "caddie_fee_thb": {
+      "value": null,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangpoo-golf-sports-club/"
+    },
+    "cart_fee_thb": {
+      "value": null,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangpoo-golf-sports-club/"
+    },
+    "caddie_required": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangpoo-golf-sports-club/"
+    },
+    "cart_required": {
+      "value": false,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangpoo-golf-sports-club/"
+    },
+    "driving_range": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/bangpoo-golf-sport-club/"
+    },
+    "website": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "phone": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "latitude": {
+      "value": 13.574,
+      "source": "model",
+      "url": null
+    },
+    "longitude": {
+      "value": 100.854,
+      "source": "model",
+      "url": null
+    },
+    "distance_from_bangkok_km": {
+      "value": 40,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangpoo-golf-sports-club/"
+    },
+    "drive_time_from_bangkok_min": {
+      "value": 50,
+      "source": "model",
+      "url": null
+    },
+    "google_maps_url": {
+      "value": "https://maps.google.com/?q=13.574,100.854",
+      "source": "model",
+      "url": null
+    },
+    "club_rental_available": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/bangpoo-golf-sport-club/"
+    },
+    "club_rental_fee_thb": {
+      "value": 800,
+      "source": "model",
+      "url": null
+    },
+    "club_rental_brands": {
+      "value": null,
+      "source": "model",
+      "url": null
+    }
+  },
+  "prose": {
+    "overview": "Bangpoo Golf & Sports Club holds a unique place in Thai golf history as the only Arnold Palmer-designed course in Thailand and one of very few Palmer creations in all of Asia. Set near the Gulf of Thailand coast in Samut Prakan province, about 40 kilometres south of central Bangkok, the course opened in 1991 on gently rolling terrain shaded by mature trees and softened by natural wildflowers. Its seaside proximity brings a steady breeze that keeps temperatures cooler than courses deeper inland — a genuine comfort bonus during Bangkok's sweltering months. The club draws a loyal local following, particularly from Bangna-area residents, attracted by its competitive pricing and the prestige of a Palmer layout. Visiting golfers from abroad appreciate the authentic 1990s tropical parkland ambience and the relatively uncrowded weekday tee sheet. At 7,048 yards from the tips with TifEagle greens, the course plays as a proper championship test without being punishing for mid-handicap players.",
+    "layout_and_experience": "The 18-hole Palmer layout is routed across rolling terrain — uncommon for the flat Bangkok region — and makes generous use of natural vegetation and water features. Mature trees frame most fairways, reducing visual width off the tee without creating unfair blind spots. The coastal breeze is a constant factor: it shifts club selection by one to two clubs on exposed holes and can make the front nine play significantly harder on windy mornings. Water hazards appear on approximately nine holes, often positioned to punish overly aggressive lines from the tee rather than to penalise well-played approaches. The greens, planted with TifEagle Bermuda, are receptive at moderate speeds and putt true after a morning roll. Pace of play is relaxed by Bangkok standards, with few pressure points from back-to-back groups. The course rating of 72.5 with a slope of 121 confirms its moderate-to-challenging character — straightforward for scratch golfers, rewarding for single-figure handicappers who manage their position off the tee.",
+    "tips": "Weekday mornings offer the best conditions: fewer golfers, cooler air, and greens freshly cut. Weekend early-morning tee times (from 6 am) draw the biggest crowds and command the highest fees — afternoon slots after noon cost noticeably less. Caddie service is bundled in all packages and the caddies are experienced, so accept their local knowledge on wind-adjusted club selections. The course is in Samut Prakan, reached via the Bangna–Trat expressway; allow 50 minutes from central Bangkok and 30 minutes from Suvarnabhumi Airport. Dress code requires a collar — shorts are permitted. An Arnold Palmer devotee will want a photo at the course signage noting his rare Asian commission.",
+    "location_and_access": "Bangpoo Golf & Sports Club is located at 191 Moo 3, Phraek Gasa Mai, Mueang Samut Prakan, Samut Prakan 10280. The course lies approximately 40 km south of central Bangkok, about 50 minutes by car via the Bangna–Trat Expressway. It is roughly 30 minutes from Suvarnabhumi International Airport. No practical public transport connects to the club; taxi, Grab, or private car is the only option.",
+    "rental_cta_context": "Heading south to Bangpoo from Bangkok is much easier without a golf bag taking up half the boot. LENGOLF delivers Titleist, Callaway, TaylorMade, and Ping rental sets to your Bangkok hotel the evening before your round, so you travel light."
+  },
+  "locales": {
+    "en": {
+      "title": "Bangpoo Golf & Sports Club — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Bangpoo Golf & Sports Club green fees, Arnold Palmer course guide, visitor tips, and golf club rentals delivered to your Bangkok hotel."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  }
+}

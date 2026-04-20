@@ -2,12 +2,33 @@
 // Re-run the publish script to regenerate after adding new courses.
 const index = {
   slugs: [
+    // Phase 1
     'amata-spring-country-club',
     'burapha-golf-club',
     'chee-chan-golf-resort',
     'laem-chabang-international',
     'siam-country-club-old-course',
     'siam-country-club-plantation',
+    // Phase 2 — Batch 1
+    'crystal-bay-golf-resort',
+    'eastern-star-country-club',
+    'khao-kheow-country-club',
+    'mountain-shadow-golf-club',
+    'pattana-golf-club-resort',
+    'pattaya-country-club',
+    'phoenix-gold-golf-club-pattaya',
+    'pleasant-valley-golf-country-club',
+    'rayong-green-valley',
+    // Phase 2 — Batch 2
+    'chatrium-golf-resort-soi-dao',
+    'greenwood-golf-club',
+    'pattavia-century-golf-club',
+    'siam-country-club-waterside',
+    'the-emerald-golf-club',
+    // Phase 2 — Batch 3
+    'bangpra-international-golf-club',
+    'treasure-hill-golf-country-club',
+    'wangjuntr-golf-park',
   ],
 }
 

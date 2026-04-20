@@ -1,0 +1,140 @@
+{
+  "slug": "cascata-golf-club",
+  "region": "bangkok",
+  "status": "verified",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "verified_at": "2026-04-20",
+  "verification_status": "APPROVED",
+  "verification_notes": "36 holes confirmed. Thanawat Saprungruang design confirmed. Year 2006 confirmed. Fees 2,850/3,850 THB are all-inclusive foreign visitor package rates. Nakhon Nayok province correct.",
+  "disputes": [],
+  "fields": {
+    "name": {
+      "value": "Cascata Golf Club",
+      "source": "official-website",
+      "url": "https://www.cascata.co.th/"
+    },
+    "province": {
+      "value": "Nakhon Nayok",
+      "source": "web-search",
+      "url": "https://www.tripadvisor.com/Attraction_Review-g2237146-d15350148-Reviews-Cascata_Golf_Club-Ongkharak_Nakhon_Nayok_Province.html"
+    },
+    "designer": {
+      "value": "Thanawat Saprungruang",
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-cultures/bangkok/cascata-golf-club/"
+    },
+    "holes": {
+      "value": 36,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-cultures/bangkok/cascata-golf-club/"
+    },
+    "par": {
+      "value": 72,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-cultures/bangkok/cascata-golf-club/"
+    },
+    "yards": {
+      "value": 7394,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-cultures/bangkok/cascata-golf-club/"
+    },
+    "year_opened": {
+      "value": 2006,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-cultures/bangkok/cascata-golf-club/"
+    },
+    "green_fee_weekday_thb": {
+      "value": 2850,
+      "source": "web-search",
+      "url": "https://golfdigg.com/en/courses/cascata-golf-club"
+    },
+    "green_fee_weekend_thb": {
+      "value": 3850,
+      "source": "web-search",
+      "url": "https://golfdigg.com/en/courses/cascata-golf-club"
+    },
+    "caddie_fee_thb": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "cart_fee_thb": {
+      "value": 750,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-cultures/bangkok/cascata-golf-club/"
+    },
+    "caddie_required": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-cultures/bangkok/cascata-golf-club/"
+    },
+    "cart_required": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://golfdigg.com/en/courses/cascata-golf-club"
+    },
+    "driving_range": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-cultures/bangkok/cascata-golf-club/"
+    },
+    "website": {
+      "value": "https://www.cascata.co.th",
+      "source": "official-website",
+      "url": "https://www.cascata.co.th/"
+    },
+    "phone": {
+      "value": "+66 37 612 300",
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/cascata-golf-club/"
+    },
+    "latitude": {
+      "value": 14.121,
+      "source": "model",
+      "url": null
+    },
+    "longitude": {
+      "value": 101.033,
+      "source": "model",
+      "url": null
+    },
+    "distance_from_bangkok_km": {
+      "value": 80,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-cultures/bangkok/cascata-golf-club/"
+    },
+    "drive_time_from_bangkok_min": {
+      "value": 70,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-cultures/bangkok/cascata-golf-club/"
+    },
+    "google_maps_url": {
+      "value": "https://maps.google.com/?q=14.121,101.033",
+      "source": "model",
+      "url": null
+    },
+    "club_rental_available": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-cultures/bangkok/cascata-golf-club/"
+    },
+    "club_rental_fee_thb": {
+      "value": 1000,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-cultures/bangkok/cascata-golf-club/"
+    },
+    "club_rental_brands": {
+      "value": null,
+      "source": "model",
+      "url": null
+    }
+  },
+  "prose": {
+    "overview": "Cascata Golf Club is a 36-hole complex in Ongkharak, Nakhon Nayok province — about 70–80 km northeast of Bangkok — that has developed a reputation as one of Thailand's better-value multi-course venues. Opened in 2006 and designed entirely by its owner, Thanawat Saprungruang, the A and B courses were built in a Scottish links style with open fairways, generous widths, and some of Bangkok's best-conditioned greens. The C and D courses (added 2010–2014) are significantly more challenging, with severely undulated topography, island fairways, and elevated greens that represent a step change in difficulty. Foreign visitor all-in packages (green fee, caddie, and cart included) run approximately 2,850 THB weekday and 3,850 THB weekend — competitive for the quality on offer. The Spanish-style hacienda clubhouse is a distinctive visual feature.",
+    "layout_and_experience": "The four 9-hole loops offer meaningful variety. The A and B courses play 7,394 yards combined at par 72 — spacious, with water down one side of nearly every fairway but generous enough off the tee that wayward hitters can survive. The greens are described as some of Bangkok's best: fast, consistent, and tournament-ready. The C and D courses demand more precise shotmaking, with island fairways (C course) and valley-and-creek terrain (D course) generating genuine drama. Golf carts are compulsory (1 per golfer). Pace of play is controlled well by the club, with maximum group size capped at 5. The links-style holes play differently in wind — morning tee times are recommended when air is calmer.",
+    "tips": "Foreign players should book through an online platform or booking agent that handles the all-in foreign rate (approximately 2,850 THB weekday, 3,850 THB weekend, including caddie and cart). Thai player rates are lower but not applicable to visitors. Cart is compulsory (1 per player). The recommended caddie tip is 400 THB. The 70-minute drive from Bangkok is best timed for a 6:00–7:00 AM arrival — leave central Bangkok no later than 5:00 AM to beat traffic. The driving range is available for warm-up. The on-site spa and restaurant make a full day of it worthwhile.",
+    "location_and_access": "Cascata Golf Club is at 87 Moo 2 Lam Luk Ka Klong 15 Road, Tambon Chumphon, Ongkharak, Nakhon Nayok 26120. From Bangkok, take the Expressway toward Rangsit, then head northeast on Highway 305 toward Ongkharak. The drive is approximately 80 km, taking 70 minutes in light traffic (longer during Bangkok rush hour). There is no public transport serving the course area; a car, taxi, or golf transfer service is required. The Nakhon Nayok countryside is scenic and the drive pleasant once clear of the urban sprawl.",
+    "rental_cta_context": "Cascata's links-style greens reward precise iron play — having a set of clubs properly fitted to your game makes a real difference. LENGOLF delivers premium rental sets to Bangkok hotels across the city, so your clubs are ready and waiting before the 70-minute drive northeast."
+  }
+}

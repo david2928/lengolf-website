@@ -1,0 +1,40 @@
+{
+  "slug": "crystal-bay-golf-resort",
+  "region": "pattaya",
+  "status": "enriched",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Crystal Bay Golf Club", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/crystal-bay-golf-club/", "note": "Also listed as Crystal Bay Golf Resort in some sources." },
+    "province": { "value": "Chonburi", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/crystal-bay-golf-club/" },
+    "designer": { "value": null, "source": "model", "url": null, "note": "One source cites 'Thai Takenaka'; unverified. Needs confirmation." },
+    "holes": { "value": 27, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/crystal-bay-golf-club/", "note": "Three nine-hole loops. Standard round is 18 holes." },
+    "par": { "value": 72, "source": "web-search", "url": "https://4moles.com/golf-courses/crystal-bay-golf-club-c-a", "note": "Par 72 for 18-hole round." },
+    "year_opened": { "value": 1988, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/crystal-bay-golf-club/", "note": "Originally opened as Natural Park Resort." },
+    "green_fee_weekday_thb": { "value": 1350, "source": "web-search", "url": "https://www.golfsavers.com/thailand/pattaya-golf-courses/crystal-bay-golf-club", "note": "Weekday/weekend rate may be the same. Verify." },
+    "green_fee_weekend_thb": { "value": 1350, "source": "web-search", "url": "https://www.golfsavers.com/thailand/pattaya-golf-courses/crystal-bay-golf-club", "note": "Weekend rate assumed same as weekday — needs verification." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/crystal-bay-golf-club/" },
+    "cart_required": { "value": false, "source": "model", "url": null, "note": "Not confirmed — verify." },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": null, "source": "model", "url": null, "note": "No official website found in searches." },
+    "phone": { "value": "+66 38 349 370", "source": "web-search", "url": "https://pattaya.golf/pattaya-golf-course-contact-information/", "note": "Multiple extension lines (370-9) reported." },
+    "latitude": { "value": 13.22, "source": "model", "url": null, "note": "Approximate — Sriracha. Verify." },
+    "longitude": { "value": 100.97, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 100, "source": "model", "url": null, "note": "Approximate." },
+    "drive_time_from_bangkok_min": { "value": 80, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/crystal-bay-golf-club/", "note": "Sources say 40 min north of Pattaya; 1.5 hr from Bangkok." },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "address": { "value": "502 Moo 10, Sukhumvit Road, Sriracha, Chonburi 20210", "source": "web-search", "url": "https://pattaya.golf/pattaya-golf-course-contact-information/" },
+    "club_rental_available": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Crystal Bay Golf Club is a 27-hole course in Sriracha, Chonburi, originally opened in 1988 under the name Natural Park Resort — making it one of the older established layouts in the Pattaya region. The course is structured as three nine-hole loops, with golfers typically playing any combination of 18 holes per round to a par-72 standard. The design has a Hawaiian-influenced aesthetic, with palm tree-lined holes and a tropical-resort atmosphere. At approximately 1,350 THB for a round, Crystal Bay sits at the more accessible end of the Pattaya-area pricing spectrum, attracting a mix of regular local golfers and visitors looking for a relaxed, affordable day on the course. The location in Sriracha — north of Pattaya city — puts it around 80 minutes from Bangkok and 40 minutes from central Pattaya.",
+    "layout_and_experience": "The course is spread across three distinct nine-hole loops of varying elevation and hazard profile, which gives each 18-hole combination a slightly different character. The palm-lined fairways create a tropical corridor feel on most holes, and the Hawaiian-resort design aesthetic favours visual appeal alongside strategic play. The course is not among the most technically demanding in the region — the emphasis is on an enjoyable round in pleasant surroundings rather than a stern examination of ball-striking. That said, the variation in elevation between loops and the placement of bunkers and water hazards requires a degree of course management. Greens at Crystal Bay are reported to be of moderate speed and consistent in condition. The three-loop format means tee sheet management is flexible, and pace of play is generally efficient.",
+    "tips": "Crystal Bay is well-suited to golfers who want a relaxed, affordable Pattaya-area round without the premium pricing of the region's top clubs. The Hawaiian-resort atmosphere makes it a good choice for mixed-ability groups or those playing golf as part of a broader holiday. Sriracha's location between Bangkok and Pattaya means it can be combined with other activities in either direction on the same day. As with all Pattaya-area courses, morning tee times in the cool season (November–February) offer the best conditions. Confirm caddie and cart fee details when booking, as the all-in pricing structure is not fully documented across third-party platforms.",
+    "location_and_access": "Crystal Bay Golf Club is located approximately 100km southeast of central Bangkok in Sriracha, Chonburi, at 502 Moo 10, Sukhumvit Road. The drive from Bangkok takes approximately 80 minutes via the Bang Na–Trat Expressway (Highway 7). The course is roughly 40 minutes north of central Pattaya city by car. Grab and pre-arranged golf transfers from Bangkok or Pattaya are the standard transport options for visiting golfers.",
+    "rental_cta_context": "Making the trip to Crystal Bay Golf Club for a round in Sriracha? Rent clubs delivered to your hotel — no need to lug your own bag on the Bangkok–Pattaya corridor."
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "slug": "subhapruek-golf-course",
+  "region": "bangkok",
+  "status": "verified",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "fields": {
+    "name": {
+      "value": "Subhapruek Golf Club",
+      "source": "web-search",
+      "url": "https://subhapruekgolf.com/"
+    },
+    "province": {
+      "value": "Samut Prakan",
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/subhapruek-golf-course/"
+    },
+    "designer": {
+      "value": "Pete Dye",
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/subhapruek-golf-club/"
+    },
+    "holes": {
+      "value": 18,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/subhapruek-golf-club/"
+    },
+    "par": {
+      "value": 72,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/subhapruek-golf-club/"
+    },
+    "yards": {
+      "value": 6837,
+      "source": "web-search",
+      "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/subhapruek-golf-club"
+    },
+    "year_opened": {
+      "value": 1993,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/subhapruek-golf-course/"
+    },
+    "green_fee_weekday_thb": {
+      "value": 1500,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/subhapruek-golf-course/"
+    },
+    "green_fee_weekend_thb": {
+      "value": 2250,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/subhapruek-golf-course/"
+    },
+    "caddie_fee_thb": {
+      "value": null,
+      "source": "model",
+      "url": null
+    },
+    "cart_fee_thb": {
+      "value": null,
+      "source": "model",
+      "url": null
+    },
+    "caddie_required": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/subhapruek-golf-club/"
+    },
+    "cart_required": {
+      "value": false,
+      "source": "model",
+      "url": null
+    },
+    "driving_range": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfbangkok.com/bangkok-golf-courses/subhapruek-golf-club/"
+    },
+    "website": {
+      "value": "https://subhapruekgolf.com/",
+      "source": "web-search",
+      "url": "https://subhapruekgolf.com/"
+    },
+    "phone": {
+      "value": "+66 2 317 0801",
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/subhapruek-golf-course/"
+    },
+    "latitude": {
+      "value": 13.6183,
+      "source": "web-search",
+      "url": "https://www.golfbangkok.com/bangkok-golf-courses/subhapruek-golf-club/"
+    },
+    "longitude": {
+      "value": 100.8467,
+      "source": "web-search",
+      "url": "https://www.golfbangkok.com/bangkok-golf-courses/subhapruek-golf-club/"
+    },
+    "distance_from_bangkok_km": {
+      "value": 50,
+      "source": "web-search",
+      "url": "https://www.golfbangkok.com/bangkok-golf-courses/subhapruek-golf-club/"
+    },
+    "drive_time_from_bangkok_min": {
+      "value": 50,
+      "source": "web-search",
+      "url": "https://www.golfbangkok.com/bangkok-golf-courses/subhapruek-golf-club/"
+    },
+    "google_maps_url": {
+      "value": "https://maps.google.com/?q=13.6183,100.8467",
+      "source": "web-search",
+      "url": null
+    },
+    "club_rental_available": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfbangkok.com/bangkok-golf-courses/subhapruek-golf-club/"
+    },
+    "club_rental_fee_thb": {
+      "value": null,
+      "source": "model",
+      "url": null
+    },
+    "club_rental_brands": {
+      "value": null,
+      "source": "model",
+      "url": null
+    }
+  },
+  "prose": {
+    "overview": "Subhapruek Golf Club — formerly Bangna Country Club until its rebranding — is one of the most talked-about budget-to-mid-range courses in the Bangkok south corridor, and the presence of a Pete Dye design pedigree makes it a genuine curiosity. Opened in 1993 in Samut Prakan, the course sits between downtown Bangkok and Suvarnabhumi Airport and was designed by the legendary American architect Pete Dye (or his son Perry Dye — the exact credit is contested). The Dye hallmarks are present: dramatic bunkering, psychological challenge, and a layout that rewards smart shot selection over brute force. The course is particularly celebrated for its distinctive driving range, which features floating island targets on a lake — a quirky but appealing warm-up facility. At 6,837 yards it provides a genuine test without being gratuitously long, and green fees sit comfortably in the mid-range bracket.",
+    "layout_and_experience": "Subhapruek's parkland layout converts flat, tropical terrain into a course that feels busier and more dynamic than its surroundings would suggest, through Dye's characteristic use of mounded bunkering, railroad-tie edging (where present), and carefully sculpted landing areas. Water features on several holes demand carries of varying lengths, and the greenside hazards ensure that approach play must be precise. Fairways are of medium width, tighter than a typical Thai resort course, so driving accuracy pays dividends. Greens tend to be medium-sized and moderately undulating — challenging but fair. The signature experience at Subhapruek is the dramatic bunkering: deep, steep-walled traps that present genuine recovery challenges. From the back tees at 6,837 yards, the course plays to its par-72 rating honestly. Multiple tee positions make it accessible for golfers of all levels. The course is closed on Mondays for maintenance.",
+    "tips": "Subhapruek represents excellent value for a Dye-pedigree design. Green fees are approximately 1,500 THB on weekdays and 2,250 THB on weekends (green fee only — caddie and cart fees are additional). Allow around 50 minutes from central Bangkok via the Bangna Expressway or Motorway 7. The club is closed on Mondays. Caddies are available and recommended given the varied terrain. The floating-island driving range is a genuine attraction worth arriving early to use. Book at least 1–2 days in advance on weekdays and 3–5 days for weekends. Standard dress code applies: collared shirts, appropriate shorts or trousers.",
+    "location_and_access": "Subhapruek Golf Club is located at 102 Moo 7, Bang Na-Trat Road, Km.26, Bang Bo, Samut Prakan 10560, approximately 50 km south-east of central Bangkok near the Bangna-Trad Highway. The journey from Sukhumvit takes around 50 minutes off-peak via Expressway Route 7 or the Bangna-Trad Highway. The proximity to Suvarnabhumi Airport (approximately 20 minutes) makes it convenient for travellers with airport schedules to build around.",
+    "rental_cta_context": "Visiting Subhapruek Golf Club from Bangkok? LENGOLF provides same-day or next-day club delivery to your hotel, so you can head straight to the course without the logistics of carrying your own set."
+  },
+  "locales": {
+    "en": {
+      "title": "Subhapruek Golf Club — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Subhapruek Golf Club (formerly Bangna Country Club) green fees, Pete Dye course overview, tips for visiting, and golf club rentals delivered to your Bangkok hotel."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  },
+  "verification_status": "APPROVED (provisional)",
+  "verified_at": "2026-04-20",
+  "verification_notes": "Name change from Bangna Country Club confirmed. GPS 13.6183/100.8467 confirmed by golfbangkok.com. Green fees 1,500/2,250 confirmed by 1golf.eu. Designer disputed between Pete Dye and Perry Dye.",
+  "disputes": [
+    "Designer: Pete Dye (golfasian.com, gogolf.co.id) vs Perry Dye (1golf.eu). Publishing Pete Dye per majority."
+  ]
+}

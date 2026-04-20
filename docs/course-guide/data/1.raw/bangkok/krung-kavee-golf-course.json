@@ -1,0 +1,32 @@
+{
+  "slug": "krung-kavee-golf-course",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Krung Kavee Golf Course & Country Club Estate", "source": "web-search", "url": "https://www.krungkavee.com/" },
+    "province": { "value": "Pathum Thani", "source": "web-search", "url": "https://www.1golf.eu/en/club/krung-kavee-golf-course-country-club-estate/" },
+    "designer": { "value": "Manabu Sakamoto", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/krung-kavee-golf-country-club-estate/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/krung-kavee-golf-country-club-estate/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/krung-kavee-golf-country-club-estate/" },
+    "yards": { "value": 7082, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/krung-kavee-golf-country-club-estate/" },
+    "year_opened": { "value": 1995, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/krung-kavee-golf-country-club-estate/" },
+    "green_fee_weekday_thb": { "value": 1600, "source": "web-search", "url": "https://www.1golf.eu/en/club/krung-kavee-golf-course-country-club-estate/" },
+    "green_fee_weekend_thb": { "value": 1800, "source": "web-search", "url": "https://www.1golf.eu/en/club/krung-kavee-golf-course-country-club-estate/" },
+    "caddie_fee_thb": { "value": 400, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/krung-kavee-golf-course" },
+    "cart_fee_thb": { "value": 750, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/krung-kavee-golf-country-club-estate/" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/krung-kavee-golf-course" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/krung-kavee-golf-course" },
+    "driving_range": { "value": true, "source": "model", "url": null },
+    "website": { "value": "https://www.krungkavee.com/", "source": "web-search", "url": "https://www.krungkavee.com/" },
+    "phone": { "value": "+66 2 577 2891", "source": "web-search", "url": "https://www.1golf.eu/en/club/krung-kavee-golf-course-country-club-estate/" },
+    "latitude": { "value": 14.0127, "source": "model", "url": null },
+    "longitude": { "value": 100.7834, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 35, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 40, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/krung-kavee-golf-country-club-estate/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=14.0127,100.7834", "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/krung-kavee-golf-country-club-estate/" },
+    "club_rental_fee_thb": { "value": 1200, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/krung-kavee-golf-country-club-estate/" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  }
+}

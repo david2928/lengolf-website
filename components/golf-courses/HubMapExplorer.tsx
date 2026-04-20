@@ -26,7 +26,6 @@ const REGION_TEXT_COLOR: Record<string, string> = {
 // Shared window-level promise so the script loads exactly once
 function loadMapsApi(apiKey: string): Promise<void> {
   if (typeof window === 'undefined') return Promise.resolve()
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const w = window as any
   if (w.google?.maps?.Map) return Promise.resolve()
   if (w.__mapsApiPromise) return w.__mapsApiPromise
@@ -51,8 +50,7 @@ export default function HubMapExplorer({ regions }: Props) {
 
     loadMapsApi(apiKey).then(() => {
       if (cancelled || !mapDivRef.current) return
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const gmaps = (window as any).google.maps
+          const gmaps = (window as any).google.maps
 
       const map = new gmaps.Map(mapDivRef.current, {
         zoom:              9,

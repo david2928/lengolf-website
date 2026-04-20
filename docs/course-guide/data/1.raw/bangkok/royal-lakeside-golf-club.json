@@ -1,0 +1,32 @@
+{
+  "slug": "royal-lakeside-golf-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Royal Lakeside Golf Club", "source": "web-search", "url": "https://royallakeside.com/" },
+    "province": { "value": "Chachoengsao", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/royal-lakeside-golf-club-2/" },
+    "designer": { "value": "Sumitomo Construction", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/royal-lakeside-golf-club-2/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/royal-lakeside-golf-club-2/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/royal-lakeside-golf-club-2/" },
+    "yards": { "value": 6815, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/royal-lakeside-golf-club-2/" },
+    "year_opened": { "value": 1993, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/royal-lakeside-golf-club-2/" },
+    "green_fee_weekday_thb": { "value": 800, "source": "web-search", "url": "https://www.1golf.eu/en/club/royal-lakeside-golf-club/" },
+    "green_fee_weekend_thb": { "value": 2000, "source": "web-search", "url": "https://www.1golf.eu/en/club/royal-lakeside-golf-club/" },
+    "caddie_fee_thb": { "value": 400, "source": "web-search", "url": "https://www.where2golf.com/thailand/royal-lakeside-golf-club/" },
+    "cart_fee_thb": { "value": 700, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/royal-lakeside-golf-club-2/" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.where2golf.com/thailand/royal-lakeside-golf-club/" },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": false, "source": "model", "url": null },
+    "website": { "value": "https://royallakeside.com/", "source": "web-search", "url": "https://royallakeside.com/" },
+    "phone": { "value": "+66 38 573 2759", "source": "web-search", "url": "https://www.where2golf.com/thailand/royal-lakeside-golf-club/" },
+    "latitude": { "value": 13.481679, "source": "web-search", "url": "https://www.where2golf.com/thailand/royal-lakeside-golf-club/" },
+    "longitude": { "value": 100.992669, "source": "web-search", "url": "https://www.where2golf.com/thailand/royal-lakeside-golf-club/" },
+    "distance_from_bangkok_km": { "value": 55, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 60, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/royal-lakeside-golf-club-2/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=13.481679,100.992669", "source": "web-search", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/royal-lakeside-golf-club-2/" },
+    "club_rental_fee_thb": { "value": 1200, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/royal-lakeside-golf-club-2/" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  }
+}

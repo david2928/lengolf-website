@@ -1,0 +1,29 @@
+{
+  "slug": "crystal-bay-golf-resort",
+  "region": "pattaya",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Crystal Bay Golf Club", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/crystal-bay-golf-club/", "note": "Also listed as Crystal Bay Golf Resort in some sources." },
+    "province": { "value": "Chonburi", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/crystal-bay-golf-club/" },
+    "designer": { "value": null, "source": "model", "url": null, "note": "One source cites 'Thai Takenaka'; unverified. Needs confirmation." },
+    "holes": { "value": 27, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/crystal-bay-golf-club/", "note": "Three nine-hole loops. Standard round is 18 holes." },
+    "par": { "value": 72, "source": "web-search", "url": "https://4moles.com/golf-courses/crystal-bay-golf-club-c-a", "note": "Par 72 for 18-hole round." },
+    "year_opened": { "value": 1988, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/crystal-bay-golf-club/", "note": "Originally opened as Natural Park Resort." },
+    "green_fee_weekday_thb": { "value": 1350, "source": "web-search", "url": "https://www.golfsavers.com/thailand/pattaya-golf-courses/crystal-bay-golf-club", "note": "Weekday/weekend rate may be the same. Verify." },
+    "green_fee_weekend_thb": { "value": 1350, "source": "web-search", "url": "https://www.golfsavers.com/thailand/pattaya-golf-courses/crystal-bay-golf-club", "note": "Weekend rate assumed same as weekday — needs verification." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/crystal-bay-golf-club/" },
+    "cart_required": { "value": false, "source": "model", "url": null, "note": "Not confirmed — verify." },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": null, "source": "model", "url": null, "note": "No official website found in searches." },
+    "phone": { "value": "+66 38 349 370", "source": "web-search", "url": "https://pattaya.golf/pattaya-golf-course-contact-information/", "note": "Multiple extension lines (370-9) reported." },
+    "latitude": { "value": 13.22, "source": "model", "url": null, "note": "Approximate — Sriracha. Verify." },
+    "longitude": { "value": 100.97, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 100, "source": "model", "url": null, "note": "Approximate." },
+    "drive_time_from_bangkok_min": { "value": 80, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/crystal-bay-golf-club/", "note": "Sources say 40 min north of Pattaya; 1.5 hr from Bangkok." },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "address": { "value": "502 Moo 10, Sukhumvit Road, Sriracha, Chonburi 20210", "source": "web-search", "url": "https://pattaya.golf/pattaya-golf-course-contact-information/" }
+  }
+}

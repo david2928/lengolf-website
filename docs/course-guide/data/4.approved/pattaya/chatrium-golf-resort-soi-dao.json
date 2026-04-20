@@ -1,0 +1,40 @@
+{
+  "slug": "chatrium-golf-resort-soi-dao",
+  "region": "pattaya",
+  "status": "enriched",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Chatrium Golf Resort Soi Dao Chanthaburi", "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/golf" },
+    "province": { "value": "Chanthaburi", "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/" },
+    "designer": { "value": "Denis Griffiths", "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/18holegolfcourse" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/18holegolfcourse" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/18holegolfcourse" },
+    "year_opened": { "value": null, "source": "model", "url": null, "note": "Not found — resort was previously Soi Dao Highland Golf Club before Chatrium rebrand." },
+    "green_fee_weekday_thb": { "value": 1550, "source": "web-search", "url": "https://www.golfpattaya.com/chatrium-golf-resort-soi-dao/", "note": "Low end of agent range 1,550–2,250 THB. Walk-in vs. pre-booked rate unclear." },
+    "green_fee_weekend_thb": { "value": 2250, "source": "web-search", "url": "https://www.golfpattaya.com/chatrium-golf-resort-soi-dao/", "note": "High end of agent range. Verify." },
+    "caddie_fee_thb": { "value": 350, "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/18holegolfcourse" },
+    "cart_fee_thb": { "value": 700, "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/18holegolfcourse" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/18holegolfcourse" },
+    "cart_required": { "value": false, "source": "model", "url": null, "note": "Cart fee listed separately on official site — assumed optional." },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": "https://www.chatrium.com/golfsoidaochanthaburi/golf", "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/golf" },
+    "phone": { "value": "+66 89 934 3008", "source": "web-search", "url": "https://www.golfpattaya.com/chatrium-golf-resort-soi-dao/" },
+    "latitude": { "value": 12.85, "source": "model", "url": null, "note": "Approximate — Thap Sai / Pong Nam Ron, Chanthaburi. Verify." },
+    "longitude": { "value": 102.25, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 260, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 195, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null },
+    "address": { "value": null, "source": "model", "url": null, "note": "Thap Sai / Pong Nam Ron, Chanthaburi Province. Exact address not confirmed." },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/18holegolfcourse" },
+    "club_rental_fee_thb": { "value": 1000, "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/18holegolfcourse" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null, "note": "5 sets available — brands not specified." }
+  },
+  "prose": {
+    "overview": "Chatrium Golf Resort Soi Dao Chanthaburi is an 18-hole, par-72 course designed by Denis Griffiths and set in the highland terrain of Chanthaburi Province — the most remote course in the Pattaya region grouping, located approximately 260km from Bangkok near the Soi Dao mountain range. The Griffiths design runs to 7,144 yards from the black tees, with a more accessible 5,306 yards from the forward tees. Green fees from agents range 1,550–2,250 THB, with separate caddie (350 THB) and cart (700 THB) charges — making the all-in cost moderate for a course of this length and setting. Club rental is available at 1,000 THB per bag (5 sets on site). Note: the course is undergoing facility enhancements from March to October 2026, with partial play available and full 18-hole play suspended from June 1 to July 20, 2026.",
+    "layout_and_experience": "Denis Griffiths — the same architect behind Phoenix Gold Golf Club Pattaya — applied a similar mountain-terrain philosophy to Soi Dao: the course uses elevation changes and natural highland features to create a visually dramatic playing environment unlike anything in the flatter Chonburi courses. The par-3 14th hole is the signature — positioned to take advantage of the surrounding landscape and regarded as one of the more photographed holes in the region. Water hazards and bunkers are strategically placed rather than decorative, and the 7,144-yard length means long hitters can reach for the card scores, while the highland conditions (cooler temperatures, occasional mist, firmer turf) affect ball performance in ways that don't apply on lowland resort courses. The 395-acre site gives the layout plenty of space to breathe.",
+    "tips": "Chatrium Golf Resort Soi Dao is a 3-hour drive from Bangkok — further than most Pattaya-region courses — making it best suited to golfers already touring Chanthaburi Province or as part of a multi-night eastern seaboard itinerary. The highland elevation brings consistently cooler temperatures year-round compared to Pattaya, making it a practical choice during the hot season (March–May). The course enhancement scheduled through October 2026 means some holes or facilities may be restricted — check current status with the resort directly (+66 89 934 3008 or chatrium.com) before booking. Caddie fee (350 THB) and cart fee (700 THB) are charged separately from the green fee, so factor the full all-in cost when comparing to bundled rates at other courses. Club rental is available on site (1,000 THB / 5 sets).",
+    "location_and_access": "Chatrium Golf Resort Soi Dao Chanthaburi is located approximately 260km east of Bangkok in Chanthaburi Province, near the Soi Dao mountain range. The drive from Bangkok takes around 3 hours via Highway 7 (Bang Na–Trat Expressway) through Pattaya and onward to Chanthaburi. Pre-arranged resort transfers from Pattaya or Bangkok are the standard transport option; self-drive is practical for those on a multi-day eastern seaboard itinerary.",
+    "rental_cta_context": "Making the 3-hour drive to Chatrium Soi Dao? Rent clubs from LENGOLF and arrive light — the highland setting is worth the journey; no need to bring the bag too."
+  }
+}

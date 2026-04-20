@@ -1,0 +1,33 @@
+{
+  "slug": "pinehurst-golf-country-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Pinehurst Golf & Country Club", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/pinehurst-golf-country-club/" },
+    "province": { "value": "Pathum Thani", "source": "web-search", "url": "https://www.1golf.eu/en/club/pinehurst-golf-country-club/" },
+    "designer": { "value": "Yoshihara Aihara", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/pinehurst-golf-country-club/" },
+    "holes": { "value": 27, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/pinehurst-golf-country-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/pinehurst-golf-country-club/" },
+    "yards": { "value": 6855, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/pinehurst-golf-country-club/" },
+    "year_opened": { "value": 1988, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/pinehurst-golf-country-club/" },
+    "green_fee_weekday_thb": { "value": 1700, "source": "web-search", "url": "https://www.1golf.eu/en/club/pinehurst-golf-country-club/" },
+    "green_fee_weekend_thb": { "value": 2300, "source": "web-search", "url": "https://www.1golf.eu/en/club/pinehurst-golf-country-club/" },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null },
+    "cart_fee_thb": { "value": 800, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/pinehurst-golf-country-club/" },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/pinehurst-golf-country-club/" },
+    "website": { "value": null, "source": "model", "url": null },
+    "phone": { "value": "+66 2 516 8679", "source": "web-search", "url": "https://www.1golf.eu/en/club/pinehurst-golf-country-club/" },
+    "latitude": { "value": 14.0455, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/pinehurst-golf-country-club/" },
+    "longitude": { "value": 100.6005, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/pinehurst-golf-country-club/" },
+    "distance_from_bangkok_km": { "value": 35, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/pinehurst-golf-country-club/" },
+    "drive_time_from_bangkok_min": { "value": 40, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/pinehurst-golf-country-club/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=14.0455,100.6005", "source": "web-search", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/pinehurst-golf-country-club/" },
+    "club_rental_fee_thb": { "value": 750, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/pinehurst-golf-country-club/" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "notes": "27-hole course: North Lake, South Greenfield, West Forest nines. Hosted Johnnie Walker Classic 1992 and Thailand Open 1994. 15 min from Don Mueang Airport, 40 min from downtown. Address: 73 Moo 17, Phaholyothin Road, Khlong Nueng, Khlong Luang, Pathum Thani 12120."
+}

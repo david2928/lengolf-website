@@ -1,0 +1,140 @@
+{
+  "slug": "windsor-park-golf-club",
+  "region": "bangkok",
+  "status": "verified",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "verified_at": "2026-04-20",
+  "verification_status": "APPROVED",
+  "verification_notes": "36 holes confirmed. Ronald Fream & David Dale design confirmed. Year 1994 confirmed. Fees 1,500/2,200 THB green-fee-only. Caddie 400 THB, cart 700 THB.",
+  "disputes": [],
+  "fields": {
+    "name": {
+      "value": "Windsor Park & Golf Club",
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/windsor-park-golf-club/"
+    },
+    "province": {
+      "value": "Bangkok",
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/windsor-park-golf-club/"
+    },
+    "designer": {
+      "value": "Ronald Fream & David Dale",
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/windsor-park-golf-club-panya-park/"
+    },
+    "holes": {
+      "value": 36,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/windsor-park-golf-club-panya-park/"
+    },
+    "par": {
+      "value": 72,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/windsor-park-golf-club-panya-park/"
+    },
+    "yards": {
+      "value": 6970,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/windsor-park-golf-club-panya-park/"
+    },
+    "year_opened": {
+      "value": 1994,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/windsor-park-golf-club/"
+    },
+    "green_fee_weekday_thb": {
+      "value": 1500,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/windsor-park-golf-club/"
+    },
+    "green_fee_weekend_thb": {
+      "value": 2200,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/windsor-park-golf-club/"
+    },
+    "caddie_fee_thb": {
+      "value": 400,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/windsor-park-golf-club-panya-park/"
+    },
+    "cart_fee_thb": {
+      "value": 700,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/windsor-park-golf-club-panya-park/"
+    },
+    "caddie_required": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/windsor-park-golf-club"
+    },
+    "cart_required": {
+      "value": false,
+      "source": "model",
+      "url": null
+    },
+    "driving_range": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfcards.com/course/windsor-park-golf-club/"
+    },
+    "website": {
+      "value": "https://www.windsorgolf.co.th",
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/windsor-park-golf-club/"
+    },
+    "phone": {
+      "value": "+66 2 989 4200",
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/windsor-park-golf-club/"
+    },
+    "latitude": {
+      "value": 13.837,
+      "source": "model",
+      "url": null
+    },
+    "longitude": {
+      "value": 100.887,
+      "source": "model",
+      "url": null
+    },
+    "distance_from_bangkok_km": {
+      "value": 45,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/windsor-park-golf-club-panya-park/"
+    },
+    "drive_time_from_bangkok_min": {
+      "value": 50,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/windsor-park-golf-club-panya-park/"
+    },
+    "google_maps_url": {
+      "value": "https://maps.google.com/?q=13.837,100.887",
+      "source": "model",
+      "url": null
+    },
+    "club_rental_available": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/windsor-park-golf-club-panya-park/"
+    },
+    "club_rental_fee_thb": {
+      "value": 800,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/windsor-park-golf-club-panya-park/"
+    },
+    "club_rental_brands": {
+      "value": null,
+      "source": "model",
+      "url": null
+    }
+  },
+  "prose": {
+    "overview": "Windsor Park & Golf Club is a 36-hole parkland complex in northeast Bangkok's Nong Chok area, designed by American architects Ronald Fream and David Dale and opened in 1994. It offers four nine-hole courses — Lagoon, Palm, Garden, and the newer Lakeside — that can be combined for 18-hole rounds. Weekday green fees of 1,500 THB (excluding caddie and cart) make Windsor Park one of Bangkok's most accessible multi-course venues. The club also provides on-site accommodation, spa, and restaurant facilities, making it suitable as a short golf-focused stay outside the city. It is among the longest drives of any intra-Bangkok course — 50 minutes from central Bangkok — but reviewers consistently praise the peaceful, uncrowded atmosphere and straightforward booking process.",
+    "layout_and_experience": "The three original nines (Lagoon, Palm, Garden) share a similar parkland character: tree-lined fairways, sweeping creeks and ponds, greenside bunkers, and sloping greens that are described as true but on the slower side compared to Bangkok's premier venues. The Lakeside nine, added in 2006, is materially more challenging than the originals, with a man-made lake creating demanding approach shots that require genuinely accurate play. For golfers who want a relaxed round with variety and good condition without the time pressure of a high-volume commercial venue, Windsor Park delivers consistently. Overall course rating sits around 3.7/5 across review platforms, reflecting solid rather than exceptional quality.",
+    "tips": "Weekday green fees of 1,500 THB are very competitive for 36 holes of maintained parkland; weekend rates rise to 2,200 THB. Caddie (approximately 400 THB) and cart (approximately 700 THB) are added on top. Advance booking is straightforward through the club's website or via booking platforms. For a more challenging experience, request the Lakeside nine as part of your combination. On-site accommodation makes this viable for an overnight golf trip without travelling far from the city. The driving range is a plus for warming up properly.",
+    "location_and_access": "Windsor Park & Golf Club is at 46 Moo 8 Suwinthawong Road, Kok Fad, Nong Chok, Bangkok 10530. The northeast Bangkok location is accessible via the Bang Na Expressway or Suwinthawong Road, approximately 50 minutes from central Bangkok in normal traffic. The course is also accessible from Suvarnabhumi Airport (approximately 30–40 minutes). There is no direct public transport; Grab or taxi is the standard option from central Bangkok.",
+    "rental_cta_context": "Windsor Park's affordable green fees leave plenty of room in the budget for a quality rental set — LENGOLF delivers to Bangkok hotels city-wide so you can tee off at Windsor Park's Lakeside nine with premium equipment without the airport baggage hassle."
+  }
+}

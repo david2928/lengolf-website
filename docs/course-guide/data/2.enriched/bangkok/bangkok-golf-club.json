@@ -1,0 +1,136 @@
+{
+  "slug": "bangkok-golf-club",
+  "region": "bangkok",
+  "status": "enriched",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "fields": {
+    "name": {
+      "value": "Bangkok Golf Club",
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/bangkok-golf-club/"
+    },
+    "province": {
+      "value": "Pathum Thani",
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/bangkok-golf-club/"
+    },
+    "designer": {
+      "value": "Chird Boonyarattanevet",
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangkok-golf-club/"
+    },
+    "holes": {
+      "value": 18,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangkok-golf-club/"
+    },
+    "par": {
+      "value": 72,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangkok-golf-club/"
+    },
+    "yards": {
+      "value": 6812,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangkok-golf-club/"
+    },
+    "year_opened": {
+      "value": 1993,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/bangkok-golf-club/"
+    },
+    "green_fee_weekday_thb": {
+      "value": 2300,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/bangkok-golf-club/"
+    },
+    "green_fee_weekend_thb": {
+      "value": 3100,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/bangkok-golf-club/"
+    },
+    "caddie_fee_thb": {
+      "value": 400,
+      "source": "web-search",
+      "url": "https://www.thailandgolfers.com/golf-courses/bangkok/bangkok-golf-club/"
+    },
+    "cart_fee_thb": {
+      "value": 700,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangkok-golf-club/"
+    },
+    "caddie_required": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangkok-golf-club/"
+    },
+    "cart_required": {
+      "value": false,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangkok-golf-club/"
+    },
+    "driving_range": {
+      "value": false,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangkok-golf-club/"
+    },
+    "website": {
+      "value": "https://www.bkkgolfclub.com",
+      "source": "web-search",
+      "url": null
+    },
+    "phone": {
+      "value": "+66 2 501 2822",
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/bangkok-golf-club/"
+    },
+    "latitude": {
+      "value": 14.012,
+      "source": "model",
+      "url": null
+    },
+    "longitude": {
+      "value": 100.529,
+      "source": "model",
+      "url": null
+    },
+    "distance_from_bangkok_km": {
+      "value": 35,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangkok-golf-club/"
+    },
+    "drive_time_from_bangkok_min": {
+      "value": 35,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangkok-golf-club/"
+    },
+    "google_maps_url": {
+      "value": "https://maps.google.com/?q=14.012,100.529",
+      "source": "model",
+      "url": null
+    },
+    "club_rental_available": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangkok-golf-club/"
+    },
+    "club_rental_fee_thb": {
+      "value": 1200,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bangkok-golf-club/"
+    },
+    "club_rental_brands": {
+      "value": null,
+      "source": "model",
+      "url": null
+    }
+  },
+  "prose": {
+    "overview": "Bangkok Golf Club is a Thai-designed 18-hole championship course opened in 1993 on flat parkland in Pathum Thani province, about 35 kilometres north of central Bangkok. Designed by local architect Chird Boonyarattanevet, the course gained international recognition when it hosted the 2003 Volvo Masters of Asia, and its par-5 9th hole was once cited among the top 500 holes in the world by an American golf magazine. The course suffered serious damage during Thailand's catastrophic 2011 floods, losing many mature trees and requiring a full reconstruction of its greens, reopening in 2012 under new management with notably improved service standards. Weekday green fees of around 2,300 THB (excluding caddie and cart) put it in the mid-tier Bangkok market — solid value for a course with genuine tournament pedigree. Night golf under floodlights is available until 23:30, an unusual and practical option for golfers looking to escape Bangkok's daytime heat.",
+    "layout_and_experience": "The layout is predominantly flat parkland, a straightforward design that does not rely on dramatic elevation changes but instead uses strategic water hazards, doglegs, and fast undulating greens to generate challenge. The front nine is relatively open, while the back nine steps up in difficulty with more water in play. The signature par-3 11th features a full island green surrounded by water and a large encircling bunker — a demanding one-shotter that tends to separate scores. The rebuilt greens post-2011 are among the course's strongest assets, described as fast and true. The par-5 9th, a double-dogleg, rewards careful course management over raw power. The redesign also added a practice green and chipping area adjacent to the clubhouse. Pace of play is generally good on weekdays; weekend mornings can be busier with local members.",
+    "tips": "Play on a weekday to avoid crowds and to take advantage of the lower green fee. Tee off early to avoid afternoon heat, or consider the night golf option if visiting in the hotter months (March–May). The caddie fee (approximately 400 THB) and cart fee (approximately 700 THB) are paid separately on the day and are not included in the base green fee — budget accordingly. Club rental is available at around 1,200 THB for a full set. Accommodation is available on-site, making it a convenient option for golfers planning multiple rounds in the Pathum Thani area. Bring sunscreen and a light rain jacket during monsoon season (June–October).",
+    "location_and_access": "Bangkok Golf Club is located in Bang Kadi sub-district, Mueang Pathum Thani, Pathum Thani province — address: 99 Moo 2 Tiwanon Road, Pathum Thani 12000. It sits approximately 35 km north of central Bangkok, accessible via the elevated expressway heading toward Don Mueang Airport, then north on Tiwanon Road. The drive from central Bangkok takes around 35 minutes in light traffic, rising to 60 minutes during peak hours. There is no convenient public transport link; a taxi or Grab from central Bangkok or Don Mueang Airport is the practical option. Distance from Suvarnabhumi Airport is approximately 60 km (60–75 minutes by road).",
+    "rental_cta_context": "If you are flying into Bangkok and heading straight to a Pathum Thani course like Bangkok Golf Club, LENGOLF can deliver a premium club set directly to your Bangkok hotel the night before so you travel light. LENGOLF delivers to hotels across central Bangkok with no fuss."
+  }
+}

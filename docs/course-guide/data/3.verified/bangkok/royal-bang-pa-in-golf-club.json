@@ -1,0 +1,143 @@
+{
+  "slug": "royal-bang-pa-in-golf-club",
+  "region": "bangkok",
+  "status": "verified",
+  "verified_at": "2026-04-20",
+  "verification_status": "APPROVED",
+  "verification_notes": "Schmidt-Curley design confirmed. Year 2017 confirmed. Green fees (4,300/5,400 THB) all-inclusive (caddie and cart included in package pricing). Province Ayutthaya correct — within Bangkok day-trip range.",
+  "disputes": [],
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "fields": {
+    "name": {
+      "value": "Royal Bang Pa-In Golf Club",
+      "source": "official-website",
+      "url": "https://royalbpgolf.com/"
+    },
+    "province": {
+      "value": "Ayutthaya",
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bang-pa-in/"
+    },
+    "designer": {
+      "value": "Schmidt-Curley Design",
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bang-pa-in/"
+    },
+    "holes": {
+      "value": 18,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bang-pa-in/"
+    },
+    "par": {
+      "value": 72,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bang-pa-in/"
+    },
+    "yards": {
+      "value": 7054,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bang-pa-in/"
+    },
+    "year_opened": {
+      "value": 2017,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bang-pa-in/"
+    },
+    "green_fee_weekday_thb": {
+      "value": 4300,
+      "source": "web-search",
+      "url": "https://www.easygolfbooking.com/Packages/Detail/2620"
+    },
+    "green_fee_weekend_thb": {
+      "value": 5400,
+      "source": "web-search",
+      "url": "https://www.easygolfbooking.com/Packages/Detail/2620"
+    },
+    "caddie_fee_thb": {
+      "value": null,
+      "source": "web-search",
+      "url": "https://www.easygolfbooking.com/Packages/Detail/2620"
+    },
+    "cart_fee_thb": {
+      "value": null,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bang-pa-in/"
+    },
+    "caddie_required": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bang-pa-in/"
+    },
+    "cart_required": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golftripz.com/golf-course/royal-bang-pa-in-golf-club"
+    },
+    "driving_range": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bang-pa-in/"
+    },
+    "website": {
+      "value": "https://royalbpgolf.com",
+      "source": "official-website",
+      "url": "https://royalbpgolf.com/"
+    },
+    "phone": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "latitude": {
+      "value": 14.261,
+      "source": "model",
+      "url": null
+    },
+    "longitude": {
+      "value": 100.576,
+      "source": "model",
+      "url": null
+    },
+    "distance_from_bangkok_km": {
+      "value": 75,
+      "source": "web-search",
+      "url": "https://www.golftripz.com/golf-course/royal-bang-pa-in-golf-club"
+    },
+    "drive_time_from_bangkok_min": {
+      "value": 60,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bang-pa-in/"
+    },
+    "google_maps_url": {
+      "value": "https://maps.google.com/?q=14.261,100.576",
+      "source": "model",
+      "url": null
+    },
+    "club_rental_available": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bang-pa-in/"
+    },
+    "club_rental_fee_thb": {
+      "value": 1500,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/bang-pa-in/"
+    },
+    "club_rental_brands": {
+      "value": [
+        "Titleist",
+        "Callaway"
+      ],
+      "source": "web-search",
+      "url": "https://www.easygolfbooking.com/Packages/Detail/2620"
+    }
+  },
+  "prose": {
+    "overview": "Royal Bang Pa-In Golf Club is one of the newest and most ambitious courses near Bangkok — a 2017 Schmidt-Curley championship layout in Ayutthaya province that has quickly earned a reputation as one of the region's finest modern venues. Stretching 7,054 yards from the tips across 100 hectares, the course is built on a grand scale with what reviewers describe as some of the largest and fastest greens in all of Asia, planted with Champion ultra-dwarf Bermuda grass. Schmidt-Curley Design — the same firm behind some of Asia's most acclaimed resort courses — brought unusual sophistication to the project: fairways are grassed in Paspalum turf (exceptional for tropical conditions), and there are genuine elevation changes of up to seven metres, rare for Thailand's largely flat central plain. The ultra-modern elliptical clubhouse with 360-degree views completes a package that punches above its price point.",
+    "layout_and_experience": "The 18-hole layout is parkland in style but with more variety than most Bangkok-area courses. Elevation changes affect club selection throughout, and water features prominently on several holes — the 9th and 15th each have fairways split by water requiring strategic tee shot placement. The signature par-3 14th presents a full island green that is demanding even in calm conditions, more so on windy days. Square-style bunkers add a contemporary aesthetic alongside waste areas that give the course a links-inspired edge in certain sections. Tee time intervals are deliberately generous to maintain an unhurried pace — the club prides itself on a relaxed, premium experience rather than volume throughput.",
+    "tips": "Package pricing (approximately 4,300 THB weekday, 5,400 THB weekend) is all-inclusive of caddie and cart — a weekend surcharge of around 1,100 THB applies. A recommended caddie tip of 400 THB is paid separately in cash after the round. Book well in advance for weekends, as the course limits group sizes (4 maximum on weekends). The modern clubhouse serves Thai, Chinese, Japanese, and Western cuisine. Titleist and Callaway rental sets are available for approximately 1,500–1,700 THB. The course is 30 minutes from Don Mueang Airport, making it more accessible from DMK than from Suvarnabhumi.",
+    "location_and_access": "Royal Bang Pa-In Golf Club is located at 19 Bang Krasan, Bang Pa-In District, Phra Nakhon Si Ayutthaya Province. It lies approximately 75 km north of central Bangkok, about 60 minutes by car via the Expressway toward Don Mueang and then north on the Asia Highway (Highway 1). From Don Muang Airport the drive is approximately 30 minutes. The course is near the historic Bang Pa-In Royal Palace, a worthwhile additional excursion. There is no practical public transport link; private car, taxi, or Grab is the only realistic option.",
+    "rental_cta_context": "Travelling the 75 km from Bangkok to Royal Bang Pa-In is far more comfortable without a set of clubs in the back seat. LENGOLF delivers premium rental clubs to your Bangkok hotel so you can head north hands-free and arrive ready to play."
+  }
+}

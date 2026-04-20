@@ -2,7 +2,7 @@ import 'server-only'
 import type { GolfCourse } from '@/types/golf-courses'
 
 // Supported regions — extend as new batches are published
-const REGIONS = ['bangkok', 'pattaya'] as const
+const REGIONS = ['bangkok', 'pattaya', 'hua-hin', 'phuket', 'khao-yai', 'chiang-mai'] as const
 type Region = (typeof REGIONS)[number]
 
 /** Display metadata for each published region — used by index and hub pages. */
@@ -11,13 +11,37 @@ export const REGION_META: Record<string, { label: string; province: string; desc
     label: 'Bangkok',
     province: 'Bangkok & surrounding provinces',
     description: 'Bangkok and its surrounding provinces are home to some of Thailand\'s finest golf courses — from championship-grade layouts in Pathum Thani to accessible resort courses within 90 minutes of the city centre.',
-    courseCount: 11,
+    courseCount: 58,
   },
   pattaya: {
     label: 'Pattaya',
     province: 'Chonburi & Eastern Seaboard',
     description: 'Pattaya and Thailand\'s Eastern Seaboard offer some of the country\'s most spectacular golf — championship venues that have hosted Asian Tour events, coastal courses with sea views, and private members\' clubs set among tropical hills.',
-    courseCount: 6,
+    courseCount: 23,
+  },
+  'hua-hin': {
+    label: 'Hua Hin',
+    province: 'Prachuap Khiri Khan & Phetchaburi',
+    description: 'Hua Hin and Cha-am are home to some of Thailand\'s most celebrated golf courses — from the Golf Digest top-100 Black Mountain to the world-ranked Pineapple Valley, all set against a backdrop of mountain ranges and the Gulf of Thailand.',
+    courseCount: 11,
+  },
+  phuket: {
+    label: 'Phuket',
+    province: 'Phuket',
+    description: 'Phuket\'s golf scene is defined by dramatic former tin mine landscapes, iconic tournament venues, and resort courses set along the island\'s famous coastline — from the acclaimed Red Mountain to Blue Canyon\'s Johnnie Walker Classic fairways.',
+    courseCount: 8,
+  },
+  'khao-yai': {
+    label: 'Khao Yai',
+    province: 'Nakhon Ratchasima & Nakhon Nayok',
+    description: 'Khao Yai and the Central Highlands offer courses within two to three hours of Bangkok — from Jack Nicklaus Signature designs at Kirimaya and Khao Yai Golf Club to Seve Ballesteros\'s only Thailand layout at Mountain Creek, budget-friendly woodland rounds at Bonanza and Seoul Siam, and the veteran Rooks Korat course in Pak Thong Chai.',
+    courseCount: 8,
+  },
+  'chiang-mai': {
+    label: 'Chiang Mai',
+    province: 'Chiang Mai',
+    description: 'Chiang Mai\'s golf scene combines a 27-hole parkland resort famous for Thailand\'s first paddy field greens with a demanding Schmidt-Curley highland layout set in the mountains of Mae On — two very different experiences, both reached by a short flight from Bangkok.',
+    courseCount: 2,
   },
 }
 

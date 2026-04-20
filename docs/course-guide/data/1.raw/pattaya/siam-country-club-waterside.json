@@ -1,0 +1,32 @@
+{
+  "slug": "siam-country-club-waterside",
+  "region": "pattaya",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Siam Country Club Waterside", "source": "web-search", "url": "https://siamcountryclub.com/waterside/" },
+    "province": { "value": "Chonburi", "source": "web-search", "url": "https://siamcountryclub.com/waterside/" },
+    "designer": { "value": null, "source": "model", "url": null, "note": "One agent source cited 'IMG Golf Design' but this is unconfirmed. Official SCC website does not name a designer." },
+    "holes": { "value": 18, "source": "web-search", "url": "https://siamcountryclub.com/waterside/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfsavers.com/thailand/pattaya-golf-courses/siam-country-club-pattaya-waterside" },
+    "year_opened": { "value": 2014, "source": "web-search", "url": "https://siamcountryclub.com/waterside/" },
+    "green_fee_weekday_thb": { "value": 5960, "source": "web-search", "url": "https://www.golfsavers.com/thailand/pattaya-golf-courses/siam-country-club-pattaya-waterside", "note": "All-in (green fee + caddie + cart) per golf agent. Verify current rate — official SCC site does not publish rates publicly." },
+    "green_fee_weekend_thb": { "value": 6960, "source": "web-search", "url": "https://www.golfsavers.com/thailand/pattaya-golf-courses/siam-country-club-pattaya-waterside", "note": "All-in per golf agent. Verify." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Caddie compulsory; included in all-in rate. Tip of 500 THB per caddie is customary." },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null, "note": "Cart compulsory at 1,000 THB/person per booking site — may or may not be included in all-in rate." },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://siamcountryclub.com/waterside/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.pattayagolf.net/golf.php?golf_id=17" },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": "https://siamcountryclub.com/waterside/", "source": "web-search", "url": "https://siamcountryclub.com/waterside/" },
+    "phone": { "value": "+66 38 909 700", "source": "web-search", "url": "https://siamcountryclub.com/" },
+    "latitude": { "value": 12.836, "source": "model", "url": null, "note": "Approximate — SCC complex shares general coordinates. Verify individual course pin." },
+    "longitude": { "value": 101.067, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 140, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 100, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null },
+    "address": { "value": null, "source": "model", "url": null, "note": "SCC complex address: 50 Moo 9, Pong, Banglamung, Chonburi 20150. Waterside may share or have a separate address." },
+    "club_rental_available": { "value": null, "source": "model", "url": null, "note": "SCC Old Course offers 2,500 THB rental — Waterside likely similar." },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  }
+}

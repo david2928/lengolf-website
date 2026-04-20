@@ -1,0 +1,40 @@
+{
+  "slug": "st-andrews-2000",
+  "region": "pattaya",
+  "status": "enriched",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "St Andrews 2000 Golf Club", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/st-andrews-2000-golf-club/" },
+    "province": { "value": "Rayong", "source": "web-search", "url": "https://www.tripadvisor.com/Attraction_Review-g2237272-d3814439-Reviews-St_Andrews_2000-Ban_Chang_Rayong_Province.html" },
+    "designer": { "value": "Desmond Muirhead", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/st-andrews-2000-golf-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/st-andrews-2000-golf-club/" },
+    "par": { "value": 74, "source": "web-search", "url": "https://www.top100golfcourses.com/golf-course/st-andrews-2000", "note": "Unusual par 74 due to two par-6 holes (4th and 13th) each over 800 yards." },
+    "year_opened": { "value": 2000, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/st-andrews-2000-golf-club/" },
+    "green_fee_weekday_thb": { "value": null, "source": "model", "url": null, "note": "Course was undergoing renovation; GolfDD listed as 'closed for renovation, opens Dec' (2025). Status in April 2026 unconfirmed. Verify before publishing." },
+    "green_fee_weekend_thb": { "value": null, "source": "model", "url": null, "note": "See weekday note. Cart rental 900 THB/pax cited by one source; caddie included in packages." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Included in package rates per booking agents. Actual standalone fee not confirmed." },
+    "cart_fee_thb": { "value": 900, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/st-andrews-2000-golf-club/", "note": "900 THB/pax cited by one source." },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/st-andrews-2000-golf-club/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/st-andrews-2000-golf-club/", "note": "Carts with caddies are compulsory." },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": "https://greenvalleythailand.wixsite.com/standrews2000golf", "source": "web-search", "url": null, "note": "Wix-hosted site; may not be official. Verify." },
+    "phone": { "value": null, "source": "model", "url": null, "note": "Phone not confirmed. Search results confused St Andrews 2000 with Rayong Green Valley (shared Samnakthon area). Verify separately." },
+    "latitude": { "value": 12.77, "source": "model", "url": null, "note": "Approximate — Samnakthon, Ban Chang, Rayong. Verify." },
+    "longitude": { "value": 101.39, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 190, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/st-andrews-2000-golf-club/", "note": "Sources say ~45 min from Pattaya, ~2 hr from Bangkok." },
+    "drive_time_from_bangkok_min": { "value": 135, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "address": { "value": "Ban Chang, Rayong 21130", "source": "web-search", "url": "https://www.tripadvisor.com/Attraction_Review-g2237272-d3814439-Reviews-St_Andrews_2000-Ban_Chang_Rayong_Province.html", "note": "Full street address not confirmed." },
+    "club_rental_available": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "St Andrews 2000 Golf Club is an 18-hole course in Ban Chang, Rayong, designed by English architect Desmond Muirhead and opened in 2000. The course is distinctive for its unconventional par-74 layout, which includes two par-6 holes — the 4th (878 yards) and 13th (861 yards) — making it among the most unusual scorecards in Thailand. Muirhead designed the course to replicate elements of a Scottish links, introducing elevated tees and greens, split fairways, and large putting surfaces within a tropical setting. At 7,777 yards from the back tees, it is one of the longest courses in the Pattaya region and demands consistent ball-striking to score well. The course underwent a renovation period and was listed as closed for refurbishment with a December 2025 planned reopening — current operational status should be verified before visiting.",
+    "layout_and_experience": "The par-74 layout is the defining characteristic of St Andrews 2000. The two par-6 holes are not merely long — they require strategic planning across split fairways and elevated terrain, with the 4th playing 878 yards and the 13th at 861 yards. Beyond the par-6s, the course features elevated tees and greens on multiple holes, tight landing zones off the tee, and putting surfaces that Muirhead designed to be unusually large. The Scottish links aesthetic influences the lack of heavy tree cover on several holes, exposing the round to wind that shifts significance of club selection. Split fairways create genuine risk-reward decisions: the aggressive line shortens the hole but introduces bunker and gradient risk. Caddies are compulsory and particularly valuable for navigating the unconventional routing on a first visit.",
+    "tips": "St Andrews 2000 was closed for renovation with a projected December 2025 reopening — confirm the course is operational before making the trip, as conditions post-renovation may differ from pre-closure reviews. The remote Rayong location (approximately 45 minutes beyond central Pattaya) means it works best as part of a multi-day Pattaya trip rather than a Bangkok day trip. With a handicap of 18 or lower, the course will pose a genuine challenge — the par-6 holes and elevated greens create scoring opportunities but also significant bogey risks. Cart rental (approximately 900 THB/pax) is compulsory.",
+    "location_and_access": "St Andrews 2000 Golf Club is located approximately 190km southeast of central Bangkok in Ban Chang, Rayong province. The drive from Bangkok takes around 135 minutes via the Bang Na–Trat Expressway (Highway 7) and onward through Pattaya. The course is approximately 45 minutes by car from central Pattaya city. Pre-arranged golf transfers from Pattaya hotels are the recommended transport option given the distance from the city.",
+    "rental_cta_context": "Making the journey to St Andrews 2000 in Rayong? Rent clubs at your Pattaya hotel — bring the right specs for Thailand's only par-74 course."
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "slug": "greenwood-golf-club",
+  "region": "pattaya",
+  "status": "enriched",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Greenwood Golf Club", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/greenwood-golf-resort-noble-place/" },
+    "province": { "value": "Chonburi", "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/" },
+    "designer": { "value": "Peter Thomson", "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/", "note": "Co-designed with Michael Wolveridge." },
+    "holes": { "value": 27, "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/", "note": "27 holes; standard round uses 18." },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/", "note": "Par 72 for 18-hole rounds." },
+    "year_opened": { "value": 1993, "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/" },
+    "green_fee_weekday_thb": { "value": 1000, "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/", "note": "Low end of 1,000–1,500 THB range — provisional. Verify." },
+    "green_fee_weekend_thb": { "value": 1500, "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/", "note": "High end of range — provisional. Verify." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Likely included in green fee per player review total." },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": null, "source": "model", "url": null },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": "http://www.gwgolfclub.com/", "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/" },
+    "phone": { "value": null, "source": "model", "url": null, "note": "Not found — verify." },
+    "latitude": { "value": 13.15, "source": "model", "url": null, "note": "Approximate — Khlong Kiu, Ban Bueng, Chonburi. Verify." },
+    "longitude": { "value": 101.15, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 145, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 105, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null },
+    "address": { "value": "88/8 Moo 6, Khlong Kiu, Ban Bueng, Chonburi 20220", "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/" },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/", "note": "Clubs for hire listed in facility amenities — fee not confirmed." },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Greenwood Golf Club — formerly Noble Place Golf Course & Country Club — is a 27-hole course in Khlong Kiu, Ban Bueng, Chonburi, designed by Peter Thomson (with co-designer Michael Wolveridge) and opened on April 2, 1993. Thomson, a five-time British Open champion turned prolific course architect, was active across multiple Thai courses during this era, and Greenwood sits alongside Rayong Green Valley as one of his notable eastern-region designs. The 27-hole layout allows three distinct 18-hole routing combinations; the standard round plays to par 72 over approximately 7,015 yards. Green fees are in the 1,000–1,500 THB range (provisional, including caddie), making it one of the more affordable Thomson designs in Thailand.",
+    "layout_and_experience": "Peter Thomson's design philosophy at Greenwood emphasises variety over drama — the 27-hole layout roams through a wide site with mild elevation changes, alternating between lightly tree-lined corridors and more open stretches. The routing creates genuine contrast between holes: tree-lined sections reward straight drivers, while the open holes introduce wind as the primary challenge. The 7,015-yard benchmark for 18 holes is respectable for a course of this vintage, and the three routing combinations mean frequent visitors can mix up their round without repetition. The fairways and greens reflect Thomson's preference for strategic positioning over forced difficulty — the course is demanding when played from the back tees, but accessible enough for mid-handicappers from the forward positions.",
+    "tips": "Greenwood Golf Club is close in location and character to Pattavia Century Golf Club — both are in the Ban Bueng inland zone, off the main Pattaya golf corridor. A two-course day pairing the two is practical for golfers making the journey north from Pattaya. The 27-hole format means your round routing may vary depending on course maintenance schedules — confirm which 18 holes are in play when booking. The green fees in the 1,000–1,500 THB range put Greenwood among the most affordable Thomson designs available. Phone number was not confirmed in web searches — book through a Pattaya golf agent or contact the official website (gwgolfclub.com).",
+    "location_and_access": "Greenwood Golf Club is located at 88/8 Moo 6, Khlong Kiu, Ban Bueng, Chonburi 20220 — approximately 145km southeast of central Bangkok and 70 minutes from central Pattaya by car. The drive from Bangkok takes around 105 minutes. Pre-arranged golf transfers from Pattaya hotels are the standard transport option; self-drive is practical via Highway 7 and onward roads through the Chonburi inland area.",
+    "rental_cta_context": "Playing Greenwood Golf Club near Ban Bueng? Rent clubs from LENGOLF and explore Peter Thomson's 27-hole Chonburi layout without the gear check."
+  }
+}

@@ -25,7 +25,6 @@ let mapsReady: Promise<void> | null = null
 
 function loadMapsApi(apiKey: string): Promise<void> {
   if (typeof window === 'undefined') return Promise.resolve()
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   if ((window as any).google?.maps?.Map) return Promise.resolve()
   if (mapsReady) return mapsReady
   mapsReady = new Promise<void>((resolve, reject) => {
@@ -62,9 +61,7 @@ export default function CourseMapExplorer({ courses, region }: Props) {
   const activeCourse = courses.find((c) => c.slug === activeSlug) ?? null
 
   const mapDivRef  = useRef<HTMLDivElement>(null)
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mapRef     = useRef<any>(null)
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const markersRef = useRef<{ marker: any; pin: HTMLDivElement; slug: string }[]>([])
 
   const handleListRow = useCallback((slug: string) => {
@@ -79,8 +76,7 @@ export default function CourseMapExplorer({ courses, region }: Props) {
 
     loadMapsApi(apiKey).then(() => {
       if (cancelled || !mapDivRef.current) return
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const gmaps = (window as any).google.maps
+          const gmaps = (window as any).google.maps
       const center = REGION_CENTER[region] ?? { lat: 13.0, lng: 100.5, zoom: 10 }
 
       const map = new gmaps.Map(mapDivRef.current, {
@@ -122,8 +118,7 @@ export default function CourseMapExplorer({ courses, region }: Props) {
     return () => {
       cancelled = true
       markersRef.current.forEach(({ marker }) => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        ;(marker as any).map = null
+              ;(marker as any).map = null
       })
       markersRef.current = []
     }

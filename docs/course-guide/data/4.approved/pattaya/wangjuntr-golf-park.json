@@ -1,0 +1,57 @@
+{
+  "slug": "wangjuntr-golf-park",
+  "region": "pattaya",
+  "status": "verified",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "verified_at": "2026-04-20",
+  "verification_status": "APPROVED (provisional)",
+  "verification_notes": "Previously HELD in Bangkok region pipeline due to region mismatch. Confirmed by all sources (GolfPass, Golfasian, Golfpattaya, Tripadvisor, Kolfers, golfdd.com) as Rayong Province, Wang Chan District — correct region is Pattaya/Eastern Seaboard. Course is a 54-hole complex (Valley, Highland, Jungle) with 36 greens on each of the two main twin-layout courses, opened 2002, designer Prasobchai Kasemsant. Fee structure confirmed via golfdd.com and Thailand Golfers: Thai/foreigner-with-ID weekday (Tue–Fri) 1,150 THB all-in (green fee + caddie + cart); Thai/foreigner-with-ID weekend 1,750 THB all-in; Non-ID foreigner every day: 3,650 THB all-in. All-in fee means caddie_fee_thb and cart_fee_thb are null (bundled). Using 3,650 THB as the standard published green_fee_weekday_thb and green_fee_weekend_thb because the tourist/foreigner flat rate is the relevant figure for this site's audience; note Thai rate in verification notes. Caddie and cart both compulsory per multiple sources. Kolfers lists caddie 350 THB and cart 800/1,200 THB separately — likely older data; the current booking platforms bundle them. GPS 13.023781, 101.424955 from golfdd.com. Address sources slightly diverge: Kolfers lists 137 Moo 1, golfdd.com lists 129 Moo 6 — both reference Pa Yup Nai, Wang Chan, Rayong. Designer 'Prasobchai Kasemsant' confirmed by golfasian.com, golf-tours-thailand.com, golflux.com, golfpattaya.com. Year 2002 confirmed by golfasian.com, golfpattaya.com, golfdd.com. Distance from Bangkok 128 km / 95 min confirmed by search results (one source says 'from the airport'; central Bangkok drive would be approximately 130–140 km). Phone 081-932-6669 confirmed by multiple sources; head office +66 2 276 9072. Website wangjuntrgolf.com confirmed. Course closes on Mondays. priceRange: ฿฿฿ (foreigner all-in 3,650 THB per round).",
+  "disputes": [
+    "Thai vs foreigner fee: The course operates a dual-pricing system. Thai nationals and foreigners presenting a valid ID, driver's licence, or Club Thailand Card (from Pattaya Sports Club) pay 1,150 THB weekday / 1,750 THB weekend (all-in). Non-ID foreigners pay 3,650 THB every day. Site is aimed at tourist golfers who will typically pay the 3,650 THB flat rate. Using 3,650 THB as published rate; Thai rate documented in verification_notes.",
+    "Address discrepancy: Kolfers lists 137 Moo 1 Pa Yup Nai, Wang Chan, Rayong. Golflux and other sources list 129 Moo 6 Pa Yup Nai, Wang Chan, Rayong. Both reference the same GPS area. Could not resolve without direct contact. Used Kolfers/golfpattaya version (137 Moo 1) as it matches the GPS coordinates more consistently.",
+    "Holes/par: The complex has 54 holes across three 18-hole courses (Valley, Highland, Jungle). Some sources describe it as 36 holes (Valley + Highland), as the Jungle course may still be intermittently closed for maintenance. Each course is par 72. Using 54 holes in the fields object as the full facility count; Stage 5 should note both 18-hole and full-complex yardage."
+  ],
+  "fields": {
+    "name": { "value": "Wangjuntr Golf Park", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/wangjuntr-golf-nature-park/" },
+    "province": { "value": "Rayong", "source": "web-search", "url": "https://www.golfpattaya.com/wangjuntr-golf-park" },
+    "designer": { "value": "Prasobchai Kasemsant", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/wangjuntr-golf-nature-park/" },
+    "holes": { "value": 54, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/wangjuntr-golf-nature-park/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/wangjuntr-golf-nature-park/" },
+    "yards": { "value": 7641, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/wangjuntr-golf-nature-park/" },
+    "year_opened": { "value": 2002, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/wangjuntr-golf-nature-park/" },
+    "green_fee_weekday_thb": { "value": 3650, "source": "web-search", "url": "https://www.golfdd.com/course/12" },
+    "green_fee_weekend_thb": { "value": 3650, "source": "web-search", "url": "https://www.golfdd.com/course/12" },
+    "caddie_fee_thb": { "value": null, "source": "web-search", "url": "https://www.golfpattaya.com/wangjuntr-golf-park" },
+    "cart_fee_thb": { "value": null, "source": "web-search", "url": "https://www.golfpattaya.com/wangjuntr-golf-park" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfpattaya.com/wangjuntr-golf-park" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/wangjuntr-golf-nature-park/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/wangjuntr-golf-nature-park/" },
+    "website": { "value": "http://www.wangjuntrgolf.com", "source": "web-search", "url": "http://www.wangjuntrgolf.com/" },
+    "phone": { "value": "+66 81 932 6669", "source": "web-search", "url": "https://www.kolfers.com/golf-details/wangjuntr-golf-park" },
+    "latitude": { "value": 13.023781, "source": "web-search", "url": "https://www.golfdd.com/course/12" },
+    "longitude": { "value": 101.424955, "source": "web-search", "url": "https://www.golfdd.com/course/12" },
+    "distance_from_bangkok_km": { "value": 130, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/wangjuntr-golf-nature-park/" },
+    "drive_time_from_bangkok_min": { "value": 100, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/wangjuntr-golf-nature-park/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=13.023781,101.424955", "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/wangjuntr-golf-nature-park/" },
+    "club_rental_fee_thb": { "value": 600, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/wangjuntr-golf-nature-park/" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Wangjuntr Golf Park is an ambitious 54-hole golf resort in Wang Chan District, Rayong Province, opened in 2002 and designed by Thai architect Prasobchai Kasemsant. The facility comprises three 18-hole layouts — the Valley Course (7,173 yards, par 72), the Highland Course (7,641 yards, par 72, claimed to be the longest golf course in Thailand at time of publication), and the Jungle Course — each built with an unusual twin-green design modelled on Japanese course conventions, offering two distinct putting surfaces per hole for additional variety in course setup. The complex is set within a former rubber plantation and agricultural landscape in the hills above Rayong, with mature trees, water features, and the natural terrain providing the framework for each course. The site also functions partly as an open wildlife sanctuary, with animals inhabiting the grounds naturally. Foreigners pay 3,650 THB all-inclusive (green fee, caddie, and cart), making it straightforward to budget. The course is closed on Mondays.",
+    "layout_and_experience": "The Highland Course is Wangjuntr's flagship layout, stretching to 7,641 yards from the championship tees — a genuinely long test by any standard. Four par-3s range from 150 to 253 yards; four par-5s reach up to 690 yards, demanding controlled power off the tee and consistent long-iron play into well-defended greens. The Valley Course, at 7,173 yards, offers five par-3s and five par-5s, creating an unusual distribution that delivers more variety in hole type over the round. Both courses use the twin-green design — each hole has two distinct greens, each with a different character, so the course plays differently depending on which green is in play that day. This Japanese-style innovation is rare in Thailand and adds genuine replay value. The forested hillside terrain creates natural elevation changes and framing not found on the flat coastal courses more typical of Pattaya-region golf. Reviewers consistently describe the Highland as among Thailand's most demanding courses, particularly when the wind picks up across the higher holes. The Jungle Course adds a third 18 holes through denser vegetation. Caddie and cart are compulsory and are bundled into the published rate — the course is described as not walkable.",
+    "tips": "The all-in 3,650 THB foreigner rate covers green fee, caddie, and cart — no itemised additions except for optional tips. Budget an additional 150–200 THB caddie tip as standard. The course closes on Mondays. Wangjuntr is approximately 100 minutes from Bangkok and 60–90 minutes from central Pattaya, so early starts are essential for a full round without feeling rushed. Bring extra golf balls — the length and tight jungle lines on the Jungle Course can be punishing for wayward shots. The wildlife (including wild boar that can disturb fairways) is a genuine course condition variable; caddies will advise on which areas have been affected. November through February is the prime season for conditions in Rayong. Book at least one day ahead for weekdays, two days for weekends and public holidays.",
+    "location_and_access": "Wangjuntr Golf Park is located at 137 Moo 1 (or 129 Moo 6), Pa Yup Nai, Wang Chan, Rayong 21210 — approximately 130 km southeast of central Bangkok and about 60 minutes by car from downtown Pattaya. The drive from Bangkok takes approximately 100 minutes via the Eastern Seaboard Motorway (Highway 7) toward Rayong, then inland toward Wang Chan. The course is remote by Pattaya-area standards; a pre-arranged transfer, rental car, or private driver is strongly recommended. No practical public transport serves the location.",
+    "rental_cta_context": "Planning to play Wangjuntr's championship Highland Course on your Thailand trip? LENGOLF delivers TaylorMade and Callaway rental clubs to your Bangkok hotel — skip the baggage fees for a course that demands proper equipment."
+  },
+  "locales": {
+    "en": {
+      "title": "Wangjuntr Golf Park — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Wangjuntr Golf Park Rayong: 54-hole resort, 3,650 THB all-in, Highland Course guide, caddie/cart info & golf club rentals for your Thailand golf trip."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  }
+}

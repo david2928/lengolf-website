@@ -1,0 +1,33 @@
+{
+  "slug": "nichigo-resort-country-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Nichigo Resort & Country Club (now Artitaya Golf & Resort Kanchanaburi)", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/kanchanaburi/nichigo-resort-country-club/" },
+    "province": { "value": "Kanchanaburi", "source": "web-search", "url": "https://www.golflux.com/course/nichigo-golf-resort-country-club/" },
+    "designer": { "value": "Mitsuaki Kobayashi", "source": "web-search", "url": "https://www.golflux.com/course/nichigo-golf-resort-country-club/" },
+    "holes": { "value": 27, "source": "web-search", "url": "https://www.golflux.com/course/nichigo-golf-resort-country-club/" },
+    "par": { "value": 108, "source": "web-search", "url": "https://www.golflux.com/course/nichigo-golf-resort-country-club/" },
+    "yards": { "value": 7223, "source": "web-search", "url": "https://www.golflux.com/course/nichigo-golf-resort-country-club/" },
+    "year_opened": { "value": 1992, "source": "web-search", "url": "https://www.golflux.com/course/nichigo-golf-resort-country-club/" },
+    "green_fee_weekday_thb": { "value": 2000, "source": "web-search", "url": "https://www.1golf.eu/en/club/nichigo-resort-country-club/" },
+    "green_fee_weekend_thb": { "value": 2000, "source": "web-search", "url": "https://www.1golf.eu/en/club/nichigo-resort-country-club/" },
+    "caddie_fee_thb": { "value": 400, "source": "model", "url": null },
+    "cart_fee_thb": { "value": 1000, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/kanchanaburi/nichigo-resort-country-club/" },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golflux.com/course/nichigo-golf-resort-country-club/" },
+    "website": { "value": null, "source": "model", "url": null },
+    "phone": { "value": "+66 34 910 310", "source": "web-search", "url": "https://www.1golf.eu/en/club/nichigo-resort-country-club/" },
+    "latitude": { "value": 14.1234, "source": "web-search", "url": "https://elevation.maplogs.com/poi/nichigo_resort_country_club_tambol_tambon_wang_dong_amphoe_mueang_kanchanaburi_chang_wat_kanchanaburi_thailand.380432.html" },
+    "longitude": { "value": 99.3481, "source": "web-search", "url": "https://elevation.maplogs.com/poi/nichigo_resort_country_club_tambol_tambon_wang_dong_amphoe_mueang_kanchanaburi_chang_wat_kanchanaburi_thailand.380432.html" },
+    "distance_from_bangkok_km": { "value": 155, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 165, "source": "web-search", "url": "https://www.golflux.com/guide-to-golf-in-kanchanaburi/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=14.1234,99.3481", "source": "web-search", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golflux.com/course/nichigo-golf-resort-country-club/" },
+    "club_rental_fee_thb": { "value": 500, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/kanchanaburi/nichigo-resort-country-club/" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null },
+    "notes": { "value": "Property now operating as Artitaya Golf & Resort Kanchanaburi (rebranded from Nichigo). 27 holes: Lake, River, Mountain courses. Address: 106 Moo 4, Tambon Wangdong, Amphur Muang, Kanchanaburi 71000. Green fee 2000 THB may be for 18 holes — standard rate applies regardless of weekday/weekend per Albrecht Guide.", "source": "web-search", "url": "https://www.1golf.eu/en/club/nichigo-resort-country-club/" }
+  }
+}

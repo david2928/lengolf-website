@@ -1,0 +1,48 @@
+{
+  "slug": "treasure-hill-golf-country-club",
+  "region": "pattaya",
+  "name": "Treasure Hill Golf & Country Club",
+  "province": "Chon Buri",
+  "designer": "Yoshikazu Kato",
+  "holes": 18,
+  "par": 72,
+  "year_opened": 1994,
+  "green_fee_weekday_thb": 1000,
+  "green_fee_weekend_thb": 1500,
+  "caddie_fee_thb": 380,
+  "cart_fee_thb": 700,
+  "caddie_required": false,
+  "cart_required": false,
+  "driving_range": true,
+  "website": "https://www.treasurehill.co.th",
+  "phone": "+66 64 416 2479",
+  "latitude": 13.146369,
+  "longitude": 101.191247,
+  "distance_from_bangkok_km": 120,
+  "drive_time_from_bangkok_min": 100,
+  "google_maps_url": null,
+  "club_rental_available": true,
+  "club_rental_fee_thb": null,
+  "club_rental_brands": null,
+  "priceRange": "฿฿",
+  "notes": "LOCATION MISMATCH RESOLVED: Treasure Hill Golf & Country Club is located in Ban Bueng, Chon Buri Province (eastern Thailand), approximately 60 km from Pattaya and ~120 km from Bangkok. Address: 222 Moo 7, Klong Kiew, Ban Bueng, Chonburi 20220. GPS: 13.146369, 101.191247. Designer Yoshikazu Kato, opened 1994. Originally listed in pipeline as a Hua Hin course — reassigned to Pattaya region. Green fees per golfdd.com (March 2025): weekday 1,000 THB, weekend 1,500 THB. Caddie fee 380 THB / 18 holes. Cart fee 700 THB weekday. Course is 7,364 yards, set on rolling hill terrain at the base of an isolated mountain in tropical forest. Signature hole: 16th with a concrete crocodile in the pond.",
+  "schema_markup": "{\"@context\":\"https://schema.org\",\"@type\":\"GolfCourse\",\"name\":\"Treasure Hill Golf & Country Club\",\"url\":\"https://len.golf/golf-courses/pattaya/treasure-hill-golf-country-club/\",\"description\":\"18-hole par-72 championship golf course in Ban Bueng, Chon Buri, designed by Yoshikazu Kato and opened in 1994. Set on rolling hills at the base of an isolated mountain, the 7,364-yard layout is one of the eastern seaboard's best-value courses.\",\"telephone\":\"+66644162479\",\"sameAs\":\"https://www.treasurehill.co.th\",\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":13.146369,\"longitude\":101.191247},\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Ban Bueng\",\"addressRegion\":\"Chon Buri\",\"addressCountry\":\"TH\"},\"numberOfHoles\":18,\"courseLength\":\"7364 yards\",\"openingHours\":\"Mo-Su 06:00-18:00\",\"amenityFeature\":[{\"@type\":\"LocationFeatureSpecification\",\"name\":\"Driving Range\",\"value\":true},{\"@type\":\"LocationFeatureSpecification\",\"name\":\"Club Rental\",\"value\":true},{\"@type\":\"LocationFeatureSpecification\",\"name\":\"Caddie Service\",\"value\":true}]}",
+  "prose": {
+    "overview": "Treasure Hill Golf & Country Club is a championship 18-hole, par-72 course located in Ban Bueng, Chon Buri Province — firmly in Thailand's eastern seaboard corridor and best categorised alongside Pattaya-area courses. Designed by Japanese architect Yoshikazu Kato and opened in 1994, the layout stretches to a demanding 7,364 yards, making it one of the longest and most testing tracks in the region. Green fees are among the most affordable for a course of this calibre: 1,000 THB on weekdays and 1,500 THB on weekends. A caddie fee of 380 THB and cart hire at 700 THB (weekday) apply separately. Club rental is available on-site, and a driving range gives players the chance to warm up before tackling this sprawling layout. The course attracts a loyal following of serious golfers who appreciate the combination of course quality, natural beauty, and outstanding value.",
+    "layout_and_experience": "Built at the base of an isolated, forested mountain, Treasure Hill offers a playing environment that feels genuinely remote despite its proximity to Pattaya and Bangkok. Rolling hills define the terrain throughout, creating dramatic elevation changes that demand accurate club selection and course management. Fairways cut through stands of tropical forest, with natural hazards — water features, mature trees, and undulating rough — coming into play on multiple holes. At 7,364 yards from the tips, the course presents a stiff test for single-digit handicappers and weekend warriors alike; those playing from the back tees should expect a full and tiring round. The standout moment comes at the par-3 or par-4 16th hole, where a pond guarded by a full-size concrete crocodile sculpture delivers one of the most memorable — and occasionally nerve-wracking — approach shots on any course in eastern Thailand. The overall pace of play tends to be relaxed, and the mature layout rewards players who return multiple times to learn its subtleties.",
+    "tips": "Getting to Treasure Hill is straightforward from either Bangkok or Pattaya. From Bangkok, take Highway 7 (Eastern Expressway) east toward Chon Buri, then pick up Highway 344 in the direction of Ban Bueng — total drive time is approximately 100 minutes covering around 120 km. From central Pattaya, head north on Highway 36 and connect to Highway 344; the trip is roughly 60 km and takes about 50 minutes. The course pairs well with other eastern seaboard venues such as Pattaya Country Club or Laem Chabang International, making it ideal for a multi-day golf trip along the coast. Green fees of 1,000–1,500 THB represent exceptional value for a course of this length and quality; budget around 2,100–2,200 THB all-in per round including caddie and cart on a weekday. Book tee times directly via the course website or by phone, as weekend slots in the high season (November–March) can fill quickly.",
+    "location_and_access": "Treasure Hill Golf & Country Club sits at 222 Moo 7, Klong Kiew, Ban Bueng, Chon Buri 20220 — approximately 120 km east of Bangkok and 60 km north of central Pattaya. The primary route from Bangkok is Highway 7 (Eastern Expressway) to Highway 344, following signs for Ban Bueng. From Pattaya, Highway 36 connects north to Highway 344. GPS coordinates are 13.146369, 101.191247. There is no public transport to the club; a rental car or private taxi transfer is recommended for the final stretch from the highway.",
+    "rental_cta_context": "Pick up a set of LENGOLF rental clubs at The Mercury Ville in Bangkok before heading east on Highway 7, and you'll arrive at Treasure Hill fully equipped for one of the eastern seaboard's best-value rounds."
+  },
+  "locales": {
+    "en": {
+      "title": "Treasure Hill Golf & Country Club — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Play Treasure Hill Golf & Country Club in Ban Bueng, Chon Buri. 18-hole par-72, 7,364 yards, from 1,000 THB. 60 km from Pattaya — full course guide and rental info."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  },
+  "status": "enriched",
+  "published_at": null
+}

@@ -1,0 +1,53 @@
+{
+  "slug": "panurangsi-golf-club",
+  "region": "bangkok",
+  "status": "verified",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Panurangsi Golf Club (Royal Thai Army)", "source": "web-search", "url": "https://www.1golf.eu/en/club/panurangsi-golf-club/" },
+    "province": { "value": "Ratchaburi", "source": "web-search", "url": "https://www.golflux.com/course/panurangsi-golf-club/" },
+    "designer": { "value": "Jack Nicklaus", "source": "web-search", "url": "https://www.golflux.com/course/panurangsi-golf-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golflux.com/course/panurangsi-golf-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golflux.com/course/panurangsi-golf-club/" },
+    "yards": { "value": 6672, "source": "web-search", "url": "https://www.golflux.com/course/panurangsi-golf-club/" },
+    "year_opened": { "value": 1988, "source": "web-search", "url": "https://www.1golf.eu/en/club/panurangsi-golf-club/" },
+    "green_fee_weekday_thb": { "value": 450, "source": "web-search", "url": "https://www.gadthailand.com/en/panurangsi-golf-club-details/" },
+    "green_fee_weekend_thb": { "value": 550, "source": "web-search", "url": "https://www.gadthailand.com/en/panurangsi-golf-club-details/" },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null },
+    "cart_fee_thb": { "value": 600, "source": "web-search", "url": "https://www.gadthailand.com/en/panurangsi-golf-club-details/" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.1golf.eu/en/club/panurangsi-golf-club/" },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golflux.com/course/panurangsi-golf-club/" },
+    "website": { "value": "https://www.panurangsigolf.com/", "source": "web-search", "url": "https://www.1golf.eu/en/club/panurangsi-golf-club/" },
+    "phone": { "value": "+66 32 391 019", "source": "web-search", "url": "https://www.1golf.eu/en/club/panurangsi-golf-club/" },
+    "latitude": { "value": 13.5147, "source": "model", "url": null },
+    "longitude": { "value": 99.8352, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 95, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 90, "source": "model", "url": null },
+    "google_maps_url": { "value": "https://maps.google.com/?q=13.5147,99.8352", "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.1golf.eu/en/club/panurangsi-golf-club/" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Panurangsi Golf Club is a Jack Nicklaus-designed course operated by the Royal Thai Army at the Panurangsi Military Academy in Ratchaburi Province, approximately 90 minutes southwest of Bangkok. Opened in 1988 and spanning 6,672 yards at par-72, it holds a rare distinction: a Nicklaus layout available to the public at extraordinarily low green fees, making it arguably the best value Nicklaus course in Asia. The military management brings a certain discipline to operations — the course is well-maintained and managed with a strict dress code. Green fees are so low that even with caddie and cart, the all-in cost is modest compared to any other Nicklaus-branded design. It attracts golf enthusiasts willing to make the 90-minute drive from Bangkok for an exceptional cost-per-quality ratio.",
+    "layout_and_experience": "The 18-hole par-72 layout measures 6,672 yards from the blue tees — a genuinely playable length — with a course rating of 74.4 and slope of 132, confirming it is a genuine challenge rather than an easy resort course. Nicklaus's hallmarks are clear: precise bunkering that funnels approach shots into favourable angles, greens with distinct tier systems, and par-5s that reward long, accurate players while offering strategic layup options. The setting on Royal Thai Army land gives the course an unexpectedly spacious, well-kept feel; the grounds are maintained to a standard that surpasses the price point. A mix of tree-lined and more open holes creates variety throughout the round. The course can become crowded on weekends when military personnel and public visitors both arrive in numbers — pace of play can be slow. An afternoon rate exists for all-in play after 2pm at 750 THB, offering exceptional value for golfers who can play in the afternoon heat.",
+    "tips": "The extraordinary green fees make Panurangsi one of Bangkok region's best-kept secrets for quality golf. Weekday mornings offer the best pace of play. The Monday green fee is even lower at 400 THB + caddie; Tuesday–Friday is 450 THB; weekends 550 THB. After 2pm all-in (green fee + caddie + cart) is a flat 750 THB. Cart is 600 THB additional on standard morning rounds. Smart casual golf attire is required. The course is on Route 3087 near Ko Phlapphla, Mueang Ratchaburi — allow 90 minutes from Bangkok via Route 4 (Petchakasem Road) south then east.",
+    "location_and_access": "Panurangsi Golf Club is located within the Royal Thai Army's Panurangsi Military Academy at Ko Phlapphla, Mueang Ratchaburi District, Ratchaburi 70000. From Bangkok, the drive takes approximately 90 minutes via Route 4 (Petchakasem Road) heading southwest toward Ratchaburi town. The course is about 95 km from central Bangkok. A private car is essential as public transport does not serve the military academy directly.",
+    "rental_cta_context": "Making the trip to Panurangsi for Jack Nicklaus golf at budget prices? LENGOLF delivers premium rental clubs to your Bangkok hotel — travel light and still play with the best equipment."
+  },
+  "locales": {
+    "en": {
+      "title": "Panurangsi Golf Club — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Panurangsi Golf Club Ratchaburi green fees, Jack Nicklaus course overview, visitor tips, and golf club rentals delivered to your Bangkok hotel."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  },
+  "verification_status": "APPROVED",
+  "verified_at": "2026-04-20",
+  "verification_notes": "Jack Nicklaus design confirmed by golflux.com and golfpass.com (Royal Thai Army Panurangsi). Year 1988 confirmed by 1golf.eu and golflux.com. 6,672 yards, par 72, rating 74.4/slope 132 from golflux.com. Green fees 400/450/550 THB (Mon/Tue-Fri/Weekend) from gadthailand.com — a dedicated Thailand golf information source. Cart 600 THB from same source. After 2pm all-in 750 THB confirmed. Phone +66 32 391 019 confirmed. GPS is model estimate for Ko Phlapphla, Mueang Ratchaburi.",
+  "disputes": []
+}

@@ -1,0 +1,62 @@
+{
+  "slug": "pineapple-valley-golf-club",
+  "region": "hua-hin",
+  "status": "verified",
+  "collected_at": "2026-04-18",
+  "enriched_at": "2026-04-18",
+  "verified_at": "2026-04-19",
+  "verification_status": "APPROVED",
+  "verification_notes": "APPROVED. Canonical entry for Pineapple Valley Golf Club (formerly Banyan Golf Club — rebranded 2024). banyan-golf-club.json deleted from all pipeline stages. Green fee published as 3,300 THB (official booking page, shoulder-season Apr–Jul 2026 rate). High-season rate (Nov–Mar) is 3,900–4,200 THB — added to data-gaps.md for confirmation of seasonal display strategy. Caddie 400 THB and cart 750 THB confirmed by official policy page. All required fields present.",
+  "disputes": [
+    {
+      "field": "slug / name",
+      "stage1_value": "pineapple-valley-golf-club / Pineapple Valley Golf Club",
+      "verification_finding": "Duplicate of banyan-golf-club.json — same physical course, same GPS coordinates, same phone, same official website. Course was rebranded from Banyan Golf Club to Pineapple Valley Golf Club in 2024. Both entries exist in this batch and cannot both be published.",
+      "recommendation": "Delete banyan-golf-club.json from the batch. Publish under pineapple-valley-golf-club slug with display name 'Pineapple Valley Golf Club'. Update regions.md to reflect the new slug and mark banyan-golf-club as a redirect alias.",
+      "source": "https://pineapplevalleygolfclub.com/"
+    },
+    {
+      "field": "green_fee_weekday_thb",
+      "stage1_value": 2900,
+      "verification_finding": "Official booking page shows 3,300 THB (Apr–Jul 2026) and 3,900–4,200 THB (Nov–Mar high season). The 2,900 THB appears to be a third-party agent or low-season rate.",
+      "recommendation": "Use 3,300 THB as the headline green fee for the published page (shoulder/standard season rate). Note that high-season rates are higher. Confirm with operator whether to display a seasonal range or single rate.",
+      "source": "https://pineapplevalleygolfclub.com/book-a-tee-time/"
+    }
+  ],
+  "fields": {
+    "name": { "value": "Pineapple Valley Golf Club (formerly Banyan Golf Club)", "source": "official-website", "url": "https://pineapplevalleygolfclub.com/" },
+    "province": { "value": "Prachuap Khiri Khan", "source": "official-website", "url": "https://pineapplevalleygolfclub.com/" },
+    "designer": { "value": "Pirapon Namatra (Golf East Co.)", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/pineapple-valley-golf-club/" },
+    "holes": { "value": 18, "source": "official-website", "url": "https://pineapplevalleygolfclub.com/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/pineapple-valley-golf-club/" },
+    "year_opened": { "value": 2008, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/pineapple-valley-golf-club/" },
+    "green_fee_weekday_thb": { "value": 3300, "source": "official-website", "url": "https://pineapplevalleygolfclub.com/book-a-tee-time/" },
+    "green_fee_weekend_thb": { "value": 3300, "source": "official-website", "url": "https://pineapplevalleygolfclub.com/book-a-tee-time/" },
+    "caddie_fee_thb": { "value": 400, "source": "official-website", "url": "https://pineapplevalleygolfclub.com/book-a-tee-time/" },
+    "cart_fee_thb": { "value": 750, "source": "official-website", "url": "https://pineapplevalleygolfclub.com/book-a-tee-time/" },
+    "caddie_required": { "value": true, "source": "official-website", "url": "https://pineapplevalleygolfclub.com/book-a-tee-time/" },
+    "cart_required": { "value": false, "source": "official-website", "url": "https://pineapplevalleygolfclub.com/book-a-tee-time/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/pineapple-valley-golf-club/" },
+    "website": { "value": "https://pineapplevalleygolfclub.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 32 616 200", "source": "official-website", "url": "https://pineapplevalleygolfclub.com/" },
+    "latitude": { "value": 12.4985, "source": "web-search", "url": "https://www.huahingolfcourse.com/pineapple-valley-golf-club.htm" },
+    "longitude": { "value": 99.9424, "source": "web-search", "url": "https://www.huahingolfcourse.com/pineapple-valley-golf-club.htm" },
+    "distance_from_bangkok_km": { "value": 230, "source": "web-search", "url": "https://huahintravel.com/thailand/hua-hin/hua-hin-golf-courses/pineapple-valley-golf-club/" },
+    "drive_time_from_bangkok_min": { "value": 180, "source": "web-search", "url": "https://huahintravel.com/thailand/hua-hin/hua-hin-golf-courses/pineapple-valley-golf-club/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=12.4985,99.9424", "source": "web-search", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/pineapple-valley-golf-club/" },
+    "club_rental_fee_thb": { "value": 1200, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/pineapple-valley-golf-club/" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Pineapple Valley Golf Club — officially rebranded from Banyan Golf Club in 2024 — is consistently cited as the highest-rated course in Hua Hin among international survey platforms, and holds recognition from Rolex as one of the Top 1,000 Courses in the World. Designed by Thai architect Pirapon Namatra of Golf East Co. and opened in 2008, the 18-hole, par-72 layout stretches to 7,361 yards from the championship tees across terrain that was formerly a pineapple plantation. The course was named Best New Course in the Asia Pacific by Asian Golf Monthly readers in 2009, just one year after opening. At 3,300 THB for a standard-season green fee (caddie compulsory at 400 THB), it sits in the mid-to-upper range for Hua Hin, a position justified by its international recognition, consistent conditioning, and distinctive visual setting with views across the Gulf of Thailand from the back nine.",
+
+    "layout_and_experience": "Pirapon Namatra's design philosophy at Pineapple Valley prioritises the use of natural contours over earthmoving. The former plantation terrain provides natural elevation changes, sloping fairways, and drainage channels that became the course's creek hazards. The routing climbs gradually from the lower holes near the entrance to the upper sections of the property, where the back nine delivers the course's defining visual experience: hole 15, a short par-3, plays across a valley with a view of the Gulf of Thailand and Singtoh Island stretching to the horizon. This hole alone draws many visitors back for repeat rounds. The greens are large and contoured, rewarding precise approach play and demanding good green-reading from the caddies. GPS technology is fitted to all rental buggies. Facilities include a real-grass driving range, short-game practice area, Thai-style clubhouse with luxury locker rooms, pro shop, and both a restaurant (The Terrace) and Mulligan's Pub as post-round venues.",
+
+    "tips": "Pineapple Valley is the most popular course in Hua Hin among international visitors, so advance booking during the high season (November to March) is essential — popular tee times can sell out weeks ahead through online booking portals. The course is located 14 kilometres south of Hua Hin town, which adds 15–20 minutes to transfers from most Hua Hin hotels; plan accordingly. The back nine sea views are best appreciated in clear morning or late-afternoon light, when the Gulf of Thailand takes on a striking blue against the distant islands. Avoid booking a twilight round unless you are comfortable playing the lower-lying front nine in fading light, as the drainage channels can be difficult to judge after 16:00. The official website offers direct booking with seasonal green fee rates; check the calendar before booking through third-party agents, as high-season rates (Nov–Mar) are higher than the standard rate.",
+
+    "location_and_access": "Pineapple Valley Golf Club is located at 68/34 Mooban Hua Na, Nong Gae, approximately 14 kilometres south of central Hua Hin, Prachuap Khiri Khan. From Bangkok, the total distance is approximately 230 kilometres via Highway 4, with a journey time of approximately 3 hours under normal traffic conditions. From Hua Hin town, the course is reachable by taxi or Grab in around 15–20 minutes. Minivan services connect Bangkok's Victory Monument to Hua Hin several times daily; from the Hua Hin bus terminal, local taxis complete the transfer to the course.",
+
+    "rental_cta_context": "Teeing it up at Pineapple Valley Golf Club — the highest-rated course in Hua Hin — without your own clubs? LENGOLF rental sets are available in Bangkok so you can experience this world-ranked layout fully equipped."
+  }
+}

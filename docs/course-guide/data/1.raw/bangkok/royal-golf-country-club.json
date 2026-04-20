@@ -1,0 +1,33 @@
+{
+  "slug": "royal-golf-country-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "The Royal Golf & Country Club", "source": "official-website", "url": "https://theroyalgolf.com/" },
+    "province": { "value": "Samut Prakan", "source": "web-search", "url": "https://www.1golf.eu/en/club/the-royal-golf-country-club/" },
+    "designer": { "value": "Chohei Miyazawa", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/royal-golf-country-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.where2golf.com/thailand/the-royal-golf-country-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.where2golf.com/thailand/the-royal-golf-country-club/" },
+    "yards": { "value": 7123, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/the-royal-golf-country-club" },
+    "year_opened": { "value": 1993, "source": "web-search", "url": "https://www.1golf.eu/en/club/the-royal-golf-country-club/" },
+    "green_fee_weekday_thb": { "value": 3500, "source": "official-website", "url": "https://theroyalgolf.com/rate/" },
+    "green_fee_weekend_thb": { "value": 4500, "source": "official-website", "url": "https://theroyalgolf.com/rate/" },
+    "caddie_fee_thb": { "value": 400, "source": "official-website", "url": "https://theroyalgolf.com/rate/" },
+    "cart_fee_thb": { "value": 850, "source": "official-website", "url": "https://theroyalgolf.com/rate/" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.where2golf.com/thailand/the-royal-golf-country-club/" },
+    "cart_required": { "value": false, "source": "web-search", "url": "https://www.where2golf.com/thailand/the-royal-golf-country-club/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/royal-golf-country-club/" },
+    "website": { "value": "https://theroyalgolf.com/", "source": "official-website", "url": "https://theroyalgolf.com/" },
+    "phone": { "value": "+66 2 738 1010", "source": "official-website", "url": "https://theroyalgolf.com/" },
+    "latitude": { "value": 13.6964, "source": "web-search", "url": "https://www.where2golf.com/thailand/the-royal-golf-country-club/" },
+    "longitude": { "value": 100.8082, "source": "web-search", "url": "https://www.where2golf.com/thailand/the-royal-golf-country-club/" },
+    "distance_from_bangkok_km": { "value": 50, "source": "web-search", "url": "https://www.where2golf.com/thailand/the-royal-golf-country-club/" },
+    "drive_time_from_bangkok_min": { "value": 35, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/royal-golf-country-club/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=13.6964,100.8082", "source": "web-search", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/the-royal-golf-country-club" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "notes": "Fees are itemized (not all-inclusive). Weekday: 3,500 THB green fee + 400 THB caddie + 850 THB cart = ~4,750 THB total. Weekend: 4,500 + 400 + 850 = ~5,750 THB. Prices include 7% VAT per official site. Cart compulsory on weekends. Located 10 min from Suvarnabhumi Airport."
+}

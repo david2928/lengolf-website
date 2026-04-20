@@ -1,0 +1,29 @@
+{
+  "slug": "pattaya-country-club",
+  "region": "pattaya",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Pattaya Country Club & Resort", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/pattaya-country-club/" },
+    "province": { "value": "Chonburi", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/pattaya-country-club/" },
+    "designer": { "value": null, "source": "model", "url": null, "note": "Designer not found in searches. Course reportedly renovated 2014." },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.1golf.eu/en/club/pattaya-country-club-resort/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.1golf.eu/en/club/pattaya-country-club-resort/" },
+    "year_opened": { "value": 1993, "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37972-pattaya-country-club" },
+    "green_fee_weekday_thb": { "value": 2000, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/pattaya-country-club/", "note": "Rate confirmed from booking platforms. Weekday/weekend split unclear — verify." },
+    "green_fee_weekend_thb": { "value": 2000, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/pattaya-country-club/", "note": "Weekend rate assumed same as weekday — needs confirmation." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "caddie_required": { "value": true, "source": "model", "url": null, "note": "Standard for Thai courses — confirm." },
+    "cart_required": { "value": false, "source": "model", "url": null, "note": "Not confirmed — verify." },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": null, "source": "model", "url": null, "note": "No official website found. Facebook: @pattayacountryclub." },
+    "phone": { "value": null, "source": "model", "url": null, "note": "Phone not found in searches. Contact via Facebook or booking agents." },
+    "latitude": { "value": 12.93, "source": "model", "url": null, "note": "Approximate — Khao Mai Kaew, Bang Lamung. Verify." },
+    "longitude": { "value": 100.88, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 145, "source": "model", "url": null, "note": "Approximate." },
+    "drive_time_from_bangkok_min": { "value": 110, "source": "web-search", "url": "https://www.golfpattaya.com/pattaya-country-club/", "note": "25 min from downtown Pattaya cited in one source." },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "address": { "value": "Khao Mai Kaew, Bang Lamung, Chonburi 20150", "source": "web-search", "url": "https://www.golfpattaya.com/pattaya-country-club/" }
+  }
+}

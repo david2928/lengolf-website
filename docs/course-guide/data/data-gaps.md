@@ -3,11 +3,138 @@
 Fields that could not be confirmed via web search. Have someone call the course to confirm.
 Once confirmed, update `knowledge/course-overrides.md` with the correct value and re-run Stage 3 for that course.
 
-Last updated: 2026-04-17
+Last updated: 2026-04-20 (Phuket Phase 2 + Khao Yai Phase 2 added)
 
 ---
 
 ## Priority: Green fee conflicts (verify first — these affect page content)
+
+### Chiang Mai batch — Alpine high-season rate
+
+Alpine Golf Resort Chiang Mai publishes a 3,700 THB all-in low-season rate (Apr–Oct) sourced from chiangmaigolfclub.com. The high-season rate (Nov–Mar) is unconfirmed — golfdd.com shows 6,500 THB all-in (foreigner walk-in, Feb 2026) and golfsavers shows 4,000 THB. The page already caveats this.
+
+| # | Course | Low season rate | High season rate | How to confirm |
+|---|---|---|---|---|
+| 1 | Alpine Golf Resort Chiang Mai | 3,700 THB all-in (Apr–Oct) | **Unknown** | Call +66 53 880 888 or check alpinegolfresort.com after Nov 1 |
+
+### Phuket batch — high season rates (4 courses)
+
+Phuket courses use seasonal pricing (high season Nov–Mar / low season Apr–Oct) rather than weekday/weekend. The `green_fee_weekend_thb` field represents the high season rate. Only Laguna Golf Phuket has a confirmed high season rate. The other 4 are published with low season only.
+
+| # | Course | Low season GF | High season GF | How to confirm |
+|---|---|---|---|---|
+| 1 | Red Mountain Golf Club | 3,500 THB | **Unknown** | Check mbkgolf.com after Nov 1, or call +66 76 326880 |
+| 2 | Blue Canyon Canyon Course | 3,400 THB | **Unknown** | Check bluecanyonphuket.com after Nov 1, or call +66 76 328 088 |
+| 3 | Blue Canyon Lakes Course | 1,850 THB | **Unknown** | Same as Canyon Course contact |
+| 4 | Loch Palm Golf Club | 3,300 THB | **Unknown** | Check mbkgolf.com after Nov 1, or call +66 76 326880 |
+| 5 | Laguna Golf Phuket | 3,700 THB | **5,200 THB ✅** | Confirmed via lagunagolfphuket.com |
+
+### Hua Hin batch
+
+| # | Course | Region | Field | Current value | Conflict / Issue | Call to confirm |
+|---|---|---|---|---|---|---|
+| 1 | Palm Hills Golf Club & Residence | Hua Hin | `green_fee_weekday_thb` | 2,500 THB (rack rate) | Agent rate 1,400 THB vs rack rate 2,500 THB — two independent sources used 2,500 THB | What is the walk-in green fee for 18 holes? Is there a weekday/weekend difference? |
+| 2 | Majestic Creek Country Club | Hua Hin | `green_fee_weekday_thb` | 1,350 THB (provisional) | Single source (huahingolfcourse.com). Official site does not publish rates. | What is the current 18-hole green fee? Caddie included or separate? |
+| 3 | Pineapple Valley Golf Club | Hua Hin | `green_fee_weekday_thb` | 3,300 THB (shoulder season) | Official booking page shows 3,300 THB (Apr–Jul) and 3,900–4,200 THB (Nov–Mar high season) | Should the published page show a seasonal range or a single rate? What is the standard/walk-in rate? |
+
+### Khao Yai batch
+
+| # | Course | Region | Field | Current value | Conflict / Issue | Call to confirm |
+|---|---|---|---|---|---|---|
+| 1 | Kirimaya Golf Course | Khao Yai | `green_fee_weekday_thb` | 1,700 THB (provisional) | No current rate on official website; historical estimate only | What is the current 18-hole green fee? Is there a weekday/weekend difference? |
+| 2 | Kirimaya Golf Course | Khao Yai | `green_fee_weekend_thb` | 1,700 THB (provisional) | Same as above | — |
+| 3 | Khao Yai Golf Club | Khao Yai | `green_fee_weekday_thb` | 1,900 THB | GolfSavers shows 1,000 THB (may be local/outdated rate) | What is the current 18-hole green fee for a foreign visitor? Is there a weekday/weekend split? |
+| 4 | Khao Yai Golf Club | Khao Yai | `cart_required` | false (model estimate) | Cart required status unclear | Is a cart mandatory or optional? What is the cart fee? |
+
+### Hua Hin Phase 2 Batch 1
+
+| # | Course | Region | Field | Current value | Conflict / Issue | Call to confirm |
+|---|---|---|---|---|---|---|
+| 1 | Korea Golf Club Hua Hin | Hua Hin | `green_fee_weekday_thb` | 800 THB (all-in) | golfdd.com lists GF 400 + caddie 300 + cart 500 = 1,200 THB, but also states "all-in package 800 THB" — figures inconsistent | What is the current all-in cost for 18 holes (green fee + caddie + cart)? |
+| 2 | Sawang Resort | Hua Hin | `caddie_fee_thb` | null | Cart mandatory but caddie/cart fees unconfirmed as separate or included in 1,150/1,800 THB quoted rate | Are caddie and cart included in the quoted green fee, or charged separately? |
+| 3 | Kaeng Krachan CC | Hua Hin | `green_fee_weekday_thb` | 1,199 THB (all-in) | Power Nine pricing from website 2023; some booking platforms show course as unavailable | Confirm course is currently bookable. What is the current all-in rate? |
+
+### Phuket Phase 2 Batch 1
+
+| # | Course | Region | Field | Current value | Conflict / Issue | Call to confirm |
+|---|---|---|---|---|---|---|
+| 1 | Aquella Golf & Country Club | Phuket | `green_fee_weekend_thb` | 3,150 THB (provisional) | Sourced from golfsavers pricing text without clear label; high-season rate not confirmed from official source | Email booking@aquellagolf.com or call +66 76 679 308: what is the Nov–Mar green fee for 18 holes? |
+
+### Khao Yai Phase 2 Batch 1
+
+| # | Course | Region | Field | Current value | Conflict / Issue | Call to confirm |
+|---|---|---|---|---|---|---|
+| 1 | Mountain Creek Golf Resort | Khao Yai | `green_fee_weekday_thb` | null | Pricing range 1,100–2,500 THB from golfsavers; no clean weekday/weekend split from any source — bundled all-in is the booking unit | Call +66 44 756 100: what is the current all-in rate (GF + caddie + cart) for a weekday round and a weekend round? |
+| 2 | Bonanza Golf & Country Club | Khao Yai | `green_fee_weekday_thb` | 800 THB | 1golf.eu shows 800/1,200 THB; some visitor reports suggest 1,500–1,800 THB charged in practice | Call +66 44 365 1912: what is the current walk-in green fee on weekdays and weekends? |
+| 3 | Seoul Siam Resort & CC | Khao Yai | `caddie_fee_thb` | null | GF-only rates found (400/800 THB); caddie/cart fees and mandatory status unconfirmed | Call +66 44 319 052: what is the caddie fee? Is caddie mandatory? Is cart mandatory or optional? |
+| 4 | Seoul Siam Resort & CC | Khao Yai | `year_opened` | 2004 (GolfLux) | GolfLux says 2004; AllSquare says 2011 — unresolved | Ask when the course first opened |
+| 5 | Rooks Korat Country Club | Khao Yai | `cart_fee_thb` | 600 THB | golfasian.com lists 500 THB; 1golf.eu data suggests 600 THB | Call +66 44 249 060: what is the current cart fee? |
+| 6 | Rooks Korat Country Club | Khao Yai | `driving_range` | null | Contradictory sources — one review mentions a grass driving range, another source lists none | Does the course have a driving range? |
+
+### Pattaya Phase 2 Batch 3
+
+| # | Course | Region | Field | Current value | Conflict / Issue | Call to confirm |
+|---|---|---|---|---|---|---|
+| 1 | Bangpra International Golf Club | Pattaya | `green_fee_weekday_thb` | 1,700 THB | Multiple platforms disagree: 1golf.eu shows 900 THB (likely outdated), golfsavers 1,350 THB (discount), pattayagolf.net 1,700 THB (used), govigolf.com 2,900 THB all-in | What is the current walk-in weekday green fee? Is caddie (350 THB) still separate? |
+| 2 | Bangpra International Golf Club | Pattaya | `green_fee_weekend_thb` | 2,500 THB | Same multi-source discrepancy as weekday | What is the current weekend green fee? |
+
+### Pattaya Phase 2 Batch 2
+
+| # | Course | Region | Field | Current value | Conflict / Issue | Call to confirm |
+|---|---|---|---|---|---|---|
+| 1 | Greenwood Golf Club | Pattaya | `green_fee_weekday_thb` | 1,000 THB | Low end of European guide range (1,000–1,500 THB) — not confirmed via Thai agent | What is the current weekday green fee? Caddie included? |
+| 2 | Greenwood Golf Club | Pattaya | `green_fee_weekend_thb` | 1,500 THB | High end of range used as provisional weekend rate | What is the current weekend green fee? |
+| 3 | Greenwood Golf Club | Pattaya | `phone` | null | Not found in any web search | Main booking number |
+| 4 | SCC Waterside | Pattaya | `green_fee_weekday_thb` | 5,960 THB | All-in from agent source — official SCC does not publish rates. Possible discrepancy | What is the current all-in green fee? |
+| 5 | Chatrium Golf Resort Soi Dao | Pattaya | `green_fee_weekday_thb` | 1,550 THB | Low end of agent range 1,550–2,250 THB; walk-in vs. agent rate unclear | What is the current walk-in green fee? Is there a weekday/weekend split? |
+| 6 | Pattavia Century Golf Club | Pattaya | `cart_fee_thb` | null | Cart optional on most times; compulsory peak weekend mornings — fee not confirmed | What is the cart fee per person? |
+
+### Pattaya Phase 2 Batch 1
+
+| # | Course | Region | Field | Current value | Conflict / Issue | Call to confirm |
+|---|---|---|---|---|---|---|
+| 1 | St Andrews 2000 | Pattaya | `green_fee_weekday_thb` | null | Course is open but green fees unknown after renovation | What is the current 18-hole green fee? Caddie included or separate? |
+| 2 | St Andrews 2000 | Pattaya | `green_fee_weekend_thb` | null | Same as above | Same as above |
+| 3 | Crystal Bay Golf Resort | Pattaya | `designer` | null | Designer not found in any source | Who designed the course? |
+| 4 | Crystal Bay Golf Resort | Pattaya | `green_fee_weekday_thb` | 1,350 THB | Single agent source — weekday/weekend split unclear | What is the current green fee? Is there a weekday/weekend difference? |
+| 5 | Pattaya Country Club | Pattaya | `green_fee_weekday_thb` | 2,000 THB | Weekday/weekend split flagged for verification | Is there a separate weekend rate? |
+| 6 | Mountain Shadow Golf Club | Pattaya | `green_fee_weekday_thb` | 1,400 THB | Weekday/weekend split flagged for verification | Is there a separate weekend rate? |
+| 7 | Pleasant Valley Golf & Country Club | Pattaya | `green_fee_weekend_thb` | 1,600 THB | Assumed same as weekday — confirm weekend | Is the weekend rate the same as weekday (1,600 THB)? |
+| 8 | Rayong Green Valley CC | Pattaya | `phone` | +66 38 030 660 | Web search returned same phone for both Rayong Green Valley and St Andrews 2000 — two courses in same Samnakthon/Ban Chang area | Confirm this is Rayong Green Valley's direct line (not St Andrews 2000) |
+
+### Bangkok Phase 2 Batch 4
+
+| # | Course | Region | Field | Current value | Conflict / Issue | Call to confirm |
+|---|---|---|---|---|---|---|
+| 1 | Bangpoo Golf & Sports Club | Bangkok | `green_fee_weekday_thb` | 1,700 THB | Wide range across sources: 1,450–1,950 THB weekday; 2,350–3,400 THB weekend with time-of-day tiers | What is the current all-in weekday green fee? Is there a peak/off-peak split? |
+| 2 | Bangpoo Golf & Sports Club | Bangkok | `green_fee_weekend_thb` | 2,600 THB | Same as above | What is the current all-in weekend rate? |
+| 3 | Killien Golf Club | Bangkok | `green_fee_weekday_thb` | 1,850 THB | Single source; weekday/weekend split unconfirmed | Is there a separate weekend rate? |
+| 4 | Muang Ake Golf Course | Bangkok | `green_fee_weekday_thb` | 610 THB | 610–1,030 THB range may reflect time-of-day or season variation rather than a clean weekday/weekend split | What is the current standard weekday and weekend rate? |
+| 5 | Muang Ake Wang Noi Golf Course | Bangkok | `green_fee_weekday_thb` | 1,200 THB (model) | Post-rebrand fees not independently confirmed | What is the current walk-in green fee at Wang Noi Prestige / The Wangnoi Ayudhaya? |
+| 6 | Northern Rangsit Golf Club | Bangkok | `green_fee_weekday_thb` | 760 THB | 760–1,350 THB range; exact split not confirmed from official source (northernrangsit.com) | What is the current weekday and weekend green fee? Is caddie included? |
+| 7 | Krisda City Golf Hills | Bangkok | `green_fee_weekday_thb` | 1,500 THB | Fee structure ambiguous — one source shows 1,850 THB all-in, another shows cart separately at 700 THB | What is the full cost (green fee + caddie + cart) on a weekday and weekend? |
+| 8 | Kumlung-Ake Golf Course | Bangkok | `green_fee_weekday_thb` | 310 THB | Older review data; may be significantly outdated | What is the current green fee? Is caddie included? |
+
+### Bangkok Phase 2 Batch 3
+
+| # | Course | Region | Field | Current value | Conflict / Issue | Call to confirm |
+|---|---|---|---|---|---|---|
+| 1 | Star Country Club | Bangkok | `green_fee_weekday_thb` | 200 THB | Flagged suspicious — likely outdated green-fee-only listing. All-in ~900 THB weekday | What is the current 18-hole walk-in green fee? Caddie and cart included or separate? |
+| 2 | Star Country Club | Bangkok | `green_fee_weekend_thb` | 400 THB | Same as above | Same as above |
+| 3 | Sai Golf Club | Bangkok | `green_fee_weekend_thb` | 2,500 THB (model estimate) | No confirmed weekend rate found publicly | What is the current weekend green fee? |
+| 4 | Life Privilege CC | Bangkok | `caddie_fee_thb` | 400 THB (model estimate) | Caddie fee unconfirmed — single source for green fees | What is the current caddie fee? Is cart separate or included? |
+| 5 | Krung Kavee Golf Course | Bangkok | `green_fee_weekday_thb` | 1,600 THB | 1golf.eu shows 1,600/1,800 THB; golfsavers shows 2,400/3,300 THB (>50% discrepancy) | What is the current weekday green fee? Green fee only or including caddie and cart? |
+
+### Bangkok Phase 2 Batch 1
+
+| # | Course | Region | Field | Current value | Conflict / Issue | Call to confirm |
+|---|---|---|---|---|---|---|
+| 1 | Artitaya Country Club | Bangkok | `green_fee_weekday_thb` | 400 THB | Green-fee-only; all-in cost unknown | What is the all-in cost (caddie + cart) for 18 holes on a weekday? |
+| 2 | Artitaya Country Club | Bangkok | `green_fee_weekend_thb` | 800 THB | Green-fee-only; all-in cost unknown | What is the all-in cost on a weekend? |
+| 3 | Lakewood Country Club | Bangkok | `caddie_fee_thb` | 1,000 THB (provisional) | Caddie fee 1,000 THB from web search — confirm it includes tip or is pre-tip | What is the current caddie fee? Is a mandatory cart charged separately? |
+| 4 | Navatanee Golf Course | Bangkok | `green_fee_weekend_thb` | null | No weekend rate found — course may not distinguish weekday/weekend | Is there a separate weekend rate? If so, what is it? |
+
+### Bangkok Phase 1 batch
 
 | # | Course | Region | Field | Current value | Conflict / Issue | Call to confirm |
 |---|---|---|---|---|---|---|
@@ -60,6 +187,10 @@ Last updated: 2026-04-17
 | 8 | Summit Windmill Golf Club | Bangkok | `phone` | Main booking number |
 | 9 | Phoenix Gold Golf & Country Club | Bangkok | `phone` | Confirmed via web: +66 95 816 6111 — verify this is current |
 | 10 | Burapha Golf & Resort | Pattaya | `phone` | Main booking number (no official website) |
+| 11 | Kirimaya Golf Course | Khao Yai | `phone` | Official course/resort contact number (kirimaya.com/contact) |
+| 12 | Royal Bang Pa-In Golf Club | Bangkok | `phone` | Main booking number |
+| 13 | Suvarnabhumi Golf & Country Club | Bangkok | `phone` | Main booking number |
+| 14 | Kiarti Thanee Country Club | Bangkok | `phone` | Main booking number |
 
 ---
 
@@ -70,6 +201,8 @@ Last updated: 2026-04-17
 | 1 | Krungthep Kreetha Sports Club | Bangkok | `website` | No official website found — may not have one |
 | 2 | Summit Windmill Golf Club | Bangkok | `website` | Found summitwindmillgolfclub.com — needs confirmation it's official |
 | 3 | Burapha Golf & Resort | Pattaya | `website` | No official website — currently using Facebook page URL |
+| 4 | Suvarnabhumi Golf & Country Club | Bangkok | `website` | No official website found |
+| 5 | Kiarti Thanee Country Club | Bangkok | `website` | No official website found |
 
 ---
 
@@ -140,17 +273,82 @@ All coordinates are currently approximate (sourced from model knowledge). These 
 | 9 | The RG City Golf Club | 14.0120, 100.7810 | Yes |
 | 10 | Summit Windmill Golf Club | 13.6680, 100.6850 | Yes |
 | 11 | Phoenix Gold Golf & Country Club | 13.8620, 100.9140 | Yes |
+| 12 | Bangkok Golf Club | 13.8060, 100.6960 | Yes |
+| 13 | Navatanee Golf Course | 13.8230, 100.6590 | Yes |
+| 14 | Flora Ville Golf & Country Club | 13.8480, 100.1870 | Yes |
+| 15 | Royal Bang Pa-In Golf Club | 14.2200, 100.5780 | Yes |
+| 16 | Artitaya Country Club | 14.0930, 100.6750 | Yes |
+| 17 | Rajpruek Club | 13.7800, 100.4250 | Yes |
+| 18 | Lakewood Country Club | 13.7580, 100.5830 | Yes |
+| 19 | Suvarnabhumi Golf & Country Club | 13.7110, 100.7540 | Yes |
+| 20 | Windsor Park & Golf Club | 13.8980, 100.6420 | Yes |
+| 21 | Cascata Golf Club | 13.9540, 100.6820 | Yes |
+| 22 | Kiarti Thanee Country Club | 13.8710, 100.6340 | Yes |
+| 23 | Green Valley Country Club | 13.9040, 100.8870 | Yes |
+| 24 | Ekachai Golf & Country Club | 13.6182, 100.2747 | Yes — model estimate |
+| 25 | Robinswood Golf Club | 13.9632, 100.8201 | Yes — model estimate |
+| 26 | Krung Kavee Golf Course | 14.0127, 100.7834 | Yes — model estimate |
+| 27 | Sai Golf Club | 14.3155, 100.5212 | Yes — model estimate |
+| 28 | Life Privilege Country Club | 14.6523, 101.3841 | Yes — model estimate (Pak Chong area) — **now in khao-yai region** |
+| 29 | Star Country Club | 14.1923, 100.5387 | Yes — model estimate |
+| 30 | Panurangsi Golf Club | 13.5147, 99.8352 | Yes — model estimate (Ko Phlapphla, Ratchaburi) |
+| 31 | Rachakram Golf Club | 14.2156, 100.5614 | Yes — model estimate (Bang Sai, Ayutthaya) |
+| 32 | Nichigo Resort & Country Club | 14.1234, 99.3481 | Reasonable confidence (maplogs.com topo data) |
+| 33 | Bangpoo Golf & Sports Club | 13.574, 100.854 | Yes — model estimate |
+| 34 | Killien Golf Club | 14.119, 100.049 | Yes — model estimate |
+| 35 | Muang Ake Golf Course | 14.018, 100.664 | Yes — model estimate |
+| 36 | Muang Ake Vista Golf Course | 14.021, 100.661 | Yes — model estimate |
+| 37 | Muang Ake Wang Noi Golf Course | 14.212, 100.724 | Yes — model estimate |
+| 38 | Northern Rangsit Golf Club | 14.194, 100.739 | Yes — model estimate |
+| 39 | Rangsit Sports Club | 14.061, 100.764 | Yes — model estimate |
+| 40 | Prime City Golf Club | 14.074, 100.954 | Yes — model estimate |
+| 41 | Kumlung-Ake Golf Course | 17.501, 101.729 | Yes — model estimate (Loei province) |
+| 42 | Krisda City Golf Hills | 13.858, 100.208 | Yes — model estimate |
+| 43 | Ayutthaya Golf Club | 14.348, 100.622 | Yes — model estimate |
 
 ### Pattaya
 
 | # | Course | Approximate coords | Google Maps URL needed |
 |---|---|---|---|
-| 1 | Siam CC Old Course | 12.836, 101.067 | Yes |
+| 1 | Bangpra International Golf Club | 13.227293, 100.962296 | Confirmed via golfpattaya.com |
+| 2 | Wangjuntr Golf Park | 13.023781, 101.424955 | Confirmed via golfdd.com |
+| 3 | Siam CC Old Course | 12.836, 101.067 | Yes |
 | 2 | Siam CC Plantation | 12.836, 101.067 | Yes (same complex as Old Course) |
 | 3 | Burapha Golf & Resort | 13.155, 101.010 | Yes |
 | 4 | Laem Chabang International | 13.170, 100.990 | Yes |
 | 5 | Chee Chan Golf Resort | 12.772, 100.916 | Yes |
 | 6 | Amata Spring Country Club | 13.218, 100.987 | Yes |
+
+### Khao Yai
+
+| # | Course | Approximate coords | Google Maps URL needed |
+|---|---|---|---|
+| 1 | Kirimaya Golf Course | 14.5251, 101.3720 | Yes |
+| 2 | Khao Yai Golf Club | 14.5500, 101.4000 | Yes — coords are model estimate |
+| 3 | Mountain Creek Golf Resort | 14.869, 101.718 | Yes — model estimate (Sikhio / Lat Bua Khao) |
+| 4 | Bonanza Golf & Country Club | 14.727, 101.398 | Yes — model estimate (Pak Chong / Thanarat Rd) |
+| 5 | Seoul Siam Resort & CC | 14.712, 101.363 | Yes — model estimate (Pak Chong highland) |
+| 6 | Rooks Korat Country Club | 14.749, 102.006 | Yes — model estimate (Pak Thong Chai) |
+
+### Phuket
+
+| # | Course | Approximate coords | Google Maps URL needed | Address status |
+|---|---|---|---|---|
+| 1 | Red Mountain Golf Club | 7.9265, 98.3384 | Yes | Confirmed (phuketgolfholidays.com) |
+| 2 | Blue Canyon Canyon Course | 8.0840, 98.3232 | Yes | Confirmed (bluecanyonphuket.com) |
+| 3 | Blue Canyon Lakes Course | 8.0840, 98.3232 | Yes | Confirmed (same complex) |
+| 4 | Loch Palm Golf Club | 7.9501, 98.3229 | Yes | Model estimate — verify |
+| 5 | Laguna Golf Phuket | 8.0341, 98.2987 | Yes | Model estimate — verify |
+| 6 | Mission Hills Phuket | 7.985, 98.421 | Yes | Model estimate (Pa Klok, Thalang) |
+| 7 | Phuket Country Club | 7.897, 98.324 | Yes | Model estimate (Kathu) |
+| 8 | Aquella Golf & CC | 8.466, 98.270 | Yes | Model estimate (Thai Muang, Phang Nga) |
+
+### Chiang Mai
+
+| # | Course | Approximate coords | Google Maps URL needed |
+|---|---|---|---|
+| 1 | Alpine Golf Resort Chiang Mai | 18.6915, 99.1739 | Yes |
+| 2 | Chiangmai Highlands Golf & Spa Resort | 18.8062, 99.2604 | Yes |
 
 ---
 

@@ -1,0 +1,32 @@
+{
+  "slug": "the-legacy-golf-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "The Legacy Golf Club (Natural Park Ramindra Golf Club)", "source": "web-search", "url": "https://www.1golf.eu/en/club/the-legacy-golf-club-natural-park-ramindra-golf-club/" },
+    "province": { "value": "Bangkok", "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/legacy-golf-club/" },
+    "designer": { "value": "Jack Nicklaus", "source": "web-search", "url": "https://www.1golf.eu/en/club/the-legacy-golf-club-natural-park-ramindra-golf-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.1golf.eu/en/club/the-legacy-golf-club-natural-park-ramindra-golf-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.1golf.eu/en/club/the-legacy-golf-club-natural-park-ramindra-golf-club/" },
+    "yards": { "value": 7037, "source": "web-search", "url": "https://golfdigg.com/en/courses/legacy-golf-club-thailand" },
+    "year_opened": { "value": 1992, "source": "web-search", "url": "https://www.1golf.eu/en/club/the-legacy-golf-club-natural-park-ramindra-golf-club/" },
+    "green_fee_weekday_thb": { "value": 2000, "source": "web-search", "url": "https://www.1golf.eu/en/club/the-legacy-golf-club-natural-park-ramindra-golf-club/" },
+    "green_fee_weekend_thb": { "value": 3000, "source": "web-search", "url": "https://www.1golf.eu/en/club/the-legacy-golf-club-natural-park-ramindra-golf-club/" },
+    "caddie_fee_thb": { "value": 350, "source": "web-search", "url": "https://golfdigg.com/en/courses/legacy-golf-club-thailand" },
+    "cart_fee_thb": { "value": 1100, "source": "web-search", "url": "https://golfdigg.com/en/courses/legacy-golf-club-thailand" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.1golf.eu/en/club/the-legacy-golf-club-natural-park-ramindra-golf-club/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/legacy-golf-club/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/legacy-golf-club" },
+    "website": { "value": "http://legacygolfbangkok.com", "source": "web-search", "url": "https://golfdigg.com/en/courses/legacy-golf-club-thailand" },
+    "phone": { "value": "+66 2 914 1930", "source": "web-search", "url": "https://www.where2golf.com/thailand/the-legacy-golf-club/" },
+    "latitude": { "value": 13.874, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/legacy-golf-club/" },
+    "longitude": { "value": 100.7027, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/legacy-golf-club/" },
+    "distance_from_bangkok_km": { "value": 32, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 40, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/legacy-golf-club" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=13.874,100.7027", "source": "web-search", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/legacy-golf-club/" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  }
+}

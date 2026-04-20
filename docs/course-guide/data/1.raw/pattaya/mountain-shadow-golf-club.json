@@ -1,0 +1,29 @@
+{
+  "slug": "mountain-shadow-golf-club",
+  "region": "pattaya",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Mountain Shadow Golf Club", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/mountain-shadow-golf-club/", "note": "Also known as Panya Hills Golf Course (former name)." },
+    "province": { "value": "Chonburi", "source": "web-search", "url": "https://www.1golf.eu/en/club/mountain-shadow-golf-club-panya-hills-golf-course/" },
+    "designer": { "value": "Ronald Fream / Golfplan", "source": "web-search", "url": "https://www.golfpattaya.com/mountain-shadow-golf-club/", "note": "Ronald Fream and David Dale of Golfplan cited." },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/mountain-shadow-golf-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/mountain-shadow-golf-club/" },
+    "year_opened": { "value": 1993, "source": "web-search", "url": "https://www.1golf.eu/en/club/mountain-shadow-golf-club-panya-hills-golf-course/", "note": "Originally opened as Natural Park Hill. Renovated and rebranded after 2004 under new ownership." },
+    "green_fee_weekday_thb": { "value": 1400, "source": "web-search", "url": "https://www.golfsavers.com/thailand/pattaya-golf-courses", "note": "Rate quoted by multiple booking platforms. Weekday/weekend split unclear — verify." },
+    "green_fee_weekend_thb": { "value": 1400, "source": "web-search", "url": "https://www.golfsavers.com/thailand/pattaya-golf-courses", "note": "Weekend rate assumed same as weekday — needs confirmation." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/mountain-shadow-golf-club/" },
+    "cart_required": { "value": false, "source": "model", "url": null, "note": "Not confirmed — verify." },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": null, "source": "model", "url": null, "note": "No official website found in searches." },
+    "phone": { "value": "+66 85 228 0642", "source": "web-search", "url": "https://golfdigg.com/en/courses/mountain-shadow-golf-club" },
+    "latitude": { "value": 13.36, "source": "model", "url": null, "note": "Approximate — Mueang, Chon Buri (halfway between Bangkok and Pattaya). Verify." },
+    "longitude": { "value": 100.98, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 85, "source": "web-search", "url": "https://www.golfpattaya.com/mountain-shadow-golf-club/", "note": "Described as halfway between Bangkok and Pattaya; ~50 min from Pattaya." },
+    "drive_time_from_bangkok_min": { "value": 65, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "address": { "value": "159/1 Moo 2, Saensuk Road, Mueang, Chon Buri 20130", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/mountain-shadow-golf-club/" }
+  }
+}

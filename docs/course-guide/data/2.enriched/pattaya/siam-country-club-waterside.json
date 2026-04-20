@@ -1,0 +1,40 @@
+{
+  "slug": "siam-country-club-waterside",
+  "region": "pattaya",
+  "status": "enriched",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Siam Country Club Waterside", "source": "web-search", "url": "https://siamcountryclub.com/waterside/" },
+    "province": { "value": "Chonburi", "source": "web-search", "url": "https://siamcountryclub.com/waterside/" },
+    "designer": { "value": null, "source": "model", "url": null, "note": "One agent source cited 'IMG Golf Design' but this is unconfirmed. Official SCC website does not name a designer." },
+    "holes": { "value": 18, "source": "web-search", "url": "https://siamcountryclub.com/waterside/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfsavers.com/thailand/pattaya-golf-courses/siam-country-club-pattaya-waterside" },
+    "year_opened": { "value": 2014, "source": "web-search", "url": "https://siamcountryclub.com/waterside/" },
+    "green_fee_weekday_thb": { "value": 5960, "source": "web-search", "url": "https://www.golfsavers.com/thailand/pattaya-golf-courses/siam-country-club-pattaya-waterside", "note": "All-in (green fee + caddie + cart) per golf agent. Official SCC site does not publish rates. Verify." },
+    "green_fee_weekend_thb": { "value": 6960, "source": "web-search", "url": "https://www.golfsavers.com/thailand/pattaya-golf-courses/siam-country-club-pattaya-waterside", "note": "All-in per golf agent. Verify." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Caddie compulsory; included in all-in rate. Tip of 500 THB per caddie is customary." },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null, "note": "Cart compulsory; 1,000 THB/person per booking site — included in agent all-in rate." },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://siamcountryclub.com/waterside/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.pattayagolf.net/golf.php?golf_id=17" },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": "https://siamcountryclub.com/waterside/", "source": "web-search", "url": "https://siamcountryclub.com/waterside/" },
+    "phone": { "value": "+66 38 909 700", "source": "web-search", "url": "https://siamcountryclub.com/" },
+    "latitude": { "value": 12.836, "source": "model", "url": null, "note": "Approximate — SCC complex, Pong, Banglamung. Verify individual course pin." },
+    "longitude": { "value": 101.067, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 140, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 100, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null },
+    "address": { "value": null, "source": "model", "url": null, "note": "SCC complex: 50 Moo 9, Pong, Banglamung, Chonburi 20150. Waterside shares the SCC complex." },
+    "club_rental_available": { "value": null, "source": "model", "url": null, "note": "SCC Old Course offers 2,500 THB rental — Waterside likely similar; verify." },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Siam Country Club Waterside is an 18-hole, par-72 course that opened in 2014 as the fourth course on the SCC Pattaya complex — and the most recently built. At 7,407 yards, it is the longest of the SCC quartet and is designed around extensive water features that influence play on the majority of holes. The official SCC description positions Waterside as the most approachable of the four courses while still meeting the same championship preparation standards as the Old Course and Plantation. Green fees from golf agents are 5,960 THB on weekdays and 6,960 THB on weekends (all-in including caddie and cart) — pricing that places it in the premium tier but still below the Old Course. Booking is through SCC's reservations team directly or via golf agents; the official website does not display rack rates.",
+    "layout_and_experience": "Water is the defining feature of the Waterside design — hazards appear on the majority of holes, ranging from lateral ponds that frame fairways to carries over water on approach. The open fairway design, softer contours, and strategic rather than penal water placement reflect the course's stated goal of being the most playable of the SCC layouts while maintaining length and interest for stronger players. At 7,407 yards from the tips, the course demands accurate driving to keep the ball on the correct side of the many water margins. The greens are consistent with SCC's well-resourced maintenance standard across all four courses and are noted for firm, true surfaces. The 2014 vintage means the course has had over a decade to mature but remains one of the newer championship layouts in the eastern region.",
+    "tips": "Siam Country Club Waterside is on the SCC complex shared with the Old Course, Plantation, and Rolling Hills — multi-round packages combining two or three courses are available through SCC directly and offer better per-round value than booking each separately. Caddie tip of 500 THB per caddie is the customary standard at SCC courses. The all-in pricing from agents (5,960/6,960 THB) simplifies budgeting, but direct booking through rsvn@siamcountryclub.com or +66 38 909 700 may offer different rate structures. The Waterside is suitable for mid-to-high handicappers who want a genuine championship-length test with SCC's service and conditioning standards, but who find the Old Course's difficulty prohibitive for a comfortable day out.",
+    "location_and_access": "Siam Country Club Waterside is located within the SCC Pattaya complex in Pong, Banglamung, Chonburi — approximately 140km southeast of central Bangkok, or around 20 minutes from central Pattaya city by car. The drive from Bangkok takes around 100 minutes via the Bang Na–Trat Expressway (Highway 7). SCC provides in-house transfers from Pattaya hotels; golf agents handling SCC bookings also arrange transport from Bangkok and Pattaya.",
+    "rental_cta_context": "Playing Siam Country Club Waterside? Rent clubs from LENGOLF — SCC's conditioning deserves irons you can trust over 7,400 yards of water-lined holes."
+  }
+}

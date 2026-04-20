@@ -1,0 +1,45 @@
+{
+  "slug": "blue-sapphire-golf-resort",
+  "name": "Blue Sapphire Golf & Resort",
+  "region": "kanchanaburi",
+  "province": "Kanchanaburi",
+  "designer": "Steven Youdan and Art-anan Yomchinda",
+  "holes": 36,
+  "par": 72,
+  "year_opened": 2003,
+  "green_fee_weekday_thb": 1000,
+  "green_fee_weekend_thb": 1500,
+  "caddie_fee_thb": null,
+  "caddie_required": true,
+  "cart_fee_thb": 700,
+  "cart_required": null,
+  "driving_range": false,
+  "website": "http://www.bsgolfclub.com",
+  "phone": "+66 34 581 227",
+  "latitude": 14.357842,
+  "longitude": 99.49723,
+  "distance_from_bangkok_km": 172,
+  "drive_time_from_bangkok_min": 180,
+  "club_rental_available": true,
+  "club_rental_fee_thb": 1200,
+  "notes": "36-hole resort in Bo Phloi district, Kanchanaburi. Built on former open-cast sapphire mine — flooded mining pits form the water features. 4 nine-hole loops: Canyon A (Blue Sapphire), Canyon B (Yellow Sapphire), Ocean C (Pink Sapphire), and a 4th course. Designers Steven Youdan & Art-anan Yomchinda. Opened 2003, expanded 2008. Caddie compulsory (included in some packages). Cart 700 THB. Male caddies available (unusual for Thailand). On-site houseboat accommodation. ~42 km north of Kanchanaburi town, 3 hours from Bangkok.",
+  "schema_markup": "{\"@context\":\"https://schema.org\",\"@type\":\"GolfCourse\",\"name\":\"Blue Sapphire Golf & Resort\",\"url\":\"https://len.golf/golf-courses/kanchanaburi/blue-sapphire-golf-resort\",\"description\":null,\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Bo Phloi\",\"addressRegion\":\"Kanchanaburi\",\"addressCountry\":\"TH\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":14.357842,\"longitude\":99.49723},\"telephone\":\"+66 34 581 227\",\"priceRange\":\"฿฿\",\"sameAs\":[\"https://maps.google.com/?q=14.357842,99.49723\",\"http://www.bsgolfclub.com\"],\"amenityFeature\":[{\"@type\":\"LocationFeatureSpecification\",\"name\":\"Driving Range\",\"value\":false},{\"@type\":\"LocationFeatureSpecification\",\"name\":\"Caddie Required\",\"value\":true},{\"@type\":\"LocationFeatureSpecification\",\"name\":\"Golf Cart\",\"value\":true}]}",
+  "prose": {
+    "overview": "Blue Sapphire Golf & Resort is a 36-hole resort complex in Bo Phloi district, Kanchanaburi province, built on the site of a former open-cast sapphire mine. The mine's flooded extraction pits were transformed into the course's most defining feature: deep, vividly blue water hazards that give the resort its name and create a visual identity unlike any other golf destination in Thailand. Designed by Steven Youdan and Art-anan Yomchinda, the original 18 holes opened in 2003 and the facility expanded to 36 holes in 2008. The four nine-hole loops carry precious-stone names — Canyon A (Blue Sapphire), Canyon B (Yellow Sapphire), and Ocean C (Pink Sapphire), with a fourth combination available. Green fees are 1,000 THB on weekdays and 1,500 THB on weekends per 18 holes, with carts at 700 THB and club rental at 1,200 THB. A caddie is compulsory for all rounds.",
+    "layout_and_experience": "The former mining terrain gives Blue Sapphire its dramatic character. The flooded quarry pits — some dropping steeply below fairway level — create carry challenges that demand commitment and accuracy, particularly on approach shots. With 36 holes spread across four nine-hole loops, golfers can mix and match combinations for a fresh experience across multiple days of play. The naming convention reflects both the gemstone heritage of the land and the distinct personality of each loop: the Canyon courses play through the deeper, more dramatic quarry terrain, while the Ocean loop offers a different topographic feel. Male caddies are available here, which is relatively unusual in Thailand where female caddies are the near-universal norm. On-site accommodation includes the distinctive option of houseboat lodging on the water, providing an unusual and memorable way to stay at the property.",
+    "tips": "A caddie is compulsory at Blue Sapphire, and with the number of blind approach shots and dramatic elevation changes above the mining pits, local knowledge genuinely adds value here — the caddies are familiar with the carry distances over water that can look deceptive from the fairway. With 36 holes available, a two-day stay opens up the possibility of playing all four loops in different combinations without repeating an 18-hole circuit. The houseboat accommodation is worth considering for groups who want an experience beyond standard resort rooms. There is no driving range on-site, so arriving warmed up or allocating time to play a few practice holes is advisable. Cart hire at 700 THB is the standard way to cover the property, given the terrain involved.",
+    "location_and_access": "Blue Sapphire Golf & Resort is located in Bo Phloi district, approximately 42 km north of Kanchanaburi town and 172 km from Bangkok. The drive from Bangkok takes around three hours, heading northwest via the main Kanchanaburi highway before continuing north through Bo Phloi district. The resort sits in one of the more remote corners of Kanchanaburi province, set in an area historically known for its sapphire and gemstone mining operations. Because of the distance and the rural location, most visitors plan at least an overnight stay — the on-site accommodation options, including houseboat rooms on the flooded mine pits, make this straightforward. The coordinates for GPS navigation are 14.357842°N, 99.49723°E.",
+    "rental_cta_context": "LENGOLF rents full club sets at 1,200 THB — the same price as the on-site rental rate at Blue Sapphire Golf & Resort — giving golfers travelling from Bangkok a convenient option to pick up equipment before making the three-hour drive to Bo Phloi. Booking through LENGOLF in advance ensures your set is ready when you need it."
+  },
+  "locales": {
+    "en": {
+      "title": "Blue Sapphire Golf & Resort — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Blue Sapphire Golf: 36-hole resort on a former sapphire mine in Kanchanaburi. From 1,000 THB, caddies compulsory, carts 700 THB. 3 hrs from Bangkok via LENGOLF rentals."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  },
+  "status": "enriched",
+  "published_at": null
+}

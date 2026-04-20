@@ -1,0 +1,42 @@
+{
+  "slug": "blue-canyon-lakes-course",
+  "region": "phuket",
+  "status": "approved",
+  "collected_at": "2026-04-19",
+  "enriched_at": "2026-04-19",
+  "verified_at": "2026-04-19",
+  "approved_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Blue Canyon Country Club — Lakes Course", "source": "web-search", "url": "https://www.bluecanyonphuket.com/" },
+    "province": { "value": "Phuket", "source": "web-search", "url": "https://www.bluecanyonphuket.com/" },
+    "designer": { "value": "Yoshikazu Kato", "source": "web-search", "url": "https://www.bluecanyonphuket.com/golf-courses-country-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.phuketgolfcourse.com/blue-canyon-lake-course.htm" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.phuketgolfcourse.com/blue-canyon-lake-course.htm" },
+    "year_opened": { "value": 1999, "source": "web-search", "url": "https://www.bluecanyonphuket.com/golf-courses-country-club/" },
+    "green_fee_weekday_thb": { "value": 1850, "source": "web-search", "url": "https://www.phuketgolfholidays.com/greenfee.php", "note": "Low season (Apr–Oct) green fee only, excl. compulsory caddie ฿400 and cart ฿700. High season rate TBC — tracked in data-gaps." },
+    "green_fee_weekend_thb": { "value": null, "source": "model", "url": null, "note": "High season (Nov–Mar) rate not confirmed. Tracked in data-gaps.md." },
+    "caddie_fee_thb": { "value": 400, "source": "web-search", "url": "https://www.phuketgolfcourse.com/blue-canyon-lake-course.htm" },
+    "cart_fee_thb": { "value": 700, "source": "web-search", "url": "https://www.phuketgolfcourse.com/blue-canyon-lake-course.htm" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.phuketgolfcourse.com/blue-canyon-lake-course.htm" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.phuketgolfcourse.com/blue-canyon-lake-course.htm" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfsavers.com/thailand/phuket-golf-courses/blue-canyon-country-club-lakes-course" },
+    "website": { "value": "https://www.bluecanyonphuket.com/", "source": "web-search", "url": null },
+    "phone": { "value": "+66 76 328 088", "source": "web-search", "url": "https://www.bluecanyonphuket.com/golf-courses-country-club/" },
+    "address": { "value": "165 Moo 1, Thepkasattri Road, Thalang, Phuket 83110", "source": "web-search", "url": "https://www.bluecanyonphuket.com/golf-courses-country-club/" },
+    "latitude": { "value": 8.0840, "source": "model", "url": null },
+    "longitude": { "value": 98.3232, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 860, "source": "web-search", "url": null },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfsavers.com/thailand/phuket-golf-courses/blue-canyon-country-club-lakes-course" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Blue Canyon Country Club's Lakes Course is the younger sibling to the celebrated Canyon Course, sharing the same Thalang property and clubhouse facilities but offering a distinctly different golf experience. Designed by Yoshikazu Kato and opened in February 1999, the Lakes Course takes its name from the series of large, scenic lakes that define the layout — former tin mine excavations transformed into sweeping water hazards. At 7,129 yards from the championship tees, the Lakes Course is marginally shorter than the Canyon Course, with a more open, resort-style character. It tends to attract players who want a high-quality round in a spectacular setting without the same degree of technical difficulty as the Canyon. The significantly lower green fee makes it an excellent-value option for a second day of golf or for visitors whose handicap would find the Canyon Course punishing.",
+    "layout_and_experience": "The par-72 layout is defined by water: multiple holes require accurate drives and approach shots over or alongside large lakes, and the risk/reward element is consistently present without becoming oppressive. The fairways are more generous than the Canyon Course and the terrain flatter, making it more walker-friendly — though carts are still compulsory. Greens are large and true, rewarding consistent ball-striking over the punch-and-run strategy that works well on the Canyon. For higher handicappers, the Lakes Course is the more comfortable of the two Blue Canyon tracks — enough water to keep things interesting, but manageable for visitors who score in the 90s. For low handicappers, the course's width and pace of play make it a good option for working on course management or playing a casual final-day round. The shared facilities with the Canyon Course — driving range, practice putting green, restaurant, spa, and accommodation — are among the best available at any Phuket golf venue.",
+    "tips": "The Lakes Course is an ideal choice if you're planning two rounds at Blue Canyon: start with Lakes in the morning and follow up with the Canyon Course in the afternoon, or on a second day. Tee times are generally easier to secure here than for the Canyon, even during high season. For golfers prone to losing balls on water holes, bring extra sleeves — several long par-4s require carries over lake edges from the tee. Ask your caddie about the wind: the open layout means breeze affects approach shots more than on the more sheltered Canyon Course. Green fees are substantially lower than the Canyon Course, making this an exceptional-value round by Phuket standards.",
+    "location_and_access": "The Lakes Course sits within the Blue Canyon Country Club property at 165 Moo 1, Thepkasattri Road, Thalang district, approximately 10 km from Phuket International Airport — around 15–20 minutes by car. All visitors from Bangkok fly (approximately 1 hour 20 minutes). From Patong Beach, the drive is approximately 35–40 minutes. Grab or hotel transfers are the recommended transport; both courses share the same clubhouse and car park.",
+    "rental_cta_context": "Playing Blue Canyon's Lakes Course during your Phuket trip? If your route includes Bangkok, rent premium clubs delivered to your hotel — skip the baggage fees and arrive ready to play."
+  }
+}

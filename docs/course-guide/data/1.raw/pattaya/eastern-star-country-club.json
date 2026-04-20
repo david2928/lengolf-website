@@ -1,0 +1,29 @@
+{
+  "slug": "eastern-star-country-club",
+  "region": "pattaya",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Eastern Star Country Club & Resort", "source": "official-website", "url": "https://www.easternstargolfcourse.com/" },
+    "province": { "value": "Rayong", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/eastern-star-country-club/" },
+    "designer": { "value": "Robert Trent Jones Jr.", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/eastern-star-country-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/eastern-star-country-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/eastern-star-country-club/" },
+    "year_opened": { "value": 1992, "source": "web-search", "url": "https://www.allsquaregolf.com/golf-courses/thailand/eastern-star-country-club-resort" },
+    "green_fee_weekday_thb": { "value": 2550, "source": "web-search", "url": "https://www.clubthailandcard.com/pattaya-rayongarea", "note": "Club Thailand low-season member rate (Apr–Oct). Visitor walk-in rate higher (~4,350 all-in). Verify visitor green-fee-only rate." },
+    "green_fee_weekend_thb": { "value": 2750, "source": "web-search", "url": "https://www.clubthailandcard.com/pattaya-rayongarea", "note": "Club Thailand low-season member rate. Visitor all-in: ~4,850 THB. Verify visitor green-fee-only rate." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Not confirmed separately — visitor all-in rates include caddie. Verify." },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null, "note": "Club Thailand data shows cart as optional (1 staff). Verify standard cart fee." },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/eastern-star-country-club/" },
+    "cart_required": { "value": false, "source": "web-search", "url": "https://enth.asiagolf.com/user/product/product_info.php?product_id=992654463", "note": "Cart available but appears optional." },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": "https://www.easternstargolfcourse.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 38 630 4103", "source": "web-search", "url": "https://www.easternstargolfcourse.com/easternstargolfcourse.com/easternstar/html/color1/pages/contact.html" },
+    "latitude": { "value": 12.80, "source": "model", "url": null, "note": "Approximate — Ban Chang, Rayong. Verify." },
+    "longitude": { "value": 101.36, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 185, "source": "model", "url": null, "note": "Approximate — Ban Chang, Rayong province." },
+    "drive_time_from_bangkok_min": { "value": 130, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "address": { "value": "241/5 Thanon Tessaban Street 2, Phla, Ban Chang, Rayong 21130", "source": "web-search", "url": "https://www.easternstargolfcourse.com/easternstargolfcourse.com/easternstar/html/color1/pages/contact.html" }
+  }
+}

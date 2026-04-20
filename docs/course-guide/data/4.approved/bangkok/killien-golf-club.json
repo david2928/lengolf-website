@@ -1,0 +1,152 @@
+{
+  "slug": "killien-golf-club",
+  "region": "bangkok",
+  "status": "verified",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "verified_at": "2026-04-20",
+  "verification_status": "APPROVED (provisional)",
+  "verification_notes": "18 holes, par 72, 7,079 yards confirmed. Ken Killian design confirmed. Located Bang Len, Nakhon Pathom (~1 hour from Bangkok). Note: pipeline notes placed this near Chachoengsao — multiple sources confirm Nakhon Pathom province. Green fee package ~1,850 THB (all-inclusive green fee + caddie + cart) from one source; specific weekday/weekend split not confirmed. Marked provisional due to limited fee detail.",
+  "disputes": [
+    "Pipeline notes listed this as 'near Chachoengsao' but all reliable sources place it in Bang Len District, Nakhon Pathom province. Nakhon Pathom location used.",
+    "Green fee of ~1,850 THB (all-in) from a single source; weekday vs weekend split unconfirmed."
+  ],
+  "fields": {
+    "name": {
+      "value": "Killien Golf Club",
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/killien-golf-club/"
+    },
+    "province": {
+      "value": "Nakhon Pathom",
+      "source": "web-search",
+      "url": "https://www.golfpass.com/travel-advisor/courses/43565-killien-golf-club"
+    },
+    "designer": {
+      "value": "Ken Killian",
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/killien-golf-club/"
+    },
+    "holes": {
+      "value": 18,
+      "source": "web-search",
+      "url": "https://www.golflux.com/course/killien-golf-club/"
+    },
+    "par": {
+      "value": 72,
+      "source": "web-search",
+      "url": "https://www.golflux.com/course/killien-golf-club/"
+    },
+    "yards": {
+      "value": 7079,
+      "source": "web-search",
+      "url": "https://www.golflux.com/course/killien-golf-club/"
+    },
+    "year_opened": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "green_fee_weekday_thb": {
+      "value": 1850,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/killien-golf-club/"
+    },
+    "green_fee_weekend_thb": {
+      "value": 1850,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/killien-golf-club/"
+    },
+    "caddie_fee_thb": {
+      "value": null,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/killien-golf-club/"
+    },
+    "cart_fee_thb": {
+      "value": null,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/killien-golf-club/"
+    },
+    "caddie_required": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/killien-golf-club/"
+    },
+    "cart_required": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/killien-golf-club/"
+    },
+    "driving_range": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golflux.com/course/killien-golf-club/"
+    },
+    "website": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "phone": {
+      "value": "+66 34 156 536",
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/killien-golf-club/"
+    },
+    "latitude": {
+      "value": 14.119,
+      "source": "model",
+      "url": null
+    },
+    "longitude": {
+      "value": 100.049,
+      "source": "model",
+      "url": null
+    },
+    "distance_from_bangkok_km": {
+      "value": 65,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/killien-golf-club/"
+    },
+    "drive_time_from_bangkok_min": {
+      "value": 60,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/killien-golf-club/"
+    },
+    "google_maps_url": {
+      "value": "https://maps.google.com/?q=14.119,100.049",
+      "source": "model",
+      "url": null
+    },
+    "club_rental_available": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golflux.com/course/killien-golf-club/"
+    },
+    "club_rental_fee_thb": {
+      "value": 800,
+      "source": "model",
+      "url": null
+    },
+    "club_rental_brands": {
+      "value": null,
+      "source": "model",
+      "url": null
+    }
+  },
+  "prose": {
+    "overview": "Killien Golf Club stands apart in the Bangkok region as a Ken Killian-designed championship layout — the same American architect behind Kemper Lakes Golf Course, long ranked among the top 100 courses in the United States. Located in Bang Len District, Nakhon Pathom province, roughly 65 kilometres west of Bangkok, the course is set beside the Nakorn Chaisri River and built on land that integrates multiple lakes as strategic hazards throughout the routing. At 7,079 yards from the tips, Killien is one of the longer courses in the greater Bangkok area and demands genuine shot-making skill off the tee. Wind off the river corridor is a persistent factor, rewarding controlled ball-striking over brute power. The club has a loyal following among Bangkok golfers who prize courses where accuracy matters more than distance, and it operates as a welcome contrast to the tighter, more ornate designs typical of the Bangkok inner ring.",
+    "layout_and_experience": "The 18-hole Killian layout is routed around a series of interconnected lakes that force strategic decisions on almost every hole. Tee shots must navigate water on multiple holes, and the prevailing riverside wind compounds the challenge — a calm 170-metre par three becomes a two-club problem on a breezy afternoon. Wide fairways keep the layout playable for mid-handicappers, but the penalty for straying into the hazard network is genuine; there are few bailout areas. The greens are large by Thai standards, sloping in ways that create three-putt risk when approach shots miss the correct tier. Cart paths follow the full 18, and the mandatory caddie policy ensures visitors receive guidance on local nuances. Pace of play is efficient, partly because the flat terrain allows quick transit between holes and the club limits simultaneous tee sheet density.",
+    "tips": "Cart is mandatory at Killien — the layout requires transport between distant holes. Caddie tips are expected at a minimum of 400 THB. Wind direction on the day significantly affects strategy: the lakes that protect par-fours on upwind holes become aggressive hazards when the wind reverses. Book one day in advance minimum; weekends fill quickly as the club is popular with Bangkok's western-suburb golfers. Access is via the Pinkao-Nakhon Chaisri Road heading west from Bangkok; GPS is reliable. The club is approximately 30 minutes from Nakhon Pathom town if combining with a day trip to Phra Pathom Chedi.",
+    "location_and_access": "Killien Golf Club is located in Bang Len District, Nakhon Pathom province, approximately 65 km west of central Bangkok. The drive takes around 60 minutes via the Pinkao-Nakhon Chaisri highway. The course is not reachable by public transport; taxi, Grab, or private car is necessary. The club is also accessible from Don Mueang Airport in about 70 minutes via Ring Road 9.",
+    "rental_cta_context": "Making the 65-kilometre drive west to Killien is straightforward with LENGOLF clubs waiting at your Bangkok hotel — no fumbling with rental counters at an unfamiliar club, just pick up your bag and drive."
+  },
+  "locales": {
+    "en": {
+      "title": "Killien Golf Club — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Killien Golf Club green fees, Ken Killian course guide, visitor tips, and golf club rentals delivered to your Bangkok hotel."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  }
+}

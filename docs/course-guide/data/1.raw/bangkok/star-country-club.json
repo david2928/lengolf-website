@@ -1,0 +1,33 @@
+{
+  "slug": "star-country-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Star Country Club (Aquarius Country Club)", "source": "web-search", "url": "https://www.allsquaregolf.com/golf-courses/thailand/star-country-club-aquarius-country-club" },
+    "province": { "value": "Phra Nakhon Si Ayutthaya", "source": "web-search", "url": "https://www.1golf.eu/en/club/star-country-club-aquarius-country-club/" },
+    "designer": { "value": "Cherd Boonyarattanavej", "source": "web-search", "url": "https://www.golflux.com/course/star-country-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golflux.com/course/star-country-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golflux.com/course/star-country-club/" },
+    "yards": { "value": 6472, "source": "web-search", "url": "https://www.golflux.com/course/star-country-club/" },
+    "year_opened": { "value": 1992, "source": "web-search", "url": "https://www.1golf.eu/en/club/star-country-club-aquarius-country-club/" },
+    "green_fee_weekday_thb": { "value": 200, "source": "web-search", "url": "https://www.1golf.eu/en/club/star-country-club-aquarius-country-club/" },
+    "green_fee_weekend_thb": { "value": 400, "source": "web-search", "url": "https://www.1golf.eu/en/club/star-country-club-aquarius-country-club/" },
+    "caddie_fee_thb": { "value": 300, "source": "model", "url": null },
+    "cart_fee_thb": { "value": 400, "source": "model", "url": null },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golflux.com/course/star-country-club/" },
+    "website": { "value": null, "source": "model", "url": null },
+    "phone": { "value": "+66 83 815 2054", "source": "web-search", "url": "https://www.1golf.eu/en/club/star-country-club-aquarius-country-club/" },
+    "latitude": { "value": 14.1923, "source": "model", "url": null },
+    "longitude": { "value": 100.5387, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 65, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 70, "source": "model", "url": null },
+    "google_maps_url": { "value": "https://maps.google.com/?q=14.1923,100.5387", "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "model", "url": null },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null },
+    "notes": { "value": "Address: 17 Moo 8, Bangbuathong-Suphanburi Rd, Bangsai, Ayutthaya 11110. Green fee rates from Albrecht Guide (1golf.eu) at 200/400 THB appear extremely low and may be itemised green fee only (excluding caddie/cart). Needs verification.", "source": "web-search", "url": "https://www.1golf.eu/en/club/star-country-club-aquarius-country-club/" }
+  }
+}

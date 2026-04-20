@@ -1,0 +1,32 @@
+{
+  "slug": "chiangmai-highlands-golf",
+  "region": "chiang-mai",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Chiangmai Highlands Golf & Spa Resort", "source": "official-website", "url": "https://www.chiangmaihighlands.com/" },
+    "province": { "value": "Chiang Mai", "source": "official-website", "url": "https://www.chiangmaihighlands.com/golf/index.php/contact" },
+    "designer": { "value": "Lee Schmidt & Brian Curley (Schmidt-Curley Design)", "source": "web-search", "url": "https://www.chiangmaigolfclub.com/chiangmai-highlands-golf-resort.htm" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfsavers.com/thailand/chiang-mai-golf-courses/chiangmai-highlands-golf-resort" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfsavers.com/thailand/chiang-mai-golf-courses/chiangmai-highlands-golf-resort" },
+    "year_opened": { "value": 2005, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/chiangmai-highlands-golf-resort.htm" },
+    "green_fee_weekday_thb": { "value": 3400, "source": "web-search", "url": "https://www.golfdd.com/course/229", "note": "Standard 18-hole green fee (no weekday/weekend distinction — 'everyday' rate). Caddie (400 THB) and cart (750 THB) compulsory and charged separately. Low season (Apr–Oct) agent packages bundle all-in for ~3,400 THB (chiangmaigolfclub.com). Flagged for verification." },
+    "green_fee_weekend_thb": { "value": null, "source": "model", "url": null, "note": "No separate weekend rate found — course charges same rate everyday. High season (Nov–Mar) rate may differ but not confirmed." },
+    "caddie_fee_thb": { "value": 400, "source": "official-website", "url": "https://www.chiangmaihighlands.com/golf/index.php/rates", "note": "Compulsory, must be paid in cash." },
+    "cart_fee_thb": { "value": 750, "source": "official-website", "url": "https://www.chiangmaihighlands.com/golf/index.php/rates", "note": "Compulsory, single golfer per cart, caddie must drive." },
+    "caddie_required": { "value": true, "source": "official-website", "url": "https://www.chiangmaihighlands.com/golf/index.php/rates" },
+    "cart_required": { "value": true, "source": "official-website", "url": "https://www.chiangmaihighlands.com/golf/index.php/rates" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfchiangmai.com/chiangmai-highlands-golf-resort/" },
+    "website": { "value": "https://www.chiangmaihighlands.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 53 261 354", "source": "web-search", "url": "https://www.chiangmaihighlands.com/golf/index.php/contact" },
+    "address": { "value": "167 Moo 2 On Nuea, Mae On District, Chiang Mai 50130, Thailand", "source": "web-search", "url": "https://www.golfchiangmai.com/chiangmai-highlands-golf-resort/" },
+    "latitude": { "value": 18.8062, "source": "web-search", "url": "https://www.golfchiangmai.com/chiangmai-highlands-golf-resort/" },
+    "longitude": { "value": 99.2604, "source": "web-search", "url": "https://www.golfchiangmai.com/chiangmai-highlands-golf-resort/" },
+    "distance_from_bangkok_km": { "value": 720, "source": "web-search", "url": null, "note": "Mae On district is ~720 km from Bangkok by road (~9 hours drive). Virtually all visitors fly to Chiang Mai (~1h 10min); the course is 40 minutes east of Chiang Mai city centre." },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null, "note": "Not applicable — virtually all visitors fly to Chiang Mai." },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfchiangmai.com/chiangmai-highlands-golf-resort/" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  }
+}

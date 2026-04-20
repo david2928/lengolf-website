@@ -1,0 +1,49 @@
+{
+  "slug": "rachakram-golf-club",
+  "region": "bangkok",
+  "status": "enriched",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Rachakram Golf Club", "source": "web-search", "url": "https://www.rachakramgolfclub.com/" },
+    "province": { "value": "Phra Nakhon Si Ayutthaya", "source": "web-search", "url": "https://www.tripadvisor.com/Attraction_Review-g2238737-d15661610-Reviews-Rachakram_Golf_Club-Bang_Sai_Ayutthaya_Province.html" },
+    "designer": { "value": "Dr. Sukitti Klangvisai", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rachakram-golf-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rachakram-golf-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rachakram-golf-club/" },
+    "yards": { "value": 6941, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rachakram-golf-club/" },
+    "year_opened": { "value": 2006, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rachakram-golf-club/" },
+    "green_fee_weekday_thb": { "value": 2000, "source": "web-search", "url": "https://www.rachakramgolfclub.com/rates.html" },
+    "green_fee_weekend_thb": { "value": 2700, "source": "web-search", "url": "https://www.rachakramgolfclub.com/rates.html" },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.thailandgolfers.com/golf-courses/bangkok/rachakram-golf-club/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.thailandgolfers.com/golf-courses/bangkok/rachakram-golf-club/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rachakram-golf-club/" },
+    "website": { "value": "https://www.rachakramgolfclub.com/", "source": "web-search", "url": "https://www.rachakramgolfclub.com/" },
+    "phone": { "value": "+66 35 367 060", "source": "web-search", "url": "https://www.1golf.eu/en/club/rachakram-golf-club/" },
+    "latitude": { "value": 14.2156, "source": "model", "url": null },
+    "longitude": { "value": 100.5614, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 70, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 90, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rachakram-golf-club/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=14.2156,100.5614", "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rachakram-golf-club/" },
+    "club_rental_fee_thb": { "value": 800, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rachakram-golf-club/" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Rachakram Golf Club is a modern, links-influenced course in the Bang Sai area of Ayutthaya Province, opened in 2006 and designed by Dr. Sukitti Klangvisai. It has built a strong reputation as one of the most enjoyable and well-priced full-day golf experiences within reasonable reach of Bangkok, offering all-in pricing (green fee, caddie, and cart bundled) that provides transparency and convenience. The course operates seven days a week with both day and night golf available, making it versatile for golfers with flexible schedules. Night golf under floodlights is a distinctive offering rarely found at courses of this quality in the Bangkok region. Its links-inspired terrain, fast greens, and well-maintained facilities attract a mix of Bangkok expatriates, Japanese visitors, and serious Thai golfers.",
+    "layout_and_experience": "The 18-hole par-72 layout measures 6,941 yards — a substantial test from the back tees. Dr. Sukitti Klangvisai's links-inspired design features open, undulating terrain with the ball encouraged to run up and along the ground toward the greens, rewarding golfers who control trajectory. The greens are consistently praised as firm and fast, with subtle borrows that test local knowledge and make course management important. Par-3s range from 136 to 230 yards, offering a full spectrum of precision shots. All par-5s exceed 500 yards, demanding sound strategy. A driving range, short game area, and putting green are available for pre-round warm-up. Night golf operates under floodlights across the full 18 holes — a genuinely enjoyable option during Thailand's hot season. The course's modern clubhouse features restaurant facilities with views over the course and changing/shower facilities to a good standard.",
+    "tips": "The all-in pricing (green fee + caddie + cart) simplifies budgeting: 2,000 THB weekday (high season), 2,700 THB weekend. Low-season (April–October) rates drop to 1,900 THB weekday, 2,500 THB weekend. After 11:30 AM weekend rounds cost 2,200 THB in high season. Night golf is a popular option during the hot months. Advance booking is required: one day for weekdays, two days for weekends. The course is at 84 Moo 1, Changyai, Ayutthaya — take the Route 3442 toward Bang Pa-In from the 2nd Motorway.",
+    "location_and_access": "Rachakram Golf Club is located at 84 Moo 1, Changyai, Ayutthaya 13290, in the Bang Sai area near Bangsai Arts Centre, Ayutthaya Province. From central Bangkok, the drive takes approximately 90 minutes via the 2nd Motorway (Route 7) north and Route 3442 toward Bang Pa-In and Bang Sai. The course is about 70 km from central Bangkok. A private car or Grab is required; there is no practical public transport option.",
+    "rental_cta_context": "Heading to Rachakram for a day of golf with night play? LENGOLF delivers tour-quality clubs directly to your Bangkok hotel, making your day out even more seamless."
+  },
+  "locales": {
+    "en": {
+      "title": "Rachakram Golf Club — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Rachakram Golf Club Ayutthaya green fees, links-style course guide, night golf info, and golf club rentals delivered to your Bangkok hotel."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  }
+}

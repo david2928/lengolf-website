@@ -1,0 +1,31 @@
+{
+  "slug": "pineapple-valley-golf-club",
+  "region": "hua-hin",
+  "status": "raw",
+  "collected_at": "2026-04-18",
+  "fields": {
+    "name": { "value": "Pineapple Valley Golf Club", "source": "official-website", "url": "https://pineapplevalleygolfclub.com/" },
+    "province": { "value": "Prachuap Khiri Khan", "source": "official-website", "url": "https://pineapplevalleygolfclub.com/" },
+    "designer": { "value": "Pirapon Namatra (Golf East Co.)", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/pineapple-valley-golf-club/" },
+    "holes": { "value": 18, "source": "official-website", "url": "https://pineapplevalleygolfclub.com/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/pineapple-valley-golf-club/" },
+    "year_opened": { "value": 2008, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/pineapple-valley-golf-club/" },
+    "green_fee_weekday_thb": { "value": 2900, "source": "web-search", "url": "https://www.huahingolfcourse.com/pineapple-valley-golf-club.htm" },
+    "green_fee_weekend_thb": { "value": 2900, "source": "web-search", "url": "https://www.huahingolfcourse.com/pineapple-valley-golf-club.htm" },
+    "caddie_fee_thb": { "value": 400, "source": "official-website", "url": "https://pineapplevalleygolfclub.com/book-a-tee-time/" },
+    "cart_fee_thb": { "value": 750, "source": "official-website", "url": "https://pineapplevalleygolfclub.com/book-a-tee-time/" },
+    "caddie_required": { "value": true, "source": "official-website", "url": "https://pineapplevalleygolfclub.com/book-a-tee-time/" },
+    "cart_required": { "value": false, "source": "official-website", "url": "https://pineapplevalleygolfclub.com/book-a-tee-time/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/pineapple-valley-golf-club/" },
+    "website": { "value": "https://pineapplevalleygolfclub.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 32 616 200", "source": "web-search", "url": "https://pineapplevalleygolfclub.com/" },
+    "latitude": { "value": 12.4985, "source": "web-search", "url": "https://www.huahingolfcourse.com/pineapple-valley-golf-club.htm" },
+    "longitude": { "value": 99.9424, "source": "web-search", "url": "https://www.huahingolfcourse.com/pineapple-valley-golf-club.htm" },
+    "distance_from_bangkok_km": { "value": 230, "source": "web-search", "url": "https://huahintravel.com/thailand/hua-hin/hua-hin-golf-courses/pineapple-valley-golf-club/" },
+    "drive_time_from_bangkok_min": { "value": 180, "source": "web-search", "url": "https://huahintravel.com/thailand/hua-hin/hua-hin-golf-courses/pineapple-valley-golf-club/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=12.4985,99.9424", "source": "web-search", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/pineapple-valley-golf-club/" },
+    "club_rental_fee_thb": { "value": 1200, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/pineapple-valley-golf-club/" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  }
+}

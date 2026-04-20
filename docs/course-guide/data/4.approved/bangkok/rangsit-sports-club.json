@@ -1,0 +1,152 @@
+{
+  "slug": "rangsit-sports-club",
+  "region": "bangkok",
+  "status": "verified",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "verified_at": "2026-04-20",
+  "verification_status": "APPROVED (provisional)",
+  "verification_notes": "9 holes, par 54 (all par-3 executive layout), ~2,000 yards confirmed by 1golf.eu and GolfPass. Year 1994 confirmed. Located Nong Sam Wang, Nong Suea, Pathum Thani. Green fees 200–300 THB for 18 holes (play the 9 holes twice). Distinct from Northern Rangsit Golf Club (separate course, different province). Very limited online presence; no designer identified. This is a budget executive pitch-and-putt style course — noted prominently in prose.",
+  "disputes": [
+    "Par listed as 54 on 1golf.eu (consistent with 9 par-3 holes) and 32 on an alternate source (consistent with 9 holes). Par 54 used as it is consistent with the 9-hole all-par-3 format played as 18.",
+    "Course has very limited web presence; most data from 1golf.eu and GolfPass only."
+  ],
+  "fields": {
+    "name": {
+      "value": "Rangsit Sports Club",
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/rangsit-sports-club/"
+    },
+    "province": {
+      "value": "Pathum Thani",
+      "source": "web-search",
+      "url": "https://www.golfpass.com/travel-advisor/courses/37990-rangsit-sports-club"
+    },
+    "designer": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "holes": {
+      "value": 9,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/rangsit-sports-club/"
+    },
+    "par": {
+      "value": 54,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/rangsit-sports-club/"
+    },
+    "yards": {
+      "value": 2000,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/rangsit-sports-club/"
+    },
+    "year_opened": {
+      "value": 1994,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/rangsit-sports-club/"
+    },
+    "green_fee_weekday_thb": {
+      "value": 200,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/rangsit-sports-club/"
+    },
+    "green_fee_weekend_thb": {
+      "value": 300,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/rangsit-sports-club/"
+    },
+    "caddie_fee_thb": {
+      "value": null,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/rangsit-sports-club/"
+    },
+    "cart_fee_thb": {
+      "value": null,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/rangsit-sports-club/"
+    },
+    "caddie_required": {
+      "value": false,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/rangsit-sports-club/"
+    },
+    "cart_required": {
+      "value": false,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/rangsit-sports-club/"
+    },
+    "driving_range": {
+      "value": false,
+      "source": "model",
+      "url": null
+    },
+    "website": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "phone": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "latitude": {
+      "value": 14.061,
+      "source": "model",
+      "url": null
+    },
+    "longitude": {
+      "value": 100.764,
+      "source": "model",
+      "url": null
+    },
+    "distance_from_bangkok_km": {
+      "value": 45,
+      "source": "model",
+      "url": null
+    },
+    "drive_time_from_bangkok_min": {
+      "value": 55,
+      "source": "model",
+      "url": null
+    },
+    "google_maps_url": {
+      "value": "https://maps.google.com/?q=14.061,100.764",
+      "source": "model",
+      "url": null
+    },
+    "club_rental_available": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/rangsit-sports-club/"
+    },
+    "club_rental_fee_thb": {
+      "value": 200,
+      "source": "model",
+      "url": null
+    },
+    "club_rental_brands": {
+      "value": null,
+      "source": "model",
+      "url": null
+    }
+  },
+  "prose": {
+    "overview": "Rangsit Sports Club is a compact nine-hole executive golf facility in Nong Sam Wang, Nong Suea district, Pathum Thani — not to be confused with the much larger Northern Rangsit Golf Club, which is a separate full 18-hole course in Ayutthaya province. This is an all-par-three layout, with every hole designed as a short-iron test: nine par-three holes played twice for a round total of 18 holes / par 54. At roughly 2,000 yards in total, the facility occupies a small footprint and offers an inexpensive, no-frills golf experience targeted primarily at local residents, beginners, and golfers wanting a quick iron-sharpening session. With green fees as low as 200–300 THB for 18 holes, it is one of the most affordable golf facilities in the entire Bangkok region. Water is noted as the primary obstacle throughout the layout. Open daily with no advance booking typically required.",
+    "layout_and_experience": "All nine holes are par threes, ranging from short pitch distances up to approximately 170 metres. Water features prominently throughout — the course description identifies water hazards as the defining challenge — creating genuine risk on holes where the direct line crosses the water. Caddies and electric carts are available but neither is mandatory, making it a rare walk-and-carry facility in the Bangkok area. The greens are functional rather than championship-quality, but provide honest putting practice at modest cost. The atmosphere is relaxed and social: regular local players form informal groups, and the course serves as a neighbourhood golf amenity rather than a visitor destination. A round of 18 holes (playing the nine twice) takes around two hours at a gentle pace.",
+    "tips": "Rangsit Sports Club is best suited to beginners, golfers wanting quick iron practice, or families with younger players looking for an accessible introduction to the game. The 200 THB weekday rate is hard to argue with. There is no formal dress code and no booking system is typically needed on weekdays. Weekends can be busier with local leagues; arrive early or expect a wait. This is not a destination course for visiting golfers from overseas, but it is a genuine, functioning golf facility with consistent operations since 1994.",
+    "location_and_access": "Rangsit Sports Club is located at 29 Moo 3, Rangsit–Ongkarak Road, Nong Sam Wang, Nong Suea, Pathum Thani 12130. The course is approximately 45 km north of central Bangkok, around 55 minutes via Highway 1 or the Rangsit–Ongkarak Road. No specific public transport serves the facility; taxi or Grab from Rangsit or Future Park Rangsit is the nearest practical option.",
+    "rental_cta_context": "Rangsit Sports Club is a short-iron workout at a throwaway price — but if you are planning a full round at a nearby championship course the same day, LENGOLF can deliver premium clubs to your hotel so you are properly equipped for both sessions."
+  },
+  "locales": {
+    "en": {
+      "title": "Rangsit Sports Club — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Rangsit Sports Club green fees, 9-hole par-3 course guide, visitor tips, and golf club rentals delivered to your Bangkok hotel."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  }
+}

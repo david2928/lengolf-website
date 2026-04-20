@@ -1,0 +1,31 @@
+{
+  "slug": "palm-hills-golf-club",
+  "region": "hua-hin",
+  "status": "raw",
+  "collected_at": "2026-04-18",
+  "fields": {
+    "name": { "value": "Palm Hills Golf Club & Residence", "source": "official-website", "url": "https://www.palmhills-golf.com/" },
+    "province": { "value": "Phetchaburi", "source": "official-website", "url": "https://www.palmhills-golf.com/contact-us/" },
+    "designer": { "value": "Max Wexler", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/palm-hills-golf-club-and-residence/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/palm-hills-golf-club-and-residence/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/palm-hills-golf-club-and-residence/" },
+    "year_opened": { "value": 1992, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/palm-hills-golf-club-and-residence/" },
+    "green_fee_weekday_thb": { "value": 1400, "source": "web-search", "url": "https://www.huahingolfcourse.com/palm-hills-golf-club.htm" },
+    "green_fee_weekend_thb": { "value": 1400, "source": "web-search", "url": "https://www.huahingolfcourse.com/palm-hills-golf-club.htm" },
+    "caddie_fee_thb": { "value": 350, "source": "web-search", "url": "https://www.huahingolfcourse.com/palm-hills-golf-club.htm" },
+    "cart_fee_thb": { "value": 700, "source": "web-search", "url": "https://www.huahingolfcourse.com/palm-hills-golf-club.htm" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.huahingolfcourse.com/palm-hills-golf-club.htm" },
+    "cart_required": { "value": false, "source": "web-search", "url": "https://www.huahingolfcourse.com/palm-hills-golf-club.htm" },
+    "driving_range": { "value": true, "source": "official-website", "url": "https://www.palmhills-golf.com/" },
+    "website": { "value": "https://www.palmhills-golf.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 32 527 777", "source": "official-website", "url": "https://www.palmhills-golf.com/contact-us/" },
+    "latitude": { "value": 12.6511, "source": "web-search", "url": "https://www.huahingolfcourse.com/palm-hills-golf-club/map.htm" },
+    "longitude": { "value": 99.9258, "source": "web-search", "url": "https://www.huahingolfcourse.com/palm-hills-golf-club/map.htm" },
+    "distance_from_bangkok_km": { "value": 210, "source": "web-search", "url": "https://www.palmhills-golf.com/" },
+    "drive_time_from_bangkok_min": { "value": 150, "source": "web-search", "url": "https://www.palmhills-golf.com/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=12.6511,99.9258", "source": "web-search", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/palm-hills-golf-club-and-residence/" },
+    "club_rental_fee_thb": { "value": 1000, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/palm-hills-golf-club-and-residence/" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  }
+}

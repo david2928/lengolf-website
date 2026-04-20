@@ -1,0 +1,29 @@
+{
+  "slug": "pattana-golf-club-resort",
+  "region": "pattaya",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Pattana Golf Club & Resort", "source": "official-website", "url": "https://pattana.co.th/golf-course/" },
+    "province": { "value": "Chonburi", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/pattana-golf-club-resort/" },
+    "designer": { "value": "Gasson", "source": "web-search", "url": "https://www.pattayagolfcourses.com/pattana-golf-resort.htm", "note": "Designer name cited as 'Gasson' across multiple sources; full firm name unconfirmed." },
+    "holes": { "value": 27, "source": "official-website", "url": "https://pattana.co.th/golf-course/", "note": "Three nine-hole loops named Andreas, Brookie, and Calypso. Visitors play 18 of 27." },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golflux.com/course/pattana-golf-club-resort/", "note": "Par 72 for standard 18-hole round." },
+    "year_opened": { "value": 2004, "source": "web-search", "url": "https://www.pattayagolfcourses.com/pattana-golf-resort.htm" },
+    "green_fee_weekday_thb": { "value": 2300, "source": "web-search", "url": "https://www.fairwaysofeden.com/product/pattana-sports-club/", "note": "All-inclusive package rate (green fee + caddie + cart). Visitor walk-in rate may differ. Verify against official rate card." },
+    "green_fee_weekend_thb": { "value": 3000, "source": "web-search", "url": "https://www.fairwaysofeden.com/product/pattana-sports-club/", "note": "All-inclusive package rate (green fee + caddie + cart)." },
+    "caddie_fee_thb": { "value": 0, "source": "web-search", "url": "https://www.fairwaysofeden.com/product/pattana-sports-club/", "note": "Caddie fee included in the package green fee. Actual caddie fee unknown if priced separately." },
+    "cart_fee_thb": { "value": 0, "source": "web-search", "url": "https://www.fairwaysofeden.com/product/pattana-sports-club/", "note": "Cart fee included in the package green fee." },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/pattana-golf-club-resort/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/pattana-golf-club-resort/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://pattana.co.th/golf-course/" },
+    "website": { "value": "https://pattana.co.th", "source": "official-website", "url": null },
+    "phone": { "value": "+66 38 318 999", "source": "web-search", "url": "https://pattana.co.th/" },
+    "latitude": { "value": 13.19, "source": "model", "url": null, "note": "Approximate — Khaokhunsong, Sriracha. Verify." },
+    "longitude": { "value": 101.06, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 95, "source": "model", "url": null, "note": "Approximate based on Sriracha location." },
+    "drive_time_from_bangkok_min": { "value": 75, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "address": { "value": "99/89 Moo 9, Khaokhunsong, Sriracha, Chonburi 20110", "source": "web-search", "url": "https://pattana.co.th/" }
+  }
+}

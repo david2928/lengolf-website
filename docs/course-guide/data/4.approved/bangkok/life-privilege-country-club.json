@@ -1,0 +1,56 @@
+{
+  "slug": "life-privilege-country-club",
+  "region": "bangkok",
+  "status": "verified",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Life Privilege Country Club (formerly Mission Hills Khao Yai)", "source": "web-search", "url": "https://www.allsquaregolf.com/golf-courses/thailand/life-privilege-country-club-formerly-mission-hills-khao-yai" },
+    "province": { "value": "Nakhon Ratchasima", "source": "web-search", "url": "https://www.1golf.eu/en/club/life-privilege-country-club-formerly-mission-hills-khao-yai/" },
+    "designer": { "value": "Jack Nicklaus", "source": "web-search", "url": "https://www.golflux.com/course/life-privilege-country-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golflux.com/course/life-privilege-country-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golflux.com/course/life-privilege-country-club/" },
+    "yards": { "value": 7058, "source": "web-search", "url": "https://www.1golf.eu/en/club/life-privilege-country-club-formerly-mission-hills-khao-yai/" },
+    "year_opened": { "value": 1993, "source": "web-search", "url": "https://www.golflux.com/course/life-privilege-country-club/" },
+    "green_fee_weekday_thb": { "value": 1500, "source": "web-search", "url": "https://www.1golf.eu/en/club/life-privilege-country-club-formerly-mission-hills-khao-yai/" },
+    "green_fee_weekend_thb": { "value": 3000, "source": "web-search", "url": "https://www.1golf.eu/en/club/life-privilege-country-club-formerly-mission-hills-khao-yai/" },
+    "caddie_fee_thb": { "value": 400, "source": "model", "url": null },
+    "cart_fee_thb": { "value": 700, "source": "model", "url": null },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golflux.com/course/life-privilege-country-club/" },
+    "website": { "value": null, "source": "model", "url": null },
+    "phone": { "value": "+66 44 297 258", "source": "web-search", "url": "https://www.1golf.eu/en/club/life-privilege-country-club-formerly-mission-hills-khao-yai/" },
+    "latitude": { "value": 14.6523, "source": "model", "url": null },
+    "longitude": { "value": 101.3841, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 155, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 120, "source": "web-search", "url": "https://www.golflux.com/course/life-privilege-country-club/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=14.6523,101.3841", "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.1golf.eu/en/club/life-privilege-country-club-formerly-mission-hills-khao-yai/" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Life Privilege Country Club — operating for years under the globally recognised Mission Hills brand before its rebranding — is a Jack Nicklaus Signature design set in the foothills outside Pak Chong, Nakhon Ratchasima, at the gateway to Khao Yai National Park. Opened in 1993, the course benefits from an elevated position with panoramic views of forest and mountains, a dramatic contrast to the flat, delta-plains courses that dominate the Bangkok area. The Jack Nicklaus pedigree brings precise bunkering, elevated greens, and dramatic risk-reward par-5s typical of his signature style. The course is roughly two hours northeast of Bangkok and is frequently combined with a weekend visit to Khao Yai National Park or the wine country estates of the Pak Chong valley. It attracts serious golfers who value signature architecture in a scenic setting.",
+    "layout_and_experience": "The 18-hole par-72 layout measures 7,058 yards from the black tees and descends through five tee options, with the white tees at 5,765 yards offering an accessible version of the layout. Nicklaus's classic design elements are present throughout: generous fairways that tighten as they approach the green, strategically placed bunkers that frame approach angles, and putting surfaces with distinct tier systems that reward precise approach play. The mountain backdrop creates elevation changes uncommon in Thai golf, with some tee shots requiring careful club selection to account for altitude drops. The par-5s are particularly impressive, offering genuine eagle opportunities from good positions while severely punishing the greedy. Water features appear on approximately eight holes. The forest setting means wind is less of a factor here than on Bangkok's open courses, but the tree-lined corridors demand straight driving. The course has benefited from consistent maintenance across its three decades of operation.",
+    "tips": "The venue is best combined with a weekend trip to Khao Yai — many visitors stay overnight at nearby resorts. The mountain setting means temperatures are 5–8°C cooler than Bangkok, making the cool season (November–February) particularly pleasant. The weekday green fee is substantially lower than weekends, making Monday–Friday rounds excellent value for a Nicklaus design. Book a caddie who is familiar with the Nicklaus-style raised greens — green reading is complex. The drive from Bangkok follows Route 1 (Mitraphap Highway) northbound; GPS the Pak Chong district.",
+    "location_and_access": "Life Privilege Country Club is located at 151 Moo 5, Tambol Moosee, Amphur Pakchong, Nakhon Ratchasima 30130, in the Pak Chong district near Khao Yai National Park. It is approximately 155 km from central Bangkok, a drive of roughly two hours via Route 1 (Mitraphap Highway) and the Pak Chong bypass. The course is in Nakhon Ratchasima Province — note that it is NOT near Bang Pa-In (Ayutthaya), despite some directory listings placing it there.",
+    "rental_cta_context": "Planning a Khao Yai golf weekend at Life Privilege? LENGOLF delivers tour-quality clubs to your Bangkok hotel so you can pick them up en route and avoid airline baggage charges."
+  },
+  "locales": {
+    "en": {
+      "title": "Life Privilege Country Club — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Life Privilege Country Club (formerly Mission Hills Khao Yai) green fees, Jack Nicklaus course guide, visitor tips, and golf club rentals from Bangkok."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  },
+  "verification_status": "APPROVED (provisional)",
+  "verified_at": "2026-04-20",
+  "verification_notes": "Province confirmed as Nakhon Ratchasima (Pak Chong), NOT Ayutthaya/Bang Pa-In as the brief speculated. Multiple sources confirm Khao Yai / Pak Chong location. Jack Nicklaus design confirmed by multiple sources. Year 1993 confirmed. 7,058 yards from 1golf.eu. Green fees 1500/3000 THB from 1golf.eu — only single source, provisional. Caddie and cart fees are model estimates. GPS is model estimate for Pak Chong valley area near Khao Yai. Rebrand from Mission Hills confirmed across multiple booking platforms.",
+  "disputes": [
+    "Province: task brief stated 'near Bang Pa-In, Ayutthaya' but all web sources confirm Nakhon Ratchasima province (Pak Chong). The brief note appears to be incorrect. Course is near Khao Yai, 155+ km from Bangkok.",
+    "Green fees 1500/3000 THB from single source (1golf.eu) only. Caddie and cart fees unconfirmed — model estimates used."
+  ]
+}

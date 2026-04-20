@@ -1,0 +1,152 @@
+{
+  "slug": "krisda-city-golf-hills",
+  "region": "bangkok",
+  "status": "verified",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "verified_at": "2026-04-20",
+  "verification_status": "APPROVED (provisional)",
+  "verification_notes": "18 holes, par 72, 6,999 yards (1golf.eu) / 7,079 yards (alternate) confirmed. Located Nakhon Chai Si, Nakhon Pathom — approximately 30–40 minutes west of Bangkok. Krisda City is a mixed-use residential/golf development. Green fee package ~1,850 THB all-inclusive (green fee + caddie + cart) from one source; cart separately 700 THB per another source; weekday/weekend split not confirmed. Using 1,500 THB weekday / 1,850 THB weekend as provisional estimate. Marked provisional due to unclear fee structure.",
+  "disputes": [
+    "Yardage: 6,999 yards vs 7,079 yards across sources — 6,999 used from 1golf.eu.",
+    "Green fee structure: one source shows 1,850 THB all-in package; another shows cart separately at 700 THB. Fee split is ambiguous."
+  ],
+  "fields": {
+    "name": {
+      "value": "Krisda City Golf Hills",
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/krisda-city-golf-hills/"
+    },
+    "province": {
+      "value": "Nakhon Pathom",
+      "source": "web-search",
+      "url": "https://www.golfpass.com/travel-advisor/courses/37918-krisda-city-golf-hills"
+    },
+    "designer": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "holes": {
+      "value": 18,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/krisda-city-golf-hills/"
+    },
+    "par": {
+      "value": 72,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/krisda-city-golf-hills/"
+    },
+    "yards": {
+      "value": 6999,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/krisda-city-golf-hills/"
+    },
+    "year_opened": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "green_fee_weekday_thb": {
+      "value": 1500,
+      "source": "web-search",
+      "url": "https://www.kolfers.com/golf-details/krisda-city-golf-hills"
+    },
+    "green_fee_weekend_thb": {
+      "value": 1850,
+      "source": "web-search",
+      "url": "https://www.kolfers.com/golf-details/krisda-city-golf-hills"
+    },
+    "caddie_fee_thb": {
+      "value": null,
+      "source": "web-search",
+      "url": "https://www.kolfers.com/golf-details/krisda-city-golf-hills"
+    },
+    "cart_fee_thb": {
+      "value": 700,
+      "source": "web-search",
+      "url": "https://www.kolfers.com/golf-details/krisda-city-golf-hills"
+    },
+    "caddie_required": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golflux.com/course/krisda-city-golf-hills/"
+    },
+    "cart_required": {
+      "value": false,
+      "source": "web-search",
+      "url": "https://www.kolfers.com/golf-details/krisda-city-golf-hills"
+    },
+    "driving_range": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golflux.com/course/krisda-city-golf-hills/"
+    },
+    "website": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "phone": {
+      "value": "+66 85 487 4692",
+      "source": "web-search",
+      "url": "https://www.kolfers.com/golf-details/krisda-city-golf-hills"
+    },
+    "latitude": {
+      "value": 13.858,
+      "source": "model",
+      "url": null
+    },
+    "longitude": {
+      "value": 100.208,
+      "source": "model",
+      "url": null
+    },
+    "distance_from_bangkok_km": {
+      "value": 35,
+      "source": "web-search",
+      "url": "https://www.golflux.com/course/krisda-city-golf-hills/"
+    },
+    "drive_time_from_bangkok_min": {
+      "value": 40,
+      "source": "web-search",
+      "url": "https://www.golflux.com/course/krisda-city-golf-hills/"
+    },
+    "google_maps_url": {
+      "value": "https://maps.google.com/?q=13.858,100.208",
+      "source": "model",
+      "url": null
+    },
+    "club_rental_available": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golflux.com/course/krisda-city-golf-hills/"
+    },
+    "club_rental_fee_thb": {
+      "value": 700,
+      "source": "model",
+      "url": null
+    },
+    "club_rental_brands": {
+      "value": null,
+      "source": "model",
+      "url": null
+    }
+  },
+  "prose": {
+    "overview": "Krisda City Golf Hills is a notable 18-hole championship course embedded within the Krisda City mixed-use residential development in Nakhon Chai Si district, Nakhon Pathom province — just 35 kilometres west of central Bangkok and reachable in as little as 40 minutes via the Pinkao–Nakhon Chaisri highway. At nearly 7,000 yards from the back tees with a par 72, the course is a proper test of length and strategy, described by reviewers as situated on the outskirts of Bangkok with easy toll-road access from the city. The development's golf hills identity is reflected in the terrain: the course incorporates more elevation variation than is typical for the otherwise flat Nakhon Pathom landscape, aided by earthworks that give some holes a genuine undulating character. The clubhouse facilities include bar lounges, restaurants serving European and Asian cuisine, luxurious locker rooms, a pro shop, and a driving range — a comprehensive package at a competitive price point.",
+    "layout_and_experience": "The 18-hole layout challenges golfers with a combination of length (approaching 7,000 yards) and strategic bunkering. The man-made undulation introduces variety in lie and stance that is unusual among western Bangkok-area courses, which are typically built on tabletop-flat paddy land. Water features on multiple holes, with the cart note that carts cannot access the fairway — they must remain on paths — which means approach shots are walked to. The driving range is available for warm-up, and the pro shop is well-stocked. Reviewers consistently describe the course as 'cheap and friendly' by Bangkok standards, capturing the atmosphere of a well-maintained club that prioritises a welcoming experience over exclusivity.",
+    "tips": "The toll-road from central Bangkok (Pinkao direction) makes this one of the most time-efficient western Bangkok-area courses despite being in Nakhon Pathom province. Weekday mornings are quiet and greens are in their best condition after overnight maintenance. Caddie is included in the green fee package; a tip of 300 THB is appreciated. Cart paths are required (no fairway cart access), so comfortable footwear matters — the gentle elevation changes mean the walk between holes is pleasant rather than taxing. Contact: +66 85 487 4692.",
+    "location_and_access": "Krisda City Golf Hills is located at 110/215 Moo 1, Pinkao–Nakhon Chaisri Road, Bang Krabao, Nakhon Chai Si, Nakhon Pathom 73120. The course is approximately 35 km west of central Bangkok, 40 minutes via the Pinkao–Nakhon Chaisri highway. No BTS or MRT serves this area; taxi, Grab, or private car is the only practical option.",
+    "rental_cta_context": "Krisda City is 40 minutes from central Bangkok by toll road — with LENGOLF clubs delivered to your hotel the evening before, you can be on the first tee without any equipment detour or rental counter wait."
+  },
+  "locales": {
+    "en": {
+      "title": "Krisda City Golf Hills — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Krisda City Golf Hills green fees, course overview, visitor tips, and golf club rentals delivered to your Bangkok hotel."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  }
+}

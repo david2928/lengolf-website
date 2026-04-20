@@ -1,0 +1,33 @@
+{
+  "slug": "life-privilege-country-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Life Privilege Country Club (formerly Mission Hills Khao Yai)", "source": "web-search", "url": "https://www.allsquaregolf.com/golf-courses/thailand/life-privilege-country-club-formerly-mission-hills-khao-yai" },
+    "province": { "value": "Nakhon Ratchasima", "source": "web-search", "url": "https://www.1golf.eu/en/club/life-privilege-country-club-formerly-mission-hills-khao-yai/" },
+    "designer": { "value": "Jack Nicklaus", "source": "web-search", "url": "https://www.golflux.com/course/life-privilege-country-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golflux.com/course/life-privilege-country-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golflux.com/course/life-privilege-country-club/" },
+    "yards": { "value": 7058, "source": "web-search", "url": "https://www.1golf.eu/en/club/life-privilege-country-club-formerly-mission-hills-khao-yai/" },
+    "year_opened": { "value": 1993, "source": "web-search", "url": "https://www.golflux.com/course/life-privilege-country-club/" },
+    "green_fee_weekday_thb": { "value": 1500, "source": "web-search", "url": "https://www.1golf.eu/en/club/life-privilege-country-club-formerly-mission-hills-khao-yai/" },
+    "green_fee_weekend_thb": { "value": 3000, "source": "web-search", "url": "https://www.1golf.eu/en/club/life-privilege-country-club-formerly-mission-hills-khao-yai/" },
+    "caddie_fee_thb": { "value": 400, "source": "model", "url": null },
+    "cart_fee_thb": { "value": 700, "source": "model", "url": null },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golflux.com/course/life-privilege-country-club/" },
+    "website": { "value": null, "source": "model", "url": null },
+    "phone": { "value": "+66 44 297 258", "source": "web-search", "url": "https://www.1golf.eu/en/club/life-privilege-country-club-formerly-mission-hills-khao-yai/" },
+    "latitude": { "value": 14.6523, "source": "model", "url": null },
+    "longitude": { "value": 101.3841, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 155, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 120, "source": "web-search", "url": "https://www.golflux.com/course/life-privilege-country-club/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=14.6523,101.3841", "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.1golf.eu/en/club/life-privilege-country-club-formerly-mission-hills-khao-yai/" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null },
+    "notes": { "value": "Located in Pak Chong district near Khao Yai National Park in Nakhon Ratchasima province. NOT near Bang Pa-In as sometimes listed. Rebranded from Mission Hills Khao Yai to Life Privilege Country Club. Address: 151 Moo 5, Tambol Moosee, Amphur Pakchong, Nakhon Ratchasima 30130.", "source": "web-search", "url": "https://www.1golf.eu/en/club/life-privilege-country-club-formerly-mission-hills-khao-yai/" }
+  }
+}

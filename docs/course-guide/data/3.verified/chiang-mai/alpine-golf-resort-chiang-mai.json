@@ -1,0 +1,73 @@
+{
+  "slug": "alpine-golf-resort-chiang-mai",
+  "region": "chiang-mai",
+  "status": "verified",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "verified_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Alpine Golf Resort Chiang Mai", "source": "official-website", "url": "https://www.alpinegolfresort.com/" },
+    "province": { "value": "Chiang Mai", "source": "official-website", "url": "https://www.alpinegolfresort.com/contact/" },
+    "designer": { "value": "Ron M. Garl (Course A+B); Pirapon Nanatra (Course C)", "source": "web-search", "url": "https://www.1golf.eu/en/club/alpine-golf-resort-chiangmai/" },
+    "holes": { "value": 27, "source": "web-search", "url": "https://www.golfsavers.com/thailand/chiang-mai-golf-courses/alpine-golf-club-chiang-mai" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfsavers.com/thailand/chiang-mai-golf-courses/alpine-golf-club-chiang-mai" },
+    "year_opened": { "value": 2008, "source": "web-search", "url": "https://www.1golf.eu/en/club/alpine-golf-resort-chiangmai/", "note": "2008 = opening of current Alpine Golf Resort (Ron Garl redesign). Property history traces to 1990 as 'Chiang Mai Lamphun Golf Club', the first private course in Northern Thailand. Course C by Pirapon Nanatra opened 2017." },
+    "green_fee_weekday_thb": { "value": 3700, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/alpine-golf-resort.htm", "note": "Low season (Apr 1–Oct 31) all-in rate including caddie and cart. No weekday/weekend distinction — same rate everyday. High season (Nov–Mar) rate not confirmed — flagged for verification." },
+    "green_fee_weekend_thb": { "value": null, "source": "model", "url": null, "note": "High season (Nov 1–Mar 31) rate not confirmed. golfdd.com shows 6,500 THB all-in foreigner walk-in (Feb 2026); golfsavers shows 4,000 THB agent rate. Flagged for phone verification." },
+    "caddie_fee_thb": { "value": 400, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/alpine-golf-resort.htm" },
+    "cart_fee_thb": { "value": 800, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/alpine-golf-resort.htm" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/alpine-golf-resort.htm" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/alpine-golf-resort.htm" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfsavers.com/thailand/chiang-mai-golf-courses/alpine-golf-club-chiang-mai" },
+    "website": { "value": "https://www.alpinegolfresort.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 53 880 888", "source": "official-website", "url": "https://www.alpinegolfresort.com/contact/" },
+    "address": { "value": "336 Moo 4, Banthi Road, San Kamphaeng, Chiang Mai 50130, Thailand", "source": "web-search", "url": "https://www.1golf.eu/en/club/alpine-golf-resort-chiangmai/" },
+    "latitude": { "value": 18.6915, "source": "web-search", "url": "https://www.golfchiangmai.com/alpine-golf-resort-chiang-mai/" },
+    "longitude": { "value": 99.1739, "source": "web-search", "url": "https://www.golfchiangmai.com/alpine-golf-resort-chiang-mai/" },
+    "distance_from_bangkok_km": { "value": 700, "source": "web-search", "url": null },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/alpine-golf-resort-chiang-mai/" },
+    "club_rental_fee_thb": { "value": 1500, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/alpine-golf-resort-chiang-mai/" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Alpine Golf Resort Chiang Mai is a 27-hole championship venue set across 450 rai of forested valley in San Kamphaeng, approximately 25 kilometres east of Chiang Mai city. The course was designed by American architect Ron M. Garl, who shaped the original 18-hole layout (Courses A and B) that opened in 2008; a further nine holes designed by Thai architect Pirapon Nanatra were added in 2017. The resort is best known for Thailand's first paddy field greens — holes played across rice paddies that flood and change appearance with the seasons, offering an experience unlike any standard parkland course in the country. Alpine has hosted regional professional tournaments and is consistently cited among the top golf experiences in Northern Thailand. On-site facilities include a 78-room resort, spa, international restaurant, swimming pool, and conference centre, making it a destination for golfers combining a round with a longer Chiang Mai stay.",
+
+    "layout_and_experience": "The 27-hole layout is divided into three nine-hole sections, each with a distinct character. Courses A and B form the main championship 18-hole track, stretching to approximately 7,500 yards from the back tees through forested valley terrain. The routing combines parkland fairways flanked by mature trees with wetland transitions and the course's most distinctive feature: the paddy field section, where fairways and greens are built across working rice paddies. The paddy zone changes dramatically through the year — dry and golden in the hot season, lush and flooded during the monsoon months when water borders almost every shot.\n\nThe terrain is predominantly flat to gently undulating by Chiang Mai standards, making Alpine more accessible than the highland mountain courses further from the city. Elevation changes are moderate, but the tree-lined corridors require accuracy off the tee, and the paddy sections add visual and strategic complexity. Course C — the third nine, opened 2017 — adds variety with a pine tree zone and wetland passages, and can be combined with Course A or B for a full 18-hole alternative routing.\n\nGreens are generally medium-paced and firm enough to reward precise approach play, with bunkers placed to challenge wayward approaches on the tighter par-4s. The course plays to par 72 over the 18-hole A+B combination. Afternoon rounds in the rainy season (June–October) can be interrupted by brief tropical showers; morning tee times are strongly recommended during this period. The cool dry months of November through February offer ideal conditions — temperatures in the low 20s Celsius and virtually no rain risk.",
+
+    "tips": "Book a morning tee time to take advantage of cooler temperatures and lower humidity, particularly in the March–May hot season when afternoon temperatures can exceed 35°C. November through February is the most comfortable period to play Alpine: cool and dry, with fairways in excellent condition. The resort offers a lunch buffet at the clubhouse that is included in some green fee packages — confirm at booking whether it is part of your rate. Caddie service is mandatory and the same caddie accompanies you for the full round; tipping 400 THB upward at the end of the round is customary. Carts are compulsory with one golfer per cart. Golf clubs and shoes are available for hire at the pro shop. The course is reached by taking Highway 1147 east from Chiang Mai city; signage for Alpine Golf Resort is visible from the main road. Grab taxis are reliable from the city centre; the resort can also arrange transfers. Confirm cart and caddie fees at booking, as packages vary by season and booking agent.",
+
+    "location_and_access": "Alpine Golf Resort Chiang Mai is located 25 kilometres east of Chiang Mai city centre in San Kamphaeng district, approximately 30–40 minutes by road from Chiang Mai International Airport. From Bangkok, virtually all visitors fly — the journey takes around 1 hour 10 minutes from Suvarnabhumi (BKK) or Don Mueang (DMK) to Chiang Mai (CNX). Driving the full 700 kilometres from Bangkok takes approximately 9 hours and is not practical for a golf trip. Once in Chiang Mai, the course is reachable by private car, Grab taxi, or the resort's shuttle; the route follows Highway 1147 eastward through San Kamphaeng district.",
+
+    "rental_cta_context": "Heading to Alpine Golf Resort Chiang Mai for a round in Northern Thailand? Rent premium clubs in Bangkok — delivered to your hotel before you fly — so you can travel light and skip the airline baggage fees."
+  },
+  "verification": {
+    "status": "REVIEW_REQUIRED",
+    "verified_at": "2026-04-20",
+    "disputes": [
+      {
+        "field": "green_fee_weekday_thb",
+        "stage1_value": 3700,
+        "web_search_found": "3,700 THB all-in (chiangmaigolfclub.com, Apr–Oct) / 6,500 THB all-in foreigner (golfdd.com, Feb 2026) / 4,000 THB (golfsavers)",
+        "source_url": "https://www.chiangmaigolfclub.com/alpine-golf-resort.htm",
+        "recommendation": "The 3,700 THB is confirmed as the low-season (Apr–Oct) agent package rate including caddie and cart. The 6,500 THB from golfdd.com appears to be the high-season foreigner walk-in rate (February 2026). These are not contradictory — they reflect different seasons and booking channels. Use 3,700 as the low-season all-in rate and flag high-season for phone verification."
+      }
+    ],
+    "missing_required_fields": ["google_maps_url", "green_fee_weekend_thb"],
+    "prose_flags": [
+      {
+        "section": "overview",
+        "claim": "consistently cited among the top golf experiences in Northern Thailand",
+        "issue": "Vague collective claim without specific ranking source",
+        "recommendation": "Acceptable as written — multiple independent booking platforms (golfsavers, golfasian, 1golf.eu, golfchiangmai) list it prominently among top Chiang Mai courses. Keep as-is."
+      }
+    ],
+    "seo": {
+      "title": "Alpine Golf Resort Chiang Mai — Green Fees, Course Guide & Golf Club Rentals | Len.Golf",
+      "meta_description": "Play Alpine Golf Resort Chiang Mai — 27 holes by Ron Garl, Thailand's first paddy field greens. Green fee from 3,700 THB. Full course guide & tips.",
+      "meta_description_length": 148,
+      "meta_description_ok": true
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "slug": "laguna-golf-phuket",
+  "region": "phuket",
+  "status": "raw",
+  "collected_at": "2026-04-19",
+  "fields": {
+    "name": { "value": "Laguna Golf Phuket", "source": "official-website", "url": "https://www.lagunagolfphuket.com/" },
+    "province": { "value": "Phuket", "source": "official-website", "url": "https://www.lagunagolfphuket.com/" },
+    "designer": { "value": "Max Wexler and David Abell (1992); redesigned Paul Jansen (2014)", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/phuket/laguna-golf-phuket/", "note": "Multiple sources: GolfAsian cites Paul Jansen as redesign architect 2014; one source cites Max Wexler and David Abell for original. Dispute flagged for verification." },
+    "holes": { "value": 18, "source": "official-website", "url": "https://www.lagunagolfphuket.com/rates-membership/" },
+    "par": { "value": 71, "source": "official-website", "url": "https://www.lagunagolfphuket.com/rates-membership/" },
+    "year_opened": { "value": 1992, "source": "web-search", "url": "https://www.thailandgolfers.com/golf-courses/phuket/laguna-phuket-golf-club/", "note": "Some sources say 1993. Dispute flagged for verification." },
+    "green_fee_weekday_thb": { "value": 3700, "source": "web-search", "url": "https://www.phuketgolfholidays.com/greenfee.php", "note": "Low season (Apr 1–Oct 31) green fee only, excl. compulsory caddie ฿400. Cart optional ฿700 (individual). All-in low season ฿4,100." },
+    "green_fee_weekend_thb": { "value": 5200, "source": "web-search", "url": "https://www.phuketgolfcourse.com/laguna-phuket-golf-club.htm", "note": "High season (Nov 1–Mar 31) green fee only. Confirmed: all-in high season ฿5,600 (green fee + compulsory caddie ฿400 = ฿5,600 per official website). Caddie ฿400 deducted to isolate green fee." },
+    "caddie_fee_thb": { "value": 400, "source": "official-website", "url": "https://www.lagunagolfphuket.com/rates-membership/" },
+    "cart_fee_thb": { "value": 700, "source": "official-website", "url": "https://www.lagunagolfphuket.com/rates-membership/" },
+    "caddie_required": { "value": true, "source": "official-website", "url": "https://www.lagunagolfphuket.com/rates-membership/" },
+    "cart_required": { "value": false, "source": "official-website", "url": "https://www.lagunagolfphuket.com/rates-membership/", "note": "Cart optional. Individual cart ฿700, shared ฿1,000." },
+    "driving_range": { "value": true, "source": "model", "url": null },
+    "website": { "value": "https://www.lagunagolfphuket.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 83 550 6683", "source": "official-website", "url": "https://www.lagunagolfphuket.com/" },
+    "address": { "value": "34 Moo 4, Srisoonthorn Road, Cherngtalay, Thalang, Phuket 83110", "source": "model", "url": null, "note": "Within Laguna Phuket Resort complex, Bang Tao Beach area. Verify exact address." },
+    "latitude": { "value": 8.0341, "source": "model", "url": null },
+    "longitude": { "value": 98.2987, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 860, "source": "web-search", "url": null, "note": "All visitors fly; ~1h 20min flight from Bangkok." },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null, "note": "Not applicable — all visitors fly." },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "club_rental_available": { "value": true, "source": "model", "url": null },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "slug": "kaeng-krachan-country-club",
+  "region": "hua-hin",
+  "status": "enriched",
+  "collected_at": "2026-04-18",
+  "enriched_at": "2026-04-20",
+  "published_at": null,
+  "fields": {
+    "name": { "value": "Kaeng Krachan Country Club & Resort", "source": "official-website", "url": "https://www.powerninegroup.com/power-nine-kaeng-krachan/" },
+    "province": { "value": "Phetchaburi", "source": "official-website", "url": "https://www.powerninegroup.com/power-nine-kaeng-krachan/" },
+    "designer": { "value": "Cherd Bunyaratavej (original 18 holes, 1994); Jack Nicklaus design team (9-hole Mountain Course, 2008)", "source": "web-search", "url": null },
+    "holes": { "value": 27, "source": "web-search", "url": null, "note": "Lake Course (9H) + Valley Course (9H) = original 18H; Mountain Course (9H, Nicklaus, 2008)." },
+    "par": { "value": 72, "source": "web-search", "url": null, "note": "Par 72 per standard 18-hole combination." },
+    "year_opened": { "value": 1994, "source": "web-search", "url": null },
+    "green_fee_weekday_thb": { "value": 1199, "source": "official-website", "url": "https://www.powerninegroup.com/power-nine-kaeng-krachan/", "note": "All-in package (shared cart). Power Nine Group pricing from 2023. Caddie and cart are included." },
+    "green_fee_weekend_thb": { "value": 1399, "source": "official-website", "url": "https://www.powerninegroup.com/power-nine-kaeng-krachan/", "note": "All-in package (shared cart). Single cart adds ~100 THB." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Included in all-in package price." },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null, "note": "Included in all-in package price." },
+    "caddie_required": { "value": true, "source": "web-search", "url": null },
+    "cart_required": { "value": false, "source": "web-search", "url": null },
+    "driving_range": { "value": true, "source": "web-search", "url": null },
+    "website": { "value": "https://www.powerninegroup.com/power-nine-kaeng-krachan/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 96 904 0811", "source": "official-website", "url": "https://www.powerninegroup.com/power-nine-kaeng-krachan/" },
+    "latitude": { "value": 12.8831, "source": "web-search", "url": null },
+    "longitude": { "value": 99.7564, "source": "web-search", "url": null },
+    "distance_from_bangkok_km": { "value": 190, "source": "web-search", "url": null },
+    "drive_time_from_bangkok_min": { "value": 120, "source": "web-search", "url": null },
+    "google_maps_url": { "value": "https://maps.google.com/?q=12.8831,99.7564", "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": null },
+    "club_rental_fee_thb": { "value": 600, "source": "web-search", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Kaeng Krachan Country Club & Resort is one of the most scenically dramatic golf destinations in the Hua Hin region. Located 51 kilometres inland from Hua Hin on the edge of Kaeng Krachan National Park — a UNESCO World Heritage site — the 27-hole complex combines an original 18-hole layout by Thai architect Cherd Bunyaratavej (opened 1994) with a 9-hole Jack Nicklaus Mountain Course added in 2008. Together they form a facility that ranges from open parkland to dense jungle terrain, with the Nicklaus loop in particular delivering the kind of dramatic elevation and forest framing rarely found at this price point. Since 2023, the course has been managed by the Power Nine Group, which offers all-in packages starting from 1,199 THB on weekdays and 1,399 THB on weekends — caddie and shared cart included. The combination of a genuine Nicklaus-branded nine, outstanding natural surroundings, and accessible pricing makes Kaeng Krachan a distinctive destination for golfers willing to venture inland.",
+
+    "layout_and_experience": "The original Cherd Bunyaratavej design at Kaeng Krachan divides into two named loops — the Lake Course and the Valley Course — that together cover the more open, parkland sections of the property. These nines feature generous fairways framed by mature trees, with water hazards on the Lake loop forming the primary strategic challenge. The Valley Course weaves through denser vegetation and subtle elevation changes that reward controlled approaches. The Jack Nicklaus Mountain Course, the third and most distinctive nine, represents a step change in both terrain and drama. The Nicklaus design team used the hillside contours to create holes that rise and descend through thick jungle, with views over the national park and the reservoir below. Tee shots must carry over dense forest on several holes, and the greens are perched on elevated plateaus that make approach yardage calculation critical. Wildlife sightings — deer, monitor lizards, and various bird species — are not uncommon during rounds on the Mountain Course. The combination of all three loops gives golfers significant variety within a single day's play.",
+
+    "tips": "Kaeng Krachan is a destination round rather than a casual drop-in — budget a full day given the 51-kilometre inland drive from Hua Hin and the sprawling 27-hole layout. Call ahead on +66 96 904 0811 before visiting; Power Nine took over management in 2023 and the course has received limited external bookings in recent years, meaning some third-party booking platforms may show it as closed to general play or carry outdated information. Confirm current availability directly with the club. Request the Jack Nicklaus Mountain Course as part of your 18-hole combination on your first visit — it is the most distinctive routing and the primary reason to make the inland drive. The proximity to Kaeng Krachan National Park means the course sits in dense jungle with higher mosquito presence during the wet season (May–October); bring repellent. Shoe rental is 200 THB and umbrella rental 100 THB if needed. The all-in package pricing means no unexpected extras at checkout.",
+
+    "location_and_access": "Kaeng Krachan Country Club & Resort is located at 19 Moo 2, Tayang-Kaengkrachan Road, Kaeng Krachan, Phetchaburi 76130. From Bangkok, the drive covers approximately 190 kilometres and takes around 2 hours via Highway 4 south to Phetchaburi, then east into the national park zone. From central Hua Hin, the inland route covers 51 kilometres and takes roughly 50–60 minutes by car. There is no shuttle service; private transfer or self-drive is required. The road into Kaeng Krachan district is well-maintained but narrow in places — GPS navigation using the coordinates 12.8831, 99.7564 is recommended.",
+
+    "rental_cta_context": "Heading to Kaeng Krachan Country Club, including the Jack Nicklaus Mountain Course? LENGOLF offers quality rental sets so you can tackle this jungle-fringed national park layout without the hassle of transporting clubs from Bangkok."
+  },
+  "schema_markup": "{\"@context\":\"https://schema.org\",\"@type\":\"GolfCourse\",\"name\":\"Kaeng Krachan Country Club & Resort\",\"url\":\"https://len.golf/golf-courses/hua-hin/kaeng-krachan-country-club/\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"19 Moo 2, Tayang-Kaengkrachan Rd\",\"addressLocality\":\"Kaeng Krachan\",\"addressRegion\":\"Phetchaburi\",\"postalCode\":\"76130\",\"addressCountry\":\"TH\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":12.8831,\"longitude\":99.7564},\"telephone\":\"+6696904081\",\"priceRange\":\"฿฿\",\"sameAs\":[\"https://www.powerninegroup.com/power-nine-kaeng-krachan/\"],\"amenityFeature\":[{\"@type\":\"LocationFeatureSpecification\",\"name\":\"Driving Range\",\"value\":true},{\"@type\":\"LocationFeatureSpecification\",\"name\":\"Caddie Service\",\"value\":true},{\"@type\":\"LocationFeatureSpecification\",\"name\":\"Golf Cart Rental\",\"value\":true},{\"@type\":\"LocationFeatureSpecification\",\"name\":\"Club Rental\",\"value\":true}]}",
+  "locales": {
+    "en": {
+      "title": "Kaeng Krachan Country Club — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Kaeng Krachan Country Club: 27 holes including a Jack Nicklaus Mountain Course. All-in from 1,199 THB. Rent clubs from LENGOLF for your Hua Hin inland round."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  }
+}

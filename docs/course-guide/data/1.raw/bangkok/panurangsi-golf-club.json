@@ -1,0 +1,33 @@
+{
+  "slug": "panurangsi-golf-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Panurangsi Golf Club (Royal Thai Army)", "source": "web-search", "url": "https://www.1golf.eu/en/club/panurangsi-golf-club/" },
+    "province": { "value": "Ratchaburi", "source": "web-search", "url": "https://www.golflux.com/course/panurangsi-golf-club/" },
+    "designer": { "value": "Jack Nicklaus", "source": "web-search", "url": "https://www.golflux.com/course/panurangsi-golf-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golflux.com/course/panurangsi-golf-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golflux.com/course/panurangsi-golf-club/" },
+    "yards": { "value": 6672, "source": "web-search", "url": "https://www.golflux.com/course/panurangsi-golf-club/" },
+    "year_opened": { "value": 1988, "source": "web-search", "url": "https://www.1golf.eu/en/club/panurangsi-golf-club/" },
+    "green_fee_weekday_thb": { "value": 450, "source": "web-search", "url": "https://www.gadthailand.com/en/panurangsi-golf-club-details/" },
+    "green_fee_weekend_thb": { "value": 550, "source": "web-search", "url": "https://www.gadthailand.com/en/panurangsi-golf-club-details/" },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null },
+    "cart_fee_thb": { "value": 600, "source": "web-search", "url": "https://www.gadthailand.com/en/panurangsi-golf-club-details/" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.1golf.eu/en/club/panurangsi-golf-club/" },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golflux.com/course/panurangsi-golf-club/" },
+    "website": { "value": "https://www.panurangsigolf.com/", "source": "web-search", "url": "https://www.1golf.eu/en/club/panurangsi-golf-club/" },
+    "phone": { "value": "+66 32 391 019", "source": "web-search", "url": "https://www.1golf.eu/en/club/panurangsi-golf-club/" },
+    "latitude": { "value": 13.5147, "source": "model", "url": null },
+    "longitude": { "value": 99.8352, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 95, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 90, "source": "model", "url": null },
+    "google_maps_url": { "value": "https://maps.google.com/?q=13.5147,99.8352", "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.1golf.eu/en/club/panurangsi-golf-club/" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null },
+    "notes": { "value": "Military-operated course open to the public. Monday green fee 400 THB + caddie, Tue-Fri 450 THB + caddie, weekends 550 THB + caddie. Cart 600 THB. After 14:00 all-in 750 THB. Pricing from GAD Thailand source, confirmed 2024.", "source": "web-search", "url": "https://www.gadthailand.com/en/panurangsi-golf-club-details/" }
+  }
+}

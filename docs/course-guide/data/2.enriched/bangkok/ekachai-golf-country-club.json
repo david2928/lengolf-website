@@ -1,0 +1,49 @@
+{
+  "slug": "ekachai-golf-country-club",
+  "region": "bangkok",
+  "status": "enriched",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Ekachai Golf & Country Club", "source": "web-search", "url": "https://ekachaigolfclub.com/" },
+    "province": { "value": "Samut Sakhon", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ekachai-golf-club/" },
+    "designer": { "value": "Gray Gerry Nazch", "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/ekachai-golf-and-country-club/" },
+    "holes": { "value": 27, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ekachai-golf-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ekachai-golf-club/" },
+    "yards": { "value": 6741, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ekachai-golf-club/" },
+    "year_opened": { "value": 1982, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ekachai-golf-club/" },
+    "green_fee_weekday_thb": { "value": 1600, "source": "web-search", "url": "https://www.golfdd.com/course/43/10012025" },
+    "green_fee_weekend_thb": { "value": 2400, "source": "web-search", "url": "https://www.golfdd.com/course/43/10012025" },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null },
+    "cart_fee_thb": { "value": 500, "source": "web-search", "url": "https://www.golfdd.com/course/43/10012025" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfdd.com/course/43/10012025" },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": false, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ekachai-golf-club/" },
+    "website": { "value": "https://ekachaigolfclub.com/", "source": "web-search", "url": "https://ekachaigolfclub.com/" },
+    "phone": { "value": "+66 2 416 5557", "source": "web-search", "url": "https://www.1golf.eu/en/club/ekachai-golf-country-club/" },
+    "latitude": { "value": 13.6182, "source": "model", "url": null },
+    "longitude": { "value": 100.2747, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 48, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 60, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ekachai-golf-club/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=13.6182,100.2747", "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ekachai-golf-club/" },
+    "club_rental_fee_thb": { "value": 1200, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ekachai-golf-club/" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Ekachai Golf & Country Club is one of the oldest and most venerable golf clubs in the Greater Bangkok region, having opened in 1982 as the first golf course in Samut Sakhon Province. The 27-hole parkland layout remains popular with local Thai golfers as well as a large contingent of Japanese and Korean visitors drawn to its traditional character, accessible green fees, and reliable course conditions. Designed by Gray Gerry Nazch, the club covers more than 500 rai of flat, lushly vegetated land along Ekachai Road, southwest of Bangkok. The course appeals to mid-to-high handicappers looking for a relaxed, sociable round, as well as regulars who appreciate its classic layout and strong caddie culture. It is widely considered one of the best-value golf experiences within an hour of Bangkok.",
+    "layout_and_experience": "Three interlocking nine-hole loops — Courses A, B, and C — provide flexibility for both 18-hole and 27-hole combinations. The standard 18-hole round measures 6,741 yards from the blue tees at par 72. The terrain is predominantly flat, characteristic of the Chao Phraya delta, with artificial mounding and strategically positioned water hazards used to add challenge and visual interest. Fairways are broad and forgiving off the tee, making the course particularly welcoming to higher handicappers. The real test comes on approach shots, where greens are often guarded by bunkers and flanked by ponds, demanding accurate iron play. The par-3 holes stand out for variety, ranging from short, precision-oriented shots under 150 yards to longer tests demanding mid-iron control. Mature trees line several holes, creating a leafy, established atmosphere quite different from newer resort-style layouts in Thailand. Course conditions are generally solid for the price tier, though the course does not have a driving range on site — warm up at the practice green.",
+    "tips": "Book on weekdays for the lowest green fee and best pace of play; weekends can be busy with large groups. Caddie is mandatory and included in the green fee package — tip at least 400 THB. There is no driving range, so use the practice putting green to warm up. The course is located via Route 35 (Thonburi–Pak Tho Highway), roughly one hour southwest of central Bangkok; allow extra time for traffic. Japanese restaurant on site. Smart casual golf attire is required.",
+    "location_and_access": "Ekachai Golf & Country Club is located in Mueang district, Samut Sakhon Province, approximately 48 km southwest of central Bangkok along Route 35 (Ekachai Road). The drive takes about 60 minutes under normal traffic conditions, though the Ratchaburi-bound expressway can become congested during peak hours. Taxis and private transfers are the standard option; there is no convenient public transport link. The address is 8 Moo 5, Ekachai Rd, Bang Nam Chuet, Mueang Samut Sakhon.",
+    "rental_cta_context": "Planning a round at Ekachai? LENGOLF delivers premium rental clubs to your Bangkok hotel, so you can travel light and still play with tour-quality equipment."
+  },
+  "locales": {
+    "en": {
+      "title": "Ekachai Golf & Country Club — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Ekachai Golf & Country Club green fees, 27-hole course overview, visitor tips, and golf club rentals delivered to your Bangkok hotel."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  }
+}

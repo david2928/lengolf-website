@@ -1,0 +1,53 @@
+{
+  "slug": "phuket-country-club",
+  "region": "phuket",
+  "status": "verified",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "verified_at": "2026-04-20",
+  "verification_status": "APPROVED",
+  "verification_notes": "Oldest golf course in Phuket, established 1989. Designer confirmed as Dr. Sukitti Klangvisai from multiple sources. The club has an 18-hole main course (Old Course) and a shorter 9-hole Country Club Course; this record covers the 18-hole Old Course which is the primary championship layout. Green fees follow Phuket seasonal model: green_fee_weekday_thb = low season (Apr–Oct) GF only ฿2,800; green_fee_weekend_thb = high season (Nov–Mar) GF ฿4,000 (confirmed via official club website per search result). Caddie (฿400) is compulsory and itemised separately. Cart (฿700) is optional. Low-season GF+caddie total = ฿3,200. High-season GF+caddie total = ฿4,400. priceRange for Stage 5: ฿฿฿ (high-season GF+caddie+optional cart = ฿5,100 if cart taken; GF+caddie alone ฿4,400 — still ≥ ฿4,000). Note: if cart not taken, high-season total is ฿4,400 which still meets ฿฿฿ threshold. Yardage: Blue 6,484 / White 6,126 / Red 5,719. Located in Kathu, central Phuket, ~15 min from Patong.",
+  "disputes": [],
+  "fields": {
+    "name": { "value": "Phuket Country Club", "source": "official-website", "url": "https://www.phuketcountryclub.com/" },
+    "province": { "value": "Phuket", "source": "official-website", "url": "https://www.phuketcountryclub.com/" },
+    "designer": { "value": "Dr. Sukitti Klangvisai", "source": "web-search", "url": "https://www.phuketgolfcourse.com/phuket-country-club.htm" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.phuketgolfcourse.com/phuket-country-club.htm" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.phuketgolfcourse.com/phuket-country-club.htm" },
+    "yards": { "value": 6484, "source": "web-search", "url": "https://www.phuketgolfcourse.com/phuket-country-club.htm", "note": "Blue tee yardage (championship). White 6,126 / Red 5,719." },
+    "year_opened": { "value": 1989, "source": "web-search", "url": "https://www.phuketgolfcourse.com/phuket-country-club.htm" },
+    "green_fee_weekday_thb": { "value": 2800, "source": "web-search", "url": "https://www.phuketgolfcourse.com/phuket-country-club.htm", "note": "Low season (Apr–Oct) green fee only. Caddie ฿400 compulsory, itemised separately. Cart ฿700 optional. Low-season GF+caddie total = ฿3,200." },
+    "green_fee_weekend_thb": { "value": 4000, "source": "web-search", "url": "https://www.phuketcountryclub.com/green-fee/", "note": "High season (Nov–Mar) green fee only per official club website. Caddie ฿400 compulsory. Cart ฿700 optional. High-season GF+caddie total = ฿4,400." },
+    "caddie_fee_thb": { "value": 400, "source": "web-search", "url": "https://www.phuketgolfcourse.com/phuket-country-club.htm" },
+    "cart_fee_thb": { "value": 700, "source": "web-search", "url": "https://www.phuketgolfcourse.com/phuket-country-club.htm" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.phuketgolfcourse.com/phuket-country-club.htm" },
+    "cart_required": { "value": false, "source": "web-search", "url": "https://www.phuketgolfcourse.com/phuket-country-club.htm" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.phuketgolfcourse.com/phuket-country-club/details.htm" },
+    "website": { "value": "https://www.phuketcountryclub.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 76 319 200", "source": "web-search", "url": "https://www.phuketcountryclub.com/" },
+    "latitude": { "value": 7.897, "source": "model", "url": null },
+    "longitude": { "value": 98.324, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 860, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null },
+    "google_maps_url": { "value": "https://maps.google.com/?q=Phuket+Country+Club,+80/1+Moo+7+Vichitsongkram+Road,+Kathu,+Phuket", "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.phuketgolfcourse.com/phuket-country-club/details.htm" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Phuket Country Club holds the distinction of being Phuket's original championship golf course — the first 18-hole layout built on the island, opened in 1989 and designed by Dr. Sukitti Klangvisai on reclaimed tin mine land in Kathu. Now in its fourth decade, the course has aged into a mature, characterful layout shaded by established trees and flanked by the limestone hills and cliffs that define central Phuket's interior landscape. Where newer Phuket courses rely on ocean views and resort infrastructure for appeal, Phuket Country Club derives its character from topography and history. The course sits about 15 minutes from Patong Beach and 10 minutes from Phuket Town, making it the most centrally located golf facility on the island. The club operates both the 18-hole Old Course and a shorter 9-hole Country Club Course; the Old Course is the championship layout and the subject of this guide. The 52-bay, floodlit driving range at the club entrance is one of the best practice facilities in Phuket.",
+    "layout_and_experience": "The 18-hole, par-72 Old Course plays to 6,484 yards from the blue tees across terrain shaped by its former life as a tin mine — undulating land with natural depressions and elevated sections that the original design team used to create visual variety and strategic options. The layout occupies three distinct environments: open parkland fairways, areas hemmed by mature trees and tropical vegetation, and holes that wrap around the large lake at the course's centre. The 10th hole, a par-five, is the course's most celebrated individual hole — the fairway bends 180 degrees around a massive lake, demanding a careful decision on where to lay up or when to attempt a heroic carry. The greens are considered medium in speed, consistent, and receptive to well-struck approach shots. The absence of compulsory carts means golfers can walk the course with their caddie — a more intimate and traditionally Thai way to experience the layout. Pace of play is generally good outside weekend mornings. The club retains the atmosphere of an established local club rather than an international resort course.",
+    "tips": "Early morning tee times on weekdays deliver the best combination of mild temperatures and uncrowded fairways. The high-season period (November–March) brings more visitors but also the best weather; the course's inland location means it is somewhat sheltered from the sea wind that affects coastal courses. Rain gear is advisable from May through October, though afternoon squalls pass quickly. The driving range at the club entrance is floodlit and open until 19:30, making it ideal for late arrivals or anyone who wants to tune their game without needing to book a full round. Cart rental is optional at ฿700 — the course is walkable but hilly enough that a cart is worth considering in the hotter months. The caddie quality at Phuket Country Club is consistently praised in reviews; let them read the greens, particularly on the holes that ring the central lake.",
+    "location_and_access": "Phuket Country Club is located at 80/1 Moo 7, Vichitsongkram Road in Kathu, central Phuket — approximately 15 minutes by car from Patong Beach and 10 minutes from Phuket Town. It sits roughly 25–30 minutes from Phuket International Airport. All visitors from Bangkok fly to Phuket (approximately 1 hour 20 minutes). Grab taxis, local taxis, and hotel transfers are the standard transport options. The central location makes Phuket Country Club accessible from almost any Phuket hotel without a long transfer.",
+    "rental_cta_context": "Heading to Phuket Country Club on your island trip? If your travel plan includes a night in Bangkok before or after, rent TaylorMade or Callaway clubs delivered to your Bangkok hotel — skip airline baggage fees entirely."
+  },
+  "locales": {
+    "en": {
+      "title": "Phuket Country Club — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Phuket Country Club: Phuket's oldest course, est. 1989, par-72, 6,484 yards. Low season from ฿2,800 / high season from ฿4,000. Central Kathu location. Caddie compulsory."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  }
+}

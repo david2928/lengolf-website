@@ -1,0 +1,32 @@
+{
+  "slug": "greenwood-golf-club",
+  "region": "pattaya",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Greenwood Golf Club", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/greenwood-golf-resort-noble-place/" },
+    "province": { "value": "Chonburi", "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/" },
+    "designer": { "value": "Peter Thomson", "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/", "note": "Also credited: Michael Wolveridge (co-designer). Course is widely attributed to Peter Thomson." },
+    "holes": { "value": 27, "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/", "note": "27 holes total; standard round uses 18." },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/", "note": "Par 72 for 18-hole rounds." },
+    "year_opened": { "value": 1993, "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/", "note": "April 2, 1993 per Albrecht Golf Guide. Some sources say 1994." },
+    "green_fee_weekday_thb": { "value": 1000, "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/", "note": "Range cited as 1,000–1,500 THB from 1golf.eu; low end used as weekday. Verify current rate." },
+    "green_fee_weekend_thb": { "value": 1500, "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/", "note": "High end of range used as weekend estimate. Verify." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Player review suggests all-in cost 'just over 2,000 THB' including caddie tip — caddie included in green fee likely." },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": null, "source": "model", "url": null },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": "http://www.gwgolfclub.com/", "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/" },
+    "phone": { "value": null, "source": "model", "url": null, "note": "Not found in web searches — call to confirm." },
+    "latitude": { "value": 13.15, "source": "model", "url": null, "note": "Approximate — Khlong Kiu, Ban Bueng, Chonburi. Verify." },
+    "longitude": { "value": 101.15, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 145, "source": "model", "url": null, "note": "Ban Bueng, Chonburi — approximately 140–150km from Bangkok." },
+    "drive_time_from_bangkok_min": { "value": 105, "source": "model", "url": null, "note": "~70 min from central Pattaya per golfasian.com description." },
+    "google_maps_url": { "value": null, "source": "model", "url": null },
+    "address": { "value": "88/8 Moo 6, Khlong Kiu, Ban Bueng, Chonburi 20220", "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/" },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.1golf.eu/en/club/greenwood-golf-club-noble-place-golf-course-country-club/", "note": "Clubs for hire listed in facility amenities." },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  }
+}

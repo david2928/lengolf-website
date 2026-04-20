@@ -1,0 +1,29 @@
+{
+  "slug": "pleasant-valley-golf-country-club",
+  "region": "pattaya",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Pleasant Valley Golf & Country Club", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/pleasant-valley-golf-country-club/" },
+    "province": { "value": "Chonburi", "source": "web-search", "url": "https://www.tripadvisor.com/Attraction_Review-g1602205-d8006399-Reviews-PLEASANT_VALLEY_GOLF_and_Country_Club-Si_Racha_Chonburi_Province.html" },
+    "designer": { "value": "Golf East", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/pleasant-valley-golf-country-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/pleasant-valley-golf-country-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/pleasant-valley-golf-country-club/" },
+    "year_opened": { "value": 2008, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/pleasant-valley-golf-country-club/" },
+    "green_fee_weekday_thb": { "value": 1600, "source": "web-search", "url": "https://www.golfsavers.com/thailand/pattaya-golf-courses/pleasant-valley-golf-club", "note": "Weekday/weekend split unclear — verify. Weekend may be same or higher." },
+    "green_fee_weekend_thb": { "value": 1600, "source": "web-search", "url": "https://www.golfsavers.com/thailand/pattaya-golf-courses/pleasant-valley-golf-club", "note": "Weekend rate assumed same as weekday. Carts compulsory on weekend mornings. Verify." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null, "note": "Carts reported as compulsory on weekend mornings. Fee not confirmed." },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/pleasant-valley-golf-country-club/" },
+    "cart_required": { "value": false, "source": "web-search", "url": "https://www.pattayagolf.net/golf.php?golf_id=18", "note": "Carts optional on weekdays; compulsory weekend mornings." },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": null, "source": "model", "url": null, "note": "No official website found in searches." },
+    "phone": { "value": "+66 81 410 5522", "source": "web-search", "url": "https://www.pattayagolf.net/golf.php?golf_id=18" },
+    "latitude": { "value": 13.27, "source": "model", "url": null, "note": "Approximate — Bangphra, Sriracha. Verify." },
+    "longitude": { "value": 100.96, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 100, "source": "model", "url": null, "note": "Approximate." },
+    "drive_time_from_bangkok_min": { "value": 75, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "address": { "value": "41/62 Moo 9, Bangphra, Sriracha, Chonburi 20110", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/pleasant-valley-golf-country-club/" }
+  }
+}

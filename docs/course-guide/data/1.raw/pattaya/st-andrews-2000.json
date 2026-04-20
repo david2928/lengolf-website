@@ -1,0 +1,29 @@
+{
+  "slug": "st-andrews-2000",
+  "region": "pattaya",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "St Andrews 2000 Golf Club", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/st-andrews-2000-golf-club/" },
+    "province": { "value": "Rayong", "source": "web-search", "url": "https://www.tripadvisor.com/Attraction_Review-g2237272-d3814439-Reviews-St_Andrews_2000-Ban_Chang_Rayong_Province.html" },
+    "designer": { "value": "Desmond Muirhead", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/st-andrews-2000-golf-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/st-andrews-2000-golf-club/" },
+    "par": { "value": 74, "source": "web-search", "url": "https://www.top100golfcourses.com/golf-course/st-andrews-2000", "note": "Unusual par 74 due to two par-6 holes (4th and 13th) each over 800 yards." },
+    "year_opened": { "value": 2000, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/st-andrews-2000-golf-club/" },
+    "green_fee_weekday_thb": { "value": null, "source": "model", "url": null, "note": "Course was undergoing renovation; GolfDD listed as 'closed for renovation, opens Dec' (2025). Status in April 2026 unconfirmed. Verify before publishing." },
+    "green_fee_weekend_thb": { "value": null, "source": "model", "url": null, "note": "See weekday note. Cart rental 900 THB/pax cited by one source; caddie included in packages." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Included in package rates per booking agents. Actual standalone fee not confirmed." },
+    "cart_fee_thb": { "value": 900, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/st-andrews-2000-golf-club/", "note": "900 THB/pax cited by one source." },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/st-andrews-2000-golf-club/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/st-andrews-2000-golf-club/", "note": "Carts with caddies are compulsory." },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": "https://greenvalleythailand.wixsite.com/standrews2000golf", "source": "web-search", "url": null, "note": "Wix-hosted site; may not be official. Verify." },
+    "phone": { "value": null, "source": "model", "url": null, "note": "Phone not confirmed. Search results confused St Andrews 2000 with Rayong Green Valley (shared Samnakthon area). Verify separately." },
+    "latitude": { "value": 12.77, "source": "model", "url": null, "note": "Approximate — Samnakthon, Ban Chang, Rayong. Verify." },
+    "longitude": { "value": 101.39, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 190, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/pattaya/st-andrews-2000-golf-club/", "note": "Sources say ~45 min from Pattaya, ~2 hr from Bangkok." },
+    "drive_time_from_bangkok_min": { "value": 135, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification." },
+    "address": { "value": "Ban Chang, Rayong 21130", "source": "web-search", "url": "https://www.tripadvisor.com/Attraction_Review-g2237272-d3814439-Reviews-St_Andrews_2000-Ban_Chang_Rayong_Province.html", "note": "Full street address not confirmed." }
+  }
+}

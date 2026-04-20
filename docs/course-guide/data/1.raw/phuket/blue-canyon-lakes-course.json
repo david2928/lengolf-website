@@ -1,0 +1,32 @@
+{
+  "slug": "blue-canyon-lakes-course",
+  "region": "phuket",
+  "status": "raw",
+  "collected_at": "2026-04-19",
+  "fields": {
+    "name": { "value": "Blue Canyon Country Club — Lakes Course", "source": "web-search", "url": "https://www.bluecanyonphuket.com/" },
+    "province": { "value": "Phuket", "source": "web-search", "url": "https://www.bluecanyonphuket.com/" },
+    "designer": { "value": "Yoshikazu Kato", "source": "web-search", "url": "https://www.bluecanyonphuket.com/golf-courses-country-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.phuketgolfcourse.com/blue-canyon-lake-course.htm" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.phuketgolfcourse.com/blue-canyon-lake-course.htm" },
+    "year_opened": { "value": 1999, "source": "web-search", "url": "https://www.bluecanyonphuket.com/golf-courses-country-club/" },
+    "green_fee_weekday_thb": { "value": 1850, "source": "web-search", "url": "https://www.phuketgolfholidays.com/greenfee.php", "note": "Low season (Apr 1–Oct 31) green fee only, excl. compulsory caddie ฿400 and cart ฿700. All-in low season ฿2,950. Notably cheaper than Canyon Course." },
+    "green_fee_weekend_thb": { "value": null, "source": "model", "url": null, "note": "High season (Nov 1–Mar 31) rate not confirmed. Flag for verification." },
+    "caddie_fee_thb": { "value": 400, "source": "web-search", "url": "https://www.phuketgolfcourse.com/blue-canyon-lake-course.htm", "note": "One third-party source (Golfsavers) cites ฿350 — disputed. phuketgolfcourse.com and phuketgolfholidays.com both cite ฿400." },
+    "cart_fee_thb": { "value": 700, "source": "web-search", "url": "https://www.phuketgolfcourse.com/blue-canyon-lake-course.htm" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.phuketgolfcourse.com/blue-canyon-lake-course.htm" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.phuketgolfcourse.com/blue-canyon-lake-course.htm" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfsavers.com/thailand/phuket-golf-courses/blue-canyon-country-club-lakes-course" },
+    "website": { "value": "https://www.bluecanyonphuket.com/", "source": "web-search", "url": null },
+    "phone": { "value": "+66 76 328 088", "source": "web-search", "url": "https://www.bluecanyonphuket.com/golf-courses-country-club/" },
+    "address": { "value": "165 Moo 1, Thepkasattri Road, Thalang, Phuket 83110", "source": "web-search", "url": "https://www.bluecanyonphuket.com/golf-courses-country-club/" },
+    "latitude": { "value": 8.0840, "source": "model", "url": null, "note": "Same complex as Canyon Course." },
+    "longitude": { "value": 98.3232, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 860, "source": "web-search", "url": null, "note": "All visitors fly; ~1h 20min flight from Bangkok." },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null, "note": "Not applicable — all visitors fly." },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfsavers.com/thailand/phuket-golf-courses/blue-canyon-country-club-lakes-course" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  }
+}

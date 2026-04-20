@@ -1,0 +1,49 @@
+{
+  "slug": "dynasty-golf-country-club",
+  "region": "bangkok",
+  "status": "enriched",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Dynasty Golf & Country Club", "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/dynasty-golf-&-country-club/" },
+    "province": { "value": "Nakhon Pathom", "source": "web-search", "url": "https://www.1golf.eu/en/club/dynasty-golf-country-club/" },
+    "designer": { "value": "Denis Griffiths", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/dynasty-golf-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/dynasty-golf-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/dynasty-golf-club/" },
+    "yards": { "value": 6792, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/dynasty-golf-club/" },
+    "year_opened": { "value": 1993, "source": "web-search", "url": "https://www.golfdigg.com/en/courses/dynasty-golf-country-club" },
+    "green_fee_weekday_thb": { "value": 800, "source": "web-search", "url": "https://www.1golf.eu/en/club/dynasty-golf-country-club/" },
+    "green_fee_weekend_thb": { "value": 1500, "source": "web-search", "url": "https://www.1golf.eu/en/club/dynasty-golf-country-club/" },
+    "caddie_fee_thb": { "value": 400, "source": "web-search", "url": "https://www.golfdigg.com/en/courses/dynasty-golf-country-club" },
+    "cart_fee_thb": { "value": 700, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/dynasty-golf-club/" },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": false, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/dynasty-golf-club/" },
+    "website": { "value": null, "source": "model", "url": null },
+    "phone": { "value": "+66 34 391 0769", "source": "web-search", "url": "https://www.1golf.eu/en/club/dynasty-golf-country-club/" },
+    "latitude": { "value": 14.0537, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/dynasty-golf-&-country-club/" },
+    "longitude": { "value": 100.1220, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/dynasty-golf-&-country-club/" },
+    "distance_from_bangkok_km": { "value": 85, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/dynasty-golf-club/" },
+    "drive_time_from_bangkok_min": { "value": 90, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/dynasty-golf-club/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=14.0537,100.1220", "source": "web-search", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/dynasty-golf-club/" },
+    "club_rental_fee_thb": { "value": 1500, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/dynasty-golf-club/" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Dynasty Golf & Country Club occupies a peaceful corner of Nakhon Pathom province, 85 kilometres northwest of Bangkok — further from the capital than most day-trip courses but rewarded with lower green fees and an uncrowded, relaxed atmosphere. Designed by Denis Griffiths and opened in 1993, the 18-hole, par-72 layout provides classic Thai parkland golf with wide fairways, large greens, and strategic water hazards on the majority of holes. At under 1,000 THB for a weekday green fee, it ranks among the most affordable full-length championship layouts accessible from Bangkok. The course is particularly well maintained given its price point, and the well-trained caddie team adds to a quality experience. Its remoteness from the capital is both its limitation (for day-trippers) and its charm (no rush, no crowds).",
+    "layout_and_experience": "Griffiths' design maximises the flat Nakhon Pathom terrain through the strategic placement of water hazards that appear on the majority of the 18 holes, requiring thoughtful tee-shot selection and approach play discipline. Fairways are notably wide by Bangkok standards — Griffiths favoured generous corridors that invite aggressive driving — but the approach areas tighten, and greenside hazards demand a precise third or fourth shot. At 6,792 yards from the back tees, the course is not brutally long, but the omnipresent water ensures that score management is crucial. Greens are large, Bermuda-grass surfaces that hold well for medium and long irons. Several par-4 holes feature double-dogleg layouts that reward course knowledge on subsequent visits. The absence of a driving range (per Golfasian) means warming up on the putting green or first few holes. Overall, the course plays at a pleasant, unhurried pace — groups are typically small and tee times well-spaced. Closed Mondays.",
+    "tips": "Dynasty is a genuine bargain for golfers willing to travel 90 minutes from Bangkok — weekday green fees around 800 THB plus caddie 400 THB plus cart 700 THB, totalling under 2,000 THB all-in. Weekend rates increase to approximately 1,500 THB for the green fee. Confirm that there is no driving range before departure — the nearest warm-up option may be the practice green. The course closes on Mondays. Book at least 2 days in advance. Phone: +66 34 391 0769. Head northwest via Ratchaphruek Road or Route 338 toward Nakhon Pathom; the drive is highway most of the way and straightforward. The area has local restaurants in Bang Len district if you want lunch before or after the round.",
+    "location_and_access": "Dynasty Golf & Country Club is located at 99 Moo 3, Poldamri Road, Bang Lane, Nakhon Pathom 73130, approximately 85 km northwest of central Bangkok. The journey takes around 90 minutes by car via Ratchaphruek Road and Highway 4. The Bang Len district offers basic local facilities. No practical public transport connects Bangkok directly to the club; private car or taxi is essential.",
+    "rental_cta_context": "Dynasty Golf is 90 minutes from Bangkok — make the journey easier by arranging LENGOLF club rental to your hotel in advance, travelling light with only your essentials."
+  },
+  "locales": {
+    "en": {
+      "title": "Dynasty Golf & Country Club — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Dynasty Golf & Country Club Nakhon Pathom green fees from 800 THB, Denis Griffiths course overview, tips for visiting, and golf club rentals delivered to your Bangkok hotel."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  }
+}

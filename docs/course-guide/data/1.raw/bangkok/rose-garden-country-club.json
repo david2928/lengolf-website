@@ -1,0 +1,33 @@
+{
+  "slug": "rose-garden-country-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Rose Garden Country Club (Sampran Golf Club)", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rose-garden-golf-club/" },
+    "province": { "value": "Nakhon Pathom", "source": "web-search", "url": "https://www.1golf.eu/en/club/rose-garden-country-club/" },
+    "designer": { "value": "Visuth Junnanont", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rose-garden-golf-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rose-garden-golf-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rose-garden-golf-club/" },
+    "yards": { "value": 7085, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rose-garden-golf-club/" },
+    "year_opened": { "value": 1972, "source": "web-search", "url": "https://www.1golf.eu/en/club/rose-garden-country-club/" },
+    "green_fee_weekday_thb": { "value": 900, "source": "web-search", "url": "https://www.golfdd.com/course/110" },
+    "green_fee_weekend_thb": { "value": 1400, "source": "web-search", "url": "https://www.golfdd.com/course/110" },
+    "caddie_fee_thb": { "value": 350, "source": "web-search", "url": "https://www.golfdd.com/course/110" },
+    "cart_fee_thb": { "value": 700, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rose-garden-golf-club/" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rose-garden-golf-club/" },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rose-garden-golf-club/" },
+    "website": { "value": null, "source": "model", "url": null },
+    "phone": { "value": "+66 34 322 7701", "source": "web-search", "url": "https://www.1golf.eu/en/club/rose-garden-country-club/" },
+    "latitude": { "value": 13.7220, "source": "model", "url": null },
+    "longitude": { "value": 100.0540, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 35, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rose-garden-golf-club/" },
+    "drive_time_from_bangkok_min": { "value": 60, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rose-garden-golf-club/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=13.7220,100.0540", "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/sampran-golf-club" },
+    "club_rental_fee_thb": { "value": 450, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/rose-garden-golf-club/" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "notes": "Course was originally Rose Garden, now also known as Sampran Golf Club. One of oldest courses in Bangkok area. Redesigned after 2011 floods. Hosted 1992 Thailand Open. Each hole has two greens. Address: 53/1 Moo 4, Tha Thalad Sub-district, Sampran, Nakhon Pathom 73110."
+}

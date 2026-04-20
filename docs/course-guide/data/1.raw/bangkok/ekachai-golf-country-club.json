@@ -1,0 +1,32 @@
+{
+  "slug": "ekachai-golf-country-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Ekachai Golf & Country Club", "source": "web-search", "url": "https://ekachaigolfclub.com/" },
+    "province": { "value": "Samut Sakhon", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ekachai-golf-club/" },
+    "designer": { "value": "Gray Gerry Nazch", "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/ekachai-golf-and-country-club/" },
+    "holes": { "value": 27, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ekachai-golf-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ekachai-golf-club/" },
+    "yards": { "value": 6741, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ekachai-golf-club/" },
+    "year_opened": { "value": 1982, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ekachai-golf-club/" },
+    "green_fee_weekday_thb": { "value": 1600, "source": "web-search", "url": "https://www.golfdd.com/course/43/10012025" },
+    "green_fee_weekend_thb": { "value": 2400, "source": "web-search", "url": "https://www.golfdd.com/course/43/10012025" },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null },
+    "cart_fee_thb": { "value": 500, "source": "web-search", "url": "https://www.golfdd.com/course/43/10012025" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfdd.com/course/43/10012025" },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": false, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ekachai-golf-club/" },
+    "website": { "value": "https://ekachaigolfclub.com/", "source": "web-search", "url": "https://ekachaigolfclub.com/" },
+    "phone": { "value": "+66 2 416 5557", "source": "web-search", "url": "https://www.1golf.eu/en/club/ekachai-golf-country-club/" },
+    "latitude": { "value": 13.6182, "source": "model", "url": null },
+    "longitude": { "value": 100.2747, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 48, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 60, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ekachai-golf-club/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=13.6182,100.2747", "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ekachai-golf-club/" },
+    "club_rental_fee_thb": { "value": 1200, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/ekachai-golf-club/" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  }
+}

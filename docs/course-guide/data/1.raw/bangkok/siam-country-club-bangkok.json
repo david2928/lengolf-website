@@ -1,0 +1,33 @@
+{
+  "slug": "siam-country-club-bangkok",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Siam Country Club Bangkok", "source": "official-website", "url": "https://siamcountryclub.com/bangkok/" },
+    "province": { "value": "Samut Prakan", "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/siam-country-club-bangkok/" },
+    "designer": { "value": "Toby Cobb (design associate of Coore & Crenshaw)", "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/siam-country-club-bangkok/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/siam-country-club-bangkok/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/siam-country-club-bangkok/" },
+    "yards": { "value": 7250, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/siam-country-club-bangkok/" },
+    "year_opened": { "value": 2022, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/siam-country-club-bangkok/" },
+    "green_fee_weekday_thb": { "value": 6500, "source": "web-search", "url": "https://www.taigolf.com/siam-country-club" },
+    "green_fee_weekend_thb": { "value": 7500, "source": "web-search", "url": "https://www.taigolf.com/siam-country-club" },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golftripz.com/golf-course/siam-country-club-bangkok" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golftripz.com/golf-course/siam-country-club-bangkok" },
+    "driving_range": { "value": true, "source": "model", "url": null },
+    "website": { "value": "https://siamcountryclub.com/bangkok/", "source": "official-website", "url": "https://siamcountryclub.com/bangkok/" },
+    "phone": { "value": "+66 61 182 3596", "source": "web-search", "url": "https://www.taigolf.com/siam-country-club" },
+    "latitude": { "value": 13.6143, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/siam-country-club-bangkok/" },
+    "longitude": { "value": 100.7914, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/siam-country-club-bangkok/" },
+    "distance_from_bangkok_km": { "value": 35, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/siam-country-club-bangkok/" },
+    "drive_time_from_bangkok_min": { "value": 40, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/siam-country-club-bangkok/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=13.6143,100.7914", "source": "web-search", "url": null },
+    "club_rental_available": { "value": true, "source": "model", "url": null },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "notes": "Fees are all-inclusive (green fee + caddie + cart + transfer). Base package from THB 6,500 per golfer weekday, weekend/public holiday surcharge of THB 1,000. Newest of the Siam Country Club family, opened 2022. Hybrid parkland-links design. Course closed Mondays."
+}

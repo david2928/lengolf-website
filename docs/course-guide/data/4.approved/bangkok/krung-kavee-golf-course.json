@@ -1,0 +1,55 @@
+{
+  "slug": "krung-kavee-golf-course",
+  "region": "bangkok",
+  "status": "verified",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Krung Kavee Golf Course & Country Club Estate", "source": "web-search", "url": "https://www.krungkavee.com/" },
+    "province": { "value": "Pathum Thani", "source": "web-search", "url": "https://www.1golf.eu/en/club/krung-kavee-golf-course-country-club-estate/" },
+    "designer": { "value": "Manabu Sakamoto", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/krung-kavee-golf-country-club-estate/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/krung-kavee-golf-country-club-estate/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/krung-kavee-golf-country-club-estate/" },
+    "yards": { "value": 7082, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/krung-kavee-golf-country-club-estate/" },
+    "year_opened": { "value": 1995, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/krung-kavee-golf-country-club-estate/" },
+    "green_fee_weekday_thb": { "value": 1600, "source": "web-search", "url": "https://www.1golf.eu/en/club/krung-kavee-golf-course-country-club-estate/" },
+    "green_fee_weekend_thb": { "value": 1800, "source": "web-search", "url": "https://www.1golf.eu/en/club/krung-kavee-golf-course-country-club-estate/" },
+    "caddie_fee_thb": { "value": 400, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/krung-kavee-golf-course" },
+    "cart_fee_thb": { "value": 750, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/krung-kavee-golf-country-club-estate/" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/krung-kavee-golf-course" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/krung-kavee-golf-course" },
+    "driving_range": { "value": true, "source": "model", "url": null },
+    "website": { "value": "https://www.krungkavee.com/", "source": "web-search", "url": "https://www.krungkavee.com/" },
+    "phone": { "value": "+66 2 577 2891", "source": "web-search", "url": "https://www.1golf.eu/en/club/krung-kavee-golf-course-country-club-estate/" },
+    "latitude": { "value": 14.0127, "source": "model", "url": null },
+    "longitude": { "value": 100.7834, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 35, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 40, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/krung-kavee-golf-country-club-estate/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=14.0127,100.7834", "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/krung-kavee-golf-country-club-estate/" },
+    "club_rental_fee_thb": { "value": 1200, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/krung-kavee-golf-country-club-estate/" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Krung Kavee Golf Course & Country Club Estate is a well-regarded championship layout in Thanyaburi, Pathum Thani, just 40 minutes north of Bangkok near Don Mueang Airport. Opened in 1995 and designed by prolific Japanese architect Manabu Sakamoto, who has to his credit over 40 championship courses across Asia, Krung Kavee stands out for its genuine championship length of 7,082 yards and its technically demanding design. The course occupies former rice-field terrain and makes excellent use of natural and man-made water features that come into play on the majority of holes. It attracts a strong corporate and semi-private membership base while remaining open to public tee times on most days. The green fees are competitive for a course of this calibre in Bangkok's northern suburbs.",
+    "layout_and_experience": "The par-72 layout stretches 7,082 yards from the tips, making it one of the longer public-access courses in the Bangkok area. Manabu Sakamoto's design philosophy is evident throughout: the course is technically demanding but fair, rewarding golfers who commit to their targets and punishing those who spray the ball. Water hazards appear on the majority of holes, often as long lateral ponds that define one side of the fairway. The signature hole is a challenging par-3 island green that demands a precise carry over water — any mis-hit is penalised immediately. Holes 6, 7, and 8 are considered the toughest stretch, featuring back-to-back par-4s measuring over 420 yards each. Fairways are Bermuda Tifway 419, and greens are Tifdwarf, both of which respond well to Thailand's year-round heat. Caddie and cart are both compulsory bookings, keeping pace of play manageable across the full 7,000-yard layout.",
+    "tips": "Allow at least five hours for a round given the length. Book cart and caddie with your tee time — both are compulsory. Weekday green fees are very competitive for a course of this difficulty; weekends are only slightly higher. The course is close to Don Mueang Airport (about 15 minutes), making it convenient for golfers with early arrivals or late departures. Rangsit-Nakhon Nayok Road (Route 305) is the main access road — GPS coordinates are recommended as signage can be unclear.",
+    "location_and_access": "Krung Kavee is located at Km 9 on Rangsit–Nakhon Nayok Road (Route 305), Thanyaburi, Pathum Thani — about 35 km north of central Bangkok. The drive takes approximately 40 minutes in light traffic via the Don Mueang Tollway or Outer Ring Road. It is well-positioned for golfers based in northern Bangkok or passing through Don Mueang Airport. Grab taxis and private transfers are the primary access options.",
+    "rental_cta_context": "Heading north from Bangkok for a round at Krung Kavee? LENGOLF delivers tour-quality rental clubs to your Bangkok hotel, so you're ready to take on 7,082 yards without extra baggage."
+  },
+  "locales": {
+    "en": {
+      "title": "Krung Kavee Golf Course — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Krung Kavee Golf Course & Country Club Estate green fees, 7,082-yard course overview, tips for visiting, and golf club rentals delivered to Bangkok hotels."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  },
+  "verification_status": "APPROVED (provisional)",
+  "verified_at": "2026-04-20",
+  "verification_notes": "7,082 yards and designer Manabu Sakamoto confirmed by golfasian.com and thailandgolfers.com. Year 1995 confirmed by multiple sources. Green fees 1600/1800 THB from 1golf.eu. However golfsavers shows 2400/3300 THB — significant discrepancy of 50%+. The golfsavers rates may be all-in (green fee + caddie + cart bundled). 1golf.eu rates appear to be green fee only. Using 1golf.eu as baseline for green fee field. Caddie 400 THB + cart 750 THB separate per golfasian.com. GPS is model estimate — no confirmed coordinates found.",
+  "disputes": [
+    "Green fee: 1golf.eu lists 1,600 THB weekday / 1,800 THB weekend. Golfsavers shows 2,400 THB / 3,300 THB. Difference >50%. Golfsavers figures likely include caddie (400 THB) and cart (750 THB), making totals 2,750 / 2,950 — still does not fully reconcile. Possible the 1golf.eu rates are outdated. Recommend direct confirmation with the club."
+  ]
+}

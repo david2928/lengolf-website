@@ -1,0 +1,140 @@
+{
+  "slug": "green-valley-country-club",
+  "region": "bangkok",
+  "status": "verified",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "verified_at": "2026-04-20",
+  "verification_status": "APPROVED",
+  "verification_notes": "RTJ Jr. design confirmed. Year 1988 confirmed. Fees 2,000/3,000 THB green-fee-only. Cart 800 THB confirmed.",
+  "disputes": [],
+  "fields": {
+    "name": {
+      "value": "Green Valley Country Club",
+      "source": "official-website",
+      "url": "https://www.greenvalleybangkok.com/"
+    },
+    "province": {
+      "value": "Samut Prakan",
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/green-valley-country-club/"
+    },
+    "designer": {
+      "value": "Robert Trent Jones Jr.",
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/green-valley-country-club/"
+    },
+    "holes": {
+      "value": 18,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/green-valley-country-club/"
+    },
+    "par": {
+      "value": 72,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/green-valley-country-club/"
+    },
+    "yards": {
+      "value": 7051,
+      "source": "web-search",
+      "url": "https://www.golflux.com/course/green-valley-country-club/"
+    },
+    "year_opened": {
+      "value": 1988,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/green-valley-country-club/"
+    },
+    "green_fee_weekday_thb": {
+      "value": 2000,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/green-valley-country-club/"
+    },
+    "green_fee_weekend_thb": {
+      "value": 3000,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/green-valley-country-club/"
+    },
+    "caddie_fee_thb": {
+      "value": null,
+      "source": "web-search",
+      "url": null
+    },
+    "cart_fee_thb": {
+      "value": 800,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/green-valley-country-club/"
+    },
+    "caddie_required": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/green-valley-country-club/"
+    },
+    "cart_required": {
+      "value": false,
+      "source": "model",
+      "url": null
+    },
+    "driving_range": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/green-valley-country-club/"
+    },
+    "website": {
+      "value": "https://www.greenvalleybangkok.com",
+      "source": "official-website",
+      "url": "https://www.greenvalleybangkok.com/"
+    },
+    "phone": {
+      "value": "+66 2 312 5883",
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/green-valley-country-club/"
+    },
+    "latitude": {
+      "value": 13.621,
+      "source": "model",
+      "url": null
+    },
+    "longitude": {
+      "value": 100.752,
+      "source": "model",
+      "url": null
+    },
+    "distance_from_bangkok_km": {
+      "value": 28,
+      "source": "web-search",
+      "url": "https://www.golflux.com/course/green-valley-country-club/"
+    },
+    "drive_time_from_bangkok_min": {
+      "value": 35,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-cultures/bangkok/green-valley-country-club/"
+    },
+    "google_maps_url": {
+      "value": "https://maps.google.com/?q=13.621,100.752",
+      "source": "model",
+      "url": null
+    },
+    "club_rental_available": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/green-valley-country-club/"
+    },
+    "club_rental_fee_thb": {
+      "value": 900,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/green-valley-country-club/"
+    },
+    "club_rental_brands": {
+      "value": null,
+      "source": "model",
+      "url": null
+    }
+  },
+  "prose": {
+    "overview": "Green Valley Country Club is one of Bangkok's oldest surviving championship courses and one of three Robert Trent Jones Jr. designs in the region, opening in 1988 along the Bangna-Trad corridor in Samut Prakan. At 7,051 yards, par 72, with a slope rating of 130 and course rating of 74.2, it is a genuine test of golf. The Trent Jones Jr. signature is evident throughout: large, firm, fast greens that reward approach shot accuracy, water hazards flanking the opening holes of both nines, and bunkers positioned to demand strategic decision-making off every tee. The clubhouse, with high ceilings and original furnishings, offers Thai, European, and Japanese cuisine and views across the 1st and 18th holes. Night golf is available, adding a practical dimension for golfers escaping daytime Bangkok heat.",
+    "layout_and_experience": "The 18-hole layout reflects Trent Jones Jr.'s classic design philosophy: challenging enough for serious golfers, strategic enough to be interesting at multiple handicap levels. The par-3 14th hole requires a shot from an island tee — a memorable and nerve-testing experience. The par-5 11th, where a lake must be negotiated between the left side and a bunker on the right, and the par-5 18th, with water lining the left side to the green, are two of Bangkok's more demanding closing holes. Greens are large but firm and quick; reviews consistently note pace of play can be slow at weekends due to the course's popularity, with some rounds exceeding five or six hours.",
+    "tips": "Weekday green fees of 2,000 THB (before caddie and cart) are competitive for a Trent Jones Jr. design of this quality. Weekend fees of 3,000 THB are also reasonable. Cart fee is approximately 800 THB. Book well in advance for weekends — the course is popular and slow play is common on busy days. Avoid weekend mornings if pace of play is a concern; late Sunday afternoon slots sometimes move more quickly. Night golf is available and highly recommended in the hot season. The driving range is positioned conveniently next to the first tee.",
+    "location_and_access": "Green Valley Country Club is at 92 Moo 3, Bang Na-Trat Road Km. 15, Bang Chalong, Bang Phli, Samut Prakan 10540 — on the Bangna-Trad Highway, approximately 28 km southeast of central Bangkok. The drive takes around 35 minutes via the Bang Na Expressway in light traffic. The course is approximately 15 minutes from Suvarnabhumi International Airport, making it one of the closest quality courses to BKK. There is no practical public transport link; Grab or taxi is the standard option from central Bangkok or the airport.",
+    "rental_cta_context": "Green Valley's proximity to Suvarnabhumi Airport makes it an obvious choice for a round before a flight — LENGOLF can deliver clubs to your Sukhumvit or airport hotel the night before so you play Trent Jones Jr.'s demanding greens with equipment matched to your game, then return the set before departure."
+  }
+}

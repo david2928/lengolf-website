@@ -1,0 +1,44 @@
+{
+  "slug": "chiangmai-highlands-golf",
+  "region": "chiang-mai",
+  "status": "enriched",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Chiangmai Highlands Golf & Spa Resort", "source": "official-website", "url": "https://www.chiangmaihighlands.com/" },
+    "province": { "value": "Chiang Mai", "source": "official-website", "url": "https://www.chiangmaihighlands.com/golf/index.php/contact" },
+    "designer": { "value": "Lee Schmidt & Brian Curley (Schmidt-Curley Design)", "source": "web-search", "url": "https://www.chiangmaigolfclub.com/chiangmai-highlands-golf-resort.htm" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfsavers.com/thailand/chiang-mai-golf-courses/chiangmai-highlands-golf-resort" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfsavers.com/thailand/chiang-mai-golf-courses/chiangmai-highlands-golf-resort" },
+    "year_opened": { "value": 2005, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/chiangmai-highlands-golf-resort.htm" },
+    "green_fee_weekday_thb": { "value": 3400, "source": "web-search", "url": "https://www.golfdd.com/course/229", "note": "Standard 18-hole green fee (no weekday/weekend distinction — 'everyday' rate per golfdd.com, Nov 2025 listing). Caddie (400 THB) and cart (750 THB) compulsory and charged separately; all-in total approximately 4,550 THB. Low season agent packages bundle all-in for ~3,400 THB per chiangmaigolfclub.com." },
+    "green_fee_weekend_thb": { "value": null, "source": "model", "url": null, "note": "No separate weekend rate found — course charges same rate everyday. High season (Nov–Mar) all-in may differ from low season agent packages but green fee itself appears consistent at 3,400 THB." },
+    "caddie_fee_thb": { "value": 400, "source": "official-website", "url": "https://www.chiangmaihighlands.com/golf/index.php/rates", "note": "Compulsory, must be paid in cash." },
+    "cart_fee_thb": { "value": 750, "source": "official-website", "url": "https://www.chiangmaihighlands.com/golf/index.php/rates", "note": "Compulsory, single golfer per cart, caddie must drive." },
+    "caddie_required": { "value": true, "source": "official-website", "url": "https://www.chiangmaihighlands.com/golf/index.php/rates" },
+    "cart_required": { "value": true, "source": "official-website", "url": "https://www.chiangmaihighlands.com/golf/index.php/rates" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfchiangmai.com/chiangmai-highlands-golf-resort/" },
+    "website": { "value": "https://www.chiangmaihighlands.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 53 261 354", "source": "web-search", "url": "https://www.chiangmaihighlands.com/golf/index.php/contact" },
+    "address": { "value": "167 Moo 2 On Nuea, Mae On District, Chiang Mai 50130, Thailand", "source": "web-search", "url": "https://www.golfchiangmai.com/chiangmai-highlands-golf-resort/" },
+    "latitude": { "value": 18.8062, "source": "web-search", "url": "https://www.golfchiangmai.com/chiangmai-highlands-golf-resort/" },
+    "longitude": { "value": 99.2604, "source": "web-search", "url": "https://www.golfchiangmai.com/chiangmai-highlands-golf-resort/" },
+    "distance_from_bangkok_km": { "value": 720, "source": "web-search", "url": null, "note": "Mae On district is ~720 km from Bangkok by road. All visitors fly to Chiang Mai (~1h 10min); the course is 40 minutes east of Chiang Mai city centre." },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null, "note": "Not applicable — all visitors fly to Chiang Mai." },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "note": "Needs verification" },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfchiangmai.com/chiangmai-highlands-golf-resort/" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Chiangmai Highlands Golf & Spa Resort is an 18-hole championship course set in the mountains of Mae On district, 40 kilometres east of Chiang Mai city. The course was designed by the American practice Schmidt-Curley Design — the firm behind several of Thailand's most acclaimed courses — and opened in 2005. Built across undulating highland terrain, Chiangmai Highlands features Paspalum fairways and Tifeagle putting greens that provide consistent playing surfaces year-round, with more than 100 bunkers distributed across the layout. The course stretches to 7,227 yards from the championship tees and is regularly featured among the top golf experiences in Northern Thailand, particularly valued by golfers seeking a genuine highland setting rather than a flat resort parkland. On-site facilities include a full spa, accommodation, and a clubhouse restaurant, making it suitable for a multi-day golf stay combining rounds with the natural scenery of the Mae On mountains.",
+
+    "layout_and_experience": "Chiangmai Highlands plays across mountainous terrain where elevation change and valley views define the experience from the first tee. The Schmidt-Curley design makes full use of the natural landscape — fairways rise and fall with the contours of the hills, and several holes require precise club selection to account for significant changes in elevation. The Paspalum fairways hold the ball well and provide reliable lies even during the rainy season, while the Tifeagle greens are consistently fast and true.\n\nWith more than 100 bunkers distributed across the 18 holes, Chiangmai Highlands demands accurate approach play throughout. The par-3s are particularly unforgiving, with sand traps positioned to catch anything short or wide of the target. The 18th hole provides a memorable closing challenge with a demanding approach that rewards committed shot-making. From the championship tees (7,227 yards, par 72), the course presents a genuine test for low-handicap players; the white tees at 6,287 yards and yellow tees at 5,739 yards bring the layout within reach of mid-handicappers.\n\nCaddies at Chiangmai Highlands are experienced and well-versed in the elevation-adjusted distance calculations that mountain golf requires — following caddie advice on approach shots, especially when playing uphill or downhill, will save strokes over the course of a round. One caddie and one cart are assigned per golfer (the caddie drives), which contributes to a well-paced round. The course has no rain-check policy, meaning rounds interrupted by weather are not refunded — a consideration worth noting when booking.",
+
+    "tips": "November through February is the best time to play Chiangmai Highlands: temperatures drop to 15–22°C in the mornings and the fairways are in prime condition after the rainy season. Book an early tee time during the November–March peak period to secure the best conditions. The rainy season (June–October) brings lush fairways but afternoon thunderstorms are common; morning rounds typically finish in good conditions. Caddie and cart fees are compulsory and must be paid in cash (THB); caddie tips of 400 THB or more at the end of the round are standard. The course operates no rain-check policy, so travel insurance that covers weather-related golf cancellations is worth considering for peak-season visits. Collared shirts are required; round-neck T-shirts and denim are not permitted. Accommodation is available on-site for those combining the course with a highland retreat. From Chiang Mai, arrange transport by Grab or hotel car — the Mae On road is winding and not well-served by public transport.",
+
+    "location_and_access": "Chiangmai Highlands Golf & Spa Resort is located in Mae On district, approximately 40 minutes east of Chiang Mai city centre. From Bangkok, virtually all visitors fly — the journey takes around 1 hour 10 minutes from Suvarnabhumi (BKK) or Don Mueang (DMK) to Chiang Mai (CNX). The road distance from Bangkok is approximately 720 kilometres, making driving impractical for a golf trip. Once in Chiang Mai, the resort is reachable by Grab taxi or private car; the route follows Superhighway 11 east from the city centre. The resort can arrange shuttle transfers on request.",
+
+    "rental_cta_context": "Heading to Chiangmai Highlands for a round in the mountains? Rent premium clubs in Bangkok — delivered to your hotel before you fly — so you can travel light without the airline baggage fees."
+  }
+}

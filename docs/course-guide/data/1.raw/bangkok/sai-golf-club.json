@@ -1,0 +1,32 @@
+{
+  "slug": "sai-golf-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Sai Golf Club", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/sai-golf-club/" },
+    "province": { "value": "Phra Nakhon Si Ayutthaya", "source": "web-search", "url": "https://www.golflux.com/course/sai-golf-club/" },
+    "designer": { "value": "Bob Moore (JMP Golf Design)", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/sai-golf-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golflux.com/course/sai-golf-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golflux.com/course/sai-golf-club/" },
+    "yards": { "value": 7527, "source": "web-search", "url": "https://www.golflux.com/course/sai-golf-club/" },
+    "year_opened": { "value": 2021, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/sai-golf-club/" },
+    "green_fee_weekday_thb": { "value": 1500, "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/39771-sai-golf-club" },
+    "green_fee_weekend_thb": { "value": 2500, "source": "model", "url": null },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null },
+    "cart_fee_thb": { "value": 1000, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/sai-golf-club/" },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "model", "url": null },
+    "website": { "value": null, "source": "model", "url": null },
+    "phone": { "value": null, "source": "model", "url": null },
+    "latitude": { "value": 14.3155, "source": "model", "url": null },
+    "longitude": { "value": 100.5212, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 65, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 70, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/sai-golf-club/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=14.3155,100.5212", "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golflux.com/course/sai-golf-club/" },
+    "club_rental_fee_thb": { "value": 2500, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/bangkok/sai-golf-club/" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  }
+}

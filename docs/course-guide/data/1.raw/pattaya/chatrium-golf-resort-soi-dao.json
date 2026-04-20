@@ -1,0 +1,32 @@
+{
+  "slug": "chatrium-golf-resort-soi-dao",
+  "region": "pattaya",
+  "status": "raw",
+  "collected_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Chatrium Golf Resort Soi Dao Chanthaburi", "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/golf" },
+    "province": { "value": "Chanthaburi", "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/" },
+    "designer": { "value": "Denis Griffiths", "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/18holegolfcourse" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/18holegolfcourse" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/18holegolfcourse" },
+    "year_opened": { "value": null, "source": "model", "url": null, "note": "Not found — verify. Resort was established as Soi Dao Highland before Chatrium rebrand." },
+    "green_fee_weekday_thb": { "value": 1550, "source": "web-search", "url": "https://www.golfpattaya.com/chatrium-golf-resort-soi-dao/", "note": "Low end of agent range 1,550–2,250 THB. Walk-in rate unclear — agent rates may differ." },
+    "green_fee_weekend_thb": { "value": 2250, "source": "web-search", "url": "https://www.golfpattaya.com/chatrium-golf-resort-soi-dao/", "note": "High end of agent range — may represent peak weekend morning rate. Verify." },
+    "caddie_fee_thb": { "value": 350, "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/18holegolfcourse" },
+    "cart_fee_thb": { "value": 700, "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/18holegolfcourse" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/18holegolfcourse" },
+    "cart_required": { "value": false, "source": "model", "url": null, "note": "Cart fee listed separately — likely optional." },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": "https://www.chatrium.com/golfsoidaochanthaburi/golf", "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/golf" },
+    "phone": { "value": "+66 89 934 3008", "source": "web-search", "url": "https://www.golfpattaya.com/chatrium-golf-resort-soi-dao/" },
+    "latitude": { "value": 12.85, "source": "model", "url": null, "note": "Approximate — Pong Nam Ron / Soi Dao area, Chanthaburi. Verify." },
+    "longitude": { "value": 102.25, "source": "model", "url": null, "note": "Approximate — verify." },
+    "distance_from_bangkok_km": { "value": 260, "source": "model", "url": null, "note": "Chanthaburi is ~250–270km from Bangkok. Verify." },
+    "drive_time_from_bangkok_min": { "value": 195, "source": "model", "url": null, "note": "Approximately 3 hours. Verify." },
+    "google_maps_url": { "value": null, "source": "model", "url": null },
+    "address": { "value": null, "source": "model", "url": null, "note": "Resort area: Thap Sai / Pong Nam Ron, Chanthaburi Province. Full address not confirmed in search results." },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/18holegolfcourse" },
+    "club_rental_fee_thb": { "value": 1000, "source": "web-search", "url": "https://www.chatrium.com/golfsoidaochanthaburi/18holegolfcourse" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null, "note": "5 sets available per official site — brands not specified." }
+  }
+}

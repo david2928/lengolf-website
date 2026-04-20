@@ -1,0 +1,52 @@
+{
+  "slug": "royal-hua-hin-golf-course",
+  "region": "hua-hin",
+  "name": "Royal Hua Hin Golf Course",
+  "province": "Prachuap Khiri Khan",
+  "designer": "A. O. Robins",
+  "holes": 18,
+  "par": 72,
+  "year_opened": 1924,
+  "green_fee_weekday_thb": 1000,
+  "green_fee_weekend_thb": 1350,
+  "caddie_fee_thb": 350,
+  "cart_fee_thb": 600,
+  "caddie_required": true,
+  "cart_required": false,
+  "driving_range": true,
+  "website": "https://www.royalhuahingolfcourse.com",
+  "phone": "+66 32 512475",
+  "latitude": 12.5677,
+  "longitude": 99.9540,
+  "distance_from_bangkok_km": 225,
+  "drive_time_from_bangkok_min": 170,
+  "google_maps_url": null,
+  "club_rental_available": true,
+  "club_rental_fee_thb": 800,
+  "club_rental_brands": null,
+  "priceRange": "฿฿",
+  "notes": "Thailand's oldest golf course and the first in the Kingdom — established 1924 during the reign of King Rama VII. Construction actually began in 1919 under King Rama VI (first 9 holes); the full 18 holes were completed in 1928. Designer A.O. Robins was a Scottish railway engineer serving as Phetchaburi Railway Officer. Course is located in central Hua Hin adjacent to the famous Hua Hin Railway Station. 6,678 yards from white tees, 5,713 yards from red tees. Features limestone cliff outcrops and mature tropical trees — a traditional British-style parkland layout. Hosts major events including Singha Thailand Junior World Golf Championship and Singha-SAT Thai LPGA Masters. Celebrated its 100th anniversary in 2024. Course condition described as 'not in great condition but still very playable' by some reviewers. Green fee rates vary by source: huahingolfcourse.com lists THB 1,300 flat; golfsavers.com lists weekday THB 1,000 / weekend THB 1,350; 1golf.eu lists THB 2,000. Weekend/weekday split from golfsavers.com used here as most granular. Also listed as managed by Santiburi at santiburi.com/huahin. Booking email: royalgolfhuahin.booking@gmail.com. GPS from golfhuahin.com: 12.56771, 99.95401.",
+  "status": "enriched",
+  "published_at": null,
+  "schema_markup": "{\"@context\":\"https://schema.org\",\"@type\":\"GolfCourse\",\"name\":\"Royal Hua Hin Golf Course\",\"url\":\"https://len.golf/golf-courses/hua-hin/royal-hua-hin-golf-course/\",\"telephone\":\"+66 32 512475\",\"priceRange\":\"฿฿\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Hua Hin\",\"addressRegion\":\"Prachuap Khiri Khan\",\"addressCountry\":\"TH\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":12.5677,\"longitude\":99.9540},\"sameAs\":[\"https://www.royalhuahingolfcourse.com\"],\"amenityFeature\":[{\"@type\":\"LocationFeatureSpecification\",\"name\":\"Caddie\",\"value\":true},{\"@type\":\"LocationFeatureSpecification\",\"name\":\"Golf Cart\",\"value\":true},{\"@type\":\"LocationFeatureSpecification\",\"name\":\"Club Rental\",\"value\":true},{\"@type\":\"LocationFeatureSpecification\",\"name\":\"Driving Range\",\"value\":true}]}",
+  "prose": {
+    "overview": "Royal Hua Hin Golf Course holds a singular place in Thai sporting history as the country's oldest golf course and the first ever built in the Kingdom. The story begins in 1919, when Scottish railway engineer A. O. Robins — serving as the Phetchaburi Railway Officer — laid out the first nine holes in the grounds adjacent to what is now Hua Hin Railway Station. The full 18 holes were completed in 1924, and the course celebrated its centenary in 2024. At 6,678 yards from the white tees, par 72, it is a compact traditional layout by modern standards, but the combination of limestone cliff outcroppings, mature tropical trees, and undulating fairways gives it a character that newer, longer courses cannot replicate. Green fees are among the most accessible in the region: 1,000 THB on weekdays and 1,350 THB on weekends. The course hosts prestige amateur events including the Singha Thailand Junior World Golf Championship and the Singha-SAT Thai LPGA Masters, confirming that its historical standing is matched by genuine playing credentials.",
+
+    "layout_and_experience": "Royal Hua Hin's layout reflects its British parkland origins in almost every detail. The fairways are tree-lined and relatively tight by contemporary standards, and the course requires accurate ball-striking rather than power. The defining features are the dramatic limestone outcrops — ancient coral reef formations — that emerge from the landscape on several holes, forcing precise lines off the tee and adding a visual character wholly unique in Thai golf. Mature flame trees, frangipani, and bougainvillea border many holes, making the course especially photogenic during the flowering season. The par-3 holes are a particular highlight, several of them requiring a precise carry to elevated or well-bunkered greens. From the red tees the course plays to 5,713 yards, making it genuinely accessible for mid-to-high handicappers. The railway line adjacent to the course adds an atmospheric backdrop — hearing the Bangkok-bound train pass during your round is a reminder of the course's century-long connection to the town. Some reviewers note that course conditioning is not to the standard of the premium resort courses in the area, but the layout and its history more than compensate for any minor inconsistencies in the surfaces.",
+
+    "tips": "Visit Royal Hua Hin in the morning to avoid both the midday heat and the afternoon sea breezes that can complicate club selection on the exposed holes. The best conditions are from November to February, when temperatures are cooler and rainfall is minimal. Weekday rounds are noticeably quieter than weekends, when the course attracts local members and weekend golfers from Bangkok — if pace of play is a priority, book a weekday tee time early in the morning. Caddies at Royal Hua Hin are experienced with the subtleties of the old layout and their local knowledge is genuinely valuable on the trickier pin positions. A caddie tip of 400 THB is customary. The on-site driving range is useful for a warm-up, and club rental is available at 800 THB — one of the most affordable rates in Hua Hin. Wear shorts and lightweight clothing; the course has no dress code beyond smart casual.",
+
+    "location_and_access": "Royal Hua Hin Golf Course is located in the heart of Hua Hin town, immediately adjacent to the famous Hua Hin Railway Station, approximately 225 kilometres south of Bangkok. From Bangkok, the drive takes around two hours and 50 minutes via Highway 4. The course is walkable from many hotels in central Hua Hin — a five- to ten-minute tuk-tuk or Grab ride from most town-centre accommodation. Direct trains from Hua Lamphong station in Bangkok stop at Hua Hin station, making this one of the few Thai golf courses accessible by rail.",
+
+    "rental_cta_context": "Heading to Royal Hua Hin Golf Course? LENGOLF offers quality rental sets so you can play this historic century-old layout without the hassle of transporting clubs from Bangkok."
+  },
+  "locales": {
+    "en": {
+      "title": "Royal Hua Hin Golf Course — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Play Royal Hua Hin Golf Course, Thailand's oldest golf course, from 1,000 THB weekday. 18 holes, par 72. Rent clubs from LENGOLF and travel light from Bangkok."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  }
+}

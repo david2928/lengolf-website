@@ -1,0 +1,56 @@
+{
+  "slug": "nichigo-resort-country-club",
+  "region": "bangkok",
+  "status": "verified",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "Nichigo Resort & Country Club (now Artitaya Golf & Resort Kanchanaburi)", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/kanchanaburi/nichigo-resort-country-club/" },
+    "province": { "value": "Kanchanaburi", "source": "web-search", "url": "https://www.golflux.com/course/nichigo-golf-resort-country-club/" },
+    "designer": { "value": "Mitsuaki Kobayashi", "source": "web-search", "url": "https://www.golflux.com/course/nichigo-golf-resort-country-club/" },
+    "holes": { "value": 27, "source": "web-search", "url": "https://www.golflux.com/course/nichigo-golf-resort-country-club/" },
+    "par": { "value": 108, "source": "web-search", "url": "https://www.golflux.com/course/nichigo-golf-resort-country-club/" },
+    "yards": { "value": 7223, "source": "web-search", "url": "https://www.golflux.com/course/nichigo-golf-resort-country-club/" },
+    "year_opened": { "value": 1992, "source": "web-search", "url": "https://www.golflux.com/course/nichigo-golf-resort-country-club/" },
+    "green_fee_weekday_thb": { "value": 2000, "source": "web-search", "url": "https://www.1golf.eu/en/club/nichigo-resort-country-club/" },
+    "green_fee_weekend_thb": { "value": 2000, "source": "web-search", "url": "https://www.1golf.eu/en/club/nichigo-resort-country-club/" },
+    "caddie_fee_thb": { "value": 400, "source": "model", "url": null },
+    "cart_fee_thb": { "value": 1000, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/kanchanaburi/nichigo-resort-country-club/" },
+    "caddie_required": { "value": true, "source": "model", "url": null },
+    "cart_required": { "value": false, "source": "model", "url": null },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golflux.com/course/nichigo-golf-resort-country-club/" },
+    "website": { "value": null, "source": "model", "url": null },
+    "phone": { "value": "+66 34 910 310", "source": "web-search", "url": "https://www.1golf.eu/en/club/nichigo-resort-country-club/" },
+    "latitude": { "value": 14.1234, "source": "web-search", "url": "https://elevation.maplogs.com/poi/nichigo_resort_country_club_tambol_tambon_wang_dong_amphoe_mueang_kanchanaburi_chang_wat_kanchanaburi_thailand.380432.html" },
+    "longitude": { "value": 99.3481, "source": "web-search", "url": "https://elevation.maplogs.com/poi/nichigo_resort_country_club_tambol_tambon_wang_dong_amphoe_mueang_kanchanaburi_chang_wat_kanchanaburi_thailand.380432.html" },
+    "distance_from_bangkok_km": { "value": 155, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 165, "source": "web-search", "url": "https://www.golflux.com/guide-to-golf-in-kanchanaburi/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=14.1234,99.3481", "source": "web-search", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golflux.com/course/nichigo-golf-resort-country-club/" },
+    "club_rental_fee_thb": { "value": 500, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/kanchanaburi/nichigo-resort-country-club/" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Nichigo Resort & Country Club — now operating under the Artitaya Golf & Resort brand — is a 27-hole golf complex in Kanchanaburi Province, about 30 minutes north of Kanchanaburi city and roughly two and a half hours west of Bangkok. Designed by Japanese architect Mitsuaki Kobayashi and opened in 1992, the course is set along the banks of the River Kwai Yai in a scenic environment of tropical gardens, limestone hills, and mountain views. The three nine-hole loops — River, Lake, and Mountain — can be combined in any pairing for an 18-hole round, each offering a distinct character. The resort setting, historic River Kwai location, and Kobayashi's technically engaging design make Nichigo a popular choice for overnight golf trips combining the Kanchanaburi war cemeteries and Bridge on the River Kwai with quality golf.",
+    "layout_and_experience": "The 27 holes spread across varied terrain, providing three distinct nine-hole playing environments. The River Course is the most dramatic, featuring two notable footbridges — including a jungle rope bridge at the par-3 3rd hole and a replica of the famous Bridge Over the River Kwai near the par-4 6th. The Lake Course is defined by extensive water features, with the par-3 4th in particular demanding a full carry over the lake. The Mountain Course plays across the most undulating terrain, with limestone hill views and creek hazards adding strategic complexity. Throughout all 27 holes, Kobayashi employs multiple doglegs, sidehill lies, and uphill approaches that demand course management as much as raw power. Greens are well-bunkered and receptive to properly struck approaches. The total 27-hole yardage runs to 7,223 yards, with the combined 18-hole layouts roughly in the 4,700–4,900 yard range per combination at par 72. A driving range, practice area, and putting green are available on site.",
+    "tips": "Combine the golf with a visit to the Bridge on the River Kwai, Death Railway Museum, and the Allied War Cemetery to make the most of the Kanchanaburi visit. The resort itself is basic — most golfers stay in Kanchanaburi town and drive out. Book tee times by phone or through online booking platforms as the reception desk can be difficult to reach. The green fee is reported as consistent regardless of weekday or weekend. Early morning tee times are recommended to avoid the hottest part of the day; the mountain-adjacent setting means mornings are pleasant. GPS coordinates: 14.1234, 99.3481.",
+    "location_and_access": "Nichigo Resort & Country Club is located at 106 Moo 4, Tambon Wangdong, Amphur Muang, Kanchanaburi 71000, approximately 30 minutes north of Kanchanaburi city and about 155 km west of Bangkok. The drive from Bangkok takes approximately two hours and 45 minutes via Route 4 (Petchakasem Road) west to Kanchanaburi then north on Route 3199. Most golfers overnight in Kanchanaburi town and drive to the course in the morning. The River Kwai setting and overnight resort accommodation make this ideal for a two-day golf trip.",
+    "rental_cta_context": "Combining a River Kwai adventure with golf at Nichigo? LENGOLF delivers tour-quality clubs to your Bangkok hotel so you can collect them before heading west — no airport bag fees required."
+  },
+  "locales": {
+    "en": {
+      "title": "Nichigo Resort & Country Club — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "Nichigo Resort & Country Club Kanchanaburi green fees, 27-hole River Kwai course guide, visitor tips, and golf club rentals from Bangkok."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  },
+  "verification_status": "APPROVED (provisional)",
+  "verified_at": "2026-04-20",
+  "verification_notes": "27 holes confirmed by golflux.com, golfasian.com, and 1golf.eu. Designer Mitsuaki Kobayashi confirmed by multiple sources. Year 1992 confirmed. 7,223 yards from golflux.com. Rebranding to Artitaya Golf & Resort confirmed by golfasian.com. Green fee 2,000 THB from 1golf.eu (same rate weekday/weekend). Cart 1,000 THB from golfasian.com. GPS coordinates from maplogs.com topographic data — plausible for Tambon Wangdong, Kanchanaburi. Phone +66 34 910 310 confirmed from 1golf.eu.",
+  "disputes": [
+    "Rebranding: property is now marketed as Artitaya Golf & Resort Kanchanaburi by golfasian.com, but still listed as Nichigo on multiple other platforms. Using original Nichigo name as the slug was specified.",
+    "Green fee 2,000 THB reported as flat rate regardless of weekday/weekend per 1golf.eu. Caddie fee not independently confirmed — model estimate 400 THB used."
+  ]
+}

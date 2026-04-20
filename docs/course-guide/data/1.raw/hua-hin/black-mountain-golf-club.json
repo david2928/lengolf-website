@@ -1,0 +1,31 @@
+{
+  "slug": "black-mountain-golf-club",
+  "region": "hua-hin",
+  "status": "raw",
+  "collected_at": "2026-04-18",
+  "fields": {
+    "name": { "value": "Black Mountain Golf Club", "source": "official-website", "url": "https://blackmountainhuahin.com/" },
+    "province": { "value": "Prachuap Khiri Khan", "source": "official-website", "url": "https://blackmountainhuahin.com/contact/" },
+    "designer": { "value": "Phil Ryan (Pacific Coast Design)", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/black-mountain-golf-club/" },
+    "holes": { "value": 27, "source": "official-website", "url": "https://blackmountainhuahin.com/the-course" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/black-mountain-golf-club/" },
+    "year_opened": { "value": 2007, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/black-mountain-golf-club/" },
+    "green_fee_weekday_thb": { "value": 4500, "source": "official-website", "url": "https://blackmountainhuahin.com/rates" },
+    "green_fee_weekend_thb": { "value": 4500, "source": "official-website", "url": "https://blackmountainhuahin.com/rates" },
+    "caddie_fee_thb": { "value": 350, "source": "official-website", "url": "https://blackmountainhuahin.com/rates" },
+    "cart_fee_thb": { "value": 750, "source": "official-website", "url": "https://blackmountainhuahin.com/rates" },
+    "caddie_required": { "value": true, "source": "official-website", "url": "https://blackmountainhuahin.com/rates" },
+    "cart_required": { "value": false, "source": "official-website", "url": "https://blackmountainhuahin.com/rates" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/hua-hin/black-mountain-golf-club/" },
+    "website": { "value": "https://blackmountainhuahin.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 32 618 666", "source": "official-website", "url": "https://blackmountainhuahin.com/contact/" },
+    "latitude": { "value": 12.6145, "source": "web-search", "url": "https://www.huahingolfcourse.com/black-mountain-golf-club.htm" },
+    "longitude": { "value": 99.8918, "source": "web-search", "url": "https://www.huahingolfcourse.com/black-mountain-golf-club.htm" },
+    "distance_from_bangkok_km": { "value": 230, "source": "web-search", "url": "https://huahintravel.com/thailand/hua-hin/hua-hin-golf-courses/black-mountain/" },
+    "drive_time_from_bangkok_min": { "value": 180, "source": "web-search", "url": "https://huahintravel.com/thailand/hua-hin/hua-hin-golf-courses/black-mountain/" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=12.6145,99.8918", "source": "web-search", "url": null },
+    "club_rental_available": { "value": true, "source": "official-website", "url": "https://blackmountainhuahin.com/rates" },
+    "club_rental_fee_thb": { "value": 1500, "source": "official-website", "url": "https://blackmountainhuahin.com/rates" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "slug": "the-legacy-golf-club",
+  "region": "bangkok",
+  "status": "verified",
+  "collected_at": "2026-04-20",
+  "enriched_at": "2026-04-20",
+  "fields": {
+    "name": { "value": "The Legacy Golf Club (Natural Park Ramindra Golf Club)", "source": "web-search", "url": "https://www.1golf.eu/en/club/the-legacy-golf-club-natural-park-ramindra-golf-club/" },
+    "province": { "value": "Bangkok", "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/legacy-golf-club/" },
+    "designer": { "value": "Jack Nicklaus", "source": "web-search", "url": "https://www.1golf.eu/en/club/the-legacy-golf-club-natural-park-ramindra-golf-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.1golf.eu/en/club/the-legacy-golf-club-natural-park-ramindra-golf-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.1golf.eu/en/club/the-legacy-golf-club-natural-park-ramindra-golf-club/" },
+    "yards": { "value": 7037, "source": "web-search", "url": "https://golfdigg.com/en/courses/legacy-golf-club-thailand" },
+    "year_opened": { "value": 1992, "source": "web-search", "url": "https://www.1golf.eu/en/club/the-legacy-golf-club-natural-park-ramindra-golf-club/" },
+    "green_fee_weekday_thb": { "value": 2000, "source": "web-search", "url": "https://www.1golf.eu/en/club/the-legacy-golf-club-natural-park-ramindra-golf-club/" },
+    "green_fee_weekend_thb": { "value": 3000, "source": "web-search", "url": "https://www.1golf.eu/en/club/the-legacy-golf-club-natural-park-ramindra-golf-club/" },
+    "caddie_fee_thb": { "value": 350, "source": "web-search", "url": "https://golfdigg.com/en/courses/legacy-golf-club-thailand" },
+    "cart_fee_thb": { "value": 1100, "source": "web-search", "url": "https://golfdigg.com/en/courses/legacy-golf-club-thailand" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.1golf.eu/en/club/the-legacy-golf-club-natural-park-ramindra-golf-club/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/legacy-golf-club/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/legacy-golf-club" },
+    "website": { "value": "http://legacygolfbangkok.com", "source": "web-search", "url": "https://golfdigg.com/en/courses/legacy-golf-club-thailand" },
+    "phone": { "value": "+66 2 914 1930", "source": "web-search", "url": "https://www.where2golf.com/thailand/the-legacy-golf-club/" },
+    "latitude": { "value": 13.874, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/legacy-golf-club/" },
+    "longitude": { "value": 100.7027, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/legacy-golf-club/" },
+    "distance_from_bangkok_km": { "value": 32, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 40, "source": "web-search", "url": "https://www.golfsavers.com/thailand/bangkok-golf-courses/legacy-golf-club" },
+    "google_maps_url": { "value": "https://maps.google.com/?q=13.874,100.7027", "source": "web-search", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfbangkok.com/bangkok-golf-courses/legacy-golf-club/" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "The Legacy Golf Club — formerly known as Natural Park Ramindra Golf Club — holds the distinction of being Bangkok's only Jack Nicklaus-designed course. Opened in 1992 in the eastern Khlong Sam Wa district, this tree-lined parkland layout combines Nicklaus's signature risk-reward design with a mature, well-established playing environment close to Safari World. The 18-hole par-72 layout stretches 7,037 yards from the gold tees and is considered a serious test of mid-to-low handicap golf in Bangkok. The Nicklaus pedigree, extensive course facilities, and on-site Japanese restaurant give the Legacy a character that sets it above many of Bangkok's mid-market alternatives. Cart and caddie are compulsory, keeping pace of play brisk across the full layout.",
+    "layout_and_experience": "Jack Nicklaus's design philosophy is immediately apparent at the Legacy: generous but well-bunkered fairways, dramatically elevated greens, and an island green on the par-4 16th — surrounded by sand bunkers rather than water — that is the course's signature hole and one of the most memorable in Bangkok golf. Two large artificial lakes define roughly half of the 18 holes, creating constant water hazard pressure from both tee and approach. The par-5s are genuine birdie opportunities from the fairway but punish the greedy with water short or left of several greens. The par-3s range from short precision shots under 160 yards to a demanding 210-yard carry. From the Gold tees (7,037 yards) it is a true test of accuracy; the White tees (6,193 yards) offer an enjoyable challenge for mid-handicappers. The course is mature, with canopy trees framing many fairways and providing welcome shade. A driving range and practice green allow proper warm-up before play.",
+    "tips": "Book at least two days ahead on weekdays and three days for weekends — the course is popular and fills quickly. Cart and caddie are compulsory; tip your caddie at least 400 THB after the round. Aim to tee off before 9am on weekends to avoid slower groups. The 16th hole's island green demands nerve — take an extra club. The on-site Japanese restaurant is popular for post-round dining. The course is in eastern Bangkok near Safari World on Panya Intra Road (Route 3312).",
+    "location_and_access": "The Legacy Golf Club is located at 18 Thanon Panya Intra, Sam Wa Tawan Tok, Khlong Sam Wa, Bangkok 10510 — approximately 32 km east of central Bangkok. The drive takes about 40 minutes via the Outer Ring Road (Route 9) or the Ram Intra Expressway, depending on traffic. A private car or Grab is recommended; public transport does not serve the area conveniently. The GPS coordinates 13.874, 100.703 provide accurate routing.",
+    "rental_cta_context": "Playing Jack Nicklaus's only Bangkok design? LENGOLF delivers tour-quality clubs to your hotel — arrive at the Legacy ready to tackle its island greens and water-framed approach shots."
+  },
+  "locales": {
+    "en": {
+      "title": "The Legacy Golf Club — Green Fees, Course Guide & Golf Club Rentals",
+      "meta_description": "The Legacy Golf Club Bangkok (Natural Park Ramindra) green fees, Jack Nicklaus course guide, visitor tips, and golf club rentals delivered to your Bangkok hotel."
+    },
+    "ko": null,
+    "zh": null,
+    "ja": null
+  },
+  "verification_status": "APPROVED",
+  "verified_at": "2026-04-20",
+  "verification_notes": "Jack Nicklaus design confirmed by multiple sources (1golf.eu, golfbangkok.com, golfsavers.com, golfdigg.com, where2golf.com). GPS coordinates 13.874 / 100.703 confirmed from two independent sources (golfbangkok.com and where2golf.com) — very close agreement. Green fees 2000/3000 THB (green fee only) from 1golf.eu. Caddie 350 THB and cart 1,100 THB separately from golfdigg.com — all-in approximately 3,450/4,450 THB. Year 1992 confirmed. Phone +66 2 914 1930 confirmed by where2golf.com and official address. Both caddie and cart compulsory confirmed.",
+  "disputes": [
+    "Year opened: some sources cite 1989 (construction) while others cite 1992 (formal opening as Natural Park Ramindra). Using 1992 as the confirmed opening date.",
+    "1golf.eu lists green fees as standalone; golfdigg.com confirms caddie 350 and cart 1,100 as separate mandatory charges."
+  ]
+}
