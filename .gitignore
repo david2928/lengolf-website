@@ -63,3 +63,7 @@ docs/content-gaps-golf-guide.md
 # Internal tooling / design artifacts
 .reviews
 wireframes/
+
+# Golf course pipeline intermediates (large JSON corpora — not source code)
+docs/course-guide/data/
+docs/course-guide/reports/

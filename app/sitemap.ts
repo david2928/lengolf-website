@@ -4,9 +4,10 @@ import { getAlternates } from '@/lib/translated-routes'
 import { getPostSlugs } from '@/lib/blog'
 import { getAllLocationSlugs } from '@/lib/locations'
 import { getAllSeoPageSlugs } from '@/lib/seo-pages'
+import { REGION_META, getAllCourseParams } from '@/lib/golf-courses'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [blogSlugs, locationSlugs, activitySlugs, faqSlugs, hotelSlugs, costSlugs, explainerSlugs, bestOfSlugs] = await Promise.all([
+  const [blogSlugs, locationSlugs, activitySlugs, faqSlugs, hotelSlugs, costSlugs, explainerSlugs, bestOfSlugs, courseParams] = await Promise.all([
     getPostSlugs(),
     getAllLocationSlugs(),
     getAllSeoPageSlugs('activity_occasion'),
@@ -15,6 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getAllSeoPageSlugs('price_guide'),
     getAllSeoPageSlugs('explainer'),
     getAllSeoPageSlugs('best_of_listicle'),
+    getAllCourseParams(),
   ])
 
   // Pages with translations — hreflang alternates sourced from translated-routes registry
@@ -160,5 +162,44 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }))
 
-  return [...translatedPages, ...hubPages, ...englishOnlyPages, ...blogPages, ...locationPages, ...activityPages, ...faqPageEntries, ...hotelPages, ...costPages, ...explainerPageEntries, ...bestOfPageEntries]
+  // ── Golf course section ──────────────────────────────────────────────────────
+  const golfCoursesHub: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE_URL}/golf-courses/`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+  ]
+
+  const golfRegionPages: MetadataRoute.Sitemap = Object.keys(REGION_META).map((region) => ({
+    url: `${SITE_URL}/golf-courses/${region}/`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }))
+
+  const golfCoursePages: MetadataRoute.Sitemap = courseParams.map(({ region, slug }) => ({
+    url: `${SITE_URL}/golf-courses/${region}/${slug}/`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
+  return [
+    ...translatedPages,
+    ...hubPages,
+    ...englishOnlyPages,
+    ...blogPages,
+    ...locationPages,
+    ...activityPages,
+    ...faqPageEntries,
+    ...hotelPages,
+    ...costPages,
+    ...explainerPageEntries,
+    ...bestOfPageEntries,
+    ...golfCoursesHub,
+    ...golfRegionPages,
+    ...golfCoursePages,
+  ]
 }

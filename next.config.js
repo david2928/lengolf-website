@@ -172,6 +172,10 @@ const nextConfig = {
       // Tournaments page removed — redirect to events
       { source: '/tournaments', destination: '/events/', permanent: true },
 
+      // Life Privilege CC re-regioned from Bangkok → Khao Yai (2026-04-20)
+      { source: '/golf-courses/bangkok/life-privilege-country-club', destination: '/golf-courses/khao-yai/life-privilege-country-club/', permanent: true },
+      { source: '/golf-courses/bangkok/life-privilege-country-club/', destination: '/golf-courses/khao-yai/life-privilege-country-club/', permanent: true },
+
       // LINE shortlink — used as sitelink URL in Google Ads (lin.ee domain causes
       // "Destination mismatch" disapproval, so we redirect via our own domain)
       { source: '/line', destination: 'https://lin.ee/uxQpIXn', permanent: false },
