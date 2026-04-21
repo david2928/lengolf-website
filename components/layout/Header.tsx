@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { Menu, X, Phone, CalendarDays, ChevronDown } from 'lucide-react'
 import { SOCIAL_LINKS, BOOKING_URL, BUSINESS_INFO, storageUrl } from '@/lib/constants'
 import { FacebookIcon, LineIcon, InstagramIcon } from '@/components/shared/SocialIcons'
-import LanguageSwitcher from '@/components/layout/LanguageSwitcher'
+import LocaleMenu from '@/components/layout/LocaleMenu'
 
 const CLUBS_CHILDREN = [
   { key: 'clubsAtLengolf', href: '/golf-club-rental' as const, descKey: 'clubsAtLengolfDesc' },
@@ -183,7 +183,7 @@ export default function Header() {
           </a>
 
           {/* Language Switcher */}
-          <LanguageSwitcher />
+          <LocaleMenu />
 
           {/* Social icons — hidden below 2xl */}
           <div className="hidden 2xl:flex items-center" style={{ gap: '3px' }}>
@@ -201,7 +201,7 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <div className="flex items-center gap-2 lg:hidden">
-          <LanguageSwitcher />
+          <LocaleMenu />
           <button
             type="button"
             className="p-2"

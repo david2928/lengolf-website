@@ -46,7 +46,7 @@ interface LinkTest {
 
 interface SeoTest {
   path: string
-  locale: 'en' | 'th'
+  locale: 'en' | 'th' | 'ja' | 'ko' | 'zh'
 }
 
 interface NotFoundTest {
@@ -91,6 +91,30 @@ const routeTests: RouteTest[] = [
   { path: '/ko/rent-golf-clubs-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/rent-golf-clubs-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/zh/rent-golf-clubs-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // JA pages (Home/Golf/Lessons/Events/AboutUs/ClubRental/CourseClubRental translated in ja.json)
+  { path: '/ja/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/golf/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/lessons/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/events/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/about-us/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/golf-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/golf-course-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // KO pages (bespoke landing at '/', plus translated Golf/Lessons/Events/AboutUs/ClubRental/CourseClubRental)
+  { path: '/ko/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/golf/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/lessons/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/events/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/about-us/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/golf-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/golf-course-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // ZH pages (bespoke landing at '/', plus translated Golf/Lessons/Events/AboutUs/ClubRental/CourseClubRental)
+  { path: '/zh/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/golf/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/lessons/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/events/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/about-us/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/golf-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/golf-course-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Guide (explainer) pages — spot-check original + new golf-travel slugs
   { path: '/guide/what-is-a-golf-simulator/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/guide/best-time-play-golf-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
@@ -252,6 +276,16 @@ const seoTests: SeoTest[] = [
   { path: '/blog/', locale: 'en' },
   { path: '/th/', locale: 'th' },
   { path: '/th/golf/', locale: 'th' },
+  { path: '/ja/', locale: 'ja' },
+  { path: '/ja/golf/', locale: 'ja' },
+  { path: '/ja/lessons/', locale: 'ja' },
+  { path: '/ja/rent-golf-clubs-bangkok/', locale: 'ja' },
+  { path: '/ko/', locale: 'ko' },
+  { path: '/ko/golf/', locale: 'ko' },
+  { path: '/ko/lessons/', locale: 'ko' },
+  { path: '/zh/', locale: 'zh' },
+  { path: '/zh/golf/', locale: 'zh' },
+  { path: '/zh/lessons/', locale: 'zh' },
   { path: '/golf-in-thailand-guide/', locale: 'en' },
   { path: '/guide/what-is-a-golf-simulator/', locale: 'en' },
   { path: '/faq/can-i-rent-golf-clubs-in-bangkok/', locale: 'en' },
@@ -268,6 +302,15 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
   { path: '/th/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated privacy policy' },
   { path: '/th/terms-of-service/', expectedLocation: '/terms-of-service/', label: 'Untranslated terms of service' },
   { path: '/th/golf-courses/', expectedLocation: '/golf-courses/', label: 'Golf courses hub (untranslated Thai → EN)' },
+  // Regression guard — non-whitelisted /ja/, /ko/, /zh/ paths must still 301 to EN so the
+  // middleware allowlist (lib/translated-routes.ts) continues to work. Particularly
+  // important for ko/zh where the message files have populated (but English-stub)
+  // namespaces that would render as mislabelled content without the allowlist.
+  { path: '/ja/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated JA privacy policy' },
+  { path: '/ko/hotels/', expectedLocation: '/hotels/', label: 'Untranslated KO hotels hub' },
+  { path: '/ko/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated KO privacy policy' },
+  { path: '/zh/blog/', expectedLocation: '/blog/', label: 'Untranslated ZH blog page' },
+  { path: '/zh/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated ZH privacy policy' },
 ]
 
 // F) Thai cookie tests — English pages must work even with NEXT_LOCALE=th cookie

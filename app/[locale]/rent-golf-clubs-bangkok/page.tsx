@@ -9,8 +9,8 @@ import CollapsibleClubCard from '@/components/course-rental/CollapsibleClubCard'
 import TrustBar from '@/components/course-rental/TrustBar'
 import Testimonials from '@/components/course-rental/Testimonials'
 import MultiChannelContact from '@/components/course-rental/MultiChannelContact'
-import PageLanguageSwitcher from '@/components/course-rental/PageLanguageSwitcher'
 import { storageUrl, SITE_URL, BUSINESS_INFO, SOCIAL_LINKS, BOOKING_URL } from '@/lib/constants'
+import { getAlternates, getCanonical } from '@/lib/translated-routes'
 import { getCourseClubRentalServiceJsonLd, getCourseClubRentalPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { getRentalClubPricing } from '@/lib/clubs'
 export const revalidate = 3600
@@ -27,8 +27,6 @@ import {
 
 const FAQ_COUNT = 5
 
-const LOCALES_WITH_TRANSLATION = ['en', 'th', 'ko', 'ja', 'zh']
-
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
   '@lengolf': { href: SOCIAL_LINKS.line, external: true },
   'LINE @lengolf': { href: SOCIAL_LINKS.line, external: true },
@@ -39,16 +37,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'CourseClubRental' })
 
-  const localePrefix = (l: string) => (l === 'en' ? '' : `/${l}`)
-
   return {
     title: t('metaTitle'),
     description: t('metaDescription'),
     alternates: {
-      canonical: `${SITE_URL}${localePrefix(locale)}/rent-golf-clubs-bangkok/`,
-      languages: Object.fromEntries(
-        LOCALES_WITH_TRANSLATION.map((l) => [l, `${SITE_URL}${localePrefix(l)}/rent-golf-clubs-bangkok/`])
-      ),
+      canonical: getCanonical(locale, '/rent-golf-clubs-bangkok/'),
+      languages: getAlternates('/rent-golf-clubs-bangkok/'),
     },
     openGraph: {
       images: [{ url: storageUrl('golf/hero-course-rental.webp'), alt: 'Rent premium golf clubs for any Bangkok golf course — Callaway Paradym, Warbird, Majesty from 1,200 THB/day' }],

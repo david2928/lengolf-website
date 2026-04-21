@@ -8,30 +8,38 @@ import ImageGallery from '@/components/shared/ImageGallery'
 import ServicesCarousel from '@/components/home/ServicesCarousel'
 import { services } from '@/data/pricing'
 import { BUSINESS_INFO, SITE_URL, SOCIAL_LINKS, storageUrl, storageImageUrl } from '@/lib/constants'
+import { getAlternates, getCanonical, OG_LOCALES, type Locale } from '@/lib/translated-routes'
 import { getFaqPageJsonLd, getAggregateRatingJsonLd, getBreadcrumbJsonLd, getHomePricingJsonLd } from '@/lib/jsonld'
 import { getGoogleReviews } from '@/lib/google-reviews'
 import FaqSection from '@/components/shared/FaqSection'
 import { StarIcon } from '@/components/shared/StarRating'
+import JapanLandingPage from '@/components/home/JapanLandingPage'
+import KoreaLandingPage from '@/components/home/KoreaLandingPage'
+import ChinaLandingPage from '@/components/home/ChinaLandingPage'
+
+const BESPOKE_HOME_NAMESPACE: Record<string, string> = {
+  ja: 'HomeJa',
+  ko: 'HomeKo',
+  zh: 'HomeZh',
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  const t = await getTranslations({ locale, namespace: 'Home' })
-
-  const alternates: Metadata['alternates'] = {
-    canonical: `${SITE_URL}/`,
-    languages: {
-      en: `${SITE_URL}/`,
-      th: `${SITE_URL}/th/`,
-    },
-  }
+  // JA / KO / ZH each ship a bespoke tourist-landing page with its own meta
+  // targeting that market's search intent. See BESPOKE_HOME_NAMESPACE.
+  const namespace = BESPOKE_HOME_NAMESPACE[locale] ?? 'Home'
+  const t = await getTranslations({ locale, namespace })
 
   return {
     title: t('metaTitle'),
     description: t('metaDescription'),
-    alternates,
+    alternates: {
+      canonical: getCanonical(locale, '/'),
+      languages: getAlternates('/'),
+    },
     openGraph: {
       images: [{ url: storageUrl('venue/venue-simulator-01.jpg'), alt: 'LENGOLF indoor golf simulator in Bangkok' }],
-      locale: locale === 'th' ? 'th_TH' : 'en_US',
+      locale: OG_LOCALES[locale as Locale] ?? OG_LOCALES.en,
     },
   }
 }
@@ -62,6 +70,13 @@ export const revalidate = 86400
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   setRequestLocale(locale)
+
+  // JA / KO / ZH each get a bespoke tourist-landing layout tailored to that market
+  // (market-specific hero/framing, approximate local-currency pricing, native
+  // testimonial, tourist-specific FAQ). See components/home/*LandingPage.tsx.
+  if (locale === 'ja') return <JapanLandingPage />
+  if (locale === 'ko') return <KoreaLandingPage />
+  if (locale === 'zh') return <ChinaLandingPage />
 
   const t = await getTranslations('Home')
   const tCommon = await getTranslations('Common')

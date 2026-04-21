@@ -75,11 +75,11 @@ export default async function Footer() {
               {t('address')}
             </p>
             <p
-              className="mt-1"
+              className="mt-2"
               style={{
                 fontFamily: '"Poppins", sans-serif',
-                fontWeight: 400,
-                color: '#333333',
+                fontWeight: 500,
+                color: '#005a32',
                 fontSize: '14px',
                 lineHeight: '22px',
               }}

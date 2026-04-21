@@ -6,6 +6,7 @@ import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
 import ImageLightbox from '@/components/shared/ImageLightbox'
 import { storageUrl, SITE_URL, BUSINESS_INFO, BOOKING_URL } from '@/lib/constants'
+import { getAlternates, getCanonical } from '@/lib/translated-routes'
 import StickyBookCTA from '@/components/clubs/StickyBookCTA'
 import { getClubRentalPricingJsonLd, getClubRentalServiceJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { getRentalClubPricing } from '@/lib/clubs'
@@ -51,8 +52,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t('metaTitle'),
     description: t('metaDescription'),
     alternates: {
-      canonical: `${SITE_URL}${locale === 'th' ? '/th' : ''}/golf-club-rental/`,
-      languages: { en: `${SITE_URL}/golf-club-rental/`, th: `${SITE_URL}/th/golf-club-rental/` },
+      canonical: getCanonical(locale, '/golf-club-rental/'),
+      languages: getAlternates('/golf-club-rental/'),
     },
     openGraph: { images: [{ url: storageUrl('venue/venue-simulator-01.jpg'), alt: 'Rent Callaway Warbird, Majesty or Paradym golf clubs at LENGOLF Bangkok — free Standard set with every bay booking, Premium from 150 THB/hr' }] },
   }

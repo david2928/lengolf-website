@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { SITE_URL } from '@/lib/constants'
+import { getAlternates } from '@/lib/translated-routes'
 import { getPostSlugs } from '@/lib/blog'
 import { getAllLocationSlugs } from '@/lib/locations'
 import { getAllSeoPageSlugs } from '@/lib/seo-pages'
@@ -18,92 +19,70 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getAllCourseParams(),
   ])
 
-  // Pages with Thai translations get hreflang alternates
+  // Pages with translations — hreflang alternates sourced from translated-routes registry
   const translatedPages: MetadataRoute.Sitemap = [
     {
       url: `${SITE_URL}/`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1.0,
-      alternates: {
-        languages: {
-          en: `${SITE_URL}/`,
-          th: `${SITE_URL}/th/`,
-        },
-      },
+      alternates: { languages: getAlternates('/') },
     },
     {
       url: `${SITE_URL}/golf/`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
-      alternates: {
-        languages: {
-          en: `${SITE_URL}/golf/`,
-          th: `${SITE_URL}/th/golf/`,
-        },
-      },
+      alternates: { languages: getAlternates('/golf/') },
     },
-  ]
-
-  // Pages with Thai translations
-  const newlyTranslatedPages: MetadataRoute.Sitemap = [
     {
       url: `${SITE_URL}/events/`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
-      alternates: { languages: { en: `${SITE_URL}/events/`, th: `${SITE_URL}/th/events/` } },
+      alternates: { languages: getAlternates('/events/') },
     },
     {
       url: `${SITE_URL}/golf-club-rental/`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
-      alternates: { languages: { en: `${SITE_URL}/golf-club-rental/`, th: `${SITE_URL}/th/golf-club-rental/` } },
+      alternates: { languages: getAlternates('/golf-club-rental/') },
     },
     {
       url: `${SITE_URL}/golf-course-club-rental/`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
-      alternates: { languages: { en: `${SITE_URL}/golf-course-club-rental/`, th: `${SITE_URL}/th/golf-course-club-rental/` } },
+      alternates: { languages: getAlternates('/golf-course-club-rental/') },
     },
     {
       url: `${SITE_URL}/lessons/`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
-      alternates: { languages: { en: `${SITE_URL}/lessons/`, th: `${SITE_URL}/th/lessons/` } },
+      alternates: { languages: getAlternates('/lessons/') },
     },
     {
       url: `${SITE_URL}/about-us/`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
-      alternates: { languages: { en: `${SITE_URL}/about-us/`, th: `${SITE_URL}/th/about-us/` } },
+      alternates: { languages: getAlternates('/about-us/') },
     },
     {
       url: `${SITE_URL}/blog/`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
-      alternates: { languages: { en: `${SITE_URL}/blog/`, th: `${SITE_URL}/th/blog/` } },
+      alternates: { languages: getAlternates('/blog/') },
     },
     {
       url: `${SITE_URL}/rent-golf-clubs-bangkok/`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
-      alternates: {
-        languages: {
-          en: `${SITE_URL}/rent-golf-clubs-bangkok/`,
-          th: `${SITE_URL}/th/rent-golf-clubs-bangkok/`,
-          ko: `${SITE_URL}/ko/rent-golf-clubs-bangkok/`,
-          ja: `${SITE_URL}/ja/rent-golf-clubs-bangkok/`,
-          zh: `${SITE_URL}/zh/rent-golf-clubs-bangkok/`,
-        },
-      },
+      alternates: { languages: getAlternates('/rent-golf-clubs-bangkok/') },
     },
   ]
 
@@ -184,7 +163,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   // ── Golf course section ──────────────────────────────────────────────────────
-  // Hub page
   const golfCoursesHub: MetadataRoute.Sitemap = [
     {
       url: `${SITE_URL}/golf-courses/`,
@@ -194,7 +172,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]
 
-  // One entry per region (14 pages)
   const golfRegionPages: MetadataRoute.Sitemap = Object.keys(REGION_META).map((region) => ({
     url: `${SITE_URL}/golf-courses/${region}/`,
     lastModified: new Date(),
@@ -202,7 +179,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }))
 
-  // One entry per course detail page (149 pages)
   const golfCoursePages: MetadataRoute.Sitemap = courseParams.map(({ region, slug }) => ({
     url: `${SITE_URL}/golf-courses/${region}/${slug}/`,
     lastModified: new Date(),
@@ -212,7 +188,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     ...translatedPages,
-    ...newlyTranslatedPages,
     ...hubPages,
     ...englishOnlyPages,
     ...blogPages,

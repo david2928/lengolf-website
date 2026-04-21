@@ -5,11 +5,13 @@ import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import ImageGallery from '@/components/shared/ImageGallery'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
+import { getAlternates, getCanonical } from '@/lib/translated-routes'
 import { coaches } from '@/data/coaches'
-import { getLessonPricingData } from '@/data/pricing'
+import { getLessonPricingData, type LessonPackage } from '@/data/pricing'
 import { getLessonsPricingJsonLd, getLessonsServiceJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import FaqSection from '@/components/shared/FaqSection'
 import ClickableImage from '@/components/shared/ClickableImage'
+import PricingTable from '@/components/shared/PricingTable'
 
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
   'booking.len.golf': { href: 'https://booking.len.golf/', external: true },
@@ -24,8 +26,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t('metaTitle'),
     description: t('metaDescription'),
     alternates: {
-      canonical: `${SITE_URL}${locale === 'th' ? '/th' : ''}/lessons/`,
-      languages: { en: `${SITE_URL}/lessons/`, th: `${SITE_URL}/th/lessons/` },
+      canonical: getCanonical(locale, '/lessons/'),
+      languages: getAlternates('/lessons/'),
     },
     openGraph: { images: [{ url: storageUrl('lessons/promo-free-trial.jpg'), alt: 'Golf lessons with PGA Pro at LENGOLF' }] },
   }
@@ -69,7 +71,38 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
     answer: tFaq(`a${i + 1}`),
   }))
 
-  const { lessonPricing, lessonNotes } = await getLessonPricingData()
+  const { lessonPricing, lessonNotes: _ignoredLessonNotes } = await getLessonPricingData()
+
+  // ── Row-level i18n helpers (structured → translated display) ──
+  // Names and remarks are translated via their `nameKind` / `remarkKind`
+  // fields (set in data/pricing.ts). Keeps the lesson page decoupled from the
+  // exact English text.
+  const translateName = (row: LessonPackage): string => {
+    switch (row.nameKind) {
+      case 'hour':         return t('hourPackage', { n: row.nameHours ?? 0 })
+      case 'starter':      return t('starterPackageName')
+      case 'simToFairway': return t('simToFairwayName')
+      default:             return row.name
+    }
+  }
+  const translateRemark = (row: LessonPackage): string => {
+    switch (row.remarkKind) {
+      case 'dash':         return t('remarkDash')
+      case 'validity':     return t('validForMonths', { n: row.remarkMonths ?? 0 })
+      case 'starter':      return t('starterPackageRemark')
+      case 'simToFairway': return t('simToFairwayRemark')
+      default:             return row.remark
+    }
+  }
+  const translatedLessonPricing = lessonPricing.map((p) => ({
+    ...p,
+    name: translateName(p),
+    remark: translateRemark(p),
+  }))
+  const lessonNotes = [t('lessonNote1'), t('lessonNote2'), t('lessonNote3')]
+
+  const lessonBadge = (row: LessonPackage) =>
+    row.featured === 'bestValue' ? { label: tCommon('badgeBestValue'), tone: 'gold' as const } : null
 
   const pricingJsonLd = getLessonsPricingJsonLd(lessonPricing)
   const serviceJsonLd = getLessonsServiceJsonLd(lessonPricing[0]?.oneGolfer)
@@ -178,7 +211,11 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
             <span className="text-foreground">{t('ourCoachTitleSuffix')}</span>
           </h2>
           <div className="space-y-20">
-            {coaches.map((coach, i) => (
+            {coaches.map((coach, i) => {
+              const expertise = t.raw(`coaches.${coach.i18nKey}.expertise`) as string[]
+              const achievements = t.raw(`coaches.${coach.i18nKey}.achievements`) as string[]
+              const education = t.raw(`coaches.${coach.i18nKey}.education`) as string[]
+              return (
               <div key={coach.nickname} className={`flex flex-col items-start gap-8 lg:flex-row ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                 <div className="w-full lg:w-1/3">
                   <Image
@@ -203,7 +240,7 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
                     <div>
                       <h4 className="mb-2 font-semibold" style={{ color: '#007429' }}>{t('coachingExpertise')}</h4>
                       <ul className="space-y-1 text-sm text-muted-foreground">
-                        {coach.expertise.map((item) => (
+                        {expertise.map((item) => (
                           <li key={item}>• {item}</li>
                         ))}
                       </ul>
@@ -211,7 +248,7 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
                     <div>
                       <h4 className="mb-2 font-semibold" style={{ color: '#007429' }}>{t('careerAchievements')}</h4>
                       <ul className="space-y-1 text-sm text-muted-foreground">
-                        {coach.achievements.map((item) => (
+                        {achievements.map((item) => (
                           <li key={item}>• {item}</li>
                         ))}
                       </ul>
@@ -219,7 +256,7 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
                     <div>
                       <h4 className="mb-2 font-semibold" style={{ color: '#007429' }}>{t('education')}</h4>
                       <ul className="space-y-1 text-sm text-muted-foreground">
-                        {coach.education.map((item) => (
+                        {education.map((item) => (
                           <li key={item}>• {item}</li>
                         ))}
                       </ul>
@@ -241,7 +278,8 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
                   </div>
                 </div>
               </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
@@ -266,46 +304,21 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
             <span style={{ color: '#007429' }}>{t('lessonPricingTitle')}</span>{' '}
             <span className="text-foreground">{t('lessonPricingTitleSuffix')}</span>
           </h2>
-          <div className="mx-auto max-w-lg">
-            <ClickableImage
-              src={storageUrl('lessons/lesson-packages.jpg')}
-              alt="LENGOLF lesson packages: 1 hour from 1,800 THB, 5–50 hour packages available, Starter Package 11,000 THB, Sim to Fairway 13,499 THB"
-              width={512}
-              height={512}
-              className="w-full rounded-lg shadow-sm"
-              sizes="(max-width: 512px) 100vw, 512px"
+          <div className="mx-auto max-w-4xl">
+            <PricingTable<LessonPackage>
+              caption={t('pkgCaption')}
+              rowKey={(row) => row.name}
+              columns={[
+                { key: 'name', label: t('pkgCourse'), primary: true },
+                { key: 'oneGolfer', label: t('pkg1Golfer'), align: 'right', emphasis: true },
+                { key: 'twoGolfers', label: t('pkg2Golfers'), align: 'right' },
+                { key: 'threeToFiveGolfers', label: t('pkg3To5Golfers'), align: 'right' },
+                { key: 'remark', label: t('pkgRemark') },
+              ]}
+              rows={translatedLessonPricing}
+              notes={lessonNotes}
+              badgeFor={lessonBadge}
             />
-          </div>
-          {/* Screen-reader / crawler-visible pricing table */}
-          <div className="sr-only">
-            <table>
-              <caption>LENGOLF Lesson Packages (golf simulator usage included)</caption>
-              <thead>
-                <tr>
-                  <th>Course Package</th>
-                  <th>1 Golfer</th>
-                  <th>2 Golfers</th>
-                  <th>3-5 Golfers</th>
-                  <th>Remark</th>
-                </tr>
-              </thead>
-              <tbody>
-                {lessonPricing.map((row) => (
-                  <tr key={row.name}>
-                    <td>{row.name}</td>
-                    <td>{row.oneGolfer}</td>
-                    <td>{row.twoGolfers}</td>
-                    <td>{row.threeToFiveGolfers}</td>
-                    <td>{row.remark}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <ul>
-              {lessonNotes.map((note) => (
-                <li key={note}>{note}</li>
-              ))}
-            </ul>
           </div>
         </div>
       </section>

@@ -6,6 +6,7 @@ import ContactInfo from '@/components/shared/ContactInfo'
 import ContactForm from '@/components/about/ContactForm'
 import BookingCTA from '@/components/shared/BookingCTA'
 import { storageUrl, SITE_URL, BUSINESS_INFO, SOCIAL_LINKS } from '@/lib/constants'
+import { getAlternates, getCanonical } from '@/lib/translated-routes'
 import { getFaqPageJsonLd, getAggregateRatingJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { getGoogleReviews, type GoogleReview } from '@/lib/google-reviews'
 import FaqSection from '@/components/shared/FaqSection'
@@ -18,8 +19,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t('metaTitle'),
     description: t('metaDescription'),
     alternates: {
-      canonical: `${SITE_URL}${locale === 'th' ? '/th' : ''}/about-us/`,
-      languages: { en: `${SITE_URL}/about-us/`, th: `${SITE_URL}/th/about-us/` },
+      canonical: getCanonical(locale, '/about-us/'),
+      languages: getAlternates('/about-us/'),
     },
     openGraph: { images: [{ url: storageUrl('venue/venue-interior-01.jpg'), alt: 'LENGOLF interior' }] },
   }

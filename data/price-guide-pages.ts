@@ -362,8 +362,8 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
       price_breakdown: [
         { item: 'Bay rental — Weekday before 14:00', price: '550 THB/hr', notes: 'Mon–Thu. Per bay, up to 5 players.' },
         { item: 'Bay rental — Weekday 14:00–23:00', price: '750 THB/hr', notes: 'Mon–Thu. Per bay, up to 5 players.' },
-        { item: 'Bay rental — Weekend before 14:00', price: '750 THB/hr', notes: 'Fri–Sun & public holidays. Per bay, up to 5 players.' },
-        { item: 'Bay rental — Weekend 14:00–23:00', price: '950 THB/hr', notes: 'Fri–Sun & public holidays. Per bay, up to 5 players.' },
+        { item: 'Bay rental — Weekend before 14:00', price: '750 THB/hr', notes: 'Fri–Sun. Per bay, up to 5 players.' },
+        { item: 'Bay rental — Weekend 14:00–23:00', price: '950 THB/hr', notes: 'Fri–Sun. Per bay, up to 5 players.' },
         { item: 'Bronze Package (5 hrs / 1 month)', price: '3,000 THB', notes: '600 THB/hr effective rate. Good for occasional visitors.' },
         { item: 'Silver Package (15 hrs / 3 months)', price: '8,000 THB', notes: '533 THB/hr effective rate. 5% off food & drinks.' },
         { item: 'Gold Package (30 hrs / 6 months)', price: '14,000 THB', notes: '467 THB/hr effective rate. 10% off food & drinks.' },
