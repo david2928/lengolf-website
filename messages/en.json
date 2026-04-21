@@ -38,7 +38,15 @@
     "skipToContent": "Skip to main content",
     "goHome": "Go Home",
     "pageNotFound": "Page Not Found",
-    "pageNotFoundDescription": "The page you're looking for doesn't exist or has been moved."
+    "pageNotFoundDescription": "The page you're looking for doesn't exist or has been moved.",
+    "badgeBestValue": "Best Value",
+    "badgeTrending": "Trending",
+    "badgePromo": "Promo",
+    "perHour": "≈ {rate} THB/hr",
+    "unlimited": "Unlimited",
+    "months": "{n} months",
+    "month": "1 month",
+    "perksFbDiscount": "{pct}% Off F&D"
   },
   "LanguageSwitcher": {
     "en": "EN",
@@ -200,14 +208,20 @@
     "nearYouSubtitle": "Conveniently located at BTS Chidlom, serving golfers across Bangkok",
     "srBayRatesCaption": "LENGOLF Simulator Bay Rates (per hour, per bay)",
     "srTimeSlot": "Time Slot",
-    "srWeekday": "Weekday (Mon–Thu)",
-    "srWeekend": "Weekend (Fri–Sun & Public Holidays)",
+    "srWeekday": "Weekday",
+    "srWeekend": "Weekend",
     "srPackagesCaption": "LENGOLF Monthly Simulator Packages",
     "srPackage": "Package",
     "srHours": "Hours",
     "srValidity": "Validity",
     "srPerks": "Perks",
-    "srPrice": "Price"
+    "srPrice": "Price",
+    "timeSlotBefore": "Before {time}",
+    "bayRateNote1": "Price per hour, per bay (up to 5 players)",
+    "bayRateNote2": "Weekday = Mon–Thu, Weekend = Fri–Sun",
+    "bayRateNote3": "Open daily 9:00 – 23:00",
+    "bayRateNote4": "Free golf club rental included",
+    "earlyBirdNote": "*Early Bird packages can only be used before 14:00"
   },
   "Aqi": {
     "header": "Air Quality Near LENGOLF",
@@ -231,7 +245,7 @@
   },
   "GolfFaq": {
     "q1": "How much does it cost to play at LENGOLF?",
-    "a1": "Our simulator bays start at 550 THB per hour on weekdays (Mon–Thu) before 14:00, and go up to 950 THB per hour on weekends (Fri–Sun & public holidays) after 14:00. Each bay holds up to 5 players, and standard golf club rental is included at no extra charge.",
+    "a1": "Our simulator bays start at 550 THB per hour on weekdays (Mon–Thu) before 14:00, and go up to 950 THB per hour on weekends (Fri–Sun) after 14:00. Each bay holds up to 5 players, and standard golf club rental is included at no extra charge.",
     "q2": "Do I need to bring my own golf clubs?",
     "a2": "No, standard club sets are provided free with every bay rental, including ladies' sets. We also offer premium club rentals — Callaway Warbird (men's) and Majesty Shuttle (women's) — starting at 150 THB per hour. Premium clubs can be used in-house or taken to any golf course in Bangkok. See our club rental page for full details and pricing. You're always welcome to bring your own clubs too.",
     "q3": "How many people can play per bay?",
@@ -245,7 +259,7 @@
     "q7": "Where is LENGOLF located?",
     "a7": "We're located on the 4th floor of The Mercury Ville at BTS Chidlom, 540 Ploenchit Road, Lumpini, Pathumwan, Bangkok 10330. We're directly accessible from the BTS Chidlom Skytrain station. See us on Google Maps.",
     "q8": "What monthly packages do you offer?",
-    "a8": "We offer 7 monthly packages ranging from 3,000 THB (Bronze, 5 hours) to 18,000 THB (Diamond+, unlimited hours for 3 months). Packages include perks like food & drink discounts. We also have Early Bird packages starting at 4,800 THB for use before 14:00.",
+    "a8": "We offer 8 monthly packages ranging from 3,000 THB (Bronze, 5 hours) to 18,000 THB (Diamond+, unlimited hours for 3 months). Packages include perks like food & drink discounts. We also have Early Bird packages starting at 4,800 THB for use before 14:00.",
     "q9": "Do you offer golf lessons?",
     "a9": "Yes, we have three Thailand PGA-certified professional coaches on staff — PRO Boss, PRO Ratchavin, and PRO Min. They offer personalized instruction for all skill levels, from beginners to advanced players, including junior golf development. Lessons use our simulators for swing analysis and data-driven improvement. Visit our lessons page for details.",
     "q10": "How much do golf lessons cost?",
@@ -386,7 +400,79 @@
     "exploreBestWayToLearn": "Best Way to Learn Golf in Bangkok",
     "exploreLessonPrices": "Bangkok Golf Lesson Prices",
     "exploreBeginnersFaq": "Can Beginners Play Golf Simulators?",
-    "explorePlanTrip": "Plan Your Golf Trip to Thailand"
+    "explorePlanTrip": "Plan Your Golf Trip to Thailand",
+    "pkgCaption": "LENGOLF Lesson Packages (golf simulator usage included)",
+    "pkgCourse": "Course Package",
+    "pkg1Golfer": "1 Golfer",
+    "pkg2Golfers": "2 Golfers",
+    "pkg3To5Golfers": "3–5 Golfers",
+    "pkgRemark": "Remark",
+    "remarkDash": "—",
+    "validForMonths": "Valid for {n} months",
+    "starterPackageRemark": "Valid for 6 months & free 1 golf glove per golfer",
+    "simToFairwayRemark": "On-course fee for both student and coach must be covered by the customer",
+    "lessonNote1": "*Starter Package: 5 Hrs Coaching + 5 Hrs Practice",
+    "lessonNote2": "*Sim to Fairway: 5 Hrs Coaching + 1 On-course Lesson",
+    "lessonNote3": "*Golf simulator usage included in all lesson packages",
+    "hourPackage": "{n} Hour",
+    "starterPackageName": "Starter Package*",
+    "simToFairwayName": "Sim to Fairway*",
+    "coaches": {
+      "boss": {
+        "expertise": [
+          "Drive Training",
+          "Course Management",
+          "Advanced shot shaping",
+          "Junior Golf Development"
+        ],
+        "achievements": [
+          "Lone Star Men's Championship 2022, USA: Finished T44",
+          "DBU Men's Classic 2022, USA: Finished T22",
+          "Singha-SAT TDT Nakhon Nayok 2022: Finished T59"
+        ],
+        "education": [
+          "New Mexico Military Institute, Roswell, NW",
+          "Texas A&M International University, Laredo, TX",
+          "Became a Golf Instructor licensed by Thailand PGA in Sep 2022 / GI 1416"
+        ]
+      },
+      "ratchavin": {
+        "expertise": [
+          "Beginner Golf Programs",
+          "Short Game",
+          "Junior Golf Development"
+        ],
+        "achievements": [
+          "Turn pro as Thailand PGA Tournament player, 2020",
+          "All Thailand Golf Tour Thailand PGA, 2021",
+          "Golf Instructor - 9Vision Golf Performance, 2022"
+        ],
+        "education": [
+          "TrackMan Certified Professional Level 2",
+          "Scott Cowx Certified 8.0 Level 2",
+          "Smart2Move BioSwing Dynamics Level 1",
+          "Swing Catalyst Certified Instructor",
+          "U.S. Kids Golf Certified Coach 1"
+        ]
+      },
+      "min": {
+        "expertise": [
+          "Beginner Golf Programs",
+          "Course Management",
+          "Advanced shot shaping",
+          "Putting Program"
+        ],
+        "achievements": [
+          "Champion of VPG Vietnam Heron Lake Match Play 2019 (T-1)",
+          "VPG Tour Trang An Championship 2019 (T-2)",
+          "VGA Tour Nam A Bank Vietnam Masters 2023 (T-6)"
+        ],
+        "education": [
+          "Bachelor of Sport Science",
+          "Became Professional Golfer Licensed by PGA Thailand since 2019 (TP0944)"
+        ]
+      }
+    }
   },
   "LessonsFaq": {
     "q1": "Do you offer a free trial golf lesson?",

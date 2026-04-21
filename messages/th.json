@@ -38,7 +38,15 @@
     "skipToContent": "ข้ามไปยังเนื้อหาหลัก",
     "goHome": "กลับหน้าแรก",
     "pageNotFound": "ไม่พบหน้าที่ค้นหา",
-    "pageNotFoundDescription": "หน้าเว็บที่คุณกำลังค้นหาไม่มีอยู่หรือถูกย้ายแล้ว"
+    "pageNotFoundDescription": "หน้าเว็บที่คุณกำลังค้นหาไม่มีอยู่หรือถูกย้ายแล้ว",
+    "badgeBestValue": "คุ้มที่สุด",
+    "badgeTrending": "มาแรง",
+    "badgePromo": "โปรโมชั่น",
+    "perHour": "~{rate} บาท/ชม.",
+    "unlimited": "ไม่จำกัด",
+    "months": "{n} เดือน",
+    "month": "1 เดือน",
+    "perksFbDiscount": "ลดค่าอาหาร&เครื่องดื่ม {pct}%"
   },
   "LanguageSwitcher": {
     "en": "EN",
@@ -200,14 +208,20 @@
     "nearYouSubtitle": "ตั้งอยู่ BTS ชิดลม ให้บริการนักกอล์ฟทั่วกรุงเทพฯ",
     "srBayRatesCaption": "ราคาห้องซิมกอล์ฟ LENGOLF (ต่อชั่วโมง ต่อห้อง)",
     "srTimeSlot": "ช่วงเวลา",
-    "srWeekday": "วันธรรมดา (จ.–พฤ.)",
-    "srWeekend": "วันหยุด (ศ.–อา. & วันหยุดนักขัตฤกษ์)",
+    "srWeekday": "วันธรรมดา",
+    "srWeekend": "วันหยุด",
     "srPackagesCaption": "แพ็กเกจรายเดือน LENGOLF",
     "srPackage": "แพ็กเกจ",
     "srHours": "ชั่วโมง",
     "srValidity": "ระยะเวลา",
     "srPerks": "สิทธิพิเศษ",
-    "srPrice": "ราคา"
+    "srPrice": "ราคา",
+    "timeSlotBefore": "ก่อน {time}",
+    "bayRateNote1": "ราคาต่อชั่วโมง ต่อห้อง (สูงสุด 5 ผู้เล่น)",
+    "bayRateNote2": "วันธรรมดา = จ.–พฤ., วันหยุด = ศ.–อา.",
+    "bayRateNote3": "เปิดทุกวัน 9:00 – 23:00",
+    "bayRateNote4": "รวมค่าเช่าไม้กอล์ฟฟรี",
+    "earlyBirdNote": "*แพ็กเกจ Early Bird ใช้ได้ก่อน 14:00 น. เท่านั้น"
   },
   "Aqi": {
     "header": "คุณภาพอากาศใกล้ LENGOLF",
@@ -231,7 +245,7 @@
   },
   "GolfFaq": {
     "q1": "เล่นกอล์ฟที่ LENGOLF ราคาเท่าไหร่?",
-    "a1": "ราคาห้องซิมมูเลเตอร์เริ่มต้นที่ 550 บาทต่อชั่วโมงในวันธรรมดา (จ.–พฤ.) ก่อน 14.00 น. สูงสุด 950 บาทต่อชั่วโมงในวันหยุด (ศ.–อา. & วันหยุดนักขัตฤกษ์) หลัง 14.00 น. แต่ละห้องรองรับได้สูงสุด 5 คน พร้อมไม้กอล์ฟมาตรฐานฟรี",
+    "a1": "ราคาห้องซิมมูเลเตอร์เริ่มต้นที่ 550 บาทต่อชั่วโมงในวันธรรมดา (จ.–พฤ.) ก่อน 14.00 น. สูงสุด 950 บาทต่อชั่วโมงในวันหยุด (ศ.–อา.) หลัง 14.00 น. แต่ละห้องรองรับได้สูงสุด 5 คน พร้อมไม้กอล์ฟมาตรฐานฟรี",
     "q2": "ต้องนำไม้กอล์ฟมาเองไหม?",
     "a2": "ไม่ต้อง ไม้กอล์ฟมาตรฐานให้ยืมฟรีทุกการจอง รวมถึงชุดสำหรับผู้หญิง เรายังมีไม้กอล์ฟพรีเมียม — Callaway Warbird (ผู้ชาย) และ Majesty Shuttle (ผู้หญิง) — เริ่มต้น 150 บาทต่อชั่วโมง ใช้ได้ทั้งที่ร้านและสนามกอล์ฟใดก็ได้ในกรุงเทพฯ ดูรายละเอียดที่หน้า club rental page คุณสามารถนำไม้กอล์ฟส่วนตัวมาได้เช่นกัน",
     "q3": "เล่นได้กี่คนต่อห้อง?",
@@ -386,7 +400,79 @@
     "exploreBestWayToLearn": "วิธีที่ดีที่สุดในการเรียนกอล์ฟในกรุงเทพฯ",
     "exploreLessonPrices": "ราคาเรียนกอล์ฟในกรุงเทพฯ",
     "exploreBeginnersFaq": "มือใหม่เล่นกอล์ฟซิมมูเลเตอร์ได้ไหม?",
-    "explorePlanTrip": "วางแผนทริปกอล์ฟในไทย"
+    "explorePlanTrip": "วางแผนทริปกอล์ฟในไทย",
+    "pkgCaption": "แพ็กเกจเรียนกอล์ฟ LENGOLF (รวมค่าใช้ห้องซิมกอล์ฟ)",
+    "pkgCourse": "แพ็กเกจ",
+    "pkg1Golfer": "1 คน",
+    "pkg2Golfers": "2 คน",
+    "pkg3To5Golfers": "3–5 คน",
+    "pkgRemark": "หมายเหตุ",
+    "remarkDash": "—",
+    "validForMonths": "ใช้ได้ {n} เดือน",
+    "starterPackageRemark": "ใช้ได้ 6 เดือน & ฟรีถุงมือกอล์ฟ 1 คู่/ผู้เรียน",
+    "simToFairwayRemark": "ค่ากรีนฟีของผู้เรียนและโปรลูกค้าเป็นผู้รับผิดชอบ",
+    "lessonNote1": "*Starter Package: สอน 5 ชม. + ซ้อม 5 ชม.",
+    "lessonNote2": "*Sim to Fairway: สอน 5 ชม. + ออกรอบสนามจริง 1 ครั้ง",
+    "lessonNote3": "*ทุกแพ็กเกจเรียนรวมค่าใช้ห้องซิมกอล์ฟ",
+    "hourPackage": "{n} ชั่วโมง",
+    "starterPackageName": "Starter Package*",
+    "simToFairwayName": "Sim to Fairway*",
+    "coaches": {
+      "boss": {
+        "expertise": [
+          "การฝึกตีไดรเวอร์",
+          "การวางแผนการเล่นในสนาม",
+          "เทคนิคการตีขั้นสูง",
+          "พัฒนาจูเนียร์กอล์ฟ"
+        ],
+        "achievements": [
+          "Lone Star Men's Championship 2022, USA: จบอันดับ T44",
+          "DBU Men's Classic 2022, USA: จบอันดับ T22",
+          "Singha-SAT TDT Nakhon Nayok 2022: จบอันดับ T59"
+        ],
+        "education": [
+          "New Mexico Military Institute, Roswell, NW",
+          "Texas A&M International University, Laredo, TX",
+          "ได้รับใบอนุญาตโปรกอล์ฟจาก Thailand PGA ก.ย. 2022 / GI 1416"
+        ]
+      },
+      "ratchavin": {
+        "expertise": [
+          "โปรแกรมสำหรับผู้เริ่มต้น",
+          "ลูกสั้น (Short Game)",
+          "พัฒนาจูเนียร์กอล์ฟ"
+        ],
+        "achievements": [
+          "เทิร์นโปรเป็นนักกอล์ฟ Thailand PGA Tournament ปี 2020",
+          "All Thailand Golf Tour Thailand PGA, 2021",
+          "โปรสอนกอล์ฟ - 9Vision Golf Performance, 2022"
+        ],
+        "education": [
+          "TrackMan Certified Professional Level 2",
+          "Scott Cowx Certified 8.0 Level 2",
+          "Smart2Move BioSwing Dynamics Level 1",
+          "Swing Catalyst Certified Instructor",
+          "U.S. Kids Golf Certified Coach 1"
+        ]
+      },
+      "min": {
+        "expertise": [
+          "โปรแกรมสำหรับผู้เริ่มต้น",
+          "การวางแผนการเล่นในสนาม",
+          "เทคนิคการตีขั้นสูง",
+          "โปรแกรมการพัตต์"
+        ],
+        "achievements": [
+          "แชมป์ VPG Vietnam Heron Lake Match Play 2019 (T-1)",
+          "VPG Tour Trang An Championship 2019 (T-2)",
+          "VGA Tour Nam A Bank Vietnam Masters 2023 (T-6)"
+        ],
+        "education": [
+          "ปริญญาตรีวิทยาศาสตร์การกีฬา",
+          "นักกอล์ฟอาชีพใบอนุญาต PGA Thailand ตั้งแต่ปี 2019 (TP0944)"
+        ]
+      }
+    }
   },
   "LessonsFaq": {
     "q1": "มีเรียนทดลองฟรีไหม?",
