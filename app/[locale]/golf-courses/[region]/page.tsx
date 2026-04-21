@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { Link } from '@/i18n/navigation'
 import { getCoursesByRegion, REGION_META } from '@/lib/golf-courses'
+import type { Region } from '@/lib/golf-courses'
 import { SITE_URL } from '@/lib/constants'
 import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { ArrowRight } from 'lucide-react'
@@ -18,7 +19,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { region } = await params
-  const meta = REGION_META[region]
+  const meta = REGION_META[region as Region]
   if (!meta) return { title: 'Region Not Found' }
 
   const canonicalUrl = `${SITE_URL}/golf-courses/${region}/`
@@ -37,11 +38,13 @@ export default async function RegionIndexPage({ params }: Props) {
   const { locale, region } = await params
   setRequestLocale(locale)
 
-  const meta = REGION_META[region]
+  const meta = REGION_META[region as Region]
   if (!meta) notFound()
 
   const courses = await getCoursesByRegion(region)
   if (courses.length === 0) notFound()
+
+  const center = meta.center
 
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
@@ -119,7 +122,7 @@ export default async function RegionIndexPage({ params }: Props) {
         {/* Map card overlaps hero — negative margin pulls it up into the dark section */}
         <div className="mx-auto -mt-12 max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-black/5">
-            <CourseMapExplorer courses={courses} region={region} />
+            <CourseMapExplorer courses={courses} region={region} center={center} />
           </div>
         </div>
 

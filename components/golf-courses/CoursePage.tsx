@@ -1,23 +1,11 @@
 import { MapPin, Clock, Phone, Globe, Check, X, ArrowRight } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
 import type { GolfCourse } from '@/types/golf-courses'
+import { driveTimeLabel } from '@/lib/format'
 
 interface Props {
   course: GolfCourse
   regionLabel: string
-}
-
-function thb(n: number | null): string | null {
-  if (n === null) return null
-  return n.toLocaleString('en-US') + ' THB'
-}
-
-/** Show drive time in hours for distant courses (>=120 min) to avoid "~660 min from Bangkok". */
-function driveTimeLabel(min: number | null): string | null {
-  if (!min) return null
-  return min >= 120
-    ? `~${Math.round(min / 60)}h from Bangkok`
-    : `~${min} min from Bangkok`
 }
 
 export default function CoursePage({ course, regionLabel }: Props) {
@@ -40,7 +28,7 @@ export default function CoursePage({ course, regionLabel }: Props) {
       {/* ── Hero ── */}
       <section className="relative overflow-hidden bg-[#003d22]">
         {/* decorative blobs */}
-        <div className="pointer-events-none absolute inset-0">
+        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
           <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-[#005a32]/50" />
           <div className="absolute -left-16 bottom-0 h-72 w-72 rounded-full bg-[#007a45]/25" />
           <div className="absolute right-1/3 top-1/2 h-48 w-48 -translate-y-1/2 rounded-full bg-accent/10" />
@@ -99,8 +87,8 @@ export default function CoursePage({ course, regionLabel }: Props) {
           </div>
         </div>
 
-        {/* Bottom wave */}
-        <div className="absolute -bottom-px left-0 right-0">
+        {/* Bottom wave — decorative */}
+        <div className="absolute -bottom-px left-0 right-0" aria-hidden="true">
           <svg viewBox="0 0 1440 40" fill="none" className="w-full" preserveAspectRatio="none">
             <path d="M0 40V0c240 26.7 480 40 720 40S1200 26.7 1440 0v40H0z" fill="white" />
           </svg>
@@ -132,9 +120,7 @@ export default function CoursePage({ course, regionLabel }: Props) {
                 },
                 {
                   label: 'Drive time',
-                  value: course.drive_time_from_bangkok_min
-                    ? `~${course.drive_time_from_bangkok_min} min`
-                    : null,
+                  value: driveTimeLabel(course.drive_time_from_bangkok_min, false),
                 },
               ]
                 .filter((s) => s.value)
@@ -361,7 +347,7 @@ export default function CoursePage({ course, regionLabel }: Props) {
               </p>
               <p className="mb-3 text-sm leading-relaxed text-foreground">
                 {course.club_rental_available === false
-                  ? "This course doesn't offer club rental — but LENGOLF does. Premium Callaway Paradym, Warbird & Majesty sets from our Bangkok simulator from "
+                  ? "This course doesn't offer club rental — but LENGOLF does. Premium Callaway Paradym, Warbird & Majesty sets from our Bangkok simulator — "
                   : 'Premium clubs from our Bangkok simulator — Callaway Paradym, Warbird, Majesty. From '}
                 <strong>1,200 THB/day</strong>.
               </p>

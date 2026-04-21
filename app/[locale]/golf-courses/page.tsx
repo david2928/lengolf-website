@@ -13,7 +13,7 @@ interface Props {
 
 const TITLE = 'Golf Courses in Thailand — Green Fees, Course Guides & Club Rental'
 const DESCRIPTION =
-  'Browse golf courses across Thailand by region. Compare green fees, read course guides, and arrange premium club rental delivered to your Bangkok hotel.'
+  'Browse golf courses across Thailand by region. Compare green fees, read course guides, and arrange premium club rental for your round.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -27,60 +27,20 @@ export const metadata: Metadata = {
   },
 }
 
-/** Regions shown on the hub — extend as batches are published. */
-const PUBLISHED_REGIONS = [
-  { slug: 'bangkok' },
-  { slug: 'pattaya' },
-  { slug: 'hua-hin' },
-  { slug: 'phuket' },
-  { slug: 'khao-yai' },
-  { slug: 'kanchanaburi' },
-  { slug: 'chiang-mai' },
-  { slug: 'isan' },
-  { slug: 'southern-thailand' },
-  { slug: 'koh-samui' },
-  { slug: 'chiang-rai' },
-  { slug: 'north-misc' },
-  { slug: 'khao-lak' },
-  { slug: 'krabi' },
-] as const
-
 export default async function GolfCoursesHubPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
 
-  const [bangkokCourses, pattayaCourses, huaHinCourses, phuketCourses, khaoYaiCourses, kanchanaburiCourses, chiangMaiCourses, isanCourses, southernThailandCourses, kohSamuiCourses, chiangRaiCourses, northMiscCourses, khaoLakCourses, krabiCourses] = await Promise.all([
-    getCoursesByRegion('bangkok'),
-    getCoursesByRegion('pattaya'),
-    getCoursesByRegion('hua-hin'),
-    getCoursesByRegion('phuket'),
-    getCoursesByRegion('khao-yai'),
-    getCoursesByRegion('kanchanaburi'),
-    getCoursesByRegion('chiang-mai'),
-    getCoursesByRegion('isan'),
-    getCoursesByRegion('southern-thailand'),
-    getCoursesByRegion('koh-samui'),
-    getCoursesByRegion('chiang-rai'),
-    getCoursesByRegion('north-misc'),
-    getCoursesByRegion('khao-lak'),
-    getCoursesByRegion('krabi'),
-  ])
-  const hubRegions = [
-    { region: 'bangkok', label: REGION_META.bangkok.label, courses: bangkokCourses },
-    { region: 'pattaya', label: REGION_META.pattaya.label, courses: pattayaCourses },
-    { region: 'hua-hin', label: REGION_META['hua-hin'].label, courses: huaHinCourses },
-    { region: 'phuket', label: REGION_META.phuket.label, courses: phuketCourses },
-    { region: 'khao-yai', label: REGION_META['khao-yai'].label, courses: khaoYaiCourses },
-    { region: 'kanchanaburi', label: REGION_META.kanchanaburi.label, courses: kanchanaburiCourses },
-    { region: 'chiang-mai', label: REGION_META['chiang-mai'].label, courses: chiangMaiCourses },
-    { region: 'isan', label: REGION_META.isan.label, courses: isanCourses },
-    { region: 'southern-thailand', label: REGION_META['southern-thailand'].label, courses: southernThailandCourses },
-    { region: 'koh-samui', label: REGION_META['koh-samui'].label, courses: kohSamuiCourses },
-    { region: 'chiang-rai', label: REGION_META['chiang-rai'].label, courses: chiangRaiCourses },
-    { region: 'north-misc', label: REGION_META['north-misc'].label, courses: northMiscCourses },
-    { region: 'khao-lak', label: REGION_META['khao-lak'].label, courses: khaoLakCourses },
-    { region: 'krabi', label: REGION_META.krabi.label, courses: krabiCourses },
-  ]
+  // Load all regions dynamically from REGION_META — no manual list to maintain.
+  const regionSlugs = Object.keys(REGION_META) as Array<keyof typeof REGION_META>
+  const courseArrays = await Promise.all(regionSlugs.map((slug) => getCoursesByRegion(slug)))
+
+  const hubRegions = regionSlugs.map((slug, i) => ({
+    region: slug,
+    label:    REGION_META[slug].label,
+    courses:  courseArrays[i],
+    pinColor: REGION_META[slug].pinColor,
+  }))
 
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
@@ -98,7 +58,7 @@ export default async function GolfCoursesHubPage({ params }: Props) {
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden bg-[#003d22]">
-        <div className="pointer-events-none absolute inset-0">
+        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
           <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-[#005a32]/50" />
           <div className="absolute -left-16 bottom-0 h-72 w-72 rounded-full bg-[#007a45]/25" />
           <div className="absolute right-1/3 top-1/2 h-48 w-48 -translate-y-1/2 rounded-full bg-accent/10" />
@@ -107,20 +67,20 @@ export default async function GolfCoursesHubPage({ params }: Props) {
         <div className="relative mx-auto max-w-5xl px-4 pb-16 pt-12 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <div className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white/80 backdrop-blur-sm">
-              <Flag className="h-3 w-3" />
+              <Flag className="h-3 w-3" aria-hidden="true" />
               Thailand Golf Guide
             </div>
             <h1 className="mb-4 text-3xl font-black leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
               Golf Courses in Thailand
             </h1>
             <p className="mb-6 text-base leading-relaxed text-white/75">
-              Comprehensive guides for every tourist-facing golf course in Thailand — green fees, course layouts, tips, and how to get there. Currently covering {totalCourses} courses across {Object.keys(REGION_META).length} region{Object.keys(REGION_META).length !== 1 ? 's' : ''}.
+              Comprehensive guides for every tourist-facing golf course in Thailand — green fees, course layouts, tips, and how to get there. Currently covering {totalCourses} courses across {regionSlugs.length} region{regionSlugs.length !== 1 ? 's' : ''}.
             </p>
           </div>
         </div>
 
-        {/* Bottom wave */}
-        <div className="absolute -bottom-px left-0 right-0">
+        {/* Bottom wave — decorative */}
+        <div className="absolute -bottom-px left-0 right-0" aria-hidden="true">
           <svg viewBox="0 0 1440 40" fill="none" className="w-full" preserveAspectRatio="none">
             <path d="M0 40V0c240 26.7 480 40 720 40S1200 26.7 1440 0v40H0z" fill="white" />
           </svg>
@@ -130,11 +90,10 @@ export default async function GolfCoursesHubPage({ params }: Props) {
       {/* ── Body ── */}
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
 
-        {/* Published regions */}
+        {/* Region cards */}
         <div className="mb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {PUBLISHED_REGIONS.map(({ slug }) => {
+          {regionSlugs.map((slug) => {
             const meta = REGION_META[slug]
-            if (!meta) return null
             return (
               <Link
                 key={slug}
@@ -144,7 +103,7 @@ export default async function GolfCoursesHubPage({ params }: Props) {
                 <div className="flex items-start justify-between gap-3 p-5">
                   <div className="min-w-0">
                     <div className="mb-1 inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-0.5 text-[11px] font-semibold text-primary">
-                      <MapPin className="h-2.5 w-2.5" />
+                      <MapPin className="h-2.5 w-2.5" aria-hidden="true" />
                       {meta.province}
                     </div>
                     <h3 className="mt-1 text-base font-black leading-snug text-foreground group-hover:text-primary">
@@ -160,7 +119,7 @@ export default async function GolfCoursesHubPage({ params }: Props) {
                     {meta.courseCount} <span className="font-medium text-muted-foreground">courses</span>
                   </p>
                   <span className="inline-flex items-center gap-1 text-xs font-semibold text-primary transition-transform group-hover:translate-x-0.5">
-                    View all <ArrowRight className="h-3.5 w-3.5" />
+                    View all <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                   </span>
                 </div>
               </Link>
@@ -173,18 +132,17 @@ export default async function GolfCoursesHubPage({ params }: Props) {
           <HubMapExplorer regions={hubRegions} locale={locale} />
         </div>
 
-
         {/* LENGOLF rental CTA */}
         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#003d22] to-[#005a32] p-6 sm:p-8">
-          <div className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full bg-white/5" />
-          <div className="pointer-events-none absolute -bottom-6 left-1/3 h-28 w-28 rounded-full bg-accent/10" />
+          <div className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full bg-white/5" aria-hidden="true" />
+          <div className="pointer-events-none absolute -bottom-6 left-1/3 h-28 w-28 rounded-full bg-accent/10" aria-hidden="true" />
           <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-accent">
                 No clubs? No problem.
               </p>
               <p className="text-base font-medium text-white sm:text-lg">
-                Rent premium clubs delivered to your Bangkok hotel — Callaway Paradym, Warbird, Majesty. From <strong className="text-white">1,200 THB/day</strong>.
+                Rent premium clubs from our Bangkok simulator — Callaway Paradym, Warbird, Majesty. From <strong className="text-white">1,200 THB/day</strong>.
               </p>
             </div>
             <div className="flex shrink-0 flex-wrap gap-3">
@@ -200,7 +158,7 @@ export default async function GolfCoursesHubPage({ params }: Props) {
                 href="/golf-course-club-rental"
                 className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
               >
-                Learn more <ArrowRight className="h-3.5 w-3.5" />
+                Learn more <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
               </Link>
             </div>
           </div>

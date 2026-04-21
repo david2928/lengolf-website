@@ -267,6 +267,7 @@ interface ThaiRedirectTest {
 const thaiRedirectTests: ThaiRedirectTest[] = [
   { path: '/th/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated privacy policy' },
   { path: '/th/terms-of-service/', expectedLocation: '/terms-of-service/', label: 'Untranslated terms of service' },
+  { path: '/th/golf-courses/', expectedLocation: '/golf-courses/', label: 'Golf courses hub (untranslated Thai → EN)' },
 ]
 
 // F) Thai cookie tests — English pages must work even with NEXT_LOCALE=th cookie
@@ -295,6 +296,9 @@ const notFoundTests: NotFoundTest[] = [
   { path: '/wp-json/', label: 'WordPress JSON API root' },
   { path: '/wp-json/wp/v2/posts', label: 'WordPress REST API endpoint' },
   { path: '/wp-includes/js/jquery/jquery.js', label: 'WordPress includes' },
+  // Golf course routes — unknown slugs must 404, not 500
+  { path: '/golf-courses/bangkok/not-a-real-course/', label: 'Golf course unknown slug → 404' },
+  { path: '/golf-courses/not-a-real-region/', label: 'Golf region unknown slug → 404' },
 ]
 
 // ── Runner ──────────────────────────────────────────────────────────

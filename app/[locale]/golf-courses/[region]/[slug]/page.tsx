@@ -2,6 +2,7 @@ import { setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getCourseBySlug, getAllCourseParams, REGION_META } from '@/lib/golf-courses'
+import type { Region } from '@/lib/golf-courses'
 import { SITE_URL } from '@/lib/constants'
 import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 import CoursePage from '@/components/golf-courses/CoursePage'
@@ -45,7 +46,7 @@ export default async function CoursePageRoute({ params }: Props) {
   const course = await getCourseBySlug(region, slug)
   if (!course) notFound()
 
-  const regionLabel = REGION_META[region]?.label ?? (region.charAt(0).toUpperCase() + region.slice(1))
+  const regionLabel = REGION_META[region as Region]?.label ?? (region.charAt(0).toUpperCase() + region.slice(1))
   const canonicalUrl = `${SITE_URL}/golf-courses/${region}/${slug}/`
 
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
@@ -55,10 +56,18 @@ export default async function CoursePageRoute({ params }: Props) {
     { name: course.name, url: canonicalUrl },
   ])
 
-  const schemaMarkup = JSON.parse(course.schema_markup)
-  // Fill in the description and canonical URL at render time
-  schemaMarkup.description = course.prose.overview
-  schemaMarkup.url = canonicalUrl   // bug_022: use www canonical, not apex domain from static data
+  // Wrap JSON.parse in try/catch: a malformed schema_markup in one data file
+  // must not crash the entire detail page with a 500.
+  let schemaMarkup: Record<string, unknown> | null = null
+  try {
+    schemaMarkup = JSON.parse(course.schema_markup) as Record<string, unknown>
+    // Fill in the description and canonical URL at render time
+    schemaMarkup.description = course.prose.overview
+    schemaMarkup.url = canonicalUrl   // bug_022: use www canonical, not apex domain from static data
+  } catch {
+    // Log server-side so we can detect bad data files without crashing the page
+    console.error(`[CoursePage] Failed to parse schema_markup for ${region}/${slug}`)
+  }
 
   return (
     <>
@@ -66,10 +75,12 @@ export default async function CoursePageRoute({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
+      {schemaMarkup && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        />
+      )}
       <CoursePage course={course} regionLabel={regionLabel} />
     </>
   )

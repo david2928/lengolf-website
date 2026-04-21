@@ -2,37 +2,25 @@
 
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { Link } from '@/i18n/navigation'
-import { ArrowRight, Clock, Flag, X, ExternalLink } from 'lucide-react'
+import { ArrowRight, Clock, Flag, X, ExternalLink, MapPinOff } from 'lucide-react'
 import type { GolfCourse } from '@/types/golf-courses'
+import { formatFee, driveTimeLabel } from '@/lib/format'
+
+interface RegionCenter {
+  lat: number
+  lng: number
+  zoom: number
+}
 
 interface Props {
   courses: GolfCourse[]
   region: string
+  /** Default map centre / zoom, derived from REGION_META on the server side. */
+  center: RegionCenter
 }
 
-function formatFee(n: number | null): string | null {
-  if (n === null) return null
-  return n.toLocaleString('en-US') + ' THB'
-}
-
-const REGION_CENTER: Record<string, { lat: number; lng: number; zoom: number }> = {
-  'bangkok':           { lat: 13.750, lng: 100.52, zoom: 10 },
-  'pattaya':           { lat: 12.985, lng: 100.94, zoom: 11 },
-  'hua-hin':           { lat: 12.570, lng:  99.96, zoom: 11 },
-  'phuket':            { lat:  7.980, lng:  98.33, zoom: 11 },
-  'khao-yai':          { lat: 14.550, lng: 101.55, zoom: 10 },
-  'kanchanaburi':      { lat: 14.100, lng:  99.20, zoom: 10 },
-  'chiang-mai':        { lat: 18.800, lng:  98.97, zoom: 11 },
-  'isan':              { lat: 16.400, lng: 102.80, zoom:  9 },
-  'southern-thailand': { lat:  7.200, lng: 100.50, zoom: 10 },
-  'koh-samui':         { lat:  9.300, lng:  99.50, zoom: 10 },
-  'chiang-rai':        { lat: 19.950, lng:  99.85, zoom: 11 },
-  'north-misc':        { lat: 18.300, lng:  99.50, zoom: 11 },
-  'khao-lak':          { lat:  8.600, lng:  98.25, zoom: 12 },
-  'krabi':             { lat:  8.100, lng:  98.90, zoom: 12 },
-}
-
-// Window-level promise so the script loads exactly once across all components/remounts
+// Window-level promise so the Maps JS script loads exactly once across all
+// components and page navigations (matches HubMapExplorer strategy).
 function loadMapsApi(apiKey: string): Promise<void> {
   if (typeof window === 'undefined') return Promise.resolve()
   const w = window as any
@@ -49,7 +37,7 @@ function loadMapsApi(apiKey: string): Promise<void> {
   return w.__mapsApiPromise
 }
 
-function makePin(index: number, active: boolean): HTMLDivElement {
+function makePin(index: number, active: boolean, courseName: string): HTMLDivElement {
   const el = document.createElement('div')
   el.style.cssText = [
     'width:28px;height:28px;border-radius:50%;',
@@ -64,11 +52,16 @@ function makePin(index: number, active: boolean): HTMLDivElement {
     'transition:transform .15s,background .15s;',
   ].join('')
   el.textContent = String(index + 1)
+  // Accessibility: keyboard-operable marker
+  el.setAttribute('role', 'button')
+  el.setAttribute('aria-label', courseName)
+  el.setAttribute('tabindex', '0')
   return el
 }
 
-export default function CourseMapExplorer({ courses, region }: Props) {
+export default function CourseMapExplorer({ courses, region, center }: Props) {
   const [activeSlug, setActiveSlug] = useState<string | null>(null)
+  const [mapsUnavailable, setMapsUnavailable] = useState(false)
   const activeCourse = courses.find((c) => c.slug === activeSlug) ?? null
 
   const mapDivRef  = useRef<HTMLDivElement>(null)
@@ -82,22 +75,27 @@ export default function CourseMapExplorer({ courses, region }: Props) {
   // ── Load map + place markers ──────────────────────────────────────────────
   useEffect(() => {
     const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_KEY
-    if (!apiKey || !mapDivRef.current) return
+    if (!apiKey) {
+      setMapsUnavailable(true)
+      return
+    }
+    if (!mapDivRef.current) return
     let cancelled = false
 
     loadMapsApi(apiKey).then(() => {
       if (cancelled || !mapDivRef.current) return
-          const gmaps = (window as any).google.maps
-      const center = REGION_CENTER[region] ?? { lat: 13.0, lng: 100.5, zoom: 10 }
+      const gmaps = (window as any).google.maps
 
       const map = new gmaps.Map(mapDivRef.current, {
-        center:              { lat: center.lat, lng: center.lng },
-        zoom:                center.zoom,
-        mapId:               'DEMO_MAP_ID',
-        zoomControl:         true,
-        streetViewControl:   false,
-        mapTypeControl:      false,
-        fullscreenControl:   false,
+        center:            { lat: center.lat, lng: center.lng },
+        zoom:              center.zoom,
+        // 'DEMO_MAP_ID' is Google's placeholder — styled maps require a real
+        // cloud Map ID registered in Google Cloud Console.
+        mapId:             'DEMO_MAP_ID',
+        zoomControl:       true,
+        streetViewControl: false,
+        mapTypeControl:    false,
+        fullscreenControl: false,
       })
       mapRef.current = map
 
@@ -106,39 +104,40 @@ export default function CourseMapExplorer({ courses, region }: Props) {
       markersRef.current = courses
         .map((course, i) => {
           if (!course.latitude || !course.longitude) return null
-          const pin = makePin(i, false)
+          const pin = makePin(i, false, course.name)
           const position = { lat: course.latitude, lng: course.longitude }
           const marker = new gmaps.marker.AdvancedMarkerElement({
             map,
             position,
-            content:  pin,
-            title:    course.name,
+            content: pin,
+            title:   course.name,
           })
-          marker.addListener('gmp-click', () =>
-            setActiveSlug((prev) => (prev === course.slug ? null : course.slug))
-          )
+          const toggle = () => setActiveSlug((prev) => (prev === course.slug ? null : course.slug))
+          marker.addListener('gmp-click', toggle)
+          // Keyboard: fire on Enter/Space so the button role is functional
+          pin.addEventListener('keydown', (e: KeyboardEvent) => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle() }
+          })
           bounds.extend(position)
           return { marker, pin, slug: course.slug }
         })
-        .filter(Boolean) as { marker: unknown; pin: HTMLDivElement; slug: string }[]
+        .filter(Boolean) as { marker: any; pin: HTMLDivElement; slug: string }[]
 
-      // Fit all markers into view (with a small padding)
       if (!bounds.isEmpty()) map.fitBounds(bounds, 48)
-    }).catch(console.error)
+    }).catch(() => setMapsUnavailable(true))
 
     return () => {
       cancelled = true
-      markersRef.current.forEach(({ marker }) => {
-              ;(marker as any).map = null
-      })
+      markersRef.current.forEach(({ marker }) => { marker.map = null })
       markersRef.current = []
     }
+  // courses is stable per page (SSG); only re-init if region or center changes.
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [region]) // re-init only if region changes; courses are stable per page
+  }, [region, center])
 
   // ── Sync marker styles + pan map when active slug changes ─────────────────
   useEffect(() => {
-    markersRef.current.forEach(({ pin, slug }, i) => {
+    markersRef.current.forEach(({ pin, slug }) => {
       const active = slug === activeSlug
       pin.style.background = active ? '#c8a96e' : '#003d22'
       pin.style.color       = active ? '#1a1a1a' : '#fff'
@@ -155,11 +154,11 @@ export default function CourseMapExplorer({ courses, region }: Props) {
         map.setZoom(13)
       }
     } else {
-      const center = REGION_CENTER[region] ?? { lat: 13.0, lng: 100.5, zoom: 10 }
       map.panTo({ lat: center.lat, lng: center.lng })
       map.setZoom(center.zoom)
     }
-  }, [activeSlug, courses, region])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeSlug, center]) // `courses` intentionally excluded: changes are handled by the first effect; including it would cause redundant re-pans on every render
 
   const activeMapsUrl = activeCourse?.google_maps_url
     ?? (activeCourse?.latitude && activeCourse?.longitude
@@ -178,12 +177,25 @@ export default function CourseMapExplorer({ courses, region }: Props) {
       >
         <div className="flex flex-col lg:flex-row">
 
-          {/* Google Maps JS div */}
+          {/* Google Maps JS div — or fallback when API key is missing */}
           <div className="relative flex-1" style={{ minHeight: 420 }}>
-            <div
-              ref={mapDivRef}
-              style={{ width: '100%', height: '100%', minHeight: 420, display: 'block' }}
-            />
+            {mapsUnavailable ? (
+              <div
+                className="flex h-full min-h-[420px] flex-col items-center justify-center gap-3 bg-[#f8faf9] text-muted-foreground"
+                role="region"
+                aria-label="Map unavailable"
+              >
+                <MapPinOff className="h-8 w-8 opacity-40" />
+                <p className="text-sm">Map unavailable</p>
+              </div>
+            ) : (
+              <div
+                ref={mapDivRef}
+                style={{ width: '100%', height: '100%', minHeight: 420, display: 'block' }}
+                role="application"
+                aria-label={`Interactive map of golf courses in ${region}`}
+              />
+            )}
           </div>
 
           {/* Info panel — slides in when a course is selected */}
@@ -224,7 +236,9 @@ export default function CourseMapExplorer({ courses, region }: Props) {
                   )}
                   {activeCourse.drive_time_from_bangkok_min && (
                     <div className="rounded-xl bg-[#f0f7f2] px-3 py-2.5">
-                      <p className="text-xs font-bold text-[#003d22]">~{activeCourse.drive_time_from_bangkok_min} min</p>
+                      <p className="text-xs font-bold text-[#003d22]">
+                        {driveTimeLabel(activeCourse.drive_time_from_bangkok_min, false)}
+                      </p>
                       <p className="text-[10px] text-muted-foreground">from Bangkok</p>
                     </div>
                   )}
@@ -338,7 +352,7 @@ export default function CourseMapExplorer({ courses, region }: Props) {
 
               <div className="flex items-center justify-end gap-1 text-xs text-muted-foreground">
                 {course.drive_time_from_bangkok_min ? (
-                  <><Clock className="h-3 w-3 shrink-0" />~{course.drive_time_from_bangkok_min}m</>
+                  <><Clock className="h-3 w-3 shrink-0" />{driveTimeLabel(course.drive_time_from_bangkok_min, false)}</>
                 ) : (
                   <span className="text-muted-foreground/40">—</span>
                 )}
