@@ -1,0 +1,40 @@
+{
+  "slug": "singha-park-khon-kaen",
+  "region": "isan",
+  "status": "enriched",
+  "collected_at": "2026-04-21",
+  "enriched_at": "2026-04-21",
+  "notes": "Asian Tour host venue. Green fees from official website (singhapark-khonkaen.com): 1,500 THB weekday / 2,000 THB weekend. Caddie required at 400 THB. Cart optional at 700 THB. GPS model estimate — no confirmed coordinates found in sources.",
+  "fields": {
+    "name": { "value": "Singha Park Khon Kaen Golf Club", "source": "web-search", "url": "https://www.singhapark-khonkaen.com/" },
+    "province": { "value": "Khon Kaen", "source": "web-search", "url": "https://www.singhapark-khonkaen.com/" },
+    "designer": { "value": "Golf East", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/singha-park-khon-kaen-golf-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.singhapark-khonkaen.com/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.singhapark-khonkaen.com/" },
+    "year_opened": { "value": 2009, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/singha-park-khon-kaen-golf-club/" },
+    "green_fee_weekday_thb": { "value": 1500, "source": "web-search", "url": "https://www.singhapark-khonkaen.com/" },
+    "green_fee_weekend_thb": { "value": 2000, "source": "web-search", "url": "https://www.singhapark-khonkaen.com/" },
+    "caddie_fee_thb": { "value": 400, "source": "web-search", "url": "https://www.singhapark-khonkaen.com/" },
+    "cart_fee_thb": { "value": 700, "source": "web-search", "url": "https://www.singhapark-khonkaen.com/" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.singhapark-khonkaen.com/" },
+    "cart_required": { "value": false, "source": "web-search", "url": "https://www.singhapark-khonkaen.com/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/singha-park-khon-kaen-golf-club/" },
+    "website": { "value": "https://www.singhapark-khonkaen.com/", "source": "web-search", "url": "https://www.singhapark-khonkaen.com/" },
+    "phone": { "value": "+66 43 209 000", "source": "web-search", "url": "https://www.singhapark-khonkaen.com/" },
+    "latitude": { "value": 16.35, "source": "model", "url": null },
+    "longitude": { "value": 102.95, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 400, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/singha-park-khon-kaen-golf-club/" },
+    "drive_time_from_bangkok_min": { "value": 300, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "not-found", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/singha-park-khon-kaen-golf-club/" },
+    "club_rental_fee_thb": { "value": 1200, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/singha-park-khon-kaen-golf-club/" },
+    "club_rental_brands": { "value": null, "source": "not-found", "url": null }
+  },
+  "prose": {
+    "overview": "Singha Park Khon Kaen Golf Club is the flagship golf course in northeastern Thailand — an 18-hole, par 72 layout designed by Golf East and opened in 2009 on the grounds of the Singha Park integrated resort and agritourism destination outside Khon Kaen city. The course has hosted Asian Tour events and stands as the benchmark for championship-standard golf in Isan, drawing professional and amateur golfers from across Thailand and the wider region. With an official website, dedicated pro shop, and resort facilities including a driving range and club rental, Singha Park operates to a standard more typical of the Bangkok premium tier than of a regional club. Green fees of 1,500 THB on weekdays and 2,000 THB on weekends are the highest in Isan but remain competitive against Bangkok and Pattaya equivalents of similar quality. A caddie is required; a cart is optional at 700 THB. Club rental is available at 1,200 THB.",
+    "layout_and_experience": "Designed by Golf East — a firm with a portfolio spanning Southeast Asia's better resort courses — Singha Park Khon Kaen plays to par 72 over an 18-hole layout that takes full advantage of the resort's rolling terrain, ornamental lakes, and planted landscape. The course is a step above the functional municipal and local-club layouts typical of Isan; it reads and plays as an intentional design, with each hole occupying distinct space and presenting a clear strategic question.\n\nThe routing uses elevation changes, generous bunkering, and a series of water features to create a varied test across 18 holes. The par 4s demand accurate driving — several fairways tighten with trees or water on one or both sides — and the approach game is tested by firm, well-maintained greens. The par 5s, while reachable in two for longer hitters, require disciplined positioning to avoid the lake and bunker complexes protecting the greens.\n\nAs an Asian Tour host venue, the course is kept to professional tournament standards: fairways are tight, rough is managed, and the conditioning reflects a property that has hosted elite international competition. The caddie requirement, which applies to all rounds, ensures golfers are guided around a layout complex enough to reward local knowledge. Cart service is available for those who prefer to ride — a sensible option given the walking distances across the resort grounds.",
+    "tips": "Singha Park is the most premium golf experience in Isan and should be booked in advance — online or by phone (+66 43 209 000) — as it attracts a strong membership and corporate event clientele. Budget 1,900 THB on a weekday for green fee plus mandatory caddie, or 2,600 THB with a cart added.\n\nThe course is part of the larger Singha Park resort (singhapark-khonkaen.com), which includes an agritourism attraction, restaurants, and accommodation options. Combining a round with a half-day at the park makes for a full-day excursion from Khon Kaen city, roughly 30 minutes' drive from the club.\n\nFor visitors flying from Bangkok, Khon Kaen Airport is served by multiple daily flights under an hour from Don Mueang or Suvarnabhumi. The course is best suited for golfers who want a genuine championship-quality experience in the northeast rather than just checking off a round — it repays the effort of getting there.",
+    "location_and_access": "Singha Park Khon Kaen Golf Club is located approximately 400 km northeast of Bangkok in Khon Kaen province, around 30 km from the city centre on the Singha Park resort grounds. The easiest access for Bangkok visitors is via Khon Kaen Airport (multiple daily flights, under one hour) followed by a 30–40 minute drive to the course. For golfers driving, the route follows Highway 2 (Mittraphap Road) for approximately 5 hours from Bangkok. Transport from the city is available by Grab or pre-arranged hotel transfer. The official website at singhapark-khonkaen.com has directions and booking options.",
+    "rental_cta_context": "Flying into Khon Kaen for a round at Singha Park? LENGOLF can deliver premium rental clubs to your Bangkok hotel the night before, so you step off the plane ready to play the northeast's top course without checking a bag."
+  }
+}

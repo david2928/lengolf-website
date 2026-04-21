@@ -1,0 +1,44 @@
+{
+  "slug": "lanna-golf-course",
+  "region": "chiang-mai",
+  "status": "enriched",
+  "collected_at": "2026-04-21",
+  "enriched_at": "2026-04-21",
+  "fields": {
+    "name": { "value": "Lanna Golf Course", "source": "web-search", "url": "https://www.1golf.eu/en/club/lanna-golf-course/" },
+    "province": { "value": "Chiang Mai", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/lanna-golf-club/" },
+    "designer": { "value": "Royal Thai Army", "source": "web-search", "url": "https://www.1golf.eu/en/club/lanna-golf-course/" },
+    "holes": { "value": 27, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/lanna-golf-club/", "note": "Three 9-hole loops. In-city course at Lanna Sports Center (Thai Army complex)." },
+    "par": { "value": 108, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/lanna-golf-club/", "note": "Total par for all 27 holes. Each 9-hole loop is par 36." },
+    "year_opened": { "value": 1974, "source": "web-search", "url": "https://www.1golf.eu/en/club/lanna-golf-course/" },
+    "green_fee_weekday_thb": { "value": 1350, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/lanna-golf-club/", "note": "Approximate rate with cart (2022 source). Walking rate ~1,000 THB. Budget course — no weekday/weekend distinction. Rates may have changed." },
+    "green_fee_weekend_thb": { "value": 1350, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/lanna-golf-club/", "note": "Same as weekday." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Caddie available but not always required. Budget course — caddie policy less formal than resort courses." },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null, "note": "Cart available; flat course so walking is common." },
+    "caddie_required": { "value": false, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/lanna-golf-club/", "note": "Walking permitted on this flat in-city course." },
+    "cart_required": { "value": false, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/lanna-golf-club/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/lanna-golf-club/" },
+    "website": { "value": "https://www.golflannachiangmai.com/", "source": "web-search", "url": null },
+    "phone": { "value": "+66 53 221 911", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/lanna-golf-club/" },
+    "address": { "value": "33 Chotana Road, Mueang Chiang Mai District, Chiang Mai 50300, Thailand", "source": "web-search", "url": "https://www.1golf.eu/en/club/lanna-golf-course/" },
+    "latitude": { "value": 18.7961, "source": "model", "url": null, "note": "Approximate — Chotana Rd, central-north Chiang Mai. Needs map verification." },
+    "longitude": { "value": 98.9747, "source": "model", "url": null, "note": "Approximate — needs map verification." },
+    "distance_from_bangkok_km": { "value": 700, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null, "note": "Chiang Mai is ~700km from Bangkok — visitors fly (1h10m BKK→CNX), drive not practical" },
+    "google_maps_url": { "value": null, "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/lanna-golf-club/" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Lanna Golf Course is a 27-hole, in-city course operated by the Royal Thai Army within the Lanna Sports Center complex, located on Chotana Road in Mueang Chiang Mai district — approximately 10 minutes from the city centre. Opened in 1974, it is the oldest and most centrally located golf facility in Chiang Mai and primarily serves local residents, Thai military personnel, and visiting golfers seeking an affordable, convenient round without the resort premium. The 27 holes are divided into three nine-hole loops: two tree-lined, longer sections that play through the main fairway corridors, and a third nine-hole loop that runs partly through the Chiang Mai racing track area, resulting in shorter, more compressed holes. The course is flat, making it one of the few Chiang Mai courses where walking is both practical and comfortable. Green fees are among the most affordable in Northern Thailand, making it a good choice for high-frequency golfers and those looking to practice without significant cost.",
+
+    "layout_and_experience": "The two primary nine-hole loops — typically referred to as Course A and Course B — share a tree-lined parkland character, with mature trees framing most fairways. The tree corridors are tighter than those at the newer resort courses, giving the layout an old-fashioned, enclosed feel that long-time visitors associate with traditional Thai municipal courses. The routing is flat, with minimal elevation change across the entire 27-hole complex — a notable contrast to the mountain and valley courses in the Mae Rim and Lamphun areas.\n\nThe third nine (Course C) — the section that incorporates the racing circuit area — is the most unconventional: shorter holes, more compressed spacing, and a different strategic rhythm. This loop is popular for practice rounds or as an add-on nine when completing a full 27 holes with friends.\n\nBecause caddie and cart use is optional (and walking is permitted), Lanna attracts golfers who prefer a more informal round. The pace of play is generally good outside of peak weekend periods. The course is not designed to the same standards as the championship resort courses and should be approached as a quality local facility rather than a destination course.",
+
+    "tips": "Confirm current green fees directly with the club at +66 53 221 911 or via their website — the 1,350 THB rate with cart is from a 2022 source and may have changed. Walking is permitted and recommended on this flat course — it is one of the few Chiang Mai courses where carrying or pulling your bag is comfortable. Weekdays are quieter than weekends and offer the best pace of play. The course is 10 minutes from the Chiang Mai Night Bazaar and Nimman areas, making it a practical early-morning round before city sightseeing. Club rental is available at the pro shop.",
+
+    "location_and_access": "Lanna Golf Course is located on Chotana Road (Route 107) in Mueang Chiang Mai district, approximately 10 minutes from Chiang Mai city centre and 15–20 minutes from Chiang Mai International Airport (CNX). Visitors from Bangkok fly to CNX (approximately 1 hour 10 minutes from Suvarnabhumi or Don Mueang) — driving the 700 kilometres from Bangkok is not practical. The course is easily reached by Grab taxi from anywhere in Chiang Mai city; its in-city location makes it one of the most convenient courses in the region.",
+
+    "rental_cta_context": "Fitting in a round at Lanna Golf Course during your Chiang Mai visit? Rent premium clubs in Bangkok — delivered to your hotel before you fly — so you can enjoy this classic in-city layout without the cost of airline baggage fees."
+  }
+}

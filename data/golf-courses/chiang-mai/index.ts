@@ -4,6 +4,16 @@ const index = {
   slugs: [
     'alpine-golf-resort-chiang-mai',
     'chiangmai-highlands-golf',
+    'chiangmai-inthanon-golf',
+    'gassan-khuntan-golf-resort',
+    'gassan-lake-city-golf-club',
+    'gassan-panorama-golf-club',
+    'hang-dong-golf-club',
+    'lanna-golf-course',
+    'mae-jo-golf-club',
+    'north-hill-chiang-mai',
+    'royal-chiang-mai-golf-club',
+    'summit-green-valley-chiangmai',
   ],
 }
 

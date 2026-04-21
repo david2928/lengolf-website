@@ -1,0 +1,32 @@
+{
+  "slug": "hang-dong-golf-club",
+  "region": "chiang-mai",
+  "status": "raw",
+  "collected_at": "2026-04-21",
+  "fields": {
+    "name": { "value": "Hang Dong Golf Club Chiangmai", "source": "web-search", "url": "https://www.1golf.eu/en/club/hang-dong-golf-club-chiangmai/" },
+    "province": { "value": "Chiang Mai", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37903-hang-dong-golf-club" },
+    "designer": { "value": null, "source": "model", "url": null },
+    "holes": { "value": 9, "source": "web-search", "url": "https://www.1golf.eu/en/club/hang-dong-golf-club-chiangmai/", "note": "9 holes only. Par 36. 2,751 yards. Not a full 18-hole course — note prominently as this affects publishability." },
+    "par": { "value": 36, "source": "web-search", "url": "https://www.1golf.eu/en/club/hang-dong-golf-club-chiangmai/" },
+    "year_opened": { "value": null, "source": "model", "url": null },
+    "green_fee_weekday_thb": { "value": 250, "source": "web-search", "url": "https://www.1golf.eu/en/club/hang-dong-golf-club-chiangmai/", "note": "9-hole rate with caddie, walking only. Cart adds ~300 THB. No weekday/weekend distinction." },
+    "green_fee_weekend_thb": { "value": 250, "source": "web-search", "url": "https://www.1golf.eu/en/club/hang-dong-golf-club-chiangmai/", "note": "Same as weekday." },
+    "caddie_fee_thb": { "value": 200, "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37903-hang-dong-golf-club", "note": "Caddie tip/fee included in the 250 THB rate or expected separately." },
+    "cart_fee_thb": { "value": 300, "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37903-hang-dong-golf-club", "note": "Approximate cart fee." },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37903-hang-dong-golf-club" },
+    "cart_required": { "value": false, "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37903-hang-dong-golf-club", "note": "Walking permitted." },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": null, "source": "model", "url": null, "note": "No official website found." },
+    "phone": { "value": null, "source": "model", "url": null },
+    "address": { "value": "95 Moo 9, Tambon Namprae, Hang Dong District, Chiang Mai 50230, Thailand", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37903-hang-dong-golf-club" },
+    "latitude": { "value": 18.6700, "source": "model", "url": null, "note": "Approximate — Hang Dong district, south of Chiang Mai city. Needs map verification." },
+    "longitude": { "value": 98.9100, "source": "model", "url": null, "note": "Approximate — needs map verification." },
+    "distance_from_bangkok_km": { "value": 700, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null, "note": "Chiang Mai is ~700km from Bangkok — visitors fly (1h10m BKK→CNX), drive not practical" },
+    "google_maps_url": { "value": null, "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.leadingcourses.com/clubs/asia+thailand/hang-dong-golf-club-chiangmai", "note": "Club rental mentioned at approximately 350-450 THB all-in." },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  }
+}

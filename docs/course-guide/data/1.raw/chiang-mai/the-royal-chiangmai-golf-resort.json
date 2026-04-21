@@ -1,0 +1,32 @@
+{
+  "slug": "the-royal-chiangmai-golf-resort",
+  "region": "chiang-mai",
+  "status": "raw",
+  "collected_at": "2026-04-21",
+  "fields": {
+    "name": { "value": "The Royal Chiangmai Golf Resort", "source": "official-website", "url": "https://www.royalchiangmai.com/", "note": "IMPORTANT: Research strongly suggests this is the same course as row 4 (Royal Chiang Mai Golf Club & Resort). Both share the same website (royalchiangmai.com), designer (Peter Thomson), year (1996), address (Mae Faek, San Sai), and phone number. The pipeline author should verify whether these are genuinely two different courses or a naming duplicate. Filed as separate entry per task instructions." },
+    "province": { "value": "Chiang Mai", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/royal-chiang-mai-golf-club-resort/" },
+    "designer": { "value": "Peter Thomson", "source": "web-search", "url": "https://www.royalchiangmai.com/golf.php" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.royalchiangmai.com/golf.php" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.royalchiangmai.com/golf.php" },
+    "year_opened": { "value": 1996, "source": "web-search", "url": "https://www.1golf.eu/en/club/the-royal-chiangmai-golf-resort/" },
+    "green_fee_weekday_thb": { "value": 4800, "source": "web-search", "url": "https://www.royalchiangmai.com/golf_rate.php", "note": "High season all-in rate. No weekday/weekend distinction." },
+    "green_fee_weekend_thb": { "value": 4800, "source": "web-search", "url": "https://www.royalchiangmai.com/golf_rate.php", "note": "Same as weekday." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Included in all-in rate. Separate fee TBC." },
+    "cart_fee_thb": { "value": 700, "source": "web-search", "url": "https://www.golfchiangmai.com/royal-chiang-mai-golf-resort/" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/royal-chiang-mai-golf-club-resort/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/royal-chiang-mai-golf-club-resort/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.royalchiangmai.com/" },
+    "website": { "value": "https://www.royalchiangmai.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 52 081 995", "source": "web-search", "url": "https://www.royalchiangmai.com/" },
+    "address": { "value": "169 Moo 5, Mae Faek, San Sai District, Chiang Mai 50290, Thailand", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37997-royal-chiangmai-golf-resort" },
+    "latitude": { "value": 18.8417, "source": "model", "url": null, "note": "Approximate — same as row 4 data. Needs map verification." },
+    "longitude": { "value": 99.0000, "source": "model", "url": null, "note": "Approximate — needs map verification." },
+    "distance_from_bangkok_km": { "value": 700, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null, "note": "Chiang Mai is ~700km from Bangkok — visitors fly (1h10m BKK→CNX), drive not practical" },
+    "google_maps_url": { "value": null, "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.royalchiangmai.com/golf.php" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  }
+}

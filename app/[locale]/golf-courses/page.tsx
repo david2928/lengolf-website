@@ -29,29 +29,42 @@ export const metadata: Metadata = {
 
 /** Regions shown on the hub — extend as batches are published. */
 const PUBLISHED_REGIONS = [
-  { slug: 'bangkok', comingSoon: false },
-  { slug: 'pattaya', comingSoon: false },
-] as const
-
-/** Regions coming soon — display as greyed-out teasers. */
-const COMING_SOON_REGIONS = [
-  { slug: 'hua-hin', label: 'Hua Hin & Pranburi', courses: 5 },
-  { slug: 'phuket', label: 'Phuket', courses: 5 },
-  { slug: 'khao-yai', label: 'Khao Yai & Central Highlands', courses: 4 },
-  { slug: 'chiang-mai', label: 'Chiang Mai & North', courses: 12 },
+  { slug: 'bangkok' },
+  { slug: 'pattaya' },
+  { slug: 'hua-hin' },
+  { slug: 'phuket' },
+  { slug: 'khao-yai' },
+  { slug: 'kanchanaburi' },
+  { slug: 'chiang-mai' },
+  { slug: 'isan' },
+  { slug: 'southern-thailand' },
 ] as const
 
 export default async function GolfCoursesHubPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
 
-  const [bangkokCourses, pattayaCourses] = await Promise.all([
+  const [bangkokCourses, pattayaCourses, huaHinCourses, phuketCourses, khaoYaiCourses, kanchanaburiCourses, chiangMaiCourses, isanCourses, southernThailandCourses] = await Promise.all([
     getCoursesByRegion('bangkok'),
     getCoursesByRegion('pattaya'),
+    getCoursesByRegion('hua-hin'),
+    getCoursesByRegion('phuket'),
+    getCoursesByRegion('khao-yai'),
+    getCoursesByRegion('kanchanaburi'),
+    getCoursesByRegion('chiang-mai'),
+    getCoursesByRegion('isan'),
+    getCoursesByRegion('southern-thailand'),
   ])
   const hubRegions = [
     { region: 'bangkok', label: REGION_META.bangkok.label, courses: bangkokCourses },
     { region: 'pattaya', label: REGION_META.pattaya.label, courses: pattayaCourses },
+    { region: 'hua-hin', label: REGION_META['hua-hin'].label, courses: huaHinCourses },
+    { region: 'phuket', label: REGION_META.phuket.label, courses: phuketCourses },
+    { region: 'khao-yai', label: REGION_META['khao-yai'].label, courses: khaoYaiCourses },
+    { region: 'kanchanaburi', label: REGION_META.kanchanaburi.label, courses: kanchanaburiCourses },
+    { region: 'chiang-mai', label: REGION_META['chiang-mai'].label, courses: chiangMaiCourses },
+    { region: 'isan', label: REGION_META.isan.label, courses: isanCourses },
+    { region: 'southern-thailand', label: REGION_META['southern-thailand'].label, courses: southernThailandCourses },
   ]
 
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
@@ -103,9 +116,6 @@ export default async function GolfCoursesHubPage({ params }: Props) {
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
 
         {/* Published regions */}
-        <h2 className="mb-5 text-xs font-bold uppercase tracking-widest text-primary">
-          Available now
-        </h2>
         <div className="mb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {PUBLISHED_REGIONS.map(({ slug }) => {
             const meta = REGION_META[slug]
@@ -148,26 +158,6 @@ export default async function GolfCoursesHubPage({ params }: Props) {
           <HubMapExplorer regions={hubRegions} />
         </div>
 
-        {/* Coming soon regions */}
-        <h2 className="mb-5 text-xs font-bold uppercase tracking-widest text-muted-foreground">
-          Coming soon
-        </h2>
-        <div className="mb-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {COMING_SOON_REGIONS.map(({ slug, label, courses }) => (
-            <div
-              key={slug}
-              className="flex items-center justify-between rounded-2xl border border-dashed border-border bg-muted/30 px-5 py-4"
-            >
-              <div>
-                <p className="text-sm font-semibold text-muted-foreground/80">{label}</p>
-                <p className="mt-0.5 text-[11px] text-muted-foreground/60">{courses} courses planned</p>
-              </div>
-              <span className="rounded-full bg-muted px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-                Soon
-              </span>
-            </div>
-          ))}
-        </div>
 
         {/* LENGOLF rental CTA */}
         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#003d22] to-[#005a32] p-6 sm:p-8">

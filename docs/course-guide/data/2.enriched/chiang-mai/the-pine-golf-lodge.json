@@ -1,0 +1,44 @@
+{
+  "slug": "the-pine-golf-lodge",
+  "region": "chiang-mai",
+  "status": "enriched",
+  "collected_at": "2026-04-21",
+  "enriched_at": "2026-04-21",
+  "fields": {
+    "name": { "value": "The Pine Golf & Lodge", "source": "model", "url": null, "note": "PIPELINE BLOCKER: All web research places The Pine Golf & Lodge in Bangkok (Krathum Ra, northern suburbs, ~1 hour from central Bangkok), NOT in Chiang Mai. The pipeline task notes 'Mae Rim / Mae Sa valley area' but no Pine Golf course was found in that location. This entry cannot be completed without clarification from the pipeline owner. All fields remain null." },
+    "province": { "value": null, "source": "model", "url": null },
+    "designer": { "value": null, "source": "model", "url": null },
+    "holes": { "value": null, "source": "model", "url": null },
+    "par": { "value": null, "source": "model", "url": null },
+    "year_opened": { "value": null, "source": "model", "url": null },
+    "green_fee_weekday_thb": { "value": null, "source": "model", "url": null },
+    "green_fee_weekend_thb": { "value": null, "source": "model", "url": null },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null },
+    "caddie_required": { "value": null, "source": "model", "url": null },
+    "cart_required": { "value": null, "source": "model", "url": null },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": null, "source": "model", "url": null },
+    "phone": { "value": null, "source": "model", "url": null },
+    "address": { "value": null, "source": "model", "url": null },
+    "latitude": { "value": null, "source": "model", "url": null },
+    "longitude": { "value": null, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": null, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null },
+    "club_rental_available": { "value": null, "source": "model", "url": null },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "PIPELINE BLOCKER — NOT COMPLETABLE WITHOUT CLARIFICATION. This entry was submitted to the pipeline as 'The Pine Golf & Lodge, Mae Rim / Mae Sa valley area, Chiang Mai'. However, all web research conducted across multiple search passes consistently places 'The Pine Golf & Lodge' (website: thepinegolf.com) in the northern suburbs of Bangkok (Krathum Ra district, approximately 1 hour north of central Bangkok). No Pine Golf course, lodge, or resort was found in the Mae Rim, Mae Sa, or wider Chiang Mai area. The pipeline owner should verify: (1) whether this is a data entry error, (2) whether a different Chiang Mai course was intended, or (3) whether a Pine Golf property genuinely exists in Chiang Mai under a variant name not captured in search results. Until this is clarified, this entry carries a full blocker and no prose can be written.",
+
+    "layout_and_experience": "Not completable — see overview note.",
+
+    "tips": "Not completable — see overview note.",
+
+    "location_and_access": "Not completable — see overview note.",
+
+    "rental_cta_context": "Not completable — course location cannot be confirmed in Chiang Mai."
+  }
+}

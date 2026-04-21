@@ -3,11 +3,58 @@
 Fields that could not be confirmed via web search. Have someone call the course to confirm.
 Once confirmed, update `knowledge/course-overrides.md` with the correct value and re-run Stage 3 for that course.
 
-Last updated: 2026-04-20 (Phuket Phase 2 + Khao Yai Phase 2 added)
+Last updated: 2026-04-21 (Phase 3 Batch 3 Southern Thailand added — 3 courses)
 
 ---
 
 ## Priority: Green fee conflicts (verify first — these affect page content)
+
+### Phase 3 Batch 3 — Southern Thailand green fees
+
+| # | Course | Published | Source / Issue | How to confirm |
+|---|---|---|---|---|
+| 1 | Southern Hills Golf & Country Club | 950 / 1,400 THB | Two sources consistent (1golf.eu + where2golf). Caddie/cart fees unknown. | Call +66 74 553 682 |
+| 2 | Hat Yai Resort & Golf Club | 600 / 900 THB | 1golf.eu only — single source. Older source cites 950 THB but may confuse with Southern Hills. | Call +66 74 434 7703 |
+| 3 | Sri Trang Golf Club | 300 / 400 THB | 1golf.eu only — single source. No corroborating source found. | Call +66 75 218 966 |
+
+### Phase 3 Batch 3 — Southern Thailand caddie/cart/facilities
+
+| # | Course | Field | Current value | Issue | How to confirm |
+|---|---|---|---|---|---|
+| 4 | Southern Hills Golf & Country Club | `caddie_fee_thb` | null | Not found — strongly inferred mandatory at this standard of course | Call +66 74 553 682 |
+| 5 | Southern Hills Golf & Country Club | `cart_fee_thb` | null | Not found | Call +66 74 553 682 |
+| 6 | Southern Hills Golf & Country Club | `caddie_required` | null | Strong inference: yes (Perry Dye resort course) — not confirmed | Call +66 74 553 682 |
+| 7 | Hat Yai Resort & Golf Club | `caddie_fee_thb` | 300 THB | PROVISIONAL — older source (~2011) may confuse with Southern Hills | Call +66 74 434 7703 |
+| 8 | Hat Yai Resort & Golf Club | `cart_fee_thb` | null | Conflicting: golfshake says no carts; 1golf.eu says available | Call +66 74 434 7703 |
+| 9 | Hat Yai Resort & Golf Club | `driving_range` | null | Conflicting: golfshake says no; 1golf.eu says yes | Call +66 74 434 7703 |
+| 10 | Hat Yai Resort & Golf Club | `year_opened` | 1993 | Disputed: golfshake says 1993; 1golf.eu says 1995 | Call +66 74 434 7703 |
+| 11 | Sri Trang Golf Club | `caddie_required` | null | Unknown — military-associated; may be mandatory | Call +66 75 218 966 |
+| 12 | Sri Trang Golf Club | `caddie_fee_thb` | null | Unknown | Call +66 75 218 966 |
+| 13 | Sri Trang Golf Club | `cart_fee_thb` | null | Unknown — cart availability unconfirmed | Call +66 75 218 966 |
+| 14 | Sri Trang Golf Club | `club_rental_available` | null | Unknown — military-associated course; club rental uncertain | Call +66 75 218 966 |
+
+### Phase 3 Batch 3 — Southern Thailand GPS
+
+| # | Course | Coords | Status |
+|---|---|---|---|
+| 15 | Sri Trang Golf Club | 7.79, 99.62 | **Model estimate** — no confirmed GPS from any source. Manual Maps lookup required. |
+
+### Phase 3 Batch 2 — Isan green fees
+
+| # | Course | Published | Source / Issue | How to confirm |
+|---|---|---|---|---|
+| 1 | Dancoon Golf Club | 680 / 980 THB | 3-source conflict: 1golf.eu 680/980; older sources 500–550 THB | Call +66 43 255 107 |
+| 2 | Victory Park G&CC | 1,000 / 1,800 THB | Provisional — 1golf.eu; no official website | Call +66 42 412 999 |
+| 3 | Royal Creek GC Udon Thani | 1,600 / **null** THB | Weekday single source (golfdd.com); weekend not found | Call +66 81 873 6199 |
+| 4 | Ubolratana Dam GC | 560 / 760 THB | golfdd.com 2023 (includes caddie). Older sources show 300 THB (2014 — likely stale) | Call +66 43 372 228 |
+
+### Phase 3 Batch 1 — Rancho Charnvee green fees
+
+Three sources give conflicting figures. Published as 1,050/1,850 THB (GolfSavers). A 2025 web snippet suggests fees may have risen to 2,000/3,000 THB.
+
+| # | Course | Published | Source dispute | How to confirm |
+|---|---|---|---|---|
+| 1 | Rancho Charnvee Resort & CC | 1,050 / 1,850 THB | 1golf.eu: 1,000/2,000 · 2025 snippet: 2,000/3,000 | Call +66 44 756 210 or golf line +66 88 375 4466 |
 
 ### Chiang Mai batch — Alpine high-season rate
 
@@ -100,6 +147,17 @@ Phuket courses use seasonal pricing (high season Nov–Mar / low season Apr–Oc
 | 5 | Pattaya Country Club | Pattaya | `green_fee_weekday_thb` | 2,000 THB | Weekday/weekend split flagged for verification | Is there a separate weekend rate? |
 | 6 | Mountain Shadow Golf Club | Pattaya | `green_fee_weekday_thb` | 1,400 THB | Weekday/weekend split flagged for verification | Is there a separate weekend rate? |
 | 7 | Pleasant Valley Golf & Country Club | Pattaya | `green_fee_weekend_thb` | 1,600 THB | Assumed same as weekday — confirm weekend | Is the weekend rate the same as weekday (1,600 THB)? |
+
+### Kanchanaburi batch
+
+| # | Course | Region | Field | Current value | Conflict / Issue | Call to confirm |
+|---|---|---|---|---|---|---|
+| 1 | River Kwai Golf & Country Club | Kanchanaburi | `green_fee_weekday_thb` | null | Fees not published online; older review cited 600 THB standalone GF but predates current cart-free policy | Call +66 34 919714: what is the current green fee for 18 holes? |
+| 2 | Royal Ratchaburi Golf Club | Kanchanaburi | `green_fee_weekday_thb` | 750 THB | Sources vary 550–800 THB weekday; 1,000–1,050 THB weekend — midpoint 750/1,050 used | Call +66 32 227031: what is the current walk-in weekday and weekend green fee? |
+| 3 | Dragon Hills Golf & Country Club | Kanchanaburi | `caddie_required` | false | Listed as à la carte on official fee page, but one source states "buggy compulsory" | Call +66 32 917698: is caddie and/or cart mandatory? |
+| 4 | Blue Sapphire Golf & Resort | Kanchanaburi | `caddie_fee_thb` | null | Caddie compulsory but fee not clearly separated from green fee in some packages | Call +66 34 581227: is the caddie fee included in the 1,000/1,500 THB green fee, or charged separately? |
+| 5 | Woo Sung Castle Hill / Rachaburi CC | Kanchanaburi | `caddie_fee_thb` | null | Caddie/cart fees not found on any source | Call +66 32 228505: what are the caddie and cart fees? Is caddie mandatory? |
+| 6 | Grand Prix Golf Club | Kanchanaburi | `latitude` | null | GPS coordinates not found online; course is in Tambon Chong Dan, Bo Phloi | Confirm GPS or use Google Maps to pin exact location |
 | 8 | Rayong Green Valley CC | Pattaya | `phone` | +66 38 030 660 | Web search returned same phone for both Rayong Green Valley and St Andrews 2000 — two courses in same Samnakthon/Ban Chang area | Confirm this is Rayong Green Valley's direct line (not St Andrews 2000) |
 
 ### Bangkok Phase 2 Batch 4
@@ -252,6 +310,16 @@ Club rental availability, fee, and brands must be confirmed for every course. Kn
 
 ---
 
+### Isan
+
+| # | Course | Approximate coords | Google Maps URL needed |
+|---|---|---|---|
+| 1 | Dancoon Golf Club | 16.54, 102.86 | Yes — model estimate |
+| 2 | Singha Park Khon Kaen | 16.35, 102.95 | Yes — model estimate (Singha Park resort ~30 km from city) |
+| 3 | Victory Park G&CC | 17.777, 102.825 | Yes — confirmed via golfshake.com |
+| 4 | Royal Creek GC Udon Thani | 17.4646, 102.9641 | Yes — confirmed via allsquaregolf.com |
+| 5 | Ubolratana Dam GC | 16.7547, 102.668 | Yes — confirmed via golfshake.com |
+
 ## Missing: GPS coordinates and Google Maps URLs
 
 All coordinates are currently approximate (sourced from model knowledge). These must be verified before schema markup goes live — the `sameAs` field in JSON-LD requires an accurate Google Maps URL.
@@ -312,6 +380,7 @@ All coordinates are currently approximate (sourced from model knowledge). These 
 |---|---|---|---|
 | 1 | Bangpra International Golf Club | 13.227293, 100.962296 | Confirmed via golfpattaya.com |
 | 2 | Wangjuntr Golf Park | 13.023781, 101.424955 | Confirmed via golfdd.com |
+| 3 | Kabinburi Sport Club | 14.03076, 101.66471 | Yes — cross-ref travelmyth + golfbangkok, consistent |
 | 3 | Siam CC Old Course | 12.836, 101.067 | Yes |
 | 2 | Siam CC Plantation | 12.836, 101.067 | Yes (same complex as Old Course) |
 | 3 | Burapha Golf & Resort | 13.155, 101.010 | Yes |
@@ -329,6 +398,7 @@ All coordinates are currently approximate (sourced from model knowledge). These 
 | 4 | Bonanza Golf & Country Club | 14.727, 101.398 | Yes — model estimate (Pak Chong / Thanarat Rd) |
 | 5 | Seoul Siam Resort & CC | 14.712, 101.363 | Yes — model estimate (Pak Chong highland) |
 | 6 | Rooks Korat Country Club | 14.749, 102.006 | Yes — model estimate (Pak Thong Chai) |
+| 7 | Rancho Charnvee Resort & CC | 14.6395, 101.4591 | Yes — avg of Deemples + baigolf, consistent |
 
 ### Phuket
 

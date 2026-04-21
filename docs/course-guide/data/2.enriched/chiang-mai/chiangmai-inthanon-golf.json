@@ -1,0 +1,44 @@
+{
+  "slug": "chiangmai-inthanon-golf",
+  "region": "chiang-mai",
+  "status": "enriched",
+  "collected_at": "2026-04-21",
+  "enriched_at": "2026-04-21",
+  "fields": {
+    "name": { "value": "Chiangmai Inthanon Golf & Natural Resort", "source": "web-search", "url": "https://www.chiangmaigolfclub.com/chiangmai-inthanon-golf-resort.htm" },
+    "province": { "value": "Chiang Mai", "source": "web-search", "url": "https://www.golfchiangmai.com/chiangmai-inthanon-golf-resort" },
+    "designer": { "value": "Supachai Silamom", "source": "web-search", "url": "https://www.chiangmaigolfclub.com/chiangmai-inthanon-golf-resort.htm" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/chiangmai-inthanon-golf-resort.htm" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/chiangmai-inthanon-golf-resort.htm" },
+    "year_opened": { "value": 2009, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/chiangmai-inthanon-golf-resort.htm" },
+    "green_fee_weekday_thb": { "value": 900, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/chiangmai-inthanon-golf-resort.htm", "note": "Green fee only. No weekday/weekend distinction. Cart 700 THB, caddie 300 THB extra." },
+    "green_fee_weekend_thb": { "value": 900, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/chiangmai-inthanon-golf-resort.htm", "note": "Same as weekday." },
+    "caddie_fee_thb": { "value": 300, "source": "web-search", "url": "https://www.golfchiangmai.com/chiangmai-inthanon-golf-resort" },
+    "cart_fee_thb": { "value": 700, "source": "web-search", "url": "https://www.golfchiangmai.com/chiangmai-inthanon-golf-resort" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfchiangmai.com/chiangmai-inthanon-golf-resort" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfchiangmai.com/chiangmai-inthanon-golf-resort" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfchiangmai.com/chiangmai-inthanon-golf-resort" },
+    "website": { "value": null, "source": "model", "url": null, "note": "No standalone official website found. Bookable via aggregators." },
+    "phone": { "value": "+66 52 001 645", "source": "web-search", "url": "https://www.chiangmaigolfclub.com/chiangmai-inthanon-golf-resort.htm" },
+    "address": { "value": "99 Moo 13, Tambon Khuangpao, Chom Thong, Chiang Mai, Thailand", "source": "web-search", "url": "https://www.chiangmaigolfclub.com/chiangmai-inthanon-golf-resort.htm", "note": "On Hod Road (Highway 108) at 49km mark, Ta-Li intersection, ~40 min drive from central Chiang Mai." },
+    "latitude": { "value": 18.4200, "source": "model", "url": null, "note": "Approximate — Chom Thong area. Needs map verification." },
+    "longitude": { "value": 98.6700, "source": "model", "url": null, "note": "Approximate — needs map verification." },
+    "distance_from_bangkok_km": { "value": 700, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null, "note": "Chiang Mai is ~700km from Bangkok — visitors fly (1h10m BKK→CNX), drive not practical" },
+    "google_maps_url": { "value": null, "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfchiangmai.com/chiangmai-inthanon-golf-resort" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Chiangmai Inthanon Golf & Natural Resort is an 18-hole, par-72 course opened in 2009 in the Chom Thong area, approximately 40 kilometres south of Chiang Mai city on the road toward Doi Inthanon — Thailand's highest mountain. Designed by Thai architect Supachai Silamom, the course stretches to 7,268 yards, making it the longest layout in the Chiang Mai region at the time of its opening. The name references the proximity to Doi Inthanon National Park, and the course is positioned to offer views of the park's forested slopes from several fairways — a setting that gives rounds here a distinctly remote, nature-immersed character. This is one of the most affordable courses in the Chiang Mai area in terms of base green fee, making it popular with visiting golfers who want to combine a round of golf with a trip to Doi Inthanon or the broader Chom Thong valley. The natural resort element includes accommodation and the overall complex is designed to integrate golf with the surrounding agricultural and forest environment.",
+
+    "layout_and_experience": "The routing uses the gently undulating terrain of the Chom Thong valley, with Doi Inthanon's ridgeline providing the scenic backdrop. The course design incorporates natural water features and preserves existing tree cover to create a layout that feels embedded in the landscape rather than imposed upon it. The 7,268-yard total is challenging from the back tees and demands both length and accuracy; forward tee options make it more accessible for mid-to-high handicappers.\n\nFairways are open enough to allow strategic play but with sufficient tree and rough framing to punish significant wayward shots. Water hazards appear on several holes, and the cart-compulsory policy means the round moves at a good pace across the layout's considerable yardage. The greens are medium-paced and require careful reading given the subtle slopes of the valley terrain.\n\nThe Chom Thong location — 40 kilometres from the city — means the course sees less traffic than the Mae Rim or city-adjacent options, resulting in quieter rounds and better pace of play year-round. This makes it particularly good for golfers who prefer unhurried play without weekend crowding.",
+
+    "tips": "The base green fee of 900 THB is among the lowest of any 18-hole course in the Chiang Mai region — add caddie (300 THB) and cart (700 THB) for an all-in total of approximately 1,900 THB, which represents exceptional value for an 18-hole championship round. The 40-minute drive from Chiang Mai city means it is best combined with a visit to Doi Inthanon National Park on the same day — the park entrance is nearby. Book an early morning tee time to maximise daylight for both golf and national park sightseeing. The Chom Thong valley can be slightly cooler than Chiang Mai city, especially in the cool season (November–February), so bring a light layer for the early holes.",
+
+    "location_and_access": "Chiangmai Inthanon Golf & Natural Resort is located in Chom Thong, approximately 40 kilometres south of Chiang Mai city on Highway 108 (Hod Road), at the 49km mark at the Ta-Li intersection. Visitors from Bangkok fly to Chiang Mai International Airport (CNX), a journey of approximately 1 hour 10 minutes from Suvarnabhumi or Don Mueang — driving the 700 kilometres from Bangkok is not practical. From the airport or central Chiang Mai, the drive takes approximately 40 minutes by private car or Grab taxi via Route 108 south.",
+
+    "rental_cta_context": "Playing Chiangmai Inthanon Golf & Natural Resort near Doi Inthanon on your Chiang Mai trip? Rent premium clubs in Bangkok — delivered to your hotel before you fly — so you can make the most of this scenic course without airline baggage complications."
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "slug": "hat-yai-resort-golf-club",
+  "region": "southern-thailand",
+  "status": "verified",
+  "collected_at": "2026-04-21",
+  "enriched_at": "2026-04-21",
+  "verified_at": "2026-04-21",
+  "verification": {
+    "result": "REVIEW_REQUIRED",
+    "flags": [
+      {
+        "field": "green_fee_weekday_thb",
+        "severity": "WARN",
+        "note": "600 THB from 1golf.eu only. An older source (phil.uk.net, ~2011) cites 950 THB but that source may conflate Hat Yai Resort with Southern Hills. Using 600 THB (1golf.eu) as primary with provisional flag. Call +66 74 434 7703 to confirm."
+      },
+      {
+        "field": "green_fee_weekend_thb",
+        "severity": "WARN",
+        "note": "900 THB from 1golf.eu only. Provisional — same source conflict noted above."
+      },
+      {
+        "field": "year_opened",
+        "severity": "INFO",
+        "note": "Disputed: golfshake.com says 1993; 1golf.eu says 1995. Using 1993 as primary pending confirmation."
+      },
+      {
+        "field": "caddie_fee_thb",
+        "severity": "WARN",
+        "note": "300 THB from phil.uk.net (~2011) — older source that may confuse Hat Yai Resort with Southern Hills. Very provisional. Confirm by phone."
+      },
+      {
+        "field": "cart_fee_thb",
+        "severity": "WARN",
+        "note": "Conflicting: golfshake.com says no carts available; 1golf.eu lists electro-cart. Published as null. Confirm by phone."
+      },
+      {
+        "field": "driving_range",
+        "severity": "WARN",
+        "note": "Conflicting: golfshake.com says no driving range; 1golf.eu says yes. Published as null. Confirm by phone."
+      },
+      {
+        "field": "website",
+        "severity": "INFO",
+        "note": "hatyairesortgolf.20m.com (1golf.eu source) uses free 20m.com hosting — likely inactive. Published as null (no current website found). Enriched file notes this."
+      },
+      {
+        "field": "google_maps_url",
+        "severity": "INFO",
+        "note": "Not found. GPS confirmed from golfshake (7.00205, 100.457)."
+      }
+    ],
+    "cross_checks": [
+      { "field": "name", "status": "PASS", "sources": ["1golf.eu", "golfshake.com"] },
+      { "field": "holes", "status": "PASS", "sources": ["1golf.eu", "golfshake.com"] },
+      { "field": "par", "status": "PASS", "sources": ["1golf.eu"] },
+      { "field": "designer", "status": "PASS", "sources": ["golfshake.com — Robert McFarland"] },
+      { "field": "province", "status": "PASS", "sources": ["1golf.eu — Songkhla"] },
+      { "field": "latitude", "status": "PASS", "sources": ["golfshake.com — 7.00205"] },
+      { "field": "longitude", "status": "PASS", "sources": ["golfshake.com — 100.457"] },
+      { "field": "phone", "status": "PASS", "sources": ["1golf.eu — +66 74 434 7703"] },
+      { "field": "club_rental_available", "status": "PASS", "sources": ["1golf.eu — yes"] },
+      { "field": "year_opened", "status": "CONFLICT", "sources": ["golfshake.com says 1993; 1golf.eu says 1995 — using 1993"] }
+    ],
+    "publish_recommendation": "PUBLISH_WITH_PROVISIONAL — GPS confirmed; green fees provisional (single source, 1golf.eu); caddie fee very provisional (older conflating source); cart and driving range data genuinely conflicting across sources; website assumed defunct. Multiple calls-to-confirm warranted."
+  },
+  "fields": {
+    "name": { "value": "Hat Yai Resort & Golf Club", "source": "web-search", "url": "https://www.1golf.eu/en/club/hat-yai-resort-golf-club/" },
+    "province": { "value": "Songkhla", "source": "web-search", "url": "https://www.1golf.eu/en/club/hat-yai-resort-golf-club/" },
+    "designer": { "value": "Robert McFarland", "source": "web-search", "url": "https://www.golfshake.com/course/view/23930/Hat_Yai_Resort_Golf_Club.html" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.1golf.eu/en/club/hat-yai-resort-golf-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.1golf.eu/en/club/hat-yai-resort-golf-club/" },
+    "year_opened": { "value": 1993, "source": "web-search", "url": "https://www.golfshake.com/course/view/23930/Hat_Yai_Resort_Golf_Club.html", "note": "1golf.eu says 1995; using 1993 as primary pending confirmation." },
+    "green_fee_weekday_thb": { "value": 600, "source": "web-search", "url": "https://www.1golf.eu/en/club/hat-yai-resort-golf-club/", "note": "PROVISIONAL — 1golf.eu only. Older source (2011) cites 950 THB but may confuse with Southern Hills." },
+    "green_fee_weekend_thb": { "value": 900, "source": "web-search", "url": "https://www.1golf.eu/en/club/hat-yai-resort-golf-club/", "note": "PROVISIONAL — 1golf.eu." },
+    "caddie_fee_thb": { "value": 300, "source": "web-search", "url": "https://phil.uk.net/hatyai/golf-courses-in-hat-yai.html", "note": "PROVISIONAL — older source; may apply to Southern Hills. Confirm by phone." },
+    "cart_fee_thb": { "value": null, "source": "not-found", "url": null, "note": "Conflicting: golfshake says no carts; 1golf.eu says available. Confirm by phone." },
+    "caddie_required": { "value": null, "source": "not-found", "url": null },
+    "cart_required": { "value": null, "source": "not-found", "url": null },
+    "driving_range": { "value": null, "source": "not-found", "url": null, "note": "Conflicting: golfshake says no; 1golf.eu says yes." },
+    "website": { "value": null, "source": "not-found", "url": null },
+    "phone": { "value": "+66 74 434 7703", "source": "web-search", "url": "https://www.1golf.eu/en/club/hat-yai-resort-golf-club/" },
+    "latitude": { "value": 7.00205, "source": "web-search", "url": "https://www.golfshake.com/course/view/23930/Hat_Yai_Resort_Golf_Club.html" },
+    "longitude": { "value": 100.457, "source": "web-search", "url": "https://www.golfshake.com/course/view/23930/Hat_Yai_Resort_Golf_Club.html" },
+    "distance_from_bangkok_km": { "value": 950, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 780, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "not-found", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.1golf.eu/en/club/hat-yai-resort-golf-club/" },
+    "club_rental_fee_thb": { "value": null, "source": "not-found", "url": null },
+    "club_rental_brands": { "value": null, "source": "not-found", "url": null }
+  },
+  "prose": {
+    "overview": "Hat Yai Resort & Golf Club is an 18-hole, par 72 course on the northern edge of Hat Yai city — one of the older established layouts in the lower south, designed by Robert McFarland and opened in the early 1990s. Situated in the Thung Tam Sao sub-district, approximately 10 km from the city centre, the course is the more accessible and budget-friendly of Hat Yai's two main golf venues, drawing a mix of Thai locals, expats, and the cross-border Malaysian golfers who make Hat Yai their primary southern Thailand golf destination. At 600 THB on weekdays (provisional), it is the lower-priced option in the city, offering a workmanlike 18-hole round without the championship ambition of the Perry Dye-designed Southern Hills. Club rental is available for travelling golfers.",
+    "layout_and_experience": "Robert McFarland's layout at Hat Yai Resort plays to par 72 across a relatively flat course in the lowland terrain typical of the Songkhla basin. The design reflects its era and market — functional, accessible, and built for regular play rather than tournament hosting. Fairways are generous and the overall difficulty is moderate, making it a course that works well for a wide range of handicaps without the penal character of more technically demanding southern layouts.\n\nAt 6,897 yards from the blue tees (the course's primary playing length), Hat Yai Resort rewards straight ball striking over power. Water features on several holes provide strategic interest, and the tree-lined routing creates a sense of enclosure without the jungle density of Southern Hills. The greens are consistent — appropriate for the price tier — and the overall pace of play is comfortable.\n\nThe course has been operating for over 30 years, which means the layout has matured: trees have grown to frame fairways properly, and the membership knows the course intimately. This gives the round a settled, local-club feel that distinguishes it from newer resort products. The clientele is predominantly Thai and Malaysian, with a practical rather than aspirational atmosphere — which suits golfers looking for a solid round at a reasonable price rather than a premium experience.\n\nNote for visitors: the availability of carts is disputed across sources — some listing sites indicate no cart hire, while others show electric carts available. Call ahead to confirm.",
+    "tips": "Hat Yai Resort is the budget option for golf in Hat Yai city — at approximately 600 THB on weekdays (provisional), it is considerably cheaper than Southern Hills and accessible for a spontaneous round without the advance booking pressure of the more popular course. A caddie fee of approximately 300 THB applies (confirm by phone at +66 74 434 7703 before visiting, as current rates were not confirmed from official sources).\n\nThe course is approximately 10 km from Hat Yai city centre — Grab and local taxis are the easiest transport from hotels and the airport. Hat Yai International Airport is served by multiple daily flights from Bangkok (approximately 1.5 hours); the city also has direct rail connections from Kuala Lumpur and Penang, making it a transit point for Malaysian golfers.\n\nThe lower south's wettest months are October to January (northeast monsoon season). February to August is generally drier and the preferred golf window. Early morning tee times are cooler and tend to see lighter traffic on weekdays.",
+    "location_and_access": "Hat Yai Resort & Golf Club is located at 94 Moo 4, Thung Tam Sao Sub-district, Hat Yai District, Songkhla 90110, approximately 10 km from Hat Yai city centre and 950 km south of Bangkok. Hat Yai International Airport is served by multiple daily flights from Bangkok (approximately 1.5 hours from Don Mueang and Suvarnabhumi). The course is reachable from the airport by Grab or taxi in approximately 20 minutes. For visitors from Malaysia, Hat Yai is accessible via the Sadao or Padang Besar border crossings, or by train from Penang/Butterworth. Phone: +66 74 434 7703.",
+    "rental_cta_context": "Stopping over in Hat Yai for a round? LENGOLF delivers premium rental clubs to your Bangkok hotel before you fly south — no need to travel with equipment on the plane."
+  }
+}

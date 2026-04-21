@@ -1,0 +1,32 @@
+{
+  "slug": "dancoon-golf-club",
+  "region": "isan",
+  "status": "raw",
+  "collected_at": "2026-04-21",
+  "notes": "Well-documented course. Green fee dispute: 1golf.eu reports THB 680 weekday / 980 weekend (likely more current); older sources cite 500-550 weekday. Using 1golf.eu figures as primary. Cart fee confirmed at THB 600. Caddie fee ~200 THB from multiple reviews. Designer listed as 'DC Golf Design' on GolfLux and GolfAsian. GPS coordinates not confirmed via any source — using model estimate based on address (222 Moo 2 Tambon Daeng Yai, Mueang Khon Kaen, 15 km from city centre, 10 min from airport).",
+  "fields": {
+    "name": { "value": "Dancoon Golf Club", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "province": { "value": "Khon Kaen", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "latitude": { "value": 16.54, "source": "model", "url": null },
+    "longitude": { "value": 102.86, "source": "model", "url": null },
+    "green_fee_weekday_thb": { "value": 680, "source": "web-search", "url": "https://www.1golf.eu/en/club/dancoon-golf-club/" },
+    "green_fee_weekend_thb": { "value": 980, "source": "web-search", "url": "https://www.1golf.eu/en/club/dancoon-golf-club/" },
+    "caddie_required": { "value": false, "source": "web-search", "url": "https://www.1golf.eu/en/club/dancoon-golf-club/" },
+    "cart_required": { "value": false, "source": "web-search", "url": "https://www.1golf.eu/en/club/dancoon-golf-club/" },
+    "website": { "value": null, "source": "not-found", "url": null },
+    "phone": { "value": "+66 43 255 107", "source": "web-search", "url": "https://www.1golf.eu/en/club/dancoon-golf-club/" },
+    "distance_from_bangkok_km": { "value": 400, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "drive_time_from_bangkok_min": { "value": 300, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "not-found", "url": null },
+    "designer": { "value": "DC Golf Design", "source": "web-search", "url": "https://www.golflux.com/course/dancoon-golf-club/" },
+    "year_opened": { "value": 2008, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "caddie_fee_thb": { "value": 200, "source": "web-search", "url": "https://www.1golf.eu/en/club/dancoon-golf-club/" },
+    "cart_fee_thb": { "value": 600, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "club_rental_fee_thb": { "value": 1000, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "club_rental_brands": { "value": null, "source": "not-found", "url": null }
+  }
+}

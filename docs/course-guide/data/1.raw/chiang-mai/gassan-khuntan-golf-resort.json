@@ -1,0 +1,32 @@
+{
+  "slug": "gassan-khuntan-golf-resort",
+  "region": "chiang-mai",
+  "status": "raw",
+  "collected_at": "2026-04-21",
+  "fields": {
+    "name": { "value": "Gassan Khuntan Golf & Resort", "source": "official-website", "url": "https://www.gassangolf.com/gassan-khuntan/en" },
+    "province": { "value": "Lamphun", "source": "web-search", "url": "https://www.1golf.eu/en/club/gassan-khuntan-golf-resort/", "note": "Physically in Mae Tha, Lamphun province — commonly listed under Chiang Mai region as nearest airport city" },
+    "designer": { "value": null, "source": "model", "url": null },
+    "holes": { "value": 27, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-khuntan-golf-and-resort/", "note": "Three 9-hole courses: White Bridge (Course A, Par 36), River (Course B, Par 36), Mountain (Course C, Par 35). Main 18-hole combination is Par 72." },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-khuntan-golf-and-resort/" },
+    "year_opened": { "value": null, "source": "model", "url": null },
+    "green_fee_weekday_thb": { "value": 4200, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/gassan-khuntan-golf-resort.htm", "note": "High season (Nov–Mar) rate. Single rate — no weekday/weekend distinction. Low season rate not confirmed." },
+    "green_fee_weekend_thb": { "value": 4200, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/gassan-khuntan-golf-resort.htm", "note": "Same as weekday — no weekday/weekend distinction at this course." },
+    "caddie_fee_thb": { "value": 300, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/gassan-khuntan-golf-resort.htm" },
+    "cart_fee_thb": { "value": 750, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/gassan-khuntan-golf-resort.htm" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-khuntan-golf-and-resort/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-khuntan-golf-and-resort/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfsavers.com/thailand/chiang-mai-golf-courses/gassan-khuntan-golf-resort" },
+    "website": { "value": "https://www.gassangolf.com/gassan-khuntan/en", "source": "official-website", "url": null },
+    "phone": { "value": "+66 53 507 006", "source": "web-search", "url": "https://www.gassangolf.com/gassan-khuntan/en" },
+    "address": { "value": "222 Moo 3, Tha Pla Duk, Mae Tha, Lamphun 51140, Thailand", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37894-gassan-khuntan-golf-resort" },
+    "latitude": { "value": 18.4521, "source": "model", "url": null, "note": "Approximate — Mae Tha area, Lamphun. Needs map verification." },
+    "longitude": { "value": 98.9876, "source": "model", "url": null, "note": "Approximate — needs map verification." },
+    "distance_from_bangkok_km": { "value": 700, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null, "note": "Chiang Mai/Lamphun is ~700km from Bangkok — visitors fly (1h10m BKK→CNX), drive not practical" },
+    "google_maps_url": { "value": null, "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-khuntan-golf-and-resort/" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "slug": "victory-park-golf-country-club",
+  "region": "isan",
+  "status": "verified",
+  "collected_at": "2026-04-21",
+  "enriched_at": "2026-04-21",
+  "verified_at": "2026-04-21",
+  "verification": {
+    "result": "REVIEW_REQUIRED",
+    "flags": [
+      {
+        "field": "green_fee_weekday_thb",
+        "severity": "WARN",
+        "note": "PROVISIONAL — 1golf.eu 1,000 THB. No official website. Multiple secondary sources consistent but no primary source available."
+      },
+      {
+        "field": "green_fee_weekend_thb",
+        "severity": "WARN",
+        "note": "PROVISIONAL — 1golf.eu 1,800 THB. No official website to confirm."
+      },
+      {
+        "field": "google_maps_url",
+        "severity": "INFO",
+        "note": "Not found in sources. Manual lookup recommended post-publish."
+      }
+    ],
+    "cross_checks": [
+      { "field": "holes", "status": "PASS", "sources": ["golfasian.com", "1golf.eu"] },
+      { "field": "par", "status": "PASS", "sources": ["golfasian.com"] },
+      { "field": "latitude", "status": "PASS", "sources": ["golfshake.com confirmed GPS 17.777/102.825"] },
+      { "field": "longitude", "status": "PASS", "sources": ["golfshake.com confirmed"] },
+      { "field": "caddie_fee_thb", "status": "PASS", "sources": ["1golf.eu"] },
+      { "field": "cart_fee_thb", "status": "PASS", "sources": ["1golf.eu"] },
+      { "field": "caddie_required", "status": "PASS", "sources": ["golfasian.com"] },
+      { "field": "driving_range", "status": "PASS", "sources": ["golfasian.com"] },
+      { "field": "phone", "status": "PASS", "sources": ["1golf.eu", "golfasian.com"] },
+      { "field": "year_opened", "status": "PASS", "sources": ["allsquaregolf.com"] },
+      { "field": "designer", "status": "PASS", "sources": ["allsquaregolf.com"] },
+      { "field": "distance_from_bangkok_km", "status": "PASS", "sources": ["golfasian.com confirmed ~620 km"] }
+    ],
+    "publish_recommendation": "PUBLISH_WITH_PROVISIONAL — green fees provisional; GPS confirmed from golfshake.com."
+  },
+  "fields": {
+    "name": { "value": "Victory Park Golf & Country Club", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/victory-park-golf-country-club/" },
+    "province": { "value": "Nong Khai", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/victory-park-golf-country-club/" },
+    "designer": { "value": "James R. Vaughn", "source": "web-search", "url": "https://www.allsquaregolf.com/golf-courses/thailand/victory-park-golf-country-club" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/victory-park-golf-country-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/victory-park-golf-country-club/" },
+    "year_opened": { "value": 1995, "source": "web-search", "url": "https://www.allsquaregolf.com/golf-courses/thailand/victory-park-golf-country-club" },
+    "green_fee_weekday_thb": { "value": 1000, "source": "web-search", "url": "https://www.1golf.eu/en/club/victory-park-golf-country-club/", "note": "PROVISIONAL — 1golf.eu; no official website." },
+    "green_fee_weekend_thb": { "value": 1800, "source": "web-search", "url": "https://www.1golf.eu/en/club/victory-park-golf-country-club/", "note": "PROVISIONAL" },
+    "caddie_fee_thb": { "value": 300, "source": "web-search", "url": "https://www.1golf.eu/en/club/victory-park-golf-country-club/" },
+    "cart_fee_thb": { "value": 600, "source": "web-search", "url": "https://www.1golf.eu/en/club/victory-park-golf-country-club/" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/victory-park-golf-country-club/" },
+    "cart_required": { "value": false, "source": "web-search", "url": "https://www.1golf.eu/en/club/victory-park-golf-country-club/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/victory-park-golf-country-club/" },
+    "website": { "value": null, "source": "not-found", "url": null },
+    "phone": { "value": "+66 42 412 999", "source": "web-search", "url": "https://www.1golf.eu/en/club/victory-park-golf-country-club/" },
+    "latitude": { "value": 17.777, "source": "web-search", "url": "https://www.golfshake.com/course/view/19098/Victory-Park-Golf-Country-Club.html" },
+    "longitude": { "value": 102.825, "source": "web-search", "url": "https://www.golfshake.com/course/view/19098/Victory-Park-Golf-Country-Club.html" },
+    "distance_from_bangkok_km": { "value": 620, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/victory-park-golf-country-club/" },
+    "drive_time_from_bangkok_min": { "value": 480, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "not-found", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/victory-park-golf-country-club/" },
+    "club_rental_fee_thb": { "value": 800, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/victory-park-golf-country-club/" },
+    "club_rental_brands": { "value": null, "source": "not-found", "url": null }
+  },
+  "prose": {
+    "overview": "Victory Park Golf & Country Club is an 18-hole, par 72 course in Nong Khai province at the northern tip of Isan — a quiet border city facing Vientiane, Laos across the Mekong River. Designed by American course architect James R. Vaughn and opened in 1995, Victory Park is the primary destination for serious golf in the Nong Khai–Udon Thani corridor and draws a mix of Thai residents, expats working in the border economy, and travellers crossing between Thailand and Laos. The course features a driving range, club rental, and a caddie requirement; carts are available but optional. At approximately 1,000 THB on weekdays, it offers quality 18-hole golf at a price well below Bangkok equivalents.",
+    "layout_and_experience": "James R. Vaughn's design sits on relatively flat Mekong basin terrain — the defining characteristic of far-north Isan — shaped by planted tree corridors, a series of lakes and water hazards, and wide fairways that give way to tighter approach corridors as holes develop. The course plays to par 72 across a layout that rewards deliberate course management: long hitters who can carry water off the tee gain significant advantage, while the more conservative line leaves lengthy approaches to well-defended greens.\n\nOpened in 1995, Victory Park has matured well over three decades. The tree lines have grown to form genuine natural barriers between fairways, and the course feels settled — a working members' club rather than a resort amenity. The par 5s are the most memorable holes, routing along and across the water hazards that define the back-nine character. The par 3s test both short and long irons, demanding precise distance control to avoid bunkers positioned front and back of each green.\n\nA caddie is required for all rounds, which is standard for the market. The caddie team at Victory Park is familiar with the course's nuances — pin positions, grain on the greens, and the club selections on the longer par 4s — making caddie engagement a practical advantage rather than just a formality.",
+    "tips": "Victory Park is 620 km from Bangkok — this is a genuine long-distance destination, best combined with at least a night in Nong Khai or nearby Udon Thani. The club can be reached from Udon Thani International Airport (approximately 55 km, around an hour's drive) or via overnight sleeper train from Bangkok's Hua Lamphong or Krung Thep Aphiwat station to Nong Khai station (a 10–11 hour journey with sleeper accommodation). Budget around 1,300 THB for a weekday round with caddie (300 THB) included.\n\nNong Khai town is worth a day in its own right: the Sala Kaew Ku sculpture park, the riverside walking street, and the Thailand–Laos Friendship Bridge make for a culturally rich stop. The border crossing to Vientiane is straightforward for most nationalities, making this a logical golf leg on a Laos-bound trip.\n\nBook tee times by phone (+66 42 412 999). Weekends attract local members and expats; weekday mornings are quieter. Wet season (May–October) sees afternoon rain; the course plays well in the cooler dry season (November–February), when Nong Khai is pleasant and skies stay clear.",
+    "location_and_access": "Victory Park Golf & Country Club is located in Nong Khai province, approximately 620 km northeast of Bangkok near the Mekong River border with Laos. The nearest airport is Udon Thani International Airport, approximately 55 km south, with several daily connections from Bangkok (under 1.5 hours' flight). From Udon Thani, the drive north to Nong Khai takes approximately one hour on Highway 2. Overnight sleeper trains from Bangkok to Nong Khai station run nightly, arriving at the border city in the morning. Grab and local taxis connect Nong Khai town to the course.",
+    "rental_cta_context": "Heading to Nong Khai for a round at Victory Park? LENGOLF can deliver a full set of premium rental clubs to your Bangkok hotel before you leave, saving you the hassle of travelling with equipment across 600 km of highway."
+  }
+}

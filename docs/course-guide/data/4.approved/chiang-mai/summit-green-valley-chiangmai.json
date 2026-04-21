@@ -1,0 +1,149 @@
+{
+    "slug":  "summit-green-valley-chiangmai",
+    "region":  "chiang-mai",
+    "status":  "approved",
+    "collected_at":  "2026-04-21",
+    "enriched_at":  "2026-04-21",
+    "verified_at":  "2026-04-21",
+    "fields":  {
+                   "name":  {
+                                "value":  "Summit Green Valley Chiangmai Country Club",
+                                "source":  "official-website",
+                                "url":  "http://www.summitgreenvalley.com/"
+                            },
+                   "province":  {
+                                    "value":  "Chiang Mai",
+                                    "source":  "web-search",
+                                    "url":  "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/summit-green-valley-chiang-mai-country-club/"
+                                },
+                   "designer":  {
+                                    "value":  "Dennis Griffiths",
+                                    "source":  "web-search",
+                                    "url":  "https://www.1golf.eu/en/club/summit-green-valley-chiangmai-country-club/",
+                                    "note":  "Confirmed — 1golf.eu lists \u0027Denis Griffiths \u0026 Associates Inc\u0027 as designer."
+                                },
+                   "holes":  {
+                                 "value":  18,
+                                 "source":  "web-search",
+                                 "url":  "https://www.1golf.eu/en/club/summit-green-valley-chiangmai-country-club/"
+                             },
+                   "par":  {
+                               "value":  72,
+                               "source":  "web-search",
+                               "url":  "https://www.1golf.eu/en/club/summit-green-valley-chiangmai-country-club/"
+                           },
+                   "year_opened":  {
+                                       "value":  1990,
+                                       "source":  "web-search",
+                                       "url":  "https://www.1golf.eu/en/club/summit-green-valley-chiangmai-country-club/",
+                                       "note":  "Confirmed via multiple sources."
+                                   },
+                   "green_fee_weekday_thb":  {
+                                                 "value":  3300,
+                                                 "source":  "web-search",
+                                                 "url":  "https://www.chiangmaigolfclub.com/summit-green-valley-country-club.htm",
+                                                 "dispute":  "Stage 1 found 2,100 THB all-in morning rate (chiangmaigolfclub.com 2024); Stage 3 verification found 3,300 THB green fee alone (Nov–Dec 2025) + 400 caddie + 700 cart = 4,400 THB total. Using 3,300 THB green-fee-only figure from Stage 3 as more recent. The 2,100 THB all-in may be an outdated or promotional rate."
+                                             },
+                   "green_fee_weekend_thb":  {
+                                                 "value":  3300,
+                                                 "source":  "web-search",
+                                                 "url":  "https://www.chiangmaigolfclub.com/summit-green-valley-country-club.htm",
+                                                 "note":  "Same as weekday."
+                                             },
+                   "caddie_fee_thb":  {
+                                          "value":  400,
+                                          "source":  "web-search",
+                                          "url":  "https://www.chiangmaigolfclub.com/summit-green-valley-country-club.htm",
+                                          "note":  "Confirmed in Stage 3. Payable in cash to caddie after round."
+                                      },
+                   "cart_fee_thb":  {
+                                        "value":  700,
+                                        "source":  "web-search",
+                                        "url":  "https://www.chiangmaigolfclub.com/summit-green-valley-country-club.htm",
+                                        "note":  "Confirmed in Stage 3."
+                                    },
+                   "caddie_required":  {
+                                           "value":  true,
+                                           "source":  "web-search",
+                                           "url":  "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/summit-green-valley-chiang-mai-country-club/"
+                                       },
+                   "cart_required":  {
+                                         "value":  true,
+                                         "source":  "web-search",
+                                         "url":  "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/summit-green-valley-chiang-mai-country-club/"
+                                     },
+                   "driving_range":  {
+                                         "value":  true,
+                                         "source":  "web-search",
+                                         "url":  "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/summit-green-valley-chiang-mai-country-club/"
+                                     },
+                   "website":  {
+                                   "value":  "http://www.summitgreenvalley.com/",
+                                   "source":  "official-website",
+                                   "url":  null
+                               },
+                   "phone":  {
+                                 "value":  "+66 53 298 222",
+                                 "source":  "web-search",
+                                 "url":  "http://www.summitgreenvalley.com/contact/"
+                             },
+                   "address":  {
+                                   "value":  "186 Moo 1, Chotana Road, Mae Sa, Mae Rim, Chiang Mai 50180, Thailand",
+                                   "source":  "web-search",
+                                   "url":  "https://www.golfpass.com/travel-advisor/courses/38035-summit-green-valley-chiangmai-country-club"
+                               },
+                   "latitude":  {
+                                    "value":  18.9088,
+                                    "source":  "model",
+                                    "url":  null,
+                                    "note":  "Approximate. Needs map verification.",
+                                    "blocker":  true
+                                },
+                   "longitude":  {
+                                     "value":  98.9200,
+                                     "source":  "model",
+                                     "url":  null,
+                                     "note":  "Approximate. Needs map verification.",
+                                     "blocker":  true
+                                 },
+                   "distance_from_bangkok_km":  {
+                                                    "value":  700,
+                                                    "source":  "model",
+                                                    "url":  null
+                                                },
+                   "drive_time_from_bangkok_min":  {
+                                                       "value":  null,
+                                                       "source":  "model",
+                                                       "url":  null
+                                                   },
+                   "google_maps_url":  {
+                                           "value":  null,
+                                           "source":  "model",
+                                           "url":  null,
+                                           "blocker":  true
+                                       },
+                   "club_rental_available":  {
+                                                 "value":  true,
+                                                 "source":  "web-search",
+                                                 "url":  "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/summit-green-valley-chiang-mai-country-club/"
+                                             },
+                   "club_rental_fee_thb":  {
+                                               "value":  null,
+                                               "source":  "model",
+                                               "url":  null
+                                           },
+                   "club_rental_brands":  {
+                                              "value":  null,
+                                              "source":  "model",
+                                              "url":  null
+                                          }
+               },
+    "prose":  {
+                  "overview":  "Summit Green Valley Chiangmai Country Club is an 18-hole, par-72 championship course in the Mae Sa valley of Mae Rim district, approximately 20 kilometres and 20 minutes north of central Chiang Mai. Opened in 1990, it is one of the oldest golf courses in the Chiang Mai region and was designed by Dennis Griffiths — the same Australian architect responsible for the original Thai Country Club in Bangkok. The course occupies a lowland valley setting ringed by mountains, with hundreds of palm trees lining the fairways that give it a tropical-parkland character distinct from the higher-elevation forested courses further from the city. Summit Green Valley is a consistent fixture on Northern Thailand golf itineraries, valued for its reliable conditioning, manageable terrain, and strong course infrastructure.",
+                  "layout_and_experience":  "Griffiths\u0027 design is primarily a water-and-bunker challenge over moderately undulating terrain. The valley setting keeps elevation changes gentle compared to the mountain courses, making the layout physically accessible while delivering strategic difficulty through well-placed bunkers and lake hazards that come into play on nearly every hole.\n\nThe fairways are broad but bunker positions from the tee demand precise alignment. The approach corridors narrow considerably around the greens on many of the par-4s. The signature 9th hole — a 416-yard par 4 — requires a tee shot over water with sand traps in the landing area, followed by a second shot over water to an elevated island green. Green fee packages include one caddie and cart per player; during peak season, two players may share one cart.",
+                  "tips":  "Stage 3 verification shows the high-season green fee at 3,300 THB (green fee only) plus caddie (400 THB) and cart (700 THB) for an all-in total of approximately 4,400 THB — note this is higher than some older sources show. Caddie tip of 400 THB per round is required, payable in cash. Book early morning tee times in the November–March high season. The course is approximately 20 minutes from CNX airport by Grab taxi.",
+                  "location_and_access":  "Summit Green Valley Chiangmai Country Club is located in Mae Sa, Mae Rim district, approximately 20 kilometres north of Chiang Mai city centre and around 20 minutes from Chiang Mai International Airport (CNX). Visitors from Bangkok fly to CNX (approximately 1 hour 10 minutes from Suvarnabhumi or Don Mueang) — driving the 700 kilometres from Bangkok is not practical. The course is easily reached from Chiang Mai by Grab taxi or private car via Chotana Road (Route 107) north toward Mae Rim.",
+                  "rental_cta_context":  "Teeing off at Summit Green Valley Chiangmai Country Club on your Northern Thailand golf trip? Rent premium clubs in Bangkok — delivered to your hotel before you fly — so you can enjoy the palm-lined fairways without the burden of airline baggage fees."
+              },
+    "approved_at":  "2026-04-21"
+}

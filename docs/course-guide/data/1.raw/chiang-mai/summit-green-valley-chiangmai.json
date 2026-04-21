@@ -1,0 +1,32 @@
+{
+  "slug": "summit-green-valley-chiangmai",
+  "region": "chiang-mai",
+  "status": "raw",
+  "collected_at": "2026-04-21",
+  "fields": {
+    "name": { "value": "Summit Green Valley Chiangmai Country Club", "source": "official-website", "url": "http://www.summitgreenvalley.com/" },
+    "province": { "value": "Chiang Mai", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/summit-green-valley-chiang-mai-country-club/" },
+    "designer": { "value": "Dennis Griffiths", "source": "web-search", "url": "https://www.1golf.eu/en/club/summit-green-valley-chiangmai-country-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.1golf.eu/en/club/summit-green-valley-chiangmai-country-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.1golf.eu/en/club/summit-green-valley-chiangmai-country-club/" },
+    "year_opened": { "value": 1990, "source": "web-search", "url": "https://www.1golf.eu/en/club/summit-green-valley-chiangmai-country-club/" },
+    "green_fee_weekday_thb": { "value": 2100, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/summit-green-valley-country-club.htm", "note": "Morning rate including green fee, golf cart and caddy. Afternoon/night rate is 1,900 THB. No weekday/weekend price distinction." },
+    "green_fee_weekend_thb": { "value": 2100, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/summit-green-valley-country-club.htm", "note": "Same as weekday. Afternoon rate 1,900 THB." },
+    "caddie_fee_thb": { "value": 400, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/summit-green-valley-country-club.htm", "note": "Caddie tip expected after round. Caddie service included in the all-in green fee package." },
+    "cart_fee_thb": { "value": 700, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/summit-green-valley-country-club.htm", "note": "Included in the all-in morning package rate of 2,100 THB." },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/summit-green-valley-chiang-mai-country-club/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/summit-green-valley-chiang-mai-country-club/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/summit-green-valley-chiang-mai-country-club/" },
+    "website": { "value": "http://www.summitgreenvalley.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 53 298 222", "source": "web-search", "url": "http://www.summitgreenvalley.com/contact/" },
+    "address": { "value": "186 Moo 1, Chotana Road, Mae Sa, Mae Rim, Chiang Mai 50180, Thailand", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/38035-summit-green-valley-chiangmai-country-club" },
+    "latitude": { "value": 18.9088, "source": "model", "url": null, "note": "Approximate — Mae Sa, Mae Rim. Needs map verification." },
+    "longitude": { "value": 98.9200, "source": "model", "url": null, "note": "Approximate — needs map verification." },
+    "distance_from_bangkok_km": { "value": 700, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null, "note": "Chiang Mai is ~700km from Bangkok — visitors fly (1h10m BKK→CNX), drive not practical" },
+    "google_maps_url": { "value": null, "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/summit-green-valley-chiang-mai-country-club/" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  }
+}

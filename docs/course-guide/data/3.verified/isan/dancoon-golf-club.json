@@ -1,0 +1,84 @@
+{
+  "slug": "dancoon-golf-club",
+  "region": "isan",
+  "status": "verified",
+  "collected_at": "2026-04-21",
+  "enriched_at": "2026-04-21",
+  "verified_at": "2026-04-21",
+  "verification": {
+    "result": "REVIEW_REQUIRED",
+    "flags": [
+      {
+        "field": "green_fee_weekday_thb",
+        "severity": "WARN",
+        "note": "3-source conflict: 1golf.eu 680 THB (primary), older sources 500–550 THB. Provisional flag retained. Recommend calling +66 43 255 107 to confirm."
+      },
+      {
+        "field": "green_fee_weekend_thb",
+        "severity": "WARN",
+        "note": "Provisional: 980 THB from 1golf.eu only. No corroborating source."
+      },
+      {
+        "field": "latitude",
+        "severity": "WARN",
+        "note": "GPS model estimate (16.54, 102.86). Course is ~15 km from Khon Kaen Airport — estimate is plausible but unconfirmed by a geolocated source."
+      },
+      {
+        "field": "longitude",
+        "severity": "WARN",
+        "note": "GPS model estimate. See latitude flag."
+      },
+      {
+        "field": "google_maps_url",
+        "severity": "INFO",
+        "note": "Not found in sources. Will need manual lookup post-publish."
+      }
+    ],
+    "cross_checks": [
+      { "field": "holes", "status": "PASS", "sources": ["golfasian.com", "1golf.eu"] },
+      { "field": "par", "status": "PASS", "sources": ["golfasian.com"] },
+      { "field": "caddie_fee_thb", "status": "PASS", "sources": ["1golf.eu"] },
+      { "field": "cart_fee_thb", "status": "PASS", "sources": ["golfasian.com"] },
+      { "field": "caddie_required", "status": "PASS", "sources": ["1golf.eu"] },
+      { "field": "cart_required", "status": "PASS", "sources": ["1golf.eu"] },
+      { "field": "club_rental_available", "status": "PASS", "sources": ["golfasian.com"] },
+      { "field": "club_rental_fee_thb", "status": "PASS", "sources": ["golfasian.com"] },
+      { "field": "phone", "status": "PASS", "sources": ["1golf.eu"] },
+      { "field": "year_opened", "status": "PASS", "sources": ["golfasian.com"] },
+      { "field": "designer", "status": "PASS", "sources": ["golflux.com"] }
+    ],
+    "publish_recommendation": "PUBLISH_WITH_PROVISIONAL — green fee provisional flag in notes; GPS to be updated when confirmed source available."
+  },
+  "fields": {
+    "name": { "value": "Dancoon Golf Club", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "province": { "value": "Khon Kaen", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "designer": { "value": "DC Golf Design", "source": "web-search", "url": "https://www.golflux.com/course/dancoon-golf-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "year_opened": { "value": 2008, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "green_fee_weekday_thb": { "value": 680, "source": "web-search", "url": "https://www.1golf.eu/en/club/dancoon-golf-club/", "note": "PROVISIONAL — 1golf.eu; older sources 500–550 THB. 3-source conflict." },
+    "green_fee_weekend_thb": { "value": 980, "source": "web-search", "url": "https://www.1golf.eu/en/club/dancoon-golf-club/", "note": "PROVISIONAL" },
+    "caddie_fee_thb": { "value": 200, "source": "web-search", "url": "https://www.1golf.eu/en/club/dancoon-golf-club/" },
+    "cart_fee_thb": { "value": 600, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "caddie_required": { "value": false, "source": "web-search", "url": "https://www.1golf.eu/en/club/dancoon-golf-club/" },
+    "cart_required": { "value": false, "source": "web-search", "url": "https://www.1golf.eu/en/club/dancoon-golf-club/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "website": { "value": null, "source": "not-found", "url": null },
+    "phone": { "value": "+66 43 255 107", "source": "web-search", "url": "https://www.1golf.eu/en/club/dancoon-golf-club/" },
+    "latitude": { "value": 16.54, "source": "model", "url": null },
+    "longitude": { "value": 102.86, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 400, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "drive_time_from_bangkok_min": { "value": 300, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "not-found", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "club_rental_fee_thb": { "value": 1000, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/dancoon-golf-club/" },
+    "club_rental_brands": { "value": null, "source": "not-found", "url": null }
+  },
+  "prose": {
+    "overview": "Dancoon Golf Club is an 18-hole, par 72 course in Khon Kaen, Isan's largest city and a regional hub for business and tourism in northeastern Thailand. Designed by DC Golf Design and opened in 2008, the course sits approximately 15 km from the city centre near Khon Kaen Airport, making it one of the most accessible 18-hole layouts in the northeast for visitors flying in from Bangkok. Green fees are competitive for the region, with neither caddie nor cart mandatory — giving golfers flexibility over their total cost. The club provides club rental at 1,000 THB and a full driving range. Dancoon draws a mix of local Khon Kaen golfers, expats based in the region, and Bangkok visitors making the trip northeast for business or leisure.",
+    "layout_and_experience": "Dancoon Golf Club plays to par 72 across a flat to gently undulating layout typical of the Khon Kaen basin, where the terrain is shaped more by planted tree corridors and water features than by natural elevation. The DC Golf Design firm's approach creates a course that functions as both a serious round for lower-handicap golfers and an accessible social game for higher handicappers — a balance well-suited to the regional market it serves.\n\nFairways are generous enough to reward confident driving, with the primary challenge coming from well-placed water hazards and tree lines that demand accurate second shots on several holes. The par 4s form the backbone of the round, ranging from open, driveable short holes to longer tests that reward straight ball flight. The par 5s provide birdie opportunities that keep the round moving forward.\n\nAt 18 holes and par 72, the course is a proper full layout by any measure — not a resort novelty but a functioning golf club with an established local membership. Caddie and cart are available but neither is compulsory, which is somewhat unusual for Thailand and gives experienced golfers the option of walking the course independently. Greens are maintained to a reasonable standard for the price tier.",
+    "tips": "Dancoon offers one of the better value propositions in Isan: a full 18-hole layout at approximately 680 THB on weekdays, with neither caddie (200 THB) nor cart (600 THB) required. Golfers who prefer a self-directed round can walk without a caddie — relatively rare in Thailand. Budget around 880 THB all-in for a weekday round with a caddie, or 1,480 THB with caddie and cart.\n\nThe course is 15 km from central Khon Kaen and close to the airport, making it practical to squeeze in a round before an afternoon flight back to Bangkok. Call ahead to confirm tee times at +66 43 255 107 — the course is popular with local members on weekends.\n\nKhon Kaen has a wet season (May–October) with afternoon showers typical of Isan; mornings are reliably drier. The dry season (November–April) offers clearer skies but can be hot in March–April before the rains arrive. An early tee time avoids the peak heat in any season.",
+    "location_and_access": "Dancoon Golf Club is located approximately 400 km northeast of Bangkok in Khon Kaen province, about 15 km from the city centre near Khon Kaen Airport. The address is 222 Moo 2, Tambon Daeng Yai, Mueang Khon Kaen. Khon Kaen is served by multiple daily flights from Bangkok (Don Mueang and Suvarnabhumi), with the flight taking under an hour. For golfers driving, the route via Highway 2 (Mittraphap Road) takes approximately 5 hours from Bangkok. The course is reachable by Grab or local taxi from the city or airport.",
+    "rental_cta_context": "Flying into Khon Kaen for a round at Dancoon? LENGOLF can deliver a full set of premium rental clubs to your Bangkok hotel the night before so you step off the plane ready to play."
+  }
+}

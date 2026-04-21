@@ -1,0 +1,44 @@
+{
+  "slug": "royal-chiang-mai-golf-club",
+  "region": "chiang-mai",
+  "status": "enriched",
+  "collected_at": "2026-04-21",
+  "enriched_at": "2026-04-21",
+  "fields": {
+    "name": { "value": "Royal Chiang Mai Golf Club & Resort", "source": "official-website", "url": "https://www.royalchiangmai.com/" },
+    "province": { "value": "Chiang Mai", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/royal-chiang-mai-golf-club-resort/" },
+    "designer": { "value": "Peter Thomson", "source": "web-search", "url": "https://www.royalchiangmai.com/golf.php" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/royal-chiang-mai-golf-club-resort/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/royal-chiang-mai-golf-club-resort/" },
+    "year_opened": { "value": 1996, "source": "web-search", "url": "https://www.1golf.eu/en/club/the-royal-chiangmai-golf-resort/", "note": "Opened February 1996." },
+    "green_fee_weekday_thb": { "value": 4800, "source": "web-search", "url": "https://www.royalchiangmai.com/golf_rate.php", "note": "High season all-in rate including cart and caddy. No weekday/weekend distinction reported." },
+    "green_fee_weekend_thb": { "value": 4800, "source": "web-search", "url": "https://www.royalchiangmai.com/golf_rate.php", "note": "Same as weekday." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Included in all-in rate. Separate caddie fee TBC." },
+    "cart_fee_thb": { "value": 700, "source": "web-search", "url": "https://www.golfchiangmai.com/royal-chiang-mai-golf-resort/" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/royal-chiang-mai-golf-club-resort/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/royal-chiang-mai-golf-club-resort/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfsavers.com/thailand/chiang-mai-golf-courses/royal-chiang-mai-golf-resort" },
+    "website": { "value": "https://www.royalchiangmai.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 52 081 995", "source": "web-search", "url": "https://www.royalchiangmai.com/" },
+    "address": { "value": "169 Moo 5, Mae Faek, San Sai District, Chiang Mai 50290, Thailand", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37997-royal-chiangmai-golf-resort" },
+    "latitude": { "value": 18.8417, "source": "model", "url": null, "note": "Approximate — Mae Faek, San Sai, 40km north of Chiang Mai. Needs map verification." },
+    "longitude": { "value": 99.0000, "source": "model", "url": null, "note": "Approximate — needs map verification." },
+    "distance_from_bangkok_km": { "value": 700, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null, "note": "Chiang Mai is ~700km from Bangkok — visitors fly (1h10m BKK→CNX), drive not practical" },
+    "google_maps_url": { "value": null, "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.royalchiangmai.com/golf.php" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Royal Chiang Mai Golf Club & Resort is one of the most storied courses in Northern Thailand: an 18-hole, par-72 design by five-time British Open champion Peter Thomson that opened in February 1996. Set within a valley approximately 40 kilometres north of Chiang Mai city in the Mae Faek area of San Sai district, the course was conceived as a British parkland layout with links-style elements, including pot bunkers, bump-and-run approaches, and undulating fairways that reward ground game strategy rather than purely aerial attacks on the pin. The site was formerly a fruit orchard, and the mature trees that remain give the layout a sense of scale and shade unusual for a course of its age. The surrounding mountain ridges frame the property and provide a scenic backdrop throughout the round. The resort facilities include a hotel, restaurant, and practice facilities, making it a self-contained golf destination for visitors staying north of Chiang Mai city.",
+
+    "layout_and_experience": "Thomson's design at 6,969 yards is modest by modern yardage standards — there are no black tees — but the challenge comes from strategic placement rather than length. The course is heavily tree-lined, with corridors that punish anything other than a shaped tee shot. The fairways are undulating rather than flat, and Thomson incorporated the natural slope of the valley floor to create subtle ground-level hazards that affect the lie of approach shots.\n\nPot bunkers — deep, steep-faced, and strategically positioned to catch half-missed approaches — are the signature defense mechanism. On almost every hole, the correct line from the tee must be determined with the bunker positions in mind; players who simply aim at the flag without checking the bunker map will find themselves in trouble repeatedly. Water hazards also appear on most holes, adding a second layer of strategic complexity that makes yardage book or caddie advice essential.\n\nThe greens are fast, well-maintained Tiff Dwarf bermuda surfaces that reward accurate iron play. There are no easy pars on this course — the Thomson philosophy of making every hole interesting regardless of length is evident throughout. Peak condition is maintained in the cool dry season (November–March), when the course presents at its best for tournament-standard play.",
+
+    "tips": "Book directly through the resort website (royalchiangmai.com) or via a golf booking platform to confirm current rates — the high-season all-in rate of approximately 4,800 THB includes caddie and cart. Ask the caddie for yardage book guidance on the pot bunker positions from each tee before selecting a target line. The course rewards accuracy over distance, so a conservative strategy off the tee — particularly on tight par-4s — will reduce double-bogey risk. Morning rounds are cooler, and the valley mist in the November–January period adds a distinctive atmosphere. The resort is approximately 40 minutes north of Chiang Mai city by road; a Grab taxi from Chiang Mai centre is a practical option.",
+
+    "location_and_access": "Royal Chiang Mai Golf Club & Resort is located in Mae Faek, San Sai District, approximately 40 kilometres north of Chiang Mai city and 40 minutes by road from Chiang Mai International Airport (CNX). Visitors from Bangkok fly to CNX (approximately 1 hour 10 minutes from Suvarnabhumi or Don Mueang) — driving the 700 kilometres from Bangkok is not practical for a golf trip. The course is best reached by private car, Grab taxi, or the resort's transfer service. The route follows Route 1001 northward from Chiang Mai toward Phrao, turning toward Mae Faek.",
+
+    "rental_cta_context": "Playing Royal Chiang Mai Golf Club — Peter Thomson's classic Northern Thailand design? Rent premium clubs in Bangkok — delivered to your hotel before you fly — so you arrive ready to tackle those pot bunkers without the hassle of airline baggage fees."
+  }
+}

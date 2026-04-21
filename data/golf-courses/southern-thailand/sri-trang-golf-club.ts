@@ -1,0 +1,48 @@
+import type { GolfCourse } from '@/types/golf-courses'
+
+export const course: GolfCourse = {
+  slug: 'sri-trang-golf-club',
+  region: 'southern-thailand',
+  name: `Sri Trang Golf Club`,
+  province: `Trang`,
+  designer: null,
+  holes: 18,
+  par: 72,
+  year_opened: 2005,
+  green_fee_weekday_thb: 300,
+  green_fee_weekend_thb: 400,
+  caddie_fee_thb: null,
+  cart_fee_thb: null,
+  caddie_required: false,
+  cart_required: false,
+  driving_range: true,
+  website: null,
+  phone: '+66 75 218 966',
+  latitude: 7.79,       // model estimate — unconfirmed GPS
+  longitude: 99.62,     // model estimate — unconfirmed GPS
+  distance_from_bangkok_km: 850,
+  drive_time_from_bangkok_min: 660,
+  google_maps_url: null,
+  club_rental_available: null,
+  club_rental_fee_thb: null,
+  club_rental_brands: null,
+  schema_markup: "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"GolfCourse\",\n  \"name\": \"Sri Trang Golf Club\",\n  \"url\": \"https://len.golf/golf-courses/southern-thailand/sri-trang-golf-club\",\n  \"description\": null,\n  \"address\": {\n    \"@type\": \"PostalAddress\",\n    \"addressLocality\": \"Huai Yot\",\n    \"addressRegion\": \"Trang\",\n    \"addressCountry\": \"TH\"\n  },\n  \"geo\": {\n    \"@type\": \"GeoCoordinates\",\n    \"latitude\": 7.79,\n    \"longitude\": 99.62\n  },\n  \"telephone\": \"+66 75 218 966\",\n  \"priceRange\": \"฿\",\n  \"amenityFeature\": [\n    {\n      \"@type\": \"LocationFeatureSpecification\",\n      \"name\": \"Driving Range\",\n      \"value\": true\n    }\n  ]\n}",
+  prose: {
+    overview: `Sri Trang Golf Club is an 18-hole, par 72 course in Huai Yot district, Trang province — opened in 2005 on the grounds of the Prayarassadanupradit military camp and open to civilian golfers daily. The course sits in the coastal lowlands of the Trang basin, approximately 850 km south of Bangkok and midway between Hat Yai and Krabi on the Andaman coast corridor. At 300 THB on weekdays (provisional — call +66 75 218 966 to confirm), it is the lowest-priced 18-hole round in the region — a reflection of its government-associated operation rather than any deficiency in the layout, which stretches to 6,555 yards from the blue tees with a coastal setting that brings sea breeze into play. Trang province is less visited by international golfers than Hat Yai or Phuket, making Sri Trang a genuinely off-the-beaten-track option for golfers who want to experience the deep south beyond the usual tourist circuits.`,
+    layout_and_experience: `Sri Trang Golf Club occupies a flat site in the Trang coastal lowlands — terrain shaped by rubber plantations, scattered palms, and proximity to the Andaman coastline. The 18-hole layout at par 72 is a functional design without a credited architect: built to serve the military community and local residents, it was never designed for the international golf market, and it shows in the practical, unpretentious character of the routing.\n\nAt 6,555 yards from the blue tees, the course is not long by modern standards, but the constant sea breeze — a characteristic of Andaman coast courses in this latitude — changes the effective difficulty depending on wind direction and speed. The flat terrain means the challenge comes primarily from wind, water hazards where they appear, and green complexity rather than elevation.\n\nThe course is maintained to a standard appropriate for its price tier and constituency — local members, military personnel, and the small community of golfers in the Huai Yot and Trang city area. Greens and fairways receive regular care and are playable year-round. Practice facilities including a driving range are on site.\n\nSri Trang occupies a distinctive niche: it is the only 18-hole course in Trang province and one of the most affordable full rounds in southern Thailand. For golfers making the Andaman coast journey between Phuket and Hat Yai, it represents a viable detour stop — a round that can be squeezed into a driving itinerary without advance planning or significant cost.`,
+    tips: `Sri Trang Golf Club is Thailand's value proposition for the deep south: at 300 THB weekday (provisional — call +66 75 218 966 to confirm current rates), it's the lowest-priced 18-hole round in the southern region. Caddie and cart fees are not confirmed online — call ahead to understand the full cost and whether either is mandatory.\n\nTrang city is 25–30 km from the course in Huai Yot district and is served by Trang Airport (daily flights from Bangkok, approximately 1.5 hours). The course is reachable by Grab or taxi from Trang city. For golfers driving the Andaman coast, Trang is midway between Krabi (approximately 140 km north) and Hat Yai (approximately 100 km southeast), making Sri Trang a natural stop on a multi-destination southern road trip.\n\nTrang province sits on the Andaman coast and receives its heaviest rain from May to October. The dry season (November to April) is the most reliably playable window, though the lower south's weather is generally more predictable than the northern Gulf coast.`,
+    location_and_access: `Sri Trang Golf Club is located at Prayarassadanupradit Camp, Tambon Lam Phura, Huai Yot District, Trang 92190 — approximately 850 km south of Bangkok in Trang province, midway along the Andaman peninsula. The nearest airport is Trang Airport (multiple daily flights from Bangkok, approximately 1.5 hours), with the course approximately 25–30 km from the city by road. Grab and local taxis connect Trang city to the course. For golfers on a self-drive peninsula route, the course is accessible from Highway 4 via the Huai Yot junction. Phone: +66 75 218 966.`,
+    rental_cta_context: `Making the journey south to Trang? LENGOLF can kit you out with premium rental clubs in Bangkok before you head for the coast — play Sri Trang without the weight of a bag on a long drive down the peninsula.`,
+  },
+  locales: {
+    en: {
+      title: `Sri Trang Golf Club — Green Fees, Course Guide & Club Rentals`,
+      meta_description: `Sri Trang Golf Club Trang: 18-hole par-72 on Andaman coast. From ฿300 weekday — the lowest green fee in southern Thailand. Civilian-open military course. Club rentals available in Bangkok.`,
+    },
+    ko: null,
+    zh: null,
+    ja: null,
+  },
+  status: 'published',
+  published_at: '2026-04-21',
+}

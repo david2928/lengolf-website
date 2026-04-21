@@ -1,0 +1,32 @@
+{
+  "slug": "the-pine-golf-lodge",
+  "region": "chiang-mai",
+  "status": "raw",
+  "collected_at": "2026-04-21",
+  "fields": {
+    "name": { "value": "The Pine Golf & Lodge", "source": "model", "url": null, "note": "IMPORTANT: All web research consistently places 'The Pine Golf & Lodge' in BANGKOK (northern suburbs, Krathum Ra, approximately 1 hour north of central Bangkok) — NOT in Chiang Mai. This appears to be a data error in the pipeline task list. The Pine Golf Lodge (thepinegolf.com) is an 18-hole par-72 Bangkok course. No Pine Golf course in Mae Rim / Mae Sa / Chiang Mai was found in research. This entry is filed as-is; the pipeline owner should verify whether a 'Pine Golf' property exists in Chiang Mai or whether this was a mistake." },
+    "province": { "value": null, "source": "model", "url": null, "note": "Cannot confirm — all sources place The Pine Golf & Lodge in Bangkok, not Chiang Mai." },
+    "designer": { "value": null, "source": "model", "url": null },
+    "holes": { "value": null, "source": "model", "url": null },
+    "par": { "value": null, "source": "model", "url": null },
+    "year_opened": { "value": null, "source": "model", "url": null },
+    "green_fee_weekday_thb": { "value": null, "source": "model", "url": null },
+    "green_fee_weekend_thb": { "value": null, "source": "model", "url": null },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null },
+    "caddie_required": { "value": null, "source": "model", "url": null },
+    "cart_required": { "value": null, "source": "model", "url": null },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": null, "source": "model", "url": null },
+    "phone": { "value": null, "source": "model", "url": null },
+    "address": { "value": null, "source": "model", "url": null },
+    "latitude": { "value": null, "source": "model", "url": null },
+    "longitude": { "value": null, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": null, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null },
+    "club_rental_available": { "value": null, "source": "model", "url": null },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  }
+}

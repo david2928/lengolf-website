@@ -1,0 +1,134 @@
+{
+  "slug": "rancho-charnvee-country-club",
+  "region": "bangkok",
+  "status": "raw",
+  "collected_at": "2026-04-21",
+  "notes": "WARNING: Multiple sources list this course under 'Khao Yai' region, not Bangkok. The course is in Pak Chong district, Nakhon Ratchasima (~180 km from Bangkok). Region assignment follows pipeline task spec — verify if this should be moved to khao-yai region. Green fees vary by source (1,000/2,000 THB on 1golf.eu; 1,050/1,850 on golfsavers.com; 2,000/3,000 THB reported in 2025 search snippet). Golfsavers and 1golf.eu figures appear more recent. Caddie fee not separately published — greenfee365.com states 'Greenfee includes Caddy' implying caddie is bundled. Cart is THB 600 per golforient.com/golfasian.",
+  "fields": {
+    "name": {
+      "value": "Rancho Charnvee Resort & Country Club",
+      "source": "official-website",
+      "url": "https://www.charnveeresortkhaoyai.com/"
+    },
+    "province": {
+      "value": "Nakhon Ratchasima",
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/rancho-charnvee-country-club/"
+    },
+    "designer": {
+      "value": "Bob McFarland",
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/khao-yai/rancho-charnvee-golf-country-club/"
+    },
+    "holes": {
+      "value": 18,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/rancho-charnvee-country-club/"
+    },
+    "par": {
+      "value": 72,
+      "source": "web-search",
+      "url": "https://www.1golf.eu/en/club/rancho-charnvee-country-club/"
+    },
+    "year_opened": {
+      "value": 2010,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/khao-yai/rancho-charnvee-golf-country-club/"
+    },
+    "green_fee_weekday_thb": {
+      "value": 1050,
+      "source": "web-search",
+      "url": "https://www.golfsavers.com/thailand/khao-yai-golf-courses/rancho-charnvee-resort-country-club",
+      "note": "1golf.eu shows 1,000 THB weekday; golfsavers.com shows 1,050 THB; a 2025 web snippet reported 2,000 THB weekday — rates may have changed. Recommend verification."
+    },
+    "green_fee_weekend_thb": {
+      "value": 1850,
+      "source": "web-search",
+      "url": "https://www.golfsavers.com/thailand/khao-yai-golf-courses/rancho-charnvee-resort-country-club",
+      "note": "1golf.eu shows 2,000 THB weekend; golfsavers.com shows 1,850 THB. Recommend verification."
+    },
+    "caddie_fee_thb": {
+      "value": null,
+      "source": "not-found",
+      "url": null,
+      "note": "greenfee365.com states 'Greenfee includes Caddy' — caddie may be bundled in green fee rather than charged separately. Caddie tip of 400 THB/18 holes noted on monkeytravel.com."
+    },
+    "cart_fee_thb": {
+      "value": 600,
+      "source": "web-search",
+      "url": "https://www.golforient.com/thailand-golf/khao-yai/rancho-charnvee-resort-country-club/"
+    },
+    "caddie_required": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.greenfee365.com/golf-course/rancho-charnvee-resort-and-country-club",
+      "note": "greenfee365.com states 'Greenfee includes Caddy'; thailandgolfers.com lists caddie as compulsory."
+    },
+    "cart_required": {
+      "value": null,
+      "source": "not-found",
+      "url": null,
+      "note": "Cart listed as available at THB 600 but no source explicitly states it is mandatory."
+    },
+    "driving_range": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://greenfee365.com/golf-course/rancho-charnvee-resort-and-country-club"
+    },
+    "website": {
+      "value": "https://www.charnveeresortkhaoyai.com/",
+      "source": "web-search",
+      "url": "https://www.allsquaregolf.com/golf-courses/thailand/rancho-charnvee-country-club"
+    },
+    "phone": {
+      "value": "+66 44 756 210",
+      "source": "web-search",
+      "url": "https://ranchocharnveebuddy.com/golf-course/",
+      "note": "Multiple numbers found: 044-756-210 (main), 088-375-4466 (golf line), 088-378-2324. Primary listed as +66 44 756 210."
+    },
+    "latitude": {
+      "value": 14.6395,
+      "source": "web-search",
+      "url": "https://deemples.com/th-en/course/rancho-charnvee-resort-country-club",
+      "note": "Deemples: 14.6388709; baigolf.com: 14.640135. Average used: 14.6395. Both sources consistent — located in Pak Chong district, Nakhon Ratchasima."
+    },
+    "longitude": {
+      "value": 101.4591,
+      "source": "web-search",
+      "url": "https://deemples.com/th-en/course/rancho-charnvee-resort-country-club",
+      "note": "Deemples: 101.4601216; baigolf.com: 101.4580704. Average used: 101.4591."
+    },
+    "distance_from_bangkok_km": {
+      "value": 180,
+      "source": "web-search",
+      "url": "https://w.baigolf.com/course.php?act=detail&golf_course_id=7173&lan=en_us"
+    },
+    "drive_time_from_bangkok_min": {
+      "value": 135,
+      "source": "web-search",
+      "url": "https://w.baigolf.com/course.php?act=detail&golf_course_id=7173&lan=en_us",
+      "note": "baigolf.com reports 2h 14min from central Bangkok; golforient.com says 1.5 hours; monkeytravel.com says 2h30m from Suvarnabhumi. Using 2h15m (135 min) as representative off-peak estimate."
+    },
+    "google_maps_url": {
+      "value": null,
+      "source": "not-found",
+      "url": null,
+      "note": "No direct Google Maps CID URL found. Address: 333/2 Moo 12, Khanong Phra, Pak Chong District, Nakhon Ratchasima 30130."
+    },
+    "club_rental_available": {
+      "value": true,
+      "source": "web-search",
+      "url": "https://www.golforient.com/thailand-golf/khao-yai/rancho-charnvee-resort-country-club/"
+    },
+    "club_rental_fee_thb": {
+      "value": 1000,
+      "source": "web-search",
+      "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/khao-yai/rancho-charnvee-golf-country-club/"
+    },
+    "club_rental_brands": {
+      "value": null,
+      "source": "not-found",
+      "url": null
+    }
+  }
+}

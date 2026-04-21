@@ -1,0 +1,32 @@
+{
+  "slug": "ubonrat-golf-course",
+  "region": "isan",
+  "status": "raw",
+  "collected_at": "2026-04-21",
+  "notes": "POSSIBLE DUPLICATE of ubolratana-dam-golf-course. Both courses share the same phone number (+66 43 372 228) and are located in Ubolratana District, Khon Kaen. AllSquare lists them 0.1 km apart as separate entries. The 1golf.eu listing for 'Ubonrat Golf Course' (distinct from their 'Ubolratana Dam Golf Course' listing) describes it as a parkland course owned by 'the water company' near a hydro-electric station — consistent with EGAT ownership. One theory: this is the old 9-hole course near the dam, while Ubolratana Dam Golf Course is the full 18-hole redesign. Another theory: simply different spellings of the same course. Green fees in 1golf.eu listing (THB 300 weekday / 500 weekend) are lower than the golfdd.com EGAT course listing (THB 560/760 including caddie), suggesting possible distinction. GPS coordinates provisionally the same as Ubolratana Dam course pending field verification.",
+  "fields": {
+    "name": { "value": "Ubonrat Golf Course", "source": "web-search", "url": "https://www.1golf.eu/en/club/ubonrat-golf-course/" },
+    "province": { "value": "Khon Kaen", "source": "web-search", "url": "https://www.1golf.eu/en/club/ubonrat-golf-course/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.1golf.eu/en/club/ubonrat-golf-course/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.1golf.eu/en/club/ubonrat-golf-course/" },
+    "latitude": { "value": 16.7547, "source": "web-search", "url": "https://www.golfshake.com/course/view/17965/Ubol_Ratana_Dam_Golf_Course.html" },
+    "longitude": { "value": 102.668, "source": "web-search", "url": "https://www.golfshake.com/course/view/17965/Ubol_Ratana_Dam_Golf_Course.html" },
+    "green_fee_weekday_thb": { "value": 300, "source": "web-search", "url": "https://www.1golf.eu/en/club/ubonrat-golf-course/" },
+    "green_fee_weekend_thb": { "value": 500, "source": "web-search", "url": "https://www.1golf.eu/en/club/ubonrat-golf-course/" },
+    "caddie_required": { "value": null, "source": "not-found", "url": null },
+    "cart_required": { "value": null, "source": "not-found", "url": null },
+    "website": { "value": null, "source": "not-found", "url": null },
+    "phone": { "value": "+66 43 372 228", "source": "web-search", "url": "https://www.1golf.eu/en/club/ubonrat-golf-course/" },
+    "distance_from_bangkok_km": { "value": 450, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 360, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "not-found", "url": null },
+    "designer": { "value": "Electricity Generating Authority of Thailand (EGAT)", "source": "web-search", "url": "https://www.allsquaregolf.com/golf-courses/thailand/ubonrat-golf-course" },
+    "year_opened": { "value": 1986, "source": "web-search", "url": "https://www.1golf.eu/en/club/ubonrat-golf-course/" },
+    "caddie_fee_thb": { "value": 200, "source": "web-search", "url": "https://www.1golf.eu/en/club/ubonrat-golf-course/" },
+    "cart_fee_thb": { "value": null, "source": "not-found", "url": null },
+    "driving_range": { "value": null, "source": "not-found", "url": null },
+    "club_rental_available": { "value": null, "source": "not-found", "url": null },
+    "club_rental_fee_thb": { "value": null, "source": "not-found", "url": null },
+    "club_rental_brands": { "value": null, "source": "not-found", "url": null }
+  }
+}

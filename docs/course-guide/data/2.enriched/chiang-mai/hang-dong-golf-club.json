@@ -1,0 +1,44 @@
+{
+  "slug": "hang-dong-golf-club",
+  "region": "chiang-mai",
+  "status": "enriched",
+  "collected_at": "2026-04-21",
+  "enriched_at": "2026-04-21",
+  "fields": {
+    "name": { "value": "Hang Dong Golf Club Chiangmai", "source": "web-search", "url": "https://www.1golf.eu/en/club/hang-dong-golf-club-chiangmai/" },
+    "province": { "value": "Chiang Mai", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37903-hang-dong-golf-club" },
+    "designer": { "value": null, "source": "model", "url": null },
+    "holes": { "value": 9, "source": "web-search", "url": "https://www.1golf.eu/en/club/hang-dong-golf-club-chiangmai/", "note": "9 holes only. Par 36. 2,751 yards. NOTE: This is not a full 18-hole course. Pipeline should decide whether 9-hole courses are publishable on the LENGOLF golf guide platform." },
+    "par": { "value": 36, "source": "web-search", "url": "https://www.1golf.eu/en/club/hang-dong-golf-club-chiangmai/" },
+    "year_opened": { "value": null, "source": "model", "url": null },
+    "green_fee_weekday_thb": { "value": 250, "source": "web-search", "url": "https://www.1golf.eu/en/club/hang-dong-golf-club-chiangmai/", "note": "9-hole rate with caddie, walking only. Very affordable local course." },
+    "green_fee_weekend_thb": { "value": 250, "source": "web-search", "url": "https://www.1golf.eu/en/club/hang-dong-golf-club-chiangmai/", "note": "Same as weekday." },
+    "caddie_fee_thb": { "value": 200, "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37903-hang-dong-golf-club", "note": "Caddie tip/fee." },
+    "cart_fee_thb": { "value": 300, "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37903-hang-dong-golf-club", "note": "Approximate." },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37903-hang-dong-golf-club" },
+    "cart_required": { "value": false, "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37903-hang-dong-golf-club", "note": "Walking permitted." },
+    "driving_range": { "value": null, "source": "model", "url": null },
+    "website": { "value": null, "source": "model", "url": null, "note": "No official website found." },
+    "phone": { "value": null, "source": "model", "url": null },
+    "address": { "value": "95 Moo 9, Tambon Namprae, Hang Dong District, Chiang Mai 50230, Thailand", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37903-hang-dong-golf-club" },
+    "latitude": { "value": 18.6700, "source": "model", "url": null, "note": "Approximate — Hang Dong district. Needs map verification." },
+    "longitude": { "value": 98.9100, "source": "model", "url": null, "note": "Approximate — needs map verification." },
+    "distance_from_bangkok_km": { "value": 700, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null, "note": "Chiang Mai is ~700km from Bangkok — visitors fly (1h10m BKK→CNX), drive not practical" },
+    "google_maps_url": { "value": null, "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.leadingcourses.com/clubs/asia+thailand/hang-dong-golf-club-chiangmai", "note": "Club rental mentioned at approximately 350-450 THB all-in." },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "PUBLISHING NOTE: Hang Dong Golf Club Chiangmai is a 9-hole course (par 36, 2,751 yards) in the Hang Dong district south of Chiang Mai. It is a budget-friendly local facility with very affordable green fees (approximately 250 THB for 9 holes with caddie) and is primarily visited by local Chiang Mai residents rather than international golf tourists. The pipeline should determine whether 9-hole courses fit the publishing criteria for the LENGOLF golf guide before investing in a full content build for this entry. If publishable, the course offers value-for-money casual golf near the airport.\n\nHang Dong Golf Club is open to the public and features a short layout with water hazards on several holes, including a notable island green on hole 8. The course is entirely walkable and situated in the Hang Dong district, approximately 15 minutes from Chiang Mai International Airport — making it accessible for golfers with time to fill before a flight departure.",
+
+    "layout_and_experience": "The 9-hole layout plays 2,751 yards to par 36 across relatively flat Hang Dong valley terrain. Water hazards are the primary challenge — the course is described as having a lot of variety and water trouble for its compact size. The island green on hole 8 is the signature feature, requiring a full carry over water to a small target. The layout is designed primarily for recreational play rather than championship competition, and the very low green fees reflect its local, accessible character. Walking is permitted and comfortable on this flat course, making it one of the few Chiang Mai courses where playing without a cart is practical.",
+
+    "tips": "Hang Dong Golf Club is best approached as a casual, affordable local round rather than a destination course. Green fees of approximately 250 THB for 9 holes with caddie (plus 200 THB caddie tip) represent the best value golf in the Chiang Mai area. Club rental is available at approximately 350–450 THB all-in. The 9-hole layout is particularly good for a quick round before a late-afternoon flight from CNX airport (approximately 15 minutes away). Contact the course directly before visiting to confirm current opening times and fees — no official website is available.",
+
+    "location_and_access": "Hang Dong Golf Club Chiangmai is located in Tambon Namprae, Hang Dong district, approximately 15 minutes south of Chiang Mai International Airport (CNX). Visitors from Bangkok fly to CNX (approximately 1 hour 10 minutes from Suvarnabhumi or Don Mueang) — driving the 700 kilometres from Bangkok is not practical. The Hang Dong location makes this the closest golf course to CNX airport in the Chiang Mai area. A Grab taxi from the airport takes approximately 15 minutes.",
+
+    "rental_cta_context": "Fitting in a quick 9 holes at Hang Dong Golf Club before your flight? Rent premium clubs in Bangkok — delivered to your hotel before you fly — so you can play everywhere on your Chiang Mai trip without carrying a bag through the airport."
+  }
+}

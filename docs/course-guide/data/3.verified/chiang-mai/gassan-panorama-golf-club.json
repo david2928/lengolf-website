@@ -1,0 +1,45 @@
+{
+  "slug": "gassan-panorama-golf-club",
+  "region": "chiang-mai",
+  "status": "verified",
+  "collected_at": "2026-04-21",
+  "enriched_at": "2026-04-21",
+  "verified_at": "2026-04-21",
+  "fields": {
+    "name": { "value": "Gassan Panorama Golf Club", "source": "official-website", "url": "https://www.gassangolf.com/gassan-panorama/en" },
+    "province": { "value": "Lamphun", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/42538-gassan-panorama-golf-club" },
+    "designer": { "value": "Pravit Reang-Po", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-panorama-golf-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfsavers.com/thailand/chiang-mai-golf-courses/gassan-panorama-golf-club" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfsavers.com/thailand/chiang-mai-golf-courses/gassan-panorama-golf-club", "note": "Course features a par-6 hole — total par confirmed as 72 via multiple sources." },
+    "year_opened": { "value": 2006, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-panorama-golf-club/", "note": "Originally 2006 as Gassan Marina. Redesigned and relaunched as Gassan Panorama in 2017." },
+    "green_fee_weekday_thb": { "value": 1400, "source": "web-search", "url": "https://www.golfsavers.com/thailand/chiang-mai-golf-courses/gassan-panorama-golf-club", "note": "Base green fee. High-season all-in packages from November 2025 listed as higher — need direct confirmation of full package rate." },
+    "green_fee_weekend_thb": { "value": 1400, "source": "web-search", "url": "https://www.golfsavers.com/thailand/chiang-mai-golf-courses/gassan-panorama-golf-club", "note": "Same as weekday." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Included in compulsory package. Separate fee not confirmed." },
+    "cart_fee_thb": { "value": null, "source": "model", "url": null, "note": "Included in compulsory package. Separate fee not confirmed." },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-panorama-golf-club/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-panorama-golf-club/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-panorama-golf-club/" },
+    "website": { "value": "https://www.gassangolf.com/gassan-panorama/en", "source": "official-website", "url": null },
+    "phone": { "value": "+66 53 507 006", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/42538-gassan-panorama-golf-club" },
+    "address": { "value": "99 Moo 17, Makua Jae, Ban Thi, Lamphun 51180, Thailand", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-panorama-golf-club/" },
+    "latitude": { "value": 18.4980, "source": "model", "url": null, "note": "Approximate. Needs map verification.", "blocker": true },
+    "longitude": { "value": 99.0050, "source": "model", "url": null, "note": "Approximate. Needs map verification.", "blocker": true },
+    "distance_from_bangkok_km": { "value": 700, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "blocker": true },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-panorama-golf-club/" },
+    "club_rental_fee_thb": { "value": 1400, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-panorama-golf-club/" },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Gassan Panorama Golf Club is an 18-hole championship course in Ban Thi, Lamphun province, redesigned and relaunched in 2017 as the third and most architecturally ambitious property in the Gassan Golf Group. Originally opened in 2006 as Gassan Marina Golf Club, the course was closed for a comprehensive redesign by Thai architect Pravit Reang-Po that transformed it into one of the longest golf courses in Thailand, stretching to 7,761 yards from the championship tees. The layout is built around a large central lake — all 18 holes were designed with views of or interaction with this water feature — giving the course a dramatic, open aspect quite different from the forested mountain settings of Gassan Khuntan. The clubhouse architecture blends European and Middle Eastern influences, providing an unexpectedly grand entrance for what is otherwise a Thai countryside setting. Gassan Panorama appeals to low-handicap players who want maximum yardage and a visually spectacular water-dominated layout, while the mountain skyline backdrop adds the Northern Thai scenic character that makes the region distinct.",
+
+    "layout_and_experience": "The routing places the central lake as the defining element of nearly every hole. Par-3s regularly demand full carries over open water, and approach shots to many of the par-4s and par-5s must navigate lake margins. The course's signature feature is an unusually long par hole — reportedly a par-6 measuring approximately 666 yards — that gives the layout its exceptional total yardage and a strategic challenge absent from most Thai championship courses.\n\nAt 7,761 yards, Gassan Panorama is not well-suited to high-handicap players from back tees; the forward tee positions reduce the layout to a more manageable 7,072 yards, and the course plays differently depending on the combination of tees selected. The fairways are generous in width, encouraging big drives, but the lake edges punish anything that drifts off line on the approach. Several par-3s carry over the full width of the lake — these require confident club selection and provide some of the most photographed moments in Northern Thai golf.\n\nThe greens were built to be large and slightly elevated, providing receptive targets on long approach shots but with subtle contours that reward precise putting. The course plays best in the cool dry season (November–February).",
+
+    "tips": "Confirm current all-in package rates when booking — the 1,400 THB base green fee is the starting price; bundled packages including caddie and cart are typically offered. Play from the appropriate tee for your handicap — the back tees demand a long, accurate game. The club rental rate is approximately 1,400 THB for a set — confirm at the pro shop on arrival.",
+
+    "location_and_access": "Gassan Panorama Golf Club is located in Ban Thi, Lamphun province, approximately 25 minutes south of Chiang Mai International Airport (CNX). Visitors from Bangkok fly to CNX (approximately 1 hour 10 minutes from Suvarnabhumi or Don Mueang) — driving the 700 kilometres from Bangkok is not practical. A Grab taxi from CNX takes approximately 25 minutes.",
+
+    "rental_cta_context": "Heading to Gassan Panorama Golf Club for a round on one of Northern Thailand's longest courses? Rent premium clubs in Bangkok — delivered to your hotel before you fly — so you arrive in Chiang Mai ready to play without airline baggage fees."
+  }
+}

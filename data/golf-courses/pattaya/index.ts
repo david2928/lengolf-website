@@ -27,8 +27,11 @@ const index = {
     'the-emerald-golf-club',
     // Phase 2 — Batch 3
     'bangpra-international-golf-club',
+    'st-andrews-2000',
     'treasure-hill-golf-country-club',
     'wangjuntr-golf-park',
+    // Phase 3 — Batch 1
+    'kabinburi-sportclub',
   ],
 }
 

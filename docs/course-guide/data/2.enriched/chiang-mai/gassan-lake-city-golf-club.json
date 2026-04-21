@@ -1,0 +1,44 @@
+{
+  "slug": "gassan-lake-city-golf-club",
+  "region": "chiang-mai",
+  "status": "enriched",
+  "collected_at": "2026-04-21",
+  "enriched_at": "2026-04-21",
+  "fields": {
+    "name": { "value": "Gassan Lake City Golf Club", "source": "web-search", "url": "https://www.1golf.eu/en/club/gassan-lake-city-golf-club/", "note": "Now officially renamed Gassan Legacy Golf Club. Original name used for slug/historical reference; current operating name is Gassan Legacy." },
+    "province": { "value": "Lamphun", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37895-gassan-legacy-golf-club" },
+    "designer": { "value": "Schmidt-Curley Design (renovation)", "source": "web-search", "url": "https://www.golfchiangmai.com/gassan-legacy-golf-club/", "note": "Original designer unknown. Closed 2013, fully redesigned and reopened 2014 by Schmidt-Curley." },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.1golf.eu/en/club/gassan-lake-city-golf-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.1golf.eu/en/club/gassan-lake-city-golf-club/" },
+    "year_opened": { "value": 2005, "source": "web-search", "url": "https://www.1golf.eu/en/club/gassan-lake-city-golf-club/", "note": "Original course opened 2005; closed 2013 for renovation; reopened as Gassan Legacy 2014." },
+    "green_fee_weekday_thb": { "value": 4200, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/gassan-legacy-golf-club.htm", "note": "High season (Nov–Mar) rate. No weekday/weekend distinction — same rate everyday." },
+    "green_fee_weekend_thb": { "value": 4200, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/gassan-legacy-golf-club.htm", "note": "Same as weekday — no weekday/weekend distinction." },
+    "caddie_fee_thb": { "value": 300, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/gassan-legacy-golf-club.htm" },
+    "cart_fee_thb": { "value": 750, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/gassan-legacy-golf-club.htm" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-legacy-golf-club/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-legacy-golf-club/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfchiangmai.com/gassan-legacy-golf-club/" },
+    "website": { "value": "https://www.gassangolf.com/gassan-legacy/en", "source": "official-website", "url": null },
+    "phone": { "value": "+66 53 507 006", "source": "web-search", "url": "https://www.1golf.eu/en/club/gassan-lake-city-golf-club/" },
+    "address": { "value": "88 Moo 7, Ban Thi, Ban Thi District, Lamphun 51180, Thailand", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37895-gassan-legacy-golf-club" },
+    "latitude": { "value": 18.5083, "source": "model", "url": null, "note": "Approximate — Ban Thi, Lamphun. Needs map verification." },
+    "longitude": { "value": 99.0167, "source": "model", "url": null, "note": "Approximate — needs map verification." },
+    "distance_from_bangkok_km": { "value": 700, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null, "note": "Lamphun is ~700km from Bangkok — visitors fly (1h10m BKK→CNX), drive not practical" },
+    "google_maps_url": { "value": null, "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-legacy-golf-club/" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Gassan Lake City Golf Club — now operating as Gassan Legacy Golf Club — is an 18-hole championship course in Ban Thi, Lamphun province, approximately 30 minutes south of Chiang Mai International Airport. Originally opened in 2005, the course was closed in 2013 for a full-scale renovation by American design firm Schmidt-Curley and relaunched in 2014 under the Legacy name. The renovation transformed a dated layout into one of the most water-intensive courses in Northern Thailand, with water hazards appearing on every hole — a design feature that demands accurate iron play and careful course management throughout the round. The course is part of the Gassan Golf Group, which operates three courses in the Lamphun/Chiang Mai area. At 6,852 yards and par 72, Gassan Legacy plays to a demanding standard and draws both local members and visiting golfers looking for a well-conditioned, challenging layout that contrasts with the more forested mountain settings of the Gassan Khuntan and Panorama properties.",
+
+    "layout_and_experience": "The Schmidt-Curley renovation was designed around a central lake complex that anchors the middle section of the course. The routing uses the water strategically: from the opening holes, which establish a parkland rhythm through tree-lined fairways, the layout progressively introduces water as a central threat, culminating in a mid-round stretch where approach shots must carry or thread past lake edges on virtually every hole.\n\nThe par-72 layout includes five par-3s of varying length — from short pitch-and-run distances to full carries over water — and five par-5s that offer risk-reward options for players willing to challenge the wet margins. The fairways are generous by Northern Thailand standards, but the combination of water on both sides of approach corridors and firm, fast greens means that accurate ball-striking is rewarded and mis-hits are costly.\n\nGreens were designed with Tiff Dwarf bermuda grass for good speed and resilience through the tropical growing season. The course condition has been consistently praised since the 2014 reopening. Caddie service is compulsory, which is particularly useful on a layout where local knowledge of the correct landing zones — and the bail-out options — can save several shots for first-time visitors.\n\nThe high season (November–March) brings the best weather conditions, with low humidity and clear days that showcase the distant mountain skyline from the more exposed fairways.",
+
+    "tips": "The green fee of 4,200 THB covers the high-season all-in rate including caddie and cart. Confirm low-season (April–October) pricing when booking, as rates may be lower. Play an early morning round — the course is most beautiful in morning light when mist lifts off the central lake. Because every hole involves water, conservative club selection on approach shots pays dividends: the greens are receptive but the wet recovery options are limited. Carry a spare sleeve of balls. The caddie is an essential ally on this layout — ask them for the preferred landing zones and which bail-out areas avoid double-bogey territory. The course is approximately 30 minutes from CNX airport, making it a practical first or last round on a Chiang Mai golf trip without needing to transit into the city centre.",
+
+    "location_and_access": "Gassan Legacy Golf Club (formerly Gassan Lake City) is located in Ban Thi, Lamphun province, approximately 30 minutes by car south of Chiang Mai International Airport (CNX). Visitors from Bangkok fly to CNX (approximately 1 hour 10 minutes from Suvarnabhumi or Don Mueang) — driving the 700 kilometres from Bangkok is not practical for a golf trip. The course is conveniently positioned between Chiang Mai city and Lamphun town on Route 11, making it accessible by Grab taxi or private transfer without navigating the city. The Gassan Golf Group can arrange transfers from Chiang Mai hotels on request.",
+
+    "rental_cta_context": "Playing Gassan Legacy Golf Club on your Chiang Mai trip? Rent premium clubs in Bangkok — delivered to your hotel before you fly — so you can focus on the course's famous water hazards without worrying about baggage fees."
+  }
+}

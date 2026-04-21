@@ -1,0 +1,32 @@
+{
+  "slug": "singha-park-khon-kaen",
+  "region": "isan",
+  "status": "raw",
+  "collected_at": "2026-04-21",
+  "notes": "Well-documented Asian Tour venue. Par confirmed as 72 by most sources; one source (1golf.eu) listed par 73 — 72 is more consistent and used by the official website. Designer confirmed as Golf East, opened 2009. Green fees: THB 1,500 weekday / 2,000 weekend per 1golf.eu; bundled packages at ~THB 3,000+ include cart and caddie. Caddie tip minimum 400 THB. Cart fee THB 700. Club rental THB 1,200. Phone +66 43 209 000 confirmed across multiple sources. Official website at singhapark-khonkaen.com confirmed live. GPS coordinates not found via web search — model estimate based on address (555 Moo 19, Khon Kaen-Mahasarakam Rd, Tambon Taphra, ~30 min from city).",
+  "fields": {
+    "name": { "value": "Singha Park Khon Kaen Golf Club", "source": "web-search", "url": "https://www.singhapark-khonkaen.com/" },
+    "province": { "value": "Khon Kaen", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/singha-park-khon-kaen-golf-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.singhapark-khonkaen.com/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/singha-park-khon-kaen-golf-club/" },
+    "latitude": { "value": 16.35, "source": "model", "url": null },
+    "longitude": { "value": 102.95, "source": "model", "url": null },
+    "green_fee_weekday_thb": { "value": 1500, "source": "web-search", "url": "https://www.1golf.eu/en/club/singha-park-khon-kaen-golf-club/" },
+    "green_fee_weekend_thb": { "value": 2000, "source": "web-search", "url": "https://www.1golf.eu/en/club/singha-park-khon-kaen-golf-club/" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/singha-park-khon-kaen-golf-club/" },
+    "cart_required": { "value": false, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/singha-park-khon-kaen-golf-club/" },
+    "website": { "value": "https://www.singhapark-khonkaen.com/", "source": "web-search", "url": null },
+    "phone": { "value": "+66 43 209 000", "source": "web-search", "url": "https://www.1golf.eu/en/club/singha-park-khon-kaen-golf-club/" },
+    "distance_from_bangkok_km": { "value": 400, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/singha-park-khon-kaen-golf-club/" },
+    "drive_time_from_bangkok_min": { "value": 300, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "not-found", "url": null },
+    "designer": { "value": "Golf East", "source": "web-search", "url": "https://www.golflux.com/course/singha-park-khon-kaen-golf-club/" },
+    "year_opened": { "value": 2009, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/singha-park-khon-kaen-golf-club/" },
+    "caddie_fee_thb": { "value": 400, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/singha-park-khon-kaen-golf-club/" },
+    "cart_fee_thb": { "value": 700, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/singha-park-khon-kaen-golf-club/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfsavers.com/thailand/isaan-golf-courses/singha-park-khon-kaen-golf-club" },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/singha-park-khon-kaen-golf-club/" },
+    "club_rental_fee_thb": { "value": 1200, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/singha-park-khon-kaen-golf-club/" },
+    "club_rental_brands": { "value": null, "source": "not-found", "url": null }
+  }
+}

@@ -102,7 +102,7 @@ Includes Nonthaburi, Pathum Thani, Nakhon Pathom, Samut Prakan, Samut Sakhon, Ay
 | 68 | Royal Thai Air Force Golf Course | `royal-thai-air-force-golf-course` | skip | MIL | skip |
 | 69 | Royal Irrigation Dept. Golf Course | `royal-irrigation-dept-golf-course` | skip | GOV | skip |
 | 70 | Royal Bangkok Sports Club | `royal-bangkok-sports-club` | skip | Private members only | skip |
-| 71 | Rancho Charnvee Country Club | `rancho-charnvee-country-club` | 3 | | pending |
+| 71 | Rancho Charnvee Country Club | `rancho-charnvee-country-club` | 3 | WRONG REGION — Pak Chong, Nakhon Ratchasima (Khao Yai corridor); moved to khao-yai region | skip |
 
 ---
 
@@ -123,7 +123,7 @@ Includes Chonburi, Chachoengsao, Rayong, Chanthaburi. 90-150 min from Bangkok.
 | 9 | Crystal Bay Golf Resort | `crystal-bay-golf-resort` | 2 | 27-hole, opened 1988 | published |
 | 10 | Pattaya Country Club & Resort | `pattaya-country-club` | 2 | | published |
 | 11 | Phoenix Gold Golf Club Pattaya | `phoenix-gold-golf-club-pattaya` | 2 | | published |
-| 12 | St Andrews 2000 | `st-andrews-2000` | 2 | par 74; green fees unconfirmed post-renovation | held |
+| 12 | St Andrews 2000 | `st-andrews-2000` | 2 | par 74; Desmond Muirhead design; green fees null (published 2026-04-21, contact for rates) | published |
 | 13 | Khao Kheow Country Club | `khao-kheow-country-club` | 2 | Sriracha, Chonburi | published |
 | 14 | Mountain Shadow Golf Club | `mountain-shadow-golf-club` | 2 | aka Panya Hills | published |
 | 15 | Pleasant Valley Golf & Country Club | `pleasant-valley-golf-country-club` | 2 | | published |
@@ -142,7 +142,7 @@ Includes Chonburi, Chachoengsao, Rayong, Chanthaburi. 90-150 min from Bangkok.
 | 27 | Tublamu Royal Navy Golf Course | `tublamu-royal-navy-golf-course` | skip | MIL | skip |
 | 28 | Bangpra International Golf Club | `bangpra-international-golf-club` | 2 | Si Racha, Chonburi; also listed in Bangkok region | published |
 | 29 | Wangjuntr Golf Park | `wangjuntr-golf-park` | 2 | Wang Chan, Rayong; 54 holes; transferred from Bangkok held list | published |
-| 30 | Kabinburi Sportclub | `kabinburi-sportclub` | 3 | Prachin Buri province | pending |
+| 30 | Kabinburi Sportclub | `kabinburi-sportclub` | 3 | Prachin Buri province | verified |
 
 ---
 
@@ -202,9 +202,12 @@ Includes Pak Chong, Korat. 2-2.5 hours from Bangkok.
 | 5 | Seoul Siam Resort Country Club | `seoul-siam-resort-country-club` | 2 | aka Pakchong Highland CC | published |
 | 6 | Life Privilege Country Club | `life-privilege-country-club` | 2 | Formerly Mission Hills Khao Yai — re-regioned from Bangkok 2026-04-20; Jack Nicklaus Signature | published |
 | 7 | Rooks Korat Country Club | `rooks-korat-country-club` | 2 | Pak Thong Chai, ~240 km from Bangkok | published |
-| 8 | Suranaree Golf Club | `suranaree-golf-club` | 3 | | pending |
+| 8 | Suranaree Golf Club | `suranaree-golf-club` | 3 | 9H + MIL — Camp Suranaree army base, Nakhon Ratchasima; 9-hole layout confirmed; not suitable for publication | skip |
+| 12 | Rancho Charnvee Resort & Country Club | `rancho-charnvee-country-club` | 3 | Pak Chong — moved from Bangkok region (row 71); Bob McFarland design, opened 2010 | verified |
 | 9 | Royal Hills Golf Resort & Spa | `royal-hills-golf-resort` | 2 | Sarika, Nakhon Nayok — moved from Hua Hin list; Nelson & Wright design | pending |
-| 10 | Thanarat Golf Club | `thanarat-golf-club` | skip | MIL | skip |
+| 10 | Forest Hills Country Club | `forest-hills-country-club` | 2 | Muak Lek, Saraburi; aka Sir James CC; 27-hole; moved from Kanchanaburi batch | published |
+| 11 | Friendship Meadows Country Club | `friendship-meadows-country-club` | 2 | Pak Chong, Nakhon Ratchasima; Nelson & Haworth; moved from Kanchanaburi batch | pending |
+| 12 | Thanarat Golf Club | `thanarat-golf-club` | skip | MIL | skip |
 
 ---
 
@@ -212,15 +215,15 @@ Includes Pak Chong, Korat. 2-2.5 hours from Bangkok.
 
 | # | Course Name | Slug | Phase | Notes | Status |
 |---|---|---|---|---|---|
-| 1 | River Kwai Golf & Country Club | `river-kwai-golf-country-club` | 2 | | pending |
-| 2 | Grand Prix Golf Club | `grand-prix-golf-club` | 2 | Auto-themed, 18-hole | pending |
-| 3 | Dragon Hills Golf & Country Club | `dragon-hills-golf-country-club` | 2 | | pending |
-| 4 | Royal Ratchaburi Golf Club & Resort | `royal-ratchaburi-golf-club` | 2 | | pending |
-| 5 | Woo Sung Castle Hill Country Club | `woo-sung-castle-hill` | 2 | aka Ratchaburi CC | pending |
-| 6 | Evergreen Hills Golf Club & Resort | `evergreen-hills-golf-club` | 2 | | pending |
-| 7 | Friendship Meadows Country Club | `friendship-meadows-country-club` | 2 | | pending |
-| 8 | Forest Hills Country Club | `forest-hills-country-club` | 2 | aka Sir James CC | pending |
-| 9 | Blue Sapphire Golf & Resort | `blue-sapphire-golf-resort` | 2 | Ban Phe area, Kanchanaburi (River Kwai corridor) — moved from Pattaya skip list | pending |
+| 1 | River Kwai Golf & Country Club | `river-kwai-golf-country-club` | 2 | Ferry crossing required; green fees unconfirmed | published |
+| 2 | Grand Prix Golf Club | `grand-prix-golf-club` | 2 | Auto-themed, 18-hole; GPS unconfirmed | published |
+| 3 | Dragon Hills Golf & Country Club | `dragon-hills-golf-country-club` | 2 | Ratchaburi province; GPS unconfirmed | published |
+| 4 | Royal Ratchaburi Golf Club & Resort | `royal-ratchaburi-golf-club` | 2 | Ratchaburi province; fees vary by source | published |
+| 5 | Woo Sung Castle Hill Country Club | `woo-sung-castle-hill` | 2 | aka Ratchaburi CC; Ratchaburi province | published |
+| 6 | Evergreen Hills Golf Club & Resort | `evergreen-hills-golf-club` | 2 | | published |
+| 7 | Friendship Meadows Country Club | `friendship-meadows-country-club` | 2 | WRONG REGION — Pak Chong, Nakhon Ratchasima (Khao Yai corridor); moved to Khao Yai | skip |
+| 8 | Forest Hills Country Club | `forest-hills-country-club` | 2 | WRONG REGION — Muak Lek, Saraburi (Khao Yai corridor); published in Khao Yai region | skip |
+| 9 | Blue Sapphire Golf & Resort | `blue-sapphire-golf-resort` | 2 | Bo Phloi, Kanchanaburi; 36-hole ex-sapphire mine | published |
 
 ---
 
@@ -232,19 +235,19 @@ Includes Mae Rim, San Kamphaeng, Lamphun, Hang Dong, Doi Saket.
 |---|---|---|---|---|---|
 | 1 | Alpine Golf Resort Chiang Mai ★ | `alpine-golf-resort-chiang-mai` | 1 | Award-winning mountain course | pending |
 | 2 | Chiangmai Highlands Golf & Spa Resort ★ | `chiangmai-highlands-golf` | 1 | Schmidt-Curley design | pending |
-| 3 | Gassan Khuntan Golf & Resort | `gassan-khuntan-golf-resort` | 2 | Next to Khuntan NP | pending |
-| 4 | Gassan Lake City Golf Club | `gassan-lake-city-golf-club` | 2 | | pending |
-| 5 | Gassan Panorama Golf Club | `gassan-panorama-golf-club` | 2 | | pending |
-| 6 | Royal Chiang Mai Golf Club & Resort | `royal-chiang-mai-golf-club` | 2 | Peter Thomson design | pending |
-| 7 | Summit Green Valley Chiangmai | `summit-green-valley-chiangmai` | 2 | | pending |
-| 8 | Chiangmai Green Valley Country Club | `chiangmai-green-valley-country-club` | 2 | | pending |
-| 9 | North Hill Chiang Mai Golf | `north-hill-chiang-mai` | 2 | | pending |
-| 10 | Mae Jo Golf Club & Resort | `mae-jo-golf-club` | 2 | | pending |
-| 11 | Chiangmai Inthanon Golf & Nature Resort | `chiangmai-inthanon-golf` | 2 | Opened 2009 | pending |
-| 12 | Lanna Golf Course | `lanna-golf-course` | 2 | 27-hole, in-city | pending |
-| 13 | The Royal Chiangmai Golf Resort | `the-royal-chiangmai-golf-resort` | 2 | | pending |
-| 14 | The Pine Golf & Lodge | `the-pine-golf-lodge` | 2 | | pending |
-| 15 | Hang Dong Golf Club | `hang-dong-golf-club` | 2 | | pending |
+| 3 | Gassan Khuntan Golf & Resort | `gassan-khuntan-golf-resort` | 2 | Next to Khuntan NP; province=Lamphun | published |
+| 4 | Gassan Lake City Golf Club (now Gassan Legacy) | `gassan-lake-city-golf-club` | 2 | Province=Lamphun; rebranded 2014 | published |
+| 5 | Gassan Panorama Golf Club | `gassan-panorama-golf-club` | 2 | Province=Lamphun; longest course in Thailand (7,761 yds) | published |
+| 6 | Royal Chiang Mai Golf Club & Resort | `royal-chiang-mai-golf-club` | 2 | Peter Thomson design, 1996 | published |
+| 7 | Summit Green Valley Chiangmai | `summit-green-valley-chiangmai` | 2 | Dennis Griffiths design, 1990 | published |
+| 8 | Chiangmai Green Valley Country Club | `chiangmai-green-valley-country-club` | 2 | DUPLICATE — same course as Summit Green Valley (row 7) | skip |
+| 9 | North Hill Chiang Mai Golf | `north-hill-chiang-mai` | 2 | Closest course to CNX airport (~15 min) | published |
+| 10 | Mae Jo Golf Club & Resort | `mae-jo-golf-club` | 2 | Seni Thirawat design, 2004; orchard setting | published |
+| 11 | Chiangmai Inthanon Golf & Nature Resort | `chiangmai-inthanon-golf` | 2 | Opened 2009; near Doi Inthanon NP | published |
+| 12 | Lanna Golf Course | `lanna-golf-course` | 2 | 27-hole, in-city; oldest in CM (1974) | published |
+| 13 | The Royal Chiangmai Golf Resort | `the-royal-chiangmai-golf-resort` | 2 | DUPLICATE — same course as Royal Chiang Mai Golf Club (row 6); royalchiangmai.com | skip |
+| 14 | The Pine Golf & Lodge | `the-pine-golf-lodge` | 2 | WRONG REGION — located in Bangkok northern suburbs, not Chiang Mai | skip |
+| 15 | Hang Dong Golf Club | `hang-dong-golf-club` | 2 | 9-hole par-36; published per pipeline decision 2026-04-21 | published |
 | 16 | Chiangmai Gymkhana Club Golf Course (9H) | `chiangmai-gymkhana-golf` | skip | 9H / historic | skip |
 
 ---
@@ -309,18 +312,18 @@ Includes Khon Kaen, Udon Thani, Ubon Ratchathani, Nakhon Ratchasima (other than 
 
 | # | Course Name | Slug | Phase | Notes | Status |
 |---|---|---|---|---|---|
-| 1 | Dancoon Golf Club | `dancoon-golf-club` | 3 | Khon Kaen, opened 2008 | pending |
-| 2 | Singha Park Khon Kaen Golf Club | `singha-park-khon-kaen` | 3 | | pending |
-| 3 | Urbonrat Golf Course | `urbonrat-golf-course` | 3 | | pending |
-| 4 | Victory Park Golf & Country Club | `victory-park-golf-country-club` | 3 | Est. 1997 | pending |
-| 5 | Royal Creek Golf Club Udon Thani | `royal-creek-golf-club-udon-thani` | 3 | | pending |
-| 6 | Udon Golf Club & Resort | `udon-golf-club-resort` | 3 | | pending |
-| 7 | Great Lake Golf & Country Club | `great-lake-golf-country-club` | 3 | | pending |
-| 8 | Ubolratana Dam Golf Course | `ubolratana-dam-golf-course` | 3 | GOV | pending |
-| 9 | Siharatdechochai Golf Course | `siharatdechochai-golf-course` | 3 | | pending |
-| 10 | Suranaree Golf Club | `suranaree-golf-club-isan` | 3 | Korat | pending |
-| 11 | Ubonrat Golf Course | `ubonrat-golf-course` | 3 | | pending |
-| 12 | Uniland Golf & Country Club | `uniland-golf-country-club` | 3 | | pending |
+| 1 | Dancoon Golf Club | `dancoon-golf-club` | 3 | Khon Kaen, opened 2008, DC Golf Design | enriched |
+| 2 | Singha Park Khon Kaen Golf Club | `singha-park-khon-kaen` | 3 | Khon Kaen, Golf East design, Asian Tour venue | enriched |
+| 3 | Urbonrat Golf Course | `urbonrat-golf-course` | 3 | SKIP — likely typo/nonexistent; every search returns Ubonrat or Ubolratana results instead | skip |
+| 4 | Victory Park Golf & Country Club | `victory-park-golf-country-club` | 3 | Nong Khai province, James R. Vaughn design, 1997 | enriched |
+| 5 | Royal Creek Golf Club Udon Thani | `royal-creek-golf-club-udon-thani` | 3 | Udon Thani, opened 2018 | enriched |
+| 6 | Udon Golf Club & Resort | `udon-golf-club-resort` | 3 | SKIP — 9H confirmed; very limited public data | skip |
+| 7 | Great Lake Golf & Country Club | `great-lake-golf-country-club` | 3 | WRONG REGION — Pluak Daeng, Rayong (now King Naga Golf Club); reassign to pattaya region if published | skip |
+| 8 | Ubolratana Dam Golf Course | `ubolratana-dam-golf-course` | 3 | Khon Kaen, EGAT GOV course, public access confirmed, opened 1986 | enriched |
+| 9 | Siharatdechochai Golf Course | `siharatdechochai-golf-course` | 3 | SKIP — 9H + MIL (Royal Thai Army base, Khon Kaen) | skip |
+| 10 | Suranaree Golf Club | `suranaree-golf-club-isan` | 3 | Korat — 9H + MIL (Camp Suranaree army base); same course as khao-yai row 8; skip | skip |
+| 11 | Ubonrat Golf Course | `ubonrat-golf-course` | 3 | SKIP — probable duplicate of Ubolratana Dam Golf Course (same phone, 0.1 km apart per AllSquare) | skip |
+| 12 | Uniland Golf & Country Club | `uniland-golf-country-club` | 3 | WRONG REGION — Wang Yen, Nakhon Pathom (~57 km from Bangkok); reassign to bangkok region | skip |
 | 13 | Wing 23 Golf Course (9H — military) | `wing-23-golf-course` | skip | 9H, MIL | skip |
 
 ---

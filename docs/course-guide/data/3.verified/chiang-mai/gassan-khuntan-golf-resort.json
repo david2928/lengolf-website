@@ -1,0 +1,45 @@
+{
+  "slug": "gassan-khuntan-golf-resort",
+  "region": "chiang-mai",
+  "status": "verified",
+  "collected_at": "2026-04-21",
+  "enriched_at": "2026-04-21",
+  "verified_at": "2026-04-21",
+  "fields": {
+    "name": { "value": "Gassan Khuntan Golf & Resort", "source": "official-website", "url": "https://www.gassangolf.com/gassan-khuntan/en" },
+    "province": { "value": "Lamphun", "source": "web-search", "url": "https://www.1golf.eu/en/club/gassan-khuntan-golf-resort/", "note": "Physically in Mae Tha, Lamphun province — commonly listed under Chiang Mai region as nearest airport city" },
+    "designer": { "value": null, "source": "model", "url": null, "blocker": true },
+    "holes": { "value": 27, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-khuntan-golf-and-resort/", "note": "Three 9-hole courses: White Bridge (A, Par 36), River (B, Par 36), Mountain (C, Par 35). Main 18-hole combo is Par 72." },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-khuntan-golf-and-resort/" },
+    "year_opened": { "value": null, "source": "model", "url": null },
+    "green_fee_weekday_thb": { "value": 4200, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/gassan-khuntan-golf-resort.htm", "note": "High season (Nov–Mar) rate. Multiple sources confirm 4,200 THB. Separate low-season rate not confirmed — need direct contact." },
+    "green_fee_weekend_thb": { "value": 4200, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/gassan-khuntan-golf-resort.htm", "note": "Same as weekday — no weekday/weekend distinction." },
+    "caddie_fee_thb": { "value": 300, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/gassan-khuntan-golf-resort.htm" },
+    "cart_fee_thb": { "value": 750, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/gassan-khuntan-golf-resort.htm" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-khuntan-golf-and-resort/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-khuntan-golf-and-resort/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfsavers.com/thailand/chiang-mai-golf-courses/gassan-khuntan-golf-resort" },
+    "website": { "value": "https://www.gassangolf.com/gassan-khuntan/en", "source": "official-website", "url": null },
+    "phone": { "value": "+66 53 507 006", "source": "web-search", "url": "https://www.gassangolf.com/gassan-khuntan/en" },
+    "address": { "value": "222 Moo 3, Tha Pla Duk, Mae Tha, Lamphun 51140, Thailand", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37894-gassan-khuntan-golf-resort" },
+    "latitude": { "value": 18.4521, "source": "model", "url": null, "note": "Approximate. Needs map verification.", "blocker": true },
+    "longitude": { "value": 98.9876, "source": "model", "url": null, "note": "Approximate. Needs map verification.", "blocker": true },
+    "distance_from_bangkok_km": { "value": 700, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "blocker": true },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-khuntan-golf-and-resort/" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Gassan Khuntan Golf & Resort is a 27-hole mountain forest course set within Lamphun province, approximately 45 minutes by road south of Chiang Mai International Airport. Operated by the Gassan Golf Group — the dominant golf brand in Northern Thailand — the course is built across three distinct nine-hole loops named White Bridge (Course A), River (Course B), and Mountain (Course C). The main 18-hole combination plays to par 72 over approximately 7,062 yards. The setting is one of the most dramatically natural in Northern Thailand: the course is ringed by the forested ridges of Doi Khuntan National Park, and several holes play with the mountain silhouette as a constant backdrop. This remote, mountainous atmosphere distinguishes Gassan Khuntan from the more accessible resort courses nearer Chiang Mai city and gives it a reputation as the wildest and most adventurous of the Gassan Group properties. Golfers seeking a change of pace from valley parkland layouts will find the rugged terrain and elevated setting a compelling alternative.",
+
+    "layout_and_experience": "The three nine-hole loops each have a different character. The White Bridge nine features the course's most striking water feature — an island green accessed by a distinctive white footbridge — along with sharp doglegs and elevated tee boxes that expose multiple layers of mountain scenery. The River nine follows the contours of a natural waterway, with several fairways squeezed between treelines and the stream corridor; accuracy is at a premium, as wayward shots find either the water or thick rough. The Mountain nine is the most demanding of the three, playing through steeper terrain with blind tee shots and dramatic elevation changes that force players to adjust their club selection on almost every hole.\n\nThroughout, the course uses the natural topography rather than heavy earthmoving, so fairways roll and bend with the land. Grass bunkers and steep-edged hazards are the primary defense — traditional sand bunkers are less prominent than at the lower-elevation resort courses. The greens are firm and true, with subtle breaks that reward local caddie advice. The caddie corps at Gassan Khuntan is well-regarded for their knowledge of a layout that demands experience to score well on.\n\nPace of play can be slower in peak season (November–March) when the course is busiest. Morning tee times from 7:00–8:00am are strongly recommended to secure comfortable pacing and the coolest temperatures before midday heat builds through the mountain clearings.",
+
+    "tips": "Book an early morning tee time (7:00–8:00am) to enjoy the mountain mist views and avoid the hottest part of the day. The green fee of 4,200 THB covers the high season (November–March) all-inclusive rate; confirm low-season pricing (April–October) directly with the resort as rates may be lower. Caddie tips of 300–500 THB per round are customary and much appreciated — caddies at this course are essential guides given the terrain. The Mountain nine is best left for the final loop if energy permits, as it is the most physically demanding. Bring sunscreen and a rain jacket: afternoon cloud cover over the Khuntan ridge can bring brief showers even in the dry season. The resort has a restaurant at the clubhouse — the terrace view is one of the best at any Chiang Mai-area course.",
+
+    "location_and_access": "Gassan Khuntan Golf & Resort is located in Mae Tha, Lamphun province, approximately 45 minutes south of Chiang Mai International Airport (CNX) and roughly one hour from central Chiang Mai. Visitors from Bangkok fly to CNX (approximately 1 hour 10 minutes from Suvarnabhumi or Don Mueang) — driving the 700 kilometres from Bangkok is not practical for a golf trip. The resort is accessible by private car or Grab taxi from Chiang Mai city; the drive follows Route 11 (the old Chiang Mai–Lamphun road) south through Lamphun town before turning toward the mountains.",
+
+    "rental_cta_context": "Heading to Gassan Khuntan Golf & Resort for a round in the mountains of Northern Thailand? Rent premium clubs in Bangkok — delivered to your hotel before you fly — so you can travel light and skip the airline baggage fees."
+  }
+}

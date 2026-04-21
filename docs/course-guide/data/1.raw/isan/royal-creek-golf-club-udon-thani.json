@@ -1,0 +1,32 @@
+{
+  "slug": "royal-creek-golf-club-udon-thani",
+  "region": "isan",
+  "status": "raw",
+  "collected_at": "2026-04-21",
+  "notes": "Modern resort course opened 2018-2019 (sources vary slightly; 2018 per GolfAsian, 2019 per GolfLux). Caddie and cart are compulsory. Green fee: THB 1,600 (from 2019 forum post — likely outdated). More recent bundled packages run ~USD 45 per person for green fee + caddie + cart. Cart fee THB 600 confirmed by GolfAsian. Caddie fee quoted at THB 300 in forum posts. GPS coordinates 17.464591, 102.964080 found via Google Maps reference in search results. Phone +66 93 224 9747 confirmed across multiple sources. Distance from Bangkok approx 570 km / 6h45m driving. Driving range confirmed. Club rental THB 1,000, shoe rental THB 300.",
+  "fields": {
+    "name": { "value": "Royal Creek Golf Club and Resort", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/royal-creek-golf-club-and-resort/" },
+    "province": { "value": "Udon Thani", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/royal-creek-golf-club-and-resort/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/royal-creek-golf-club-and-resort/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/royal-creek-golf-club-and-resort/" },
+    "latitude": { "value": 17.4646, "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/43627-royal-creek-golf-club-resort" },
+    "longitude": { "value": 102.9641, "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/43627-royal-creek-golf-club-resort" },
+    "green_fee_weekday_thb": { "value": 1600, "source": "web-search", "url": "https://www.udonmap.com/udonthaniforum/anyone-played-royal-creek-golf-club-yet-t48761.html" },
+    "green_fee_weekend_thb": { "value": null, "source": "not-found", "url": null },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/royal-creek-golf-club-and-resort/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/royal-creek-golf-club-and-resort/" },
+    "website": { "value": "https://royalcreekgolfthai.wordpress.com/", "source": "web-search", "url": null },
+    "phone": { "value": "+66 93 224 9747", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/royal-creek-golf-club-and-resort/" },
+    "distance_from_bangkok_km": { "value": 570, "source": "web-search", "url": "https://www.distancecalculator.net/from-bangkok-to-udon-thani" },
+    "drive_time_from_bangkok_min": { "value": 405, "source": "web-search", "url": "https://www.distancecalculator.net/from-bangkok-to-udon-thani" },
+    "google_maps_url": { "value": null, "source": "not-found", "url": null },
+    "designer": { "value": null, "source": "not-found", "url": null },
+    "year_opened": { "value": 2018, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/royal-creek-golf-club-and-resort/" },
+    "caddie_fee_thb": { "value": 300, "source": "web-search", "url": "https://www.udonmap.com/udonthaniforum/anyone-played-royal-creek-golf-club-yet-t48761.html" },
+    "cart_fee_thb": { "value": 600, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/royal-creek-golf-club-and-resort/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/royal-creek-golf-club-and-resort/" },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/royal-creek-golf-club-and-resort/" },
+    "club_rental_fee_thb": { "value": 1000, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/isaan/royal-creek-golf-club-and-resort/" },
+    "club_rental_brands": { "value": null, "source": "not-found", "url": null }
+  }
+}

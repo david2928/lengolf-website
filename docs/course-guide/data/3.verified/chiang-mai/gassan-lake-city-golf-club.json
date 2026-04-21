@@ -1,0 +1,45 @@
+{
+  "slug": "gassan-lake-city-golf-club",
+  "region": "chiang-mai",
+  "status": "verified",
+  "collected_at": "2026-04-21",
+  "enriched_at": "2026-04-21",
+  "verified_at": "2026-04-21",
+  "fields": {
+    "name": { "value": "Gassan Lake City Golf Club", "source": "web-search", "url": "https://www.1golf.eu/en/club/gassan-lake-city-golf-club/", "note": "Now officially Gassan Legacy Golf Club. Slug uses original name per pipeline list." },
+    "province": { "value": "Lamphun", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37895-gassan-legacy-golf-club" },
+    "designer": { "value": "Schmidt-Curley Design (renovation 2014)", "source": "web-search", "url": "https://www.golfchiangmai.com/gassan-legacy-golf-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.1golf.eu/en/club/gassan-lake-city-golf-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.1golf.eu/en/club/gassan-lake-city-golf-club/" },
+    "year_opened": { "value": 2005, "source": "web-search", "url": "https://www.1golf.eu/en/club/gassan-lake-city-golf-club/", "note": "Original 2005; redesigned 2014." },
+    "green_fee_weekday_thb": { "value": 4000, "source": "web-search", "url": "https://greenfee365.com/golf-course/gassan-legacy-golf-club", "note": "Stage 3 verification: 4,000 THB all-in (green fee + caddie + cart). Stage 1 had 4,200 THB — slight discrepancy.", "dispute": "Stage 1 found 4,200 THB on chiangmaigolfclub.com; Stage 3 found 4,000 THB all-in on greenfee365.com — using 4,000 THB as conservative Stage 3 figure but flagging for direct contact verification." },
+    "green_fee_weekend_thb": { "value": 4000, "source": "web-search", "url": "https://greenfee365.com/golf-course/gassan-legacy-golf-club", "note": "Same as weekday." },
+    "caddie_fee_thb": { "value": 300, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/gassan-legacy-golf-club.htm", "note": "Included in all-in package. 400 THB caddie tip required separately after round." },
+    "cart_fee_thb": { "value": 750, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/gassan-legacy-golf-club.htm" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-legacy-golf-club/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-legacy-golf-club/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfchiangmai.com/gassan-legacy-golf-club/" },
+    "website": { "value": "https://www.gassangolf.com/gassan-legacy/en", "source": "official-website", "url": null },
+    "phone": { "value": "+66 53 507 006", "source": "web-search", "url": "https://www.1golf.eu/en/club/gassan-lake-city-golf-club/" },
+    "address": { "value": "88 Moo 7, Ban Thi, Ban Thi District, Lamphun 51180, Thailand", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37895-gassan-legacy-golf-club" },
+    "latitude": { "value": 18.5083, "source": "model", "url": null, "note": "Approximate — needs map verification.", "blocker": true },
+    "longitude": { "value": 99.0167, "source": "model", "url": null, "note": "Approximate — needs map verification.", "blocker": true },
+    "distance_from_bangkok_km": { "value": 700, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "blocker": true },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/gassan-legacy-golf-club/" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "Gassan Lake City Golf Club — now operating as Gassan Legacy Golf Club — is an 18-hole championship course in Ban Thi, Lamphun province, approximately 30 minutes south of Chiang Mai International Airport. Originally opened in 2005, the course was closed in 2013 for a full-scale renovation by American design firm Schmidt-Curley and relaunched in 2014 under the Legacy name. The renovation transformed a dated layout into one of the most water-intensive courses in Northern Thailand, with water hazards appearing on every hole — a design feature that demands accurate iron play and careful course management throughout the round. The course is part of the Gassan Golf Group, which operates three courses in the Lamphun/Chiang Mai area. At 6,852 yards and par 72, Gassan Legacy plays to a demanding standard and draws both local members and visiting golfers looking for a well-conditioned, challenging layout that contrasts with the more forested mountain settings of the Gassan Khuntan and Panorama properties.",
+
+    "layout_and_experience": "The Schmidt-Curley renovation was designed around a central lake complex that anchors the middle section of the course. The routing uses the water strategically: from the opening holes, which establish a parkland rhythm through tree-lined fairways, the layout progressively introduces water as a central threat, culminating in a mid-round stretch where approach shots must carry or thread past lake edges on virtually every hole.\n\nThe par-72 layout includes five par-3s of varying length and five par-5s that offer risk-reward options for players willing to challenge the wet margins. The fairways are generous by Northern Thailand standards, but the combination of water on both sides of approach corridors and firm, fast greens means that accurate ball-striking is rewarded and mis-hits are costly.\n\nGreens were designed with Tiff Dwarf bermuda grass for good speed and resilience through the tropical growing season. The course condition has been consistently praised since the 2014 reopening. Caddie service is compulsory, and local caddie knowledge of the correct landing zones can save several shots for first-time visitors.",
+
+    "tips": "The all-in green fee (approximately 4,000–4,200 THB including caddie and cart) is the standard rate — confirm pricing on booking as season rates vary. A caddie tip of 400 THB is expected and payable in cash to the caddie after the round. Play conservatively on the approach shots — the water margins offer limited recovery options and double-bogey territory is close on many holes. Carry a spare sleeve of balls. The course is approximately 30 minutes from CNX airport, making it a practical first or last round on a Chiang Mai golf trip.",
+
+    "location_and_access": "Gassan Legacy Golf Club is located in Ban Thi, Lamphun province, approximately 30 minutes by car south of Chiang Mai International Airport (CNX). Visitors from Bangkok fly to CNX (approximately 1 hour 10 minutes from Suvarnabhumi or Don Mueang) — driving the 700 kilometres from Bangkok is not practical. The course is accessible by Grab taxi or private car from Chiang Mai city or the airport; the Gassan Group can arrange transfers on request.",
+
+    "rental_cta_context": "Playing Gassan Legacy Golf Club on your Chiang Mai trip? Rent premium clubs in Bangkok — delivered to your hotel before you fly — so you can focus on the course's famous water hazards without worrying about baggage fees."
+  }
+}

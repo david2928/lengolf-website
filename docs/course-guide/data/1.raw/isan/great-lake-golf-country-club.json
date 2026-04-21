@@ -1,0 +1,32 @@
+{
+  "slug": "great-lake-golf-country-club",
+  "region": "isan",
+  "status": "raw",
+  "collected_at": "2026-04-21",
+  "notes": "WRONG REGION — Great Lake Golf & Country Club is located in Pluak Daeng, Rayong Province (Eastern Thailand, ~30 min from Pattaya), NOT in the Isan (Northeast) region. The course has since been renamed King Naga Golf Club. This course should be flagged as misassigned to the Isan region. Recommend skipping or reassigning to a Pattaya/Eastern Thailand region batch. Data below is provided for completeness based on the course's confirmed Rayong location.",
+  "fields": {
+    "name": { "value": "King Naga Golf Club (formerly Great Lake Golf & Country Club)", "source": "web-search", "url": "https://birdie.in.th/en/golf-courses/thailand/rayong/pluak-daeng/king-naga-golf-club-(formerly-great-lake-golf-and-country-club)" },
+    "province": { "value": "Rayong", "source": "web-search", "url": "https://www.1golf.eu/en/club/great-lake-golf-country-club/" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.1golf.eu/en/club/great-lake-golf-country-club/" },
+    "par": { "value": null, "source": "not-found", "url": null },
+    "latitude": { "value": null, "source": "not-found", "url": null },
+    "longitude": { "value": null, "source": "not-found", "url": null },
+    "green_fee_weekday_thb": { "value": null, "source": "not-found", "url": null },
+    "green_fee_weekend_thb": { "value": null, "source": "not-found", "url": null },
+    "caddie_required": { "value": null, "source": "not-found", "url": null },
+    "cart_required": { "value": null, "source": "not-found", "url": null },
+    "website": { "value": null, "source": "not-found", "url": null },
+    "phone": { "value": null, "source": "not-found", "url": null },
+    "distance_from_bangkok_km": { "value": 120, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 100, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "not-found", "url": null },
+    "designer": { "value": null, "source": "not-found", "url": null },
+    "year_opened": { "value": null, "source": "not-found", "url": null },
+    "caddie_fee_thb": { "value": null, "source": "not-found", "url": null },
+    "cart_fee_thb": { "value": null, "source": "not-found", "url": null },
+    "driving_range": { "value": null, "source": "not-found", "url": null },
+    "club_rental_available": { "value": null, "source": "not-found", "url": null },
+    "club_rental_fee_thb": { "value": null, "source": "not-found", "url": null },
+    "club_rental_brands": { "value": null, "source": "not-found", "url": null }
+  }
+}

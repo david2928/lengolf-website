@@ -1,0 +1,32 @@
+{
+  "slug": "sri-trang-golf-club",
+  "region": "southern-thailand",
+  "status": "raw",
+  "collected_at": "2026-04-21",
+  "notes": "Located at Prayarassadanupradit Camp (military base), Huai Yot district, Trang province. Civilian access confirmed — open to public daily per 1golf.eu. Similar to Ubolratana Dam and Sea Pines in that it's institutionally associated but publicly marketed. Year 2005 (Buddhist calendar 2548 per 1golf.eu). Green fee 300/400 THB is very low, consistent with government/military-associated course pricing. Phone +66 75 218 966 confirmed across 1golf.eu and initial search. No confirmed GPS — using model estimate for Huai Yot area (~7.79, 99.62). Province is Trang, not Songkhla. Distance from Bangkok: ~850 km by road (Trang is less far south than Hat Yai). No standalone official website found — email address points to trang-travel.com/sritranggolfcourse (a travel agency listing).",
+  "fields": {
+    "name": { "value": "Sri Trang Golf Club", "source": "web-search", "url": "https://www.1golf.eu/en/club/sri-trang-golf-club/" },
+    "province": { "value": "Trang", "source": "web-search", "url": "https://www.1golf.eu/en/club/sri-trang-golf-club/" },
+    "designer": { "value": null, "source": "not-found", "url": null },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.1golf.eu/en/club/sri-trang-golf-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.1golf.eu/en/club/sri-trang-golf-club/" },
+    "year_opened": { "value": 2005, "source": "web-search", "url": "https://www.1golf.eu/en/club/sri-trang-golf-club/" },
+    "green_fee_weekday_thb": { "value": 300, "source": "web-search", "url": "https://www.1golf.eu/en/club/sri-trang-golf-club/", "note": "PROVISIONAL — single source (1golf.eu). Consistent with military-associated course pricing." },
+    "green_fee_weekend_thb": { "value": 400, "source": "web-search", "url": "https://www.1golf.eu/en/club/sri-trang-golf-club/", "note": "PROVISIONAL — single source (1golf.eu)." },
+    "caddie_fee_thb": { "value": null, "source": "not-found", "url": null },
+    "cart_fee_thb": { "value": null, "source": "not-found", "url": null },
+    "caddie_required": { "value": null, "source": "not-found", "url": null },
+    "cart_required": { "value": null, "source": "not-found", "url": null },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.hole19golf.com/courses/sri-trang-golf-course" },
+    "website": { "value": null, "source": "not-found", "url": null },
+    "phone": { "value": "+66 75 218 966", "source": "web-search", "url": "https://www.1golf.eu/en/club/sri-trang-golf-club/" },
+    "latitude": { "value": 7.79, "source": "model", "url": null },
+    "longitude": { "value": 99.62, "source": "model", "url": null },
+    "distance_from_bangkok_km": { "value": 850, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 660, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "not-found", "url": null },
+    "club_rental_available": { "value": null, "source": "not-found", "url": null },
+    "club_rental_fee_thb": { "value": null, "source": "not-found", "url": null },
+    "club_rental_brands": { "value": null, "source": "not-found", "url": null }
+  }
+}

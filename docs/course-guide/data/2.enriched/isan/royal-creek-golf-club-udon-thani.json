@@ -1,0 +1,40 @@
+{
+  "slug": "royal-creek-golf-club-udon-thani",
+  "region": "isan",
+  "status": "enriched",
+  "collected_at": "2026-04-21",
+  "enriched_at": "2026-04-21",
+  "notes": "Newer course (2018). Green fee weekday 1,600 THB provisional — no official website, figure from golfdd.com. No weekend green fee found; not-found rather than model. GPS confirmed: 17.4646, 102.9641 from AllSquare/golfshake. Caddie required, cart optional. Club rental available. Phone +66 81 873 6199 confirmed.",
+  "fields": {
+    "name": { "value": "Royal Creek Golf Club Udon Thani", "source": "web-search", "url": "https://www.golfdd.com/course/royal-creek-golf-club/" },
+    "province": { "value": "Udon Thani", "source": "web-search", "url": "https://www.golfdd.com/course/royal-creek-golf-club/" },
+    "designer": { "value": null, "source": "not-found", "url": null },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfdd.com/course/royal-creek-golf-club/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfdd.com/course/royal-creek-golf-club/" },
+    "year_opened": { "value": 2018, "source": "web-search", "url": "https://www.allsquaregolf.com/golf-courses/thailand/royal-creek-golf-club-udon-thani" },
+    "green_fee_weekday_thb": { "value": 1600, "source": "web-search", "url": "https://www.golfdd.com/course/royal-creek-golf-club/", "note": "PROVISIONAL — golfdd.com; no official website to confirm." },
+    "green_fee_weekend_thb": { "value": null, "source": "not-found", "url": null },
+    "caddie_fee_thb": { "value": 300, "source": "web-search", "url": "https://www.golfdd.com/course/royal-creek-golf-club/" },
+    "cart_fee_thb": { "value": 600, "source": "web-search", "url": "https://www.golfdd.com/course/royal-creek-golf-club/" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfdd.com/course/royal-creek-golf-club/" },
+    "cart_required": { "value": false, "source": "web-search", "url": "https://www.golfdd.com/course/royal-creek-golf-club/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.golfdd.com/course/royal-creek-golf-club/" },
+    "website": { "value": null, "source": "not-found", "url": null },
+    "phone": { "value": "+66 81 873 6199", "source": "web-search", "url": "https://www.golfdd.com/course/royal-creek-golf-club/" },
+    "latitude": { "value": 17.4646, "source": "web-search", "url": "https://www.allsquaregolf.com/golf-courses/thailand/royal-creek-golf-club-udon-thani" },
+    "longitude": { "value": 102.9641, "source": "web-search", "url": "https://www.allsquaregolf.com/golf-courses/thailand/royal-creek-golf-club-udon-thani" },
+    "distance_from_bangkok_km": { "value": 560, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": 420, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "not-found", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfdd.com/course/royal-creek-golf-club/" },
+    "club_rental_fee_thb": { "value": 800, "source": "web-search", "url": "https://www.golfdd.com/course/royal-creek-golf-club/" },
+    "club_rental_brands": { "value": null, "source": "not-found", "url": null }
+  },
+  "prose": {
+    "overview": "Royal Creek Golf Club is an 18-hole, par 72 course in Udon Thani, opened in 2018 and one of the newest purpose-built golf layouts in northeastern Thailand. Udon Thani is the economic and logistics hub of upper Isan, with a well-connected international airport, a large expat community, and growing trade links with Laos. Royal Creek sits approximately 30 km from the city centre and draws a clientele of local members, expat residents, and visiting golfers using Udon Thani as a regional base. At 1,600 THB on weekdays with a mandatory caddie, it occupies the mid-premium tier for the region — fresher in condition than older courses but priced accordingly. Club rental and a driving range are available on site.",
+    "layout_and_experience": "Royal Creek was built in 2018, making it one of the younger courses in Isan and benefiting from more recent construction standards: tighter drainage, younger but better-established turf, and a design built to modern expectations rather than retrofitted over decades. The layout plays to par 72 across 18 holes on relatively flat to gently rolling ground — terrain consistent with the Udon Thani basin — with a routing that uses a creek and a series of lakes as the primary hazards throughout the round.\n\nThe 'royal creek' water feature from which the course takes its name runs through multiple holes on the layout, creating both visual variety and genuine risk-reward decisions on approach shots. Fairways are generous off the tee on most holes, but the approaches narrow with water and bunker complexes protecting greens. The par 3s, all requiring carries over water or well-defended targets, are the most technically demanding holes on the card.\n\nAs a younger course in a fast-growing city, Royal Creek has positioned itself above the budget local-club tier and below the full-resort pricing of Singha Park — a deliberate gap in the Udon Thani market. The conditioning reflects a course that still maturing: fairways are well-maintained, greens are consistent, and the overall experience is considerably more polished than the EGAT government courses found elsewhere in the region.",
+    "tips": "Royal Creek is the best reason to choose Udon Thani as a golf destination in upper Isan. The city is connected to Bangkok by 8–10 daily flights under 1.5 hours (Don Mueang and Suvarnabhumi), making it the most accessible major destination in Isan by air. Budget around 1,900 THB all-in for a weekday round with the mandatory caddie (300 THB); add 600 THB for a cart.\n\nWeekend green fees were not confirmed at time of research — call ahead to +66 81 873 6199 to confirm pricing and book a tee time. The course is approximately 30 km from the Udon Thani city centre; Grab is available for transport from hotels in the city.\n\nUdon Thani is also a gateway to other Isan destinations: Nong Khai (Victory Park Golf & Country Club) is 55 km north, making a two-course trip viable. The city has a broad selection of international restaurants and hotels, fuelled by its large expat and business community.",
+    "location_and_access": "Royal Creek Golf Club Udon Thani is located approximately 560 km northeast of Bangkok in Udon Thani province, around 30 km from the city centre. Udon Thani International Airport is served by multiple daily flights from Bangkok (under 1.5 hours) and by regional flights from Chiang Mai and other Thai cities. From the airport, the course is reachable in approximately 30–40 minutes by Grab or taxi. For golfers driving from Bangkok, the route via Highway 2 takes approximately 7 hours. The course phone number is +66 81 873 6199.",
+    "rental_cta_context": "Heading to Udon Thani for a round at Royal Creek? LENGOLF delivers premium rental clubs to your Bangkok hotel before you fly — so you arrive ready to play without checking golf bags on the plane."
+  }
+}

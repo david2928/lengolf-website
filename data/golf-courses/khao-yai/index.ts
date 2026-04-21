@@ -9,6 +9,10 @@ const slugs = [
   'rooks-korat-country-club',
   'royal-hills-golf-resort',
   'seoul-siam-resort-country-club',
+  // Phase 2 — Batch 2
+  'forest-hills-country-club',
+  // Phase 3 — Batch 1
+  'rancho-charnvee-country-club',
 ]
 
 export default { slugs }

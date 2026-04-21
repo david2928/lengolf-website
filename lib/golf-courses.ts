@@ -2,7 +2,7 @@ import 'server-only'
 import type { GolfCourse } from '@/types/golf-courses'
 
 // Supported regions — extend as new batches are published
-const REGIONS = ['bangkok', 'pattaya', 'hua-hin', 'phuket', 'khao-yai', 'chiang-mai'] as const
+const REGIONS = ['bangkok', 'pattaya', 'hua-hin', 'phuket', 'khao-yai', 'kanchanaburi', 'chiang-mai', 'isan', 'southern-thailand'] as const
 type Region = (typeof REGIONS)[number]
 
 /** Display metadata for each published region — used by index and hub pages. */
@@ -17,7 +17,7 @@ export const REGION_META: Record<string, { label: string; province: string; desc
     label: 'Pattaya',
     province: 'Chonburi & Eastern Seaboard',
     description: 'Pattaya and Thailand\'s Eastern Seaboard offer some of the country\'s most spectacular golf — championship venues that have hosted Asian Tour events, coastal courses with sea views, and private members\' clubs set among tropical hills.',
-    courseCount: 23,
+    courseCount: 24,
   },
   'hua-hin': {
     label: 'Hua Hin',
@@ -35,13 +35,31 @@ export const REGION_META: Record<string, { label: string; province: string; desc
     label: 'Khao Yai',
     province: 'Nakhon Ratchasima & Nakhon Nayok',
     description: 'Khao Yai and the Central Highlands offer courses within two to three hours of Bangkok — from Jack Nicklaus Signature designs at Kirimaya and Khao Yai Golf Club to Seve Ballesteros\'s only Thailand layout at Mountain Creek, budget-friendly woodland rounds at Bonanza and Seoul Siam, and the veteran Rooks Korat course in Pak Thong Chai.',
-    courseCount: 8,
+    courseCount: 9,
+  },
+  kanchanaburi: {
+    label: 'Kanchanaburi',
+    province: 'Kanchanaburi & Ratchaburi',
+    description: 'Kanchanaburi and the River Kwai corridor offer some of Thailand\'s most atmospheric golf — from a remote jungle course accessible only by ferry crossing to a 36-hole resort built on flooded sapphire mines, motorsport-themed layouts in Bo Phloi, and rugged hillside courses designed by Jim Engh and Artanan Yomchinda within 90 minutes of Bangkok.',
+    courseCount: 7,
   },
   'chiang-mai': {
     label: 'Chiang Mai',
     province: 'Chiang Mai',
-    description: 'Chiang Mai\'s golf scene combines a 27-hole parkland resort famous for Thailand\'s first paddy field greens with a demanding Schmidt-Curley highland layout set in the mountains of Mae On — two very different experiences, both reached by a short flight from Bangkok.',
-    courseCount: 2,
+    description: 'Chiang Mai offers Northern Thailand\'s most varied golf — from the Gassan group\'s three distinct championship layouts to the Peter Thomson-designed Royal Chiang Mai, the in-city 27-hole Lanna course, and the value-for-money Chiangmai Inthanon resort near Doi Inthanon National Park. All courses are a short flight from Bangkok.',
+    courseCount: 12,
+  },
+  isan: {
+    label: 'Isan',
+    province: 'Khon Kaen, Udon Thani & Nong Khai',
+    description: 'Isan — Thailand\'s vast northeastern plateau — offers golf at the extremes of value and scenery: the Asian Tour-standard Singha Park in Khon Kaen, walk-only rounds at the EGAT dam course above the Ubolratana Reservoir, a Mekong riverside club in Nong Khai near the Laos border, and one of the few courses in Thailand where neither caddie nor cart is mandatory.',
+    courseCount: 5,
+  },
+  'southern-thailand': {
+    label: 'Southern Thailand',
+    province: 'Songkhla & Trang',
+    description: 'Southern Thailand\'s golf runs from Perry Dye\'s jungle valley championship layout at Southern Hills — the most acclaimed course in the lower south, with a strong cross-border crowd from Malaysia — to Hat Yai city\'s budget Robert McFarland layout, and the deeply off-the-beaten-track Sri Trang Golf Club in Trang province, one of the cheapest 18-hole rounds in the country.',
+    courseCount: 3,
   },
 }
 

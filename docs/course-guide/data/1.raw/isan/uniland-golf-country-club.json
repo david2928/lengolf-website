@@ -1,0 +1,32 @@
+{
+  "slug": "uniland-golf-country-club",
+  "region": "isan",
+  "status": "raw",
+  "collected_at": "2026-04-21",
+  "notes": "WRONG REGION — Uniland Golf & Country Club is located in Wang Yen, Mueang Nakhon Pathom, Nakhon Pathom Province — approximately 57 km west of Bangkok. This is Central Thailand, not the Isan (Northeast) region. It should be in a Bangkok/Central region batch, not Isan. Data provided below for completeness. 27 holes (three 9-hole courses: A, B, C). Designer: O-Art Architects Ltd. Year opened: 1996. Phone +66 34 243 444 confirmed. Website unilandgolf.com confirmed. Distance from Bangkok ~57 km / ~60 min driving.",
+  "fields": {
+    "name": { "value": "Uniland Golf & Country Club", "source": "web-search", "url": "https://www.1golf.eu/en/club/uniland-golf-country-club/" },
+    "province": { "value": "Nakhon Pathom", "source": "web-search", "url": "https://www.1golf.eu/en/club/uniland-golf-country-club/" },
+    "holes": { "value": 27, "source": "web-search", "url": "https://www.1golf.eu/en/club/uniland-golf-country-club/" },
+    "par": { "value": 108, "source": "web-search", "url": "https://www.asiagolftrail.com/thailand/uniland-golf-resort" },
+    "latitude": { "value": null, "source": "not-found", "url": null },
+    "longitude": { "value": null, "source": "not-found", "url": null },
+    "green_fee_weekday_thb": { "value": 1200, "source": "web-search", "url": "https://www.1golf.eu/en/club/uniland-golf-country-club/" },
+    "green_fee_weekend_thb": { "value": 2000, "source": "web-search", "url": "https://www.1golf.eu/en/club/uniland-golf-country-club/" },
+    "caddie_required": { "value": null, "source": "not-found", "url": null },
+    "cart_required": { "value": null, "source": "not-found", "url": null },
+    "website": { "value": "https://www.unilandgolf.com/", "source": "web-search", "url": null },
+    "phone": { "value": "+66 34 243 444", "source": "web-search", "url": "https://www.1golf.eu/en/club/uniland-golf-country-club/" },
+    "distance_from_bangkok_km": { "value": 57, "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/38061-uniland-golf-country-club-course-a" },
+    "drive_time_from_bangkok_min": { "value": 60, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "not-found", "url": null },
+    "designer": { "value": "O-Art Architects Ltd", "source": "web-search", "url": "https://www.asiagolftrail.com/thailand/uniland-golf-resort" },
+    "year_opened": { "value": 1996, "source": "web-search", "url": "https://www.1golf.eu/en/club/uniland-golf-country-club/" },
+    "caddie_fee_thb": { "value": null, "source": "not-found", "url": null },
+    "cart_fee_thb": { "value": null, "source": "not-found", "url": null },
+    "driving_range": { "value": null, "source": "not-found", "url": null },
+    "club_rental_available": { "value": null, "source": "not-found", "url": null },
+    "club_rental_fee_thb": { "value": null, "source": "not-found", "url": null },
+    "club_rental_brands": { "value": null, "source": "not-found", "url": null }
+  }
+}

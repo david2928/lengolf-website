@@ -1,6 +1,6 @@
 # Golf Course Guide — Project Progress
 
-Last updated: 2026-04-20 (Hua Hin Phase 2 Batch 1 published; Royal Dusit → Bangkok; Treasure Hill → Pattaya; Royal Hills → Khao Yai)
+Last updated: 2026-04-21 (Phase 3 Batch 3: Southern Thailand — 3 courses published; Isan batch also published)
 
 ---
 
@@ -18,7 +18,7 @@ Live URL pattern: `https://www.len.golf/golf-courses/[region]/[slug]/`
 |---|---|---|---|
 | Phase 1 | 34 | Bangkok, Pattaya, Hua Hin, Phuket, Khao Yai | Bangkok done · Pattaya done · Phuket done · rest pending |
 | Phase 2 | 118 | All regions (deeper cuts) | Bangkok Batch 1 done (12/50) · Pattaya Batch 1 done (9/25) |
-| Phase 3 | 37 | Niche / remote regions | Not started |
+| Phase 3 | 35 | Niche / remote regions | Batch 1 published (2 courses — Rancho Charnvee/Khao Yai, Kabinburi/Pattaya); 2 skipped (Suranaree GC 9H+MIL) |
 | Skip | 17 | Military, private members-only | — |
 
 ---
@@ -173,6 +173,53 @@ Pipeline run: 2026-04-20
 
 **Notes:** Both courses charge an "everyday" rate with no weekday/weekend distinction. Alpine's high-season (Nov–Mar) rate is unconfirmed — page caveats the low-season rate. GPS approximate for both; Google Maps URLs missing. Tracked in `data/data-gaps.md`.
 
+### Phase 2 Batch 1 — PUBLISHED (10 / 13 courses; 3 skipped)
+
+Pipeline run: 2026-04-21
+
+| # | Course | Slug | Page live |
+|---|---|---|---|
+| 1 | Gassan Khuntan Golf & Resort | `gassan-khuntan-golf-resort` | ✅ /golf-courses/chiang-mai/gassan-khuntan-golf-resort/ |
+| 2 | Gassan Legacy Golf Club (was Gassan Lake City) | `gassan-lake-city-golf-club` | ✅ /golf-courses/chiang-mai/gassan-lake-city-golf-club/ |
+| 3 | Gassan Panorama Golf Club | `gassan-panorama-golf-club` | ✅ /golf-courses/chiang-mai/gassan-panorama-golf-club/ |
+| 4 | Royal Chiang Mai Golf Club & Resort | `royal-chiang-mai-golf-club` | ✅ /golf-courses/chiang-mai/royal-chiang-mai-golf-club/ |
+| 5 | Summit Green Valley Chiangmai | `summit-green-valley-chiangmai` | ✅ /golf-courses/chiang-mai/summit-green-valley-chiangmai/ |
+| 6 | North Hill Golf Club Chiang Mai | `north-hill-chiang-mai` | ✅ /golf-courses/chiang-mai/north-hill-chiang-mai/ |
+| 7 | Mae Jo Golf Club & Resort | `mae-jo-golf-club` | ✅ /golf-courses/chiang-mai/mae-jo-golf-club/ |
+| 8 | Chiangmai Inthanon Golf & Natural Resort | `chiangmai-inthanon-golf` | ✅ /golf-courses/chiang-mai/chiangmai-inthanon-golf/ |
+| 9 | Lanna Golf Course | `lanna-golf-course` | ✅ /golf-courses/chiang-mai/lanna-golf-course/ |
+| 10 | Hang Dong Golf Club | `hang-dong-golf-club` | ✅ /golf-courses/chiang-mai/hang-dong-golf-club/ (9-hole par-36) |
+
+**Skipped:** Chiangmai Green Valley CC (duplicate of Summit Green Valley), The Royal Chiangmai Golf Resort (duplicate of Royal Chiang Mai Golf Club — royalchiangmai.com), The Pine Golf & Lodge (wrong region — located in Bangkok, not Chiang Mai).
+
+**Outstanding:** All GPS coordinates are model approximations — need Google Maps verification. Summit Green Valley green fee disputed (2,100 vs 4,400 THB — call +66 53 298 222). Lanna green fee from 2022 data — call +66 53 221 911. All tracked in `data/data-gaps.md`.
+
+---
+
+## Kanchanaburi & River Kwai batch — DONE (7 / 7 courses published)
+
+Pipeline run: 2026-04-20
+
+| # | Course | Slug | Page live |
+|---|---|---|---|
+| 1 | Blue Sapphire Golf & Resort | `blue-sapphire-golf-resort` | ✅ /golf-courses/kanchanaburi/blue-sapphire-golf-resort/ |
+| 2 | Dragon Hills Golf & Country Club | `dragon-hills-golf-country-club` | ✅ /golf-courses/kanchanaburi/dragon-hills-golf-country-club/ |
+| 3 | Evergreen Hills Golf Club & Resort | `evergreen-hills-golf-club` | ✅ /golf-courses/kanchanaburi/evergreen-hills-golf-club/ |
+| 4 | Grand Prix Golf Club | `grand-prix-golf-club` | ✅ /golf-courses/kanchanaburi/grand-prix-golf-club/ |
+| 5 | River Kwai Golf & Country Club | `river-kwai-golf-country-club` | ✅ /golf-courses/kanchanaburi/river-kwai-golf-country-club/ |
+| 6 | Royal Ratchaburi Golf Club & Resort | `royal-ratchaburi-golf-club` | ✅ /golf-courses/kanchanaburi/royal-ratchaburi-golf-club/ |
+| 7 | Woo Sung Castle Hill Country Club | `woo-sung-castle-hill` | ✅ /golf-courses/kanchanaburi/woo-sung-castle-hill/ |
+
+**Region corrections:** Friendship Meadows (Pak Chong, Nakhon Ratchasima → moved to Khao Yai region as pending), Forest Hills / Sir James CC (Muak Lek, Saraburi → published in Khao Yai region). Dragon Hills, Royal Ratchaburi, and Woo Sung Castle Hill are physically in Ratchaburi province but grouped under Kanchanaburi per industry convention. **Outstanding:** River Kwai green fees unknown (contact for rates), Royal Ratchaburi fees vary by source (750/1,050 THB used), Blue Sapphire caddie fee structure unclear, Dragon Hills caddie/cart mandatory status, Grand Prix GPS missing, Woo Sung caddie/cart fees missing — all tracked in `data/data-gaps.md`.
+
+### Khao Yai Phase 2 Batch 2 — PUBLISHED (1 course)
+
+| # | Course | Slug | Page live |
+|---|---|---|---|
+| 1 | Forest Hills Country Club (Sir James CC) | `forest-hills-country-club` | ✅ /golf-courses/khao-yai/forest-hills-country-club/ |
+
+**Notes:** 27-hole course in Muak Lek, Saraburi — originally in the Kanchanaburi batch list but correctly a Khao Yai corridor course. Caddie mandatory (400 THB). Wide weekday/weekend fee gap (400 vs 1,200 THB).
+
 ---
 
 ## Phase 2 — Pattaya (16 / 25 published)
@@ -188,13 +235,13 @@ Pipeline run: 2026-04-20
 | 3 | Crystal Bay Golf Resort | `crystal-bay-golf-resort` | ✅ /golf-courses/pattaya/crystal-bay-golf-resort/ |
 | 4 | Pattaya Country Club | `pattaya-country-club` | ✅ /golf-courses/pattaya/pattaya-country-club/ |
 | 5 | Phoenix Gold Golf Club Pattaya | `phoenix-gold-golf-club-pattaya` | ✅ /golf-courses/pattaya/phoenix-gold-golf-club-pattaya/ |
-| 6 | St Andrews 2000 | `st-andrews-2000` | ⏸ HELD — green fees unknown after renovation |
+| 6 | St Andrews 2000 | `st-andrews-2000` | ✅ /golf-courses/pattaya/st-andrews-2000/ (green fees null — contact for rates) |
 | 7 | Khao Kheow Country Club | `khao-kheow-country-club` | ✅ /golf-courses/pattaya/khao-kheow-country-club/ |
 | 8 | Mountain Shadow Golf Club | `mountain-shadow-golf-club` | ✅ /golf-courses/pattaya/mountain-shadow-golf-club/ |
 | 9 | Pleasant Valley Golf & Country Club | `pleasant-valley-golf-country-club` | ✅ /golf-courses/pattaya/pleasant-valley-golf-country-club/ |
 | 10 | Rayong Green Valley Country Club | `rayong-green-valley` | ✅ /golf-courses/pattaya/rayong-green-valley/ |
 
-**Outstanding:** St Andrews 2000 held (green fees unconfirmed) — publish when fees confirmed. Fee splits and phone verification for 5 courses tracked in `data/data-gaps.md`.
+**Outstanding:** St Andrews 2000 published with null green fees (Desmond Muirhead par-74; closed for renovation, Dec 2025 projected reopening; fees not findable online — contact course directly). Phone and GPS unconfirmed. Fee splits and phone verification for 5 other courses tracked in `data/data-gaps.md`.
 
 ### Batch 2 — PUBLISHED (5 / 6 courses)
 
@@ -301,6 +348,73 @@ Pipeline run: 2026-04-20
 ### Batch 5 — pending
 
 Remaining 3 Bangkok Phase 2 courses — pending after Batch 4 is verified live.
+
+---
+
+## Phase 3 — Batch 1 (scattered courses in existing regions)
+
+Pipeline run: 2026-04-21
+
+| # | Course | Region | Status |
+|---|---|---|---|
+| 1 | Rancho Charnvee Resort & Country Club | `khao-yai` | ✅ /golf-courses/khao-yai/rancho-charnvee-country-club/ (green fee 1,050/1,850 THB provisional — see data-gaps.md) |
+| 2 | Kabinburi Sport Club | `pattaya` | ✅ /golf-courses/pattaya/kabinburi-sportclub/ |
+| 3 | Suranaree Golf Club | — | ⏸ SKIP — 9H + MIL (Camp Suranaree army base) |
+
+**Region corrections:** Rancho Charnvee re-regioned from Bangkok to khao-yai (Pak Chong, Nakhon Ratchasima). Suranaree Golf Club (both khao-yai row 8 and isan row 10) marked skip — confirmed 9-hole military course.
+
+**Report:** `docs/course-guide/reports/phase3-batch1.report.md`
+
+---
+
+## Phase 3 — Batch 2 (Isan) — PUBLISHED
+
+Pipeline run: 2026-04-21
+
+5 courses verified; 6 of 11 skipped. Report: `docs/course-guide/reports/phase3-batch2-isan.report.md`
+
+| # | Course | Province | Status |
+|---|---|---|---|
+| 1 | Dancoon Golf Club | Khon Kaen | ✅ /golf-courses/isan/dancoon-golf-club/ (green fee 680/980 THB provisional) |
+| 2 | Singha Park Khon Kaen Golf Club | Khon Kaen | ✅ /golf-courses/isan/singha-park-khon-kaen/ (fees confirmed official site) |
+| 3 | Victory Park Golf & Country Club | Nong Khai | ✅ /golf-courses/isan/victory-park-golf-country-club/ (fees provisional) |
+| 4 | Royal Creek Golf Club Udon Thani | Udon Thani | ✅ /golf-courses/isan/royal-creek-golf-club-udon-thani/ (weekday provisional; weekend null) |
+| 5 | Ubolratana Dam Golf Course | Khon Kaen | ✅ /golf-courses/isan/ubolratana-dam-golf-course/ (560/760 THB caddie-inclusive) |
+| — | Urbonrat Golf Course | — | ⏸ SKIP — nonexistent/typo |
+| — | Udon Golf Club | — | ⏸ SKIP — 9-hole |
+| — | Great Lake Golf & Country Club | — | ⏸ SKIP — wrong region (Rayong/Pattaya) |
+| — | Siharatdechochai Golf Course | — | ⏸ SKIP — 9H + MIL |
+| — | Ubonrat Golf Course | — | ⏸ SKIP — probable duplicate of Ubolratana Dam (same phone) |
+| — | Uniland Golf & Country Club | — | ⏸ SKIP — wrong region (Nakhon Pathom) |
+
+**Published 2026-04-21. New Isan region infrastructure created: `data/golf-courses/isan/index.ts`, `REGION_META.isan` in `lib/golf-courses.ts`, hub page updated, 6 smoke tests added.**
+
+---
+
+## Phase 3 — Batch 3 (Southern Thailand) — PUBLISHED
+
+Pipeline run: 2026-04-21
+
+3 courses published; 2 of 5 skipped. Report: `docs/course-guide/reports/phase3-batch3-southern-thailand.report.md`
+
+| # | Course | Province | Status |
+|---|---|---|---|
+| 1 | Southern Hills Golf & Country Club | Songkhla | ✅ /golf-courses/southern-thailand/southern-hills-golf-country-club/ (GF 950/1,400 THB confirmed) |
+| 2 | Hat Yai Resort & Golf Club | Songkhla | ✅ /golf-courses/southern-thailand/hat-yai-resort-golf-club/ (GF 600/900 THB provisional; caddie 300 THB very provisional) |
+| 3 | Sri Trang Golf Club | Trang | ✅ /golf-courses/southern-thailand/sri-trang-golf-club/ (GF 300/400 THB provisional; GPS model estimate) |
+| — | Tungsong Golf Course | — | ⏸ SKIP — 9H + MIL + reported closed |
+| — | Phatthalung Golf Club | — | ⏸ SKIP — 9H + MIL |
+
+**Published 2026-04-21. New Southern Thailand region infrastructure created: `data/golf-courses/southern-thailand/index.ts`, `REGION_META['southern-thailand']` in `lib/golf-courses.ts`, hub page updated, 4 smoke tests added.**
+
+---
+
+## Phase 3 — remaining batches (not yet started)
+
+| Batch | Region | Courses | Priority |
+|---|---|---|---|
+| 4 | Koh Samui & Gulf South | 2 Phase 3 courses (+ Phase 2 Santiburi Samui) | Medium |
+| 5 | North — Miscellaneous | 16 | Low — very remote |
 
 ---
 

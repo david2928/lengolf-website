@@ -1,0 +1,149 @@
+{
+    "slug":  "mae-jo-golf-club",
+    "region":  "chiang-mai",
+    "status":  "approved",
+    "collected_at":  "2026-04-21",
+    "enriched_at":  "2026-04-21",
+    "verified_at":  "2026-04-21",
+    "fields":  {
+                   "name":  {
+                                "value":  "Mae Jo Golf Club \u0026 Resort",
+                                "source":  "official-website",
+                                "url":  "https://www.maejogolfclub.com/home.php"
+                            },
+                   "province":  {
+                                    "value":  "Chiang Mai",
+                                    "source":  "web-search",
+                                    "url":  "https://www.1golf.eu/en/club/mae-jo-golf-club-resort/"
+                                },
+                   "designer":  {
+                                    "value":  "Seni Thirawat",
+                                    "source":  "web-search",
+                                    "url":  "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/mae-jo-golf-club/",
+                                    "note":  "Confirmed via multiple sources in Stage 3."
+                                },
+                   "holes":  {
+                                 "value":  18,
+                                 "source":  "web-search",
+                                 "url":  "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/mae-jo-golf-club/"
+                             },
+                   "par":  {
+                               "value":  72,
+                               "source":  "web-search",
+                               "url":  "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/mae-jo-golf-club/"
+                           },
+                   "year_opened":  {
+                                       "value":  2004,
+                                       "source":  "web-search",
+                                       "url":  "https://www.chiangmaitravelhub.com/attractions/mae-jo-golf-club/",
+                                       "note":  "Confirmed in Stage 3."
+                                   },
+                   "green_fee_weekday_thb":  {
+                                                 "value":  3200,
+                                                 "source":  "web-search",
+                                                 "url":  "https://www.chiangmaigolfclub.com/mae-jo-golf-club.htm",
+                                                 "note":  "Stage 3 found range of 1,800–3,200 THB across sources. Using upper confirmed rate of 3,200 THB as the standard green fee.",
+                                                 "dispute":  "Stage 3 found lower promotional rates from 1,800–2,500 THB on some platforms vs 3,200 THB on chiangmaigolfclub.com — using 3,200 THB as the standard non-promotional rate."
+                                             },
+                   "green_fee_weekend_thb":  {
+                                                 "value":  3200,
+                                                 "source":  "web-search",
+                                                 "url":  "https://www.chiangmaigolfclub.com/mae-jo-golf-club.htm",
+                                                 "note":  "Same as weekday."
+                                             },
+                   "caddie_fee_thb":  {
+                                          "value":  350,
+                                          "source":  "web-search",
+                                          "url":  "https://www.chiangmaigolfclub.com/mae-jo-golf-club.htm"
+                                      },
+                   "cart_fee_thb":  {
+                                        "value":  750,
+                                        "source":  "web-search",
+                                        "url":  "https://www.chiangmaigolfclub.com/mae-jo-golf-club.htm"
+                                    },
+                   "caddie_required":  {
+                                           "value":  true,
+                                           "source":  "web-search",
+                                           "url":  "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/mae-jo-golf-club/"
+                                       },
+                   "cart_required":  {
+                                         "value":  true,
+                                         "source":  "web-search",
+                                         "url":  "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/mae-jo-golf-club/"
+                                     },
+                   "driving_range":  {
+                                         "value":  true,
+                                         "source":  "web-search",
+                                         "url":  "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/mae-jo-golf-club/"
+                                     },
+                   "website":  {
+                                   "value":  "https://www.maejogolfclub.com/",
+                                   "source":  "official-website",
+                                   "url":  null
+                               },
+                   "phone":  {
+                                 "value":  null,
+                                 "source":  "model",
+                                 "url":  null,
+                                 "note":  "Phone not confirmed. Check maejogolfclub.com."
+                             },
+                   "address":  {
+                                   "value":  "112 Moo 7, Pahpai, San Sai District, Chiang Mai 50210, Thailand",
+                                   "source":  "web-search",
+                                   "url":  "https://www.1golf.eu/en/club/mae-jo-golf-club-resort/"
+                               },
+                   "latitude":  {
+                                    "value":  18.8667,
+                                    "source":  "model",
+                                    "url":  null,
+                                    "note":  "Approximate. Needs map verification.",
+                                    "blocker":  true
+                                },
+                   "longitude":  {
+                                     "value":  99.0167,
+                                     "source":  "model",
+                                     "url":  null,
+                                     "note":  "Approximate. Needs map verification.",
+                                     "blocker":  true
+                                 },
+                   "distance_from_bangkok_km":  {
+                                                    "value":  700,
+                                                    "source":  "model",
+                                                    "url":  null
+                                                },
+                   "drive_time_from_bangkok_min":  {
+                                                       "value":  null,
+                                                       "source":  "model",
+                                                       "url":  null
+                                                   },
+                   "google_maps_url":  {
+                                           "value":  null,
+                                           "source":  "model",
+                                           "url":  null,
+                                           "blocker":  true
+                                       },
+                   "club_rental_available":  {
+                                                 "value":  true,
+                                                 "source":  "web-search",
+                                                 "url":  "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/mae-jo-golf-club/"
+                                             },
+                   "club_rental_fee_thb":  {
+                                               "value":  null,
+                                               "source":  "model",
+                                               "url":  null
+                                           },
+                   "club_rental_brands":  {
+                                              "value":  null,
+                                              "source":  "model",
+                                              "url":  null
+                                          }
+               },
+    "prose":  {
+                  "overview":  "Mae Jo Golf Club \u0026 Resort is an 18-hole, par-72 course in the Pahpai area of San Sai district, approximately 20 kilometres and 20 minutes north of central Chiang Mai. Opened in 2004 and designed by Thai architect Seni Thirawat, the course is set among the fruit orchards of the San Sai valley — longan, lychee, pomelo, and tangerine trees that change character dramatically with the seasons. The resort includes 51 rooms in a Lanna-style complex. Mae Jo is consistently praised for its subtly challenging greens and narrow, tree-framed fairways that reward precision over power.",
+                  "layout_and_experience":  "Seni Thirawat\u0027s design favours precision over power. At 6,730 yards from the championship tees, the narrow fairways and strategically placed doglegs ensure that driving accuracy is more valuable than distance. The greens are the course\u0027s defining feature: subtly sloping putting surfaces that reward careful line-reading. Water hazards appear throughout the round without dominating it. The combination of tight fairways, tricky greens, and seasonal agricultural character makes Mae Jo one of the most authentically Thai golf experiences in the Chiang Mai region.",
+                  "tips":  "Ask your caddie to read the greens carefully — the slopes are subtler than they appear. The standard green fee is 3,200 THB (green fee only) plus caddie 350 THB and cart 750 THB, totalling approximately 4,300 THB all-in. Promotional rates as low as 1,800 THB may be available through booking platforms. Visit between November and April when orchard trees are carrying fruit. The narrow fairways reward a controlled, shaped tee shot.",
+                  "location_and_access":  "Mae Jo Golf Club \u0026 Resort is located in Pahpai, San Sai district, approximately 20 kilometres north of Chiang Mai city centre and around 20 minutes from Chiang Mai International Airport (CNX). Visitors from Bangkok fly to CNX (approximately 1 hour 10 minutes from Suvarnabhumi or Don Mueang) — driving the 700 kilometres from Bangkok is not practical. Accessible by Grab taxi from Chiang Mai via Route 11 north through San Sai.",
+                  "rental_cta_context":  "Heading to Mae Jo Golf Club \u0026 Resort for a round among Chiang Mai\u0027s fruit orchards? Rent premium clubs in Bangkok — delivered to your hotel before you fly — so you can focus on those subtle greens without the extra weight of airline checked baggage."
+              },
+    "approved_at":  "2026-04-21"
+}

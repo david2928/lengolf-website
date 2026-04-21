@@ -1,0 +1,45 @@
+{
+  "slug": "north-hill-chiang-mai",
+  "region": "chiang-mai",
+  "status": "verified",
+  "collected_at": "2026-04-21",
+  "enriched_at": "2026-04-21",
+  "verified_at": "2026-04-21",
+  "fields": {
+    "name": { "value": "North Hill Golf Club Chiang Mai", "source": "official-website", "url": "https://www.northhillchiangmai.com/" },
+    "province": { "value": "Chiang Mai", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/north-hill-chiang-mai-golf/" },
+    "designer": { "value": null, "source": "model", "url": null, "note": "Described as local Thai designer — name not confirmed in multiple search passes." },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/north-hill-chiang-mai-golf/" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/north-hill-chiang-mai-golf/" },
+    "year_opened": { "value": 2015, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/north-hill-chiang-mai-golf/", "note": "9-hole origin in 2011 (Mezza 9); expanded 18 holes November 2015. Stage 3 also saw reference to 2014 opening — 2015 is the 18-hole expansion date, most commonly cited." },
+    "green_fee_weekday_thb": { "value": 3400, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/north-hill-chiang-mai-golf/", "note": "Stage 3 confirms 3,400 THB package including caddie and cart. Also found 3,300 THB promo rate (Jan–Feb 2026) — using 3,400 THB as standard rate." },
+    "green_fee_weekend_thb": { "value": 3400, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/north-hill-chiang-mai-golf/", "note": "Same as weekday." },
+    "caddie_fee_thb": { "value": 300, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/north-hill-golf-club.htm" },
+    "cart_fee_thb": { "value": 600, "source": "web-search", "url": "https://www.chiangmaigolfclub.com/north-hill-golf-club.htm" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/north-hill-chiang-mai-golf/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/north-hill-chiang-mai-golf/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.northhillchiangmai.com/en/facilities" },
+    "website": { "value": "https://www.northhillchiangmai.com/", "source": "official-website", "url": null },
+    "phone": { "value": null, "source": "model", "url": null, "note": "Phone not confirmed via web search. Check northhillchiangmai.com." },
+    "address": { "value": "333 Moo 13, Ban Waen, Hang Dong, Chiang Mai 50230, Thailand", "source": "web-search", "url": "https://www.1golf.eu/en/club/north-hill-golf-club/" },
+    "latitude": { "value": 18.7142, "source": "model", "url": null, "note": "Approximate. Needs map verification.", "blocker": true },
+    "longitude": { "value": 98.9600, "source": "model", "url": null, "note": "Approximate. Needs map verification.", "blocker": true },
+    "distance_from_bangkok_km": { "value": 700, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null },
+    "google_maps_url": { "value": null, "source": "model", "url": null, "blocker": true },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/north-hill-chiang-mai-golf/" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "North Hill Golf Club Chiang Mai is the most recently developed 18-hole course in the Chiang Mai area, having expanded from 9 holes to a full 18-hole layout in November 2015. Located in Ban Waen, Hang Dong district — approximately 15 minutes south of Chiang Mai International Airport — it is one of the most conveniently positioned courses for travellers arriving at CNX. The course operates as part of the North Hill City Resort complex, which also encompasses a spa, fitness centre, deluxe driving range, bar and restaurant. At 6,789 yards and par 72, it is a mid-length layout suited to a range of handicaps.",
+
+    "layout_and_experience": "The course was originally a 9-hole private club and the expansion to 18 holes created a parkland-style layout with water hazards and bunkering throughout. The 6,789-yard total is comfortable for most standards of player from the back tees. The Hang Dong location places the course on flat-to-gentle terrain. The driving range at North Hill stands out for its quality and range of facilities.",
+
+    "tips": "The all-in green fee package (approximately 3,400 THB including caddie and cart) simplifies budgeting. Book through the official website (northhillchiangmai.com) for current rates. At 15 minutes from CNX airport, this is an ideal first or last round on a Chiang Mai golf trip. The deluxe driving range is a good warm-up option before the round.",
+
+    "location_and_access": "North Hill Golf Club is located in Ban Waen, Hang Dong district, approximately 15 minutes south of Chiang Mai International Airport (CNX). Visitors from Bangkok fly to CNX (approximately 1 hour 10 minutes from Suvarnabhumi or Don Mueang) — driving the 700 kilometres from Bangkok is not practical. A Grab taxi from CNX takes approximately 15 minutes.",
+
+    "rental_cta_context": "Stopping off at North Hill Golf Club on your Chiang Mai golf trip? Rent premium clubs in Bangkok — delivered to your hotel before you fly — so you can jump straight from the airport to the first tee without the hassle of checked baggage."
+  }
+}

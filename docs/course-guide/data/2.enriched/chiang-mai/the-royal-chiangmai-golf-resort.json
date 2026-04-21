@@ -1,0 +1,44 @@
+{
+  "slug": "the-royal-chiangmai-golf-resort",
+  "region": "chiang-mai",
+  "status": "enriched",
+  "collected_at": "2026-04-21",
+  "enriched_at": "2026-04-21",
+  "fields": {
+    "name": { "value": "The Royal Chiangmai Golf Resort", "source": "official-website", "url": "https://www.royalchiangmai.com/", "note": "IMPORTANT: All research points to this being the same course as row 4 (Royal Chiang Mai Golf Club & Resort): same website (royalchiangmai.com), designer (Peter Thomson), year (1996), address (Mae Faek, San Sai), phone, and green fees. This appears to be a naming duplicate in the pipeline task list, not two distinct courses. Filed separately per task instructions with a blocker flag." },
+    "province": { "value": "Chiang Mai", "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/royal-chiang-mai-golf-club-resort/" },
+    "designer": { "value": "Peter Thomson", "source": "web-search", "url": "https://www.royalchiangmai.com/golf.php" },
+    "holes": { "value": 18, "source": "web-search", "url": "https://www.royalchiangmai.com/golf.php" },
+    "par": { "value": 72, "source": "web-search", "url": "https://www.royalchiangmai.com/golf.php" },
+    "year_opened": { "value": 1996, "source": "web-search", "url": "https://www.1golf.eu/en/club/the-royal-chiangmai-golf-resort/" },
+    "green_fee_weekday_thb": { "value": 4800, "source": "web-search", "url": "https://www.royalchiangmai.com/golf_rate.php", "note": "High season all-in rate. No weekday/weekend distinction." },
+    "green_fee_weekend_thb": { "value": 4800, "source": "web-search", "url": "https://www.royalchiangmai.com/golf_rate.php", "note": "Same as weekday." },
+    "caddie_fee_thb": { "value": null, "source": "model", "url": null, "note": "Included in all-in rate. Separate fee TBC." },
+    "cart_fee_thb": { "value": 700, "source": "web-search", "url": "https://www.golfchiangmai.com/royal-chiang-mai-golf-resort/" },
+    "caddie_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/royal-chiang-mai-golf-club-resort/" },
+    "cart_required": { "value": true, "source": "web-search", "url": "https://www.golfasian.com/golf-courses/thailand-golf-courses/chiang-mai/royal-chiang-mai-golf-club-resort/" },
+    "driving_range": { "value": true, "source": "web-search", "url": "https://www.royalchiangmai.com/" },
+    "website": { "value": "https://www.royalchiangmai.com/", "source": "official-website", "url": null },
+    "phone": { "value": "+66 52 081 995", "source": "web-search", "url": "https://www.royalchiangmai.com/" },
+    "address": { "value": "169 Moo 5, Mae Faek, San Sai District, Chiang Mai 50290, Thailand", "source": "web-search", "url": "https://www.golfpass.com/travel-advisor/courses/37997-royal-chiangmai-golf-resort" },
+    "latitude": { "value": 18.8417, "source": "model", "url": null, "note": "Approximate — identical to row 4 data. Needs map verification." },
+    "longitude": { "value": 99.0000, "source": "model", "url": null, "note": "Approximate — needs map verification." },
+    "distance_from_bangkok_km": { "value": 700, "source": "model", "url": null },
+    "drive_time_from_bangkok_min": { "value": null, "source": "model", "url": null, "note": "Chiang Mai is ~700km from Bangkok — visitors fly (1h10m BKK→CNX), drive not practical" },
+    "google_maps_url": { "value": null, "source": "model", "url": null },
+    "club_rental_available": { "value": true, "source": "web-search", "url": "https://www.royalchiangmai.com/golf.php" },
+    "club_rental_fee_thb": { "value": null, "source": "model", "url": null },
+    "club_rental_brands": { "value": null, "source": "model", "url": null }
+  },
+  "prose": {
+    "overview": "NOTE: This entry (The Royal Chiangmai Golf Resort) appears to be the same course as entry #4 in this batch (Royal Chiang Mai Golf Club & Resort). Both share the same official website (royalchiangmai.com), designer (Peter Thomson), founding year (1996), address (169 Moo 5, Mae Faek, San Sai), and phone number (+66 52 081 995). The different naming is a common source of confusion in Chiang Mai golf guides and online booking platforms, where the same course is listed under multiple name variants. This entry is filed per task instructions but carries a pipeline blocker: the author should confirm whether a genuinely distinct second course exists before publishing.\n\nThe Royal Chiangmai Golf Resort — assuming it is the same Peter Thomson layout as described in entry #4 — is an 18-hole, par-72 links-influenced design set in the Mae Faek valley of San Sai district, approximately 40 kilometres north of Chiang Mai city. Opened in February 1996, the course was designed by five-time British Open champion Peter Thomson and follows a British parkland philosophy with links-style additions including pot bunkers, bump-and-run approaches, and undulating fairways. The resort includes a hotel, restaurant, and practice facilities.",
+
+    "layout_and_experience": "See entry #4 (royal-chiang-mai-golf-club) for full layout and experience description. All identifying course characteristics — the 6,969-yard layout, pot bunkers, tree-lined corridors, water on most holes, Tiff Dwarf bermuda greens, and British links aesthetic — match the Royal Chiang Mai Golf Club & Resort documented under that entry. If this is confirmed as a separate course, this section will need to be updated with distinct course-specific research.",
+
+    "tips": "Confirm current rates and availability at +66 52 081 995 or via royalchiangmai.com. See entry #4 for full tips applicable to this Peter Thomson design. If this is confirmed as a distinct course from entry #4, contact the resort directly to clarify the two-course situation before booking.",
+
+    "location_and_access": "The Royal Chiangmai Golf Resort is located in Mae Faek, San Sai District, approximately 40 kilometres north of Chiang Mai city and 40 minutes by road from Chiang Mai International Airport (CNX). Visitors from Bangkok fly to CNX (approximately 1 hour 10 minutes from Suvarnabhumi or Don Mueang) — driving the 700 kilometres from Bangkok is not practical for a golf trip.",
+
+    "rental_cta_context": "Playing The Royal Chiangmai Golf Resort — Peter Thomson's acclaimed Northern Thailand design? Rent premium clubs in Bangkok — delivered to your hotel before you fly — so you can focus on the course strategy without the burden of airline checked baggage."
+  }
+}
