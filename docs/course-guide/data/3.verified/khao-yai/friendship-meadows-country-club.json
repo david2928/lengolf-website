@@ -1,0 +1,59 @@
+{
+  "slug": "friendship-meadows-country-club",
+  "region": "khao-yai",
+  "stage": "verified",
+  "verified_at": "2026-04-21",
+  "collected_at": "2026-04-21",
+  "data": {
+    "name": "Friendship Meadows Country Club",
+    "province": "Nakhon Ratchasima",
+    "locality": "Pak Chong",
+    "designer": "Nelson & Haworth",
+    "holes": 18,
+    "par": 72,
+    "year_opened": 1993,
+    "green_fee_weekday_thb": 600,
+    "green_fee_weekend_thb": 1000,
+    "caddie_fee_thb": null,
+    "cart_fee_thb": null,
+    "caddie_required": true,
+    "cart_required": false,
+    "driving_range": false,
+    "website": null,
+    "phone": "+66 44 313 245",
+    "latitude": 14.7125,
+    "longitude": 101.4220,
+    "distance_from_bangkok_km": 180,
+    "drive_time_from_bangkok_min": 120,
+    "club_rental_available": true,
+    "club_rental_fee_thb": null,
+    "club_rental_brands": null
+  },
+  "sources": [
+    { "field": "green_fee_weekday_thb", "value": 600, "source_type": "web-search", "source_url": "https://www.1golf.eu/en/club/friendship-meadows-country-club/" },
+    { "field": "green_fee_weekend_thb", "value": 1000, "source_type": "web-search", "source_url": "https://www.1golf.eu/en/club/friendship-meadows-country-club/" },
+    { "field": "holes", "value": 18, "source_type": "web-search", "source_url": "https://www.allsquaregolf.com/golf-courses/thailand/friendship-meadows-country-club" },
+    { "field": "par", "value": 72, "source_type": "web-search", "source_url": "https://www.allsquaregolf.com/golf-courses/thailand/friendship-meadows-country-club" },
+    { "field": "designer", "value": "Nelson & Haworth", "source_type": "web-search", "source_url": "https://www.golfshake.com/course/view/23925/Friendship_Meadows_Country_Club.html" },
+    { "field": "year_opened", "value": 1993, "source_type": "web-search", "source_url": "https://www.allsquaregolf.com/golf-courses/thailand/friendship-meadows-country-club" },
+    { "field": "phone", "value": "+66 44 313 245", "source_type": "web-search", "source_url": "https://www.1golf.eu/en/club/friendship-meadows-country-club/" },
+    { "field": "latitude", "value": 14.7125, "source_type": "web-search", "source_url": "https://www.golfshake.com/course/view/23925/Friendship_Meadows_Country_Club.html" },
+    { "field": "longitude", "value": 101.422, "source_type": "web-search", "source_url": "https://www.golfshake.com/course/view/23925/Friendship_Meadows_Country_Club.html" },
+    { "field": "driving_range", "value": false, "source_type": "web-search", "source_url": "https://www.golfshake.com/course/view/23925/Friendship_Meadows_Country_Club.html" }
+  ],
+  "verification": {
+    "status": "APPROVED",
+    "disputes": [],
+    "missing_required_fields": ["caddie_fee_thb", "cart_fee_thb", "website"],
+    "prose_flags": [],
+    "data_notes": [
+      "Caddie fee: no explicit amount found across sources. Set to null.",
+      "Cart fee: no explicit price found. Set to null. Multiple sources confirm carts are available but pricing is unconfirmed.",
+      "cart_required: golfthink.com says 'Cart highly recommended' due to hilly terrain. Not mandatory — set to false.",
+      "GPS: sourced from golfshake.com (14.7125, 101.422). Cross-checked against address on Mittraphap Highway Km 162 — coordinates are plausible for Pak Chong district.",
+      "Website: no official website found across multiple sources. Set to null.",
+      "Designer: listed as 'Nelson Wright & Haworth' across sources — simplified to 'Nelson & Haworth' per pipeline convention.",
+      "distance_from_bangkok_km: multiple sources say ~2 hours drive. Highway 2 distance is ~180 km. Drive time 120 min."
+    ]
+  }
+}

@@ -2,7 +2,7 @@ import 'server-only'
 import type { GolfCourse } from '@/types/golf-courses'
 
 // Supported regions — extend as new batches are published
-const REGIONS = ['bangkok', 'pattaya', 'hua-hin', 'phuket', 'khao-yai', 'kanchanaburi', 'chiang-mai', 'isan', 'southern-thailand'] as const
+const REGIONS = ['bangkok', 'pattaya', 'hua-hin', 'phuket', 'khao-yai', 'kanchanaburi', 'chiang-mai', 'isan', 'southern-thailand', 'koh-samui'] as const
 type Region = (typeof REGIONS)[number]
 
 /** Display metadata for each published region — used by index and hub pages. */
@@ -35,7 +35,7 @@ export const REGION_META: Record<string, { label: string; province: string; desc
     label: 'Khao Yai',
     province: 'Nakhon Ratchasima & Nakhon Nayok',
     description: 'Khao Yai and the Central Highlands offer courses within two to three hours of Bangkok — from Jack Nicklaus Signature designs at Kirimaya and Khao Yai Golf Club to Seve Ballesteros\'s only Thailand layout at Mountain Creek, budget-friendly woodland rounds at Bonanza and Seoul Siam, and the veteran Rooks Korat course in Pak Thong Chai.',
-    courseCount: 9,
+    courseCount: 11,
   },
   kanchanaburi: {
     label: 'Kanchanaburi',
@@ -60,6 +60,12 @@ export const REGION_META: Record<string, { label: string; province: string; desc
     province: 'Songkhla & Trang',
     description: 'Southern Thailand\'s golf runs from Perry Dye\'s jungle valley championship layout at Southern Hills — the most acclaimed course in the lower south, with a strong cross-border crowd from Malaysia — to Hat Yai city\'s budget Robert McFarland layout, and the deeply off-the-beaten-track Sri Trang Golf Club in Trang province, one of the cheapest 18-hole rounds in the country.',
     courseCount: 3,
+  },
+  'koh-samui': {
+    label: 'Koh Samui',
+    province: 'Surat Thani',
+    description: 'Koh Samui\'s golf spans two very different experiences: the island\'s only championship course at Santiburi Samui Country Club — a mountainous par-72 with mandatory caddies who drive the carts, Gulf views, and a Bangkok Airways Open pedigree — and the Rajjaprabha Dam Golf Course near Khao Sok, one of Thailand\'s most scenic EGAT government layouts, where foreign visitors play a full 18 holes for around 1,000 THB beside Cheow Lan reservoir.',
+    courseCount: 2,
   },
 }
 

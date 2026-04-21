@@ -141,6 +141,9 @@ const routeTests: RouteTest[] = [
   { path: '/golf-courses/southern-thailand/southern-hills-golf-country-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-courses/southern-thailand/hat-yai-resort-golf-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-courses/southern-thailand/sri-trang-golf-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/golf-courses/koh-samui/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/golf-courses/koh-samui/santiburi-samui-country-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/golf-courses/koh-samui/rajjaprabha-dam-golf-course/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-courses/pattaya/siam-country-club-old-course/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-courses/pattaya/laem-chabang-international/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-courses/pattaya/phoenix-gold-golf-club-pattaya/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
@@ -178,6 +181,7 @@ const routeTests: RouteTest[] = [
   { path: '/golf-courses/khao-yai/mountain-creek-golf-resort/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-courses/khao-yai/bonanza-golf-country-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-courses/khao-yai/forest-hills-country-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/golf-courses/khao-yai/friendship-meadows-country-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Kanchanaburi region
   { path: '/golf-courses/kanchanaburi/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-courses/kanchanaburi/river-kwai-golf-country-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },

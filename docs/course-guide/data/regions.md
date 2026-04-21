@@ -142,7 +142,7 @@ Includes Chonburi, Chachoengsao, Rayong, Chanthaburi. 90-150 min from Bangkok.
 | 27 | Tublamu Royal Navy Golf Course | `tublamu-royal-navy-golf-course` | skip | MIL | skip |
 | 28 | Bangpra International Golf Club | `bangpra-international-golf-club` | 2 | Si Racha, Chonburi; also listed in Bangkok region | published |
 | 29 | Wangjuntr Golf Park | `wangjuntr-golf-park` | 2 | Wang Chan, Rayong; 54 holes; transferred from Bangkok held list | published |
-| 30 | Kabinburi Sportclub | `kabinburi-sportclub` | 3 | Prachin Buri province | verified |
+| 30 | Kabinburi Sportclub | `kabinburi-sportclub` | 3 | Prachin Buri province | published |
 
 ---
 
@@ -204,9 +204,9 @@ Includes Pak Chong, Korat. 2-2.5 hours from Bangkok.
 | 7 | Rooks Korat Country Club | `rooks-korat-country-club` | 2 | Pak Thong Chai, ~240 km from Bangkok | published |
 | 8 | Suranaree Golf Club | `suranaree-golf-club` | 3 | 9H + MIL — Camp Suranaree army base, Nakhon Ratchasima; 9-hole layout confirmed; not suitable for publication | skip |
 | 12 | Rancho Charnvee Resort & Country Club | `rancho-charnvee-country-club` | 3 | Pak Chong — moved from Bangkok region (row 71); Bob McFarland design, opened 2010 | verified |
-| 9 | Royal Hills Golf Resort & Spa | `royal-hills-golf-resort` | 2 | Sarika, Nakhon Nayok — moved from Hua Hin list; Nelson & Wright design | pending |
+| 9 | Royal Hills Golf Resort & Spa | `royal-hills-golf-resort` | 2 | Sarika, Nakhon Nayok — moved from Hua Hin list; Nelson & Wright design | published |
 | 10 | Forest Hills Country Club | `forest-hills-country-club` | 2 | Muak Lek, Saraburi; aka Sir James CC; 27-hole; moved from Kanchanaburi batch | published |
-| 11 | Friendship Meadows Country Club | `friendship-meadows-country-club` | 2 | Pak Chong, Nakhon Ratchasima; Nelson & Haworth; moved from Kanchanaburi batch | pending |
+| 11 | Friendship Meadows Country Club | `friendship-meadows-country-club` | 2 | Pak Chong, Nakhon Ratchasima; Nelson & Haworth; moved from Kanchanaburi batch | published |
 | 12 | Thanarat Golf Club | `thanarat-golf-club` | skip | MIL | skip |
 
 ---

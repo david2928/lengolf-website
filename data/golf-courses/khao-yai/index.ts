@@ -13,6 +13,8 @@ const slugs = [
   'forest-hills-country-club',
   // Phase 3 — Batch 1
   'rancho-charnvee-country-club',
+  // Phase 3 — Batch 2
+  'friendship-meadows-country-club',
 ]
 
 export default { slugs }

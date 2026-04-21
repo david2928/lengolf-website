@@ -1,0 +1,98 @@
+{
+    "slug":  "royal-hills-golf-resort",
+    "region":  "khao-yai",
+    "stage":  "approved",
+    "verified_at":  "2026-04-21",
+    "collected_at":  "2026-04-21",
+    "data":  {
+                 "name":  "Royal Hills Golf Resort \u0026 Spa",
+                 "province":  "Nakhon Nayok",
+                 "locality":  "Sarika, Mueang",
+                 "designer":  "Nelson \u0026 Wright",
+                 "holes":  18,
+                 "par":  72,
+                 "year_opened":  1992,
+                 "green_fee_weekday_thb":  1000,
+                 "green_fee_weekend_thb":  1600,
+                 "caddie_fee_thb":  400,
+                 "cart_fee_thb":  null,
+                 "caddie_required":  true,
+                 "cart_required":  false,
+                 "driving_range":  true,
+                 "website":  "https://www.royalhillsresort.com/en/",
+                 "phone":  "+66 37 385 0903",
+                 "latitude":  14.3184,
+                 "longitude":  101.2751,
+                 "distance_from_bangkok_km":  100,
+                 "drive_time_from_bangkok_min":  90,
+                 "club_rental_available":  true,
+                 "club_rental_fee_thb":  1500,
+                 "club_rental_brands":  null
+             },
+    "sources":  [
+                    {
+                        "field":  "green_fee_weekday_thb",
+                        "value":  1000,
+                        "source_type":  "web-search",
+                        "source_url":  "https://www.1golf.eu/en/club/royal-hills-golf-resort-spa/"
+                    },
+                    {
+                        "field":  "green_fee_weekend_thb",
+                        "value":  1600,
+                        "source_type":  "web-search",
+                        "source_url":  "https://www.1golf.eu/en/club/royal-hills-golf-resort-spa/"
+                    },
+                    {
+                        "field":  "caddie_fee_thb",
+                        "value":  400,
+                        "source_type":  "web-search",
+                        "source_url":  "https://golfdigg.com/en/courses/royal-hills-golf-resort-spa"
+                    },
+                    {
+                        "field":  "designer",
+                        "value":  "Nelson \u0026 Wright",
+                        "source_type":  "official-website",
+                        "source_url":  "https://www.royalhillsresort.com/en/"
+                    },
+                    {
+                        "field":  "latitude",
+                        "value":  14.3184,
+                        "source_type":  "official-website",
+                        "source_url":  "https://www.royalhillsresort.com/en/map/index.html"
+                    },
+                    {
+                        "field":  "longitude",
+                        "value":  101.2751,
+                        "source_type":  "official-website",
+                        "source_url":  "https://www.royalhillsresort.com/en/map/index.html"
+                    },
+                    {
+                        "field":  "club_rental_fee_thb",
+                        "value":  1500,
+                        "source_type":  "web-search",
+                        "source_url":  "https://www.golfasian.com/golf-courses/thailand-golf-courses/khao-yai/royal-hills-golf-resort-spa/"
+                    }
+                ],
+    "verification":  {
+                         "status":  "APPROVED",
+                         "disputes":  [
+
+                                      ],
+                         "missing_required_fields":  [
+                                                         "cart_fee_thb"
+                                                     ],
+                         "prose_flags":  [
+
+                                         ],
+                         "data_notes":  [
+                                            "Year opened: 1golf.eu says 1992; golfasian/golfsavers say 2002. Official website says \u0027since 1990 onwards\u0027. Using 1992 (1golf.eu, closest to official).",
+                                            "cart_fee_thb: golfasian mentions carts available but no explicit price found. Set to null.",
+                                            "caddie_required: 1golf.eu says \u0027No\u0027 (not mandatory). Set to false per source. Standard Thailand default is true but source overrides.",
+                                            "driving_range: golfdigg lists \u0027Practice Facilities\u0027; golfsavers says \u0027No\u0027. Using true — Practice Facilities likely includes range.",
+                                            "GPS: from official website map page, coordinates 14.3183513, 101.2751177 — rounded to 14.3184, 101.2751.",
+                                            "distance_from_bangkok_km: multiple sources say ~90-125 km; using 100 km as representative mid-point. Drive time ~90 min via Highway 7 then 33."
+                                        ]
+                     },
+    "status":  "approved",
+    "approved_at":  "2026-04-21"
+}
