@@ -268,9 +268,9 @@ Includes Mae Rim, San Kamphaeng, Lamphun, Hang Dong, Doi Saket.
 
 | # | Course Name | Slug | Phase | Notes | Status |
 |---|---|---|---|---|---|
-| 1 | Katathong Golf Resort & Spa | `katathong-golf-resort` | 2 | Best rated in region | pending |
-| 2 | Kirinara Golf Course | `kirinara-golf-course` | 2 | 9H expanding to 18H | pending |
-| 3 | Thai Muang Beach Golf & Marina | `thai-muang-beach-golf-marina` | 2 | | pending |
+| 1 | Katathong Golf Resort & Spa | `katathong-golf-resort` | 2 | Best rated in region; Wiwatchai Prangpitak design, 2015; caddie + cart compulsory | published |
+| 2 | Kirinara Golf Course | `kirinara-golf-course` | 2 | 9H confirmed as of 2025 — expansion not yet complete | skip |
+| 3 | Thai Muang Beach Golf & Marina | `thai-muang-beach-golf-marina` | 2 | Permanently closed 2011; succeeded by Aquella Golf & Country Club (published under phuket region) | skip |
 
 ---
 

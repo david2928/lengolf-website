@@ -40,13 +40,16 @@ const PUBLISHED_REGIONS = [
   { slug: 'southern-thailand' },
   { slug: 'koh-samui' },
   { slug: 'chiang-rai' },
+  { slug: 'north-misc' },
+  { slug: 'khao-lak' },
+  { slug: 'krabi' },
 ] as const
 
 export default async function GolfCoursesHubPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
 
-  const [bangkokCourses, pattayaCourses, huaHinCourses, phuketCourses, khaoYaiCourses, kanchanaburiCourses, chiangMaiCourses, isanCourses, southernThailandCourses, kohSamuiCourses, chiangRaiCourses] = await Promise.all([
+  const [bangkokCourses, pattayaCourses, huaHinCourses, phuketCourses, khaoYaiCourses, kanchanaburiCourses, chiangMaiCourses, isanCourses, southernThailandCourses, kohSamuiCourses, chiangRaiCourses, northMiscCourses, khaoLakCourses, krabiCourses] = await Promise.all([
     getCoursesByRegion('bangkok'),
     getCoursesByRegion('pattaya'),
     getCoursesByRegion('hua-hin'),
@@ -58,6 +61,9 @@ export default async function GolfCoursesHubPage({ params }: Props) {
     getCoursesByRegion('southern-thailand'),
     getCoursesByRegion('koh-samui'),
     getCoursesByRegion('chiang-rai'),
+    getCoursesByRegion('north-misc'),
+    getCoursesByRegion('khao-lak'),
+    getCoursesByRegion('krabi'),
   ])
   const hubRegions = [
     { region: 'bangkok', label: REGION_META.bangkok.label, courses: bangkokCourses },
@@ -71,6 +77,9 @@ export default async function GolfCoursesHubPage({ params }: Props) {
     { region: 'southern-thailand', label: REGION_META['southern-thailand'].label, courses: southernThailandCourses },
     { region: 'koh-samui', label: REGION_META['koh-samui'].label, courses: kohSamuiCourses },
     { region: 'chiang-rai', label: REGION_META['chiang-rai'].label, courses: chiangRaiCourses },
+    { region: 'north-misc', label: REGION_META['north-misc'].label, courses: northMiscCourses },
+    { region: 'khao-lak', label: REGION_META['khao-lak'].label, courses: khaoLakCourses },
+    { region: 'krabi', label: REGION_META.krabi.label, courses: krabiCourses },
   ]
 
   const breadcrumbJsonLd = getBreadcrumbJsonLd([

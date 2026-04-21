@@ -1,6 +1,6 @@
 # Golf Course Guide — Project Progress
 
-Last updated: 2026-04-21 (Phase 3 Batch 5: North Misc — 1 course published)
+Last updated: 2026-04-21 (Krabi batch added — all Phase 3 complete; 14 regions live)
 
 ---
 
@@ -455,9 +455,38 @@ Pipeline run: 2026-04-21
 
 ---
 
+## Phase 3 — Batch 6 (Khao Lak) — PUBLISHED
+
+Pipeline run: 2026-04-21
+
+1 course published; 0 skipped. Report: `docs/course-guide/reports/khao-lak-batch.report.md` (not yet created — batch was small)
+
+| # | Course | Province | Status |
+|---|---|---|---|
+| 1 | Katathong Golf Resort & Spa | Phang Nga | ✅ /golf-courses/khao-lak/katathong-golf-resort/ (GF 2,350/3,200 THB seasonal; caddie 400 THB + cart 700 THB compulsory) |
+
+**Published 2026-04-21. New khao-lak region infrastructure created: `data/golf-courses/khao-lak/index.ts`, `REGION_META['khao-lak']` in `lib/golf-courses.ts`, hub page updated, 2 smoke tests added. Phone +66-76-592999 confirmed, GPS coordinates confirmed (8.559593, 98.481254), website https://www.katathong.com confirmed, club rental 1,500 THB.**
+
+---
+
+## Phase 3 — Batch 7 (Krabi) — PUBLISHED
+
+Pipeline run: 2026-04-21
+
+1 course published; 1 skipped. Report: `docs/course-guide/reports/krabi-batch.report.md`
+
+| # | Course | Province | Status |
+|---|---|---|---|
+| 1 | Pakasai Country Club | Krabi | ✅ /golf-courses/krabi/pakasai-country-club/ (GF 2,500 THB provisional; caddie 300 THB provisional + cart 500 THB provisional) |
+| — | Pakasai Golf (9H) | — | ⏸ SKIP — 9-hole annex / same site as above |
+
+**Published 2026-04-21. New krabi region infrastructure created: `data/golf-courses/krabi/index.ts`, `REGION_META.krabi` in `lib/golf-courses.ts`, hub page updated, 2 smoke tests added. Green fee provisional (single aggregator source — call +66 75 for confirmation); phone null (not found); no official website. Club rental available, fee unknown — 5 data-gap items logged in `data-gaps.md`.**
+
+---
+
 ## Phase 3 — complete
 
-All planned Phase 3 batches have now been processed. Remaining low-priority courses (Bhumibol Dam, Khao Laem, Naraihill, etc.) are documented in `data-gaps.md` as candidates for future phone verification.
+All planned Phase 3 batches have now been processed (Batches 1–7). 14 regions live; 149 courses published. Remaining low-priority courses (Bhumibol Dam, Khao Laem, Naraihill, etc.) are documented in `data-gaps.md` as candidates for future phone verification.
 
 ---
 

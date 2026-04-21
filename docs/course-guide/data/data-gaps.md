@@ -3,11 +3,26 @@
 Fields that could not be confirmed via web search. Have someone call the course to confirm.
 Once confirmed, update `knowledge/course-overrides.md` with the correct value and re-run Stage 3 for that course.
 
-Last updated: 2026-04-21 (Phase 3 Batch 5 North Misc added — 1 course)
+Last updated: 2026-04-21 (Krabi batch added — 1 course)
 
 ---
 
 ## Priority: Green fee conflicts (verify first — these affect page content)
+
+### Krabi — Pakasai Country Club
+
+| # | Course | Published | Source / Issue | How to confirm |
+|---|---|---|---|---|
+| 1 | Pakasai Country Club | 2,500 THB weekday/weekend | Single aggregator source — no official website to cross-check. No weekend differential confirmed. | Search for official website or call Pakasai directly (Krabi area code +66 75) |
+
+### Krabi — Pakasai caddie/cart/facilities
+
+| # | Course | Field | Current value | Issue | How to confirm |
+|---|---|---|---|---|---|
+| 2 | Pakasai Country Club | `caddie_fee_thb` | 300 THB | Provisional estimate — not confirmed from a direct source | Call course |
+| 3 | Pakasai Country Club | `cart_fee_thb` | 500 THB | Provisional estimate | Call course |
+| 4 | Pakasai Country Club | `phone` | null | Not found in any source | Search pakasai country club krabi phone |
+| 5 | Pakasai Country Club | `club_rental_fee_thb` | null | Available confirmed; fee unknown | Call course |
 
 ### Phase 3 Batch 5 — North Misc (Mae Moh)
 

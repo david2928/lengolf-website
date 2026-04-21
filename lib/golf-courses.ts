@@ -2,7 +2,7 @@ import 'server-only'
 import type { GolfCourse } from '@/types/golf-courses'
 
 // Supported regions — extend as new batches are published
-const REGIONS = ['bangkok', 'pattaya', 'hua-hin', 'phuket', 'khao-yai', 'kanchanaburi', 'chiang-mai', 'isan', 'southern-thailand', 'koh-samui', 'chiang-rai'] as const
+const REGIONS = ['bangkok', 'pattaya', 'hua-hin', 'phuket', 'khao-yai', 'kanchanaburi', 'chiang-mai', 'isan', 'southern-thailand', 'koh-samui', 'chiang-rai', 'north-misc', 'khao-lak', 'krabi'] as const
 type Region = (typeof REGIONS)[number]
 
 /** Display metadata for each published region — used by index and hub pages. */
@@ -72,6 +72,24 @@ export const REGION_META: Record<string, { label: string; province: string; desc
     province: 'Chiang Rai',
     description: 'Chiang Rai\'s golf is anchored by Santiburi Country Club — a Robert Trent Jones Jr. Signature design widely considered the best course in Northern Thailand — set among the highland hills that give the region its cool climate and scenic mountain backdrops. The province also offers the 27-hole Happy City Resort with three distinct nine-hole loops, the valley-set Waterford Valley Club, and the exceptional-value Wiang Ko Sai in neighbouring Phrae. Chiang Rai is a short 1 hour 15 minute flight from Bangkok, making a two- or three-round golf trip easily achievable as a long weekend.',
     courseCount: 4,
+  },
+  'north-misc': {
+    label: 'Northern Thailand',
+    province: 'Lampang & remote northern provinces',
+    description: 'Northern Thailand\'s most remote golf reaches deep into provinces that see only a handful of visiting golfers each year. The standout is Mae Moh Golf Course in Lampang — Thailand\'s only golf course at a coal-fired power plant, built within the vast EGAT Mae Moh Power Station township and open to the public at government rates. An unusual destination for golfers who want to combine a round with the industrial tourism of Thailand\'s largest power generation facility.',
+    courseCount: 1,
+  },
+  'khao-lak': {
+    label: 'Khao Lak',
+    province: 'Phang Nga',
+    description: 'Khao Lak and Phang Nga province sit on the Andaman coast roughly 80 kilometres north of Phuket Airport — close enough for a day trip from Phuket but distinct in character, with quieter beaches, Similan Islands diving, and a more relaxed resort atmosphere. The flagship course is Katathong Golf Resort & Spa, a 2015 par-72 layout carved through a dramatic former tin mine valley and widely rated as the best golf in the region. Golfers flying into HKT can reach the course in around 60–70 minutes.',
+    courseCount: 1,
+  },
+  krabi: {
+    label: 'Krabi',
+    province: 'Krabi',
+    description: 'Krabi\'s golf centres on Pakasai Country Club — the province\'s only 18-hole championship layout, set in a tropical rubber plantation valley with the iconic limestone karst formations rising above the fairways. The course is the natural choice for golfers visiting Ao Nang and the wider Krabi coastline, combining a round with island beaches, sea kayaking, and rock climbing on one of Thailand\'s most spectacular stretches of Andaman coastline.',
+    courseCount: 1,
   },
 }
 
