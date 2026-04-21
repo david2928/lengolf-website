@@ -38,13 +38,15 @@ const PUBLISHED_REGIONS = [
   { slug: 'chiang-mai' },
   { slug: 'isan' },
   { slug: 'southern-thailand' },
+  { slug: 'koh-samui' },
+  { slug: 'chiang-rai' },
 ] as const
 
 export default async function GolfCoursesHubPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
 
-  const [bangkokCourses, pattayaCourses, huaHinCourses, phuketCourses, khaoYaiCourses, kanchanaburiCourses, chiangMaiCourses, isanCourses, southernThailandCourses] = await Promise.all([
+  const [bangkokCourses, pattayaCourses, huaHinCourses, phuketCourses, khaoYaiCourses, kanchanaburiCourses, chiangMaiCourses, isanCourses, southernThailandCourses, kohSamuiCourses, chiangRaiCourses] = await Promise.all([
     getCoursesByRegion('bangkok'),
     getCoursesByRegion('pattaya'),
     getCoursesByRegion('hua-hin'),
@@ -54,6 +56,8 @@ export default async function GolfCoursesHubPage({ params }: Props) {
     getCoursesByRegion('chiang-mai'),
     getCoursesByRegion('isan'),
     getCoursesByRegion('southern-thailand'),
+    getCoursesByRegion('koh-samui'),
+    getCoursesByRegion('chiang-rai'),
   ])
   const hubRegions = [
     { region: 'bangkok', label: REGION_META.bangkok.label, courses: bangkokCourses },
@@ -65,6 +69,8 @@ export default async function GolfCoursesHubPage({ params }: Props) {
     { region: 'chiang-mai', label: REGION_META['chiang-mai'].label, courses: chiangMaiCourses },
     { region: 'isan', label: REGION_META.isan.label, courses: isanCourses },
     { region: 'southern-thailand', label: REGION_META['southern-thailand'].label, courses: southernThailandCourses },
+    { region: 'koh-samui', label: REGION_META['koh-samui'].label, courses: kohSamuiCourses },
+    { region: 'chiang-rai', label: REGION_META['chiang-rai'].label, courses: chiangRaiCourses },
   ]
 
   const breadcrumbJsonLd = getBreadcrumbJsonLd([

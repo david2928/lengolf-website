@@ -2,7 +2,7 @@ import 'server-only'
 import type { GolfCourse } from '@/types/golf-courses'
 
 // Supported regions — extend as new batches are published
-const REGIONS = ['bangkok', 'pattaya', 'hua-hin', 'phuket', 'khao-yai', 'kanchanaburi', 'chiang-mai', 'isan', 'southern-thailand', 'koh-samui'] as const
+const REGIONS = ['bangkok', 'pattaya', 'hua-hin', 'phuket', 'khao-yai', 'kanchanaburi', 'chiang-mai', 'isan', 'southern-thailand', 'koh-samui', 'chiang-rai'] as const
 type Region = (typeof REGIONS)[number]
 
 /** Display metadata for each published region — used by index and hub pages. */
@@ -66,6 +66,12 @@ export const REGION_META: Record<string, { label: string; province: string; desc
     province: 'Surat Thani',
     description: 'Koh Samui\'s golf spans two very different experiences: the island\'s only championship course at Santiburi Samui Country Club — a mountainous par-72 with mandatory caddies who drive the carts, Gulf views, and a Bangkok Airways Open pedigree — and the Rajjaprabha Dam Golf Course near Khao Sok, one of Thailand\'s most scenic EGAT government layouts, where foreign visitors play a full 18 holes for around 1,000 THB beside Cheow Lan reservoir.',
     courseCount: 2,
+  },
+  'chiang-rai': {
+    label: 'Chiang Rai',
+    province: 'Chiang Rai',
+    description: 'Chiang Rai\'s golf is anchored by Santiburi Country Club — a Robert Trent Jones Jr. Signature design widely considered the best course in Northern Thailand — set among the highland hills that give the region its cool climate and scenic mountain backdrops. The province also offers the 27-hole Happy City Resort with three distinct nine-hole loops, the valley-set Waterford Valley Club, and the exceptional-value Wiang Ko Sai in neighbouring Phrae. Chiang Rai is a short 1 hour 15 minute flight from Bangkok, making a two- or three-round golf trip easily achievable as a long weekend.',
+    courseCount: 4,
   },
 }
 

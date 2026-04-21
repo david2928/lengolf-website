@@ -1,6 +1,6 @@
 # Golf Course Guide — Project Progress
 
-Last updated: 2026-04-21 (Phase 3 Batch 3: Southern Thailand — 3 courses published; Isan batch also published)
+Last updated: 2026-04-21 (Phase 3 Batch 5: North Misc — 1 course published)
 
 ---
 
@@ -409,12 +409,55 @@ Pipeline run: 2026-04-21
 
 ---
 
-## Phase 3 — remaining batches (not yet started)
+## Phase 3 — Batch 4 (Koh Samui & Gulf South) — PUBLISHED
 
-| Batch | Region | Courses | Priority |
+Pipeline run: 2026-04-21
+
+2 courses published; 2 of 4 skipped. Report: `docs/course-guide/reports/phase3-batch4-koh-samui.report.md`
+
+| # | Course | Province | Status |
 |---|---|---|---|
-| 4 | Koh Samui & Gulf South | 2 Phase 3 courses (+ Phase 2 Santiburi Samui) | Medium |
-| 5 | North — Miscellaneous | 16 | Low — very remote |
+| 1 | Santiburi Samui Country Club | Surat Thani | ✅ /golf-courses/koh-samui/santiburi-samui-country-club/ (5,800 THB all-in; caddie + cart bundled) |
+| 2 | Rajjaprabha Dam Golf Course | Surat Thani | ✅ /golf-courses/koh-samui/rajjaprabha-dam-golf-course/ (1,000 THB foreigner rate; dual pricing) |
+| — | Chumphon Beach Golf Club | — | ⏸ SKIP — confirmed closed ~2021 + 9-hole |
+| — | Royal Samui Golf & Country Club | — | ⏸ SKIP — 9-hole |
+
+**Published 2026-04-21. New Koh Samui region infrastructure created: `data/golf-courses/koh-samui/index.ts`, `REGION_META['koh-samui']` in `lib/golf-courses.ts`, hub page updated, 3 smoke tests added.**
+
+---
+
+## Phase 3 — Batch 5 (North Miscellaneous) — PUBLISHED
+
+Pipeline run: 2026-04-21
+
+1 course published; 15 of 16 skipped. Report: `docs/course-guide/reports/phase3-batch5-north-misc.report.md`
+
+| # | Course | Province | Status |
+|---|---|---|---|
+| 1 | Mae Moh Golf Course | Lampang | ✅ /golf-courses/north-misc/mae-moh-golf-course/ (null green fees — contact course; EGAT pattern, all-null commercial data) |
+| — | Wangjuntr Golf Park | — | ⏸ SKIP — already published at /golf-courses/pattaya/wangjuntr-golf-park/ |
+| — | Kamphaeng Phet Akarayothin GC | — | ⏸ SKIP — probable MIL (Royal Thai Army Infantry Center, Wachira Prakarn Camp) |
+| — | Chaophraya Dam GC | — | ⏸ SKIP — existence uncertain (Chaophraya Dam is a weir, not a hydroelectric compound) |
+| — | Phrae Golf Course | — | ⏸ SKIP — insufficient data (holes unknown, no fees/phone) |
+| — | Kwan Pha Yao GC | — | ⏸ SKIP — insufficient data (may be 9H) |
+| — | Tanyatanee Country Club | — | ⏸ SKIP — insufficient data |
+| — | Hillside Country Home | — | ⏸ SKIP — province unknown |
+| — | Naraihill Golf & CC | — | ⏸ SKIP — province inferred only; no fees/phone |
+| — | Panorama Golf & CC | — | ⏸ SKIP — province unknown |
+| — | Mida Golf Club (Lion Hills) | — | ⏸ SKIP — province unknown |
+| — | Nong Samrong GC | — | ⏸ SKIP — insufficient data |
+| — | Green World Hot Spring | — | ⏸ SKIP — likely not 18H |
+| — | Dongpukurd GC | — | ⏸ SKIP — insufficient data |
+| — | Khao Laem GC | — | ⏸ SKIP — probable 9H (small EGAT compound, Sangkhlaburi) |
+| — | Bhumibol Dam GC | — | ⏸ SKIP — hole count unconfirmed (may be 9H) |
+
+**Published 2026-04-21. New north-misc region infrastructure created: `data/golf-courses/north-misc/index.ts`, `REGION_META['north-misc']` in `lib/golf-courses.ts`, hub page updated, 2 smoke tests added. Mae Moh all data null except holes (18, EGAT pattern) — 7 data-gap items logged.**
+
+---
+
+## Phase 3 — complete
+
+All planned Phase 3 batches have now been processed. Remaining low-priority courses (Bhumibol Dam, Khao Laem, Naraihill, etc.) are documented in `data-gaps.md` as candidates for future phone verification.
 
 ---
 

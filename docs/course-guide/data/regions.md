@@ -256,10 +256,10 @@ Includes Mae Rim, San Kamphaeng, Lamphun, Hang Dong, Doi Saket.
 
 | # | Course Name | Slug | Phase | Notes | Status |
 |---|---|---|---|---|---|
-| 1 | Santiburi Country Club Chiang Rai ★ | `santiburi-country-club-chiang-rai` | 2 | Robert Trent Jones Jr, top-rated | pending |
-| 2 | Happy City Golf Resort | `happy-city-golf-resort` | 2 | 29-hole (3 x 9), Korean-owned | pending |
-| 3 | Waterford Valley Golf Club | `waterford-valley-golf-club` | 2 | Wiang Chai Hills | pending |
-| 4 | Wiang Ko Sai Golf Club | `wiang-ko-sai-golf-club` | 2 | | pending |
+| 1 | Santiburi Country Club Chiang Rai ★ | `santiburi-country-club-chiang-rai` | 2 | Robert Trent Jones Jr, top-rated | published |
+| 2 | Happy City Golf Resort | `happy-city-golf-resort` | 2 | 29-hole (3 x 9), Korean-owned | published |
+| 3 | Waterford Valley Golf Club | `waterford-valley-golf-club` | 2 | Wiang Chai Hills | published |
+| 4 | Wiang Ko Sai Golf Club | `wiang-ko-sai-golf-club` | 2 | Province=Phrae; grouped in chiang-rai region per touring circuit convention | published |
 | 5 | Maekok Golf Course (9H — army) | `maekok-golf-course` | skip | 9H, MIL | skip |
 
 ---

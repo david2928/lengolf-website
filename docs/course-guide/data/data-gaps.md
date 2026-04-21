@@ -3,11 +3,45 @@
 Fields that could not be confirmed via web search. Have someone call the course to confirm.
 Once confirmed, update `knowledge/course-overrides.md` with the correct value and re-run Stage 3 for that course.
 
-Last updated: 2026-04-21 (Phase 3 Batch 3 Southern Thailand added — 3 courses)
+Last updated: 2026-04-21 (Phase 3 Batch 5 North Misc added — 1 course)
 
 ---
 
 ## Priority: Green fee conflicts (verify first — these affect page content)
+
+### Phase 3 Batch 5 — North Misc (Mae Moh)
+
+| # | Course | Published | Source / Issue | How to confirm |
+|---|---|---|---|---|
+| 1 | Mae Moh Golf Course | null (contact course) | No source found — only EGAT pattern inference. Page shows "contact course for rates." | Call EGAT Mae Moh Power Plant, Mae Moh district, Lampang (+66 54 xxx xxx — direct line unknown; try EGAT central 1800-010-777) |
+
+### Phase 3 Batch 5 — North Misc caddie/cart/facilities
+
+| # | Course | Field | Current value | Issue | How to confirm |
+|---|---|---|---|---|---|
+| 2 | Mae Moh Golf Course | `holes` | 18 | Assumed per EGAT township pattern — NOT confirmed from a Mae Moh-specific source | Call EGAT Mae Moh |
+| 3 | Mae Moh Golf Course | `caddie_fee_thb` | null | Unknown | Call EGAT Mae Moh |
+| 4 | Mae Moh Golf Course | `cart_fee_thb` | null | Unknown | Call EGAT Mae Moh |
+| 5 | Mae Moh Golf Course | `phone` | null | No direct golf course line found | Call EGAT Mae Moh switchboard |
+| 6 | Mae Moh Golf Course | `driving_range` | null | Unknown | Call EGAT Mae Moh |
+| 7 | Mae Moh Golf Course | `club_rental_available` | null | Unknown | Call EGAT Mae Moh |
+
+### Phase 3 Batch 4 — Koh Samui green fees
+
+| # | Course | Published | Source / Issue | How to confirm |
+|---|---|---|---|---|
+| 1 | Santiburi Samui Country Club | 5,800 THB all-in | Official site santiburigolfsamui.com confirms 5,800 THB. Caddie + cart included in this all-in rate — individual fee breakdown not published. | Check santiburigolfsamui.com or call +66 77 421700 |
+| 2 | Rajjaprabha Dam Golf Course | 1,000 THB (foreigners) | Dual pricing confirmed — foreigners ~1,000 THB, Thai nationals ~500 THB. Provisional: no official website to confirm current rate. | Call +66 77 242562 (also try +66 77 240 7405) |
+
+### Phase 3 Batch 4 — Koh Samui caddie/cart/facilities
+
+| # | Course | Field | Current value | Issue | How to confirm |
+|---|---|---|---|---|---|
+| 3 | Santiburi Samui Country Club | `caddie_fee_thb` | null | Bundled in 5,800 THB all-in — individual fee not confirmed | Call +66 77 421700 |
+| 4 | Santiburi Samui Country Club | `cart_fee_thb` | null | Bundled in 5,800 THB all-in — individual fee not confirmed | Call +66 77 421700 |
+| 5 | Rajjaprabha Dam Golf Course | `caddie_required` | false | Not mandated — but hilly terrain makes caddie recommended; confirm current policy | Call +66 77 242562 |
+| 6 | Rajjaprabha Dam Golf Course | `cart_required` | false | Not mandated — available at 600 THB; confirm current policy | Call +66 77 242562 |
+| 7 | Rajjaprabha Dam Golf Course | `phone` | +66 77 242562 | Secondary number +66 77 240 7405 also cited — confirm which is current | Call both numbers |
 
 ### Phase 3 Batch 3 — Southern Thailand green fees
 

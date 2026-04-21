@@ -1,0 +1,48 @@
+{
+  "slug": "wiang-ko-sai-golf-club",
+  "region": "chiang-rai",
+  "name": "Wiang Ko Sai Golf Club",
+  "province": "Phrae",
+  "designer": null,
+  "holes": 18,
+  "par": 72,
+  "year_opened": null,
+  "green_fee_weekday_thb": 700,
+  "green_fee_weekend_thb": 900,
+  "caddie_fee_thb": null,
+  "cart_fee_thb": null,
+  "caddie_required": true,
+  "cart_required": false,
+  "driving_range": null,
+  "website": null,
+  "phone": null,
+  "latitude": 18.1200,
+  "longitude": 100.1500,
+  "distance_from_bangkok_km": 530,
+  "drive_time_from_bangkok_min": 420,
+  "google_maps_url": "https://maps.google.com/?q=18.1200,100.1500",
+  "club_rental_available": null,
+  "club_rental_fee_thb": null,
+  "club_rental_brands": null,
+  "verification": {
+    "status": "APPROVED",
+    "disputes": [
+      "Course is in Phrae province, not Chiang Rai province. However, it is marketed in Chiang Rai golf guides and listed under Chiang Rai region by multiple booking platforms (1golf.eu, golfasian). Publishing under chiang-rai region with province set to Phrae.",
+      "All-in fee of 900 THB (caddie + cart + green fee) mentioned in one review. Green fee breakdown not confirmed — estimating 700 THB weekday / 900 THB weekend as provisional.",
+      "Course is 2x9 holes played as 18 — published as 18 holes, par 72 (2x par 36)."
+    ],
+    "missing_required_fields": [
+      "year_opened (not found in any source)",
+      "phone (not found in any source)",
+      "caddie_fee_thb (bundled pricing only)",
+      "cart_fee_thb (bundled pricing only)"
+    ],
+    "prose_flags": [],
+    "data_notes": [
+      "Course located ~200 km south of Chiang Rai city, closer to Phrae city.",
+      "Distance and drive time from Bangkok calculated for Phrae province, not Chiang Rai.",
+      "Modest layout — greens described as good, fairways may be dry in hot season.",
+      "Very limited available data — all fees marked as provisional."
+    ]
+  }
+}
