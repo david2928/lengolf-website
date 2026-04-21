@@ -17,7 +17,7 @@ export const REGION_META: Record<string, { label: string; province: string; desc
     label: 'Pattaya',
     province: 'Chonburi & Eastern Seaboard',
     description: 'Pattaya and Thailand\'s Eastern Seaboard offer some of the country\'s most spectacular golf — championship venues that have hosted Asian Tour events, coastal courses with sea views, and private members\' clubs set among tropical hills.',
-    courseCount: 24,
+    courseCount: 25,
   },
   'hua-hin': {
     label: 'Hua Hin',

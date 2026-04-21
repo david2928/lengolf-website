@@ -144,7 +144,7 @@ export default async function RegionIndexPage({ params }: Props) {
                   </span>
                 </div>
                 <p className="max-w-md text-base font-medium leading-relaxed text-white/90 sm:text-lg">
-                  Rent premium clubs delivered to your Bangkok hotel —{' '}
+                  Rent premium clubs from our Bangkok simulator —{' '}
                   <span className="font-bold text-white">Callaway Paradym, Warbird, Majesty.</span>{' '}
                   From <span className="font-bold text-[#c8a96e]">1,200 THB/day</span>.
                 </p>

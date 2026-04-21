@@ -11,16 +11,47 @@ interface RegionCourses {
 
 interface Props {
   regions: RegionCourses[]
+  locale?: string
 }
 
+/** Pin background colours — one per region. */
 const REGION_COLOR: Record<string, string> = {
-  bangkok: '#003d22',
-  pattaya: '#c8a96e',
+  'bangkok':           '#005a32',
+  'pattaya':           '#c8a96e',
+  'hua-hin':           '#1e6091',
+  'phuket':            '#c0392b',
+  'khao-yai':          '#7b2fbe',
+  'kanchanaburi':      '#d97706',
+  'chiang-mai':        '#0369a1',
+  'isan':              '#6d28d9',
+  'southern-thailand': '#be4b08',
+  'koh-samui':         '#0f766e',
+  'chiang-rai':        '#92400e',
+  'north-misc':        '#374151',
+  'khao-lak':          '#0e7490',
+  'krabi':             '#be185d',
 }
 
 const REGION_TEXT_COLOR: Record<string, string> = {
-  bangkok: '#ffffff',
-  pattaya: '#1a1a1a',
+  'bangkok':           '#ffffff',
+  'pattaya':           '#1a1a1a',
+  'hua-hin':           '#ffffff',
+  'phuket':            '#ffffff',
+  'khao-yai':          '#ffffff',
+  'kanchanaburi':      '#ffffff',
+  'chiang-mai':        '#ffffff',
+  'isan':              '#ffffff',
+  'southern-thailand': '#ffffff',
+  'koh-samui':         '#ffffff',
+  'chiang-rai':        '#ffffff',
+  'north-misc':        '#ffffff',
+  'khao-lak':          '#ffffff',
+  'krabi':             '#ffffff',
+}
+
+/** Minimal HTML entity escaping for course names inside template literals. */
+function escHtml(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 }
 
 // Shared window-level promise so the script loads exactly once
@@ -40,10 +71,12 @@ function loadMapsApi(apiKey: string): Promise<void> {
   return w.__mapsApiPromise
 }
 
-export default function HubMapExplorer({ regions }: Props) {
+export default function HubMapExplorer({ regions, locale = 'en' }: Props) {
   const mapDivRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    // EN has no locale prefix (as-needed strategy); other locales get /th, /ko etc.
+    const localePrefix = locale === 'en' ? '' : `/${locale}`
     const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_KEY
     if (!apiKey || !mapDivRef.current) return
     let cancelled = false
@@ -68,6 +101,7 @@ export default function HubMapExplorer({ regions }: Props) {
       for (const { region, label, courses } of regions) {
         const bg   = REGION_COLOR[region]      ?? '#003d22'
         const text = REGION_TEXT_COLOR[region] ?? '#ffffff'
+        const href = `${localePrefix}/golf-courses/${region}/`
 
         for (const course of courses) {
           if (!course.latitude || !course.longitude) continue
@@ -93,12 +127,13 @@ export default function HubMapExplorer({ regions }: Props) {
             title:   course.name,
           })
 
+          const courseHref = `${localePrefix}/golf-courses/${region}/${course.slug}`
           marker.addListener('gmp-click', () => {
             infoWindow.setContent(`
               <div style="font-family:sans-serif;padding:2px 0;min-width:160px">
-                <p style="margin:0 0 2px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:${bg === '#003d22' ? '#005a32' : '#8a6020'}">${label}</p>
-                <p style="margin:0 0 8px;font-size:13px;font-weight:700;color:#1a1a1a;line-height:1.3">${course.name}</p>
-                <a href="/golf-courses/${region}/${course.slug}" style="display:inline-block;background:${bg};color:${text};padding:4px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">
+                <p style="margin:0 0 2px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:${bg}">${escHtml(label)}</p>
+                <p style="margin:0 0 8px;font-size:13px;font-weight:700;color:#1a1a1a;line-height:1.3">${escHtml(course.name)}</p>
+                <a href="${courseHref}" style="display:inline-block;background:${bg};color:${text};padding:4px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">
                   View guide →
                 </a>
               </div>
@@ -112,7 +147,7 @@ export default function HubMapExplorer({ regions }: Props) {
     }).catch(console.error)
 
     return () => { cancelled = true }
-  }, [regions])
+  }, [regions, locale])
 
   return (
     <div className="overflow-hidden rounded-2xl border border-[#003d22]/15 shadow-sm">

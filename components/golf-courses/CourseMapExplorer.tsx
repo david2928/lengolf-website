@@ -16,26 +16,37 @@ function formatFee(n: number | null): string | null {
 }
 
 const REGION_CENTER: Record<string, { lat: number; lng: number; zoom: number }> = {
-  bangkok: { lat: 13.75,  lng: 100.52, zoom: 10 },
-  pattaya: { lat: 12.985, lng: 100.94, zoom: 11 },
+  'bangkok':           { lat: 13.750, lng: 100.52, zoom: 10 },
+  'pattaya':           { lat: 12.985, lng: 100.94, zoom: 11 },
+  'hua-hin':           { lat: 12.570, lng:  99.96, zoom: 11 },
+  'phuket':            { lat:  7.980, lng:  98.33, zoom: 11 },
+  'khao-yai':          { lat: 14.550, lng: 101.55, zoom: 10 },
+  'kanchanaburi':      { lat: 14.100, lng:  99.20, zoom: 10 },
+  'chiang-mai':        { lat: 18.800, lng:  98.97, zoom: 11 },
+  'isan':              { lat: 16.400, lng: 102.80, zoom:  9 },
+  'southern-thailand': { lat:  7.200, lng: 100.50, zoom: 10 },
+  'koh-samui':         { lat:  9.300, lng:  99.50, zoom: 10 },
+  'chiang-rai':        { lat: 19.950, lng:  99.85, zoom: 11 },
+  'north-misc':        { lat: 18.300, lng:  99.50, zoom: 11 },
+  'khao-lak':          { lat:  8.600, lng:  98.25, zoom: 12 },
+  'krabi':             { lat:  8.100, lng:  98.90, zoom: 12 },
 }
 
-// Module-level promise so the script is only injected once
-let mapsReady: Promise<void> | null = null
-
+// Window-level promise so the script loads exactly once across all components/remounts
 function loadMapsApi(apiKey: string): Promise<void> {
   if (typeof window === 'undefined') return Promise.resolve()
-  if ((window as any).google?.maps?.Map) return Promise.resolve()
-  if (mapsReady) return mapsReady
-  mapsReady = new Promise<void>((resolve, reject) => {
+  const w = window as any
+  if (w.google?.maps?.Map) return Promise.resolve()
+  if (w.__mapsApiPromise) return w.__mapsApiPromise
+  w.__mapsApiPromise = new Promise<void>((resolve, reject) => {
     const script = document.createElement('script')
     script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=marker&v=weekly`
     script.async = true
     script.onload = () => resolve()
-    script.onerror = () => { mapsReady = null; reject(new Error('Maps JS API failed to load')) }
+    script.onerror = () => { delete w.__mapsApiPromise; reject(new Error('Maps JS API failed to load')) }
     document.head.appendChild(script)
   })
-  return mapsReady
+  return w.__mapsApiPromise
 }
 
 function makePin(index: number, active: boolean): HTMLDivElement {
@@ -153,7 +164,9 @@ export default function CourseMapExplorer({ courses, region }: Props) {
   const activeMapsUrl = activeCourse?.google_maps_url
     ?? (activeCourse?.latitude && activeCourse?.longitude
       ? `https://www.google.com/maps/search/?api=1&query=${activeCourse.latitude},${activeCourse.longitude}`
-      : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(activeCourse?.name ?? '')}+Bangkok`)
+      : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+          [activeCourse?.name, activeCourse?.province].filter(Boolean).join(' ')
+        )}`)
 
   return (
     <div className="mx-auto max-w-6xl px-4 pb-6 sm:px-6 lg:px-8">

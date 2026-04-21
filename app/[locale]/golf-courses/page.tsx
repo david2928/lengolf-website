@@ -170,7 +170,7 @@ export default async function GolfCoursesHubPage({ params }: Props) {
 
         {/* Hub map */}
         <div className="mb-12">
-          <HubMapExplorer regions={hubRegions} />
+          <HubMapExplorer regions={hubRegions} locale={locale} />
         </div>
 
 

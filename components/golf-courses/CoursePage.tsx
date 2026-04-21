@@ -4,6 +4,7 @@ import type { GolfCourse } from '@/types/golf-courses'
 
 interface Props {
   course: GolfCourse
+  regionLabel: string
 }
 
 function thb(n: number | null): string | null {
@@ -11,17 +12,21 @@ function thb(n: number | null): string | null {
   return n.toLocaleString('en-US') + ' THB'
 }
 
-export default function CoursePage({ course }: Props) {
-  const regionLabel = course.region.charAt(0).toUpperCase() + course.region.slice(1)
+/** Show drive time in hours for distant courses (>=120 min) to avoid "~660 min from Bangkok". */
+function driveTimeLabel(min: number | null): string | null {
+  if (!min) return null
+  return min >= 120
+    ? `~${Math.round(min / 60)}h from Bangkok`
+    : `~${min} min from Bangkok`
+}
 
+export default function CoursePage({ course, regionLabel }: Props) {
   // Quick-fact chips shown in the hero
   const chips = [
     course.holes ? `${course.holes} holes · Par ${course.par}` : null,
     course.designer ? `Designed by ${course.designer}` : null,
     course.year_opened ? `Est. ${course.year_opened}` : null,
-    course.drive_time_from_bangkok_min
-      ? `~${course.drive_time_from_bangkok_min} min from Bangkok`
-      : null,
+    driveTimeLabel(course.drive_time_from_bangkok_min),
   ].filter(Boolean) as string[]
 
   const proseSections = [
@@ -179,13 +184,13 @@ export default function CoursePage({ course }: Props) {
                 >
                   Book now
                 </a>
-                <a
-                  href="https://www.len.golf/golf-course-club-rental/"
+                <Link
+                  href="/golf-course-club-rental"
                   className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
                 >
                   Learn more
                   <ArrowRight className="h-3.5 w-3.5" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -236,7 +241,7 @@ export default function CoursePage({ course }: Props) {
                   {course.drive_time_from_bangkok_min && (
                     <div className="flex items-center gap-3 px-5 py-3.5 text-sm text-muted-foreground">
                       <Clock className="h-4 w-4 shrink-0" />
-                      <span>~{course.drive_time_from_bangkok_min} min from Bangkok</span>
+                      <span>{driveTimeLabel(course.drive_time_from_bangkok_min)}</span>
                     </div>
                   )}
                 </div>
@@ -356,8 +361,8 @@ export default function CoursePage({ course }: Props) {
               </p>
               <p className="mb-3 text-sm leading-relaxed text-foreground">
                 {course.club_rental_available === false
-                  ? "This course doesn't offer club rental — but LENGOLF does. Premium Callaway Paradym, Warbird & Majesty sets delivered to your Bangkok hotel from "
-                  : 'Premium clubs delivered to your Bangkok hotel. Callaway Paradym, Warbird, Majesty. From '}
+                  ? "This course doesn't offer club rental — but LENGOLF does. Premium Callaway Paradym, Warbird & Majesty sets from our Bangkok simulator from "
+                  : 'Premium clubs from our Bangkok simulator — Callaway Paradym, Warbird, Majesty. From '}
                 <strong>1,200 THB/day</strong>.
               </p>
               <Link

@@ -1,7 +1,7 @@
 import { setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getCourseBySlug, getAllCourseParams } from '@/lib/golf-courses'
+import { getCourseBySlug, getAllCourseParams, REGION_META } from '@/lib/golf-courses'
 import { SITE_URL } from '@/lib/constants'
 import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 import CoursePage from '@/components/golf-courses/CoursePage'
@@ -45,19 +45,20 @@ export default async function CoursePageRoute({ params }: Props) {
   const course = await getCourseBySlug(region, slug)
   if (!course) notFound()
 
+  const regionLabel = REGION_META[region]?.label ?? (region.charAt(0).toUpperCase() + region.slice(1))
+  const canonicalUrl = `${SITE_URL}/golf-courses/${region}/${slug}/`
+
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
     { name: 'Golf Courses', url: `${SITE_URL}/golf-courses/` },
-    {
-      name: region.charAt(0).toUpperCase() + region.slice(1),
-      url: `${SITE_URL}/golf-courses/${region}/`,
-    },
-    { name: course.name, url: `${SITE_URL}/golf-courses/${region}/${slug}/` },
+    { name: regionLabel, url: `${SITE_URL}/golf-courses/${region}/` },
+    { name: course.name, url: canonicalUrl },
   ])
 
   const schemaMarkup = JSON.parse(course.schema_markup)
-  // Fill in the description from prose at render time
+  // Fill in the description and canonical URL at render time
   schemaMarkup.description = course.prose.overview
+  schemaMarkup.url = canonicalUrl   // bug_022: use www canonical, not apex domain from static data
 
   return (
     <>
@@ -69,7 +70,7 @@ export default async function CoursePageRoute({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
       />
-      <CoursePage course={course} />
+      <CoursePage course={course} regionLabel={regionLabel} />
     </>
   )
 }
