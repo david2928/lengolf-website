@@ -1,0 +1,48 @@
+{
+  "slug": "mae-moh-golf-course",
+  "region": "north-misc",
+  "name": "Mae Moh Golf Course",
+  "province": "Lampang",
+  "designer": "Electricity Generating Authority of Thailand (EGAT)",
+  "holes": 18,
+  "par": 72,
+  "year_opened": null,
+  "green_fee_weekday_thb": null,
+  "green_fee_weekend_thb": null,
+  "caddie_fee_thb": null,
+  "cart_fee_thb": null,
+  "caddie_required": null,
+  "cart_required": null,
+  "driving_range": null,
+  "website": null,
+  "phone": null,
+  "latitude": 18.3345,
+  "longitude": 99.6712,
+  "distance_from_bangkok_km": 604,
+  "drive_time_from_bangkok_min": 450,
+  "google_maps_url": null,
+  "club_rental_available": null,
+  "club_rental_fee_thb": null,
+  "club_rental_brands": null,
+
+  "verification_status": "REVIEW_REQUIRED",
+  "verification_notes": [
+    "18 holes and par 72 assumed per EGAT standard township pattern (Ubolratana, Rajjaprabha both confirmed 18H/par-72) — NOT confirmed from a direct source for Mae Moh specifically.",
+    "Green fees completely unknown — no listing-site data found. Likely in 300–700 THB foreigner range per EGAT pattern.",
+    "Phone number not found in any public source. EGAT Mae Moh's main switchboard is publicly listed but the golf course direct line is unknown.",
+    "GPS (18.3345, 99.6712) is an estimate for the Mae Moh district; actual course location within the EGAT compound is not confirmed.",
+    "Public access assumed per EGAT pattern but not confirmed for Mae Moh specifically.",
+    "Club rental availability unknown.",
+    "This is Thailand's only golf course at a coal power plant — notable from an industrial tourism angle. Mae Moh coal plant context is well-documented."
+  ],
+  "data_gaps": [
+    "CRITICAL: Confirm 18 holes (vs 9-hole possibility)",
+    "CRITICAL: Green fees — call EGAT Mae Moh",
+    "Phone number — no public source found",
+    "Caddie/cart fees and mandatory status",
+    "Driving range availability",
+    "Club rental"
+  ],
+  "publish_recommendation": "PUBLISH_WITH_PROVISIONAL — all key data null but EGAT pattern is well-established and the Mae Moh setting (Thailand's largest coal plant) is distinctive enough to write a useful guide. Page would show null green fees with a 'contact course' note. Requires user approval given all-null fee structure.",
+  "pipeline_status": "verified"
+}
