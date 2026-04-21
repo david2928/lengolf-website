@@ -185,7 +185,6 @@ const routeTests: RouteTest[] = [
   { path: '/golf-courses/chiang-mai/north-hill-chiang-mai/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-courses/khao-yai/khao-yai-golf-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-courses/khao-yai/life-privilege-country-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  { path: '/golf-courses/bangkok/life-privilege-country-club/', expectedStatus: [301] },
   { path: '/golf-courses/phuket/mission-hills-phuket/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-courses/khao-yai/mountain-creek-golf-resort/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-courses/khao-yai/bonanza-golf-country-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
@@ -233,6 +232,8 @@ const redirectTests: RedirectTest[] = [
   { path: '/corporate-events-asok/', expectedStatus: 308, expectedLocation: '/location/corporate-events-asok/' },
   { path: '/golf-near-ari/', expectedStatus: 308, expectedLocation: '/location/golf-near-ari/' },
   { path: '/golf-near-ekkamai/', expectedStatus: 308, expectedLocation: '/location/golf-near-ekkamai/' },
+  // Re-regioned course redirect: Bangkok → Khao Yai
+  { path: '/golf-courses/bangkok/life-privilege-country-club/', expectedStatus: 308, expectedLocation: '/golf-courses/khao-yai/life-privilege-country-club/' },
 ]
 
 // C) Critical external link checks
