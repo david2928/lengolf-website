@@ -512,16 +512,12 @@ Run each region through the full pipeline (Stages 1–5) in order.
 | Region index page `/golf-courses/bangkok/` | High | ✅ Done | Lists all Bangkok courses with fee + distance |
 | Hub page `/golf-courses/` | High | ✅ Done | Landing page linking to all regions + coming-soon teasers |
 | Smoke tests — hub + region indexes | Low | ✅ Done | Hub, Bangkok, Pattaya, Hua Hin, Phuket indexes + course detail routes in CI |
+| Internal linking — course pages | High | ✅ Done | Each course page now carries 10 unique internal links: 5 pre-existing footer/sidebar links + "Plan Your Trip" sidebar card (3 new links: `/golf-in-thailand-guide`, `/cost/how-much-does-golf-cost-bangkok`, `/lessons`) + "More [Region] courses" section (up to 3 sibling course cards + region index "View all" link). Guide page (`/golf-in-thailand-guide`) updated: 5 featured course rows now link to `/golf-courses/` pages; "Full guide" link replaced with "Browse all Bangkok courses" + "All 149 Thailand courses" links; 7 new HubCards added for the hub and 6 region pages. |
 | GPS coordinates + Google Maps URLs | Medium | Pending | All 11 Bangkok courses approximate — see `data-gaps.md` |
 | Phone number verification | Medium | Pending | 9 courses missing — see `data-gaps.md` |
 | Multilingual pages (KO / ZH / JA) | Phase 2 | Pending | Infrastructure in place (`locales` field), content not written |
 | Add new regions to `lib/golf-courses.ts` | As needed | — | Add to `REGIONS` + `REGION_META` when new batches are published |
 | Update `data/golf-courses/[region]/index.ts` | As needed | — | Add slugs when new courses are published |
-| GPS coordinates + Google Maps URLs | Medium | All 11 Bangkok courses approximate — see `data-gaps.md` |
-| Phone number verification | Medium | 9 courses missing — see `data-gaps.md` |
-| Multilingual pages (KO / ZH / JA) | Phase 2 | Infrastructure in place (`locales` field), content not written |
-| Add new regions to `lib/golf-courses.ts` | As needed | Add to `REGIONS` array when new batches are published |
-| Update `data/golf-courses/[region]/index.ts` | As needed | Add slugs when new courses are published |
 
 ---
 

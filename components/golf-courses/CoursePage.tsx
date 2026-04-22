@@ -6,9 +6,10 @@ import { driveTimeLabel } from '@/lib/format'
 interface Props {
   course: GolfCourse
   regionLabel: string
+  relatedCourses?: GolfCourse[]
 }
 
-export default function CoursePage({ course, regionLabel }: Props) {
+export default function CoursePage({ course, regionLabel, relatedCourses = [] }: Props) {
   // Quick-fact chips shown in the hero
   const chips = [
     course.holes ? `${course.holes} holes · Par ${course.par}` : null,
@@ -179,6 +180,51 @@ export default function CoursePage({ course, regionLabel }: Props) {
                 </Link>
               </div>
             </div>
+
+            {/* More courses in this region */}
+            {relatedCourses.length > 0 && (
+              <div>
+                <div className="mb-4 flex items-center justify-between">
+                  <h2 className="text-sm font-bold uppercase tracking-widest text-primary">
+                    More {regionLabel} courses
+                  </h2>
+                  <Link
+                    href={`/golf-courses/${course.region}`}
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
+                  >
+                    View all <ArrowRight className="h-3 w-3" />
+                  </Link>
+                </div>
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {relatedCourses.map((c) => (
+                    <Link
+                      key={c.slug}
+                      href={`/golf-courses/${c.region}/${c.slug}`}
+                      className="group flex flex-col justify-between gap-3 rounded-xl border border-border bg-white p-4 shadow-sm transition-all hover:-translate-y-px hover:border-primary/30 hover:shadow-md"
+                    >
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                          {c.province}
+                        </p>
+                        <p className="mt-1 text-sm font-bold leading-snug text-foreground group-hover:text-primary transition-colors">
+                          {c.name}
+                        </p>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        {c.green_fee_weekday_thb ? (
+                          <span className="text-xs font-semibold text-primary">
+                            from {c.green_fee_weekday_thb.toLocaleString('en-US')} THB
+                          </span>
+                        ) : (
+                          <span className="text-xs text-muted-foreground">Contact for rates</span>
+                        )}
+                        <ArrowRight className="h-3.5 w-3.5 text-primary/40 group-hover:text-primary transition-colors" />
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* ── Right sidebar ── */}
@@ -335,6 +381,38 @@ export default function CoursePage({ course, regionLabel }: Props) {
                     </span>
                   </div>
                 ) : null}
+              </div>
+            </div>
+
+            {/* Plan Your Trip — links to guide, lessons, and cost pages */}
+            <div className="overflow-hidden rounded-2xl border shadow-sm">
+              <div className="bg-[#f6fffa] px-5 py-3">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-primary">
+                  Plan Your Trip
+                </h2>
+              </div>
+              <div className="divide-y bg-white">
+                <Link
+                  href="/golf-in-thailand-guide"
+                  className="flex items-center gap-3 px-5 py-3.5 text-sm transition-colors hover:bg-muted/40"
+                >
+                  <ArrowRight className="h-4 w-4 shrink-0 text-primary" />
+                  <span>Thailand golf planning guide</span>
+                </Link>
+                <Link
+                  href="/cost/how-much-does-golf-cost-bangkok"
+                  className="flex items-center gap-3 px-5 py-3.5 text-sm transition-colors hover:bg-muted/40"
+                >
+                  <ArrowRight className="h-4 w-4 shrink-0 text-primary" />
+                  <span>Green fee &amp; cost guide</span>
+                </Link>
+                <Link
+                  href="/lessons"
+                  className="flex items-center gap-3 px-5 py-3.5 text-sm transition-colors hover:bg-muted/40"
+                >
+                  <ArrowRight className="h-4 w-4 shrink-0 text-primary" />
+                  <span>Golf lessons in Bangkok</span>
+                </Link>
               </div>
             </div>
 

@@ -452,11 +452,11 @@ export default async function GolfInThailandGuidePage({
 
               <div className="divide-y divide-[rgba(0,66,37,0.06)] rounded-lg border bg-white overflow-hidden mb-6" style={{ borderColor: 'rgba(0,66,37,0.08)' }}>
                 {[
-                  { name: 'Black Mountain Golf Club', meta: 'Hua Hin · 90 min from Bangkok', tag: 'Top-rated', initials: 'BM', color: '#1A4D30', href: '/guide/black-mountain-golf-club-hua-hin' },
-                  { name: 'Banyan Golf Club', meta: 'Hua Hin · 90 min from Bangkok', tag: 'Scenic', initials: 'BY', color: '#2A5A2A', href: '/guide/banyan-golf-club-hua-hin' },
-                  { name: 'Nikanti Golf Club', meta: 'Nakhon Pathom · 45 min from Bangkok', tag: 'Closest', initials: 'NK', color: '#3A4A2A', href: '/guide/nikanti-golf-club-bangkok' },
-                  { name: 'Alpine Golf Club', meta: 'Pathum Thani · 40 min from Bangkok', tag: 'Classic layout', initials: 'AL', color: '#2A3A4A', href: '/guide/alpine-golf-club-bangkok' },
-                  { name: 'Thai Country Club', meta: 'Chachoengsao · 50 min from Bangkok', tag: 'Tournament venue', initials: 'TC', color: '#4A3A1A', href: '/guide/thai-country-club-bangkok' },
+                  { name: 'Black Mountain Golf Club', meta: 'Hua Hin · 90 min from Bangkok', tag: 'Top-rated', initials: 'BM', color: '#1A4D30', href: '/golf-courses/hua-hin/black-mountain-golf-club' },
+                  { name: 'Pineapple Valley Golf Club', meta: 'Hua Hin · 90 min from Bangkok', tag: 'Scenic', initials: 'PV', color: '#2A5A2A', href: '/golf-courses/hua-hin/pineapple-valley-golf-club' },
+                  { name: 'Nikanti Golf Club', meta: 'Nakhon Pathom · 45 min from Bangkok', tag: 'Closest', initials: 'NK', color: '#3A4A2A', href: '/golf-courses/bangkok/nikanti-golf-club' },
+                  { name: 'Alpine Golf Club', meta: 'Pathum Thani · 40 min from Bangkok', tag: 'Classic layout', initials: 'AL', color: '#2A3A4A', href: '/golf-courses/bangkok/alpine-golf-club' },
+                  { name: 'Thai Country Club', meta: 'Chachoengsao · 50 min from Bangkok', tag: 'Tournament venue', initials: 'TC', color: '#4A3A1A', href: '/golf-courses/bangkok/thai-country-club' },
                 ].map((course) => (
                   <Link key={course.name} href={course.href as Parameters<typeof Link>[0]['href']} className="flex items-center gap-3 p-4 group hover:bg-[rgba(0,66,37,0.02)] transition-colors">
                     {/* Stylized monogram badge */}
@@ -494,12 +494,20 @@ export default async function GolfInThailandGuidePage({
                 ))}
               </div>
 
-              <Link
-                href="/guide/best-golf-courses-near-bangkok"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline mb-10"
-              >
-                Full guide: best golf courses near Bangkok <ArrowRight />
-              </Link>
+              <div className="flex flex-wrap gap-4 mb-10">
+                <Link
+                  href="/golf-courses/bangkok"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+                >
+                  Browse all Bangkok courses <ArrowRight />
+                </Link>
+                <Link
+                  href="/golf-courses"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+                >
+                  All 149 Thailand courses <ArrowRight />
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -1274,6 +1282,13 @@ export default async function GolfInThailandGuidePage({
                 { href: '/guide/best-golf-courses-phuket', cat: 'Courses', title: 'Phuket golf courses — the best courses for visitors', stage: 'plan' as const },
                 { href: '/guide/golf-courses-chiang-mai', cat: 'Courses', title: 'Chiang Mai golf guide — courses and tips', stage: 'plan' as const },
                 { href: '/faq/how-many-golf-courses-thailand', cat: 'FAQ · Courses', title: 'How many golf courses are there in Thailand?', stage: 'plan' as const },
+                { href: '/golf-courses', cat: 'Course Directory', title: 'Browse all Thailand golf courses — 149 courses across 14 regions', stage: 'plan' as const },
+                { href: '/golf-courses/bangkok', cat: 'Bangkok', title: 'Bangkok golf courses — 46 courses near the capital', stage: 'plan' as const },
+                { href: '/golf-courses/pattaya', cat: 'Pattaya', title: 'Pattaya & Eastern Seaboard golf courses — 16 courses', stage: 'plan' as const },
+                { href: '/golf-courses/hua-hin', cat: 'Hua Hin', title: 'Hua Hin & Cha-am golf courses — 11 courses', stage: 'plan' as const },
+                { href: '/golf-courses/phuket', cat: 'Phuket', title: 'Phuket golf courses — 8 courses on the island', stage: 'plan' as const },
+                { href: '/golf-courses/chiang-mai', cat: 'Chiang Mai', title: 'Chiang Mai golf courses — 12 courses in the north', stage: 'plan' as const },
+                { href: '/golf-courses/khao-yai', cat: 'Khao Yai', title: 'Khao Yai golf courses — 7 courses in the highlands', stage: 'plan' as const },
               ].map((card) => (
                 <HubCard key={card.href} href={card.href} cat={card.cat} title={card.title} stage={card.stage} />
               ))}
