@@ -6,6 +6,7 @@ const withNextIntl = createNextIntlPlugin('./i18n/request.ts')
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  transpilePackages: ['isomorphic-dompurify', 'dompurify'],
   trailingSlash: true,
   images: {
     remotePatterns: [
