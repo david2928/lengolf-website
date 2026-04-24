@@ -1,6 +1,6 @@
 # Internal Linking Strategy — Golf Course Pages
 
-Last updated: 2026-04-18
+Last updated: 2026-04-22
 
 ---
 
@@ -206,17 +206,15 @@ Each of the 6 Pattaya courses should link to 2–3 of the others:
 
 These links need to be added to existing site pages as courses are published. This is where `/golf-in-thailand-guide/` becomes especially important.
 
-### 8a. Golf in Thailand Guide (`/golf-in-thailand-guide/`)
+### 8a. Golf in Thailand Guide (`/golf-in-thailand-guide/`) — DONE (2026-04-22)
 
-**Action required:** Add a "Top Golf Courses" section to this guide page that links to:
-- Hub page `/golf-courses/` — "Browse all regions"
-- Bangkok region `/golf-courses/bangkok/` — "Bangkok golf courses"
-- Pattaya region `/golf-courses/pattaya/` — "Pattaya golf courses"
-- 3–5 flagship courses by name (one per region as regions publish)
+The guide page has been updated with the following `/golf-courses/` links:
 
-This creates reciprocal linking with the outbound link added to course pages (section 2).
+- 5 featured course rows in the "Courses worth putting on your list" section now link directly to their course pages: Black Mountain → `/golf-courses/hua-hin/black-mountain-golf-club`, Pineapple Valley (formerly Banyan) → `/golf-courses/hua-hin/pineapple-valley-golf-club`, Nikanti → `/golf-courses/bangkok/nikanti-golf-club`, Alpine → `/golf-courses/bangkok/alpine-golf-club`, Thai Country Club → `/golf-courses/bangkok/thai-country-club`.
+- The former "Full guide: best golf courses near Bangkok" link has been replaced with two links: "Browse all Bangkok courses" → `/golf-courses/bangkok/` and "All 149 Thailand courses" → `/golf-courses/`.
+- 7 new HubCards added to the Stage 1 Plan grid linking to `/golf-courses/` (hub) and 6 region pages: bangkok, pattaya, hua-hin, phuket, chiang-mai, khao-yai.
 
-**Priority:** High — implement as soon as the first non-Bangkok region publishes.
+This creates full reciprocal linking with the outbound links added to course pages (section 2).
 
 ### 8b. FAQ Pages — Add "See also" links to relevant courses
 
@@ -314,15 +312,16 @@ This keeps the links editorially natural rather than mechanically appended.
 
 ---
 
-## 12. Future: Dynamic "Also in This Region" Component
+## 12. "More [Region] Courses" Section — IMPLEMENTED (2026-04-22)
 
-Once 3+ regions have 5+ courses each, add a `RelatedCourses` component to `CoursePage.tsx` that:
-- Queries courses in the same region (from `getCoursesByRegion()`)
-- Excludes the current course
-- Shows 3 cards (name, par, drive time, fee)
-- Replaces the need to hard-code sibling links in prose
+The `RelatedCourses` concept has been implemented as a prop-driven section in `CoursePage.tsx`. Implementation details:
 
-Until that component exists, sibling links must be added editorially in prose.
+- `app/[locale]/golf-courses/[region]/[slug]/page.tsx` fetches all courses in the current region via `getCoursesByRegion`, filters out the current course, and passes up to 3 siblings as a `relatedCourses` prop to `CoursePage`.
+- `CoursePage.tsx` renders a "More [Region] courses" section below the rental CTA banner when `relatedCourses.length > 0`. Each card links to `/golf-courses/[region]/[slug]`. A "View all →" link points to the region index.
+- A "Plan Your Trip" sidebar card was also added (between the Facilities card and the rental nudge) with 3 fixed links: `/golf-in-thailand-guide`, `/cost/how-much-does-golf-cost-bangkok`, `/lessons`.
+- The section is statically prop-driven (no client-side query); data comes from the same server-side `getCoursesByRegion` call used at build time.
+
+This replaces the need to hard-code sibling links in prose for all published and future courses.
 
 ---
 

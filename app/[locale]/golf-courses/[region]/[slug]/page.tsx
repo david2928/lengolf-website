@@ -1,7 +1,7 @@
 import { setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getCourseBySlug, getAllCourseParams, REGION_META } from '@/lib/golf-courses'
+import { getCourseBySlug, getAllCourseParams, getCoursesByRegion, REGION_META } from '@/lib/golf-courses'
 import type { Region } from '@/lib/golf-courses'
 import { SITE_URL } from '@/lib/constants'
 import { getBreadcrumbJsonLd } from '@/lib/jsonld'
@@ -47,6 +47,12 @@ export default async function CoursePageRoute({ params }: Props) {
   if (!course) notFound()
 
   const regionLabel = REGION_META[region as Region]?.label ?? (region.charAt(0).toUpperCase() + region.slice(1))
+
+  // Fetch up to 3 sibling courses in the same region for the "More in Region" section
+  const allRegionCourses = await getCoursesByRegion(region)
+  const relatedCourses = allRegionCourses
+    .filter((c) => c.slug !== slug)
+    .slice(0, 3)
   const canonicalUrl = `${SITE_URL}/golf-courses/${region}/${slug}/`
 
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
@@ -81,7 +87,7 @@ export default async function CoursePageRoute({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
         />
       )}
-      <CoursePage course={course} regionLabel={regionLabel} />
+      <CoursePage course={course} regionLabel={regionLabel} relatedCourses={relatedCourses} />
     </>
   )
 }
