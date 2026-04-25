@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   }
 }
 
-const FAQ_COUNT = 6
+const FAQ_COUNT = 7
 
 export default async function ClubRentalPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
@@ -249,6 +249,12 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Handedness note */}
+          <div className="mx-auto mt-8 max-w-3xl rounded-lg border border-primary/20 bg-white px-5 py-4 text-sm text-foreground">
+            <p className="font-semibold" style={{ color: '#007429' }}>{t('handednessNoteTitle')}</p>
+            <p className="mt-1 text-muted-foreground">{t('handednessNote')}</p>
           </div>
 
           {/* sr-only table for crawlers */}

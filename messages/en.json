@@ -644,7 +644,9 @@
     "why3Title": "Flexible Duration",
     "why3Description": "Rent by the hour (1–4 hrs) to match your simulator session — no minimum commitment",
     "why4Title": "Easy Booking",
-    "why4Description": "Reserve clubs online at booking.len.golf or walk in — no deposit required"
+    "why4Description": "Reserve clubs online at booking.len.golf or walk in — no deposit required",
+    "handednessNoteTitle": "Right-handed by default — left-handed available on request",
+    "handednessNote": "All sets shown above are right-handed. Free standard left-handed clubs are available with every bay booking, and we keep one left-handed Premium rental set available on request. Message us on @lengolf to reserve."
   },
   "ClubRentalFaq": {
     "q1": "Can tourists rent golf clubs at LENGOLF?",
@@ -658,7 +660,9 @@
     "q5": "Can I take rented clubs to a golf course?",
     "a5": "Hourly rates on this page are for in-bay simulator use only. For taking clubs to a Bangkok golf course (daily rates from 1,200 THB with delivery available), see our Golf Course Club Rental page.",
     "q6": "Can I try clubs before buying second-hand?",
-    "a6": "Yes! You can test any of our second-hand sets on the simulators before you buy. We regularly have well-maintained Callaway and TaylorMade sets available at significant savings. Ask our staff or message us on LINE @lengolf for current availability and pricing."
+    "a6": "Yes! You can test any of our second-hand sets on the simulators before you buy. We regularly have well-maintained Callaway and TaylorMade sets available at significant savings. Ask our staff or message us on LINE @lengolf for current availability and pricing.",
+    "q7": "Do you have left-handed golf clubs?",
+    "a7": "Yes — left-handed standard clubs are included free with any bay booking. We also have one left-handed Premium rental set available on request, charged at our regular Premium rates (from 150 THB/hr for in-bay use). The Premium+ Callaway Paradym is right-handed only. Message us on LINE @lengolf in advance to reserve a left-handed Premium set."
   },
   "CourseClubRental": {
     "metaTitle": "Golf Course Club Rental Bangkok | Rent Clubs for Any Course",
@@ -761,7 +765,9 @@
     "crossLink3Label": "Bay Rates & Simulators",
     "crossLink3Desc": "Hourly simulator bay pricing and packages",
     "crossLink4Label": "Golf Lessons",
-    "crossLink4Desc": "Private coaching with PGA-certified pros"
+    "crossLink4Desc": "Private coaching with PGA-certified pros",
+    "handednessNoteTitle": "Right-handed by default — left-handed available on request",
+    "handednessNote": "All sets shown above are right-handed. We have one left-handed Premium rental set available for course use, charged at our standard Premium daily rates. The Premium+ Paradym is right-handed only. Please message us on LINE @lengolf to confirm availability before your trip."
   },
   "CourseClubRentalFaq": {
     "q1": "Can you deliver clubs to my hotel in Bangkok?",
@@ -787,7 +793,9 @@
     "q11": "Can I contact you in Korean, Japanese, or Chinese?",
     "a11": "Yes! We have team members who can assist in Korean, Japanese, and Chinese. Message us on LINE @lengolf or email us and we'll respond in your language.",
     "q12": "What is Majesty and why is it special?",
-    "a12": "Majesty is a prestigious Japanese golf brand renowned for its lightweight design and premium craftsmanship. Their clubs are especially popular with female golfers. Our Majesty Shuttle women's set is one of the few places in Bangkok where you can experience this brand without buying."
+    "a12": "Majesty is a prestigious Japanese golf brand renowned for its lightweight design and premium craftsmanship. Their clubs are especially popular with female golfers. Our Majesty Shuttle women's set is one of the few places in Bangkok where you can experience this brand without buying.",
+    "q13": "Do you offer left-handed golf clubs for course rental?",
+    "a13": "Yes — we have one left-handed Premium rental set available for course use, charged at our standard Premium daily rates (from 1,200 THB/day, with multi-day discounts up to 50% off). The Premium+ Callaway Paradym is right-handed only. Message us on LINE @lengolf to confirm availability for your dates before booking."
   },
   "SecondHandClubs": {
     "metaTitle": "Second-Hand Golf Clubs Bangkok | Buy Used Callaway & TaylorMade",
