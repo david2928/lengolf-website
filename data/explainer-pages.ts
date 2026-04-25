@@ -920,7 +920,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'LENGOLF Club Rental',
-          body: 'LENGOLF offers Callaway rental sets included with every simulator bay booking — no separate fee. Sets are available in three configurations:\n1. Men\'s (right-handed)\n2. Ladies\'\n3. Left-handed\n\nThis makes LENGOLF a particularly good option for left-handed golfers, who often find rental options limited at standard courses. The Callaway sets are well-maintained and suitable for all ability levels.',
+          body: 'LENGOLF includes a free standard club set with every simulator bay booking — available in men\'s, ladies\', and left-handed configurations. Premium upgrades start at 150 THB/hr (Callaway Warbird men\'s, Majesty Shuttle women\'s) or 250 THB/hr (Premium+ Callaway Paradym, men\'s right-handed only). Premium displayed sets are right-handed; one left-handed Premium rental set is available on request at the same Premium rate. This makes LENGOLF a particularly good option for left-handed golfers, who often find rental options limited at standard courses. Message LINE @lengolf in advance to reserve a left-handed Premium set.',
         },
       ],
       key_takeaways: [

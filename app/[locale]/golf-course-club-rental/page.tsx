@@ -31,7 +31,7 @@ const faqLinks: Record<string, { href: string; external?: boolean }> = {
 
 export const revalidate = 3600
 
-const FAQ_COUNT = 10
+const FAQ_COUNT = 13
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
@@ -205,7 +205,7 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
           </div>
 
           {/* ── Standard Sets ── */}
-          <div className="mx-auto grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2">
+          <div className="mx-auto grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2 mb-8">
             {([1, 2] as const).map((i) => (
               <div key={i} className="rounded-xl border border-primary/20 bg-white p-6">
                 {i === 1 && (
@@ -231,6 +231,12 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
                 </ul>
               </div>
             ))}
+          </div>
+
+          {/* Handedness note */}
+          <div className="mx-auto mt-2 max-w-4xl rounded-lg border border-primary/20 bg-white px-5 py-4 text-sm text-foreground">
+            <p className="font-semibold" style={{ color: '#007429' }}>{t('handednessNoteTitle')}</p>
+            <p className="mt-1 text-muted-foreground">{t('handednessNote')}</p>
           </div>
         </div>
       </section>
