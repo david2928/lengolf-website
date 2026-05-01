@@ -309,10 +309,10 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
               caption={t('pkgCaption')}
               rowKey={(row) => row.name}
               columns={[
-                { key: 'name', label: t('pkgCourse'), primary: true },
-                { key: 'oneGolfer', label: t('pkg1Golfer'), align: 'right', emphasis: true },
-                { key: 'twoGolfers', label: t('pkg2Golfers'), align: 'right' },
-                { key: 'threeToFiveGolfers', label: t('pkg3To5Golfers'), align: 'right' },
+                { key: 'name', label: t('pkgCourse'), primary: true, thClassName: 'whitespace-nowrap', tdClassName: 'whitespace-nowrap' },
+                { key: 'oneGolfer', label: t('pkg1Golfer'), align: 'right', emphasis: true, thClassName: 'whitespace-nowrap', tdClassName: 'whitespace-nowrap' },
+                { key: 'twoGolfers', label: t('pkg2Golfers'), align: 'right', thClassName: 'whitespace-nowrap', tdClassName: 'whitespace-nowrap' },
+                { key: 'threeToFiveGolfers', label: t('pkg3To5Golfers'), align: 'right', thClassName: 'whitespace-nowrap', tdClassName: 'whitespace-nowrap' },
                 { key: 'remark', label: t('pkgRemark') },
               ]}
               rows={translatedLessonPricing}
