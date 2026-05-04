@@ -58,7 +58,7 @@ export default function RoundupList({ items }: Props) {
                       from {c.green_fee_weekday_thb.toLocaleString('en-US')} THB
                     </span>
                   )}
-                  {c.drive_time_from_bangkok_min && (
+                  {c.drive_time_from_bangkok_min !== null && (
                     <span className="rounded-full border border-border bg-muted/50 px-2.5 py-0.5 text-[11px] text-muted-foreground">
                       {driveTimeLabel(c.drive_time_from_bangkok_min, false)}
                     </span>

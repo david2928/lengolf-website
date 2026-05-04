@@ -87,7 +87,7 @@ function whenToChoose(a: GolfCourse, b: GolfCourse): { forA: string[]; forB: str
   }
 
   // Drive time
-  if (a.drive_time_from_bangkok_min && b.drive_time_from_bangkok_min) {
+  if (a.drive_time_from_bangkok_min !== null && b.drive_time_from_bangkok_min !== null) {
     const diff = a.drive_time_from_bangkok_min - b.drive_time_from_bangkok_min
     if (Math.abs(diff) >= 15) {
       const closer = diff < 0 ? a : b

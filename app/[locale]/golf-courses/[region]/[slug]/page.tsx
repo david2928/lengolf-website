@@ -103,7 +103,7 @@ export default async function CoursePageRoute({ params }: Props) {
   const crossLinks: CrossLink[] = [
     ...courseComparisons.map((p) => ({
       label: `${courseNamesById[p.slugA] ?? p.slugA} vs ${courseNamesById[p.slugB] ?? p.slugB}`,
-      href: `/golf-courses/compare/${p.region}/${pairSlug(p.slugA, p.slugB)}` as const,
+      href: `/golf-courses/compare/${p.region}/${pairSlug(p.slugA, p.slugB)}`,
     })),
     ...(nearestStationLink ? [nearestStationLink] : []),
     ...(useCaseLink ? [useCaseLink] : []),

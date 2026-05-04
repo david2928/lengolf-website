@@ -25,10 +25,12 @@ function golfCourseItem(c: GolfCourse): Record<string, unknown> {
     }
   }
   if (c.green_fee_weekday_thb !== null) {
-    // Schema.org price strings — currency separately
+    // Schema.org / Google Rich Results convention is for `price` to be a
+    // string ("1500"), not a number. The validator accepts both but warns
+    // on the numeric form; matches the existing pattern in `lib/jsonld.ts`.
     item.offers = {
       '@type': 'Offer',
-      price: c.green_fee_weekday_thb,
+      price: String(c.green_fee_weekday_thb),
       priceCurrency: 'THB',
       description: 'Weekday green fee',
     }

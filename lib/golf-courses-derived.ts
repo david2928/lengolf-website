@@ -14,14 +14,27 @@ import { haversineKm } from '@/lib/geo'
  * more search demand), boosted by editorial-completeness and external
  * authority signals. We deliberately do NOT use prose.overview length
  * since every course has 200-400 words of overview by data-team contract.
+ *
+ * Weekend fee falls back to weekday fee — a course missing weekend pricing
+ * shouldn't silently rank below a low-quality course that happens to have
+ * a weekend price filled in.
  */
 export function popularityScore(c: GolfCourse): number {
   let score = 0
-  score += c.green_fee_weekend_thb ?? 0
+  score += c.green_fee_weekend_thb ?? c.green_fee_weekday_thb ?? 0
   if (c.prose.layout_and_experience.length > 200) score += 1000
   if (c.website) score += 500
   if (c.driving_range) score += 300
   return score
+}
+
+/**
+ * Deterministic comparator: sort by score desc, then by slug asc as the
+ * stable tie-break so identical scores produce a stable ordering across
+ * builds regardless of source-file iteration order.
+ */
+function byPopularity(a: GolfCourse, b: GolfCourse): number {
+  return popularityScore(b) - popularityScore(a) || a.slug.localeCompare(b.slug)
 }
 
 async function getAllPublishedCourses(): Promise<GolfCourse[]> {
@@ -38,7 +51,7 @@ export async function getTopCoursesByRegion(
   const courses = await getCoursesByRegion(region)
   return courses
     .filter((c) => c.status === 'published')
-    .sort((a, b) => popularityScore(b) - popularityScore(a))
+    .sort(byPopularity)
     .slice(0, n)
 }
 
@@ -51,9 +64,25 @@ export async function getComparisonPairs(): Promise<
   { region: Region; slugA: string; slugB: string }[]
 > {
   const regions = Object.keys(REGION_META) as Region[]
+  const tops = await Promise.all(regions.map((r) => getTopCoursesByRegion(r, 3)))
   const out: { region: Region; slugA: string; slugB: string }[] = []
-  for (const region of regions) {
-    const top = await getTopCoursesByRegion(region, 3)
+  for (let r = 0; r < regions.length; r++) {
+    const region = regions[r]
+    const top = tops[r]
+    for (const c of top) {
+      // Build-time guard: comparison URLs are formed by `${slugA}-vs-${slugB}`,
+      // so a slug containing the literal token "-vs-" would create ambiguous
+      // URLs (two different inputs producing the same canonical string). Fail
+      // the build immediately rather than ship colliding routes.
+      if (c.slug.includes('-vs-')) {
+        throw new Error(
+          `[golf-courses-derived] Course slug "${c.slug}" contains reserved token "-vs-" — comparison URLs would collide`
+        )
+      }
+    }
+    // Slug ordering is the canonical alphabetisation that pairSlug relies on.
+    // ASCII-only slugs make this lexicographic and meaningful; non-ASCII would
+    // still be deterministic, just not human-readable order.
     for (let i = 0; i < top.length; i++) {
       for (let j = i + 1; j < top.length; j++) {
         const [slugA, slugB] =
@@ -125,7 +154,7 @@ export async function getCoursesUnderPrice(
       (c) =>
         c.green_fee_weekday_thb !== null && c.green_fee_weekday_thb <= thb
     )
-    .sort((a, b) => popularityScore(b) - popularityScore(a))
+    .sort(byPopularity)
     .slice(0, n)
 }
 
@@ -141,7 +170,7 @@ export async function getCoursesForUseCase(
   const all = await getAllPublishedCourses()
   return all
     .filter(meta.predicate)
-    .sort((a, b) => popularityScore(b) - popularityScore(a))
+    .sort(byPopularity)
     .slice(0, n)
 }
 
