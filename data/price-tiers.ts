@@ -16,7 +16,7 @@ export interface PriceTier {
 export const PRICE_TIERS: readonly PriceTier[] = [
   {
     thb: 1500,
-    slug: 'under-1500-baht',
+    slug: '1500-baht',
     title: 'Best Bangkok-Area Golf Courses Under ฿1,500',
     framing:
       'At the very low end of the Thai green-fee market. These rounds are typically at older municipal or government layouts (EGAT power-plant courses, military clubs) where a foreign visitor can play 18 holes for the price of a buffet brunch.',
@@ -25,7 +25,7 @@ export const PRICE_TIERS: readonly PriceTier[] = [
   },
   {
     thb: 2500,
-    slug: 'under-2500-baht',
+    slug: '2500-baht',
     title: 'Best Bangkok-Area Golf Courses Under ฿2,500',
     framing:
       'Honest mid-budget golf within 90 minutes of central Bangkok. Most courses in this band are 15+ years old and run by the same ownership group that built them, with weekday rates aimed at the Thai retail golfer rather than the inbound tourist.',
@@ -34,7 +34,7 @@ export const PRICE_TIERS: readonly PriceTier[] = [
   },
   {
     thb: 3500,
-    slug: 'under-3500-baht',
+    slug: '3500-baht',
     title: 'Best Bangkok-Area Golf Courses Under ฿3,500',
     framing:
       'The sweet spot for the budget-conscious visiting golfer — modern layouts within an hour of Bangkok at a price most international markets would consider impossibly low for an 18-hole round with caddie and cart.',
@@ -43,7 +43,7 @@ export const PRICE_TIERS: readonly PriceTier[] = [
   },
   {
     thb: 5000,
-    slug: 'under-5000-baht',
+    slug: '5000-baht',
     title: 'Best Bangkok-Area Golf Courses Under ฿5,000',
     framing:
       'Premium daily-fee golf without crossing into trophy-course territory. This band covers the better Bangkok-region courses that international tour groups regularly use — well-conditioned, tournament-ready, and book-able online in English.',
@@ -52,7 +52,7 @@ export const PRICE_TIERS: readonly PriceTier[] = [
   },
   {
     thb: 7500,
-    slug: 'under-7500-baht',
+    slug: '7500-baht',
     title: 'Best Bangkok-Area Golf Courses Under ฿7,500',
     framing:
       'The top end of the visiting-tourist market. Trophy courses here include all-inclusive premium experiences (Nikanti), former Asian Tour venues, and the marquee Schmidt-Curley and Nicklaus designs that put Thailand on the world golf map.',
