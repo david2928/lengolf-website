@@ -223,6 +223,12 @@ const routeTests: RouteTest[] = [
   { path: '/golf-courses/kanchanaburi/woo-sung-castle-hill/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-courses/kanchanaburi/evergreen-hills-golf-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-courses/kanchanaburi/blue-sapphire-golf-resort/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // Programmatic-SEO course pages (workstream A). Comparison routes (~42 pages)
+  // are verified by `npm run build` static generation; we spot-check the
+  // three deterministic page types here.
+  { path: '/golf-courses/near/asok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/golf-courses/under/2500-baht/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/golf-courses/best-for/beginners/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // API routes (no Google Maps key in CI, so 500 is acceptable — just not 404)
   { path: '/api/aqi/', expectedStatus: [200, 500, 502] },
 ]
