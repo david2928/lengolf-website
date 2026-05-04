@@ -2,14 +2,17 @@ import { MapPin, Clock, Phone, Globe, Check, X, ArrowRight } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
 import type { GolfCourse } from '@/types/golf-courses'
 import { driveTimeLabel } from '@/lib/format'
+import CrossLinkBlock, { type CrossLink } from '@/components/golf-courses/CrossLinkBlock'
 
 interface Props {
   course: GolfCourse
   regionLabel: string
   relatedCourses?: GolfCourse[]
+  /** Cross-links into programmatic-SEO pages (comparisons, BTS proximity, use-cases). */
+  crossLinks?: CrossLink[]
 }
 
-export default function CoursePage({ course, regionLabel, relatedCourses = [] }: Props) {
+export default function CoursePage({ course, regionLabel, relatedCourses = [], crossLinks = [] }: Props) {
   // Quick-fact chips shown in the hero
   const chips = [
     course.holes ? `${course.holes} holes · Par ${course.par}` : null,
@@ -224,6 +227,14 @@ export default function CoursePage({ course, regionLabel, relatedCourses = [] }:
                   ))}
                 </div>
               </div>
+            )}
+
+            {/* Cross-links into programmatic-SEO pages */}
+            {crossLinks.length > 0 && (
+              <CrossLinkBlock
+                heading="Also explore"
+                items={crossLinks}
+              />
             )}
           </div>
 

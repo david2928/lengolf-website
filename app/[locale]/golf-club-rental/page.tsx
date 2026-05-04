@@ -410,6 +410,36 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
           </Link>
         </div>
       </SectionWrapper>
+
+      {/* ── Find a course to play (English only) ── */}
+      {locale === 'en' && (
+        <SectionWrapper className="bg-[#F6FFFA]">
+          <h2 className="mb-6 text-center text-2xl font-bold italic lg:text-3xl">
+            <span style={{ color: '#007429' }}>Plan</span>{' '}
+            <span className="text-foreground">your round in Thailand</span>
+          </h2>
+          <div className="mx-auto grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-3">
+            <Link
+              href="/golf-courses/under/2500-baht"
+              className="group rounded-xl border border-primary/15 bg-white px-4 py-3 text-center text-sm transition-shadow hover:shadow-md"
+            >
+              <p className="font-semibold text-foreground group-hover:text-primary transition-colors">Courses under ฿2,500</p>
+            </Link>
+            <Link
+              href="/golf-courses/best-for/beginners"
+              className="group rounded-xl border border-primary/15 bg-white px-4 py-3 text-center text-sm transition-shadow hover:shadow-md"
+            >
+              <p className="font-semibold text-foreground group-hover:text-primary transition-colors">Best for beginners</p>
+            </Link>
+            <Link
+              href="/golf-courses/best-for/weekday-play"
+              className="group rounded-xl border border-primary/15 bg-white px-4 py-3 text-center text-sm transition-shadow hover:shadow-md"
+            >
+              <p className="font-semibold text-foreground group-hover:text-primary transition-colors">Weekday savings</p>
+            </Link>
+          </div>
+        </SectionWrapper>
+      )}
     </>
   )
 }
