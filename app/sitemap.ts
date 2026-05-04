@@ -5,9 +5,16 @@ import { getPostSlugs } from '@/lib/blog'
 import { getAllLocationSlugs } from '@/lib/locations'
 import { getAllSeoPageSlugs } from '@/lib/seo-pages'
 import { REGION_META, getAllCourseParams } from '@/lib/golf-courses'
+import {
+  getComparisonPairs,
+  pairSlug,
+  getStationSlugs,
+  getPriceTierSlugs,
+} from '@/lib/golf-courses-derived'
+import { USE_CASES } from '@/data/golf-courses-use-cases'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [blogSlugs, locationSlugs, activitySlugs, faqSlugs, hotelSlugs, costSlugs, explainerSlugs, bestOfSlugs, courseParams] = await Promise.all([
+  const [blogSlugs, locationSlugs, activitySlugs, faqSlugs, hotelSlugs, costSlugs, explainerSlugs, bestOfSlugs, courseParams, comparisonPairs] = await Promise.all([
     getPostSlugs(),
     getAllLocationSlugs(),
     getAllSeoPageSlugs('activity_occasion'),
@@ -17,6 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getAllSeoPageSlugs('explainer'),
     getAllSeoPageSlugs('best_of_listicle'),
     getAllCourseParams(),
+    getComparisonPairs(),
   ])
 
   // Pages with translations — hreflang alternates sourced from translated-routes registry
@@ -186,6 +194,35 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }))
 
+  // ── Programmatic-SEO course pages (workstream A) ────────────────────────────
+  const golfComparisonPages: MetadataRoute.Sitemap = comparisonPairs.map((p) => ({
+    url: `${SITE_URL}/golf-courses/compare/${p.region}/${pairSlug(p.slugA, p.slugB)}/`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
+  const golfNearStationPages: MetadataRoute.Sitemap = getStationSlugs().map((station) => ({
+    url: `${SITE_URL}/golf-courses/near/${station}/`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  const golfPriceTierPages: MetadataRoute.Sitemap = getPriceTierSlugs().map((tier) => ({
+    url: `${SITE_URL}/golf-courses/under/${tier}/`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  const golfBestForPages: MetadataRoute.Sitemap = USE_CASES.map((useCase) => ({
+    url: `${SITE_URL}/golf-courses/best-for/${useCase}/`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
   return [
     ...translatedPages,
     ...hubPages,
@@ -201,5 +238,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...golfCoursesHub,
     ...golfRegionPages,
     ...golfCoursePages,
+    ...golfComparisonPages,
+    ...golfNearStationPages,
+    ...golfPriceTierPages,
+    ...golfBestForPages,
   ]
 }

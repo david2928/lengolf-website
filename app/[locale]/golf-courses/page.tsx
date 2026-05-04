@@ -4,8 +4,11 @@ import { Link } from '@/i18n/navigation'
 import { SITE_URL } from '@/lib/constants'
 import { REGION_META, getCoursesByRegion } from '@/lib/golf-courses'
 import { getBreadcrumbJsonLd } from '@/lib/jsonld'
-import { MapPin, ArrowRight, Flag } from 'lucide-react'
+import { MapPin, ArrowRight, Flag, Scale, Train, Wallet, Target } from 'lucide-react'
 import HubMapExplorer from '@/components/golf-courses/HubMapExplorer'
+import { BTS_STATIONS } from '@/data/bts-stations'
+import { PRICE_TIERS } from '@/data/price-tiers'
+import { USE_CASES } from '@/data/golf-courses-use-cases'
 
 interface Props {
   params: Promise<{ locale: string }>
@@ -130,6 +133,110 @@ export default async function GolfCoursesHubPage({ params }: Props) {
         {/* Hub map */}
         <div className="mb-12">
           <HubMapExplorer regions={hubRegions} locale={locale} />
+        </div>
+
+        {/* ── Programmatic-SEO finders (workstream A) ────────────────────── */}
+        <div className="mb-12 space-y-10">
+          {/* Find by BTS / district */}
+          <section>
+            <div className="mb-4 flex items-center gap-2">
+              <Train className="h-4 w-4 text-primary" aria-hidden="true" />
+              <h2 className="text-base font-bold uppercase tracking-widest text-primary">
+                Find courses near your hotel
+              </h2>
+            </div>
+            <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+              Top courses ranked by straight-line distance from each Bangkok demand-magnet district.
+            </p>
+            <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-4">
+              {Object.values(BTS_STATIONS).map((s) => (
+                <Link
+                  key={s.slug}
+                  href={`/golf-courses/near/${s.slug}`}
+                  className="group flex items-center justify-between rounded-xl border border-border bg-white px-4 py-3 text-sm shadow-sm transition-all hover:-translate-y-px hover:border-primary/30 hover:shadow-md"
+                >
+                  <span className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                    Near {s.name}
+                  </span>
+                  <ArrowRight className="h-3.5 w-3.5 text-primary/40 group-hover:text-primary transition-colors" />
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          {/* Find by budget */}
+          <section>
+            <div className="mb-4 flex items-center gap-2">
+              <Wallet className="h-4 w-4 text-primary" aria-hidden="true" />
+              <h2 className="text-base font-bold uppercase tracking-widest text-primary">
+                Filter by green fee budget
+              </h2>
+            </div>
+            <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+              From low-budget EGAT-municipal layouts up to trophy-course territory.
+            </p>
+            <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-5">
+              {PRICE_TIERS.map((t) => (
+                <Link
+                  key={t.slug}
+                  href={`/golf-courses/under/${t.slug}`}
+                  className="group flex items-center justify-between rounded-xl border border-border bg-white px-4 py-3 text-sm shadow-sm transition-all hover:-translate-y-px hover:border-primary/30 hover:shadow-md"
+                >
+                  <span className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                    Under ฿{t.thb.toLocaleString('en-US')}
+                  </span>
+                  <ArrowRight className="h-3.5 w-3.5 text-primary/40 group-hover:text-primary transition-colors" />
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          {/* Find by playing style */}
+          <section>
+            <div className="mb-4 flex items-center gap-2">
+              <Target className="h-4 w-4 text-primary" aria-hidden="true" />
+              <h2 className="text-base font-bold uppercase tracking-widest text-primary">
+                Find by playing style
+              </h2>
+            </div>
+            <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+              Courses suited to a specific kind of round — from beginners’ first 18 to championship-grade tournament venues.
+            </p>
+            <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
+              {USE_CASES.map((u) => (
+                <Link
+                  key={u}
+                  href={`/golf-courses/best-for/${u}`}
+                  className="group flex items-center justify-between rounded-xl border border-border bg-white px-4 py-3 text-sm shadow-sm transition-all hover:-translate-y-px hover:border-primary/30 hover:shadow-md"
+                >
+                  <span className="font-semibold capitalize text-foreground group-hover:text-primary transition-colors">
+                    Best for {u.replace('-', ' ')}
+                  </span>
+                  <ArrowRight className="h-3.5 w-3.5 text-primary/40 group-hover:text-primary transition-colors" />
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          {/* Compare top courses (per region) */}
+          <section>
+            <div className="mb-4 flex items-center gap-2">
+              <Scale className="h-4 w-4 text-primary" aria-hidden="true" />
+              <h2 className="text-base font-bold uppercase tracking-widest text-primary">
+                Compare top courses
+              </h2>
+            </div>
+            <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+              Side-by-side spec sheets and a data-driven view of which course suits which kind of round.
+            </p>
+            <Link
+              href="/golf-courses/bangkok"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-primary transition-all hover:underline"
+            >
+              Browse comparisons by region
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+            </Link>
+          </section>
         </div>
 
         {/* LENGOLF rental CTA */}

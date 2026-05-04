@@ -459,6 +459,69 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
           </Link>
         </div>
       </SectionWrapper>
+
+      {/* ── Find a course to play (English only — programmatic-SEO pages are EN) ── */}
+      {locale === 'en' && (
+        <SectionWrapper className="bg-[#F6FFFA]">
+          <h2 className="mb-3 text-center text-3xl font-bold italic lg:text-4xl">
+            <span style={{ color: '#007429' }}>Find</span>{' '}
+            <span className="text-foreground">a course to play</span>
+          </h2>
+          <p className="mb-8 text-center text-sm text-muted-foreground">
+            Browse courses by price, area, or playing style — then book your clubs above.
+          </p>
+          <div className="mx-auto grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
+            <Link
+              href="/golf-courses/under/2500-baht"
+              className="group rounded-xl border border-primary/15 bg-white px-4 py-3 text-center text-sm transition-shadow hover:shadow-md"
+            >
+              <p className="font-semibold text-foreground group-hover:text-primary transition-colors">Under ฿2,500</p>
+            </Link>
+            <Link
+              href="/golf-courses/under/5000-baht"
+              className="group rounded-xl border border-primary/15 bg-white px-4 py-3 text-center text-sm transition-shadow hover:shadow-md"
+            >
+              <p className="font-semibold text-foreground group-hover:text-primary transition-colors">Under ฿5,000</p>
+            </Link>
+            <Link
+              href="/golf-courses/near/asok"
+              className="group rounded-xl border border-primary/15 bg-white px-4 py-3 text-center text-sm transition-shadow hover:shadow-md"
+            >
+              <p className="font-semibold text-foreground group-hover:text-primary transition-colors">Near Asok BTS</p>
+            </Link>
+            <Link
+              href="/golf-courses/near/chidlom"
+              className="group rounded-xl border border-primary/15 bg-white px-4 py-3 text-center text-sm transition-shadow hover:shadow-md"
+            >
+              <p className="font-semibold text-foreground group-hover:text-primary transition-colors">Near Chidlom BTS</p>
+            </Link>
+            <Link
+              href="/golf-courses/best-for/beginners"
+              className="group rounded-xl border border-primary/15 bg-white px-4 py-3 text-center text-sm transition-shadow hover:shadow-md"
+            >
+              <p className="font-semibold text-foreground group-hover:text-primary transition-colors">Best for beginners</p>
+            </Link>
+            <Link
+              href="/golf-courses/best-for/tournaments"
+              className="group rounded-xl border border-primary/15 bg-white px-4 py-3 text-center text-sm transition-shadow hover:shadow-md"
+            >
+              <p className="font-semibold text-foreground group-hover:text-primary transition-colors">Tournament courses</p>
+            </Link>
+            <Link
+              href="/golf-courses"
+              className="group rounded-xl border border-primary/15 bg-white px-4 py-3 text-center text-sm transition-shadow hover:shadow-md"
+            >
+              <p className="font-semibold text-foreground group-hover:text-primary transition-colors">All regions</p>
+            </Link>
+            <Link
+              href="/golf-courses/best-for/weekday-play"
+              className="group rounded-xl border border-primary/15 bg-white px-4 py-3 text-center text-sm transition-shadow hover:shadow-md"
+            >
+              <p className="font-semibold text-foreground group-hover:text-primary transition-colors">Weekday savings</p>
+            </Link>
+          </div>
+        </SectionWrapper>
+      )}
     </>
   )
 }
