@@ -154,7 +154,11 @@
     "majestyCalloutText": "Majesty는 일본의 프리미엄 골프 브랜드로, 가벼운 설계와 높은 품질로 여성 골퍼에게 최적화되어 있습니다.",
     "pricingCurrencyNote": "하루 {price} THB부터 ({approx})",
     "handednessNoteTitle": "표시된 세트는 모두 오른손잡이용 — 왼손잡이용은 요청 시 제공",
-    "handednessNote": "위에 표시된 모든 세트는 오른손잡이용입니다. 코스 이용을 위한 왼손잡이용 프리미엄 렌탈 세트가 1개 있으며, 일반 프리미엄 일일 요금이 적용됩니다. 프리미엄+ Paradym은 오른손잡이 전용입니다. 여행 전에 LINE @lengolf으로 연락하여 이용 가능 여부를 확인해 주세요."
+    "handednessNote": "위에 표시된 모든 세트는 오른손잡이용입니다. 코스 이용을 위한 왼손잡이용 프리미엄 렌탈 세트가 1개 있으며, 일반 프리미엄 일일 요금이 적용됩니다. 프리미엄+ Paradym은 오른손잡이 전용입니다. 여행 전에 LINE @lengolf으로 연락하여 이용 가능 여부를 확인해 주세요.",
+    "crossLink3Desc": "시간제 시뮬레이터 베이 요금 및 패키지",
+    "crossLink3Label": "베이 요금 및 시뮬레이터",
+    "crossLink4Desc": "PGA 공인 프로와의 1대1 코칭",
+    "crossLink4Label": "골프 레슨"
   },
   "CourseClubRentalFaq": {
     "q1": "방콕 호텔로 클럽을 배송해 주시나요?",
