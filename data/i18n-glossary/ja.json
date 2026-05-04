@@ -1,0 +1,40 @@
+{
+  "locale": "ja",
+  "language_name": "Japanese",
+  "brand_immutable": [
+    "LENGOLF",
+    "len.golf",
+    "Mercury Ville",
+    "Chidlom",
+    "BTS",
+    "MRT",
+    "PGA",
+    "Bravo Golf"
+  ],
+  "preferred": {
+    "indoor golf simulator": "インドアゴルフシミュレーター",
+    "lesson": "レッスン",
+    "lessons": "レッスン",
+    "green fee": "グリーンフィー",
+    "club rental": "クラブレンタル",
+    "rent clubs": "クラブレンタル",
+    "bay": "ベイ",
+    "Bangkok": "バンコク",
+    "coach": "コーチ",
+    "coaches": "コーチ",
+    "package": "パッケージ",
+    "package deal": "パッケージ",
+    "Book Now": "今すぐ予約",
+    "Learn More": "詳しく見る"
+  },
+  "tone": "friendly-professional, second-person, conversational. No exclamation marks. No emoji. Avoid marketing-speak inflation.",
+  "formality": "丁寧語 (teineigo) — です/ます調. Neither casual である調 nor honorific 尊敬語/謙譲語. Suitable for marketing copy aimed at adult customers. Use カタカナ for golf-domain loanwords (ゴルフ, シミュレーター, レッスン, パッケージ); use 漢字 + ひらがな for general-purpose verbs and connectives.",
+  "preserve": [
+    "All next-intl placeholders like {name}, {year}, {pct}, {n}, {rate}",
+    "All markdown formatting (**, *, [, ], (), # headings)",
+    "All HTML tags",
+    "All link URLs verbatim",
+    "All currency notations (THB, ฿, USD, $)",
+    "All numerals as half-width Arabic digits (do not convert to ２３４)"
+  ]
+}
