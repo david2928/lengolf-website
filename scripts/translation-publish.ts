@@ -51,16 +51,40 @@ function parseArgs(argv: string[]): CliArgs {
 }
 
 /**
+ * Reserved keys that, if traversed, would mutate Object.prototype or other
+ * built-in slots. Source EN keys are trusted today, but the runner pipes
+ * untrusted-shape strings (third-party JSON imports, future EN edits) into
+ * setAtPath, so we defend at the boundary. See PR #26 review C1.
+ */
+const FORBIDDEN_KEY_SEGMENTS = new Set([
+  '__proto__',
+  'prototype',
+  'constructor',
+])
+
+function isForbiddenKey(k: string): boolean {
+  return FORBIDDEN_KEY_SEGMENTS.has(k)
+}
+
+function hasOwn(obj: Record<string, unknown>, key: string): boolean {
+  return Object.prototype.hasOwnProperty.call(obj, key)
+}
+
+/**
  * Set a value at a dot-notation path. Creates intermediate objects.
  * For array-indexed keys (e.g. "Lessons.coaches.boss.expertise.0"), creates
- * arrays and inserts at index. Returns false if a conflict arises (e.g. trying
- * to set into a string-leaf path).
+ * arrays and inserts at index. Returns false if a conflict arises (string-leaf
+ * path collision, would overwrite, or the path traverses a prototype-poison
+ * segment).
  */
 function setAtPath(
   root: Record<string, unknown>,
   parts: string[],
   value: string,
 ): boolean {
+  // Guard every segment first — reject the whole path if any segment is forbidden.
+  for (const p of parts) if (isForbiddenKey(p)) return false
+
   let node: Record<string, unknown> | unknown[] = root
   for (let i = 0; i < parts.length - 1; i++) {
     const key = parts[i]
@@ -74,7 +98,9 @@ function setAtPath(
       if (typeof next !== 'object' || next === null) return false
       node = next as Record<string, unknown> | unknown[]
     } else {
-      if (node[key] === undefined) {
+      // hasOwn check — `in` walks the prototype chain and would falsely
+      // think e.g. node['toString'] exists on every plain object.
+      if (!hasOwn(node, key)) {
         node[key] = isArrayIdx ? [] : {}
       }
       const next = node[key]
@@ -89,16 +115,20 @@ function setAtPath(
     if (!Number.isInteger(idx)) return false
     node[idx] = value
   } else {
-    if (last in node) return false // would overwrite — net-new contract violated
+    if (hasOwn(node, last)) return false // would overwrite — net-new contract violated
     node[last] = value
   }
   return true
 }
 
 /**
- * Check whether a dot-notation path already has a leaf in the existing tree.
+ * Check whether a dot-notation path already has an own-property leaf in the
+ * existing tree. Uses hasOwn so inherited properties (toString, etc.) don't
+ * cause false positives.
  */
 function existsAtPath(root: Record<string, unknown>, parts: string[]): boolean {
+  for (const p of parts) if (isForbiddenKey(p)) return false
+
   let node: unknown = root
   for (const p of parts) {
     if (typeof node !== 'object' || node === null) return false
@@ -107,7 +137,9 @@ function existsAtPath(root: Record<string, unknown>, parts: string[]): boolean {
       if (!Number.isInteger(idx)) return false
       node = node[idx]
     } else {
-      node = (node as Record<string, unknown>)[p]
+      const obj = node as Record<string, unknown>
+      if (!hasOwn(obj, p)) return false
+      node = obj[p]
     }
     if (node === undefined) return false
   }

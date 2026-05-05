@@ -5,6 +5,18 @@
 // for the Next.js bundle path). Both clients use the same env vars and the
 // same service-role key — the security invariant ("no anon key in client
 // code") is preserved.
+//
+// We can't use `import 'server-only'` (would crash tsx scripts), so the
+// runtime check below replicates its protection: in any browser-like context
+// (Webpack DCE keeps this throw in client bundles), importing this module
+// crashes immediately and visibly. Tsx in Node has no `window`, so no crash.
+// See PR #26 review M5.
+if (typeof window !== 'undefined') {
+  throw new Error(
+    'lib/translations/db.ts is server-side only. Do not import from client components.',
+  )
+}
+
 import { createClient as createSupabaseClient } from '@supabase/supabase-js'
 import type {
   TranslationRow,
@@ -58,11 +70,15 @@ export async function listPending(
   locale: Locale,
   limit = 50,
 ): Promise<TranslationRow[]> {
+  // Only 'pending' rows. Previously this also returned 'flagged' rows which
+  // the runner then filtered out — at scale (50 flagged + 1 pending in a
+  // batch) that filter starved the pending row. See PR #26 review L4.
+  // Use listFlagged() for the post-run review queue.
   const { data, error } = await db()
     .from(TABLE)
     .select('*')
     .eq('locale', locale)
-    .in('status', ['pending', 'flagged'])
+    .eq('status', 'pending')
     .order('created_at', { ascending: true })
     .limit(limit)
 
@@ -141,6 +157,18 @@ export async function upsertPending(
   return { inserted }
 }
 
+/**
+ * Update a row's status and optionally patch translation/notes/cost.
+ *
+ * **WARNING — `notes` REPLACES, does not merge.** If you need to add to
+ * existing notes (which is almost always the case once any agent has run),
+ * call `mergeNotes` instead. `setStatus` is appropriate for:
+ *   - Initial 'draft' transition right after translate (no prior notes)
+ *   - Stage-transition with no notes update (e.g. 'lexicon_passed' → 'ready')
+ *   - The publish script flipping 'ready' → 'published' (no notes)
+ *
+ * Wrong call site can silently nuke audit-trail of agent verdicts.
+ */
 export async function setStatus(
   id: string,
   status: Status,

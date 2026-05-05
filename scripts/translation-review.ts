@@ -15,7 +15,7 @@
 
 import readline from 'node:readline/promises'
 import { stdin as input, stdout as output } from 'node:process'
-import { listFlagged, setStatus } from '../lib/translations/db'
+import { listFlagged, setStatus, mergeNotes } from '../lib/translations/db'
 import { ALL_TARGET_LOCALES, type Locale, type TranslationRow } from '../lib/translations/types'
 
 function parseArgs(argv: string[]): { locale: Locale } {
@@ -109,10 +109,10 @@ async function main() {
         console.log('  empty input — leaving flagged')
         skipped++
       } else {
-        await setStatus(row.id, 'ready', {
-          translation: newText,
-          notes: { ...row.notes, manual_edit: true },
-        })
+        // First write the new translation (no notes change).
+        await setStatus(row.id, 'flagged', { translation: newText })
+        // Then merge the manual_edit flag without clobbering agent verdicts.
+        await mergeNotes(row.id, { manual_edit: true }, 'ready')
         acted++
         console.log('  → ready (manually edited)')
       }

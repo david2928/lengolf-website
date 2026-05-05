@@ -101,13 +101,21 @@ async function processRow(
   glossary: Glossary,
   log: (ev: JsonlEvent) => Promise<void>,
   budget: { spent: number; cap: number },
-): Promise<{ outcome: 'ready' | 'flagged' | 'rejected' | 'errored'; rowCost: number }> {
+): Promise<{ outcome: 'ready' | 'flagged' | 'errored'; rowCost: number }> {
   let rowCost = 0
 
+  // Charge a cost into the cumulative budget AND check the cap. Called after
+  // every API call returns. The cap is "no more API calls after the cap is
+  // reached" — so we charge first (we already paid for this call), then the
+  // next ensureBudget call before the next API call sees the updated total.
+  function chargeAndCheck(cost: number): void {
+    rowCost += cost
+    budget.spent += cost
+  }
   function ensureBudget(): void {
-    if (budget.spent + rowCost >= budget.cap) {
+    if (budget.spent >= budget.cap) {
       throw new CostCapExceeded(
-        `Cost cap reached: spent $${(budget.spent + rowCost).toFixed(4)} / cap $${budget.cap}`,
+        `Cost cap reached: spent $${budget.spent.toFixed(4)} / cap $${budget.cap}`,
       )
     }
   }
@@ -116,7 +124,7 @@ async function processRow(
     // Stage 1: translate
     ensureBudget()
     const { translation, cost_usd: tCost } = await translate(row, glossary)
-    rowCost += tCost
+    chargeAndCheck(tCost)
     await setStatus(row.id, 'draft', { translation, cost_usd: tCost })
 
     // Stage 2: lexicon (deterministic, no API call)
@@ -140,7 +148,7 @@ async function processRow(
     if (shouldDeepReview(row)) {
       ensureBudget()
       const tone = await toneCheck(row, translation, glossary)
-      rowCost += tone.cost_usd
+      chargeAndCheck(tone.cost_usd)
       if (!tone.passed) {
         await mergeNotes(row.id, { tone: tone.notes }, 'flagged', tone.cost_usd)
         await log({
@@ -158,7 +166,7 @@ async function processRow(
 
       ensureBudget()
       const native = await nativeCheck(row, translation, glossary)
-      rowCost += native.cost_usd
+      chargeAndCheck(native.cost_usd)
       if (!native.passed) {
         await mergeNotes(
           row.id,
@@ -201,19 +209,26 @@ async function processRow(
 
     const msg = err instanceof Error ? err.message : String(err)
     try {
-      await mergeNotes(row.id, { error: msg }, 'flagged', rowCost)
+      // Pass cost=0: any costs incurred during this row were already merged
+      // into the row's cost_usd via setStatus/mergeNotes calls before the
+      // throw site. Adding rowCost again would double-count.
+      await mergeNotes(row.id, { error: msg }, 'flagged', 0)
     } catch {
       // If we can't even write the flag, swallow — main loop continues.
     }
-    await log({
-      ts: new Date().toISOString(),
-      row_id: row.id,
-      locale: row.locale,
-      source_key: row.source_key,
-      status: 'flagged',
-      cost_usd: rowCost,
-      error: msg,
-    })
+    try {
+      await log({
+        ts: new Date().toISOString(),
+        row_id: row.id,
+        locale: row.locale,
+        source_key: row.source_key,
+        status: 'flagged',
+        cost_usd: rowCost,
+        error: msg,
+      })
+    } catch {
+      // log-write failures should never crash the run.
+    }
     return { outcome: 'errored', rowCost }
   }
 }
@@ -274,21 +289,19 @@ async function main() {
 
   outer: for (const locale of args.locales) {
     while (true) {
+      // listPending returns only 'pending' rows now (see review L4 fix),
+      // so no filter needed. Flagged rows are handled by the review CLI.
       const rows = await listPending(locale, 50)
       if (rows.length === 0) break
-      // Filter out flagged-and-already-tried rows so we don't re-process them
-      // unless the user resets their status. Safe because flagged rows have
-      // a translation already; the lexicon/tone/native notes survive across
-      // runs and only manual review resets them to pending.
-      const fresh = rows.filter((r) => r.status === 'pending')
-      if (fresh.length === 0) break
 
-      for (const row of fresh) {
+      for (const row of rows) {
         if (args.limit !== undefined && processed >= args.limit) break outer
 
-        let outcome: 'ready' | 'flagged' | 'rejected' | 'errored'
+        let outcome: 'ready' | 'flagged' | 'errored'
         let rowCost = 0
         try {
+          // processRow updates `budget.spent` directly via chargeAndCheck,
+          // so we MUST NOT add rowCost again here (would double-count).
           const r = await processRow(row, glossaries[locale], log, budget)
           outcome = r.outcome
           rowCost = r.rowCost
@@ -296,12 +309,31 @@ async function main() {
           if (err instanceof CostCapExceeded) {
             capHit = true
             console.error(`\n${err.message}`)
+            // Append a final marker event so post-mortem readers see the abort.
+            try {
+              await log({
+                ts: new Date().toISOString(),
+                row_id: '_runner_',
+                locale: row.locale,
+                source_key: '_cost_cap_aborted_',
+                status: 'aborted',
+                cost_usd: budget.spent,
+                error: err.message,
+              })
+            } catch {
+              // ignore — we're exiting anyway
+            }
             break outer
           }
-          throw err
+          // Any other error from processRow (e.g. DB outage during mergeNotes)
+          // — count it, log it, continue to the next row. Don't crash the run.
+          const msg = err instanceof Error ? err.message : String(err)
+          console.error(`\n[fatal-row] ${row.source_key}: ${msg}`)
+          errored++
+          processed++
+          continue
         }
 
-        budget.spent += rowCost
         processed++
         if (outcome === 'ready') ready++
         else if (outcome === 'flagged') flagged++

@@ -32,6 +32,9 @@ interface FlattenedCatalog {
   skipped: string[]
 }
 
+// See PR #26 review C1 — defense in depth against prototype-poison source keys.
+const FORBIDDEN_KEY_SEGMENTS = new Set(['__proto__', 'prototype', 'constructor'])
+
 export function flattenCatalog(obj: unknown, prefix = ''): FlattenedCatalog {
   const leaves = new Map<string, LeafValue>()
   const arrayKeys = new Set<string>()
@@ -50,7 +53,13 @@ export function flattenCatalog(obj: unknown, prefix = ''): FlattenedCatalog {
       return
     }
     if (v !== null && typeof v === 'object') {
+      // Only iterate own keys — Object.keys is own-enumerable already, so this
+      // is for the explicit guard below, not a behavior change.
       for (const k of Object.keys(v as Record<string, unknown>)) {
+        if (FORBIDDEN_KEY_SEGMENTS.has(k)) {
+          skipped.push(p ? `${p}.${k}` : k)
+          continue
+        }
         walk((v as Record<string, unknown>)[k], p ? `${p}.${k}` : k)
       }
       return

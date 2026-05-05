@@ -36,12 +36,14 @@ The runner is **autonomous Node code** that calls the Anthropic API directly via
 
 ## Database
 
-Two tables live in the shared Lengolf Supabase project, in a **dedicated `website_i18n` schema** (NOT in `public`, where lengolf-forms owns its own `translations`/`translation_keys`/`translation_namespaces` system for staff back-office i18n):
+Two tables live in the shared Lengolf Supabase project, in `public` with a `website_` prefix to avoid the name collision with `public.translations` (lengolf-forms' staff i18n back-office, plus `translation_keys`/`translation_namespaces`/`translation_history`):
 
-- `website_i18n.translations` — staging area; rows transition through `pending → draft → lexicon_passed → tone_passed → native_passed → ready → published` (or `→ flagged → ready` after manual review). UNIQUE on `(source_type, source_key, locale, field)` makes seeds and runs idempotent.
-- `website_i18n.glossary_candidates` — terms the translator/reviewers encountered that aren't in the glossary; never auto-applied.
+- `public.website_translations` — staging area; rows transition through `pending → draft → lexicon_passed → tone_passed → native_passed → ready → published` (or `→ flagged → ready` after manual review). UNIQUE on `(source_type, source_key, locale, field)` makes seeds and runs idempotent.
+- `public.website_glossary_candidates` — terms the translator/reviewers encountered that aren't in the glossary; never auto-applied.
 
-The schema itself is `service_role`-only — `REVOKE ALL ... FROM anon, authenticated` plus `ALTER DEFAULT PRIVILEGES` blocks PostgREST from auto-exposing any future tables created in `website_i18n`. RLS is enabled on both tables (with no policies); the only legitimate writer is `lib/translations/db.ts`, which uses the existing `lib/supabase/client.ts` (server-only, service-role) and calls `.schema('website_i18n')` before `.from()`.
+A dedicated `website_i18n` schema would have been cleaner, but PostgREST's exposed-schemas list (`public, graphql_public, backoffice, pos, products, marketing, finance, ai_eval, accounting, simulator`) is configured at the project level and not reachable via `service_role` SQL.
+
+Both tables are `service_role`-only: `REVOKE ALL ... FROM anon, authenticated`, RLS enabled with no policies. The only legitimate writer is `lib/translations/db.ts`, which instantiates a **dedicated** service-role Supabase client (it does NOT reuse `lib/supabase/client.ts` because the latter's `import 'server-only'` guard crashes when evaluated by tsx scripts; `db.ts` replaces that protection with a runtime `typeof window !== 'undefined'` throw that webpack DCE keeps in client bundles).
 
 ## Env vars
 
@@ -128,7 +130,7 @@ Per-row cost (rough, 2026-05 pricing):
 
 ≈ $0.007 per row average. For ~900 rows across TH+KO+JA, expect **~$6 baseline**, well under the $20 default cap. The cap exists for catastrophic failure modes (runaway retries, prompt cache miss thrashing, scope expansion).
 
-Prompt caching: each agent's system prompt is identical for all rows of the same (locale, role) pair → caches after the first call per pair (12 distinct prefixes). Verify cache hits via `usage.cache_read_input_tokens` in the JSONL log.
+Prompt caching: each agent's system prompt is identical for all rows of the same (locale, role) pair → caches after the first call per pair. With 3 LLM stages (translate, tone, native — lexicon is pure TS, no API call) × 3 locales = **9 distinct cached prefixes**. Verify cache hits via `usage.cache_read_input_tokens` in the JSONL log.
 
 ## Logging + audit
 
