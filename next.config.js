@@ -106,11 +106,22 @@ const nextConfig = {
       { source: '/lesson/', destination: '/lessons/', permanent: true },
     ]
 
+    // Rental-page consolidation: /rent-golf-clubs-bangkok/ was a duplicate
+    // of /golf-course-club-rental/ (same title, description, h1, namespace).
+    // 301 to consolidate organic equity onto the older, more descriptive URL.
+    const rentalConsolidationRedirects = [
+      { source: '/rent-golf-clubs-bangkok', destination: '/golf-course-club-rental/', permanent: true },
+      { source: '/rent-golf-clubs-bangkok/', destination: '/golf-course-club-rental/', permanent: true },
+      { source: '/:locale(th|ko|ja|zh)/rent-golf-clubs-bangkok', destination: '/:locale/golf-course-club-rental/', permanent: true },
+      { source: '/:locale(th|ko|ja|zh)/rent-golf-clubs-bangkok/', destination: '/:locale/golf-course-club-rental/', permanent: true },
+    ]
+
     return [
       ...blogRedirects,
       ...pageTypeRedirects,
       ...locationAreaRedirects,
       ...rootLocationRedirects,
+      ...rentalConsolidationRedirects,
 
       // WordPress tag, category, and author archives -> blog listing
       { source: '/tag/:slug', destination: '/blog/', permanent: true },

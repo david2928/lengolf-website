@@ -15,22 +15,19 @@ const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynam
       '/lessons',
       '/about-us',
       '/blog',
-      '/rent-golf-clubs-bangkok',
     ],
     dynamicRoutePatterns: [],
   },
   // KO / JA / ZH: bespoke landing pages at '/' (HomeKo/HomeJa/HomeZh namespaces),
-  // plus /golf, /lessons, /rent-golf-clubs-bangkok, and — as of the events/
-  // about-us/club-rental/course-club-rental translation pass — /events,
-  // /about-us, /golf-club-rental, /golf-course-club-rental. Expand this list
-  // only after translating the target page's namespace — otherwise mixed-
-  // language content ships to Google and hreflang gets flagged as mismatched.
+  // plus /golf, /lessons, /events, /about-us, /golf-club-rental, and
+  // /golf-course-club-rental. Expand this list only after translating the
+  // target page's namespace — otherwise mixed-language content ships to
+  // Google and hreflang gets flagged as mismatched.
   ko: {
     staticRoutes: [
       '/',
       '/golf',
       '/lessons',
-      '/rent-golf-clubs-bangkok',
       '/events',
       '/about-us',
       '/golf-club-rental',
@@ -43,7 +40,6 @@ const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynam
       '/',
       '/golf',
       '/lessons',
-      '/rent-golf-clubs-bangkok',
       '/events',
       '/about-us',
       '/golf-club-rental',
@@ -56,7 +52,6 @@ const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynam
       '/',
       '/golf',
       '/lessons',
-      '/rent-golf-clubs-bangkok',
       '/events',
       '/about-us',
       '/golf-club-rental',
