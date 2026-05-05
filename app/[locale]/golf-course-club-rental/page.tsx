@@ -8,8 +8,12 @@ import { storageUrl, SITE_URL, BUSINESS_INFO, SOCIAL_LINKS, BOOKING_URL } from '
 import { getAlternates, getCanonical } from '@/lib/translated-routes'
 import { getCourseClubRentalServiceJsonLd, getCourseClubRentalPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { getRentalClubPricing } from '@/lib/clubs'
+import { getApproxCurrency } from '@/lib/currency-rates'
 import ImageLightbox from '@/components/shared/ImageLightbox'
 import StickyBookCTA from '@/components/clubs/StickyBookCTA'
+import TrustBar from '@/components/course-rental/TrustBar'
+import Testimonials from '@/components/course-rental/Testimonials'
+import MultiChannelContact from '@/components/course-rental/MultiChannelContact'
 import {
   ExternalLink,
   Truck,
@@ -59,6 +63,8 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
   }))
 
   const courseRentalUrl = `${BOOKING_URL}course-rental`
+  const approxCurrency = getApproxCurrency(1200, locale)
+  const contactLanguageNote = locale === 'en' || locale === 'th' ? null : t('contactLanguageNote')
   const serviceJsonLd = getCourseClubRentalServiceJsonLd()
   const pricingJsonLd = getCourseClubRentalPricingJsonLd()
   const faqJsonLd = getFaqPageJsonLd(faqItems)
@@ -69,6 +75,30 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
   ])
 
   const { course: pricingRows } = await getRentalClubPricing()
+
+  const testimonials = [
+    {
+      text: t('testimonial1Text'),
+      name: t('testimonial1Name'),
+      nationality: t('testimonial1Nationality'),
+      flag: '🇬🇧',
+      course: t('testimonial1Course'),
+    },
+    {
+      text: t('testimonial2Text'),
+      name: t('testimonial2Name'),
+      nationality: t('testimonial2Nationality'),
+      flag: '🇰🇷',
+      course: t('testimonial2Course'),
+    },
+    {
+      text: t('testimonial3Text'),
+      name: t('testimonial3Name'),
+      nationality: t('testimonial3Nationality'),
+      flag: '🇯🇵',
+      course: t('testimonial3Course'),
+    },
+  ]
 
   return (
     <>
@@ -115,6 +145,11 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
             >
               {t('heroBadge')}
             </span>
+            <span className="inline-flex items-center gap-1.5 rounded bg-white/95 px-3 py-1.5 text-sm font-bold text-gray-800 shadow-sm">
+              <span className="text-yellow-400 tracking-tight">★★★★★</span>
+              <span>{BUSINESS_INFO.googleRating}</span>
+              <span className="font-normal text-gray-500">· {BUSINESS_INFO.googleReviewCount} Google reviews</span>
+            </span>
             <span className="inline-flex items-center gap-1.5 rounded bg-white/20 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm">
               <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
               {t('heroResponseBadge')}
@@ -138,21 +173,26 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
         </div>
       </section>
 
-      {/* ── Intro + Stat Chips ── */}
+      {/* ── Trust Bar ── */}
+      <TrustBar
+        deliveryLabel={t('trustBarDeliveryLabel')}
+        stat1Value={t('stat1Value')}
+        stat1Label={t('stat1Label')}
+        stat2Value={t('stat2Value')}
+        stat2Label={t('stat2Label')}
+        stat3Value={t('stat3Value')}
+        stat3Label={t('stat3Label')}
+        stat4Value={t('stat4Value')}
+        stat4Label={t('stat4Label')}
+        approxCurrency={approxCurrency}
+      />
+
+      {/* ── Intro ── */}
       <SectionWrapper>
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
             {t('introText')}
           </p>
-
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="rounded-lg border border-primary/15 bg-primary/5 px-4 py-4">
-                <div className="text-2xl font-bold" style={{ color: '#007429' }}>{t(`stat${i}Value`)}</div>
-                <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">{t(`stat${i}Label`)}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </SectionWrapper>
 
@@ -291,6 +331,12 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
               </table>
             </div>
 
+            {approxCurrency && (
+              <p className="text-xs text-muted-foreground text-center bg-muted/40 rounded-lg px-4 py-2">
+                {t('pricingCurrencyNote', { price: '1,200', approx: approxCurrency })}
+              </p>
+            )}
+
             <p className="text-sm text-muted-foreground">{t('pricingNote')}</p>
 
             {/* Delivery + Payment info cards */}
@@ -320,40 +366,43 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
         </div>
       </section>
 
+      {/* ── Testimonials ── */}
+      <Testimonials
+        title={t('testimonialsTitle')}
+        titleSuffix={t('testimonialsTitleSuffix')}
+        items={testimonials}
+      />
+
       {/* ── Book Now CTA ── */}
       <section id="book-now" className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">
-          <div className="mx-auto max-w-xl text-center">
-            <h2 className="mb-3 text-3xl font-bold italic lg:text-4xl">
+          <div className="mx-auto max-w-md">
+            <h2 className="mb-3 text-center text-3xl font-bold italic lg:text-4xl">
               <span style={{ color: '#007429' }}>{t('formTitle')}</span>
             </h2>
-            <p className="mb-8 text-muted-foreground">{t('formSubtitle')}</p>
+            <p className="mb-8 text-center text-muted-foreground">{t('formSubtitle')}</p>
 
             <a
               href={courseRentalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-14 items-center gap-3 rounded-lg px-10 text-base font-bold text-white transition-opacity hover:opacity-90 shadow-lg"
+              className="flex w-full h-14 items-center justify-center gap-2.5 rounded-lg text-base font-bold text-white transition-opacity hover:opacity-90 shadow-md mb-6"
               style={{ backgroundColor: '#007429' }}
             >
-              <ExternalLink size={20} />
+              <ExternalLink size={18} />
               {t('stickyBookCta')}
             </a>
 
-            <p className="mt-6 text-sm text-muted-foreground">
-              {t('contactPrefix')}{' '}
-              <a href={SOCIAL_LINKS.line} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary hover:underline">
-                LINE @lengolf
-              </a>
-              {t('contactEmailSep')}{' '}
-              <a href={`mailto:${BUSINESS_INFO.email}`} className="font-semibold text-primary hover:underline">
-                {BUSINESS_INFO.email}
-              </a>
-              {' '}{t('contactPhoneSep')}{' '}
-              <a href={`tel:${BUSINESS_INFO.phoneRaw}`} className="font-semibold text-primary hover:underline">
-                {BUSINESS_INFO.phone}
-              </a>
-            </p>
+            <MultiChannelContact
+              lineLabel={t('contactLineLabel')}
+              emailLabel={t('contactEmailLabel')}
+              phoneLabel={t('contactPhoneLabel')}
+              languageNote={contactLanguageNote}
+              lineHandle="@lengolf"
+              email={BUSINESS_INFO.email}
+              phone={BUSINESS_INFO.phone}
+              lineUrl={SOCIAL_LINKS.line}
+            />
           </div>
         </div>
       </section>

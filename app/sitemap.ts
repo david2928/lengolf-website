@@ -85,13 +85,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
       alternates: { languages: getAlternates('/blog/') },
     },
-    {
-      url: `${SITE_URL}/rent-golf-clubs-bangkok/`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-      alternates: { languages: getAlternates('/rent-golf-clubs-bangkok/') },
-    },
   ]
 
   // Hub / index pages for SEO section groups

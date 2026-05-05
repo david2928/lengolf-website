@@ -85,12 +85,6 @@ const routeTests: RouteTest[] = [
   // Best-of listicle pages
   { path: '/best/best-team-building-activities-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/best/best-corporate-event-venues-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  // Rent golf clubs landing page (EN + locale variants)
-  { path: '/rent-golf-clubs-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  { path: '/th/rent-golf-clubs-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  { path: '/ko/rent-golf-clubs-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  { path: '/ja/rent-golf-clubs-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  { path: '/zh/rent-golf-clubs-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // JA pages (Home/Golf/Lessons/Events/AboutUs/ClubRental/CourseClubRental translated in ja.json)
   { path: '/ja/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/golf/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
@@ -264,6 +258,13 @@ const redirectTests: RedirectTest[] = [
   { path: '/golf-near-ekkamai/', expectedStatus: 308, expectedLocation: '/location/golf-near-ekkamai/' },
   // Re-regioned course redirect: Bangkok → Khao Yai
   { path: '/golf-courses/bangkok/life-privilege-country-club/', expectedStatus: 308, expectedLocation: '/golf-courses/khao-yai/life-privilege-country-club/' },
+  // Rental-page consolidation: rent-golf-clubs-bangkok → golf-course-club-rental
+  // (was a duplicate; consolidated to fix self-cannibalisation in organic search)
+  { path: '/rent-golf-clubs-bangkok/', expectedStatus: 308, expectedLocation: '/golf-course-club-rental/' },
+  { path: '/th/rent-golf-clubs-bangkok/', expectedStatus: 308, expectedLocation: '/th/golf-course-club-rental/' },
+  { path: '/ko/rent-golf-clubs-bangkok/', expectedStatus: 308, expectedLocation: '/ko/golf-course-club-rental/' },
+  { path: '/ja/rent-golf-clubs-bangkok/', expectedStatus: 308, expectedLocation: '/ja/golf-course-club-rental/' },
+  { path: '/zh/rent-golf-clubs-bangkok/', expectedStatus: 308, expectedLocation: '/zh/golf-course-club-rental/' },
 ]
 
 // C) Critical external link checks
@@ -285,7 +286,7 @@ const seoTests: SeoTest[] = [
   { path: '/ja/', locale: 'ja' },
   { path: '/ja/golf/', locale: 'ja' },
   { path: '/ja/lessons/', locale: 'ja' },
-  { path: '/ja/rent-golf-clubs-bangkok/', locale: 'ja' },
+  { path: '/ja/golf-course-club-rental/', locale: 'ja' },
   { path: '/ko/', locale: 'ko' },
   { path: '/ko/golf/', locale: 'ko' },
   { path: '/ko/lessons/', locale: 'ko' },

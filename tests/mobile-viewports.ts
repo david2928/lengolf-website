@@ -15,7 +15,7 @@ export type Viewport = (typeof MOBILE_VIEWPORTS)[number]
  * defined viewport sizes. Each check is registered as its own named test.
  *
  * Usage:
- *   mobileViewportSweep('/rent-golf-clubs-bangkok', { ctaSelector: 'text=Reserve Golf Clubs' })
+ *   mobileViewportSweep('/golf-course-club-rental', { ctaSelector: 'text=Book Clubs' })
  */
 export function mobileViewportSweep(
   path: string,

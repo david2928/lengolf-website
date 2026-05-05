@@ -65,7 +65,7 @@ export default async function ChinaLandingPage() {
       price: t('service3Price'),
       priceApprox: t('service3PriceApprox'),
       desc: t('service3Desc'),
-      href: '/rent-golf-clubs-bangkok',
+      href: '/golf-course-club-rental',
       image: storageUrl('golf/hero-course-rental.webp'),
     },
     {
