@@ -1,0 +1,40 @@
+{
+  "locale": "th",
+  "language_name": "Thai",
+  "brand_immutable": [
+    "LENGOLF",
+    "len.golf",
+    "Mercury Ville",
+    "Chidlom",
+    "BTS",
+    "MRT",
+    "PGA",
+    "Bravo Golf"
+  ],
+  "preferred": {
+    "indoor golf simulator": "กอล์ฟซิมูเลเตอร์ในร่ม",
+    "lesson": "คอร์สเรียน",
+    "lessons": "คอร์สเรียน",
+    "green fee": "ค่ากรีนฟี",
+    "club rental": "บริการเช่าไม้กอล์ฟ",
+    "rent clubs": "เช่าไม้กอล์ฟ",
+    "bay": "เบย์",
+    "Bangkok": "กรุงเทพฯ",
+    "coach": "โค้ช",
+    "coaches": "โค้ช",
+    "package": "แพ็กเกจ",
+    "package deal": "แพ็กเกจ",
+    "Book Now": "จองเลย",
+    "Learn More": "ดูเพิ่มเติม"
+  },
+  "tone": "friendly-professional, second-person, conversational. No exclamation marks. No emoji. Avoid marketing-speak inflation.",
+  "formality": "Polite (สุภาพ). Use formal vocabulary but keep sentence length natural and readable. Avoid the spoken particles ครับ/ค่ะ except where directly addressing the reader as a CTA. Do not over-translate Anglicisms that Thai golfers use natively (กรีน, แฟร์เวย์, สวิง are familiar Thai golf terms — keep them rather than forcing pure Thai equivalents).",
+  "preserve": [
+    "All next-intl placeholders like {name}, {year}, {pct}, {n}, {rate}",
+    "All markdown formatting (**, *, [, ], (), # headings)",
+    "All HTML tags",
+    "All link URLs verbatim",
+    "All currency notations (THB, ฿, USD, $)",
+    "All numerals (do not translate to Thai numerals)"
+  ]
+}
