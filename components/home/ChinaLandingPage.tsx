@@ -242,26 +242,6 @@ export default async function ChinaLandingPage() {
         </div>
       </section>
 
-      {/* ── 6. CN testimonial ── */}
-      <section className="py-16 lg:py-20" style={{ backgroundColor: '#F6FFFA' }}>
-        <div className="section-max-width section-padding">
-          <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>{t('testimonialTitle')}</span>{' '}
-            <span className="text-foreground">{t('testimonialTitleSuffix')}</span>
-          </h2>
-          <figure className="mx-auto max-w-2xl rounded-2xl border border-primary/15 bg-white p-8 shadow-sm">
-            <span className="mb-4 block text-2xl" aria-hidden>🇨🇳</span>
-            <blockquote className="mb-5 text-base leading-relaxed text-foreground">
-              &ldquo;{t('testimonialText')}&rdquo;
-            </blockquote>
-            <figcaption>
-              <p className="font-semibold text-foreground">{t('testimonialName')}</p>
-              <p className="text-sm text-muted-foreground">{t('testimonialContext')}</p>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
       {/* ── 7. CN tourist FAQ ── */}
       <FaqSection
         items={faqItems}
