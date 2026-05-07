@@ -72,8 +72,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   setRequestLocale(locale)
 
   // JA / KO / ZH each get a bespoke tourist-landing layout tailored to that market
-  // (market-specific hero/framing, approximate local-currency pricing, native
-  // testimonial, tourist-specific FAQ). See components/home/*LandingPage.tsx.
+  // (market-specific hero/framing, approximate local-currency pricing,
+  // tourist-specific FAQ). See components/home/*LandingPage.tsx.
   if (locale === 'ja') return <JapanLandingPage />
   if (locale === 'ko') return <KoreaLandingPage />
   if (locale === 'zh') return <ChinaLandingPage />
