@@ -12,7 +12,6 @@ import { getApproxCurrency } from '@/lib/currency-rates'
 import ImageLightbox from '@/components/shared/ImageLightbox'
 import StickyBookCTA from '@/components/clubs/StickyBookCTA'
 import TrustBar from '@/components/course-rental/TrustBar'
-import Testimonials from '@/components/course-rental/Testimonials'
 import MultiChannelContact from '@/components/course-rental/MultiChannelContact'
 import {
   ExternalLink,
@@ -75,30 +74,6 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
   ])
 
   const { course: pricingRows } = await getRentalClubPricing()
-
-  const testimonials = [
-    {
-      text: t('testimonial1Text'),
-      name: t('testimonial1Name'),
-      nationality: t('testimonial1Nationality'),
-      flag: '🇬🇧',
-      course: t('testimonial1Course'),
-    },
-    {
-      text: t('testimonial2Text'),
-      name: t('testimonial2Name'),
-      nationality: t('testimonial2Nationality'),
-      flag: '🇰🇷',
-      course: t('testimonial2Course'),
-    },
-    {
-      text: t('testimonial3Text'),
-      name: t('testimonial3Name'),
-      nationality: t('testimonial3Nationality'),
-      flag: '🇯🇵',
-      course: t('testimonial3Course'),
-    },
-  ]
 
   return (
     <>
@@ -369,13 +344,6 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
           </div>
         </div>
       </section>
-
-      {/* ── Testimonials ── */}
-      <Testimonials
-        title={t('testimonialsTitle')}
-        titleSuffix={t('testimonialsTitleSuffix')}
-        items={testimonials}
-      />
 
       {/* ── Book Now CTA ── */}
       <section id="book-now" className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
