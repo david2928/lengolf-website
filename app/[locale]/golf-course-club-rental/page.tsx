@@ -123,7 +123,9 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
       <StickyBookCTA label={t('stickyBookCta')} href={courseRentalUrl} />
 
       {/* ── Hero ── */}
-      <section className="relative flex h-[50vh] min-h-[400px] max-h-[550px] items-center text-white overflow-hidden">
+      {/* Mobile: padding-based natural height so 3-chip wrap doesn't get clipped by max-h.
+          Desktop (md+): keep the original fixed-height (50vh, 400-550px) framed look. */}
+      <section className="relative flex items-start pt-10 pb-10 text-white overflow-hidden md:items-center md:py-0 md:h-[50vh] md:min-h-[400px] md:max-h-[550px]">
         <Image
           src={storageUrl('golf/hero-course-rental.webp')}
           alt="Rent Callaway Paradym, Warbird or Majesty golf clubs for Bangkok golf courses — from 1,200 THB/day with delivery"
@@ -139,8 +141,10 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
         />
         <div className="relative z-10 w-full text-left" style={{ paddingLeft: '4%', paddingRight: '4%' }}>
           <div className="flex flex-wrap gap-2 mb-5">
+            {/* heroBadge ("OFF-SITE CLUB RENTAL") is the longest chip and redundant
+                with the H1 — hide on mobile to keep the chip stack to 2 rows. */}
             <span
-              className="inline-block rounded px-5 py-2 text-base font-bold uppercase tracking-widest text-white md:text-lg"
+              className="hidden md:inline-block rounded px-5 py-2 text-base font-bold uppercase tracking-widest text-white md:text-lg"
               style={{ backgroundColor: '#7CB342' }}
             >
               {t('heroBadge')}
