@@ -1,20 +1,18 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
-import FaqSection from '@/components/shared/FaqSection'
 import { storageUrl, SITE_URL, BUSINESS_INFO, SOCIAL_LINKS, BOOKING_URL } from '@/lib/constants'
 import { getAlternates, getCanonical } from '@/lib/translated-routes'
 import { getCourseClubRentalServiceJsonLd, getCourseClubRentalPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { getRentalClubPricing } from '@/lib/clubs'
 import { getApproxCurrency } from '@/lib/currency-rates'
-import ImageLightbox from '@/components/shared/ImageLightbox'
 import StickyBookCTA from '@/components/clubs/StickyBookCTA'
+import BookRentalLink from '@/components/clubs/BookRentalLink'
 import TrustBar from '@/components/course-rental/TrustBar'
-import MultiChannelContact from '@/components/course-rental/MultiChannelContact'
 import {
-  ExternalLink,
   Truck,
   Phone,
   MapPin,
@@ -23,6 +21,15 @@ import {
   Target,
   GraduationCap,
 } from 'lucide-react'
+
+// Below-fold client components: defer to their own chunks so they don't
+// land in the initial JS bundle. `ssr: true` keeps the rendered markup
+// in the SSR HTML (important for FAQ — it lives in the JSON-LD too, so
+// crawlers see it either way, but the visible accordion HTML still
+// helps with content paint and a11y).
+const ImageLightbox = dynamic(() => import('@/components/shared/ImageLightbox'), { ssr: true })
+const MultiChannelContact = dynamic(() => import('@/components/course-rental/MultiChannelContact'), { ssr: true })
+const FaqSection = dynamic(() => import('@/components/shared/FaqSection'), { ssr: true })
 
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
   '@lengolf': { href: SOCIAL_LINKS.line, external: true },
@@ -77,22 +84,14 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+      {/* Pre-warm booking.len.golf so the cross-domain hop on Book CTA
+          click overlaps with landing-page reading time. Next.js 15 hoists
+          <link> tags from page JSX into <head> (independent of React 19's
+          resource-hint API, which isn't available in React 18.3.1).
+          Verified by inspecting rendered HTML: both hints land before
+          </head>. */}
+      <link rel="dns-prefetch" href="https://booking.len.golf" />
+      <link rel="preconnect" href="https://booking.len.golf" crossOrigin="anonymous" />
 
       {/* ── Sticky mobile CTA ── */}
       <StickyBookCTA label={t('stickyBookCta')} href={courseRentalUrl} />
@@ -140,15 +139,12 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
           <p className="text-base font-semibold italic tracking-wide text-white/90 md:text-lg mb-6">
             {t('heroSubtitle')}
           </p>
-          <a
+          <BookRentalLink
             href={courseRentalUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            source="hero"
+            label={t('stickyBookCta')}
             className="inline-flex h-16 items-center gap-2.5 rounded-lg bg-white px-12 text-lg font-extrabold uppercase tracking-wide text-[#005a32] shadow-lg transition-all hover:scale-105 hover:shadow-xl md:text-xl"
-          >
-            <ExternalLink size={18} />
-            {t('stickyBookCta')}
-          </a>
+          />
         </div>
       </section>
 
@@ -354,16 +350,13 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
             </h2>
             <p className="mb-8 text-center text-muted-foreground">{t('formSubtitle')}</p>
 
-            <a
+            <BookRentalLink
               href={courseRentalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              source="section"
+              label={t('stickyBookCta')}
               className="flex w-full h-14 items-center justify-center gap-2.5 rounded-lg text-base font-bold text-white transition-opacity hover:opacity-90 shadow-md mb-6"
               style={{ backgroundColor: '#007429' }}
-            >
-              <ExternalLink size={18} />
-              {t('stickyBookCta')}
-            </a>
+            />
 
             <MultiChannelContact
               lineLabel={t('contactLineLabel')}
@@ -410,16 +403,14 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
           <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">{t('ctaTitle')}</h2>
           <p className="mb-6 text-white/80">{t('ctaSubtitle')}</p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <a
+            <BookRentalLink
               href={courseRentalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              source="footer"
+              label={t('stickyBookCta')}
+              iconSize={16}
               className="inline-flex h-12 items-center gap-2 rounded-md bg-white px-8 text-sm font-semibold transition-opacity hover:opacity-90"
               style={{ color: '#005a32' }}
-            >
-              <ExternalLink size={16} />
-              {t('stickyBookCta')}
-            </a>
+            />
             <a
               href={`tel:${BUSINESS_INFO.phoneRaw}`}
               className="inline-flex h-12 items-center gap-2 rounded-md border-2 border-white px-8 text-sm font-semibold text-white transition-colors hover:bg-white/10"
@@ -543,6 +534,26 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
           </div>
         </SectionWrapper>
       )}
+
+      {/* JSON-LD structured data — rendered at end of body so it doesn't
+          compete with the hero/CTA paint. Position is irrelevant to
+          search-engine consumption. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
     </>
   )
 }
