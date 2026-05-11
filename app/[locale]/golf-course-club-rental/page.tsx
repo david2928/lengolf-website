@@ -85,8 +85,11 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
   return (
     <>
       {/* Pre-warm booking.len.golf so the cross-domain hop on Book CTA
-          click overlaps with landing-page reading time. React 19 / Next 15
-          hoist <link> resource hints into <head>. */}
+          click overlaps with landing-page reading time. Next.js 15 hoists
+          <link> tags from page JSX into <head> (independent of React 19's
+          resource-hint API, which isn't available in React 18.3.1).
+          Verified by inspecting rendered HTML: both hints land before
+          </head>. */}
       <link rel="dns-prefetch" href="https://booking.len.golf" />
       <link rel="preconnect" href="https://booking.len.golf" crossOrigin="anonymous" />
 

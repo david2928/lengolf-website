@@ -8,13 +8,6 @@ const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ['isomorphic-dompurify', 'dompurify'],
   trailingSlash: true,
-  experimental: {
-    // Tree-shake barrel imports so a page importing 9 lucide icons doesn't
-    // ship the full icon library. Pre-Apr 2026 the rental page consolidation
-    // pushed unused-JS to 238 KiB on /golf-course-club-rental/; this plus
-    // dynamic imports for below-fold components bring it back under target.
-    optimizePackageImports: ['lucide-react', 'react-icons/fa'],
-  },
   images: {
     remotePatterns: [
       {
