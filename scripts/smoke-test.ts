@@ -642,6 +642,26 @@ async function runLlmDiscoverabilityTests() {
   } catch (err) {
     fail('Blog FAQ opening-hours copy', `fetch error: ${(err as Error).message}`)
   }
+
+  // 5) Sitemap must have no duplicate <loc> URLs (guards against duplicate slugs in any page-data source)
+  try {
+    const res = await fetch(`${BASE}/sitemap.xml`, { redirect: 'follow' })
+    const body = await res.text()
+    const locs = [...body.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])
+    const seen = new Set<string>()
+    const dupes = new Set<string>()
+    for (const loc of locs) {
+      if (seen.has(loc)) dupes.add(loc)
+      seen.add(loc)
+    }
+    if (dupes.size > 0) {
+      fail('Sitemap unique URLs', `${dupes.size} duplicate <loc>: ${[...dupes].slice(0, 3).join(', ')}`)
+    } else {
+      pass(`Sitemap unique URLs (${locs.length} entries, no duplicates)`)
+    }
+  } catch (err) {
+    fail('Sitemap unique URLs', `fetch error: ${(err as Error).message}`)
+  }
 }
 
 // ── Main ────────────────────────────────────────────────────────────
