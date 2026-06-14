@@ -15,6 +15,8 @@
  *   F) English pages work with NEXT_LOCALE=th cookie (no redirect loop / no 404)
  *      Includes golf-in-thailand-guide, /guide/, /faq/, /hotels/, /activities/
  *   G) WordPress admin paths return 404 (not redirect)
+ *   H) LLM / AI discoverability (llms.txt is served as text, robots.txt names AI
+ *      crawlers, and the LocalBusiness opening-hours schema is consistent)
  *
  * Usage: tsx scripts/smoke-test.ts [base-url]
  * Default: http://localhost:3000
@@ -579,6 +581,89 @@ async function runNotFoundTests() {
   }
 }
 
+async function runLlmDiscoverabilityTests() {
+  console.log('\n\x1b[1mH) LLM / AI discoverability\x1b[0m')
+
+  // 1) llms.txt is served as plain text with curated content (not intercepted by i18n middleware)
+  try {
+    const res = await fetch(`${BASE}/llms.txt`, { redirect: 'manual' })
+    const body = await res.text()
+    const ct = res.headers.get('content-type') || ''
+    const issues: string[] = []
+    if (res.status !== 200) issues.push(`expected 200, got ${res.status}`)
+    if (!ct.includes('text/plain')) issues.push(`content-type not text/plain: "${ct}"`)
+    if (!body.includes('# LENGOLF')) issues.push('missing "# LENGOLF" heading')
+    if (!body.includes('/golf-club-rental/')) issues.push('missing key page link')
+    if (issues.length > 0) fail('GET /llms.txt', issues.join('; '))
+    else pass('GET /llms.txt (served as text, curated)')
+  } catch (err) {
+    fail('GET /llms.txt', `fetch error: ${(err as Error).message}`)
+  }
+
+  // 2) robots.txt explicitly names AI crawlers
+  try {
+    const res = await fetch(`${BASE}/robots.txt`, { redirect: 'follow' })
+    const body = await res.text()
+    const issues: string[] = []
+    if (res.status !== 200) issues.push(`expected 200, got ${res.status}`)
+    for (const bot of ['GPTBot', 'PerplexityBot', 'ClaudeBot']) {
+      if (!body.includes(bot)) issues.push(`missing ${bot}`)
+    }
+    if (issues.length > 0) fail('GET /robots.txt', issues.join('; '))
+    else pass('GET /robots.txt (names AI crawlers)')
+  } catch (err) {
+    fail('GET /robots.txt', `fetch error: ${(err as Error).message}`)
+  }
+
+  // 3) LocalBusiness schema opening hours are consistent (regression guard: 09:00, not stale 10:00)
+  try {
+    const res = await fetch(`${BASE}/`, { redirect: 'follow' })
+    const body = await res.text()
+    const issues: string[] = []
+    if (!body.includes('"opens":"09:00"')) issues.push('LocalBusiness schema missing "opens":"09:00"')
+    if (body.includes('"opens":"10:00"')) issues.push('stale "opens":"10:00" still present')
+    if (issues.length > 0) fail('LocalBusiness opening hours', issues.join('; '))
+    else pass('LocalBusiness opening hours (09:00, consistent with site copy)')
+  } catch (err) {
+    fail('LocalBusiness opening hours', `fetch error: ${(err as Error).message}`)
+  }
+
+  // 4) Visible FAQ copy must match the corrected hours (no stale "10 AM" opening on the blog FAQ)
+  try {
+    const res = await fetch(`${BASE}/blog/`, { redirect: 'follow' })
+    const body = await res.text()
+    if (body.includes('from 10 AM to 11 PM')) {
+      fail('Blog FAQ opening-hours copy', 'stale "from 10 AM to 11 PM" still rendered')
+    } else if (!body.includes('from 9 AM to 11 PM')) {
+      fail('Blog FAQ opening-hours copy', 'expected "from 9 AM to 11 PM" not found in blog FAQ')
+    } else {
+      pass('Blog FAQ opening-hours copy (9 AM, matches schema)')
+    }
+  } catch (err) {
+    fail('Blog FAQ opening-hours copy', `fetch error: ${(err as Error).message}`)
+  }
+
+  // 5) Sitemap must have no duplicate <loc> URLs (guards against duplicate slugs in any page-data source)
+  try {
+    const res = await fetch(`${BASE}/sitemap.xml`, { redirect: 'follow' })
+    const body = await res.text()
+    const locs = [...body.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])
+    const seen = new Set<string>()
+    const dupes = new Set<string>()
+    for (const loc of locs) {
+      if (seen.has(loc)) dupes.add(loc)
+      seen.add(loc)
+    }
+    if (dupes.size > 0) {
+      fail('Sitemap unique URLs', `${dupes.size} duplicate <loc>: ${[...dupes].slice(0, 3).join(', ')}`)
+    } else {
+      pass(`Sitemap unique URLs (${locs.length} entries, no duplicates)`)
+    }
+  } catch (err) {
+    fail('Sitemap unique URLs', `fetch error: ${(err as Error).message}`)
+  }
+}
+
 // ── Main ────────────────────────────────────────────────────────────
 
 async function main() {
@@ -600,6 +685,7 @@ async function main() {
   await runThaiRedirectTests()
   await runThaiCookieTests()
   await runNotFoundTests()
+  await runLlmDiscoverabilityTests()
 
   console.log(`\n\x1b[1m${passed} passed, ${failed} failed\x1b[0m`)
   if (failures.length > 0) {

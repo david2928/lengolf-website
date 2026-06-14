@@ -33,7 +33,24 @@ export const BUSINESS_INFO = {
   googleMapsUrl: 'https://www.google.com/maps?ll=13.743447,100.544115&z=16&t=m&hl=en-US&gl=US&mapclient=embed&q=540+Phloen+Chit+Rd+Khwaeng+Lumphini,+Pathum+Wan+Krung+Thep+Maha+Nakhon+10330',
   googleMapsEmbed: 'https://maps.google.com/maps?q=LENGOLF&t=m&z=16&output=embed&iwloc=near',
   coordinates: { lat: 13.743447, lng: 100.544115 },
+  // Structured address — single source of truth for every schema.org PostalAddress
+  // block (see getPostalAddressJsonLd in lib/jsonld.ts). Keep in sync with `address`.
+  addressParts: {
+    streetAddress: '540 Ploenchit Road, The Mercury Ville, Floor 4',
+    addressLocality: 'Pathum Wan',
+    addressRegion: 'Bangkok',
+    postalCode: '10330',
+    addressCountry: 'TH',
+  },
 } as const
+
+/**
+ * Manual "last reviewed" date (YYYY-MM-DD) for static / non-database pages in the
+ * sitemap. Bump it when you make meaningful edits to the static marketing pages so
+ * the sitemap reports a stable, honest lastModified instead of a churning build
+ * timestamp. Data-backed pages (blog, SEO pages) use their own updated_at instead.
+ */
+export const CONTENT_LAST_UPDATED = '2026-06-14'
 
 export const SOCIAL_LINKS = {
   facebook: 'https://www.facebook.com/lengolf.bkk',
