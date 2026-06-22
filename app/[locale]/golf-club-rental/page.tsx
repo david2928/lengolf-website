@@ -200,16 +200,20 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
                   </span>
                 </div>
 
+                <h3 className={`mb-1 text-xl font-bold ${i === 3 ? 'text-[#c8a96e]' : ''}`} style={i !== 3 ? { color: '#007429' } : undefined}>{t(`tier${i}Name`)}</h3>
+                <p className={`mb-1 text-sm font-semibold ${i === 3 ? 'text-white' : 'text-foreground'}`}>{t(`tier${i}Brand`)}</p>
+                <p className={`mb-3 text-xs ${i === 3 ? 'text-white/60' : 'text-muted-foreground'}`}>{t(`tier${i}Type`)}</p>
+
                 {/* Premium photo strip — clickable lightbox */}
                 {i === 2 && (
                   <div className="mb-4 -mx-1 h-[200px]">
                     <ImageLightbox
                       thumbnailCount={3}
                       images={[
-                        { src: storageUrl('clubs/premium/3.png'), alt: 'Callaway Warbird full set with headcovers' },
-                        { src: storageUrl('clubs/premium/2.png'), alt: 'Callaway Warbird full set with clubs' },
+                        { src: storageUrl('clubs/premium/2.png'), alt: 'Callaway Warbird full set in golf bag' },
                         { src: storageUrl('clubs/premium/4.png'), alt: 'Callaway Warbird driver 10.5°' },
                         { src: storageUrl('clubs/premium/11.png'), alt: 'Callaway Warbird irons set' },
+                        { src: storageUrl('clubs/premium/9.png'), alt: 'Callaway Warbird 5-wood fairway wood' },
                         { src: storageUrl('clubs/premium/13.png'), alt: 'Odyssey putter' },
                         { src: storageUrl('clubs/premium/1.png'), alt: 'Callaway Warbird golf bag' },
                       ]}
@@ -239,10 +243,6 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
                     />
                   </div>
                 )}
-
-                <h3 className={`mb-1 text-xl font-bold ${i === 3 ? 'text-[#c8a96e]' : ''}`} style={i !== 3 ? { color: '#007429' } : undefined}>{t(`tier${i}Name`)}</h3>
-                <p className={`mb-1 text-sm font-semibold ${i === 3 ? 'text-white' : 'text-foreground'}`}>{t(`tier${i}Brand`)}</p>
-                <p className={`mb-4 text-xs ${i === 3 ? 'text-white/60' : 'text-muted-foreground'}`}>{t(`tier${i}Type`)}</p>
                 <ul className="mb-5 space-y-2 flex-1">
                   {[1, 2, 3].map((j) => (
                     <li key={j} className={`flex items-start gap-2 text-sm ${i === 3 ? 'text-white/80' : 'text-muted-foreground'}`}>
