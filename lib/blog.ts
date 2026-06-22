@@ -87,3 +87,20 @@ export async function getPostSlugs(): Promise<string[]> {
 
   return (data || []).map((p) => p.slug)
 }
+
+export async function getPostSlugsWithDates(): Promise<
+  { slug: string; updated_at: string | null; published_at: string | null }[]
+> {
+  const supabase = createClient()
+
+  const { data, error } = await supabase
+    .from('blog_posts')
+    .select('slug, updated_at, published_at')
+    .eq('status', 'published')
+
+  if (error) {
+    return []
+  }
+
+  return (data || []) as { slug: string; updated_at: string | null; published_at: string | null }[]
+}

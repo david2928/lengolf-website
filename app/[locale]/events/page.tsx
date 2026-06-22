@@ -9,7 +9,7 @@ import { getAlternates, getCanonical } from '@/lib/translated-routes'
 import { eventTypes, getEventPackagesData } from '@/data/pricing'
 import { eventClients, instagramPosts } from '@/data/event-clients'
 import InstagramEmbed from '@/components/events/InstagramEmbed'
-import { getEventsPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
+import { getEventsPricingJsonLd, getEventsServiceJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
 import EventInquiryForm from '@/components/events/EventInquiryForm'
 import FloorPlanDialog from '@/components/events/FloorPlanDialog'
 import FaqSection from '@/components/shared/FaqSection'
@@ -78,6 +78,7 @@ export default async function EventsPage({ params }: { params: Promise<{ locale:
   const { eventPackages, eventPackageNotes } = await getEventPackagesData()
 
   const pricingJsonLd = getEventsPricingJsonLd(eventPackages)
+  const serviceJsonLd = getEventsServiceJsonLd()
   const faqJsonLd = getFaqPageJsonLd(faqItems)
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
@@ -94,6 +95,11 @@ export default async function EventsPage({ params }: { params: Promise<{ locale:
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}
+      />
+      {/* JSON-LD Service (event hosting) Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
       {/* JSON-LD FAQ Schema */}
       <script

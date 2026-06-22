@@ -2,6 +2,22 @@ import { SITE_URL, SITE_NAME, BUSINESS_INFO, SOCIAL_LINKS, storageUrl } from '@/
 import type { UsedClub } from '@/lib/clubs'
 import type { BayRateRow, MonthlyPackageRow, LessonPackage, EventPackage } from '@/data/pricing'
 
+/**
+ * Single source of truth for the schema.org PostalAddress, reused across every
+ * LocalBusiness / EntertainmentBusiness block so the NAP can never drift between
+ * pages. Sourced from BUSINESS_INFO.addressParts.
+ */
+export function getPostalAddressJsonLd() {
+  return {
+    '@type': 'PostalAddress' as const,
+    streetAddress: BUSINESS_INFO.addressParts.streetAddress,
+    addressLocality: BUSINESS_INFO.addressParts.addressLocality,
+    addressRegion: BUSINESS_INFO.addressParts.addressRegion,
+    postalCode: BUSINESS_INFO.addressParts.postalCode,
+    addressCountry: BUSINESS_INFO.addressParts.addressCountry,
+  }
+}
+
 export function getLocalBusinessJsonLd() {
   return {
     '@context': 'https://schema.org',
@@ -11,14 +27,7 @@ export function getLocalBusinessJsonLd() {
     url: SITE_URL,
     telephone: BUSINESS_INFO.phone,
     email: BUSINESS_INFO.email,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '540 Ploenchit Road, The Mercury Ville, Floor 4',
-      addressLocality: 'Pathum Wan',
-      addressRegion: 'Bangkok',
-      postalCode: '10330',
-      addressCountry: 'TH',
-    },
+    address: getPostalAddressJsonLd(),
     geo: {
       '@type': 'GeoCoordinates',
       latitude: BUSINESS_INFO.coordinates.lat,
@@ -27,7 +36,7 @@ export function getLocalBusinessJsonLd() {
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-      opens: '10:00',
+      opens: '09:00',
       closes: '23:00',
     },
     sameAs: [SOCIAL_LINKS.facebook, SOCIAL_LINKS.instagram],
@@ -209,6 +218,42 @@ export function getEventsPricingJsonLd(dynamicEventPackages?: EventPackage[]) {
       url: SITE_URL,
     },
     itemListElement: offers,
+  }
+}
+
+export function getEventsServiceJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Private Events & Party Hosting at LENGOLF',
+    description:
+      'Private event, party, and corporate team-building hosting at LENGOLF Bangkok — indoor golf simulator bays with a full bar, catered food, and full-venue rental options.',
+    provider: {
+      '@type': 'EntertainmentBusiness',
+      name: BUSINESS_INFO.name,
+      url: SITE_URL,
+    },
+    serviceType: 'Event Venue',
+    areaServed: {
+      '@type': 'City',
+      name: 'Bangkok',
+    },
+    offers: [
+      {
+        '@type': 'Offer',
+        name: 'Small Event Package',
+        price: '9999',
+        priceCurrency: 'THB',
+        description: '10–15 guests, 2 golf bays, 3 hours, drinks and catered food included',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Medium Event Package',
+        price: '21999',
+        priceCurrency: 'THB',
+        description: '15–25 guests, 4 golf bays, 3 hours, exclusive full-venue rental with drinks and catering',
+      },
+    ],
   }
 }
 
@@ -544,14 +589,7 @@ export function getActivityPageJsonLd(page: {
           '@type': 'EntertainmentBusiness',
           name: BUSINESS_INFO.name,
           url: SITE_URL,
-          address: {
-            '@type': 'PostalAddress',
-            streetAddress: '540 Ploenchit Road, The Mercury Ville, Floor 4',
-            addressLocality: 'Pathum Wan',
-            addressRegion: 'Bangkok',
-            postalCode: '10330',
-            addressCountry: 'TH',
-          },
+          address: getPostalAddressJsonLd(),
         },
       },
       ...page.content.other_activities.map((activity, index) => ({
@@ -620,14 +658,7 @@ export function getHotelConciergePageJsonLd(page: {
     name: BUSINESS_INFO.name,
     description: page.meta_description || `Things to do near ${page.content.hotel_name}`,
     url: `${SITE_URL}/hotels/${page.slug}/`,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '540 Ploenchit Road, The Mercury Ville, Floor 4',
-      addressLocality: 'Pathum Wan',
-      addressRegion: 'Bangkok',
-      postalCode: '10330',
-      addressCountry: 'TH',
-    },
+    address: getPostalAddressJsonLd(),
     geo: {
       '@type': 'GeoCoordinates',
       latitude: BUSINESS_INFO.coordinates.lat,
@@ -967,14 +998,7 @@ export function getBestOfListiclePageJsonLd(page: {
             '@type': 'EntertainmentBusiness',
             name: BUSINESS_INFO.name,
             url: SITE_URL,
-            address: {
-              '@type': 'PostalAddress',
-              streetAddress: '540 Ploenchit Road, The Mercury Ville, Floor 4',
-              addressLocality: 'Pathum Wan',
-              addressRegion: 'Bangkok',
-              postalCode: '10330',
-              addressCountry: 'TH',
-            },
+            address: getPostalAddressJsonLd(),
           }
         : {
             '@type': 'LocalBusiness',

@@ -875,33 +875,6 @@ export const faqPages: FaqSeoPage[] = [
     },
   },
 
-  // ─── GG-002: Can You Bring Golf Clubs as Checked Baggage ──────────────────
-  {
-    id: 'gg-can-you-bring-golf-clubs-as-checked-baggage-thailand',
-    page_type: 'faq',
-    slug: 'can-you-bring-golf-clubs-as-checked-baggage-thailand',
-    title: 'Can You Bring Golf Clubs as Checked Baggage to Thailand?',
-    meta_description: 'Yes — golf clubs are accepted as checked baggage on flights to Bangkok. Here\'s what every airline requires, weight limits, and what to expect at the airport.',
-    featured_image: null,
-    schema_markup: null,
-    status: 'published',
-    category: 'airlines-baggage',
-    locale: 'en',
-    related_slugs: ['/golf-in-thailand-guide', '/guide/golf-club-baggage-fees-airlines-bangkok', '/guide/how-to-pack-golf-clubs-flight-thailand', '/guide/bring-golf-clubs-thailand-or-rent', '/golf-club-rental'],
-    created_at: now,
-    updated_at: now,
-    content: {
-      answer_intro: `Yes — you can bring golf clubs as checked baggage on flights to Bangkok. All major airlines accept golf bags as checked luggage. On full-service carriers, your golf bag travels within your standard baggage allowance — there is no separate golf equipment surcharge.`,
-      answer_body: `**Are Golf Clubs Allowed on Flights to Thailand?**\n\nGolf clubs are permitted as checked baggage on virtually every major airline flying to Bangkok's Suvarnabhumi Airport (BKK) or Don Mueang Airport (DMK). They are not allowed in the cabin — clubs must go in the hold.\n\nGolf clubs are not classified as dangerous goods or prohibited items. There are no special entry restrictions on bringing golf equipment into Thailand.\n\n**Will You Be Charged Extra?**\n\nOn major full-service carriers (Thai Airways, Emirates, Qatar Airways, Singapore Airlines, Cathay Pacific), your golf bag counts as one of your standard checked baggage pieces. There is no upfront "sporting equipment fee" or golf surcharge.\n\nYou only pay extra if your total checked baggage weight exceeds your free allowance — standard excess baggage rates then apply.\n\nTwo carriers have a particularly golfer-friendly excess structure: Singapore Airlines and Cathay Pacific charge a flat 6 kg rate (up to 15 kg of excess) rather than the full weight of the bag if you go over.\n\nBudget carriers (AirAsia, Nok Air, Scoot) do not include any checked baggage in the base fare, so the golf bag must be added as a paid item at booking.\n\n**Weight and Size Limits**\n\n- Economy weight limit: 20–30 kg per bag depending on airline and route\n- Business/first: 30–32 kg typically\n- Maximum accepted weight: Most airlines will not accept any single bag over 32 kg (70 lbs)\n- Size limit: Most airlines use a total dimensions limit of 158 cm (62 linear inches)\n\nA typical golf travel setup — 14 clubs, golf shoes, some balls and tees in a soft travel bag — weighs roughly 12–18 kg. This fits within most economy allowances without excess charges.\n\n**Do You Need a Golf Travel Bag?**\n\nMost airlines require clubs to be "adequately packaged." A soft padded travel bag (1–3 kg empty) offers good protection for most trips. A hard case gives maximum protection but adds 5–10 kg — watch your total weight allowance. A regular stand bag without travel protection may be refused by some carriers.\n\n**Should You Bring Your Clubs or Rent?**\n\nFor short trips (1–2 rounds), renting clubs in Bangkok is worth considering. Quality rental clubs including Callaway sets are available at LENGOLF and at most Bangkok golf courses — no baggage fee, no packing hassle, and no risk of damage in transit. For longer trips with multiple rounds, bringing your own clubs usually makes more sense.`,
-      related_questions: [
-        { slug: 'do-you-need-caddie-thailand-golf', question: 'Do you need a caddie at Thai golf courses?' },
-        { slug: 'how-much-tip-caddie-thailand', question: 'How much to tip a caddie in Thailand' },
-        { slug: 'where-play-golf-night-bangkok', question: 'Where to play golf in Bangkok at night' },
-      ],
-      related_service_pages: ['/golf-club-rental', '/golf-in-thailand-guide'],
-    },
-  },
-
   // ─── GG-028: What Golf Clubs Are Available to Rent in Bangkok ─────────────
   {
     id: 'gg-what-golf-clubs-available-rent-bangkok',
