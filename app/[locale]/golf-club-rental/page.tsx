@@ -200,15 +200,22 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
                   </span>
                 </div>
 
-                {/* Premium photo */}
+                {/* Premium photo strip — clickable lightbox */}
                 {i === 2 && (
-                  <div className="relative h-[200px] rounded-md overflow-hidden bg-gray-100 mb-4 -mx-1">
-                    <Image
-                      src={storageUrl('clubs/warbird/warbird-full-set.webp')}
-                      alt="Callaway Warbird full set with Odyssey putter"
-                      fill
-                      className="object-cover object-top"
-                      sizes="(max-width: 768px) 90vw, 30vw"
+                  <div className="mb-4 -mx-1 h-[200px]">
+                    <ImageLightbox
+                      thumbnailCount={3}
+                      images={[
+                        { src: storageUrl('clubs/premium/3.png'), alt: 'Callaway Warbird full set with headcovers' },
+                        { src: storageUrl('clubs/premium/2.png'), alt: 'Callaway Warbird full set with clubs' },
+                        { src: storageUrl('clubs/premium/4.png'), alt: 'Callaway Warbird driver 10.5°' },
+                        { src: storageUrl('clubs/premium/11.png'), alt: 'Callaway Warbird irons set' },
+                        { src: storageUrl('clubs/premium/13.png'), alt: 'Odyssey putter' },
+                        { src: storageUrl('clubs/premium/1.png'), alt: 'Callaway Warbird golf bag' },
+                      ]}
+                      gridClassName="grid grid-cols-3 gap-1.5 h-full"
+                      aspectClassName=""
+                      sizes="(max-width: 768px) 30vw, 10vw"
                     />
                   </div>
                 )}

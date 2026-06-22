@@ -224,13 +224,18 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
             {([1, 2] as const).map((i) => (
               <div key={i} className="rounded-xl border border-primary/20 bg-white p-6">
                 {i === 1 && (
-                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-100 mb-4 -mx-1">
-                    <Image
-                      src={storageUrl('clubs/warbird/warbird-full-set.webp')}
-                      alt="Callaway Warbird full set with Odyssey putter"
-                      fill
-                      className="object-cover object-top"
-                      sizes="(max-width: 640px) 90vw, 45vw"
+                  <div className="mb-4 -mx-1">
+                    <ImageLightbox
+                      images={[
+                        { src: storageUrl('clubs/premium/3.png'), alt: 'Callaway Warbird full set with headcovers' },
+                        { src: storageUrl('clubs/premium/2.png'), alt: 'Callaway Warbird full set with clubs' },
+                        { src: storageUrl('clubs/premium/4.png'), alt: 'Callaway Warbird driver 10.5°' },
+                        { src: storageUrl('clubs/premium/9.png'), alt: 'Callaway Warbird 5W fairway wood' },
+                        { src: storageUrl('clubs/premium/11.png'), alt: 'Callaway Warbird irons set' },
+                        { src: storageUrl('clubs/premium/13.png'), alt: 'Odyssey putter' },
+                        { src: storageUrl('clubs/premium/7.png'), alt: 'Callaway Warbird S-flex shaft' },
+                        { src: storageUrl('clubs/premium/1.png'), alt: 'Callaway Warbird golf bag' },
+                      ]}
                     />
                   </div>
                 )}
