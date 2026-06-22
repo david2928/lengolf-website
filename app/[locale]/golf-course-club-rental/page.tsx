@@ -236,6 +236,7 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
                         { src: storageUrl('clubs/premium/7.png'), alt: 'Callaway Warbird S-flex shaft' },
                         { src: storageUrl('clubs/premium/1.png'), alt: 'Callaway Warbird golf bag' },
                       ]}
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 12vw"
                     />
                   </div>
                 )}

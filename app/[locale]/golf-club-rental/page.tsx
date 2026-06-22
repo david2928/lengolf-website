@@ -215,7 +215,7 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
                       ]}
                       gridClassName="grid grid-cols-3 gap-1.5 h-full"
                       aspectClassName=""
-                      sizes="(max-width: 768px) 30vw, 10vw"
+                      sizes="(max-width: 768px) 33vw, 10vw"
                     />
                   </div>
                 )}
