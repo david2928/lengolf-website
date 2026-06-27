@@ -140,7 +140,46 @@
     "crossLink4Label": "高尔夫教学",
     "crossLink4Desc": "PGA认证教练的一对一指导",
     "handednessNoteTitle": "展示球杆均为右手用 — 左手球杆可应要求提供",
-    "handednessNote": "上方展示的所有球杆套装均为右手用。我们有一套左手专用 Premium 租赁球杆可用于球场，价格按标准 Premium 日租费计算。Premium+ Paradym 仅限右手用。请在出行前通过 LINE @lengolf 联系我们确认是否可用。"
+    "handednessNote": "上方展示的所有球杆套装均为右手用。我们有一套左手专用 Premium 租赁球杆可用于球场，价格按标准 Premium 日租费计算。Premium+ Paradym 仅限右手用。请在出行前通过 LINE @lengolf 联系我们确认是否可用。",
+    "whyRent": {
+      "heading": "为什么选择 LENGOLF 而不是在球场租借？",
+      "savingsHeadline": "3 个回合的行程最多省约 36%",
+      "colCourse": "在球场租借",
+      "rows": {
+        "trip": {
+          "label": "3 回合行程",
+          "lengolf": "฿2,900 含配送",
+          "course": "~฿4,500（฿1,500 × 3）"
+        },
+        "discount": {
+          "label": "多日折扣",
+          "lengolf": "有（3 天付 2 天）",
+          "course": "无（每回合收费）"
+        },
+        "set": {
+          "label": "您的球杆",
+          "lengolf": "整趟行程同一套高级球杆",
+          "course": "每个球场不同的租借套装"
+        },
+        "quality": {
+          "label": "品质",
+          "lengolf": "正品 Callaway、Majesty 或巡回级 Paradym",
+          "course": "多为通用、老旧或假冒*"
+        },
+        "pick": {
+          "label": "挑选套装",
+          "lengolf": "预订前查看照片与规格",
+          "course": "只能用当天剩下的"
+        },
+        "delivery": {
+          "label": "配送",
+          "lengolf": "送至酒店或球场，฿500 往返",
+          "course": "需到各球场专卖店自取"
+        }
+      },
+      "footnote": "只打一个回合也值得。您依然能用上提前挑选的正品优质球杆，对于值得信赖的球杆而言价格依旧划算。*租借品质因球场而异。",
+      "cta": "预订您的球杆"
+    }
   },
   "CourseClubRentalFaq": {
     "q1": "可以将球杆配送到我在曼谷的酒店吗？",

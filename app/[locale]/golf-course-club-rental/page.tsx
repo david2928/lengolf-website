@@ -43,6 +43,17 @@ export const revalidate = 3600
 
 const FAQ_COUNT = 13
 
+// "Why rent with LENGOLF vs. at the course" comparison rows. Order matches
+// the i18n keys under CourseClubRental.whyRent.rows in messages/*.json and
+// mirrors the booking app's WhyRentSection for cross-surface parity.
+//
+// NOTE: the baht figures in those strings (฿2,900 / ~฿4,500 / ~36% / ฿500)
+// are STATIC marketing copy, not DB-driven like the live pricing table above
+// (getRentalClubPricing). They reflect: Premium 1-day ฿1,200, "3 days = pay 2"
+// → ฿2,400 + ฿500 delivery = ฿2,900 vs ~฿4,500 at the course (~36% saved).
+// Re-check all 5 locales if course_price_3d or the delivery fee changes.
+const WHY_RENT_ROWS = ['trip', 'discount', 'set', 'quality', 'pick', 'delivery'] as const
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'CourseClubRental' })
@@ -342,6 +353,86 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
             </div>
 
             <p className="text-xs text-muted-foreground italic">{t('prepaymentNote')}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Why rent with LENGOLF (vs. at the course) ──
+          Value-proposition comparison. Placed right after pricing so the
+          "save ~36%" claim ties to the ฿2,900 vs ฿4,500 the reader just saw.
+          Mirrors booking.len.golf/course-rental's WhyRentSection. */}
+      <section className="py-16 lg:py-24">
+        <div className="section-max-width section-padding">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-center text-3xl font-bold italic lg:text-4xl text-foreground">
+              {t('whyRent.heading')}
+            </h2>
+            <p className="mt-3 text-center text-base font-semibold lg:text-lg" style={{ color: '#007429' }}>
+              {t('whyRent.savingsHeadline')}
+            </p>
+
+            {/* Comparison — semantic table (matches the Pricing section's
+                table pattern for screen readers + crawlers). table-fixed keeps
+                it readable at ≤375px: the LENGOLF column is green, the course
+                column muted; cells wrap rather than overflow. */}
+            <div className="mt-8 overflow-hidden rounded-2xl border-2 border-primary/30 bg-white">
+              <table className="w-full table-fixed border-collapse text-left">
+                <caption className="sr-only">
+                  {t('whyRent.heading')} {t('whyRent.savingsHeadline')}
+                </caption>
+                <thead>
+                  <tr>
+                    <td className="w-[38%] px-3 py-3 sm:px-5" />
+                    <th
+                      scope="col"
+                      className="px-3 py-3 text-center text-sm font-bold uppercase tracking-wide text-white sm:px-5 sm:text-base"
+                      style={{ backgroundColor: '#005a32' }}
+                    >
+                      LENGOLF
+                    </th>
+                    <th
+                      scope="col"
+                      className="bg-muted/40 px-3 py-3 text-center text-sm font-semibold text-muted-foreground sm:px-5 sm:text-base"
+                    >
+                      {t('whyRent.colCourse')}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {WHY_RENT_ROWS.map((key, i) => (
+                    <tr key={key} className={`border-t border-border/60 ${i % 2 === 1 ? 'bg-muted/10' : ''}`}>
+                      <th
+                        scope="row"
+                        className="px-3 py-3 text-left align-top text-xs font-semibold text-foreground sm:px-5 sm:text-sm"
+                      >
+                        {t(`whyRent.rows.${key}.label`)}
+                      </th>
+                      <td
+                        className="px-3 py-3 align-top text-xs font-semibold sm:px-5 sm:text-sm"
+                        style={{ backgroundColor: '#F6FFFA', color: '#005a32' }}
+                      >
+                        {t(`whyRent.rows.${key}.lengolf`)}
+                      </td>
+                      <td className="px-3 py-3 align-top text-xs text-muted-foreground sm:px-5 sm:text-sm">
+                        {t(`whyRent.rows.${key}.course`)}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="mt-4 text-xs leading-relaxed text-muted-foreground">{t('whyRent.footnote')}</p>
+
+            <div className="mt-8 text-center">
+              <BookRentalLink
+                href={courseRentalUrl}
+                source="why_rent"
+                label={t('whyRent.cta')}
+                className="inline-flex h-14 items-center gap-2.5 rounded-lg px-10 text-base font-bold text-white shadow-md transition-opacity hover:opacity-90"
+                style={{ backgroundColor: '#007429' }}
+              />
+            </div>
           </div>
         </div>
       </section>

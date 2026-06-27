@@ -137,7 +137,46 @@
     "crossLink3Desc": "시간제 시뮬레이터 베이 요금 및 패키지",
     "crossLink3Label": "베이 요금 및 시뮬레이터",
     "crossLink4Desc": "PGA 공인 프로와의 1대1 코칭",
-    "crossLink4Label": "골프 레슨"
+    "crossLink4Label": "골프 레슨",
+    "whyRent": {
+      "heading": "골프장 대여 대신 LENGOLF로 빌려야 하는 이유",
+      "savingsHeadline": "3라운드 여행 시 최대 ~36% 절약",
+      "colCourse": "골프장 대여",
+      "rows": {
+        "trip": {
+          "label": "3라운드 여행",
+          "lengolf": "฿2,900 배송 포함",
+          "course": "~฿4,500 (฿1,500 × 3)"
+        },
+        "discount": {
+          "label": "여러 날 할인",
+          "lengolf": "있음 (3일에 2일 요금)",
+          "course": "없음 (라운드마다 부과)"
+        },
+        "set": {
+          "label": "사용 세트",
+          "lengolf": "여행 내내 동일한 프리미엄 세트",
+          "course": "골프장마다 다른 대여 세트"
+        },
+        "quality": {
+          "label": "품질",
+          "lengolf": "정품 Callaway, Majesty 또는 투어급 Paradym",
+          "course": "대개 일반 브랜드, 노후 또는 가품*"
+        },
+        "pick": {
+          "label": "세트 선택",
+          "lengolf": "예약 전 사진과 사양 확인",
+          "course": "당일 남은 것만 사용"
+        },
+        "delivery": {
+          "label": "배송",
+          "lengolf": "호텔 또는 골프장, ฿500 왕복",
+          "course": "각 프로샵에서 직접 수령"
+        }
+      },
+      "footnote": "한 라운드만 치셔도 좋습니다. 미리 골라둔 정품 고품질 세트를 그대로 받으실 수 있고, 믿을 수 있는 클럽치고 가격도 경쟁력 있습니다. *대여 품질은 골프장마다 크게 다릅니다.",
+      "cta": "세트 예약하기"
+    }
   },
   "CourseClubRentalFaq": {
     "q1": "방콕 호텔로 클럽을 배송해 주시나요?",

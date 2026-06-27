@@ -21,7 +21,7 @@ export function pushDataLayerEvent(payload: DataLayerEvent): void {
   window.dataLayer.push(payload)
 }
 
-export type RentalIntentSource = 'hero' | 'section' | 'footer' | 'sticky_cta'
+export type RentalIntentSource = 'hero' | 'section' | 'footer' | 'sticky_cta' | 'why_rent'
 
 export function pushRentalIntent(source: RentalIntentSource): void {
   pushDataLayerEvent({ event: 'rental_intent', source })

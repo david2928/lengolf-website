@@ -746,7 +746,46 @@
     "crossLink4Label": "Golf Lessons",
     "crossLink4Desc": "Private coaching with PGA-certified pros",
     "handednessNoteTitle": "Right-handed by default — left-handed available on request",
-    "handednessNote": "All sets shown above are right-handed. We have one left-handed Premium rental set available for course use, charged at our standard Premium daily rates. The Premium+ Paradym is right-handed only. Please message us on LINE @lengolf to confirm availability before your trip."
+    "handednessNote": "All sets shown above are right-handed. We have one left-handed Premium rental set available for course use, charged at our standard Premium daily rates. The Premium+ Paradym is right-handed only. Please message us on LINE @lengolf to confirm availability before your trip.",
+    "whyRent": {
+      "heading": "Why rent with LENGOLF, not at the course?",
+      "savingsHeadline": "Save up to ~36% on a 3-round trip",
+      "colCourse": "At the course",
+      "rows": {
+        "trip": {
+          "label": "3-round trip",
+          "lengolf": "฿2,900 delivered",
+          "course": "~฿4,500 (฿1,500 × 3)"
+        },
+        "discount": {
+          "label": "Multi-day discount",
+          "lengolf": "Yes (3 days = pay 2)",
+          "course": "None (charged every round)"
+        },
+        "set": {
+          "label": "Your set",
+          "lengolf": "One premium set, the whole trip",
+          "course": "A different loaner at each course"
+        },
+        "quality": {
+          "label": "Quality",
+          "lengolf": "Genuine Callaway, Majesty or tour-grade Paradym",
+          "course": "Often generic, aged, or fake*"
+        },
+        "pick": {
+          "label": "Pick your set",
+          "lengolf": "Photos and specs before you book",
+          "course": "Whatever's left on the day"
+        },
+        "delivery": {
+          "label": "Delivery",
+          "lengolf": "Hotel or course, ฿500 round trip",
+          "course": "Collect at each pro shop"
+        }
+      },
+      "footnote": "Just one round? You still get a genuine, quality set you picked in advance, at a price that stays competitive for clubs you can trust. *Rental quality varies widely by course.",
+      "cta": "Book your set"
+    }
   },
   "CourseClubRentalFaq": {
     "q1": "Can you deliver clubs to my hotel in Bangkok?",
