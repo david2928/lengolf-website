@@ -804,7 +804,7 @@ export function getCourseClubRentalServiceJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Golf Course Club Rental Bangkok — LENGOLF',
-    description: 'Rent premium golf clubs for any Bangkok golf course. Callaway Paradym Forged Carbon (tour-grade), Callaway Warbird, or Majesty Shuttle full sets. Full-day and multi-day packages. Delivery anywhere in Bangkok for 500 THB. Confirms within 2 hours via LINE.',
+    description: 'Rent premium golf clubs for any Bangkok golf course. Callaway Paradym Forged Carbon (tour-grade), Callaway Warbird, or Majesty Shuttle full sets. Full-day and multi-day packages. Delivery anywhere in Bangkok for 500 THB. Book and pay online with instant confirmation.',
     provider: {
       '@type': 'EntertainmentBusiness',
       name: BUSINESS_INFO.name,
