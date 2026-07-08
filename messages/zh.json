@@ -56,8 +56,8 @@
     "zh": "中文"
   },
   "CourseClubRental": {
-    "metaTitle": "曼谷球场球杆租借 | 顶级高尔夫球杆出租",
-    "metaDescription": "在曼谷任何球场租借Callaway Paradym、Warbird或Majesty高尔夫球杆。每日1,200泰铢起，配送500泰铢。在线预订并付款，即时确认。",
+    "metaTitle": "曼谷高尔夫球杆租赁 | 每日1,200泰铢起，酒店配送",
+    "metaDescription": "Callaway高级球杆套装，曼谷任何球场均可使用。每日1,200泰铢起，酒店/球场配送500泰铢，多日套餐最高省50%，无需押金。在线预订即时确认。",
     "heroBadge": "外场球杆租借",
     "heroTitle": "在曼谷任何球场使用顶级高尔夫球杆",
     "heroSubtitle": "Callaway Paradym、Warbird & Majesty Shuttle — 送达您的球场",
@@ -207,7 +207,13 @@
     "q12": "Majesty是什么品牌？",
     "a12": "Majesty是日本的高端高尔夫品牌，以轻量化设计和卓越品质著称，深受女性高尔夫球手喜爱。在曼谷能够租借到Majesty球杆的地方屈指可数。",
     "q13": "球场租赁有左手专用球杆吗？",
-    "a13": "有的 — 我们有一套左手专用 Premium 租赁球杆可用于球场，价格按标准 Premium 日租费计算（每日 1,200 泰铢起，多日租赁最高享 5 折优惠）。Premium+ Callaway Paradym 仅限右手用。请在预订前通过 LINE @lengolf 联系我们，确认您所选日期是否可用。"
+    "a13": "有的 — 我们有一套左手专用 Premium 租赁球杆可用于球场，价格按标准 Premium 日租费计算（每日 1,200 泰铢起，多日租赁最高享 5 折优惠）。Premium+ Callaway Paradym 仅限右手用。请在预订前通过 LINE @lengolf 联系我们，确认您所选日期是否可用。",
+    "q14": "曼谷的高尔夫球场可以租球杆吗？",
+    "a14": "曼谷大多数球场的专卖店提供球杆租赁，每轮约1,000-1,500泰铢，但通常是较旧的公用杆，无法提前挑选或预订。LENGOLF是更好的选择：在线挑选您想要的Callaway或Majesty套装，每日1,200泰铢起，还可送至您的酒店或球场。",
+    "q15": "在高尔夫球场租球杆要多少钱？",
+    "a15": "曼谷球场专卖店的租杆费约为每轮1,000-1,500泰铢，且每轮都要重新付费。LENGOLF球场租赁Premium Callaway套装每日1,200泰铢起（巡回赛级Paradym每日1,800泰铢），多日套餐最高省50%：3天2,400泰铢、7天4,800泰铢、14天8,400泰铢。",
+    "q16": "需要押金或保险吗？",
+    "a16": "不需要。LENGOLF不收押金、不需保险、无需会员资格。预订时在线支付租金即可。只需按原样归还球杆；超出正常使用范围的损坏可能收取维修费。"
   },
   "Home": {
     "heroTitle": "Indoor Golf Simulator & Bar in Bangkok",
@@ -709,8 +715,8 @@
     "a6": "最便捷的方式是LINE @lengolf——您也可以拨打096-668-2335、发送邮件至info@len.golf，或直接在booking.len.golf预订。友好的团队通常几小时内回复。"
   },
   "ClubRental": {
-    "metaTitle": "LENGOLF球杆 | 模拟器球位专用高级高尔夫球杆租借",
-    "metaDescription": "使用高级球杆升级您的LENGOLF球位体验。标准套装免费赠送。Callaway Warbird & Majesty Shuttle每小时150泰铢起——仅限场内模拟器使用。",
+    "metaTitle": "预订模拟器球位免费用球杆 | 高级球杆升级",
+    "metaDescription": "LENGOLF球位预订免费提供标准球杆。升级Callaway或Majesty高级套装每小时150泰铢起（仅限场内）。需要带去球场的球杆？请看球场球杆租赁页面。",
     "heroBadge": "LENGOLF球位内专用",
     "heroTitle": "高级球杆，灵活租借",
     "heroSubtitle": "免费标准套装 • Callaway Paradym、Warbird & Majesty升级选项",
@@ -803,7 +809,10 @@
     "why4Title": "便捷预订",
     "why4Description": "在booking.len.golf在线预订球杆或到店租借——无需押金",
     "handednessNoteTitle": "展示球杆均为右手用 — 左手球杆可应要求提供",
-    "handednessNote": "上方展示的所有球杆套装均为右手用。每次球位预订均免费提供标准左手球杆，我们另外备有一套左手专用 Premium 租赁球杆可应要求租用。请通过 @lengolf 联系我们预订。"
+    "handednessNote": "上方展示的所有球杆套装均为右手用。每次球位预订均免费提供标准左手球杆，我们另外备有一套左手专用 Premium 租赁球杆可应要求租用。请通过 @lengolf 联系我们预订。",
+    "courseBannerTitle": "需要带去真实球场的球杆？",
+    "courseBannerText": "租借Callaway或Majesty高级套装，每日1,200泰铢起，可送至曼谷任何球场或酒店，配送费500泰铢。",
+    "courseBannerCta": "查看球场球杆租赁"
   },
   "ClubRentalFaq": {
     "q1": "旅客可以在LENGOLF租借高尔夫球杆吗？",
@@ -1005,7 +1014,10 @@
     "officeBuildingsNear": "{location}附近的办公楼",
     "clubRentalDetails": "球具租赁详情",
     "golfClubRentalNear": "{location}附近的高尔夫球具租赁",
-    "stayingNearby": "住在附近吗？无需自备球具，轻装前来即可。"
+    "stayingNearby": "住在附近吗？无需自备球具，轻装前来即可。",
+    "courseRentalCrossTitle": "在曼谷期间要去真实球场打球？",
+    "courseRentalCrossText": "租借Callaway或Majesty高级球杆套装，每日1,200泰铢起，500泰铢即可送至您的酒店或曼谷任何球场。",
+    "courseRentalCrossCta": "球场球杆租赁"
   },
   "FloorPlan": {
     "floorPlan": "FLOOR PLAN"

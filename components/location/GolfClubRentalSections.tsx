@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server'
 import { MapPin, Briefcase } from 'lucide-react'
 import type { LocationPage } from '@/lib/locations'
 import { parseList, parseSemicolonList } from '@/lib/locations'
+import CourseRentalCrossLink from './CourseRentalCrossLink'
 
 interface Props {
   data: LocationPage
@@ -60,6 +61,9 @@ export default async function GolfClubRentalSections({ data }: Props) {
           </div>
         </section>
       )}
+
+      {/* Course rental crosslink */}
+      <CourseRentalCrossLink />
 
       {/* Nearby Hotels */}
       {hotels.length > 0 && (
