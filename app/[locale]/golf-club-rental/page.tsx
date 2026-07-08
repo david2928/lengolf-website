@@ -167,6 +167,26 @@ export default async function ClubRentalPage({ params }: { params: Promise<{ loc
         </div>
       </SectionWrapper>
 
+      {/* ── Course rental crosslink banner ──
+          Disambiguation: this page is free in-venue club use; searchers who
+          want clubs for a real course should route to /golf-course-club-rental/
+          without scrolling to the footer cross-links. */}
+      <SectionWrapper className="!py-0">
+        <Link
+          href="/golf-course-club-rental"
+          className="group mx-auto flex max-w-4xl flex-col items-start gap-3 rounded-xl border-2 border-primary/30 bg-primary/5 px-6 py-5 transition-shadow hover:shadow-md sm:flex-row sm:items-center sm:justify-between"
+        >
+          <div>
+            <p className="font-bold text-foreground" style={{ color: '#007429' }}>{t('courseBannerTitle')}</p>
+            <p className="mt-1 text-sm text-muted-foreground">{t('courseBannerText')}</p>
+          </div>
+          <span className="inline-flex h-11 shrink-0 items-center gap-2 rounded-md bg-primary px-6 text-sm font-semibold text-white transition-colors group-hover:bg-primary-light">
+            {t('courseBannerCta')}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </Link>
+      </SectionWrapper>
+
       {/* ── Club Rental Tiers ── */}
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>
         <div className="section-max-width section-padding">

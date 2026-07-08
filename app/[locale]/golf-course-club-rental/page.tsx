@@ -41,7 +41,7 @@ const faqLinks: Record<string, { href: string; external?: boolean }> = {
 
 export const revalidate = 3600
 
-const FAQ_COUNT = 13
+const FAQ_COUNT = 16
 
 // "Why rent with LENGOLF vs. at the course" comparison rows. Order matches
 // the i18n keys under CourseClubRental.whyRent.rows in messages/*.json and

@@ -552,8 +552,8 @@
     "a6": "The easiest way is LINE @lengolf — you can also call us at 096-668-2335, email info@len.golf, or book directly at booking.len.golf. Our friendly team typically responds within a few hours."
   },
   "ClubRental": {
-    "metaTitle": "Clubs at LENGOLF | Premium Golf Club Rental for Simulator Sessions",
-    "metaDescription": "Upgrade your LENGOLF bay session with premium golf clubs. Free standard sets included. Callaway Warbird & Majesty Shuttle from 150 THB/hr — in-house simulator use only.",
+    "metaTitle": "Free Golf Club Use with Simulator Bays | Premium Upgrades",
+    "metaDescription": "Free golf clubs with every LENGOLF bay booking. Premium Callaway & Majesty upgrades from 150 THB/hr, in-venue only. Need clubs for a golf course? See our course rental.",
     "heroBadge": "For use in your LENGOLF bay",
     "heroTitle": "Premium Clubs, No Commitment",
     "heroSubtitle": "Free Standard Sets • Callaway Paradym, Warbird & Majesty Upgrades",
@@ -646,7 +646,10 @@
     "why4Title": "Easy Booking",
     "why4Description": "Reserve clubs online at booking.len.golf or walk in — no deposit required",
     "handednessNoteTitle": "Right-handed by default — left-handed available on request",
-    "handednessNote": "All sets shown above are right-handed. Free standard left-handed clubs are available with every bay booking, and we keep one left-handed Premium rental set available on request. Message us on @lengolf to reserve."
+    "handednessNote": "All sets shown above are right-handed. Free standard left-handed clubs are available with every bay booking, and we keep one left-handed Premium rental set available on request. Message us on @lengolf to reserve.",
+    "courseBannerTitle": "Need clubs for a real golf course?",
+    "courseBannerText": "Rent premium Callaway or Majesty sets to take to any Bangkok course from ฿1,200/day, with hotel and course delivery for ฿500.",
+    "courseBannerCta": "See Golf Course Club Rental"
   },
   "ClubRentalFaq": {
     "q1": "Can tourists rent golf clubs at LENGOLF?",
@@ -665,8 +668,8 @@
     "a7": "Yes — left-handed standard clubs are included free with any bay booking. We also have one left-handed Premium rental set available on request, charged at our regular Premium rates (from 150 THB/hr for in-bay use). The Premium+ Callaway Paradym is right-handed only. Message us on LINE @lengolf in advance to reserve a left-handed Premium set."
   },
   "CourseClubRental": {
-    "metaTitle": "Golf Course Club Rental Bangkok | Rent Clubs for Any Course",
-    "metaDescription": "Rent Callaway Paradym, Warbird or Majesty golf clubs for any Bangkok golf course. From 1,200 THB/day, delivery 500 THB. Book & pay online — instant confirmation.",
+    "metaTitle": "Golf Club Rental Bangkok | From ฿1,200/Day, Hotel Delivery",
+    "metaDescription": "Rent premium Callaway golf clubs for any Bangkok golf course from ฿1,200/day. Hotel delivery ฿500, multi-day up to 50% off, no deposit. Book online in minutes.",
     "heroBadge": "Off-Site Club Rental",
     "heroTitle": "Take Premium Clubs to Any Bangkok Golf Course",
     "heroSubtitle": "Callaway Paradym, Warbird & Majesty Shuttle — Delivered to Your Course",
@@ -813,7 +816,13 @@
     "q12": "What is Majesty and why is it special?",
     "a12": "Majesty is a prestigious Japanese golf brand renowned for its lightweight design and premium craftsmanship. Their clubs are especially popular with female golfers. Our Majesty Shuttle women's set is one of the few places in Bangkok where you can experience this brand without buying.",
     "q13": "Do you offer left-handed golf clubs for course rental?",
-    "a13": "Yes — we have one left-handed Premium rental set available for course use, charged at our standard Premium daily rates (from 1,200 THB/day, with multi-day discounts up to 50% off). The Premium+ Callaway Paradym is right-handed only. Message us on LINE @lengolf to confirm availability for your dates before booking."
+    "a13": "Yes — we have one left-handed Premium rental set available for course use, charged at our standard Premium daily rates (from 1,200 THB/day, with multi-day discounts up to 50% off). The Premium+ Callaway Paradym is right-handed only. Message us on LINE @lengolf to confirm availability for your dates before booking.",
+    "q14": "Can you hire golf clubs at a golf course in Bangkok?",
+    "a14": "Most Bangkok golf courses rent clubs at the pro shop for roughly 1,000-1,500 THB per round, but sets are typically older loaners you can't inspect or reserve in advance. LENGOLF is the alternative: pick your exact Callaway or Majesty set online from 1,200 THB/day and have it delivered to your hotel or the course.",
+    "q15": "How much does it cost to rent golf clubs at a golf course?",
+    "a15": "Budget around 1,000-1,500 THB per round for pro-shop rental sets at Bangkok courses, charged again every round you play. LENGOLF course rental starts at 1,200 THB/day for a Premium Callaway set (1,800 THB/day for the tour-grade Paradym), and multi-day packages cut the price by up to 50%: 3 days for 2,400 THB, 7 days for 4,800 THB, or 14 days for 8,400 THB.",
+    "q16": "Do I need to pay a deposit or insurance to rent golf clubs?",
+    "a16": "No. LENGOLF requires no deposit, no insurance, and no membership. You simply pay the rental fee online when you book. Clubs just need to come back in the condition they went out; damage beyond normal wear may incur a repair fee."
   },
   "SecondHandClubs": {
     "metaTitle": "Second-Hand Golf Clubs Bangkok | Buy Used Callaway & TaylorMade",
@@ -999,7 +1008,10 @@
     "officeBuildingsNear": "Office Buildings Near {location}",
     "clubRentalDetails": "Club Rental Details",
     "golfClubRentalNear": "Golf Club Rental Near {location}",
-    "stayingNearby": "Staying nearby? Walk in without packing any golf equipment."
+    "stayingNearby": "Staying nearby? Walk in without packing any golf equipment.",
+    "courseRentalCrossTitle": "Playing a real course while you're here?",
+    "courseRentalCrossText": "Rent premium Callaway or Majesty club sets from ฿1,200/day and have them delivered to your hotel or any Bangkok golf course for ฿500.",
+    "courseRentalCrossCta": "Golf Course Club Rental"
   },
   "FloorPlan": {
     "floorPlan": "FLOOR PLAN"
