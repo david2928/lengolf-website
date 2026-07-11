@@ -21,14 +21,16 @@ LENGOLF website — a Next.js 15 (App Router) site for an indoor golf simulator 
 GitHub Actions workflow (`.github/workflows/ci.yml`) runs on every PR to `main`:
 
 - **`lint`** — `npm run lint` with ESLint flat config (`eslint.config.mjs`)
-- **`build-and-smoke`** — builds the app, starts the production server, runs smoke tests across 7 categories:
-  - **A) Route tests (42)** — all EN + TH pages return 200 with `<main id="main-content">`
-  - **B) Redirect tests (18)** — WordPress legacy URLs, GSC 404 fixes, and location redirects
-  - **C) Link checks (4)** — booking.len.golf, LINE, Supabase Storage assets are reachable
-  - **D) SEO checks (8)** — title, meta description, canonical (www.len.golf), JSON-LD, `lang` attribute
-  - **E) Thai redirect tests (2)** — untranslated Thai routes redirect to English
-  - **F) Thai cookie tests (7)** — English pages work with NEXT_LOCALE=th cookie
-  - **G) WordPress 404 tests (7)** — legacy WordPress paths return 404 (prevent redirect regressions)
+- **`build-and-smoke`** — builds the app, starts the production server, runs smoke tests across 9 categories (per-category test counts live in `scripts/smoke-test.ts`):
+  - **A) Route tests** — pages across all locales return 200 with `<main id="main-content">`
+  - **B) Redirect tests** — WordPress legacy URLs, GSC 404 fixes, and location redirects
+  - **C) Link checks** — booking.len.golf, LINE, Supabase Storage assets are reachable
+  - **D) SEO checks** — title, meta description, canonical (www.len.golf), JSON-LD, `lang` attribute
+  - **E) Locale redirect tests** — untranslated th/ko/ja/zh routes redirect to English
+  - **F) Locale cookie tests** — English pages work with a NEXT_LOCALE cookie set
+  - **G) WordPress 404 tests** — legacy WordPress paths return 404 (prevent redirect regressions)
+  - **H) LLM / AI discoverability** — llms.txt served as text, robots.txt names AI crawlers, opening-hours schema consistent
+  - **I) Translated-guide registry consistency** — the `/guide/...` allowlist in `lib/translated-routes.ts` must match the locale-tagged entries in `data/explainer-pages.ts` (pure import check, no server)
 
 Both jobs are **required checks** via branch protection — PRs cannot merge if either fails.
 
