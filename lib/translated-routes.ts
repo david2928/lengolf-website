@@ -60,6 +60,8 @@ const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynam
       // locale: 'ja'). List each translated slug explicitly — a broad
       // /guide/[slug] pattern would let untranslated guides 200 in JA.
       '/guide/bring-golf-clubs-thailand-or-rent',
+      '/guide/golf-club-baggage-fees-airlines-bangkok',
+      '/guide/renting-golf-clubs-thai-golf-courses',
     ],
     dynamicRoutePatterns: [],
   },

@@ -117,8 +117,10 @@ const routeTests: RouteTest[] = [
   { path: '/guide/golf-club-baggage-fees-airlines-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/guide/best-golf-simulators-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  // Translated JA guide (data/explainer-pages.ts locale:'ja' + ja allowlist entry)
+  // Translated JA guides (data/explainer-pages.ts locale:'ja' + ja allowlist entries)
   { path: '/ja/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/guide/golf-club-baggage-fees-airlines-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/guide/renting-golf-clubs-thai-golf-courses/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // FAQ pages — spot-check original + newly added slugs
   { path: '/faq/can-i-rent-golf-clubs-in-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/faq/can-you-bring-golf-clubs-as-checked-baggage-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
