@@ -56,6 +56,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/lessons/`, lastModified: reviewed, changeFrequency: 'weekly', priority: 0.9, alternates: { languages: getAlternates('/lessons/') } },
     { url: `${SITE_URL}/about-us/`, lastModified: reviewed, changeFrequency: 'monthly', priority: 0.7, alternates: { languages: getAlternates('/about-us/') } },
     { url: `${SITE_URL}/blog/`, lastModified: reviewed, changeFrequency: 'weekly', priority: 0.8, alternates: { languages: getAlternates('/blog/') } },
+    { url: `${SITE_URL}/menu/`, lastModified: reviewed, changeFrequency: 'monthly', priority: 0.7, alternates: { languages: getAlternates('/menu/') } },
   ]
 
   // Hub / index pages for SEO section groups
@@ -67,7 +68,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // English-only pages (no Thai content yet)
   const englishOnlyPages: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}/menu/`, lastModified: reviewed, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/privacy-policy/`, lastModified: reviewed, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${SITE_URL}/terms-of-service/`, lastModified: reviewed, changeFrequency: 'yearly', priority: 0.3 },
   ]

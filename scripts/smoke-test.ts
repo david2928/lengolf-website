@@ -79,6 +79,7 @@ const routeTests: RouteTest[] = [
   { path: '/th/events/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/th/about-us/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/th/blog/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/th/menu/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Blog post detail (catches Supabase query errors on dynamic routes)
   { path: '/blog/golf-lessons-in-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // SEO hub pages
@@ -96,6 +97,7 @@ const routeTests: RouteTest[] = [
   { path: '/ja/about-us/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/golf-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/golf-course-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/menu/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // KO pages (bespoke landing at '/', plus translated Golf/Lessons/Events/AboutUs/ClubRental/CourseClubRental)
   { path: '/ko/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ko/golf/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
@@ -104,6 +106,7 @@ const routeTests: RouteTest[] = [
   { path: '/ko/about-us/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ko/golf-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ko/golf-course-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/menu/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // ZH pages (bespoke landing at '/', plus translated Golf/Lessons/Events/AboutUs/ClubRental/CourseClubRental)
   { path: '/zh/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/zh/golf/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
@@ -112,6 +115,7 @@ const routeTests: RouteTest[] = [
   { path: '/zh/about-us/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/zh/golf-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/zh/golf-course-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/menu/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Guide (explainer) pages — spot-check original + new golf-travel slugs
   { path: '/guide/what-is-a-golf-simulator/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/guide/best-time-play-golf-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
@@ -300,6 +304,10 @@ const seoTests: SeoTest[] = [
   { path: '/guide/what-is-a-golf-simulator/', locale: 'en' },
   { path: '/faq/can-i-rent-golf-clubs-in-bangkok/', locale: 'en' },
   { path: '/menu/', locale: 'en' },
+  { path: '/th/menu/', locale: 'th' },
+  { path: '/ko/menu/', locale: 'ko' },
+  { path: '/ja/menu/', locale: 'ja' },
+  { path: '/zh/menu/', locale: 'zh' },
 ]
 
 // E) Thai redirect tests (untranslated Thai routes → 301 to English)
@@ -310,7 +318,6 @@ interface ThaiRedirectTest {
 }
 
 const thaiRedirectTests: ThaiRedirectTest[] = [
-  { path: '/th/menu/', expectedLocation: '/menu/', label: 'Untranslated food & drinks menu' },
   { path: '/th/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated privacy policy' },
   { path: '/th/terms-of-service/', expectedLocation: '/terms-of-service/', label: 'Untranslated terms of service' },
   { path: '/th/golf-courses/', expectedLocation: '/golf-courses/', label: 'Golf courses hub (untranslated Thai → EN)' },
