@@ -156,6 +156,9 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
             label={t('stickyBookCta')}
             className="inline-flex h-16 items-center gap-2.5 rounded-lg bg-white px-12 text-lg font-extrabold uppercase tracking-wide text-[#005a32] shadow-lg transition-all hover:scale-105 hover:shadow-xl md:text-xl"
           />
+          {/* Risk-reversal at the point of action — key trust signal for
+              travelers booking before their trip. */}
+          <p className="mt-4 text-sm font-medium text-white/85">{t('heroCancellationNote')}</p>
         </div>
       </section>
 
@@ -260,6 +263,15 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
                     </li>
                   ))}
                 </ul>
+                {/* Majesty brand callout — differentiator for Japanese/Korean/
+                    Chinese golf travelers who know the brand. Styling matches
+                    the callout in course-rental/CollapsibleClubCard. */}
+                {i === 2 && (
+                  <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3">
+                    <p className="mb-1 text-xs font-bold uppercase tracking-wider text-amber-800">{t('majestyCalloutTitle')}</p>
+                    <p className="text-xs leading-relaxed text-amber-700">{t('majestyCalloutText')}</p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
