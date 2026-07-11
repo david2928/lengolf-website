@@ -1105,5 +1105,17 @@
     "ctaSubtitle": "预订、咨询欢迎通过LINE消息联系我们。",
     "ctaBook": "立即预订",
     "ctaLine": "通过LINE咨询"
+  },
+  "ExplainerPage": {
+    "guideLabel": "LENGOLF指南",
+    "bookABay": "预订球位",
+    "lineUs": "LINE联系我们",
+    "feature": "项目",
+    "keyTakeaways": "要点总结",
+    "ctaTitle": "亲自体验",
+    "ctaText": "欢迎到LENGOLF（{address}）体验室内高尔夫。营业时间{hours}。无需任何经验。",
+    "bookNow": "立即预订",
+    "call": "致电 {phone}",
+    "exploreMore": "更多内容"
   }
 }

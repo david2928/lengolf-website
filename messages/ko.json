@@ -1102,5 +1102,17 @@
     "ctaSubtitle": "예약·문의 모두 LINE 메시지로 편하게 보내주세요.",
     "ctaBook": "지금 예약",
     "ctaLine": "LINE으로 문의"
+  },
+  "ExplainerPage": {
+    "guideLabel": "LENGOLF 가이드",
+    "bookABay": "베이 예약",
+    "lineUs": "LINE 문의",
+    "feature": "항목",
+    "keyTakeaways": "핵심 요약",
+    "ctaTitle": "직접 체험해 보세요",
+    "ctaText": "LENGOLF({address})에서 인도어 골프를 경험해 보세요. 영업시간 {hours}. 경험이 없어도 괜찮습니다.",
+    "bookNow": "지금 예약",
+    "call": "전화 {phone}",
+    "exploreMore": "더 알아보기"
   }
 }

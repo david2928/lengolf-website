@@ -1,27 +1,25 @@
 import { setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getAllSeoPageSlugs, getSeoPageBySlug } from '@/lib/seo-pages'
-import { SITE_URL } from '@/lib/constants'
+import { getAllSeoPageParams, getSeoPageBySlug } from '@/lib/seo-pages'
+import { getAlternates, getCanonical } from '@/lib/translated-routes'
 import { getExplainerPageJsonLd } from '@/lib/jsonld'
 import ExplainerPageComponent from '@/components/guides/ExplainerPage'
 import type { ExplainerSeoPage } from '@/types/seo-pages'
-import { routing } from '@/i18n/routing'
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>
 }
 
 export async function generateStaticParams() {
-  const slugs = await getAllSeoPageSlugs('explainer')
-  return routing.locales.flatMap((locale) =>
-    slugs.map((slug) => ({ locale, slug }))
-  )
+  // Only build locale×slug combos that have published content — untranslated
+  // locale URLs 301 to English via the middleware (lib/translated-routes.ts).
+  return getAllSeoPageParams('explainer')
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params
-  const page = await getSeoPageBySlug(slug, 'explainer')
+  const { locale, slug } = await params
+  const page = await getSeoPageBySlug(slug, 'explainer', locale)
 
   if (!page) {
     return { title: 'Page Not Found' }
@@ -33,11 +31,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: page.title,
       description: page.meta_description || undefined,
-      url: `${SITE_URL}/guide/${slug}/`,
+      url: getCanonical(locale, `/guide/${slug}/`),
       type: 'article',
     },
     alternates: {
-      canonical: `${SITE_URL}/guide/${slug}/`,
+      canonical: getCanonical(locale, `/guide/${slug}/`),
+      languages: getAlternates(`/guide/${slug}/`),
     },
   }
 }
@@ -45,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ExplainerPage({ params }: Props) {
   const { locale, slug } = await params
   setRequestLocale(locale)
-  const page = await getSeoPageBySlug(slug, 'explainer') as ExplainerSeoPage | null
+  const page = await getSeoPageBySlug(slug, 'explainer', locale) as ExplainerSeoPage | null
 
   if (!page) {
     notFound()

@@ -56,6 +56,10 @@ const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynam
       '/about-us',
       '/golf-club-rental',
       '/golf-course-club-rental',
+      // Translated guide pages (data/explainer-pages.ts entries with
+      // locale: 'ja'). List each translated slug explicitly — a broad
+      // /guide/[slug] pattern would let untranslated guides 200 in JA.
+      '/guide/bring-golf-clubs-thailand-or-rent',
     ],
     dynamicRoutePatterns: [],
   },

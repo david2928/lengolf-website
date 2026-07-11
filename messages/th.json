@@ -1015,5 +1015,17 @@
   },
   "FloorPlan": {
     "floorPlan": "ผังพื้นที่"
+  },
+  "ExplainerPage": {
+    "guideLabel": "คู่มือ LENGOLF",
+    "bookABay": "จองเบย์",
+    "lineUs": "แชท LINE",
+    "feature": "หัวข้อ",
+    "keyTakeaways": "สรุปประเด็นสำคัญ",
+    "ctaTitle": "มาลองด้วยตัวเอง",
+    "ctaText": "สัมผัสอินดอร์กอล์ฟที่ LENGOLF {address} เปิดทุกวัน {hours} ไม่ต้องมีประสบการณ์มาก่อน",
+    "bookNow": "จองเลย",
+    "call": "โทร {phone}",
+    "exploreMore": "อ่านเพิ่มเติม"
   }
 }

@@ -1015,5 +1015,17 @@
   },
   "FloorPlan": {
     "floorPlan": "FLOOR PLAN"
+  },
+  "ExplainerPage": {
+    "guideLabel": "LENGOLF Guide",
+    "bookABay": "Book a Bay",
+    "lineUs": "LINE Us",
+    "feature": "Feature",
+    "keyTakeaways": "Key Takeaways",
+    "ctaTitle": "Try It Yourself",
+    "ctaText": "Experience indoor golf at LENGOLF, {address}. Open {hours}. No experience needed.",
+    "bookNow": "Book Now",
+    "call": "Call {phone}",
+    "exploreMore": "Explore More"
   }
 }

@@ -117,6 +117,8 @@ const routeTests: RouteTest[] = [
   { path: '/guide/golf-club-baggage-fees-airlines-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/guide/best-golf-simulators-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // Translated JA guide (data/explainer-pages.ts locale:'ja' + ja allowlist entry)
+  { path: '/ja/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // FAQ pages — spot-check original + newly added slugs
   { path: '/faq/can-i-rent-golf-clubs-in-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/faq/can-you-bring-golf-clubs-as-checked-baggage-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
@@ -316,6 +318,7 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
   // important for ko/zh where the message files have populated (but English-stub)
   // namespaces that would render as mislabelled content without the allowlist.
   { path: '/ja/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated JA privacy policy' },
+  { path: '/ja/guide/what-is-a-golf-simulator/', expectedLocation: '/guide/what-is-a-golf-simulator/', label: 'Untranslated JA guide (only translated guide slugs may 200)' },
   { path: '/ko/hotels/', expectedLocation: '/hotels/', label: 'Untranslated KO hotels hub' },
   { path: '/ko/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated KO privacy policy' },
   { path: '/zh/blog/', expectedLocation: '/blog/', label: 'Untranslated ZH blog page' },

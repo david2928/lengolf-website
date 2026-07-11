@@ -1102,5 +1102,17 @@
   },
   "FloorPlan": {
     "floorPlan": "FLOOR PLAN"
+  },
+  "ExplainerPage": {
+    "guideLabel": "LENGOLFガイド",
+    "bookABay": "ベイを予約",
+    "lineUs": "LINEで問い合わせ",
+    "feature": "項目",
+    "keyTakeaways": "ポイントまとめ",
+    "ctaTitle": "実際に体験してみませんか",
+    "ctaText": "LENGOLF（{address}）でインドアゴルフを体験。営業時間 {hours}。初心者の方も大歓迎です。",
+    "bookNow": "今すぐ予約",
+    "call": "電話 {phone}",
+    "exploreMore": "関連ガイド"
   }
 }
