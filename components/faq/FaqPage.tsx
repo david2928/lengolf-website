@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { ArrowRight, Check, HelpCircle } from 'lucide-react'
 import { BOOKING_URL, BUSINESS_INFO, SOCIAL_LINKS } from '@/lib/constants'
+import BoldText from '@/components/shared/BoldText'
+import MarkdownTable, { isMarkdownTableBlock } from '@/components/shared/MarkdownTable'
 import type { FaqSeoPage } from '@/types/seo-pages'
 
 interface Props {
@@ -227,23 +229,6 @@ export default function FaqPageComponent({ data }: Props) {
   )
 }
 
-/** Component to safely render text with **bold** markdown */
-function BoldText({ text }: { text: string }) {
-  const parts = text.split(/\*\*(.+?)\*\*/g)
-  return (
-    <>
-      {parts.map((part, i) =>
-        i % 2 === 1 ? (
-          <strong key={i} className="text-[#1a472a]">
-            {part}
-          </strong>
-        ) : (
-          part
-        )
-      )}
-    </>
-  )
-}
 
 const PRICING_HEADING_RE = /rates?|packages?|pricing|costs?|lesson/i
 
@@ -295,10 +280,16 @@ function renderPriceTable(items: string[], key: string | number) {
   )
 }
 
-/** Render a content paragraph, handling bullet lists and inline bold */
+/** Render a content paragraph, handling tables, bullet lists, and inline bold */
 function renderParagraph(text: string, key: string | number, headingContext?: string) {
-  // Check if it's a list (lines starting with -)
   const lines = text.split('\n')
+
+  // Markdown pipe table (| Col | Col |\n|---|---|\n| ... |)
+  if (isMarkdownTableBlock(lines)) {
+    return <MarkdownTable key={key} lines={lines} />
+  }
+
+  // Check if it's a list (lines starting with -)
   const isList = lines.every((line) => line.trim().startsWith('- ') || line.trim() === '')
 
   if (isList) {
