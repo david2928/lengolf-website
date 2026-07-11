@@ -1,6 +1,7 @@
 import BoldText from '@/components/shared/BoldText'
 
-// Markdown table separator row: |---|---| (any dash count, optional colons)
+// Markdown table separator row: |---|---| (any dash count). Alignment
+// colons (|:---:|) are accepted but ignored — every column renders left.
 const SEPARATOR_RE = /^\|(\s*:?-+:?\s*\|)+$/
 
 // Only full |-delimited rows count — inline pipes in prose lines
@@ -41,7 +42,8 @@ export default function MarkdownTable({ lines }: { lines: string[] }) {
   const header = splitCells(lines[0])
   const rows = lines.slice(2).map(splitCells)
   return (
-    <div className="overflow-x-auto">
+    // not-prose keeps table chrome identical inside FaqPage's prose wrapper
+    <div className="not-prose overflow-x-auto">
       <table className="w-full border-collapse text-sm">
         <thead>
           <tr className="border-b-2 border-[#2d6a4f]">
