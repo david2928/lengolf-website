@@ -157,6 +157,13 @@ const routeTests: RouteTest[] = [
   { path: '/golf-courses/pattaya/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-courses/hua-hin/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-courses/phuket/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // Translated region hubs (data/golf-courses-i18n.ts + ja/ko/zh allowlist entries)
+  { path: '/ja/golf-courses/bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/golf-courses/bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/golf-courses/bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/golf-courses/phuket/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/golf-courses/phuket/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/golf-courses/phuket/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Golf course detail pages — spot-check one Bangkok + two Pattaya + two Hua Hin + two Phuket
   { path: '/golf-courses/bangkok/nikanti-golf-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-courses/bangkok/navatanee-golf-course/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
@@ -348,6 +355,11 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
   { path: '/ja/guide/what-is-a-golf-simulator/', expectedLocation: '/guide/what-is-a-golf-simulator/', label: 'Untranslated JA guide (only translated guide slugs may 200)' },
   { path: '/ko/guide/what-is-a-golf-simulator/', expectedLocation: '/guide/what-is-a-golf-simulator/', label: 'Untranslated KO guide (only translated guide slugs may 200)' },
   { path: '/zh/guide/what-is-a-golf-simulator/', expectedLocation: '/guide/what-is-a-golf-simulator/', label: 'Untranslated ZH guide (only translated guide slugs may 200)' },
+  // Untranslated region hubs must still 301 to English — only bangkok/phuket are
+  // translated (data/golf-courses-i18n.ts). Guards the region-hub allowlist.
+  { path: '/ja/golf-courses/pattaya/', expectedLocation: '/golf-courses/pattaya/', label: 'Untranslated JA region hub (only bangkok/phuket may 200)' },
+  { path: '/ko/golf-courses/pattaya/', expectedLocation: '/golf-courses/pattaya/', label: 'Untranslated KO region hub (only bangkok/phuket may 200)' },
+  { path: '/zh/golf-courses/pattaya/', expectedLocation: '/golf-courses/pattaya/', label: 'Untranslated ZH region hub (only bangkok/phuket may 200)' },
   { path: '/ko/hotels/', expectedLocation: '/hotels/', label: 'Untranslated KO hotels hub' },
   { path: '/ko/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated KO privacy policy' },
   { path: '/zh/blog/', expectedLocation: '/blog/', label: 'Untranslated ZH blog page' },
@@ -740,6 +752,51 @@ async function runRegistryConsistencyTests() {
   }
 }
 
+// ── J) Translated region-hub registry consistency ───────────────────
+// Same drift guard as section I, for golf-course REGION HUBS. The middleware
+// allowlist (lib/translated-routes.ts) cannot import data/golf-courses-i18n.ts
+// (edge-bundled), so nothing at build time ties the two lists together. This
+// fails CI in both directions: a translated hub missing from the registry is
+// built but 301'd away (translation unreachable); a registry entry without a
+// translation would 200 into the EN-fallback while hreflang/sitemap advertise it.
+
+async function runRegionHubRegistryConsistencyTests() {
+  console.log('\n\x1b[1mJ) Translated region-hub registry consistency\x1b[0m')
+  const { getTranslatedRegionHubParams } = await import('../data/golf-courses-i18n')
+  const { getRegisteredRegionHubPaths, ALL_LOCALES } = await import('../lib/translated-routes')
+
+  // Per-locale sets of '/golf-courses/<region>' paths from the data file.
+  const dataByLocale: Record<string, Set<string>> = {}
+  for (const { locale, region } of getTranslatedRegionHubParams()) {
+    ;(dataByLocale[locale] ??= new Set<string>()).add(`/golf-courses/${region}`)
+  }
+
+  for (const locale of ALL_LOCALES) {
+    if (locale === 'en') continue
+    const fromData = dataByLocale[locale] ?? new Set<string>()
+    const fromRegistry = new Set(getRegisteredRegionHubPaths(locale))
+    const missingInRegistry = [...fromData].filter((p) => !fromRegistry.has(p))
+    const missingInData = [...fromRegistry].filter((p) => !fromData.has(p))
+
+    if (missingInRegistry.length === 0 && missingInData.length === 0) {
+      pass(`Region-hub registry ⇄ data in sync for '${locale}' (${fromData.size} translated hubs)`)
+    } else {
+      if (missingInRegistry.length > 0) {
+        fail(
+          `Registry missing '${locale}' region hub(s)`,
+          `${missingInRegistry.join(', ')} — add to ${locale}.staticRoutes in lib/translated-routes.ts or the translation is unreachable (middleware 301s it)`
+        )
+      }
+      if (missingInData.length > 0) {
+        fail(
+          `Registry lists '${locale}' region hub(s) with no data`,
+          `${missingInData.join(', ')} — remove from lib/translated-routes.ts or add a translation in data/golf-courses-i18n.ts (currently serves EN fallback while advertised in hreflang)`
+        )
+      }
+    }
+  }
+}
+
 // ── Main ────────────────────────────────────────────────────────────
 
 async function main() {
@@ -763,6 +820,7 @@ async function main() {
   await runNotFoundTests()
   await runLlmDiscoverabilityTests()
   await runRegistryConsistencyTests()
+  await runRegionHubRegistryConsistencyTests()
 
   console.log(`\n\x1b[1m${passed} passed, ${failed} failed\x1b[0m`)
   if (failures.length > 0) {

@@ -41,6 +41,10 @@ const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynam
       '/guide/golf-club-baggage-fees-airlines-bangkok',
       '/guide/renting-golf-clubs-thai-golf-courses',
       '/guide/screen-golf-bangkok',
+      // Translated region hubs (data/golf-courses-i18n.ts) — kept in sync by the
+      // smoke-test region-hub consistency check.
+      '/golf-courses/bangkok',
+      '/golf-courses/phuket',
     ],
     dynamicRoutePatterns: [],
   },
@@ -60,6 +64,10 @@ const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynam
       '/guide/bring-golf-clubs-thailand-or-rent',
       '/guide/golf-club-baggage-fees-airlines-bangkok',
       '/guide/renting-golf-clubs-thai-golf-courses',
+      // Translated region hubs (data/golf-courses-i18n.ts) — kept in sync by the
+      // smoke-test region-hub consistency check.
+      '/golf-courses/bangkok',
+      '/golf-courses/phuket',
     ],
     dynamicRoutePatterns: [],
   },
@@ -79,6 +87,10 @@ const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynam
       '/guide/bring-golf-clubs-thailand-or-rent',
       '/guide/golf-club-baggage-fees-airlines-bangkok',
       '/guide/renting-golf-clubs-thai-golf-courses',
+      // Translated region hubs (data/golf-courses-i18n.ts) — kept in sync by the
+      // smoke-test region-hub consistency check.
+      '/golf-courses/bangkok',
+      '/golf-courses/phuket',
     ],
     dynamicRoutePatterns: [],
   },
@@ -145,6 +157,20 @@ export function hasThaiTranslation(pathname: string): boolean {
 export function getRegisteredGuidePaths(locale: string): string[] {
   return (TRANSLATED_ROUTES[locale]?.staticRoutes ?? []).filter((r) =>
     r.startsWith('/guide/')
+  )
+}
+
+/**
+ * Region-hub paths registered as translated for `locale` (the two-segment
+ * '/golf-courses/<region>' entries in staticRoutes). Like getRegisteredGuidePaths,
+ * this registry cannot import data/golf-courses-i18n.ts (it is bundled into the
+ * edge middleware), so the smoke tests assert this list stays in sync with the
+ * translations in the data file — see scripts/smoke-test.ts region-hub
+ * consistency check. The length===2 filter excludes deeper course-detail paths.
+ */
+export function getRegisteredRegionHubPaths(locale: string): string[] {
+  return (TRANSLATED_ROUTES[locale]?.staticRoutes ?? []).filter(
+    (r) => r.startsWith('/golf-courses/') && r.split('/').filter(Boolean).length === 2
   )
 }
 
