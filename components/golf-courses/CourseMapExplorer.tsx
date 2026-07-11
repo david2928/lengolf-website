@@ -16,6 +16,9 @@ interface RegionCenter {
 interface Props {
   courses: GolfCourse[]
   region: string
+  /** Localized region name for display (e.g. the map aria-label); the raw
+   *  `region` slug is still used for building course-detail hrefs. */
+  regionLabel: string
   /** Default map centre / zoom, derived from REGION_META on the server side. */
   center: RegionCenter
 }
@@ -60,7 +63,7 @@ function makePin(index: number, active: boolean, courseName: string): HTMLDivEle
   return el
 }
 
-export default function CourseMapExplorer({ courses, region, center }: Props) {
+export default function CourseMapExplorer({ courses, region, regionLabel, center }: Props) {
   const t = useTranslations('GolfCourseRegion')
   const [activeSlug, setActiveSlug] = useState<string | null>(null)
   const [mapsUnavailable, setMapsUnavailable] = useState(false)
@@ -195,7 +198,7 @@ export default function CourseMapExplorer({ courses, region, center }: Props) {
                 ref={mapDivRef}
                 style={{ width: '100%', height: '100%', minHeight: 420, display: 'block' }}
                 role="application"
-                aria-label={t('mapAriaLabel', { region })}
+                aria-label={t('mapAriaLabel', { region: regionLabel })}
               />
             )}
           </div>

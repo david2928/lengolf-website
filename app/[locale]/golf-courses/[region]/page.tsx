@@ -134,7 +134,11 @@ export default async function RegionIndexPage({ params }: Props) {
             </div>
 
             <h1 className="mb-5 font-sans text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
-              {t('heroHeading', { label })}
+              {t.rich('heroHeading', {
+                label,
+                br: () => <br />,
+                muted: (chunks) => <span className="text-white/60">{chunks}</span>,
+              })}
             </h1>
             <p className="max-w-lg text-sm leading-relaxed text-white/60">{description}</p>
           </div>
@@ -147,7 +151,7 @@ export default async function RegionIndexPage({ params }: Props) {
         {/* Map card overlaps hero — negative margin pulls it up into the dark section */}
         <div className="mx-auto -mt-12 max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-black/5">
-            <CourseMapExplorer courses={courses} region={region} center={center} />
+            <CourseMapExplorer courses={courses} region={region} regionLabel={label} center={center} />
           </div>
         </div>
 
