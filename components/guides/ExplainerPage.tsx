@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { ArrowRight, Check, BookOpen } from 'lucide-react'
@@ -69,20 +70,19 @@ export default function ExplainerPageComponent({ data, relatedLabels }: Props) {
               {section.heading}
             </h2>
             <div className="text-base leading-relaxed text-muted-foreground md:text-lg space-y-4">
-              {section.body.split('\n\n').map((paragraph, pIdx) => {
-                // Handle paragraphs that contain **bold** markers as sub-headings
-                if (paragraph.startsWith('**') && paragraph.includes('** —')) {
-                  const match = paragraph.match(/^\*\*(.+?)\*\*\s*—\s*(.+)$/)
-                  if (match) {
-                    return (
-                      <p key={pIdx}>
-                        <strong className="text-[#1a472a]">{match[1]}</strong> — {match[2]}
-                      </p>
-                    )
-                  }
-                }
-                return <p key={pIdx}>{paragraph}</p>
-              })}
+              {/* Bodies use \n\n between paragraphs, single \n for list/line
+                  breaks, and inline **bold** (sub-headings like "**X** — Y",
+                  run-in labels like "**X:**", and list lead-ins). */}
+              {section.body.split('\n\n').map((paragraph, pIdx) => (
+                <p key={pIdx}>
+                  {paragraph.split('\n').map((line, lIdx) => (
+                    <Fragment key={lIdx}>
+                      {lIdx > 0 && <br />}
+                      <BoldText text={line} />
+                    </Fragment>
+                  ))}
+                </p>
+              ))}
             </div>
           </div>
         </section>
@@ -207,5 +207,23 @@ export default function ExplainerPageComponent({ data, relatedLabels }: Props) {
         </section>
       )}
     </div>
+  )
+}
+
+/** Component to safely render text with **bold** markdown */
+function BoldText({ text }: { text: string }) {
+  const parts = text.split(/\*\*(.+?)\*\*/g)
+  return (
+    <>
+      {parts.map((part, i) =>
+        i % 2 === 1 ? (
+          <strong key={i} className="text-[#1a472a]">
+            {part}
+          </strong>
+        ) : (
+          part
+        )
+      )}
+    </>
   )
 }
