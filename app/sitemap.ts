@@ -147,12 +147,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/golf-courses/`, lastModified: reviewed, changeFrequency: 'weekly', priority: 0.8 },
   ]
 
-  const golfRegionPages: MetadataRoute.Sitemap = Object.keys(REGION_META).map((region) => ({
-    url: `${SITE_URL}/golf-courses/${region}/`,
-    lastModified: reviewed,
-    changeFrequency: 'weekly' as const,
-    priority: 0.7,
-  }))
+  const golfRegionPages: MetadataRoute.Sitemap = Object.keys(REGION_META).map((region) => {
+    // Emit hreflang alternates only for hubs with translations
+    // (registered in lib/translated-routes.ts) — EN-only hubs stay plain.
+    const languages = getAlternates(`/golf-courses/${region}/`)
+    return {
+      url: `${SITE_URL}/golf-courses/${region}/`,
+      lastModified: reviewed,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+      ...(Object.keys(languages).length > 1 ? { alternates: { languages } } : {}),
+    }
+  })
 
   const golfCoursePages: MetadataRoute.Sitemap = courseParams.map(({ region, slug }) => ({
     url: `${SITE_URL}/golf-courses/${region}/${slug}/`,

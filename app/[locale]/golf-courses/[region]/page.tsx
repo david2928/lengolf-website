@@ -1,10 +1,12 @@
-import { setRequestLocale } from 'next-intl/server'
+import { setRequestLocale, getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { Link } from '@/i18n/navigation'
 import { getCoursesByRegion, REGION_META } from '@/lib/golf-courses'
 import type { Region } from '@/lib/golf-courses'
 import { SITE_URL } from '@/lib/constants'
+import { getAlternates, getCanonical } from '@/lib/translated-routes'
+import { getRegionHubTranslation, getTranslatedRegionHubParams } from '@/data/golf-courses-i18n'
 import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { ArrowRight } from 'lucide-react'
 import CourseMapExplorer from '@/components/golf-courses/CourseMapExplorer'
@@ -14,23 +16,38 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return Object.keys(REGION_META).map((region) => ({ region }))
+  // EN builds every region; other locales build only regions with a published
+  // translation (untranslated locale URLs 301 to English via the middleware).
+  return [
+    ...Object.keys(REGION_META).map((region) => ({ locale: 'en', region })),
+    ...getTranslatedRegionHubParams(),
+  ]
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { region } = await params
+  const { locale, region } = await params
   const meta = REGION_META[region as Region]
   if (!meta) return { title: 'Region Not Found' }
 
-  const canonicalUrl = `${SITE_URL}/golf-courses/${region}/`
-  const title = `Golf Courses in ${meta.label} — Green Fees & Course Guides`
-  const description = `Explore ${meta.courseCount} golf courses in ${meta.label}. Compare green fees, course ratings, and arrange golf club rental delivered to your hotel.`
+  const t = await getTranslations({ locale, namespace: 'GolfCourseRegion' })
+  const label = getRegionHubTranslation(region, locale)?.label ?? meta.label
+  const path = `/golf-courses/${region}/`
+  const title = t('metaTitle', { label })
+  const description = t('metaDescription', { count: meta.courseCount, label })
+  const canonical = getCanonical(locale, path)
+
+  // Only emit hreflang when a translation actually exists — a lone
+  // self-referential hreflang="en" cluster is audit noise (matches the sitemap).
+  const languages = getAlternates(path)
 
   return {
     title,
     description,
-    alternates: { canonical: canonicalUrl },
-    openGraph: { title, description, url: canonicalUrl, type: 'website' },
+    alternates: {
+      canonical,
+      ...(Object.keys(languages).length > 1 ? { languages } : {}),
+    },
+    openGraph: { title, description, url: canonical, type: 'website' },
   }
 }
 
@@ -46,10 +63,19 @@ export default async function RegionIndexPage({ params }: Props) {
 
   const center = meta.center
 
+  const t = await getTranslations('GolfCourseRegion')
+  const tr = getRegionHubTranslation(region, locale)
+  const label = tr?.label ?? meta.label
+  const province = tr?.province ?? meta.province
+  const description = tr?.description ?? meta.description
+
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
+    // The /golf-courses/ hub is English-only (301s for other locales), so its
+    // crumb keeps the canonical EN URL; the region crumb points at its localized
+    // canonical (getCanonical). Crumb display names are localized either way.
     { name: 'Home', url: `${SITE_URL}/` },
-    { name: 'Golf Courses', url: `${SITE_URL}/golf-courses/` },
-    { name: meta.label, url: `${SITE_URL}/golf-courses/${region}/` },
+    { name: t('breadcrumbGolfCourses'), url: `${SITE_URL}/golf-courses/` },
+    { name: label, url: getCanonical(locale, `/golf-courses/${region}/`) },
   ])
 
   return (
@@ -93,9 +119,9 @@ export default async function RegionIndexPage({ params }: Props) {
         <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-10 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <nav className="mb-8 flex items-center gap-2 text-[11px] font-medium tracking-wider text-white/40">
-            <Link href="/golf-courses" className="uppercase transition-colors hover:text-white/70">Golf Courses</Link>
+            <Link href="/golf-courses" className="uppercase transition-colors hover:text-white/70">{t('breadcrumbGolfCourses')}</Link>
             <span className="opacity-40">/</span>
-            <span className="uppercase text-white/60">{meta.label}</span>
+            <span className="uppercase text-white/60">{label}</span>
           </nav>
 
           <div className="max-w-xl">
@@ -103,15 +129,18 @@ export default async function RegionIndexPage({ params }: Props) {
             <div className="mb-4 flex items-center gap-3">
               <span className="h-px w-8 bg-[#c8a96e]" />
               <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#c8a96e]">
-                {meta.province}
+                {province}
               </span>
             </div>
 
             <h1 className="mb-5 font-sans text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Golf Courses<br />
-              <span className="text-white/60">in {meta.label}</span>
+              {t.rich('heroHeading', {
+                label,
+                br: () => <br />,
+                muted: (chunks) => <span className="text-white/60">{chunks}</span>,
+              })}
             </h1>
-            <p className="max-w-lg text-sm leading-relaxed text-white/60">{meta.description}</p>
+            <p className="max-w-lg text-sm leading-relaxed text-white/60">{description}</p>
           </div>
         </div>
 
@@ -122,7 +151,7 @@ export default async function RegionIndexPage({ params }: Props) {
         {/* Map card overlaps hero — negative margin pulls it up into the dark section */}
         <div className="mx-auto -mt-12 max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-black/5">
-            <CourseMapExplorer courses={courses} region={region} center={center} />
+            <CourseMapExplorer courses={courses} region={region} regionLabel={label} center={center} />
           </div>
         </div>
 
@@ -143,13 +172,14 @@ export default async function RegionIndexPage({ params }: Props) {
                 <div className="mb-2 flex items-center gap-2">
                   <span className="h-px w-5 bg-[#c8a96e]" />
                   <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#c8a96e]">
-                    No clubs? No problem.
+                    {t('rentalEyebrow')}
                   </span>
                 </div>
                 <p className="max-w-md text-base font-medium leading-relaxed text-white/90 sm:text-lg">
-                  Rent premium clubs from our Bangkok simulator —{' '}
-                  <span className="font-bold text-white">Callaway Paradym, Warbird, Majesty.</span>{' '}
-                  From <span className="font-bold text-[#c8a96e]">1,200 THB/day</span>.
+                  {t.rich('rentalPitch', {
+                    brands: (chunks) => <span className="font-bold text-white">{chunks}</span>,
+                    price: (chunks) => <span className="font-bold text-[#c8a96e]">{chunks}</span>,
+                  })}
                 </p>
               </div>
               <div className="flex shrink-0 flex-wrap gap-3">
@@ -159,13 +189,13 @@ export default async function RegionIndexPage({ params }: Props) {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl bg-[#c8a96e] px-6 py-3 text-sm font-bold text-[#1a1a1a] transition-all hover:bg-[#d4b87e] hover:shadow-lg"
                 >
-                  Book now
+                  {t('bookNow')}
                 </a>
                 <Link
                   href="/golf-course-club-rental"
                   className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
                 >
-                  Learn more <ArrowRight className="h-3.5 w-3.5" />
+                  {t('learnMore')} <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
             </div>
