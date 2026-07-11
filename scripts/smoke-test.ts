@@ -69,6 +69,7 @@ const routeTests: RouteTest[] = [
   { path: '/golf-course-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/th/golf-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/th/golf-course-club-rental/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/menu/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/privacy-policy/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/terms-of-service/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // TH pages
@@ -298,6 +299,7 @@ const seoTests: SeoTest[] = [
   { path: '/golf-in-thailand-guide/', locale: 'en' },
   { path: '/guide/what-is-a-golf-simulator/', locale: 'en' },
   { path: '/faq/can-i-rent-golf-clubs-in-bangkok/', locale: 'en' },
+  { path: '/menu/', locale: 'en' },
 ]
 
 // E) Thai redirect tests (untranslated Thai routes → 301 to English)
@@ -308,6 +310,7 @@ interface ThaiRedirectTest {
 }
 
 const thaiRedirectTests: ThaiRedirectTest[] = [
+  { path: '/th/menu/', expectedLocation: '/menu/', label: 'Untranslated food & drinks menu' },
   { path: '/th/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated privacy policy' },
   { path: '/th/terms-of-service/', expectedLocation: '/terms-of-service/', label: 'Untranslated terms of service' },
   { path: '/th/golf-courses/', expectedLocation: '/golf-courses/', label: 'Golf courses hub (untranslated Thai → EN)' },

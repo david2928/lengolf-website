@@ -67,6 +67,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // English-only pages (no Thai content yet)
   const englishOnlyPages: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}/menu/`, lastModified: reviewed, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/privacy-policy/`, lastModified: reviewed, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${SITE_URL}/terms-of-service/`, lastModified: reviewed, changeFrequency: 'yearly', priority: 0.3 },
   ]

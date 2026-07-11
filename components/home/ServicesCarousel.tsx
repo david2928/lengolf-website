@@ -3,8 +3,7 @@
 import { useRef, useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { ChevronLeft, ChevronRight, X } from 'lucide-react'
-import { storageUrl } from '@/lib/constants'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 interface ServiceItem {
   title: string
@@ -13,17 +12,9 @@ interface ServiceItem {
   href: string
 }
 
-const MENU_IMAGES = [
-  { src: storageUrl('menus/food-menu-1.jpg'), alt: 'Food Menu' },
-  { src: storageUrl('menus/food-menu-2.jpg'), alt: 'Food Menu 2' },
-  { src: storageUrl('menus/drink-menu.jpg'), alt: 'Drink Menu' },
-]
-
 export default function ServicesCarousel({ services }: { services: ServiceItem[] }) {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [isTransitioning, setIsTransitioning] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [menuIndex, setMenuIndex] = useState(0)
 
   // Triple the items for infinite loop effect: [clone-end] [original] [clone-start]
   const extendedServices = [...services, ...services, ...services]
@@ -88,24 +79,6 @@ export default function ServicesCarousel({ services }: { services: ServiceItem[]
     })
   }
 
-  // Close modal on Escape key
-  useEffect(() => {
-    if (!menuOpen) return
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMenuOpen(false)
-      if (e.key === 'ArrowRight') setMenuIndex((i) => Math.min(i + 1, MENU_IMAGES.length - 1))
-      if (e.key === 'ArrowLeft') setMenuIndex((i) => Math.max(i - 1, 0))
-    }
-    document.body.style.overflow = 'hidden'
-    window.addEventListener('keydown', handleKey)
-    return () => {
-      document.body.style.overflow = ''
-      window.removeEventListener('keydown', handleKey)
-    }
-  }, [menuOpen])
-
-  const isFoodDrinks = (service: ServiceItem) => service.title === 'Food & Drinks' || service.href.includes('menus/')
-
   return (
     <div className="relative">
       {/* Left Arrow */}
@@ -132,103 +105,26 @@ export default function ServicesCarousel({ services }: { services: ServiceItem[]
         className="flex gap-1 overflow-x-auto scroll-smooth"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
       >
-        {extendedServices.map((service, index) =>
-          isFoodDrinks(service) ? (
-            <button
-              key={`${service.title}-${index}`}
-              onClick={() => { setMenuIndex(0); setMenuOpen(true) }}
-              className="group relative flex-shrink-0 w-[85vw] sm:w-[50vw] lg:w-[calc(33.333vw-3px)] aspect-[4/5] overflow-hidden text-left"
-            >
-              <Image
-                src={service.image}
-                alt={service.title}
-                fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                sizes="(max-width: 640px) 85vw, (max-width: 1024px) 50vw, 33vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              <h3 className="absolute bottom-6 left-8 text-xl font-bold text-white/60 sm:text-2xl lg:text-3xl tracking-wider">
-                {service.displayTitle.toUpperCase()}
-              </h3>
-            </button>
-          ) : (
-            <Link
-              key={`${service.title}-${index}`}
-              href={service.href}
-              className="group relative flex-shrink-0 w-[85vw] sm:w-[50vw] lg:w-[calc(33.333vw-3px)] aspect-[4/5] overflow-hidden"
-            >
-              <Image
-                src={service.image}
-                alt={service.title}
-                fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                sizes="(max-width: 640px) 85vw, (max-width: 1024px) 50vw, 33vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              <h3 className="absolute bottom-6 left-8 text-xl font-bold text-white/60 sm:text-2xl lg:text-3xl tracking-wider">
-                {service.displayTitle.toUpperCase()}
-              </h3>
-            </Link>
-          )
-        )}
-      </div>
-
-      {/* Food & Drinks Menu Modal */}
-      {menuOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
-          onClick={() => setMenuOpen(false)}
-        >
-          <button
-            className="absolute right-4 top-4 text-white hover:text-gray-300 z-10"
-            onClick={() => setMenuOpen(false)}
-            aria-label="Close"
+        {extendedServices.map((service, index) => (
+          <Link
+            key={`${service.title}-${index}`}
+            href={service.href}
+            className="group relative flex-shrink-0 w-[85vw] sm:w-[50vw] lg:w-[calc(33.333vw-3px)] aspect-[4/5] overflow-hidden"
           >
-            <X className="h-8 w-8" />
-          </button>
-
-          <div className="relative max-h-[90vh] max-w-[90vw]" onClick={(e) => e.stopPropagation()}>
             <Image
-              src={MENU_IMAGES[menuIndex].src}
-              alt={MENU_IMAGES[menuIndex].alt}
-              width={1200}
-              height={1600}
-              className="max-h-[85vh] w-auto object-contain"
+              src={service.image}
+              alt={service.title}
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              sizes="(max-width: 640px) 85vw, (max-width: 1024px) 50vw, 33vw"
             />
-
-            {/* Dots */}
-            <div className="flex justify-center gap-2 mt-4">
-              {MENU_IMAGES.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setMenuIndex(i)}
-                  className={`w-2.5 h-2.5 rounded-full transition-colors ${i === menuIndex ? 'bg-white' : 'bg-white/40'}`}
-                  aria-label={`View image ${i + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-
-          {menuIndex > 0 && (
-            <button
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300"
-              onClick={(e) => { e.stopPropagation(); setMenuIndex(menuIndex - 1) }}
-              aria-label="Previous"
-            >
-              <ChevronLeft className="h-10 w-10" />
-            </button>
-          )}
-          {menuIndex < MENU_IMAGES.length - 1 && (
-            <button
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300"
-              onClick={(e) => { e.stopPropagation(); setMenuIndex(menuIndex + 1) }}
-              aria-label="Next"
-            >
-              <ChevronRight className="h-10 w-10" />
-            </button>
-          )}
-        </div>
-      )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <h3 className="absolute bottom-6 left-8 text-xl font-bold text-white/60 sm:text-2xl lg:text-3xl tracking-wider">
+              {service.displayTitle.toUpperCase()}
+            </h3>
+          </Link>
+        ))}
+      </div>
     </div>
   )
 }

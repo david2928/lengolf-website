@@ -521,6 +521,7 @@ export default async function GolfPage({ params }: { params: Promise<{ locale: s
                 { label: 'LENGOLF Pricing Guide', href: '/cost/lengolf-pricing-guide' },
                 { label: 'Do I Need Experience?', href: '/faq/do-i-need-experience-to-play-golf-simulator' },
                 { label: 'How Long Does a Round Take?', href: '/faq/how-long-does-simulator-golf-take' },
+                { label: 'Food & Drinks Menu', href: '/menu/' },
                 { label: 'Things To Do in Bangkok', href: '/activities/' },
               ].map((link) => (
                 <Link
