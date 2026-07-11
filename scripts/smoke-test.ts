@@ -137,6 +137,10 @@ const routeTests: RouteTest[] = [
   { path: '/ko/guide/screen-golf-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/guide/golf-club-baggage-fees-airlines-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/guide/renting-golf-clubs-thai-golf-courses/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // Translated ZH guides (data/explainer-pages.ts locale:'zh' + zh allowlist entries)
+  { path: '/zh/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/guide/golf-club-baggage-fees-airlines-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/guide/renting-golf-clubs-thai-golf-courses/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // FAQ pages — spot-check original + newly added slugs
   { path: '/faq/can-i-rent-golf-clubs-in-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/faq/can-you-bring-golf-clubs-as-checked-baggage-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
@@ -343,6 +347,7 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
   { path: '/ja/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated JA privacy policy' },
   { path: '/ja/guide/what-is-a-golf-simulator/', expectedLocation: '/guide/what-is-a-golf-simulator/', label: 'Untranslated JA guide (only translated guide slugs may 200)' },
   { path: '/ko/guide/what-is-a-golf-simulator/', expectedLocation: '/guide/what-is-a-golf-simulator/', label: 'Untranslated KO guide (only translated guide slugs may 200)' },
+  { path: '/zh/guide/what-is-a-golf-simulator/', expectedLocation: '/guide/what-is-a-golf-simulator/', label: 'Untranslated ZH guide (only translated guide slugs may 200)' },
   { path: '/ko/hotels/', expectedLocation: '/hotels/', label: 'Untranslated KO hotels hub' },
   { path: '/ko/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated KO privacy policy' },
   { path: '/zh/blog/', expectedLocation: '/blog/', label: 'Untranslated ZH blog page' },

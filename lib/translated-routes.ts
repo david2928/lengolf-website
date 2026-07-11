@@ -54,6 +54,12 @@ const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynam
       '/golf-club-rental',
       '/golf-course-club-rental',
       '/menu',
+      // Translated guide pages (data/explainer-pages.ts entries with
+      // locale: 'zh') — must stay in sync with the data file; the
+      // smoke-test registry-consistency check (section I) enforces it.
+      '/guide/bring-golf-clubs-thailand-or-rent',
+      '/guide/golf-club-baggage-fees-airlines-bangkok',
+      '/guide/renting-golf-clubs-thai-golf-courses',
     ],
     dynamicRoutePatterns: [],
   },
