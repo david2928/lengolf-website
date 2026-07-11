@@ -50,7 +50,7 @@ export const BUSINESS_INFO = {
  * the sitemap reports a stable, honest lastModified instead of a churning build
  * timestamp. Data-backed pages (blog, SEO pages) use their own updated_at instead.
  */
-export const CONTENT_LAST_UPDATED = '2026-06-14'
+export const CONTENT_LAST_UPDATED = '2026-07-11'
 
 export const SOCIAL_LINKS = {
   facebook: 'https://www.facebook.com/lengolf.bkk',

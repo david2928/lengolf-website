@@ -15,6 +15,7 @@ const KEY_PAGES: { title: string; path: string; desc: string }[] = [
   { title: 'Bay Rates & Simulators', path: '/golf/', desc: 'Indoor golf simulator bay rates, monthly packages, and how booking works.' },
   { title: 'Golf Lessons', path: '/lessons/', desc: 'One-on-one coaching with PGA-certified pros on the simulators.' },
   { title: 'Private Events & Parties', path: '/events/', desc: 'Corporate team-building, birthdays, and private parties with bays, bar, and catering.' },
+  { title: 'Food & Drinks Menu', path: '/menu/', desc: 'Full menu with THB prices: Smith & Co burgers, Sexy Pizza, cocktails, beer, wine, and unlimited soft drinks.' },
   { title: 'Golf Club Rental', path: '/golf-club-rental/', desc: 'Free house sets plus premium Callaway / Majesty rentals at the venue.' },
   { title: 'Golf Course Club Rental', path: '/golf-course-club-rental/', desc: 'Rent premium clubs for any Bangkok golf course, with delivery.' },
   { title: 'About LENGOLF', path: '/about-us/', desc: 'About the venue, location, and contact details.' },
