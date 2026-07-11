@@ -1018,7 +1018,7 @@ export function getFoodMenuJsonLd(groups: MenuGroup[]) {
     '@type': 'Menu',
     name: 'LENGOLF Food & Drinks Menu',
     description:
-      'Food and drinks menu at LENGOLF Bangkok — burgers and sharing plates by Smith & Co, wood-fired pizzas by Sexy Pizza, cocktails, highballs, beer, wine, and soft drinks, all served to your simulator bay.',
+      'Food and drinks menu at LENGOLF Bangkok: burgers and sharing plates by Smith & Co, wood-fired pizzas by Sexy Pizza, cocktails, highballs, beer, wine, and soft drinks, all served to your simulator bay.',
     url: `${SITE_URL}/menu/`,
     inLanguage: 'en',
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/menu/` },

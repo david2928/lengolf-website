@@ -208,8 +208,8 @@ export const menuImages = [
     src: storageUrl('menus/food-menu-1.jpg'),
     title: 'Food Menu',
     alt: 'LENGOLF food menu by Smith & Co: burgers 320-330 THB, butter rolls 290-360 THB, appetizers 200-290 THB, toast 270-290 THB, sliders 330-420 THB, salads 270-340 THB',
-    width: 2481,
-    height: 1749,
+    width: 1920,
+    height: 1354,
     previewPosition: 'left top',
   },
   {
