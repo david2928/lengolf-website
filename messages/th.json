@@ -1098,5 +1098,28 @@
   },
   "FloorPlan": {
     "floorPlan": "ผังพื้นที่"
+  },
+  "ExplainerPage": {
+    "guideLabel": "คู่มือ LENGOLF",
+    "bookABay": "จองเบย์",
+    "lineUs": "แชท LINE",
+    "feature": "หัวข้อ",
+    "keyTakeaways": "สรุปประเด็นสำคัญ",
+    "ctaTitle": "มาลองด้วยตัวเอง",
+    "ctaText": "สัมผัสอินดอร์กอล์ฟที่ LENGOLF เดอะ เมอร์คิวรี่ วิลล์ @ BTS ชิดลม ชั้น 4 เปิดทุกวัน 9:00–23:00 น. ไม่ต้องมีประสบการณ์มาก่อน",
+    "bookNow": "จองเลย",
+    "call": "โทร {phone}",
+    "exploreMore": "อ่านเพิ่มเติม",
+    "tableHeading": "ซิมมูเลเตอร์ vs สนามจริง",
+    "colSimulator": "กอล์ฟซิมมูเลเตอร์",
+    "colRealGolf": "กอล์ฟสนามจริง",
+    "pathLabels": {
+      "golf": "กอล์ฟซิมมูเลเตอร์ในร่ม",
+      "lessons": "เรียนกอล์ฟ",
+      "events": "อีเวนต์และปาร์ตี้",
+      "golf-club-rental": "ใช้ไม้กอล์ฟฟรีในร้าน",
+      "golf-course-club-rental": "เช่าไม้กอล์ฟไปสนาม",
+      "golf-in-thailand-guide": "คู่มือกอล์ฟเมืองไทย"
+    }
   }
 }

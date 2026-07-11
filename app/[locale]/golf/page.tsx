@@ -14,6 +14,7 @@ import { getGolfPricingJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/l
 import FaqSection from '@/components/shared/FaqSection'
 import ClickableImage from '@/components/shared/ClickableImage'
 import PricingTable from '@/components/shared/PricingTable'
+import CourseRentalCrossLink from '@/components/location/CourseRentalCrossLink'
 
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
   'booking.len.golf': { href: 'https://booking.len.golf/', external: true },
@@ -480,6 +481,12 @@ export default async function GolfPage({ params }: { params: Promise<{ locale: s
 
       {/* ── FAQ ── */}
       <FaqSection items={faqItems} links={faqLinks} title={t('faqTitle')} titleSuffix={t('faqTitleSuffix')} />
+
+      {/* ── Course rental crosslink ──
+          Routes traveler intent (esp. JA/KO/ZH searchers landing here on
+          simulator/driving-range queries) into the paid course rental
+          funnel. Same component the location templates render (PR #41). */}
+      <CourseRentalCrossLink />
 
       {/* ── Indoor Golf Near You ── */}
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#F6FFFA' }}>

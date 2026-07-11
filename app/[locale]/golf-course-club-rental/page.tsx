@@ -54,6 +54,16 @@ const FAQ_COUNT = 16
 // Re-check all 5 locales if course_price_3d or the delivery fee changes.
 const WHY_RENT_ROWS = ['trip', 'discount', 'set', 'quality', 'pick', 'delivery'] as const
 
+// Standard rental sets. `key` selects the club{n}* i18n strings in
+// messages/*.json; flags attach card extras by club identity instead of loop
+// position. If the sets are reordered or replaced, update this descriptor —
+// club1* = Callaway Warbird (has gallery images), club2* = Majesty Shuttle
+// (gets the Japanese-brand callout).
+const STANDARD_SETS = [
+  { key: 1, hasGallery: true, isMajesty: false },
+  { key: 2, hasGallery: false, isMajesty: true },
+] as const
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'CourseClubRental' })
@@ -156,6 +166,12 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
             label={t('stickyBookCta')}
             className="inline-flex h-16 items-center gap-2.5 rounded-lg bg-white px-12 text-lg font-extrabold uppercase tracking-wide text-[#005a32] shadow-lg transition-all hover:scale-105 hover:shadow-xl md:text-xl"
           />
+          {/* Risk-reversal at the point of action — key trust signal for
+              travelers booking before their trip. NOTE: the same policy is
+              also worded as Home{Ja,Ko,Zh}.heroCancellation on the bespoke
+              landing pages — update both key families if the cancellation
+              window ever changes. */}
+          <p className="mt-4 text-sm font-medium text-white/85">{t('heroCancellationNote')}</p>
         </div>
       </section>
 
@@ -232,11 +248,11 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
 
           {/* ── Standard Sets ── */}
           <div className="mx-auto grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2 mb-8">
-            {([1, 2] as const).map((i) => (
+            {STANDARD_SETS.map(({ key: i, hasGallery, isMajesty }) => (
               <div key={i} className="rounded-xl border border-primary/20 bg-white p-6">
                 <h3 className="mb-1 text-xl font-bold" style={{ color: '#007429' }}>{t(`club${i}Name`)}</h3>
                 <p className="mb-3 text-sm font-semibold text-muted-foreground">{t(`club${i}Gender`)}</p>
-                {i === 1 && (
+                {hasGallery && (
                   <div className="mb-4 -mx-1">
                     <ImageLightbox
                       images={[
@@ -260,6 +276,14 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
                     </li>
                   ))}
                 </ul>
+                {/* Majesty brand callout — differentiator for Japanese/Korean/
+                    Chinese golf travelers who know the brand. */}
+                {isMajesty && (
+                  <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3">
+                    <p className="mb-1 text-xs font-bold uppercase tracking-wider text-amber-800">{t('majestyCalloutTitle')}</p>
+                    <p className="text-xs leading-relaxed text-amber-700">{t('majestyCalloutText')}</p>
+                  </div>
+                )}
               </div>
             ))}
           </div>

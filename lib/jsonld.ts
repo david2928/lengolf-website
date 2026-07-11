@@ -768,13 +768,18 @@ export function getExplainerPageJsonLd(page: {
     sections: { heading: string; body: string }[]
     key_takeaways: string[]
   }
-}) {
+}, locale: string = 'en') {
+  // url/inLanguage must match the page's canonical — a /ja/ guide declaring
+  // the EN URL sends Google contradictory language/URL signals.
+  const pageUrl = locale === 'en'
+    ? `${SITE_URL}/guide/${page.slug}/`
+    : `${SITE_URL}/${locale}/guide/${page.slug}/`
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: page.title,
     description: page.meta_description || page.content.intro,
-    url: `${SITE_URL}/guide/${page.slug}/`,
+    url: pageUrl,
     datePublished: page.created_at,
     dateModified: page.updated_at,
     author: {
@@ -793,10 +798,10 @@ export function getExplainerPageJsonLd(page: {
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${SITE_URL}/guide/${page.slug}/`,
+      '@id': pageUrl,
     },
     articleSection: 'Golf Simulator Guide',
-    inLanguage: 'en',
+    inLanguage: locale,
   }
 }
 

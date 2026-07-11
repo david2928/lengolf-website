@@ -122,12 +122,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }))
 
-  const explainerPageEntries: MetadataRoute.Sitemap = explainerSlugs.map((slug) => ({
-    url: `${SITE_URL}/guide/${slug}/`,
-    lastModified: reviewed,
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }))
+  const explainerPageEntries: MetadataRoute.Sitemap = explainerSlugs.map((slug) => {
+    // Emit hreflang alternates only for guides with translations
+    // (registered in lib/translated-routes.ts) — EN-only guides stay plain.
+    const languages = getAlternates(`/guide/${slug}/`)
+    return {
+      url: `${SITE_URL}/guide/${slug}/`,
+      lastModified: reviewed,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+      ...(Object.keys(languages).length > 1 ? { alternates: { languages } } : {}),
+    }
+  })
 
   const bestOfPageEntries: MetadataRoute.Sitemap = bestOfSlugs.map((slug) => ({
     url: `${SITE_URL}/best/${slug}/`,

@@ -1,14 +1,22 @@
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import { ArrowRight, Check, BookOpen } from 'lucide-react'
 import { BOOKING_URL, BUSINESS_INFO, SOCIAL_LINKS } from '@/lib/constants'
 import type { ExplainerSeoPage } from '@/types/seo-pages'
 
 interface Props {
   data: ExplainerSeoPage
+  /**
+   * Localized labels for related-page links, keyed by path (resolved by the
+   * page from the target pages' titles / the pathLabels namespace). Paths
+   * without an entry fall back to a slug-derived English label.
+   */
+  relatedLabels?: Record<string, string>
 }
 
-export default function ExplainerPageComponent({ data }: Props) {
+export default function ExplainerPageComponent({ data, relatedLabels }: Props) {
   const { content } = data
+  const t = useTranslations('ExplainerPage')
 
   return (
     <div className="explainer-page">
@@ -17,7 +25,7 @@ export default function ExplainerPageComponent({ data }: Props) {
         <div className="mx-auto max-w-[900px] px-5">
           <div className="flex items-center gap-2 text-white/70 text-sm mb-4">
             <BookOpen className="h-4 w-4" />
-            <span>LENGOLF Guide</span>
+            <span>{t('guideLabel')}</span>
           </div>
           <h1 className="text-3xl font-bold md:text-5xl mb-6">{data.title}</h1>
           <div className="flex flex-wrap gap-3">
@@ -27,7 +35,7 @@ export default function ExplainerPageComponent({ data }: Props) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg bg-[#d4a843] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#c49a3a]"
             >
-              Book a Bay
+              {t('bookABay')}
             </a>
             <a
               href={SOCIAL_LINKS.line}
@@ -35,7 +43,7 @@ export default function ExplainerPageComponent({ data }: Props) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg border-2 border-white/30 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
             >
-              LINE Us
+              {t('lineUs')}
             </a>
           </div>
         </div>
@@ -85,15 +93,15 @@ export default function ExplainerPageComponent({ data }: Props) {
         <section className="py-12 md:py-16 bg-[#f8f9fa]">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-6">
-              {content.table_heading ?? 'Simulator vs Real Golf'}
+              {content.table_heading ?? t('tableHeading')}
             </h2>
             <div className="overflow-x-auto">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="border-b-2 border-[#2d6a4f]">
-                    <th className="py-3 pr-4 text-left font-semibold text-[#1a472a]">Feature</th>
-                    <th className="py-3 px-4 text-left font-semibold text-[#2d6a4f]">{content.col_a_label ?? 'Golf Simulator'}</th>
-                    <th className="py-3 pl-4 text-left font-semibold text-muted-foreground">{content.col_b_label ?? 'Real Golf'}</th>
+                    <th className="py-3 pr-4 text-left font-semibold text-[#1a472a]">{t('feature')}</th>
+                    <th className="py-3 px-4 text-left font-semibold text-[#2d6a4f]">{content.col_a_label ?? t('colSimulator')}</th>
+                    <th className="py-3 pl-4 text-left font-semibold text-muted-foreground">{content.col_b_label ?? t('colRealGolf')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -116,7 +124,7 @@ export default function ExplainerPageComponent({ data }: Props) {
         <section className="py-12 md:py-16">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-6">
-              Key Takeaways
+              {t('keyTakeaways')}
             </h2>
             <ul className="space-y-3">
               {content.key_takeaways.map((takeaway) => (
@@ -135,9 +143,9 @@ export default function ExplainerPageComponent({ data }: Props) {
       {/* CTA Section */}
       <section className="py-12 md:py-16 bg-gradient-to-br from-[#1a472a] to-[#2d6a4f] text-white text-center">
         <div className="mx-auto max-w-[900px] px-5">
-          <h2 className="text-2xl font-bold md:text-3xl mb-4">Try It Yourself</h2>
+          <h2 className="text-2xl font-bold md:text-3xl mb-4">{t('ctaTitle')}</h2>
           <p className="text-white/80 mb-8 max-w-lg mx-auto">
-            Experience indoor golf at LENGOLF, {BUSINESS_INFO.addressShort}. Open {BUSINESS_INFO.hours}. No experience needed.
+            {t('ctaText')}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a
@@ -146,13 +154,13 @@ export default function ExplainerPageComponent({ data }: Props) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg bg-[#d4a843] px-8 py-3 font-semibold text-white transition-colors hover:bg-[#c49a3a]"
             >
-              Book Now
+              {t('bookNow')}
             </a>
             <a
               href={`tel:${BUSINESS_INFO.phoneRaw}`}
               className="inline-flex items-center gap-2 rounded-lg border-2 border-white/30 px-8 py-3 font-semibold text-white transition-colors hover:bg-white/10"
             >
-              Call {BUSINESS_INFO.phone}
+              {t('call', { phone: BUSINESS_INFO.phone })}
             </a>
             <a
               href={SOCIAL_LINKS.line}
@@ -160,7 +168,7 @@ export default function ExplainerPageComponent({ data }: Props) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg border-2 border-white/30 px-8 py-3 font-semibold text-white transition-colors hover:bg-white/10"
             >
-              LINE Us
+              {t('lineUs')}
             </a>
           </div>
         </div>
@@ -170,10 +178,12 @@ export default function ExplainerPageComponent({ data }: Props) {
       {data.related_slugs && data.related_slugs.length > 0 && (
         <section className="py-12 md:py-16">
           <div className="mx-auto max-w-[900px] px-5">
-            <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-6">Explore More</h2>
+            <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-6">{t('exploreMore')}</h2>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
               {data.related_slugs.map((path) => {
-                const label = path
+                // Prefer the localized label resolved by the page; fall back
+                // to a slug-derived label for paths outside the known types.
+                const label = relatedLabels?.[path] ?? path
                   .split('/')
                   .filter(Boolean)
                   .pop()!

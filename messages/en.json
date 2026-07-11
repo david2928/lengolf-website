@@ -1098,5 +1098,28 @@
   },
   "FloorPlan": {
     "floorPlan": "FLOOR PLAN"
+  },
+  "ExplainerPage": {
+    "guideLabel": "LENGOLF Guide",
+    "bookABay": "Book a Bay",
+    "lineUs": "LINE Us",
+    "feature": "Feature",
+    "keyTakeaways": "Key Takeaways",
+    "ctaTitle": "Try It Yourself",
+    "ctaText": "Experience indoor golf at LENGOLF, The Mercury Ville @ BTS Chidlom, Floor 4, Bangkok. Open 9am – 11pm, Monday – Sunday. No experience needed.",
+    "bookNow": "Book Now",
+    "call": "Call {phone}",
+    "exploreMore": "Explore More",
+    "tableHeading": "Simulator vs Real Golf",
+    "colSimulator": "Golf Simulator",
+    "colRealGolf": "Real Golf",
+    "pathLabels": {
+      "golf": "Indoor Golf Simulator",
+      "lessons": "Golf Lessons",
+      "events": "Events & Parties",
+      "golf-club-rental": "Free Club Use at LENGOLF",
+      "golf-course-club-rental": "Golf Course Club Rental",
+      "golf-in-thailand-guide": "Golf in Thailand Guide"
+    }
   }
 }

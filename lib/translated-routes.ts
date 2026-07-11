@@ -60,6 +60,12 @@ const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynam
       '/golf-club-rental',
       '/golf-course-club-rental',
       '/menu',
+      // Translated guide pages (data/explainer-pages.ts entries with
+      // locale: 'ja'). List each translated slug explicitly — a broad
+      // /guide/[slug] pattern would let untranslated guides 200 in JA.
+      '/guide/bring-golf-clubs-thailand-or-rent',
+      '/guide/golf-club-baggage-fees-airlines-bangkok',
+      '/guide/renting-golf-clubs-thai-golf-courses',
     ],
     dynamicRoutePatterns: [],
   },
@@ -114,6 +120,19 @@ export function hasTranslationForLocale(locale: string, pathname: string): boole
  */
 export function hasThaiTranslation(pathname: string): boolean {
   return hasTranslationForLocale('th', pathname)
+}
+
+/**
+ * Guide paths registered as translated for `locale` (the '/guide/...' entries
+ * in staticRoutes). This registry cannot import data/explainer-pages.ts (it is
+ * bundled into the edge middleware), so the smoke tests assert this list stays
+ * in sync with the locale-tagged entries in the data file — see
+ * scripts/smoke-test.ts registry-consistency check.
+ */
+export function getRegisteredGuidePaths(locale: string): string[] {
+  return (TRANSLATED_ROUTES[locale]?.staticRoutes ?? []).filter((r) =>
+    r.startsWith('/guide/')
+  )
 }
 
 /**

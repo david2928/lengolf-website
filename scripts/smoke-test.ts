@@ -17,6 +17,10 @@
  *   G) WordPress admin paths return 404 (not redirect)
  *   H) LLM / AI discoverability (llms.txt is served as text, robots.txt names AI
  *      crawlers, and the LocalBusiness opening-hours schema is consistent)
+ *   I) Translated-guide registry consistency: the '/guide/...' allowlist in
+ *      lib/translated-routes.ts must exactly match the locale-tagged entries in
+ *      data/explainer-pages.ts (drift ships unreachable translations or
+ *      hreflang links to 404s) — pure import check, no server needed
  *
  * Usage: tsx scripts/smoke-test.ts [base-url]
  * Default: http://localhost:3000
@@ -122,6 +126,10 @@ const routeTests: RouteTest[] = [
   { path: '/guide/golf-club-baggage-fees-airlines-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/guide/best-golf-simulators-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // Translated JA guides (data/explainer-pages.ts locale:'ja' + ja allowlist entries)
+  { path: '/ja/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/guide/golf-club-baggage-fees-airlines-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/guide/renting-golf-clubs-thai-golf-courses/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // FAQ pages — spot-check original + newly added slugs
   { path: '/faq/can-i-rent-golf-clubs-in-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/faq/can-you-bring-golf-clubs-as-checked-baggage-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
@@ -326,6 +334,7 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
   // important for ko/zh where the message files have populated (but English-stub)
   // namespaces that would render as mislabelled content without the allowlist.
   { path: '/ja/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated JA privacy policy' },
+  { path: '/ja/guide/what-is-a-golf-simulator/', expectedLocation: '/guide/what-is-a-golf-simulator/', label: 'Untranslated JA guide (only translated guide slugs may 200)' },
   { path: '/ko/hotels/', expectedLocation: '/hotels/', label: 'Untranslated KO hotels hub' },
   { path: '/ko/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated KO privacy policy' },
   { path: '/zh/blog/', expectedLocation: '/blog/', label: 'Untranslated ZH blog page' },
@@ -674,6 +683,50 @@ async function runLlmDiscoverabilityTests() {
   }
 }
 
+// ── I) Translated-guide registry consistency ────────────────────────
+// The middleware allowlist (lib/translated-routes.ts) cannot import the
+// content data (it's bundled into the edge middleware), so nothing at build
+// time ties the two lists together. This check makes drift fail CI in both
+// directions: a locale-tagged guide missing from the registry would be built
+// but 301'd away (translation silently unreachable); a registry entry
+// without data would 200 through the middleware into a notFound() while
+// hreflang/sitemap advertise the 404ing URL.
+
+async function runRegistryConsistencyTests() {
+  console.log('\n\x1b[1mI) Translated-guide registry consistency\x1b[0m')
+  const { explainerPages } = await import('../data/explainer-pages')
+  const { getRegisteredGuidePaths, ALL_LOCALES } = await import('../lib/translated-routes')
+
+  for (const locale of ALL_LOCALES) {
+    if (locale === 'en') continue
+    const fromData = new Set(
+      explainerPages
+        .filter((p) => p.locale === locale && p.status === 'published')
+        .map((p) => `/guide/${p.slug}`)
+    )
+    const fromRegistry = new Set(getRegisteredGuidePaths(locale))
+    const missingInRegistry = [...fromData].filter((p) => !fromRegistry.has(p))
+    const missingInData = [...fromRegistry].filter((p) => !fromData.has(p))
+
+    if (missingInRegistry.length === 0 && missingInData.length === 0) {
+      pass(`Registry ⇄ data in sync for '${locale}' (${fromData.size} translated guides)`)
+    } else {
+      if (missingInRegistry.length > 0) {
+        fail(
+          `Registry missing '${locale}' guide(s)`,
+          `${missingInRegistry.join(', ')} — add to ${locale}.staticRoutes in lib/translated-routes.ts or the translation is unreachable (middleware 301s it)`
+        )
+      }
+      if (missingInData.length > 0) {
+        fail(
+          `Registry lists '${locale}' guide(s) with no data`,
+          `${missingInData.join(', ')} — remove from lib/translated-routes.ts or add a locale:'${locale}' entry in data/explainer-pages.ts (currently 404s while advertised in hreflang)`
+        )
+      }
+    }
+  }
+}
+
 // ── Main ────────────────────────────────────────────────────────────
 
 async function main() {
@@ -696,6 +749,7 @@ async function main() {
   await runThaiCookieTests()
   await runNotFoundTests()
   await runLlmDiscoverabilityTests()
+  await runRegistryConsistencyTests()
 
   console.log(`\n\x1b[1m${passed} passed, ${failed} failed\x1b[0m`)
   if (failures.length > 0) {

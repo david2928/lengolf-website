@@ -58,13 +58,13 @@
   },
   "CourseClubRental": {
     "metaTitle": "방콕 골프 클럽 렌탈 | 하루 1,200바트부터, 호텔 배송",
-    "metaDescription": "Callaway 프리미엄 클럽을 방콕 어느 골프장으로든. 하루 1,200바트부터, 호텔·골프장 배송 500바트, 다일 패키지 최대 50% 할인, 보증금 없음. 온라인 예약 즉시 확정.",
+    "metaDescription": "Callaway와 Majesty(마제스티) 프리미엄 클럽을 방콕 어느 골프장으로든. 하루 1,200바트부터, 호텔·골프장 배송 500바트, 다일 패키지 최대 50% 할인, 보증금 없음. 온라인 예약 즉시 확정.",
     "heroBadge": "외부 코스 클럽 렌탈",
     "heroTitle": "방콕 어느 골프장에서든 프리미엄 클럽 대여",
     "heroSubtitle": "Callaway Paradym, Warbird & Majesty Shuttle — 골프장까지 배송",
     "heroResponseBadge": "즉시 예약 확정",
     "heroCancellationNote": "라운드 24시간 전까지 무료 취소 가능",
-    "introText": "방콕 골프장에 가실 예정인데 클럽이 없으신가요? LENGOLF의 프리미엄 Callaway Paradym Forged Carbon, Callaway Warbird, 또는 Majesty Shuttle 세트를 대여하세요. 온라인으로 예약하고 결제하면 즉시 확정되며, 배송 또는 픽업을 준비해 드립니다.",
+    "introText": "방콕 골프장에서 라운딩할 예정인데 클럽은 집에 두고 오셨나요? LENGOLF에서 Callaway Paradym Forged Carbon, Callaway Warbird, 일본 프리미엄 브랜드 Majesty Shuttle 세트를 하루 1,200바트부터 대여하세요. 보증금 없이 온라인 예약·결제로 즉시 확정됩니다. 호텔이나 골프장으로 배송(왕복 500바트)받거나 BTS 칫롬역 직결 매장에서 픽업하실 수 있으며, 한국어 상담도 가능합니다.",
     "stat1Value": "1,200",
     "stat1Label": "바트 / 일",
     "stat2Value": "다회 패키지",
@@ -1185,5 +1185,28 @@
     "ctaSubtitle": "예약·문의 모두 LINE 메시지로 편하게 보내주세요.",
     "ctaBook": "지금 예약",
     "ctaLine": "LINE으로 문의"
+  },
+  "ExplainerPage": {
+    "guideLabel": "LENGOLF 가이드",
+    "bookABay": "베이 예약",
+    "lineUs": "LINE 문의",
+    "feature": "항목",
+    "keyTakeaways": "핵심 요약",
+    "ctaTitle": "직접 체험해 보세요",
+    "ctaText": "LENGOLF(The Mercury Ville, BTS 칫롬역 직결 4층)에서 인도어 골프를 경험해 보세요. 매일 오전 9시~오후 11시 영업. 경험이 없어도 괜찮습니다.",
+    "bookNow": "지금 예약",
+    "call": "전화 {phone}",
+    "exploreMore": "더 알아보기",
+    "tableHeading": "시뮬레이터 vs 실제 골프",
+    "colSimulator": "골프 시뮬레이터",
+    "colRealGolf": "실제 골프",
+    "pathLabels": {
+      "golf": "실내 골프 시뮬레이터",
+      "lessons": "골프 레슨",
+      "events": "이벤트·파티",
+      "golf-club-rental": "매장 내 무료 클럽",
+      "golf-course-club-rental": "골프장 클럽 렌탈",
+      "golf-in-thailand-guide": "태국 골프 가이드"
+    }
   }
 }

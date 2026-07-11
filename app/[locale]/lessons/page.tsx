@@ -12,6 +12,7 @@ import { getLessonsPricingJsonLd, getLessonsServiceJsonLd, getFaqPageJsonLd, get
 import FaqSection from '@/components/shared/FaqSection'
 import ClickableImage from '@/components/shared/ClickableImage'
 import PricingTable from '@/components/shared/PricingTable'
+import CourseRentalCrossLink from '@/components/location/CourseRentalCrossLink'
 
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
   'booking.len.golf': { href: 'https://booking.len.golf/', external: true },
@@ -384,6 +385,12 @@ export default async function LessonsPage({ params }: { params: Promise<{ locale
 
       {/* ── FAQ ── */}
       <FaqSection items={faqItems} links={faqLinks} title={t('faqTitle')} titleSuffix={t('faqTitleSuffix')} bgColor="#F6FFFA" />
+
+      {/* ── Course rental crosslink ──
+          Routes traveler intent (esp. JA/KO/ZH searchers landing here on
+          lesson queries) into the paid course rental funnel. Same component
+          the location templates render (PR #41). */}
+      <CourseRentalCrossLink />
 
       {/* ── Our Students ── */}
       <SectionWrapper>

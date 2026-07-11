@@ -18,28 +18,50 @@ const PAGE_DATA_MAP: Partial<Record<SeoPageType, SeoPage[]>> = {
   best_of_listicle: bestOfListiclePages,
 }
 
-export async function getAllSeoPageSlugs(pageType: SeoPageType): Promise<string[]> {
+export async function getAllSeoPageSlugs(
+  pageType: SeoPageType,
+  locale: string = 'en'
+): Promise<string[]> {
   const pages = PAGE_DATA_MAP[pageType]
   if (!pages) return []
   return pages
-    .filter((p) => p.status === 'published')
+    .filter((p) => p.status === 'published' && p.locale === locale)
     .map((p) => p.slug)
 }
 
 export async function getSeoPageBySlug(
   slug: string,
-  pageType: SeoPageType
+  pageType: SeoPageType,
+  locale: string = 'en'
 ): Promise<SeoPage | null> {
   const pages = PAGE_DATA_MAP[pageType]
   if (!pages) return null
   const page = pages.find(
-    (p) => p.slug === slug && p.status === 'published'
+    (p) => p.slug === slug && p.status === 'published' && p.locale === locale
   )
   return page || null
 }
 
-export async function getSeoPagesByType(pageType: SeoPageType): Promise<SeoPage[]> {
+export async function getSeoPagesByType(
+  pageType: SeoPageType,
+  locale: string = 'en'
+): Promise<SeoPage[]> {
   const pages = PAGE_DATA_MAP[pageType]
   if (!pages) return []
-  return pages.filter((p) => p.status === 'published')
+  return pages.filter((p) => p.status === 'published' && p.locale === locale)
+}
+
+/**
+ * All (locale, slug) pairs that have published content for this page type.
+ * Use in generateStaticParams so only translated locale×slug combos are built —
+ * untranslated locale URLs are 301-redirected by the middleware instead.
+ */
+export async function getAllSeoPageParams(
+  pageType: SeoPageType
+): Promise<{ locale: string; slug: string }[]> {
+  const pages = PAGE_DATA_MAP[pageType]
+  if (!pages) return []
+  return pages
+    .filter((p) => p.status === 'published')
+    .map((p) => ({ locale: p.locale, slug: p.slug }))
 }
