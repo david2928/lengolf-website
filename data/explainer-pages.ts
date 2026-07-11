@@ -1859,7 +1859,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     updated_at: now,
     content: {
       intro:
-        "Screen golf — 스크린골프 — is what Koreans call indoor simulator golf, and in Korea it's a national pastime with more than 8,000 venues. If you're visiting Bangkok and missing your weekly screen golf session, or you discovered the format on a trip to Seoul, you can play it here: LENGOLF at BTS Chidlom runs Korean Bravo Golf simulators in a lounge-and-bar setting, from 550 THB per hour for up to 5 players.",
+        "Screen golf — 스크린골프 — is what Koreans call indoor simulator golf, and in Korea it's a national pastime with thousands of dedicated venues. If you're visiting Bangkok and missing your weekly screen golf session, or you discovered the format on a trip to Seoul, you can play it here: LENGOLF at BTS Chidlom runs Korean Bravo Golf simulators in a lounge-and-bar setting, from 550 THB per hour for up to 5 players.",
       sections: [
         {
           heading: 'What Is Screen Golf?',
