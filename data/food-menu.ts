@@ -230,46 +230,5 @@ export const menuImages = [
   },
 ]
 
-// ── FAQ ──
-export const foodMenuFaqItems = [
-  {
-    question: 'Does LENGOLF serve food and drinks?',
-    answer:
-      'Yes. LENGOLF has a full bar plus two kitchen partners: Smith & Co for burgers, sliders, and sharing plates, and Sexy Pizza for wood-fired Neapolitan pizzas. Everything is served straight to your simulator bay.',
-  },
-  {
-    question: 'How much does food cost at LENGOLF?',
-    answer:
-      'Burgers are 320 to 330 THB, sliders 330 to 420 THB, and appetizers start at 200 THB. Pizzas range from 380 THB (Margherita) to 690 THB (Morel Parma Monalisa). Snacks like popcorn and spiced nuts start at 120 THB.',
-  },
-  {
-    question: 'What drinks are available at LENGOLF?',
-    answer:
-      'Signature cocktails from 250 THB, Japanese highballs from 270 THB, bottled beer from 160 THB (Singha), house wine at 290 THB per glass, and wine bottles from 950 THB. Soft drinks start at 30 THB.',
-  },
-  {
-    question: 'Do you offer unlimited soft drinks?',
-    answer:
-      'Yes. Unlimited soft drinks are 100 THB per hour per person, so you can refill as much as you like while you play.',
-  },
-  {
-    question: 'Can I eat and drink in the simulator bay?',
-    answer:
-      'Yes. Food and drinks are served directly at your bay, so you can keep playing while you eat. Book a bay at booking.len.golf or message us on LINE at @lengolf.',
-  },
-  {
-    question: 'Can I bring outside food or drinks to LENGOLF?',
-    answer:
-      'No. Outside food and drinks are not permitted at LENGOLF. With Smith & Co burgers, Sexy Pizza, and a full bar on site, there is plenty to order straight to your bay.',
-  },
-  {
-    question: 'Can LENGOLF cater for parties and corporate events?',
-    answer:
-      'Yes. Event packages include beers, cocktails, unlimited soft drinks, and catered food spreads from Smith & Co and Sexy Pizza. See the events page for package details and pricing.',
-  },
-  {
-    question: 'Do monthly members get a discount on food and drinks?',
-    answer:
-      'Yes. Monthly simulator packages include 5% to 10% off food and drinks depending on the tier. See the bay rates page for package details.',
-  },
-]
+// FAQ content lives in the MenuFaq namespace in messages/{locale}.json
+// (canonical English in messages/en.json) so it translates per locale.

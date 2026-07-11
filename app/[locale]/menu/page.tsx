@@ -1,27 +1,29 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
 import FaqSection from '@/components/shared/FaqSection'
 import MenuImageCard from '@/components/shared/MenuImageCard'
 import { storageUrl, SITE_URL, BUSINESS_INFO } from '@/lib/constants'
+import { getAlternates, getCanonical, OG_LOCALES, type Locale } from '@/lib/translated-routes'
 import { getFoodMenuJsonLd, getFaqPageJsonLd, getBreadcrumbJsonLd } from '@/lib/jsonld'
-import { menuGroups, menuImages, foodMenuFaqItems, type MenuSection } from '@/data/food-menu'
+import { menuGroups, menuImages, type MenuSection } from '@/data/food-menu'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  const prefix = locale === 'en' ? '' : `/${locale}`
+  const t = await getTranslations({ locale, namespace: 'Menu' })
   return {
-    title: 'Food & Drinks Menu with Prices',
-    description:
-      'LENGOLF food and drinks menu with prices: Smith & Co burgers from 320 THB, Sexy Pizza from 380 THB, cocktails from 250 THB, beer, wine, and unlimited soft drinks.',
+    title: t('metaTitle'),
+    description: t('metaDescription'),
     alternates: {
-      canonical: `${SITE_URL}${prefix}/menu/`,
+      canonical: getCanonical(locale, '/menu/'),
+      languages: getAlternates('/menu/'),
     },
     openGraph: {
       images: [{ url: storageUrl('menus/food-drinks-cover.jpg'), alt: 'Food and drinks at LENGOLF Bangkok' }],
+      locale: OG_LOCALES[locale as Locale] ?? OG_LOCALES.en,
     },
   }
 }
@@ -32,6 +34,35 @@ const faqLinks = {
   'events page': { href: '/events' },
   'bay rates page': { href: '/golf' },
 }
+
+// ── Row-level i18n key maps (English data in data/food-menu.ts → translated display) ──
+const groupChipKeys: Record<string, string> = { food: 'chipFood', pizza: 'chipPizza', drinks: 'chipDrinks' }
+const groupSubtitleKeys: Record<string, string> = {
+  food: 'groupFoodSubtitle',
+  pizza: 'groupPizzaSubtitle',
+  drinks: 'groupDrinksSubtitle',
+}
+const sectionTitleKeys: Record<string, string> = {
+  burgers: 'sectionBurgers',
+  'butter-rolls': 'sectionButterRolls',
+  appetizers: 'sectionAppetizers',
+  toast: 'sectionToast',
+  sliders: 'sectionSliders',
+  salad: 'sectionSalad',
+  pizzas: 'sectionPizzas',
+  cocktails: 'sectionCocktails',
+  highballs: 'sectionHighballs',
+  beer: 'sectionBeer',
+  wine: 'sectionWine',
+  'non-alcoholic': 'sectionNonAlcoholic',
+  snacks: 'sectionSnacks',
+}
+const sectionNoteKeys: Record<string, string> = {
+  burgers: 'noteBurgers',
+  sliders: 'noteSliders',
+  'non-alcoholic': 'noteNonAlcoholic',
+}
+const printedMenuTitleKeys = ['printedFoodTitle', 'printedPizzaTitle', 'printedDrinksTitle']
 
 function MenuSectionCard({ section }: { section: MenuSection }) {
   return (
@@ -63,40 +94,78 @@ export default async function MenuPage({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   setRequestLocale(locale)
 
+  const t = await getTranslations('Menu')
+  const tFaq = await getTranslations('MenuFaq')
+
+  // Build FAQ items from translations
+  const faqItems = Array.from({ length: 8 }, (_, i) => ({
+    question: tFaq(`q${i + 1}`),
+    answer: tFaq(`a${i + 1}`),
+  }))
+
+  // Dish names, descriptions, and prices stay in English (they match the
+  // printed menus at the bay); unit suffixes and the currency word localize.
+  const translatePriceLabel = (label: string): string =>
+    label
+      .replace(' / bottle', t('unitPerBottle'))
+      .replace(' / hour per person', t('unitPerHourPerPerson'))
+      .replace(' THB', t('thbSuffix'))
+
+  const translatedGroups = menuGroups.map((group) => ({
+    ...group,
+    title: t(groupChipKeys[group.id]),
+    subtitle: t(groupSubtitleKeys[group.id]),
+    sections: group.sections.map((section) => ({
+      ...section,
+      title: t(sectionTitleKeys[section.id]),
+      ...(sectionNoteKeys[section.id] ? { note: t(sectionNoteKeys[section.id]) } : {}),
+      items: section.items.map((menuItem) => ({ ...menuItem, priceLabel: translatePriceLabel(menuItem.priceLabel) })),
+    })),
+  }))
+
+  // JSON-LD: menu offers stay sourced from the canonical English data; the
+  // FAQ schema matches the on-page (translated) FAQ content.
   const menuJsonLd = getFoodMenuJsonLd(menuGroups)
-  const faqJsonLd = getFaqPageJsonLd(foodMenuFaqItems)
+  const faqJsonLd = getFaqPageJsonLd(faqItems)
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
     { name: 'Food & Drinks Menu', url: `${SITE_URL}/menu/` },
   ])
 
   const stats = [
-    { stat: 'From 320 THB', label: 'Burgers by Smith & Co' },
-    { stat: 'From 380 THB', label: 'Pizzas by Sexy Pizza' },
-    { stat: 'From 250 THB', label: 'Signature cocktails' },
-    { stat: '100 THB / hr', label: 'Unlimited soft drinks' },
+    { stat: t('stat1Value'), label: t('stat1Label') },
+    { stat: t('stat2Value'), label: t('stat2Label') },
+    { stat: t('stat3Value'), label: t('stat3Label') },
+    { stat: t('stat4Value'), label: t('stat4Label') },
   ]
 
   const groupMeta: Record<string, { titlePrimary: string; titleSuffix: string; logo: string; logoAlt: string }> = {
     food: {
-      titlePrimary: 'FOOD',
-      titleSuffix: 'BY SMITH & CO',
+      titlePrimary: t('groupFoodTitle'),
+      titleSuffix: t('groupFoodTitleSuffix'),
       logo: storageUrl('branding/partner-smith-co.png'),
       logoAlt: 'Smith & Co logo',
     },
     pizza: {
-      titlePrimary: 'PIZZA',
-      titleSuffix: 'BY SEXY PIZZA',
+      titlePrimary: t('groupPizzaTitle'),
+      titleSuffix: t('groupPizzaTitleSuffix'),
       logo: storageUrl('branding/partner-sexy-pizza.png'),
       logoAlt: 'Sexy Pizza logo',
     },
     drinks: {
-      titlePrimary: 'DRINKS',
-      titleSuffix: '& BAR',
+      titlePrimary: t('groupDrinksTitle'),
+      titleSuffix: t('groupDrinksTitleSuffix'),
       logo: storageUrl('branding/logo-avatar.png'),
       logoAlt: 'LENGOLF logo',
     },
   }
+
+  const crossLinks = [
+    { label: t('linkBayRates'), href: '/golf' },
+    { label: t('linkEvents'), href: '/events' },
+    { label: t('linkLessons'), href: '/lessons' },
+    { label: t('linkActivities'), href: '/activities' },
+  ]
 
   return (
     <>
@@ -128,13 +197,13 @@ export default async function MenuPage({ params }: { params: Promise<{ locale: s
             className="inline-block rounded px-6 py-2 text-lg font-bold uppercase tracking-widest text-white mb-5 md:text-xl"
             style={{ backgroundColor: '#7CB342' }}
           >
-            EAT. DRINK. PLAY.
+            {t('heroBadge')}
           </span>
           <h1 className="mb-4 text-5xl font-black uppercase leading-none md:text-6xl lg:text-7xl">
-            FOOD & DRINKS MENU
+            {t('heroTitle')}
           </h1>
           <p className="text-base font-semibold italic tracking-wide text-white/90 md:text-lg">
-            Burgers, pizza, cocktails, and more, served straight to your simulator bay
+            {t('heroSubtitle')}
           </p>
         </div>
       </section>
@@ -143,10 +212,7 @@ export default async function MenuPage({ params }: { params: Promise<{ locale: s
       <SectionWrapper>
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-            LENGOLF is a golf simulator bar, so the food and drinks matter as much as the golf. Our kitchen partners
-            Smith & Co (burgers, sliders, sharing plates) and Sexy Pizza (wood-fired Neapolitan pizzas) cook to order,
-            and our full bar pours signature cocktails, Japanese highballs, beer, and wine. Everything arrives at your
-            bay at {BUSINESS_INFO.addressShort}, open {BUSINESS_INFO.hours}.
+            {t('introText', { address: BUSINESS_INFO.addressShort, hours: BUSINESS_INFO.hours })}
           </p>
 
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -159,7 +225,7 @@ export default async function MenuPage({ params }: { params: Promise<{ locale: s
           </div>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            {menuGroups.map((group) => (
+            {translatedGroups.map((group) => (
               <a
                 key={group.id}
                 href={`#${group.id}`}
@@ -174,7 +240,7 @@ export default async function MenuPage({ params }: { params: Promise<{ locale: s
       </SectionWrapper>
 
       {/* ── Menu groups ── */}
-      {menuGroups.map((group, groupIndex) => (
+      {translatedGroups.map((group, groupIndex) => (
         <section
           key={group.id}
           id={group.id}
@@ -208,9 +274,9 @@ export default async function MenuPage({ params }: { params: Promise<{ locale: s
       {/* ── Book Now CTA ── */}
       <section className="py-12 lg:py-16 bg-primary">
         <div className="section-max-width section-padding text-center">
-          <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">Hungry? Book a bay and order at your seat</h2>
+          <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">{t('ctaTitle')}</h2>
           <p className="mb-6 text-white/80">
-            Simulator bays from 550 THB per hour for up to 5 players, with food and drinks served while you play
+            {t('ctaSubtitle')}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <BookingCTA className="bg-white text-primary hover:bg-white/90" />
@@ -230,19 +296,19 @@ export default async function MenuPage({ params }: { params: Promise<{ locale: s
       {/* ── Printed menus ── */}
       <SectionWrapper>
         <h2 className="mb-3 text-center text-3xl font-bold italic lg:text-4xl">
-          <span style={{ color: '#007429' }}>THE PRINTED</span>{' '}
-          <span className="text-foreground">MENUS</span>
+          <span style={{ color: '#007429' }}>{t('printedTitle')}</span>{' '}
+          <span className="text-foreground">{t('printedTitleSuffix')}</span>
         </h2>
         <p className="mx-auto mb-10 max-w-2xl text-center text-sm text-muted-foreground">
-          The same menus you will find at your bay. Tap any menu to view it full size.
+          {t('printedSubtitle')}
         </p>
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-3">
-          {menuImages.map((img) => (
+          {menuImages.map((img, i) => (
             <MenuImageCard
               key={img.src}
               src={img.src}
               alt={img.alt}
-              title={img.title}
+              title={t(printedMenuTitleKeys[i])}
               width={img.width}
               height={img.height}
               previewPosition={img.previewPosition}
@@ -253,10 +319,10 @@ export default async function MenuPage({ params }: { params: Promise<{ locale: s
 
       {/* ── FAQ ── */}
       <FaqSection
-        items={foodMenuFaqItems}
+        items={faqItems}
         links={faqLinks}
-        title="FOOD & DRINKS"
-        titleSuffix="FAQ"
+        title={t('faqTitle')}
+        titleSuffix={t('faqTitleSuffix')}
         bgColor="#F6FFFA"
       />
 
@@ -264,20 +330,15 @@ export default async function MenuPage({ params }: { params: Promise<{ locale: s
       <section className="py-16 lg:py-24">
         <div className="section-max-width section-padding">
           <h2 className="mb-3 text-center text-3xl font-bold italic lg:text-4xl">
-            <span style={{ color: '#007429' }}>MAKE IT</span>{' '}
-            <span className="text-foreground">A SESSION</span>
+            <span style={{ color: '#007429' }}>{t('crossLinksTitle')}</span>{' '}
+            <span className="text-foreground">{t('crossLinksTitleSuffix')}</span>
           </h2>
           <p className="mb-8 text-center text-sm text-muted-foreground">
-            Pair the menu with a simulator bay, a lesson, or a private event.
+            {t('crossLinksSubtitle')}
           </p>
           <div className="mx-auto max-w-2xl">
             <div className="flex flex-wrap items-center justify-center gap-3">
-              {[
-                { label: 'Bay Rates & Packages', href: '/golf' },
-                { label: 'Private Events & Parties', href: '/events' },
-                { label: 'Golf Lessons', href: '/lessons' },
-                { label: 'Things To Do in Bangkok', href: '/activities' },
-              ].map((link) => (
+              {crossLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href as Parameters<typeof Link>[0]['href']}
