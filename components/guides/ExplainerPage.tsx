@@ -3,6 +3,8 @@ import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { ArrowRight, Check, BookOpen } from 'lucide-react'
 import { BOOKING_URL, BUSINESS_INFO, SOCIAL_LINKS } from '@/lib/constants'
+import BoldText from '@/components/shared/BoldText'
+import MarkdownTable, { isMarkdownTableBlock } from '@/components/shared/MarkdownTable'
 import type { ExplainerSeoPage } from '@/types/seo-pages'
 
 interface Props {
@@ -72,17 +74,25 @@ export default function ExplainerPageComponent({ data, relatedLabels }: Props) {
             <div className="text-base leading-relaxed text-muted-foreground md:text-lg space-y-4">
               {/* Bodies use \n\n between paragraphs, single \n for list/line
                   breaks, and inline **bold** (sub-headings like "**X** — Y",
-                  run-in labels like "**X:**", and list lead-ins). */}
-              {section.body.split('\n\n').map((paragraph, pIdx) => (
-                <p key={pIdx}>
-                  {paragraph.split('\n').map((line, lIdx) => (
-                    <Fragment key={lIdx}>
-                      {lIdx > 0 && <br />}
-                      <BoldText text={line} />
-                    </Fragment>
-                  ))}
-                </p>
-              ))}
+                  run-in labels like "**X:**", and list lead-ins). A paragraph
+                  whose lines are all |-delimited rows is a markdown pipe
+                  table and renders as a real table. */}
+              {section.body.split('\n\n').map((paragraph, pIdx) => {
+                const lines = paragraph.split('\n')
+                if (isMarkdownTableBlock(lines)) {
+                  return <MarkdownTable key={pIdx} lines={lines} />
+                }
+                return (
+                  <p key={pIdx}>
+                    {lines.map((line, lIdx) => (
+                      <Fragment key={lIdx}>
+                        {lIdx > 0 && <br />}
+                        <BoldText text={line} />
+                      </Fragment>
+                    ))}
+                  </p>
+                )
+              })}
             </div>
           </div>
         </section>
@@ -210,20 +220,3 @@ export default function ExplainerPageComponent({ data, relatedLabels }: Props) {
   )
 }
 
-/** Component to safely render text with **bold** markdown */
-function BoldText({ text }: { text: string }) {
-  const parts = text.split(/\*\*(.+?)\*\*/g)
-  return (
-    <>
-      {parts.map((part, i) =>
-        i % 2 === 1 ? (
-          <strong key={i} className="text-[#1a472a]">
-            {part}
-          </strong>
-        ) : (
-          part
-        )
-      )}
-    </>
-  )
-}
