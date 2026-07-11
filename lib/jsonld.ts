@@ -1,6 +1,7 @@
 import { SITE_URL, SITE_NAME, BUSINESS_INFO, SOCIAL_LINKS, storageUrl } from '@/lib/constants'
 import type { UsedClub } from '@/lib/clubs'
 import type { BayRateRow, MonthlyPackageRow, LessonPackage, EventPackage } from '@/data/pricing'
+import type { MenuGroup } from '@/data/food-menu'
 
 /**
  * Single source of truth for the schema.org PostalAddress, reused across every
@@ -1012,6 +1013,46 @@ export function getBestOfListiclePageJsonLd(page: {
             ...(item.address ? { address: { '@type': 'PostalAddress', streetAddress: item.address, addressRegion: 'Bangkok', addressCountry: 'TH' } } : {}),
             ...(item.website ? { url: item.website } : {}),
           },
+    })),
+  }
+}
+
+export function getFoodMenuJsonLd(groups: MenuGroup[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Menu',
+    name: 'LENGOLF Food & Drinks Menu',
+    description:
+      'Food and drinks menu at LENGOLF Bangkok: burgers and sharing plates by Smith & Co, wood-fired pizzas by Sexy Pizza, cocktails, highballs, beer, wine, and soft drinks, all served to your simulator bay.',
+    url: `${SITE_URL}/menu/`,
+    inLanguage: 'en',
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/menu/` },
+    provider: {
+      '@type': ['EntertainmentBusiness', 'BarOrPub'],
+      name: BUSINESS_INFO.name,
+      url: SITE_URL,
+      address: getPostalAddressJsonLd(),
+      servesCuisine: ['Burgers', 'Pizza', 'Bar Food'],
+    },
+    hasMenuSection: groups.map((group) => ({
+      '@type': 'MenuSection' as const,
+      name: group.title,
+      description: group.subtitle,
+      hasMenuSection: group.sections.map((section) => ({
+        '@type': 'MenuSection' as const,
+        name: section.title,
+        ...(section.note ? { description: section.note } : {}),
+        hasMenuItem: section.items.map((menuItem) => ({
+          '@type': 'MenuItem' as const,
+          name: menuItem.name,
+          ...(menuItem.description ? { description: menuItem.description } : {}),
+          offers: {
+            '@type': 'Offer' as const,
+            price: String(menuItem.price),
+            priceCurrency: 'THB',
+          },
+        })),
+      })),
     })),
   }
 }
