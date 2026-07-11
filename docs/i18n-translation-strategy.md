@@ -2,7 +2,18 @@
 
 > Documentation of the i18n implementation, translation registry, and redirect strategy for untranslated content.
 
-Last updated: 2026-02-23
+Last updated: 2026-07-11
+
+> **2026-07 update:** the site now supports **five locales — EN (default), TH, KO, JA, ZH**.
+> The Thai-only registry described below was generalized into a per-locale
+> `TRANSLATED_ROUTES` map in `lib/translated-routes.ts` (`hasTranslationForLocale(locale, path)`),
+> and `middleware.ts` applies the same 301-redirect policy to all four prefixed
+> locales (`/th`, `/ko`, `/ja`, `/zh`). KO/JA/ZH have bespoke landing pages at `/`
+> plus translations for `/golf`, `/lessons`, `/events`, `/about-us`,
+> `/golf-club-rental`, and `/golf-course-club-rental`. TH additionally has `/blog`.
+> Currency approximations for KO/JA/ZH come from `lib/currency-rates.ts` (update quarterly).
+> Sections below describing a Thai-only setup remain accurate in *mechanism* but
+> read `th` as "any prefixed locale".
 
 ---
 
@@ -387,18 +398,18 @@ This would allow content editors to control translation availability without cod
 
 ### Additional Locales
 
-When adding Chinese (`/zh/`) and Japanese (`/ja/`) locales (Phase 3 of SEO expansion), create additional registry files:
-
-- `lib/translated-routes.ts` → rename to `lib/translated-routes-thai.ts`
-- Add `lib/translated-routes-chinese.ts`
-- Add `lib/translated-routes-japanese.ts`
-
-Or consolidate into a single multi-locale registry:
+**Done (2026):** KO, JA, and ZH shipped using the consolidated multi-locale registry
+in `lib/translated-routes.ts`:
 
 ```typescript
-export const TRANSLATED_ROUTES = {
-  th: { staticRoutes: [...], dynamicRoutePatterns: [...] },
-  zh: { staticRoutes: [...], dynamicRoutePatterns: [...] },
-  ja: { staticRoutes: [...], dynamicRoutePatterns: [...] },
+const TRANSLATED_ROUTES = {
+  th: { staticRoutes: [...], dynamicRoutePatterns: [] },
+  ko: { staticRoutes: [...], dynamicRoutePatterns: [] },
+  ja: { staticRoutes: [...], dynamicRoutePatterns: [] },
+  zh: { staticRoutes: [...], dynamicRoutePatterns: [] },
 }
 ```
+
+To add a route to a locale: translate the page's namespace in `messages/<locale>.json`
+first, then add the route to that locale's `staticRoutes`. Adding the route without a
+complete namespace ships mixed-language content and gets hreflang flagged as mismatched.
