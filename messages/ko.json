@@ -287,11 +287,11 @@
     "a8": "Book online at booking.len.golf, add us on LINE @lengolf, or just walk in. Online booking lets you choose your date, bay, and time slot in advance. Walk-ins are welcome subject to availability."
   },
   "Golf": {
-    "metaTitle": "방콕 골프 시뮬레이터 — 1시간 550 THB~",
-    "metaDescription": "방콕 LENGOLF에서 골프 시뮬레이터 베이 예약. 한국 Bravo Golf 기술, 1시간 550~950 THB로 최대 5명. 100개 이상 코스, 클럽 무료 대여.",
+    "metaTitle": "방콕 스크린골프 — 1시간 550바트부터, 최대 5명",
+    "metaDescription": "방콕 한복판 BTS 칫롬역 직결 스크린골프. 한국 Bravo Golf 시뮬레이터, 1시간 550~950바트로 최대 5명까지. 100개 이상 코스, 클럽 무료 대여. 골프연습장처럼 부담 없이 즐기세요.",
     "heroBadge": "시뮬레이터 렌탈",
-    "heroTitle": "언제든 실내 골프",
-    "heroSubtitle": "LENGOLF에서 지금 베이 예약",
+    "heroTitle": "방콕에서 즐기는 스크린골프",
+    "heroSubtitle": "한국 Bravo 시뮬레이터 — 지금 베이 예약",
     "introText": "{name}에서는 최신 한국 Bravo Golf 시뮬레이터로 방콕 최고의 실내 골프를 경험하실 수 있습니다. 100개 이상의 챔피언십 코스 플레이, 드라이빙 레인지 연습, 친구와의 게임 모드 — 모두 시간 요금에 포함되어 있습니다.",
     "stat1Value": "550~950",
     "stat1Label": "THB / 시간",
@@ -517,8 +517,8 @@
     "a8": "네! Small과 Medium 패키지 외에도 더 큰 그룹, 더 긴 시간, 특별한 요구사항에 맞춘 완전 맞춤형 패키지를 구성해 드립니다. 추가 케이터링 옵션, 사운드 시스템 및 DJ 셋업, 맞춤 데코레이션 등의 애드온도 제공합니다. LINE @lengolf으로 이벤트 팀에 문의해 주세요."
   },
   "Lessons": {
-    "metaTitle": "방콕 골프 레슨 & 코칭",
-    "metaDescription": "LENGOLF 방콕에서 태국 PGA 프로에게 골프를. 모든 레벨을 위한 시뮬레이터 맞춤 레슨. 1시간 무료 체험, 패키지 1,800 THB부터.",
+    "metaTitle": "방콕 골프레슨 — 1시간 무료 체험, 1,800바트부터",
+    "metaDescription": "LENGOLF 방콕에서 태국 PGA 프로에게 골프레슨을. 스크린골프 시뮬레이터 기반 맞춤 코칭, 모든 레벨 환영. 1시간 무료 체험, 패키지 1,800바트부터. 한국어 상담 가능.",
     "heroBadge": "골프 코칭",
     "heroTitle": "실력을 한 단계 위로",
     "heroSubtitle": "LENGOLF에서 골프 레슨",
@@ -1103,11 +1103,11 @@
     "floorPlan": "FLOOR PLAN"
   },
   "HomeKo": {
-    "metaTitle": "방콕에서 골프 — 빈손으로 OK, LINE 한국어 상담",
-    "metaDescription": "태국 방콕 여행 중 골프를. BTS 칫롬역 바로 앞 실내 시뮬레이터 & 바, 필드용 클럽 배송까지. LINE @lengolf로 문의 가능, 1시간 550 THB~.",
+    "metaTitle": "방콕 스크린골프 & 바 — 빈손 OK, 한국어 상담",
+    "metaDescription": "태국 방콕 여행 중 스크린골프를. BTS 칫롬역 바로 앞 스크린골프 & 바, 필드용 클럽 배송까지. LINE @lengolf 한국어 상담 가능, 1시간 550바트부터.",
     "heroBadge": "LINE @lengolf — 한국어로 문의 가능",
     "heroTitle": "방콕 도착 바로, 빈손으로 골프",
-    "heroSubtitle": "BTS 칫롬역 바로 앞 실내 골프 & 바. 클럽 무료 대여, 당일 예약도 가능합니다.",
+    "heroSubtitle": "BTS 칫롬역 바로 앞 스크린골프 & 바. 클럽 무료 대여, 당일 예약도 가능합니다.",
     "heroBookBay": "베이 예약하기",
     "heroLineContact": "LINE으로 문의",
     "heroCancellation": "24시간 전까지 무료 취소 가능",
@@ -1137,7 +1137,7 @@
     "step3Desc": "우기나 폭염에도 완전 냉방으로 쾌적. 시원한 맥주·식사와 함께 일행과 게임 모드로 즐기거나, PGA 코치에게 짧은 레슨을 받아도 좋습니다.",
     "servicesTitle": "LENGOLF",
     "servicesTitleSuffix": "이용 안내",
-    "service1Title": "시뮬레이터 베이",
+    "service1Title": "스크린골프 베이",
     "service1Price": "1시간 550~950 THB",
     "service1PriceApprox": "약 21,000~36,000원",
     "service1Desc": "베이당 최대 5명, 스탠다드 클럽 대여 포함. 100개 이상 코스 수록.",

@@ -126,8 +126,15 @@ const routeTests: RouteTest[] = [
   { path: '/guide/golf-club-baggage-fees-airlines-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/guide/best-golf-simulators-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // New EN guide (screen golf — Korean-style simulator golf)
+  { path: '/guide/screen-golf-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Translated JA guides (data/explainer-pages.ts locale:'ja' + ja allowlist entries)
   { path: '/ja/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // Translated KO guides (data/explainer-pages.ts locale:'ko' + ko allowlist entries)
+  { path: '/ko/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/guide/golf-club-baggage-fees-airlines-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/guide/renting-golf-clubs-thai-golf-courses/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/guide/screen-golf-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/guide/golf-club-baggage-fees-airlines-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/guide/renting-golf-clubs-thai-golf-courses/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // FAQ pages — spot-check original + newly added slugs
@@ -335,6 +342,7 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
   // namespaces that would render as mislabelled content without the allowlist.
   { path: '/ja/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated JA privacy policy' },
   { path: '/ja/guide/what-is-a-golf-simulator/', expectedLocation: '/guide/what-is-a-golf-simulator/', label: 'Untranslated JA guide (only translated guide slugs may 200)' },
+  { path: '/ko/guide/what-is-a-golf-simulator/', expectedLocation: '/guide/what-is-a-golf-simulator/', label: 'Untranslated KO guide (only translated guide slugs may 200)' },
   { path: '/ko/hotels/', expectedLocation: '/hotels/', label: 'Untranslated KO hotels hub' },
   { path: '/ko/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated KO privacy policy' },
   { path: '/zh/blog/', expectedLocation: '/blog/', label: 'Untranslated ZH blog page' },

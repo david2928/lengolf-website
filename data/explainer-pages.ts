@@ -516,6 +516,74 @@ export const explainerPages: ExplainerSeoPage[] = [
     },
   },
 
+  // ─── gg-baggage-fees (KO): 한국어판 — 골프백 수하물 요금 ─────────────────────
+  // Faithful translation of the fact-checked EN content, mirroring the JA
+  // entry. Only addition is a GENERAL note that Korean full-service carriers
+  // (대한항공·아시아나) follow the same included-in-allowance approach — no
+  // invented carrier-specific fee figures; verify-with-airline disclaimers kept.
+  {
+    id: 'gg-golf-club-baggage-fees-airlines-bangkok-ko',
+    page_type: 'explainer',
+    slug: 'golf-club-baggage-fees-airlines-bangkok',
+    title: '골프백 수하물 요금 — 방콕행 주요 항공사 비교',
+    meta_description:
+      '방콕행 비행기에 골프백은 어떻게 부칠까? 주요 항공사의 무료 수하물 처리 방식, 초과 요금 구조, 추가 비용을 피하는 방법을 정리했습니다. LCC와 풀서비스 항공사의 차이도 비교합니다.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'airlines-baggage',
+    locale: 'ko',
+    related_slugs: [
+      '/guide/bring-golf-clubs-thailand-or-rent',
+      '/golf-course-club-rental',
+      '/golf',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        '골프클럽을 들고 방콕으로? 주요 풀서비스 항공사에서는 골프백이 일반 무료 위탁 수하물 범위 안에서 처리되며, 스포츠 장비 추가 요금은 원칙적으로 없습니다. 대한항공·아시아나 등 국적 풀서비스 항공사도 규정 크기·무게 이내라면 동일하게 무료 수하물로 처리하는 것이 일반적입니다. 진짜 비용 리스크는 중량 초과입니다. 이 가이드에서는 각 항공사의 골프백 처리 방식, 초과 요금 구조, 불필요한 지출을 피하는 방법을 설명합니다.',
+      sections: [
+        {
+          heading: '항공사는 골프백을 어떻게 처리하나',
+          body: '"골프 장비에는 별도의 정액 요금이 붙는다"는 것은 흔한 오해입니다. 방콕에 취항하는 주요 풀서비스 항공사에서는 그렇게 운영되지 않습니다.\n\n표준적인 처리 방식: 골프백은 위탁 수하물 1개로 계산되어 기존 무료 수하물 한도를 사용합니다. 무게·개수 제한 안에 들면 스포츠 장비 추가 요금은 없습니다. 골프백 때문에 무료 한도를 초과하면 일반 초과 수하물 요금(kg 단위 또는 개수 단위)이 적용됩니다 — 다른 짐이 초과했을 때와 같은 요율입니다.\n\nLCC(저비용 항공사)는 구조가 다르므로 별도로 계산해야 합니다.\n\n규정은 항공사·운임 등급에 따라 다르고 변경될 수 있습니다. 예약 전 반드시 이용 항공사의 최신 규정을 확인하세요.',
+        },
+        {
+          heading: '항공사별 골프백 처리',
+          body: '**타이항공:** 골프 장비(클럽 14개, 볼 12개, 신발 1켤레까지)는 표준 무료 한도 내 위탁 수하물 1개로 계산. 개수제는 2026년 3월 2일부터 적용. 한도 초과 시: 미주·캐나다 노선은 개당 150달러, 기타 노선은 존별 요금. 아시아 출발 1순위로 유력합니다.\n\n**싱가포르항공:** 이코노미는 노선에 따라 25~30kg. 골퍼 특례 있음: 골프백으로 한도를 초과하면 실제 무게가 아닌 일괄 6kg분의 초과 요금으로 계산됩니다(초과 15kg까지).\n\n**캐세이퍼시픽:** 이코노미는 통상 23kg×1개. 싱가포르항공과 같은 일괄 6kg 환산 특례 있음.\n\n**에미레이트항공:** 이코노미는 노선에 따라 20~35kg. 초과 시 일반 초과 요금이며 골프 특례는 없습니다.\n\n**카타르항공:** 주요 국제선 이코노미는 통상 30kg. 초과 시 일반 요금이지만, 출발 6시간 전까지 온라인으로 추가 구매하면 최대 20% 할인.',
+        },
+        {
+          heading: 'LCC(에어아시아, 녹에어, 스쿠트 등)',
+          body: '방콕에 취항하는 LCC는 기본 운임에 위탁 수하물이 포함되지 않은 경우가 대부분입니다. 골프백은 예약 시 유료 옵션으로 추가해야 하며, 공항 현장 추가는 훨씬 비쌉니다.\n\n"LCC가 더 싸다"고 판단하기 전에, 기본 운임+골프백 요금+좌석 지정+기내식의 총액을 풀서비스 항공사 운임과 비교해 보세요.',
+        },
+        {
+          heading: '비용 아끼는 팁',
+          body: '1. 가벼운 소프트 트래블백 사용 — 하드케이스보다 4~7kg 가볍습니다\n2. 골프볼은 캐리어에 — 볼을 가득 넣으면 2kg가 추가됩니다\n3. 중량 초과가 예상되면 싱가포르항공이나 캐세이퍼시픽 선택 — 일괄 6kg 환산 특례가 가장 유리합니다\n4. 마일리지 상위 등급 확인 — 많은 항공사에서 초과 요금이 면제됩니다\n5. 방콕 현지 렌탈도 고려 — 짧은 여행이라면 왕복 초과 요금보다 LENGOLF 등에서의 클럽 렌탈(하루 1,200바트부터)이 저렴할 수 있습니다',
+        },
+      ],
+      key_takeaways: [
+        '주요 항공사에 "골프 장비 추가 요금"은 없습니다 — 골프백은 일반 무료 위탁 수하물 한도 내에서 운송됩니다',
+        '비용 리스크는 골프 요금이 아니라 중량 초과입니다',
+        '싱가포르항공과 캐세이퍼시픽은 초과 시 일괄 6kg 환산이라는 골퍼 친화적 특례가 있습니다',
+        '타이항공은 아시아 출발에 유리 — 골프 장비 일체가 무료 1개로 계산됩니다',
+        'LCC는 별도 요금 — 예약 전 반드시 총액으로 비교하세요',
+        '요금·규정은 변경되므로 출발 전 반드시 항공사 최신 정보를 확인하세요',
+      ],
+      related_services: ['/golf-course-club-rental', '/golf-in-thailand-guide'],
+      table_heading: '항공사별 골프백 규정 비교',
+      col_a_label: '골프백 무료 한도 포함?',
+      col_b_label: '무료 한도 초과 시',
+      comparison_table: [
+        { feature: '타이항공', simulator: 'O — 무료 1개로 계산', real_golf: '미주·캐나다 노선 150달러/개, 기타는 존별 요금' },
+        { feature: '싱가포르항공', simulator: 'O — 무게 한도 내', real_golf: '일괄 6kg 환산 특례(초과 15kg까지)' },
+        { feature: '캐세이퍼시픽', simulator: 'O — 개수 한도 내', real_golf: '일괄 6kg 환산 특례(초과 15kg까지)' },
+        { feature: '에미레이트항공', simulator: 'O — 무게 한도 내', real_golf: '일반 kg 단위 초과 요금' },
+        { feature: '카타르항공', simulator: 'O — 무게 한도 내', real_golf: '일반 요금(온라인 사전 구매 시 최대 20% 할인)' },
+        { feature: 'LCC(에어아시아, 스쿠트 등)', simulator: 'X — 예약 시 유료 추가', real_golf: '별도 요금. 공항 현장 추가는 훨씬 비쌈' },
+      ],
+    },
+  },
+
   // ─── GG-003: Best Airlines to Fly with Golf Clubs ─────────────────────────
   {
     id: 'gg-best-airlines-fly-golf-clubs-bangkok',
@@ -829,6 +897,58 @@ export const explainerPages: ExplainerSeoPage[] = [
         'ゴルフ目的の旅行で4ラウンド以上プレーする本格派は、一貫性のためマイクラブ持参がおすすめ',
         '日系大手航空会社ではゴルフバッグは無料受託手荷物枠内が一般的（LCCは有料が多い）— 予約前に必ず最新規定を確認',
         'バンコクのレンタル品質は向上中 — LENGOLFならCallaway・Majestyのセットを1日1,200バーツから、ホテル配送・デポジット不要でレンタル可能',
+      ],
+      related_services: ['/golf-course-club-rental', '/golf'],
+      comparison_table: [],
+    },
+  },
+
+  // ─── exp-25 (KO): 한국어판 — 클럽 가져갈까, 현지 렌탈할까 ─────────────────────
+  {
+    id: 'exp-25-ko',
+    page_type: 'explainer',
+    slug: 'bring-golf-clubs-thailand-or-rent',
+    title: '태국 골프여행, 클럽 가져갈까 현지 렌탈할까? 판단 가이드',
+    meta_description:
+      '태국·방콕 골프여행, 클럽은 한국에서 가져가야 할까요, 현지에서 빌리는 게 나을까요? 항공사 수하물 규정, 렌탈 품질과 비용을 비교합니다. 하루 1,200바트부터 호텔 배송 프리미엄 렌탈도 소개.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'clubs-rental',
+    locale: 'ko',
+    related_slugs: [
+      '/guide/golf-club-baggage-fees-airlines-bangkok',
+      '/guide/renting-golf-clubs-thai-golf-courses',
+      '/golf-course-club-rental',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        '관광을 겸해 태국을 찾는 캐주얼 골퍼라면 클럽은 현지 렌탈이 현명한 선택입니다. 방콕의 렌탈 환경은 최근 크게 좋아져서, 수하물을 부치지 않아도 관리 잘 된 프리미엄 세트로 라운딩할 수 있습니다. 반면 골프가 주목적인 여행에서 5라운드 이상 플레이하는 진지한 골퍼, 클럽 감각을 중시하는 분이라면 다소 번거롭더라도 본인 클럽을 가져갈 가치가 있습니다.',
+      sections: [
+        {
+          heading: '본인 클럽을 가져가야 하는 이유',
+          body: '렌탈 세트가 절대 재현할 수 없는 것 — 바로 "익숙함"입니다. 가져가야 하는 경우:\n\n**라운드 간 일관성** — 일주일에 4라운드 이상 플레이한다면, 매번 다른 렌탈 세트에 적응하는 게 아니라 직전 라운드의 감각을 쌓아가고 싶을 겁니다.\n\n**숏게임·특수 클럽** — 렌탈 세트는 구성은 갖췄지만 웨지 개수, 바운스각, 퍼터 취향은 지극히 개인적인 영역입니다.\n\n**커스텀 피팅** — 라이각, 샤프트 강도, 그립 사이즈까지 맞춘 피팅 클럽과 같은 것은 렌탈에 없습니다.\n\n트레이드오프는 무거운 짐, 운송 중 파손 위험, 그리고 공항·호텔·택시에서 거추장스러운 트래블백 관리입니다.',
+        },
+        {
+          heading: '태국 현지 렌탈이 나은 이유',
+          body: '태국에서의 클럽 렌탈은 실용적이고, 많은 여행자에게는 오히려 더 나은 선택입니다:\n\n**가볍게 떠나는 여행** — 태국은 관광·시내 구경과 함께 즐기는 여행지입니다. 방콕, 푸켓, 치앙마이를 오간다면 골프 트래블백은 큰 짐이 됩니다.\n\n**파손 위험 제로** — 골프백은 운송 중 험하게 다뤄지기 쉽고, 샤프트 부러짐이나 드라이버 헤드 파손도 드물지 않습니다. 렌탈이라면 그 리스크가 사라집니다.\n\n**비용도 의외로 저렴** — 2~3라운드 일정이라면 초과 수하물 요금+트래블 케이스+운반 수고를 합친 것보다 렌탈이 쌀 수 있습니다. LENGOLF 코스 렌탈은 Callaway·Majesty 프리미엄 세트가 하루 1,200바트부터(2026년 7월 기준). 보증금 없이 호텔·골프장 배송(왕복 500바트)도 가능합니다.',
+        },
+        {
+          heading: '항공사 위탁 수하물 참고',
+          body: '대한항공·아시아나 등 국적 풀서비스 항공사에서는 규정 크기·무게 이내라면 골프백을 일반 무료 위탁 수하물 범위에서 처리하는 것이 일반적이며, 방콕 노선에서 스포츠 장비 추가 요금이 붙는 경우는 예전보다 줄었습니다. 반면 LCC는 위탁 수하물 자체가 유료인 경우가 많고 골프백은 더 비쌀 수 있습니다.\n\n규정은 항공사·운임 등급에 따라 다르고 변경될 수 있으니, 예약 전 반드시 이용 항공사의 최신 규정을 확인하세요.\n\n클럽을 가져간다면 하드케이스를 강력 추천합니다. 특히 피팅된 고가 클럽이라면 소프트케이스보다 보호 성능이 월등한 하드케이스가 안심입니다.',
+        },
+        {
+          heading: '가져갈까 렌탈할까 — 3가지 질문',
+          body: '다음 세 가지 질문으로 판단할 수 있습니다:\n\n1. **몇 라운드 플레이하나?** 관광 위주로 1~2라운드면 렌탈. 골프 목적 여행으로 4라운드 이상이면 본인 클럽.\n2. **스코어에 얼마나 진심인가?** 즐겁게 치면 충분하다면 렌탈. 싱글 핸디캡으로 스코어가 최우선이라면 본인 클럽.\n3. **이동이 얼마나 많은가?** 방콕 한 도시 체류라면 가져가는 것도 현실적. 방콕→푸켓→사무이로 이동한다면 렌탈이 압도적으로 편합니다.\n\n**하이브리드 방식** — 골프여행 경험이 많은 분들 사이에서는, 첫 여행은 렌탈로 현지 품질을 확인하고 두 번째 골프 전문 여행부터 본인 클럽을 가져가는 방법도 인기입니다.',
+        },
+      ],
+      key_takeaways: [
+        '관광 겸 1~3라운드 플레이하는 캐주얼 골퍼는 렌탈이 정답 — 가벼움의 이점이 장비의 아쉬움을 앞섭니다',
+        '골프 목적 여행에서 4라운드 이상이라면 일관성을 위해 본인 클럽 지참 추천',
+        '국적 풀서비스 항공사는 골프백을 무료 수하물 범위에서 처리하는 것이 일반적(LCC는 유료가 많음) — 예약 전 최신 규정 확인 필수',
+        '방콕 렌탈 품질은 상승 중 — LENGOLF에서는 Callaway·Majesty 세트를 하루 1,200바트부터, 호텔 배송·보증금 없이 렌탈 가능',
       ],
       related_services: ['/golf-course-club-rental', '/golf'],
       comparison_table: [],
@@ -1655,6 +1775,168 @@ export const explainerPages: ExplainerSeoPage[] = [
         '確実にプレミアムセットを使いたいなら、事前予約制のレンタル（LENGOLFなど）でホテル・コース配送という選択肢も',
       ],
       related_services: ['/golf-course-club-rental', '/golf'],
+      comparison_table: [],
+    },
+  },
+
+  // ─── exp-39 (KO): 한국어판 — 태국 골프장 클럽 렌탈 ───────────────────────────
+  {
+    id: 'exp-39-ko',
+    page_type: 'explainer',
+    slug: 'renting-golf-clubs-thai-golf-courses',
+    title: '태국 골프장 클럽 렌탈 — 요금·품질·체크리스트',
+    meta_description:
+      '태국 골프장은 어디서나 클럽 렌탈이 가능하지만 품질은 천차만별. 프로샵 렌탈 절차, 요금 시세(라운드당 300~800바트), 티오프 전에 확인해야 할 체크포인트를 정리했습니다.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'clubs-rental',
+    locale: 'ko',
+    related_slugs: [
+      '/guide/bring-golf-clubs-thailand-or-rent',
+      '/guide/golf-club-baggage-fees-airlines-bangkok',
+      '/golf-course-club-rental',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        '태국 골프장에는 거의 어디에나 렌탈 클럽이 준비되어 있습니다. 클럽 없이 입국해도 프로샵에서 세트를 못 빌리는 경우는 거의 없습니다. 문제는 "빌릴 수 있느냐"가 아니라 "품질"입니다. 이 가이드에서는 렌탈 절차, 요금 시세, 티오프 전에 확인할 포인트를 설명합니다.',
+      sections: [
+        {
+          heading: '태국 골프장 렌탈 절차',
+          body: '태국에서의 클럽 렌탈은 간단합니다. 프로샵에 도착하면 렌탈 세트가 필요하다고 직원에게 말하세요. 보통 묻는 것은 사용하는 손(오른손·왼손), 풀세트 또는 하프세트 여부, 경우에 따라 키나 실력 수준입니다.\n\n세트가 정해지면 이름표가 붙어 백드롭으로 옮겨지고, 이후에는 담당 캐디가 본인 클럽과 똑같이 관리해 줍니다.\n\n렌탈 요금은 보통 그린피·캐디피와 함께 체크아웃 때 정산합니다. 시세는 라운드당 300~800바트. 최신 요금은 라운드 전에 골프장에 직접 확인하세요.',
+        },
+        {
+          heading: '렌탈 클럽 품질은 천차만별',
+          body: '**저가·퍼블릭 코스** — 수년간 사용된 세트가 대부분. 그립은 닳고, 샤프트는 제각각, 로프트가 안 맞는 경우도 있습니다. 칠 수는 있지만 일관성은 기대하기 어렵습니다.\n\n**중급 리조트 코스** — 교체 주기가 비교적 짧고, 스탠다드와 프리미엄 2개 등급을 운영하는 곳도 많습니다. 대체로 무난하게 플레이할 수 있습니다.\n\n**고급 리조트·챔피언십 코스** — 거의 새 세트가 표준 스펙으로 갖춰져 있고 보관 상태도 좋습니다. 방콕, 푸켓, 후아힌, 치앙마이의 유명 리조트 코스라면 실망할 일이 거의 없습니다.\n\n중급 이상 코스에서 흔한 브랜드는 Callaway(Rogue·Edge 시리즈), TaylorMade, 일부 고급 클럽에서는 Titleist입니다.',
+        },
+        {
+          heading: '티오프 전 체크리스트',
+          body: '좋은 코스라도 플레이 전에 빠르게 확인하세요:\n\n1. **샤프트 강도** — 본인 스윙 스피드에 맞는지. 렌탈 세트는 R 플렉스가 기본입니다\n2. **그립** — 미끌거리거나 갈라진 그립은 생각보다 컨트롤에 크게 영향을 줍니다\n3. **세트 구성** — 드라이버, 페어웨이 우드, 유틸리티 또는 롱아이언, 아이언 일체(5번 또는 6번~PW), 샌드웨지, 퍼터가 다 있는지\n4. **웨지 로프트** — 회전이 빠른 렌탈 세트에서는 로프트 공백·중복이 흔합니다\n5. **헤드 상태** — 휘어짐, 호젤 흔들림, 페럴 빠짐이 없는지\n\n이상하다 싶으면 티오프 전에 프로샵으로. 제대로 된 코스라면 문제 있는 클럽은 흔쾌히 교환해 줍니다.',
+        },
+        {
+          heading: '캐디 활용과 실전 팁',
+          body: '태국 골프장은 캐디 동반이 기본이라 렌탈이든 지참이든 캐디가 붙습니다. 서비스 품질은 똑같습니다. 유용한 팁 하나: 캐디는 그 렌탈 세트로 여러 번 캐디를 해봤을 가능성이 높아 "이 클럽은 잘 나간다·안 나간다"를 알려줄 수 있습니다. 부담 없이 물어보세요.\n\n**실전 팁:**\n1. 미리 전화하기 — 왼손잡이 세트는 작은 코스에는 드물기 때문에 반드시 사전 확인\n2. 등급 확인 — 스탠다드와 프리미엄이 있다면 업그레이드 요금은 대개 부담 없는 수준입니다\n3. 일찍 도착 — 세트를 점검하고 교환을 요청할 여유가 생깁니다\n4. 최신 렌탈 요금 확인 — 요금은 자주 바뀌고 온라인에 없는 경우도 많습니다\n5. 캐디 팁은 그대로 — 렌탈 클럽이 팁을 줄일 이유는 되지 않습니다\n\n참고로, 확실하게 프리미엄 세트로 플레이하고 싶다면 방콕 LENGOLF 같은 렌탈 서비스에서 Callaway·Majesty 세트를 온라인 예약하고 호텔이나 골프장으로 배송받는 방법도 있습니다(하루 1,200바트부터). 당일 프로샵에 남아 있는 세트에 운을 맡길 필요가 없습니다.',
+        },
+      ],
+      key_takeaways: [
+        '태국은 거의 모든 골프장에서 클럽 렌탈 가능 — 문제는 재고가 아니라 품질',
+        '저가 코스는 낡은 혼합 세트, 고급 리조트는 거의 새것인 Callaway·TaylorMade·Titleist',
+        '티오프 전 필수 점검: 그립, 샤프트 강도, 세트 구성, 웨지 로프트',
+        '왼손잡이 세트는 드문 편 — 반드시 사전에 전화로 확인',
+        '확실한 프리미엄 세트를 원한다면 사전 예약 렌탈(LENGOLF 등)로 호텔·골프장 배송이라는 선택지도',
+      ],
+      related_services: ['/golf-course-club-rental', '/golf'],
+      comparison_table: [],
+    },
+  },
+
+  // ─── screen-golf-bangkok (EN): Korean-style screen golf explainer ───────────
+  // Targets "screen golf bangkok" / "golfzon bangkok" queries (Korean golfers
+  // searching in English + English speakers who learned the term in Korea).
+  // The KO twin below targets 방콕 스크린골프 — the top Korean-script query in
+  // GSC (surfacing the EN homepage at position ~12 with zero clicks before this).
+  {
+    id: 'exp-screen-golf-bangkok',
+    page_type: 'explainer',
+    slug: 'screen-golf-bangkok',
+    title: 'Screen Golf in Bangkok — Korean-Style Simulator Golf',
+    meta_description:
+      'Looking for screen golf (스크린골프) in Bangkok? Play Korean-style simulator golf at LENGOLF, BTS Chidlom — Bravo Golf technology, from 550 THB/hour for up to 5 players, with food and drinks at your bay.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'technology',
+    locale: 'en',
+    related_slugs: [
+      '/golf',
+      '/guide/best-golf-simulators-bangkok',
+      '/cost/golf-simulator-prices-bangkok',
+      '/lessons',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        "Screen golf — 스크린골프 — is what Koreans call indoor simulator golf, and in Korea it's a national pastime with more than 8,000 venues. If you're visiting Bangkok and missing your weekly screen golf session, or you discovered the format on a trip to Seoul, you can play it here: LENGOLF at BTS Chidlom runs Korean Bravo Golf simulators in a lounge-and-bar setting, from 550 THB per hour for up to 5 players.",
+      sections: [
+        {
+          heading: 'What Is Screen Golf?',
+          body: "Screen golf is the Korean take on golf simulation: you hit a real ball into an impact screen while sensors track club and ball data, and the software renders your shot on a virtual course. The term comes from Korea's Golfzon-led boom of the 2000s, which turned simulator golf from a practice tool into a social night out — groups playing full rounds with food and drinks between shots.\n\nThat social framing is the difference. Western venues often market simulators as practice technology; screen golf culture treats the simulator as the venue for a round with friends — closer to bowling or karaoke than to a driving range.",
+        },
+        {
+          heading: 'Screen Golf at LENGOLF — Korean Technology Included',
+          body: "LENGOLF's bays run Bravo Golf simulators — a Korean launch-monitor brand, the same technology culture Golfzon players know. Each bay measures 20+ club and ball parameters per swing and renders 100+ real courses.\n\nThe format follows screen golf convention: up to 5 players per bay at one hourly rate (550–950 THB per hour, as of July 2026), so a group splits it to ~110–190 THB per person per hour. Standard clubs are free, the venue is air-conditioned, and there's a full food and drink menu served to your bay. Open 9am–11pm daily at The Mercury Ville, directly connected to BTS Chidlom.",
+        },
+        {
+          heading: 'How It Compares to Screen Golf in Korea',
+          body: "**Familiar:** hourly bay pricing shared by the group, full-round course play, club and ball data on screen, late-night hours.\n\n**Different:** Bangkok venues are fewer and more lounge-styled than Korea's dense studio format — LENGOLF pairs the bays with a bar rather than the vending-machine studio setup common in Seoul. Course libraries differ by software (Bravo's 100+ courses vs Golfzon's Korea-heavy list), and you'll find Thai and international courses to preview before playing them for real.\n\nIf you're planning real rounds while in Thailand, the simulator doubles as course preparation — and LENGOLF also rents premium Callaway and Majesty sets for taking to any Bangkok course.",
+        },
+        {
+          heading: 'Practical Tips for Visiting Golfers',
+          body: '1. **Book ahead for evenings** — like Korean screen golf, prime time fills up; book online at booking.len.golf or walk in off-peak\n2. **Come empty-handed** — standard clubs, balls, and setup are included free\n3. **Bring non-golfers** — multiplayer modes and non-golf games make mixed groups work, screen-golf style\n4. **Korean-language support** — staff handle Korean inquiries via LINE @lengolf\n5. **Playing a real course later?** Premium club rental with hotel or course delivery starts at 1,200 THB/day (as of July 2026)',
+        },
+      ],
+      key_takeaways: [
+        'Screen golf (스크린골프) — Korean-style social simulator golf — is available in Bangkok at LENGOLF, BTS Chidlom',
+        'Korean Bravo Golf technology: 20+ swing parameters, 100+ courses, up to 5 players per bay',
+        'Priced screen-golf style: one hourly bay rate (550–950 THB, as of July 2026) split by the group, clubs free',
+        'Open 9am–11pm daily with food and drinks served to the bay — a social round, not just practice',
+      ],
+      related_services: ['/golf', '/lessons'],
+      comparison_table: [],
+    },
+  },
+
+  // ─── screen-golf-bangkok (KO): 방콕 스크린골프 가이드 ────────────────────────
+  {
+    id: 'exp-screen-golf-bangkok-ko',
+    page_type: 'explainer',
+    slug: 'screen-golf-bangkok',
+    title: '방콕 스크린골프 가이드 — 요금·위치·예약 방법',
+    meta_description:
+      '방콕에서 스크린골프? LENGOLF는 BTS 칫롬역 직결, 한국 Bravo Golf 시뮬레이터로 1시간 550바트부터 최대 5명까지. 요금, 예약 방법, 한국 스크린골프와 다른 점을 정리했습니다.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'technology',
+    locale: 'ko',
+    related_slugs: [
+      '/golf',
+      '/lessons',
+      '/golf-course-club-rental',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        '방콕 여행 중에 스크린골프 생각이 난다면 — 있습니다. LENGOLF는 BTS 칫롬역과 바로 연결된 The Mercury Ville 4층에서 한국 Bravo Golf 시뮬레이터로 스크린골프를 운영합니다. 1시간 550바트부터, 한 베이에 최대 5명까지 함께 플레이할 수 있고, 자리로 음식과 음료를 가져다주는 바가 함께 있습니다.',
+      sections: [
+        {
+          heading: '방콕에도 스크린골프가 있습니다',
+          body: '한국식 스크린골프 문화 그대로입니다: 시간제 베이 요금을 일행이 나눠 내고, 실제 코스를 라운딩하며, 샷 사이에 먹고 마시는 소셜 골프.\n\nLENGOLF의 시뮬레이터는 한국 브랜드 Bravo Golf — 스윙당 20개 이상의 클럽·볼 데이터를 측정하고 100개 이상의 실제 코스를 수록했습니다. 골프존에 익숙한 분이라면 적응에 1분도 걸리지 않습니다.\n\n위치는 방콕 중심가 칫롬(Chidlom): BTS 칫롬역에서 실내로 바로 연결되어 우기에도, 한낮 더위에도 쾌적하게 이동할 수 있습니다.',
+        },
+        {
+          heading: '요금과 예약 (2026년 7월 기준)',
+          body: '**베이 요금:** 시간당 550~950바트(시간대에 따라 다름). 베이당 최대 5명이므로 인원이 많을수록 1인당 부담은 내려갑니다 — 5명이면 1인당 시간당 110~190바트 수준.\n\n**포함 사항:** 스탠다드 클럽 세트·볼 무료. 빈손으로 오시면 됩니다.\n\n**예약:** booking.len.golf에서 온라인 예약(즉시 확정), 또는 LINE @lengolf — 한국어 상담이 가능합니다. 저녁 프라임 타임은 한국 스크린골프처럼 차기 쉬우니 미리 예약을 추천합니다.\n\n**영업시간:** 연중무휴 오전 9시~오후 11시.',
+        },
+        {
+          heading: '한국 스크린골프와 다른 점',
+          body: '**같은 점** — 시간제 베이 요금, 풀라운드 코스 플레이, 클럽·볼 데이터 표시, 밤 늦게까지 영업.\n\n**다른 점** — 방콕은 한국처럼 스크린골프장이 골목마다 있지 않고, LENGOLF는 스튜디오형이 아닌 라운지·바 결합형입니다. 자리에서 주문하는 음식·음료 메뉴가 있고, 골프를 안 치는 일행도 멀티플레이 게임이나 비골프 게임으로 함께 즐길 수 있습니다.\n\n**여행자에게 좋은 점** — 태국·국제 코스가 수록되어 있어, 필드 라운딩 전에 코스를 미리 연습해 볼 수 있습니다.',
+        },
+        {
+          heading: '필드도 나가신다면',
+          body: '방콕 근교 골프장에서 라운딩 계획이 있다면 클럽 걱정은 필요 없습니다. LENGOLF에서 Callaway·Majesty 프리미엄 세트를 하루 1,200바트부터(2026년 7월 기준) 렌탈할 수 있고, 호텔이나 골프장까지 배송(왕복 500바트)됩니다. 보증금 없이 온라인 결제로 즉시 확정.\n\n스윙 점검이 필요하다면 태국 PGA 프로의 골프레슨도 운영합니다 — 1시간 무료 체험부터 시작할 수 있고, 스크린골프 시뮬레이터 데이터를 활용한 맞춤 코칭입니다.',
+        },
+      ],
+      key_takeaways: [
+        '방콕 스크린골프는 LENGOLF — BTS 칫롬역 직결, 한국 Bravo Golf 시뮬레이터',
+        '시간당 550~950바트(2026년 7월 기준)를 최대 5명이 나눠서 — 클럽·볼 무료, 빈손 OK',
+        '온라인 예약 즉시 확정, LINE @lengolf 한국어 상담 가능, 연중무휴 9시~23시',
+        '필드 라운딩용 프리미엄 클럽 렌탈(하루 1,200바트부터, 호텔 배송)과 PGA 프로 레슨도 함께 운영',
+      ],
+      related_services: ['/golf', '/lessons'],
       comparison_table: [],
     },
   },
