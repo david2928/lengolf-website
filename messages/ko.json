@@ -1110,9 +1110,20 @@
     "feature": "항목",
     "keyTakeaways": "핵심 요약",
     "ctaTitle": "직접 체험해 보세요",
-    "ctaText": "LENGOLF({address})에서 인도어 골프를 경험해 보세요. 영업시간 {hours}. 경험이 없어도 괜찮습니다.",
+    "ctaText": "LENGOLF(The Mercury Ville, BTS 칫롬역 직결 4층)에서 인도어 골프를 경험해 보세요. 매일 오전 9시~오후 11시 영업. 경험이 없어도 괜찮습니다.",
     "bookNow": "지금 예약",
     "call": "전화 {phone}",
-    "exploreMore": "더 알아보기"
+    "exploreMore": "더 알아보기",
+    "tableHeading": "시뮬레이터 vs 실제 골프",
+    "colSimulator": "골프 시뮬레이터",
+    "colRealGolf": "실제 골프",
+    "pathLabels": {
+      "golf": "실내 골프 시뮬레이터",
+      "lessons": "골프 레슨",
+      "events": "이벤트·파티",
+      "golf-club-rental": "매장 내 무료 클럽",
+      "golf-course-club-rental": "골프장 클럽 렌탈",
+      "golf-in-thailand-guide": "태국 골프 가이드"
+    }
   }
 }

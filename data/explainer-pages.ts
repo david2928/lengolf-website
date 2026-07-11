@@ -797,9 +797,9 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: 'clubs-rental',
     locale: 'ja',
     related_slugs: [
+      '/guide/golf-club-baggage-fees-airlines-bangkok',
+      '/guide/renting-golf-clubs-thai-golf-courses',
       '/golf-course-club-rental',
-      '/golf-club-rental',
-      '/golf',
     ],
     created_at: now,
     updated_at: now,

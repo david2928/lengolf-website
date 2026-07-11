@@ -1113,9 +1113,20 @@
     "feature": "项目",
     "keyTakeaways": "要点总结",
     "ctaTitle": "亲自体验",
-    "ctaText": "欢迎到LENGOLF（{address}）体验室内高尔夫。营业时间{hours}。无需任何经验。",
+    "ctaText": "欢迎到LENGOLF（The Mercury Ville，BTS奇隆站直达，4楼）体验室内高尔夫。每天9:00–23:00营业。无需任何经验。",
     "bookNow": "立即预订",
     "call": "致电 {phone}",
-    "exploreMore": "更多内容"
+    "exploreMore": "更多内容",
+    "tableHeading": "模拟器 vs 真实球场",
+    "colSimulator": "高尔夫模拟器",
+    "colRealGolf": "真实高尔夫",
+    "pathLabels": {
+      "golf": "室内高尔夫模拟器",
+      "lessons": "高尔夫课程",
+      "events": "活动与派对",
+      "golf-club-rental": "店内免费球杆",
+      "golf-course-club-rental": "球场球杆租赁",
+      "golf-in-thailand-guide": "泰国高尔夫指南"
+    }
   }
 }

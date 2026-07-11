@@ -6,9 +6,15 @@ import type { ExplainerSeoPage } from '@/types/seo-pages'
 
 interface Props {
   data: ExplainerSeoPage
+  /**
+   * Localized labels for related-page links, keyed by path (resolved by the
+   * page from the target pages' titles / the pathLabels namespace). Paths
+   * without an entry fall back to a slug-derived English label.
+   */
+  relatedLabels?: Record<string, string>
 }
 
-export default function ExplainerPageComponent({ data }: Props) {
+export default function ExplainerPageComponent({ data, relatedLabels }: Props) {
   const { content } = data
   const t = useTranslations('ExplainerPage')
 
@@ -87,15 +93,15 @@ export default function ExplainerPageComponent({ data }: Props) {
         <section className="py-12 md:py-16 bg-[#f8f9fa]">
           <div className="mx-auto max-w-[900px] px-5">
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-6">
-              {content.table_heading ?? 'Simulator vs Real Golf'}
+              {content.table_heading ?? t('tableHeading')}
             </h2>
             <div className="overflow-x-auto">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="border-b-2 border-[#2d6a4f]">
                     <th className="py-3 pr-4 text-left font-semibold text-[#1a472a]">{t('feature')}</th>
-                    <th className="py-3 px-4 text-left font-semibold text-[#2d6a4f]">{content.col_a_label ?? 'Golf Simulator'}</th>
-                    <th className="py-3 pl-4 text-left font-semibold text-muted-foreground">{content.col_b_label ?? 'Real Golf'}</th>
+                    <th className="py-3 px-4 text-left font-semibold text-[#2d6a4f]">{content.col_a_label ?? t('colSimulator')}</th>
+                    <th className="py-3 pl-4 text-left font-semibold text-muted-foreground">{content.col_b_label ?? t('colRealGolf')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -139,7 +145,7 @@ export default function ExplainerPageComponent({ data }: Props) {
         <div className="mx-auto max-w-[900px] px-5">
           <h2 className="text-2xl font-bold md:text-3xl mb-4">{t('ctaTitle')}</h2>
           <p className="text-white/80 mb-8 max-w-lg mx-auto">
-            {t('ctaText', { address: BUSINESS_INFO.addressShort, hours: BUSINESS_INFO.hours })}
+            {t('ctaText')}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a
@@ -175,7 +181,9 @@ export default function ExplainerPageComponent({ data }: Props) {
             <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-6">{t('exploreMore')}</h2>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
               {data.related_slugs.map((path) => {
-                const label = path
+                // Prefer the localized label resolved by the page; fall back
+                // to a slug-derived label for paths outside the known types.
+                const label = relatedLabels?.[path] ?? path
                   .split('/')
                   .filter(Boolean)
                   .pop()!

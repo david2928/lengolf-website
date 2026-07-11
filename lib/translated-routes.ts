@@ -119,6 +119,19 @@ export function hasThaiTranslation(pathname: string): boolean {
 }
 
 /**
+ * Guide paths registered as translated for `locale` (the '/guide/...' entries
+ * in staticRoutes). This registry cannot import data/explainer-pages.ts (it is
+ * bundled into the edge middleware), so the smoke tests assert this list stays
+ * in sync with the locale-tagged entries in the data file — see
+ * scripts/smoke-test.ts registry-consistency check.
+ */
+export function getRegisteredGuidePaths(locale: string): string[] {
+  return (TRANSLATED_ROUTES[locale]?.staticRoutes ?? []).filter((r) =>
+    r.startsWith('/guide/')
+  )
+}
+
+/**
  * Return the set of locales (including 'en') that have a translation for this path.
  */
 export function getLocalesForPath(pathname: string): Locale[] {
