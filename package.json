@@ -9,6 +9,7 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.scripts.json",
     "test:smoke": "tsx scripts/smoke-test.ts",
+    "inventory": "tsx scripts/page-inventory.ts",
     "translate:seed": "tsx --env-file=.env.local scripts/translation-seed.ts",
     "translate:run": "tsx --env-file=.env.local scripts/translation-runner.ts",
     "translate:review": "tsx --env-file=.env.local scripts/translation-review.ts",

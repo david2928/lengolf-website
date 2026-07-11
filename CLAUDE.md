@@ -13,6 +13,7 @@ LENGOLF website — a Next.js 15 (App Router) site for an indoor golf simulator 
 - **Start production:** `npm run start`
 - **Lint:** `npm run lint`
 - **Smoke tests:** `npm run test:smoke` (requires a running server on localhost:3000)
+- **Page inventory:** `npm run inventory [base-url]` — table of published pages per section × language (EN/TH/JA/KO/ZH), parsed from the sitemap. Needs a running server **with DB access** (real `.env.local`), else DB-driven blog/location sections read 0. Point at prod with `npm run inventory https://www.len.golf`.
 - **Migrate blog posts:** `npx tsx scripts/migrate-blog-posts.ts` (one-time migration, already run)
 - **Import location pages:** `npx tsx scripts/import-location-pages.ts` (one-time migration, already run)
 
