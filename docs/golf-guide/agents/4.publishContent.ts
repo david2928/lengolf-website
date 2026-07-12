@@ -154,7 +154,6 @@ function buildExplainerObject(fm: Record<string, string>, body: string, id: stri
 ${sectionsTs}
       ],
       key_takeaways: [${keyTakeaways.map((t) => `\`${escapeForTs(t)}\``).join(', ')}],
-      related_services: ['/golf', '/golf-club-rental', '/golf-in-thailand-guide'],
       comparison_table: [],
     },
   }`
@@ -166,7 +165,6 @@ function buildFaqObject(fm: Record<string, string>, body: string, id: string): s
   const answerBody = paragraphs.slice(1).join('\n\n')
   const relatedSlugs = parseRelatedSlugs(fm.related_slugs || '')
   const faqSlugs = relatedSlugs.filter((s) => s.startsWith('/faq/'))
-  const serviceSlugs = relatedSlugs.filter((s) => !s.startsWith('/faq/'))
 
   const relatedQuestionsTs = faqSlugs
     .map((s) => {
@@ -195,7 +193,6 @@ function buildFaqObject(fm: Record<string, string>, body: string, id: string): s
       related_questions: [
 ${relatedQuestionsTs}
       ],
-      related_service_pages: [${serviceSlugs.map((s) => `'${s}'`).join(', ')}],
     },
   }`
 }
