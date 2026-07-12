@@ -15,9 +15,12 @@
  * link pointing at an SEO section (/faq, /guide, /cost, /best, /activities,
  * /hotels) resolves to a published page at that exact path.
  *
- * It intentionally does NOT validate non-SEO prefixes (/location, /golf-courses,
- * /blog, core static pages) — those are DB-driven or numerous, and were not the
- * source of the bug. Keeping scope tight avoids false positives.
+ * Scope note: /location and /golf-courses links are NOT validated here — those
+ * inventories are DB-driven (Supabase location_pages) or large data sets, and
+ * this script must run server-free in the CI lint job. That class of link
+ * (e.g. the near-chidlom typos) is covered by smoke-test section K
+ * (scripts/smoke-test.ts), which live-fetches every related_slugs path
+ * outside the prefixes validated here.
  *
  * Exit code 1 on any broken link so CI fails.
  *
@@ -30,7 +33,8 @@ import { priceGuidePages } from '@/data/price-guide-pages'
 import { bestOfListiclePages } from '@/data/best-of-listicle-pages'
 import { activityOccasionPages } from '@/data/activity-occasions'
 import { hotelConciergePages } from '@/data/hotel-pages'
-import type { SeoPage, FaqSeoPage } from '@/types/seo-pages'
+import { relatedQuestionPath } from '@/lib/seo-links'
+import type { SeoPage } from '@/types/seo-pages'
 
 // route prefix -> the page array served there
 const SECTIONS: Record<string, SeoPage[]> = {
@@ -46,56 +50,72 @@ const SECTIONS: Record<string, SeoPage[]> = {
 const SEO_PREFIXES = new Set(Object.keys(SECTIONS))
 
 // Build the inventory of valid 2-segment SEO paths: `/{prefix}/{slug}`.
-// A path is valid if ANY locale publishes that slug. This is deliberately
-// locale-BLIND and is correct: related links are written as root paths, and
-// middleware.ts (13-21) 301-redirects an untranslated /{locale}/{path} to the
-// English root path. So a link from a ja/ko/zh page to a slug only published in
-// EN does not 404 — it 301s to the EN page (200). Making this check
-// locale-strict would therefore produce FALSE POSITIVES on valid cross-locale
-// links. Do not "harden" it to per-locale without also modelling that redirect.
+//
+// Only EN-published pages define a valid ROOT path: related links are written
+// as root paths, and app/[locale]/{section}/[slug] only builds a root (EN)
+// page when an EN entry exists — a slug published only in ja/ko/zh would 404
+// at the root path. The reverse direction is safe without locale checks:
+// a link rendered on a ja/ko/zh page to an EN-only root path works because
+// middleware.ts (13-21) 301-redirects untranslated /{locale}/{path} to the
+// English root path. So: inventory = EN-published; no per-locale modelling.
 const validPaths = new Set<string>()
-// slug -> set of prefixes where that slug is actually published (for suggestions)
-const slugToPrefixes = new Map<string, Set<string>>()
 for (const [prefix, pages] of Object.entries(SECTIONS)) {
   for (const p of pages) {
-    if (p.status !== 'published') continue
-    validPaths.add(`/${prefix}/${p.slug}`)
-    if (!slugToPrefixes.has(p.slug)) slugToPrefixes.set(p.slug, new Set())
-    slugToPrefixes.get(p.slug)!.add(prefix)
+    if (p.status === 'published' && p.locale === 'en') {
+      validPaths.add(`/${prefix}/${p.slug}`)
+    }
   }
 }
 
-/** Where is this slug actually published? "" if nowhere. */
+/** Where is this slug actually published? Suggestion text for the error path. */
 function suggest(rawLink: string): string {
-  const segments = norm(rawLink).split('/').filter(Boolean)
-  const slug = segments[segments.length - 1]
-  const prefixes = slugToPrefixes.get(slug)
-  if (!prefixes || prefixes.size === 0) return '→ NOT PUBLISHED anywhere (remove or create the page)'
-  return `→ actually at ${[...prefixes].map((p) => `/${p}/${slug}`).join(' or ')}`
+  const slug = norm(rawLink).split('/').filter(Boolean).pop() ?? ''
+  const prefixes = Object.keys(SECTIONS).filter((p) => validPaths.has(`/${p}/${slug}`))
+  if (prefixes.length === 0) return '→ NOT PUBLISHED anywhere (remove or create the page)'
+  return `→ actually at ${prefixes.map((p) => `/${p}/${slug}`).join(' or ')}`
 }
 
 interface Broken {
-  from: string // "faq:grab-vs-taxi-bangkok-golf" (source page)
+  from: string // "faq:grab-vs-taxi-bangkok-golf (en)" (source page)
   field: string
   link: string
+  reason?: string
 }
 const broken: Broken[] = []
 
-/** Normalize a link to a root path with a leading slash and no trailing slash. */
+/**
+ * Normalize a link the way a browser resolves it: drop ?query/#fragment,
+ * strip a trailing slash. Deliberately does NOT add a missing leading slash —
+ * a related_slugs entry like 'guide/foo' renders as a RELATIVE href that
+ * resolves against the current page and 404s; normalizing it here would hide
+ * exactly the bug class this script exists to catch.
+ */
 function norm(link: string): string {
-  let s = link.trim()
-  if (!s.startsWith('/')) s = `/${s}`
+  let s = link.trim().split(/[?#]/)[0]
   if (s.length > 1 && s.endsWith('/')) s = s.slice(0, -1)
   return s
 }
 
 /** Check one outbound link from a source page. */
 function check(fromLabel: string, field: string, rawLink: string) {
+  if (!rawLink.trim().startsWith('/')) {
+    broken.push({
+      from: fromLabel,
+      field,
+      link: rawLink,
+      reason: 'no leading slash — renders as a relative URL',
+    })
+    return
+  }
   const path = norm(rawLink)
   const segments = path.split('/').filter(Boolean)
-  // Only validate 2-segment SEO-section links; skip static/DB-driven prefixes.
-  if (segments.length !== 2) return
-  if (!SEO_PREFIXES.has(segments[0])) return
+  if (segments.length === 0) return
+  // Case-insensitive prefix detection: '/Guide/x' is NOT out of scope — the
+  // route is case-sensitive, so it is a broken SEO link, not an unknown one.
+  if (!SEO_PREFIXES.has(segments[0].toLowerCase())) return // non-SEO prefix (/, /golf, /location, ...)
+  // Anything under an SEO prefix that isn't exactly /{prefix}/{slug} in the
+  // inventory is broken: wrong case, extra segments, unknown slug, bare
+  // section link with a slug missing, etc.
   if (!validPaths.has(path)) {
     broken.push({ from: fromLabel, field, link: rawLink })
   }
@@ -111,14 +131,12 @@ for (const [prefix, pages] of Object.entries(SECTIONS)) {
       check(label, 'related_slugs', link)
     }
 
-    // faq related_questions mirror FaqPage's link logic exactly: a bare slug is
-    // a sibling FAQ (/faq/{slug}); a full path (starts with "/") points at
-    // another section and is rendered as-is.
+    // faq related_questions resolve through the SAME shared helper the
+    // renderer (FaqPage.tsx) and JSON-LD builder (lib/jsonld.ts) use, so the
+    // guard cannot drift from what the site actually emits.
     if (page.page_type === 'faq') {
-      const rqs = (page as FaqSeoPage).content?.related_questions ?? []
-      for (const rq of rqs) {
-        const href = rq.slug.startsWith('/') ? rq.slug : `/faq/${rq.slug}`
-        check(label, 'related_questions', href)
+      for (const rq of page.content.related_questions) {
+        check(label, 'related_questions', relatedQuestionPath(rq.slug))
       }
     }
   }
@@ -131,7 +149,8 @@ if (broken.length === 0) {
 
 console.error(`❌ validate-internal-links: ${broken.length} broken internal link(s):\n`)
 for (const b of broken) {
-  console.error(`  • [${b.from}]  ${b.field}: ${b.link}  ${suggest(b.link)}`)
+  const why = b.reason ? `(${b.reason}) ` : ''
+  console.error(`  • [${b.from}]  ${b.field}: ${b.link}  ${why}${suggest(b.link)}`)
 }
 console.error(
   '\nFix: point each link at the section where the target slug is actually published' +

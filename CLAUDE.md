@@ -12,6 +12,7 @@ LENGOLF website — a Next.js 15 (App Router) site for an indoor golf simulator 
 - **Build:** `npm run build`
 - **Start production:** `npm run start`
 - **Lint:** `npm run lint`
+- **Validate internal links:** `npm run validate:links` — checks that SEO cross-links in `data/*.ts` (`related_slugs`, FAQ `related_questions`) resolve to published pages. No server needed.
 - **Smoke tests:** `npm run test:smoke` (requires a running server on localhost:3000)
 - **Page inventory:** `npm run inventory [base-url]` — table of published pages per section × language (EN/TH/JA/KO/ZH), parsed from the sitemap. Needs a running server **with DB access** (real `.env.local`), else DB-driven blog/location sections read 0. Point at prod with `npm run inventory https://www.len.golf`.
 - **Migrate blog posts:** `npx tsx scripts/migrate-blog-posts.ts` (one-time migration, already run)
@@ -21,8 +22,8 @@ LENGOLF website — a Next.js 15 (App Router) site for an indoor golf simulator 
 
 GitHub Actions workflow (`.github/workflows/ci.yml`) runs on every PR to `main`:
 
-- **`lint`** — `npm run lint` with ESLint flat config (`eslint.config.mjs`)
-- **`build-and-smoke`** — builds the app, starts the production server, runs smoke tests across 10 categories (per-category test counts live in `scripts/smoke-test.ts`):
+- **`lint`** — `npm run lint` with ESLint flat config (`eslint.config.mjs`), then `npm run validate:links` (internal SEO cross-link validator — a red "lint" check can be either one)
+- **`build-and-smoke`** — builds the app, starts the production server, runs smoke tests across 11 categories (per-category test counts live in `scripts/smoke-test.ts`):
   - **A) Route tests** — pages across all locales return 200 with `<main id="main-content">`
   - **B) Redirect tests** — WordPress legacy URLs, GSC 404 fixes, and location redirects
   - **C) Link checks** — booking.len.golf, LINE, Supabase Storage assets are reachable
@@ -33,6 +34,7 @@ GitHub Actions workflow (`.github/workflows/ci.yml`) runs on every PR to `main`:
   - **H) LLM / AI discoverability** — llms.txt served as text, robots.txt names AI crawlers, opening-hours schema consistent
   - **I) Translated-guide registry consistency** — the `/guide/...` allowlist in `lib/translated-routes.ts` must match the locale-tagged entries in `data/explainer-pages.ts` (pure import check, no server)
   - **J) Translated region-hub registry consistency** — the `/golf-courses/<region>` allowlist in `lib/translated-routes.ts` must match the translations in `data/golf-courses-i18n.ts` (pure import check, no server)
+  - **K) Data-driven internal-link liveness** — every `related_slugs` path outside the statically-validated SEO prefixes (`/location`, `/golf-courses`, core routes) is fetched live and must not 404 (complements `npm run validate:links`)
 
 Both jobs are **required checks** via branch protection — PRs cannot merge if either fails.
 
