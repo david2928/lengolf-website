@@ -28,6 +28,11 @@
  * Zero dependencies beyond tsx (already a devDep) + Node.js built-in fetch.
  */
 
+// Mark as a module so top-level declarations don't collide with other
+// scripts under tsconfig.scripts.json (a file with no static imports is
+// otherwise a global script to the compiler).
+export {}
+
 const BASE = process.argv[2] || 'http://localhost:3000'
 
 // ── Test definitions ────────────────────────────────────────────────
