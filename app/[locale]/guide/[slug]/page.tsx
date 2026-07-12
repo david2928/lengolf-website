@@ -1,11 +1,11 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getAllSeoPageParams, getSeoPageBySlug } from '@/lib/seo-pages'
+import { getAllSeoPageParams, getSeoPageBySlug, ROUTE_PREFIX_TO_TYPE } from '@/lib/seo-pages'
 import { getAlternates, getCanonical } from '@/lib/translated-routes'
 import { getExplainerPageJsonLd } from '@/lib/jsonld'
 import ExplainerPageComponent from '@/components/guides/ExplainerPage'
-import type { ExplainerSeoPage, SeoPageType } from '@/types/seo-pages'
+import type { ExplainerSeoPage } from '@/types/seo-pages'
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>
@@ -13,12 +13,8 @@ interface Props {
 
 // Related-link paths that point at other SEO pages resolve their label from
 // the target page's (localized) title instead of title-casing the URL slug.
-const RELATED_PATH_TYPES: Record<string, SeoPageType> = {
-  guide: 'explainer',
-  faq: 'faq',
-  cost: 'price_guide',
-  best: 'best_of_listicle',
-}
+// Uses the canonical section map — a local copy here previously drifted
+// (omitted activities/hotels), leaving those links with fallback labels.
 
 // Core static pages referenced from related_slugs — labels come from the
 // ExplainerPage.pathLabels i18n namespace (messages/*.json).
@@ -41,8 +37,8 @@ async function buildRelatedLabels(
     paths.map(async (path): Promise<[string, string] | null> => {
       const segments = path.split('/').filter(Boolean)
       // SEO pages (/guide/x, /faq/x, ...): localized title, EN fallback
-      if (segments.length === 2 && RELATED_PATH_TYPES[segments[0]]) {
-        const type = RELATED_PATH_TYPES[segments[0]]
+      if (segments.length === 2 && ROUTE_PREFIX_TO_TYPE[segments[0]]) {
+        const type = ROUTE_PREFIX_TO_TYPE[segments[0]]
         const target =
           (await getSeoPageBySlug(segments[1], type, locale)) ??
           (await getSeoPageBySlug(segments[1], type, 'en'))
