@@ -128,6 +128,8 @@ const routeTests: RouteTest[] = [
   { path: '/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // New EN guide (screen golf — Korean-style simulator golf)
   { path: '/guide/screen-golf-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // New EN guide (golf attire / dress code — fills a prior dead-link content gap)
+  { path: '/guide/what-to-wear-golf-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Translated JA guides (data/explainer-pages.ts locale:'ja' + ja allowlist entries)
   { path: '/ja/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Translated KO guides (data/explainer-pages.ts locale:'ko' + ko allowlist entries)
@@ -280,6 +282,7 @@ const redirectTests: RedirectTest[] = [
   // GSC 404 fixes
   { path: '/indoor-golf-ploenchit/', expectedStatus: 308, expectedLocation: '/location/indoor-golf-ploenchit/' },
   { path: '/lesson/', expectedStatus: 308, expectedLocation: '/lessons/' },
+  { path: '/golf-lessons-ari/', expectedStatus: 308, expectedLocation: '/lessons/' },
   // GSC 404 golf-near redirects (trailing slash required — trailingSlash:true fires 308 before middleware)
   { path: '/golf-near-thong-lo/', expectedStatus: 308, expectedLocation: '/location/golf-near-thong-lo/' },
   { path: '/golf-near-silom/', expectedStatus: 308, expectedLocation: '/location/golf-near-silom/' },

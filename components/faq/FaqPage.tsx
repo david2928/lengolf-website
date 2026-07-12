@@ -181,7 +181,11 @@ export default function FaqPageComponent({ data }: Props) {
               {content.related_questions.map((rq) => (
                 <Link
                   key={rq.slug}
-                  href={`/faq/${rq.slug}`}
+                  // A bare slug is a sibling FAQ (/faq/{slug}); a full path
+                  // (e.g. /guide/{slug}) points at another section and is used
+                  // as-is. Prepending /faq/ to a full path produced live 404s
+                  // that Google indexed — see scripts/validate-internal-links.ts.
+                  href={rq.slug.startsWith('/') ? rq.slug : `/faq/${rq.slug}`}
                   className="group flex items-start gap-3 rounded-lg border p-4 transition-colors hover:border-[#2d6a4f] hover:bg-[#e8f5e9]"
                 >
                   <HelpCircle className="h-5 w-5 mt-0.5 shrink-0 text-[#d4a843] group-hover:text-[#2d6a4f]" />

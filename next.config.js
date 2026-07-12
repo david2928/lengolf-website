@@ -104,6 +104,9 @@ const nextConfig = {
       { source: '/golf-near-ekkamai/', destination: '/location/golf-near-ekkamai/', permanent: true },
       { source: '/lesson', destination: '/lessons/', permanent: true },
       { source: '/lesson/', destination: '/lessons/', permanent: true },
+      // Legacy WordPress area-lesson page (indexed, now 404) -> lessons page.
+      { source: '/golf-lessons-ari', destination: '/lessons/', permanent: true },
+      { source: '/golf-lessons-ari/', destination: '/lessons/', permanent: true },
     ]
 
     // Rental-page consolidation: /rent-golf-clubs-bangkok/ was a duplicate
