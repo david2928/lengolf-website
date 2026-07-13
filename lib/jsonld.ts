@@ -1,4 +1,5 @@
 import { SITE_URL, SITE_NAME, BUSINESS_INFO, SOCIAL_LINKS, storageUrl } from '@/lib/constants'
+import { relatedQuestionPath } from '@/lib/seo-links'
 import type { UsedClub } from '@/lib/clubs'
 import type { BayRateRow, MonthlyPackageRow, LessonPackage, EventPackage } from '@/data/pricing'
 import type { MenuGroup } from '@/data/food-menu'
@@ -630,7 +631,9 @@ export function getSeoFaqPageJsonLd(page: {
     name: rq.question,
     acceptedAnswer: {
       '@type': 'Answer' as const,
-      text: `See our full answer at ${SITE_URL}/faq/${rq.slug}/`,
+      // related_questions may point at other sections (/guide/...) — resolve
+      // via the shared helper so this never drifts from FaqPage's hrefs again.
+      text: `See our full answer at ${SITE_URL}${relatedQuestionPath(rq.slug)}/`,
     },
   }))
 

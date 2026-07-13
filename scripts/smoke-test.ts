@@ -128,6 +128,8 @@ const routeTests: RouteTest[] = [
   { path: '/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // New EN guide (screen golf — Korean-style simulator golf)
   { path: '/guide/screen-golf-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // New EN guide (golf attire / dress code — fills a prior dead-link content gap)
+  { path: '/guide/what-to-wear-golf-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Translated JA guides (data/explainer-pages.ts locale:'ja' + ja allowlist entries)
   { path: '/ja/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Translated KO guides (data/explainer-pages.ts locale:'ko' + ko allowlist entries)
@@ -280,6 +282,7 @@ const redirectTests: RedirectTest[] = [
   // GSC 404 fixes
   { path: '/indoor-golf-ploenchit/', expectedStatus: 308, expectedLocation: '/location/indoor-golf-ploenchit/' },
   { path: '/lesson/', expectedStatus: 308, expectedLocation: '/lessons/' },
+  { path: '/golf-lessons-ari/', expectedStatus: 308, expectedLocation: '/location/golf-lessons-ari/' },
   // GSC 404 golf-near redirects (trailing slash required — trailingSlash:true fires 308 before middleware)
   { path: '/golf-near-thong-lo/', expectedStatus: 308, expectedLocation: '/location/golf-near-thong-lo/' },
   { path: '/golf-near-silom/', expectedStatus: 308, expectedLocation: '/location/golf-near-silom/' },
@@ -797,6 +800,59 @@ async function runRegionHubRegistryConsistencyTests() {
   }
 }
 
+// ── K) Data-driven internal-link liveness ───────────────────────────
+// Complement to scripts/validate-internal-links.ts: the static validator
+// covers the six SEO sections (/faq, /guide, /cost, /best, /activities,
+// /hotels) but deliberately skips DB-driven prefixes (/location,
+// /golf-courses) and core routes — the near-chidlom slug typos shipped
+// through exactly that gap. This section fetches every related_slugs path
+// OUTSIDE the statically-validated prefixes against the live (DB-backed)
+// server and fails on 404.
+
+async function runDataLinkLivenessTests() {
+  console.log('\n\x1b[1mK) Data-driven internal-link liveness\x1b[0m')
+  // Must match SECTIONS in scripts/validate-internal-links.ts — paths under
+  // these prefixes are already validated statically and are skipped here.
+  const STATIC_PREFIXES = new Set(['faq', 'guide', 'cost', 'best', 'activities', 'hotels'])
+  const modules = await Promise.all([
+    import('../data/faq-pages').then((m) => m.faqPages),
+    import('../data/explainer-pages').then((m) => m.explainerPages),
+    import('../data/price-guide-pages').then((m) => m.priceGuidePages),
+    import('../data/best-of-listicle-pages').then((m) => m.bestOfListiclePages),
+    import('../data/activity-occasions').then((m) => m.activityOccasionPages),
+    import('../data/hotel-pages').then((m) => m.hotelConciergePages),
+  ])
+
+  const paths = new Set<string>()
+  for (const pages of modules) {
+    for (const p of pages) {
+      if (p.status !== 'published') continue
+      for (const link of p.related_slugs ?? []) {
+        const clean = link.split(/[?#]/)[0]
+        const first = clean.split('/').filter(Boolean)[0]
+        if (first && !STATIC_PREFIXES.has(first)) paths.add(clean)
+      }
+    }
+  }
+
+  for (const path of [...paths].sort()) {
+    const target = path.endsWith('/') ? path : `${path}/`
+    try {
+      const res = await fetch(`${BASE}${target}`, { redirect: 'follow' })
+      if (res.status !== 404) {
+        pass(`${path} resolves (${res.status})`)
+      } else {
+        fail(
+          `${path} is a 404`,
+          'related_slugs entry points at a missing page — fix the slug or remove the link (prefix not covered by validate-internal-links.ts)'
+        )
+      }
+    } catch (err) {
+      fail(`${path} fetch error`, String(err))
+    }
+  }
+}
+
 // ── Main ────────────────────────────────────────────────────────────
 
 async function main() {
@@ -821,6 +877,7 @@ async function main() {
   await runLlmDiscoverabilityTests()
   await runRegistryConsistencyTests()
   await runRegionHubRegistryConsistencyTests()
+  await runDataLinkLivenessTests()
 
   console.log(`\n\x1b[1m${passed} passed, ${failed} failed\x1b[0m`)
   if (failures.length > 0) {

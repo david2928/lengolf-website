@@ -772,7 +772,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     related_slugs: [
       '/guide/golf-simulator-vs-real-course-bangkok',
       '/guide/what-is-a-golf-simulator',
-      '/guide/best-time-of-day-golf-bangkok',
+      '/faq/best-time-of-day-golf-bangkok',
       '/golf-in-thailand-guide',
     ],
     created_at: now,
@@ -1143,7 +1143,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     locale: 'en',
     related_slugs: [
       '/guide/suvarnabhumi-airport-to-bangkok-golf',
-      '/guide/grab-vs-taxi-bangkok-golf',
+      '/faq/grab-vs-taxi-bangkok-golf',
       '/guide/best-golf-courses-near-bangkok',
       '/golf-in-thailand-guide',
     ],
@@ -1196,7 +1196,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     locale: 'en',
     related_slugs: [
       '/guide/thai-golf-course-etiquette',
-      '/guide/how-much-tip-caddie-thailand',
+      '/faq/how-much-tip-caddie-thailand',
       '/guide/how-to-book-golf-tee-times-thailand',
       '/golf-in-thailand-guide',
     ],
@@ -1258,7 +1258,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     related_slugs: [
       '/guide/bring-golf-clubs-thailand-or-rent',
       '/guide/renting-golf-clubs-thai-golf-courses',
-      '/guide/what-golf-clubs-available-rent-bangkok',
+      '/faq/what-golf-clubs-available-rent-bangkok',
       '/golf-in-thailand-guide',
     ],
     created_at: now,
@@ -1482,7 +1482,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     related_slugs: [
       '/guide/best-golf-simulators-bangkok',
       '/guide/best-golf-courses-near-bangkok',
-      '/guide/best-time-of-day-golf-bangkok',
+      '/faq/best-time-of-day-golf-bangkok',
       '/golf-in-thailand-guide',
     ],
     created_at: now,
@@ -1809,7 +1809,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     related_slugs: [
       '/guide/golf-club-rental-bangkok-guide',
       '/guide/bring-golf-clubs-thailand-or-rent',
-      '/guide/what-golf-clubs-available-rent-bangkok',
+      '/faq/what-golf-clubs-available-rent-bangkok',
       '/golf-in-thailand-guide',
     ],
     created_at: now,
@@ -2852,7 +2852,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     status: 'published',
     category: 'getting-to-bangkok',
     locale: 'en',
-    related_slugs: ['/golf-in-thailand-guide', '/guide/don-mueang-airport-to-bangkok', '/guide/grab-vs-taxi-bangkok-golf', '/guide/best-golf-courses-near-bangkok'],
+    related_slugs: ['/golf-in-thailand-guide', '/guide/don-mueang-airport-to-bangkok', '/faq/grab-vs-taxi-bangkok-golf', '/guide/best-golf-courses-near-bangkok'],
     created_at: '2026-03-28T00:00:00.000Z',
     updated_at: '2026-03-28T00:00:00.000Z',
     content: {
@@ -2960,7 +2960,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     status: 'published',
     category: 'on-course-experience',
     locale: 'en',
-    related_slugs: ['/golf-in-thailand-guide', '/guide/first-time-golf-thailand', '/guide/do-you-need-caddie-thailand-golf', '/guide/how-to-book-golf-tee-times-thailand'],
+    related_slugs: ['/golf-in-thailand-guide', '/guide/first-time-golf-thailand', '/faq/do-you-need-caddie-thailand-golf', '/guide/how-to-book-golf-tee-times-thailand'],
     created_at: '2026-03-28T00:00:00.000Z',
     updated_at: '2026-03-28T00:00:00.000Z',
     content: {
@@ -3052,6 +3052,61 @@ export const explainerPages: ExplainerSeoPage[] = [
         'All figures are approximate; verify current green fees directly with courses before booking',
       ],
       related_services: ['/golf-in-thailand-guide', '/golf', '/golf-club-rental'],
+      comparison_table: [],
+    },
+  },
+
+  // ─── Golf Guide: what-to-wear-golf-thailand (GG-063) ───
+  {
+    id: 'exp-41',
+    page_type: 'explainer',
+    slug: 'what-to-wear-golf-thailand',
+    title: 'What to Wear for Golf in Thailand — Dress Code & Heat Guide',
+    meta_description: `What to wear for golf in Thailand: course dress codes, heat-beating fabrics, sun protection, and what gets you turned away. A practical packing guide for Bangkok's tropical conditions.`,
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'packing-preparation',
+    locale: 'en',
+    related_slugs: ['/golf-in-thailand-guide', '/guide/best-time-play-golf-thailand', '/faq/golf-shoes-thailand', '/faq/golf-fitness-heat-thailand'],
+    created_at: '2026-07-12T00:00:00.000Z',
+    updated_at: '2026-07-12T00:00:00.000Z',
+    content: {
+      intro: `Golf in Thailand comes with two clothing considerations most visitors underestimate: a fairly traditional dress code at the majority of courses, and heat and humidity that make the wrong fabrics genuinely uncomfortable. Turn up in the wrong outfit and you can be refused play; turn up in cotton on a 38°C April morning and you'll spend 18 holes soaked and drained.\n\nThe good news is that dressing correctly for Thai golf is simple once you know the rules. This guide covers what courses expect, what actually keeps you comfortable in the tropics, and what to leave at home.`,
+      sections: [
+        {
+          heading: `The Standard Thai Golf Course Dress Code`,
+          body: `Most Bangkok-area and resort courses enforce a dress code broadly in line with international golf clubs. The core requirements almost everywhere:\n\n- **Collared shirt** — a proper golf polo (short or long sleeve). Mock necks are usually fine; round-neck t-shirts and tank tops are not.\n- **Tailored shorts or trousers** — golf shorts or slacks. Many courses specify a minimum short length (roughly knee-ish).\n- **Golf shoes** — soft spikes or spikeless. See our dedicated note on footwear below.\n- **No denim** — jeans are refused at the large majority of courses, even smart dark ones.\n\nMore prestigious and members' clubs apply stricter standards (tucked-in shirts, no cargo shorts, sometimes trousers only). Municipal and relaxed resort courses are more forgiving, but the collared-shirt rule is close to universal. When in doubt, dress up rather than down — you will never be turned away for being too smart.`,
+        },
+        {
+          heading: `Dressing for the Heat — Fabric Matters More Than You Think`,
+          body: `Thailand's climate is the real challenge. Bangkok sits between 25°C and 40°C year-round, with humidity often above 70%. Cotton absorbs sweat, clings, and stays wet for hours — exactly what you don't want.\n\nPrioritise modern **moisture-wicking synthetic or performance-blend** fabrics that most golf brands now use as standard. They pull sweat off the skin, dry fast, and keep you noticeably cooler over a five-hour round.\n\n| Item | Best choice for Thailand | Avoid |\n|------|--------------------------|-------|\n| Shirt | Light-colour moisture-wicking polo | Dark cotton, heavy fabric |\n| Bottoms | Lightweight performance shorts | Denim, thick chinos |\n| Base layer | None, or a UV cooling sleeve | Cotton undershirts |\n| Socks | Technical breathable golf socks | Thick cotton socks |\n| Hat | Wide-brim or breathable cap | No head cover at all |\n\nLight colours reflect heat and are cooler than black or navy under direct sun.`,
+        },
+        {
+          heading: `Sun Protection Is Not Optional`,
+          body: `Thailand's UV index is extreme by European and North American standards, and an unshaded round exposes you for four to five hours. Pack accordingly:\n\n1. **Hat or visor** — a wide-brim hat protects ears and neck better than a cap.\n2. **UV sunglasses** — glare off water hazards and bright fairways is intense.\n3. **Sunscreen SPF 50+** — apply before you start and reapply at the turn; sweat washes it off faster than you expect.\n4. **UV sleeves** — lightweight cooling arm sleeves are popular with local golfers; they shade the arms without adding heat.\n\nSunburn accumulates fast here and can ruin the rest of a short trip.`,
+        },
+        {
+          heading: `A Note on Golf Shoes`,
+          body: `Dedicated golf shoes are expected at most courses — running shoes and sandals are commonly refused. In Thailand's heat and humidity, **spikeless shoes** are the practical choice for most visitors: lighter, more breathable, faster-drying, and comfortable enough to double as casual footwear off the course. Spiked shoes still make sense if you play predominantly in the rainy season and want maximum grip on wet fairways.\n\nRental golf shoes exist at some courses but stock, sizing, and hygiene are inconsistent — bring your own if you can.`,
+        },
+        {
+          heading: `Ladies' Dress Code`,
+          body: `For women, most Thai courses accept collared golf shirts or sleeveless golf tops with a collar, alongside golf skorts, skirts, shorts, or trousers. As with men's wear, denim and non-golf casual t-shirts are the common exclusions. Prestigious clubs may specify a minimum hem length. Moisture-wicking fabrics and sun protection matter just as much — the heat does not discriminate.`,
+        },
+        {
+          heading: `Indoor Golf at LENGOLF — No Dress Code, No Heat`,
+          body: `If the dress code and the weather feel like a lot to plan around, indoor golf sidesteps both. At LENGOLF, Bangkok's air-conditioned indoor golf simulator venue, there is no course dress code and no sun or heat to manage — regular comfortable clothes and clean trainers are perfectly fine. It's a practical option for arrival days, peak-heat April afternoons, or rainy-season washouts, and a relaxed way to warm up before a trip to an outdoor course.`,
+        },
+      ],
+      key_takeaways: [
+        'A collared golf shirt is required at almost every Thai course; denim is refused nearly everywhere',
+        'Choose light-colour moisture-wicking fabrics — cotton stays wet and makes the heat worse',
+        'Sun protection (hat, SPF 50+, UV sunglasses, arm sleeves) is essential, not optional',
+        'Spikeless golf shoes suit Thailand best; bring your own rather than relying on rentals',
+        'Indoor golf at LENGOLF has no dress code and no heat — an easy weather-proof alternative',
+      ],
+      related_services: ['/golf', '/golf-in-thailand-guide', '/golf-club-rental'],
       comparison_table: [],
     },
   },

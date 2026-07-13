@@ -23,6 +23,9 @@ jobs:
 
       - run: npm ci
       - run: npm run lint
+      # Guards against wrong-prefix SEO cross-links (a FAQ slug linked as
+      # /guide/… or vice-versa) shipping as live 404s. No server needed.
+      - run: npm run validate:links
 
   build-and-smoke:
     runs-on: ubuntu-latest
