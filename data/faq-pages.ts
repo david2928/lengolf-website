@@ -35,7 +35,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: 'cost-to-fly-with-golf-clubs-to-thailand', question: 'How Much Does It Cost to Fly with Golf Clubs to Thailand?' },
         { slug: 'how-much-does-indoor-golf-cost-in-bangkok', question: 'How Much Does Indoor Golf Cost in Bangkok?' },
       ],
-      related_service_pages: ['/golf-club-rental', '/golf'],
     },
   },
   {
@@ -63,7 +62,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: 'how-much-does-corporate-golf-event-cost-bangkok', question: 'How Much Does a Corporate Golf Event Cost in Bangkok?' },
         { slug: 'how-long-does-simulator-golf-take', question: 'How Long Does a Round of Simulator Golf Take?' },
       ],
-      related_service_pages: ['/golf', '/lessons'],
     },
   },
   {
@@ -91,7 +89,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: 'how-accurate-are-golf-simulators', question: 'How Accurate Are Golf Simulators Compared to Real Golf?' },
         { slug: 'where-to-play-golf-at-night-in-bangkok', question: 'Where Can I Play Golf at Night in Bangkok?' },
       ],
-      related_service_pages: ['/golf'],
     },
   },
   {
@@ -119,7 +116,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: 'what-to-wear-to-indoor-golf-bar', question: 'What Should I Wear to an Indoor Golf Bar?' },
         { slug: 'how-long-does-simulator-golf-take', question: 'How Long Does a Round of Simulator Golf Take?' },
       ],
-      related_service_pages: ['/golf', '/lessons'],
     },
   },
   {
@@ -147,7 +143,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: 'can-you-play-golf-in-bangkok-when-it-rains', question: 'Can You Play Golf in Bangkok When It Rains?' },
         { slug: 'how-long-does-simulator-golf-take', question: 'How Long Does a Round of Simulator Golf Take?' },
       ],
-      related_service_pages: ['/golf'],
     },
   },
   {
@@ -175,7 +170,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: 'practice-golf-swing-without-driving-range-bangkok', question: 'Can I Practice My Golf Swing Without a Driving Range in Bangkok?' },
         { slug: 'how-long-does-simulator-golf-take', question: 'How Long Does a Round of Simulator Golf Take?' },
       ],
-      related_service_pages: ['/golf', '/lessons'],
     },
   },
   {
@@ -203,7 +197,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: 'do-i-need-experience-to-play-golf-simulator', question: 'Do I Need Golf Experience to Play a Golf Simulator?' },
         { slug: 'how-accurate-are-golf-simulators', question: 'How Accurate Are Golf Simulators Compared to Real Golf?' },
       ],
-      related_service_pages: ['/golf'],
     },
   },
   {
@@ -231,7 +224,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: 'how-long-does-simulator-golf-take', question: 'How Long Does a Round of Simulator Golf Take?' },
         { slug: 'can-beginners-play-golf-simulators', question: 'Can Beginners Play Golf Simulators?' },
       ],
-      related_service_pages: ['/golf'],
     },
   },
   {
@@ -259,7 +251,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: 'can-beginners-play-golf-simulators', question: 'Can Beginners Play Golf Simulators?' },
         { slug: 'best-way-to-learn-golf-in-bangkok', question: 'What Is the Best Way to Learn Golf in Bangkok?' },
       ],
-      related_service_pages: ['/lessons', '/golf'],
     },
   },
   {
@@ -287,7 +278,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: 'best-way-to-learn-golf-in-bangkok', question: 'What Is the Best Way to Learn Golf in Bangkok?' },
         { slug: 'what-to-wear-to-indoor-golf-bar', question: 'What Should I Wear to an Indoor Golf Bar?' },
       ],
-      related_service_pages: ['/golf', '/lessons'],
     },
   },
   {
@@ -315,7 +305,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: 'how-much-does-indoor-golf-cost-in-bangkok', question: 'How Much Does Indoor Golf Cost in Bangkok?' },
         { slug: 'how-accurate-are-golf-simulators', question: 'How Accurate Are Golf Simulators Compared to Real Golf?' },
       ],
-      related_service_pages: ['/lessons', '/golf'],
     },
   },
   {
@@ -343,7 +332,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: 'can-i-rent-golf-clubs-in-bangkok', question: 'Can I Rent Golf Clubs in Bangkok?' },
         { slug: 'how-much-does-indoor-golf-cost-in-bangkok', question: 'How Much Does Indoor Golf Cost in Bangkok?' },
       ],
-      related_service_pages: ['/golf-club-rental', '/golf'],
     },
   },
   {
@@ -371,7 +359,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: 'can-i-rent-golf-clubs-in-bangkok', question: 'Can I Rent Golf Clubs in Bangkok?' },
         { slug: 'how-much-does-indoor-golf-cost-in-bangkok', question: 'How Much Does Indoor Golf Cost in Bangkok?' },
       ],
-      related_service_pages: ['/golf-club-rental'],
     },
   },
   {
@@ -399,7 +386,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: 'best-way-to-learn-golf-in-bangkok', question: 'What Is the Best Way to Learn Golf in Bangkok?' },
         { slug: 'how-much-does-indoor-golf-cost-in-bangkok', question: 'How Much Does Indoor Golf Cost in Bangkok?' },
       ],
-      related_service_pages: ['/golf', '/lessons'],
     },
   },
   {
@@ -427,7 +413,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: 'how-long-does-simulator-golf-take', question: 'How Long Does a Round of Simulator Golf Take?' },
         { slug: 'do-i-need-experience-to-play-golf-simulator', question: 'Do I Need Golf Experience to Play a Golf Simulator?' },
       ],
-      related_service_pages: ['/events', '/golf'],
     },
   },
 
@@ -454,7 +439,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: '/guide/how-to-pack-golf-clubs-flight-thailand', question: 'How to pack golf clubs for a flight to Thailand' },
         { slug: '/guide/bring-golf-clubs-thailand-or-rent', question: 'Should you bring golf clubs to Thailand or rent?' },
       ],
-      related_service_pages: ['/golf-club-rental', '/golf-in-thailand-guide'],
     },
   },
 
@@ -480,7 +464,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: 'thailand-entry-requirements-golfers', question: 'Thailand entry requirements 2026 — quick guide for golfers' },
         { slug: '/guide/suvarnabhumi-airport-to-bangkok-golf', question: 'Getting from Suvarnabhumi Airport to Bangkok — golf traveller\'s guide' },
       ],
-      related_service_pages: ['/golf-in-thailand-guide', '/golf'],
     },
   },
 
@@ -506,7 +489,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: 'thailand-visa-guide-golf-tourists', question: 'Thailand visa guide for golf tourists' },
         { slug: '/guide/suvarnabhumi-airport-to-bangkok-golf', question: 'Getting from Suvarnabhumi Airport to Bangkok — golf traveller\'s guide' },
       ],
-      related_service_pages: ['/golf-in-thailand-guide', '/golf'],
     },
   },
 
@@ -540,7 +522,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: '/guide/best-time-play-golf-thailand', question: 'What is the best time of year to play golf in Thailand?' },
         { slug: '/guide/golf-weather-bangkok-by-month', question: 'What is the weather like for golf in Bangkok each month?' },
       ],
-      related_service_pages: ['/golf', '/golf-in-thailand-guide'],
     },
   },
 
@@ -574,7 +555,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: '/guide/bangkok-hotels-to-golf-courses-transport', question: 'How do I get from Bangkok hotels to golf courses?' },
         { slug: '/guide/suvarnabhumi-airport-to-bangkok-golf', question: 'How do I get from Suvarnabhumi Airport to Bangkok golf courses?' },
       ],
-      related_service_pages: ['/golf', '/golf-in-thailand-guide'],
     },
   },
 
@@ -601,7 +581,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: '/guide/is-thailand-good-for-golf', question: 'Is Thailand good for golf?' },
         { slug: '/guide/best-time-play-golf-thailand', question: 'Best time of year to play golf in Thailand' },
       ],
-      related_service_pages: ['/golf-in-thailand-guide', '/golf'],
     },
   },
 
@@ -628,7 +607,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: '/guide/how-to-book-golf-tee-times-thailand', question: 'How to book golf tee times in Thailand' },
         { slug: '/guide/golfnow-thailand-review', question: 'GolfNow Thailand — does it work and is it the best price?' },
       ],
-      related_service_pages: ['/golf-in-thailand-guide', '/golf'],
     },
   },
 
@@ -655,7 +633,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: 'do-you-need-golf-travel-bag-thailand', question: 'Do you need a golf travel bag for Thailand?' },
         { slug: '/guide/bring-golf-clubs-thailand-or-rent', question: 'Should you bring golf clubs to Thailand or rent?' },
       ],
-      related_service_pages: ['/golf-in-thailand-guide', '/golf'],
     },
   },
 
@@ -682,7 +659,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: '/guide/best-time-play-golf-thailand', question: 'Best time of year to play golf in Thailand' },
         { slug: '/guide/golf-bangkok-rainy-season', question: 'Golf in Bangkok during the rainy season' },
       ],
-      related_service_pages: ['/golf-in-thailand-guide', '/golf'],
     },
   },
 
@@ -709,7 +685,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: '/guide/thai-golf-course-etiquette', question: 'Thai golf course etiquette guide' },
         { slug: '/guide/round-of-golf-cost-bangkok', question: 'How much does a round of golf cost in Bangkok?' },
       ],
-      related_service_pages: ['/golf-in-thailand-guide', '/golf'],
     },
   },
 
@@ -736,7 +711,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: '/guide/thai-golf-course-etiquette', question: 'Thai golf course etiquette guide' },
         { slug: '/guide/round-of-golf-cost-bangkok', question: 'How much does a round of golf cost in Bangkok?' },
       ],
-      related_service_pages: ['/golf-in-thailand-guide', '/golf'],
     },
   },
 
@@ -763,7 +737,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: 'do-you-need-caddie-thailand-golf', question: 'Do you need a caddie at Thai golf courses?' },
         { slug: '/guide/golf-bangkok-rainy-season', question: 'Golf in Bangkok during the rainy season' },
       ],
-      related_service_pages: ['/golf', '/golf-in-thailand-guide'],
     },
   },
 
@@ -790,7 +763,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: '/guide/best-golf-simulators-bangkok', question: 'Best golf simulators in Bangkok' },
         { slug: '/guide/golf-thailand-beginners', question: 'Golf in Thailand for beginners' },
       ],
-      related_service_pages: ['/golf', '/golf-in-thailand-guide'],
     },
   },
 
@@ -817,7 +789,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: '/guide/golf-club-rental-bangkok-guide', question: 'Golf club rental in Bangkok — complete guide' },
         { slug: 'what-golf-clubs-available-rent-bangkok', question: 'What golf clubs are available to rent in Bangkok?' },
       ],
-      related_service_pages: ['/golf-club-rental', '/golf-in-thailand-guide'],
     },
   },
 
@@ -844,7 +815,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: '/guide/bring-golf-clubs-thailand-or-rent', question: 'Should you bring golf clubs to Thailand or rent?' },
         { slug: '/guide/how-to-pack-golf-clubs-flight-thailand', question: 'How to pack golf clubs for a flight to Thailand' },
       ],
-      related_service_pages: ['/golf-club-rental', '/golf-in-thailand-guide'],
     },
   },
 
@@ -871,7 +841,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: '/guide/best-golf-courses-near-bangkok', question: 'Best golf courses near Bangkok' },
         { slug: 'last-minute-golf-tee-times-thailand', question: 'Can you get last-minute golf tee times in Thailand?' },
       ],
-      related_service_pages: ['/golf-in-thailand-guide', '/golf'],
     },
   },
 
@@ -898,7 +867,6 @@ export const faqPages: FaqSeoPage[] = [
         { slug: '/guide/renting-golf-clubs-thai-golf-courses', question: 'Renting golf clubs at Thai golf courses' },
         { slug: '/guide/bring-golf-clubs-thailand-or-rent', question: 'Should you bring golf clubs to Thailand or rent?' },
       ],
-      related_service_pages: ['/golf-club-rental', '/golf-in-thailand-guide'],
     },
   },
 ]

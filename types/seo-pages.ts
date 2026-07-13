@@ -46,7 +46,6 @@ export interface FaqContent {
   answer_intro: string
   answer_body: string
   related_questions: { slug: string; question: string }[]
-  related_service_pages: string[]
 }
 
 export interface HotelConciergeContent {
@@ -122,7 +121,6 @@ export interface ExplainerContent {
   intro: string
   sections: { heading: string; body: string }[]
   key_takeaways: string[]
-  related_services: string[]
   comparison_table: { feature: string; simulator: string; real_golf: string }[]
   table_heading?: string
   col_a_label?: string

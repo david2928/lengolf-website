@@ -27,24 +27,19 @@
  * Usage: npx tsx scripts/validate-internal-links.ts
  */
 
-import { faqPages } from '@/data/faq-pages'
-import { explainerPages } from '@/data/explainer-pages'
-import { priceGuidePages } from '@/data/price-guide-pages'
-import { bestOfListiclePages } from '@/data/best-of-listicle-pages'
-import { activityOccasionPages } from '@/data/activity-occasions'
-import { hotelConciergePages } from '@/data/hotel-pages'
+import { PAGE_DATA_MAP, ROUTE_PREFIX_TO_TYPE } from '@/lib/seo-pages'
 import { relatedQuestionPath } from '@/lib/seo-links'
 import type { SeoPage } from '@/types/seo-pages'
 
-// route prefix -> the page array served there
-const SECTIONS: Record<string, SeoPage[]> = {
-  faq: faqPages,
-  guide: explainerPages,
-  cost: priceGuidePages,
-  best: bestOfListiclePages,
-  activities: activityOccasionPages,
-  hotels: hotelConciergePages,
-}
+// route prefix -> the page array served there, derived from the canonical
+// section map in lib/seo-pages.ts — a new SEO section added there is picked
+// up here automatically instead of being silently skipped.
+const SECTIONS: Record<string, SeoPage[]> = Object.fromEntries(
+  Object.entries(ROUTE_PREFIX_TO_TYPE).map(([prefix, type]) => [
+    prefix,
+    PAGE_DATA_MAP[type] ?? [],
+  ])
+)
 
 // The set of first-path-segments that identify an SEO section we can validate.
 const SEO_PREFIXES = new Set(Object.keys(SECTIONS))

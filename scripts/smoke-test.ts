@@ -28,6 +28,11 @@
  * Zero dependencies beyond tsx (already a devDep) + Node.js built-in fetch.
  */
 
+// Mark as a module so top-level declarations don't collide with other
+// scripts under tsconfig.scripts.json (a file with no static imports is
+// otherwise a global script to the compiler).
+export {}
+
 const BASE = process.argv[2] || 'http://localhost:3000'
 
 // ── Test definitions ────────────────────────────────────────────────
@@ -811,20 +816,14 @@ async function runRegionHubRegistryConsistencyTests() {
 
 async function runDataLinkLivenessTests() {
   console.log('\n\x1b[1mK) Data-driven internal-link liveness\x1b[0m')
-  // Must match SECTIONS in scripts/validate-internal-links.ts — paths under
-  // these prefixes are already validated statically and are skipped here.
-  const STATIC_PREFIXES = new Set(['faq', 'guide', 'cost', 'best', 'activities', 'hotels'])
-  const modules = await Promise.all([
-    import('../data/faq-pages').then((m) => m.faqPages),
-    import('../data/explainer-pages').then((m) => m.explainerPages),
-    import('../data/price-guide-pages').then((m) => m.priceGuidePages),
-    import('../data/best-of-listicle-pages').then((m) => m.bestOfListiclePages),
-    import('../data/activity-occasions').then((m) => m.activityOccasionPages),
-    import('../data/hotel-pages').then((m) => m.hotelConciergePages),
-  ])
+  // Derived from the canonical section map (lib/seo-pages.ts): paths under
+  // these prefixes are validated statically by validate-internal-links.ts
+  // and skipped here; everything else gets a live fetch.
+  const { PAGE_DATA_MAP, ROUTE_PREFIX_TO_TYPE } = await import('../lib/seo-pages')
+  const STATIC_PREFIXES = new Set(Object.keys(ROUTE_PREFIX_TO_TYPE))
 
   const paths = new Set<string>()
-  for (const pages of modules) {
+  for (const pages of Object.values(PAGE_DATA_MAP)) {
     for (const p of pages) {
       if (p.status !== 'published') continue
       for (const link of p.related_slugs ?? []) {

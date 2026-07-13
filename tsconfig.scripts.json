@@ -4,8 +4,12 @@
     "noEmit": true
   },
   "include": [
+    "next-env.d.ts",
     "lib/translations/**/*.ts",
-    "scripts/translation-*.ts"
+    "scripts/translation-*.ts",
+    "scripts/validate-internal-links.ts",
+    "scripts/smoke-test.ts",
+    "scripts/page-inventory.ts"
   ],
   "exclude": ["node_modules"]
 }
