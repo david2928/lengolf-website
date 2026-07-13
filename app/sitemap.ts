@@ -70,6 +70,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const englishOnlyPages: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/privacy-policy/`, lastModified: reviewed, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${SITE_URL}/terms-of-service/`, lastModified: reviewed, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${SITE_URL}/golf-course-club-rental-agreement/`, lastModified: reviewed, changeFrequency: 'yearly', priority: 0.3 },
   ]
 
   // Blog posts — the one source with a genuine DB edit date.

@@ -196,6 +196,7 @@ export default async function Footer() {
           <div className="flex gap-4">
             <Link href="/privacy-policy" className="transition-colors hover:text-primary">{t('privacyPolicy')}</Link>
             <Link href="/terms-of-service" className="transition-colors hover:text-primary">{t('termsOfService')}</Link>
+            <Link href="/golf-course-club-rental-agreement" className="transition-colors hover:text-primary">{t('rentalAgreement')}</Link>
           </div>
         </div>
       </div>
