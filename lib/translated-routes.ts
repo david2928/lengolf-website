@@ -40,7 +40,10 @@ const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynam
       '/guide/bring-golf-clubs-thailand-or-rent',
       '/guide/golf-club-baggage-fees-airlines-bangkok',
       '/guide/golf-lessons-bangkok-coaches',
+      '/guide/green-fees-bangkok-golf-courses',
+      '/guide/how-to-book-golf-tee-times-thailand',
       '/guide/renting-golf-clubs-thai-golf-courses',
+      '/guide/round-of-golf-cost-bangkok',
       '/guide/screen-golf-bangkok',
       // Translated region hubs (data/golf-courses-i18n.ts) — kept in sync by the
       // smoke-test region-hub consistency check.
