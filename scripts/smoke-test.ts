@@ -148,6 +148,8 @@ const routeTests: RouteTest[] = [
   { path: '/ja/guide/golf-lessons-bangkok-coaches/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/guide/screen-golf-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/guide/round-of-golf-cost-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/guide/green-fees-bangkok-golf-courses/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/guide/how-to-book-golf-tee-times-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Translated ZH guides (data/explainer-pages.ts locale:'zh' + zh allowlist entries)
   { path: '/zh/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/zh/guide/golf-club-baggage-fees-airlines-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
