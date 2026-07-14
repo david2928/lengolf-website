@@ -60,8 +60,33 @@ const WHY_RENT_ROWS = ['trip', 'discount', 'set', 'quality', 'pick', 'delivery']
 // club1* = Callaway Warbird (has gallery images), club2* = Majesty Shuttle
 // (gets the Japanese-brand callout).
 const STANDARD_SETS = [
-  { key: 1, hasGallery: true, isMajesty: false },
-  { key: 2, hasGallery: false, isMajesty: true },
+  {
+    key: 1,
+    isMajesty: false,
+    gallery: [
+      { src: 'clubs/premium/2.png', alt: 'Callaway Warbird full set in golf bag' },
+      { src: 'clubs/premium/4.png', alt: 'Callaway Warbird driver 10.5°' },
+      { src: 'clubs/premium/11.png', alt: 'Callaway Warbird irons set' },
+      { src: 'clubs/premium/9.png', alt: 'Callaway Warbird 5W fairway wood' },
+      { src: 'clubs/premium/13.png', alt: 'Odyssey putter' },
+      { src: 'clubs/premium/7.png', alt: 'Callaway Warbird S-flex shaft' },
+      { src: 'clubs/premium/1.png', alt: 'Callaway Warbird golf bag' },
+    ],
+  },
+  {
+    key: 2,
+    isMajesty: true,
+    // Same shot sequence as the men's sets, from the numbered premium-womens shoot.
+    gallery: [
+      { src: 'clubs/premium-womens/2.png', alt: 'Majesty Shuttle full set in bag' },
+      { src: 'clubs/premium-womens/4.png', alt: 'Majesty Shuttle ladies driver' },
+      { src: 'clubs/premium-womens/11.png', alt: 'Majesty Shuttle irons set' },
+      { src: 'clubs/premium-womens/9.png', alt: 'Majesty Shuttle fairway wood' },
+      { src: 'clubs/premium-womens/13.png', alt: 'Majesty Shuttle wedge' },
+      { src: 'clubs/premium-womens/15.png', alt: 'Majesty Shuttle putter' },
+      { src: 'clubs/premium-womens/1.png', alt: 'Majesty Shuttle ladies golf bag' },
+    ],
+  },
 ] as const
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -248,22 +273,14 @@ export default async function GolfCourseClubRentalPage({ params }: { params: Pro
 
           {/* ── Standard Sets ── */}
           <div className="mx-auto grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2 mb-8">
-            {STANDARD_SETS.map(({ key: i, hasGallery, isMajesty }) => (
+            {STANDARD_SETS.map(({ key: i, gallery, isMajesty }) => (
               <div key={i} className="rounded-xl border border-primary/20 bg-white p-6">
                 <h3 className="mb-1 text-xl font-bold" style={{ color: '#007429' }}>{t(`club${i}Name`)}</h3>
                 <p className="mb-3 text-sm font-semibold text-muted-foreground">{t(`club${i}Gender`)}</p>
-                {hasGallery && (
+                {gallery && (
                   <div className="mb-4 -mx-1">
                     <ImageLightbox
-                      images={[
-                        { src: storageUrl('clubs/premium/2.png'), alt: 'Callaway Warbird full set in golf bag' },
-                        { src: storageUrl('clubs/premium/4.png'), alt: 'Callaway Warbird driver 10.5°' },
-                        { src: storageUrl('clubs/premium/11.png'), alt: 'Callaway Warbird irons set' },
-                        { src: storageUrl('clubs/premium/9.png'), alt: 'Callaway Warbird 5W fairway wood' },
-                        { src: storageUrl('clubs/premium/13.png'), alt: 'Odyssey putter' },
-                        { src: storageUrl('clubs/premium/7.png'), alt: 'Callaway Warbird S-flex shaft' },
-                        { src: storageUrl('clubs/premium/1.png'), alt: 'Callaway Warbird golf bag' },
-                      ]}
+                      images={gallery.map((img) => ({ src: storageUrl(img.src), alt: img.alt }))}
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 12vw"
                     />
                   </div>
