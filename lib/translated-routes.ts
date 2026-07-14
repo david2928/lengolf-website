@@ -49,6 +49,9 @@ const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynam
       // smoke-test region-hub consistency check.
       '/golf-courses/bangkok',
       '/golf-courses/phuket',
+      '/golf-courses/pattaya',
+      '/golf-courses/hua-hin',
+      '/golf-courses/chiang-mai',
     ],
     dynamicRoutePatterns: [],
   },
@@ -77,6 +80,9 @@ const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynam
       // smoke-test region-hub consistency check.
       '/golf-courses/bangkok',
       '/golf-courses/phuket',
+      '/golf-courses/pattaya',
+      '/golf-courses/hua-hin',
+      '/golf-courses/chiang-mai',
     ],
     dynamicRoutePatterns: [],
   },
@@ -105,6 +111,9 @@ const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynam
       // smoke-test region-hub consistency check.
       '/golf-courses/bangkok',
       '/golf-courses/phuket',
+      '/golf-courses/pattaya',
+      '/golf-courses/hua-hin',
+      '/golf-courses/chiang-mai',
     ],
     dynamicRoutePatterns: [],
   },
