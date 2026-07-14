@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { SITE_URL, BUSINESS_INFO, SOCIAL_LINKS, BOOKING_URL } from '@/lib/constants'
 import { getAllPosts } from '@/lib/blog'
 import { getSeoPagesByType } from '@/lib/seo-pages'
+import { getFactTokens, interpolateFacts } from '@/lib/site-facts'
 
 /**
  * /llms.txt — a curated, markdown-formatted map of the site for AI assistants and
@@ -28,10 +29,14 @@ function link(title: string, url: string, desc?: string): string {
 }
 
 export async function GET() {
-  const [posts, faqs, guides] = await Promise.all([
+  const [posts, faqs, guides, tokens] = await Promise.all([
     getAllPosts(),
     getSeoPagesByType('faq'),
     getSeoPagesByType('explainer'),
+    // Guide titles/metas may carry {{price}} tokens (lib/site-facts.ts) — the
+    // guide page route interpolates them, and so must every other surface that
+    // prints entry text, or the literal placeholder leaks (this file is EN).
+    getFactTokens('en'),
   ])
 
   const sections: string[] = []
@@ -55,7 +60,7 @@ export async function GET() {
 
   if (guides.length) {
     sections.push(
-      `## Guides\n${guides.map((p) => link(p.title, `${SITE_URL}/guide/${p.slug}/`, p.meta_description || undefined)).join('\n')}`
+      `## Guides\n${guides.map((p) => link(interpolateFacts(p.title, tokens), `${SITE_URL}/guide/${p.slug}/`, p.meta_description ? interpolateFacts(p.meta_description, tokens) : undefined)).join('\n')}`
     )
   }
 

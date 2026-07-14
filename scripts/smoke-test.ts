@@ -683,6 +683,10 @@ async function runLlmDiscoverabilityTests() {
     if (!ct.includes('text/plain')) issues.push(`content-type not text/plain: "${ct}"`)
     if (!body.includes('# LENGOLF')) issues.push('missing "# LENGOLF" heading')
     if (!body.includes('/golf-club-rental/')) issues.push('missing key page link')
+    // Guide titles/metas may carry {{price}} tokens (lib/site-facts.ts); every
+    // surface that prints entry text must interpolate them — a literal '{{'
+    // here means a consumer skipped interpolateFacts (this leaked once).
+    if (body.includes('{{')) issues.push("unresolved '{{' fact token in output")
     if (issues.length > 0) fail('GET /llms.txt', issues.join('; '))
     else pass('GET /llms.txt (served as text, curated)')
   } catch (err) {
