@@ -107,7 +107,15 @@ export async function getSiteFacts(
   // Premium course rental, 1 day — the catalog has no existing getter, so this
   // is a best-effort match: the cheapest (premium, not premium-plus) 1-day
   // course product. Falls back to the pinned figure if no confident match.
-  const courseDayPrices = catalog.clubRental.course
+  //
+  // `clubRental` comes straight from the untyped POS JSON (getPricingCatalog
+  // casts res.json() to PricingCatalog without validating), and this module is
+  // the FIRST live consumer of clubRental — the existing data/pricing.ts getters
+  // only read bayRates/coaching/packages/events. So guard the sub-fields: if the
+  // POS payload ever omits clubRental, resolve to the pinned fallback instead of
+  // throwing a 500 on every guide page (CI can't catch this — it runs the
+  // fallback path). `?? []` keeps the byte-identical-fallback contract intact.
+  const courseDayPrices = (catalog.clubRental?.course ?? [])
     .filter((p) => /1[\s-]?day|full[\s-]?day/i.test(p.name))
     .map((p) => p.price)
   const courseRentalDay = courseDayPrices.length
@@ -116,7 +124,8 @@ export async function getSiteFacts(
 
   // Club delivery fee — an addon, if the catalog exposes one.
   const clubDelivery =
-    findPrice(catalog.clubRental.addons, /deliver/i) ?? FALLBACK.clubDelivery
+    findPrice(catalog.clubRental?.addons ?? [], /deliver/i) ??
+    FALLBACK.clubDelivery
 
   return {
     ...FALLBACK,
