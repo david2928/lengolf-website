@@ -1,0 +1,71 @@
+{
+  "locale": "th",
+  "language_name": "Thai",
+  "brand_immutable": [
+    "LENGOLF",
+    "len.golf",
+    "Mercury Ville",
+    "Chidlom",
+    "BTS",
+    "MRT",
+    "PGA",
+    "Bravo Golf"
+  ],
+  "preferred": {
+    "indoor golf simulator": "กอล์ฟซิมูเลเตอร์ในร่ม",
+    "lesson": "คอร์สเรียน",
+    "lessons": "คอร์สเรียน",
+    "green fee": "ค่ากรีนฟี",
+    "club rental": "บริการเช่าไม้กอล์ฟ",
+    "rent clubs": "เช่าไม้กอล์ฟ",
+    "bay": "เบย์",
+    "Bangkok": "กรุงเทพฯ",
+    "coach": "โค้ช",
+    "coaches": "โค้ช",
+    "package": "แพ็กเกจ",
+    "package deal": "แพ็กเกจ",
+    "Book Now": "จองเลย",
+    "Learn More": "ดูเพิ่มเติม"
+  },
+  "tone": "friendly-professional, second-person, conversational. No exclamation marks. No emoji. Avoid marketing-speak inflation.",
+  "formality": "Polite (สุภาพ). Use formal vocabulary but keep sentence length natural and readable. Avoid the spoken particles ครับ/ค่ะ except where directly addressing the reader as a CTA. Do not over-translate Anglicisms that Thai golfers use natively (กรีน, แฟร์เวย์, สวิง are familiar Thai golf terms — keep them rather than forcing pure Thai equivalents).",
+  "preserve": [
+    "All next-intl placeholders like {name}, {year}, {pct}, {n}, {rate}",
+    "All markdown formatting (**, *, [, ], (), # headings)",
+    "All HTML tags",
+    "All link URLs verbatim",
+    "All currency notations (THB, ฿, USD, $)",
+    "All numerals (do not translate to Thai numerals)"
+  ],
+  "terminology": [
+    { "term": "กรีนฟี", "use": "ค่ากรีนฟี", "avoid": ["ค่ากรีน ฟี"], "note": "green fee — keep กรีน as the familiar Thai golf loanword; no interior space." },
+    { "term": "แคดดี้", "use": "แคดดี้", "avoid": ["แคดดี", "แค็ดดี้"], "note": "caddie. Caddie fee = ค่าแคดดี้; caddie tip = ทิปแคดดี้." },
+    { "term": "ทีไทม์", "use": "ทีไทม์", "avoid": ["ที ไทม์"], "note": "tee time." },
+    { "term": "ไดรฟกอล์ฟ / สนามไดรฟ์", "use": "สนามไดรฟ์", "avoid": [], "note": "driving range." },
+    { "term": "กรีน / แฟร์เวย์ / สวิง", "use": "กรีน / แฟร์เวย์ / สวิง", "avoid": [], "note": "familiar Thai golf loanwords — keep, do not force pure-Thai equivalents (per tone)." }
+  ],
+  "conventions": {
+    "currency": {
+      "primary": "บาท",
+      "format": "Half-width Arabic digits + บาท (spelled), space before บาท per normal Thai spacing: 1,800 บาท. Comma thousands separator.",
+      "usd": "ดอลลาร์ (or ดอลลาร์สหรัฐ).",
+      "note": "RULING: Thai prose spells the currency as บาท (108 uses vs 0 'THB' in messages/th.json). The ฿ symbol appears occasionally as source data (preserve where present); do not introduce the Latin 'THB' abbreviation into Thai prose."
+    },
+    "range_separator": "-",
+    "ranges": "ASCII hyphen-minus between values with spaces per Thai typography where natural: 300-500 บาท.",
+    "numerals": "Arabic digits only; never Thai numerals ๐๑๒๓ for figures.",
+    "as_of_format": "(ข้อมูล ณ กรกฎาคม 2026) — parenthesized, ณ form for 'as of'."
+  },
+  "honesty_constraints": {
+    "flag_mode": "review",
+    "forbidden_claims": [],
+    "required_scoping": "Any negative claim about coach languages must be scoped to LENGOLF, never city-wide about Bangkok. Thai is the local market language so LENGOLF language-support claims are generally unproblematic, but keep the LENGOLF scoping discipline if a comparison to other venues is drawn.",
+    "allowed_language_support": "การจองและปรึกษาล่วงหน้าทาง LINE @lengolf. Do NOT invent staff-language claims beyond what shipped copy states.",
+    "linter_hint": "flag_mode 'review'; forbidden_claims is empty for TH — no language honesty split exists in the Thai market. The scoping rule still applies to any negative venue comparison."
+  },
+  "style_notes": [
+    "Polite (สุภาพ) register; avoid spoken particles ครับ/ค่ะ except in direct CTA address.",
+    "Keep familiar English-derived golf terms (กรีน, แฟร์เวย์, สวิง, พาร์, เบอร์ดี้) rather than pure-Thai coinages.",
+    "Arabic digits with a space before spelled units (1,800 บาท); no exclamation marks, no emoji."
+  ]
+}

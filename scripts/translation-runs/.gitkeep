@@ -1,0 +1,6 @@
+# Translation runner audit logs land here as <ISO-timestamp>.jsonl, one row per
+# processed translation. Each line records: row_id, locale, source_key, status,
+# cost_usd, and (on flag) flagged_by or error.
+#
+# Files in this directory are committed for audit purposes — they're small,
+# append-only, and useful for cost tracking + post-mortem of flagged batches.

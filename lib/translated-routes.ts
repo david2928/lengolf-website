@@ -1,0 +1,248 @@
+import { SITE_URL } from './constants'
+
+/**
+ * Registry of routes that have translations per locale.
+ * Routes NOT in this list will redirect from /<locale>/* to the English equivalent.
+ */
+const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynamicRoutePatterns: readonly string[] }> = {
+  th: {
+    staticRoutes: [
+      '/',
+      '/golf',
+      '/events',
+      '/golf-club-rental',
+      '/golf-course-club-rental',
+      '/lessons',
+      '/about-us',
+      '/blog',
+      '/menu',
+    ],
+    dynamicRoutePatterns: [],
+  },
+  // KO / JA / ZH: bespoke landing pages at '/' (HomeKo/HomeJa/HomeZh namespaces),
+  // plus /golf, /lessons, /events, /about-us, /golf-club-rental, and
+  // /golf-course-club-rental. Expand this list only after translating the
+  // target page's namespace — otherwise mixed-language content ships to
+  // Google and hreflang gets flagged as mismatched.
+  ko: {
+    staticRoutes: [
+      '/',
+      '/golf',
+      '/lessons',
+      '/events',
+      '/about-us',
+      '/golf-club-rental',
+      '/golf-course-club-rental',
+      '/menu',
+      // Translated guide pages (data/explainer-pages.ts entries with
+      // locale: 'ko') — must stay in sync with the data file; the
+      // smoke-test registry-consistency check (section I) enforces it.
+      '/guide/bring-golf-clubs-thailand-or-rent',
+      '/guide/golf-club-baggage-fees-airlines-bangkok',
+      '/guide/golf-lessons-bangkok-coaches',
+      '/guide/green-fees-bangkok-golf-courses',
+      '/guide/how-to-book-golf-tee-times-thailand',
+      '/guide/renting-golf-clubs-thai-golf-courses',
+      '/guide/round-of-golf-cost-bangkok',
+      '/guide/screen-golf-bangkok',
+      // Translated region hubs (data/golf-courses-i18n.ts) — kept in sync by the
+      // smoke-test region-hub consistency check.
+      '/golf-courses/bangkok',
+      '/golf-courses/phuket',
+      '/golf-courses/pattaya',
+      '/golf-courses/hua-hin',
+      '/golf-courses/chiang-mai',
+    ],
+    dynamicRoutePatterns: [],
+  },
+  zh: {
+    staticRoutes: [
+      '/',
+      '/golf',
+      '/lessons',
+      '/events',
+      '/about-us',
+      '/golf-club-rental',
+      '/golf-course-club-rental',
+      '/menu',
+      // Translated guide pages (data/explainer-pages.ts entries with
+      // locale: 'zh') — must stay in sync with the data file; the
+      // smoke-test registry-consistency check (section I) enforces it.
+      '/guide/bring-golf-clubs-thailand-or-rent',
+      '/guide/golf-club-baggage-fees-airlines-bangkok',
+      '/guide/golf-lessons-bangkok-coaches',
+      '/guide/green-fees-bangkok-golf-courses',
+      '/guide/how-to-book-golf-tee-times-thailand',
+      '/guide/renting-golf-clubs-thai-golf-courses',
+      '/guide/round-of-golf-cost-bangkok',
+      '/guide/screen-golf-bangkok',
+      // Translated region hubs (data/golf-courses-i18n.ts) — kept in sync by the
+      // smoke-test region-hub consistency check.
+      '/golf-courses/bangkok',
+      '/golf-courses/phuket',
+      '/golf-courses/pattaya',
+      '/golf-courses/hua-hin',
+      '/golf-courses/chiang-mai',
+    ],
+    dynamicRoutePatterns: [],
+  },
+  ja: {
+    staticRoutes: [
+      '/',
+      '/golf',
+      '/lessons',
+      '/events',
+      '/about-us',
+      '/golf-club-rental',
+      '/golf-course-club-rental',
+      '/menu',
+      // Translated guide pages (data/explainer-pages.ts entries with
+      // locale: 'ja'). List each translated slug explicitly — a broad
+      // /guide/[slug] pattern would let untranslated guides 200 in JA.
+      '/guide/bring-golf-clubs-thailand-or-rent',
+      '/guide/golf-club-baggage-fees-airlines-bangkok',
+      '/guide/golf-lessons-bangkok-coaches',
+      '/guide/green-fees-bangkok-golf-courses',
+      '/guide/how-to-book-golf-tee-times-thailand',
+      '/guide/renting-golf-clubs-thai-golf-courses',
+      '/guide/round-of-golf-cost-bangkok',
+      '/guide/screen-golf-bangkok',
+      // Translated region hubs (data/golf-courses-i18n.ts) — kept in sync by the
+      // smoke-test region-hub consistency check.
+      '/golf-courses/bangkok',
+      '/golf-courses/phuket',
+      '/golf-courses/pattaya',
+      '/golf-courses/hua-hin',
+      '/golf-courses/chiang-mai',
+    ],
+    dynamicRoutePatterns: [],
+  },
+}
+
+export const ALL_LOCALES = ['en', 'th', 'ko', 'ja', 'zh'] as const
+export type Locale = (typeof ALL_LOCALES)[number]
+
+export const OG_LOCALES: Record<Locale, string> = {
+  en: 'en_US',
+  th: 'th_TH',
+  ja: 'ja_JP',
+  ko: 'ko_KR',
+  zh: 'zh_CN',
+}
+
+// Pre-compute normalized static routes per locale at module load time
+const NORMALIZED_ROUTES = Object.fromEntries(
+  Object.entries(TRANSLATED_ROUTES).map(([locale, { staticRoutes }]) => [
+    locale,
+    staticRoutes.map(r => (r === '/' ? '/' : r.replace(/\/$/, ''))),
+  ])
+)
+
+function normalizePath(pathname: string): string {
+  return pathname.replace(/\/$/, '') || '/'
+}
+
+/**
+ * Check if a given pathname has a translation available for the given locale.
+ * Expects a locale-free path (middleware strips /<locale> prefix before calling).
+ */
+export function hasTranslationForLocale(locale: string, pathname: string): boolean {
+  const entry = TRANSLATED_ROUTES[locale]
+  if (!entry) return false
+
+  const normalizedPath = normalizePath(pathname)
+  const normalizedStatic = NORMALIZED_ROUTES[locale] ?? []
+
+  if (normalizedStatic.includes(normalizedPath)) return true
+
+  for (const pattern of entry.dynamicRoutePatterns) {
+    const regex = new RegExp('^' + pattern.replace(/\[slug\]/g, '[^/]+') + '$')
+    if (regex.test(normalizedPath)) return true
+  }
+
+  return false
+}
+
+/**
+ * @deprecated Use hasTranslationForLocale('th', pathname) instead.
+ */
+export function hasThaiTranslation(pathname: string): boolean {
+  return hasTranslationForLocale('th', pathname)
+}
+
+/**
+ * Guide paths registered as translated for `locale` (the '/guide/...' entries
+ * in staticRoutes). This registry cannot import data/explainer-pages.ts (it is
+ * bundled into the edge middleware), so the smoke tests assert this list stays
+ * in sync with the locale-tagged entries in the data file — see
+ * scripts/smoke-test.ts registry-consistency check.
+ */
+export function getRegisteredGuidePaths(locale: string): string[] {
+  return (TRANSLATED_ROUTES[locale]?.staticRoutes ?? []).filter((r) =>
+    r.startsWith('/guide/')
+  )
+}
+
+/**
+ * Region-hub paths registered as translated for `locale` (the two-segment
+ * '/golf-courses/<region>' entries in staticRoutes). Like getRegisteredGuidePaths,
+ * this registry cannot import data/golf-courses-i18n.ts (it is bundled into the
+ * edge middleware), so the smoke tests assert this list stays in sync with the
+ * translations in the data file — see scripts/smoke-test.ts region-hub
+ * consistency check. The length===2 filter excludes deeper course-detail paths.
+ */
+export function getRegisteredRegionHubPaths(locale: string): string[] {
+  return (TRANSLATED_ROUTES[locale]?.staticRoutes ?? []).filter(
+    (r) => r.startsWith('/golf-courses/') && r.split('/').filter(Boolean).length === 2
+  )
+}
+
+/**
+ * Return the set of locales (including 'en') that have a translation for this path.
+ */
+export function getLocalesForPath(pathname: string): Locale[] {
+  const normalizedPath = normalizePath(pathname)
+  // English is always available (it's the default locale, source of truth)
+  const locales: Locale[] = ['en']
+  for (const locale of ['th', 'ko', 'ja', 'zh'] as const) {
+    if (hasTranslationForLocale(locale, normalizedPath)) {
+      locales.push(locale)
+    }
+  }
+  return locales
+}
+
+function localePrefix(locale: Locale): string {
+  return locale === 'en' ? '' : `/${locale}`
+}
+
+function pathSuffix(pathname: string): string {
+  const normalized = normalizePath(pathname)
+  return normalized === '/' ? '/' : `${normalized}/`
+}
+
+/**
+ * Build an hreflang alternates object for `Metadata.alternates.languages` and
+ * `sitemap.alternates.languages`. The returned object maps each available locale
+ * to its absolute URL. English is always included.
+ *
+ * Example: getAlternates('/golf/') →
+ *   { en: 'https://www.len.golf/golf/', th: 'https://www.len.golf/th/golf/', ... }
+ */
+export function getAlternates(pathname: string): Record<string, string> {
+  const suffix = pathSuffix(pathname)
+  const locales = getLocalesForPath(pathname)
+  return Object.fromEntries(
+    locales.map((l) => [l, `${SITE_URL}${localePrefix(l)}${suffix}`])
+  )
+}
+
+/**
+ * Build the canonical URL for `pathname` in the given `locale`. Mirrors the
+ * prefix scheme used by `getAlternates`.
+ */
+export function getCanonical(locale: string, pathname: string): string {
+  const suffix = pathSuffix(pathname)
+  const l: Locale = (ALL_LOCALES as readonly string[]).includes(locale) ? (locale as Locale) : 'en'
+  return `${SITE_URL}${localePrefix(l)}${suffix}`
+}

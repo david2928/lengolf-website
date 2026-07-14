@@ -1,0 +1,56 @@
+{
+  "slug": "golf-club-baggage-fees-airlines-bangkok",
+  "generated": "2026-03-24",
+  "overall_status": "REVIEW REQUIRED",
+  "disputed_claims": [],
+  "disclaimer_flags": [
+    {
+      "claim": "Per-airline USD fee ranges (50–120)",
+      "reason": "Airline fees change frequently; figures are approximations",
+      "action": "Disclaimer present in article — acceptable"
+    },
+    {
+      "claim": "British Airways GBP 50–75 fee",
+      "reason": "GBP figures not in knowledge base",
+      "action": "Covered by general disclaimer at article top"
+    },
+    {
+      "claim": "AirAsia / budget carrier fee range USD 30–80",
+      "reason": "Reasonable estimate; unverified",
+      "action": "Covered by general disclaimer"
+    }
+  ],
+  "seo_issues": [],
+  "unverifiable_claims": [
+    {
+      "claim": "Per-airline specific USD fee ranges",
+      "reason": "Cannot verify without live airline website data",
+      "risk": "low — hedged language used throughout"
+    },
+    {
+      "claim": "Singapore Airlines USD 60–120 range",
+      "reason": "Slightly higher upper bound; within overall typical range",
+      "risk": "low"
+    },
+    {
+      "claim": "British Airways direct LHR–BKK route",
+      "reason": "Route networks can change",
+      "risk": "low — accurate as of 2026"
+    }
+  ],
+  "seo_check": {
+    "title_length": 57,
+    "title_pass": true,
+    "meta_length": 155,
+    "meta_pass": true,
+    "primary_keyword_in_title": true,
+    "primary_keyword_in_meta": true,
+    "h2_count": 6,
+    "internal_links_present": ["/golf-club-rental", "/guide/bring-golf-clubs-thailand-or-rent", "/guide/golf-club-rental-bangkok-guide"],
+    "date_qualifier_present": true
+  },
+  "recommendations": [
+    "Consider adding note about bags over 32 kg being refused by most carriers",
+    "Article is otherwise ready for approval"
+  ]
+}
