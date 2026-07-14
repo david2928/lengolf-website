@@ -388,11 +388,13 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
   { path: '/ja/guide/what-is-a-golf-simulator/', expectedLocation: '/guide/what-is-a-golf-simulator/', label: 'Untranslated JA guide (only translated guide slugs may 200)' },
   { path: '/ko/guide/what-is-a-golf-simulator/', expectedLocation: '/guide/what-is-a-golf-simulator/', label: 'Untranslated KO guide (only translated guide slugs may 200)' },
   { path: '/zh/guide/what-is-a-golf-simulator/', expectedLocation: '/guide/what-is-a-golf-simulator/', label: 'Untranslated ZH guide (only translated guide slugs may 200)' },
-  // Untranslated region hubs must still 301 to English — only bangkok/phuket are
-  // translated (data/golf-courses-i18n.ts). Guards the region-hub allowlist.
-  { path: '/ja/golf-courses/pattaya/', expectedLocation: '/golf-courses/pattaya/', label: 'Untranslated JA region hub (only bangkok/phuket may 200)' },
-  { path: '/ko/golf-courses/pattaya/', expectedLocation: '/golf-courses/pattaya/', label: 'Untranslated KO region hub (only bangkok/phuket may 200)' },
-  { path: '/zh/golf-courses/pattaya/', expectedLocation: '/golf-courses/pattaya/', label: 'Untranslated ZH region hub (only bangkok/phuket may 200)' },
+  // Untranslated region hubs must still 301 to English — only regions present in
+  // data/golf-courses-i18n.ts are translated (bangkok/phuket/pattaya/hua-hin/
+  // chiang-mai as of this test). Guards the region-hub allowlist with a region
+  // that has NO translation; pick a new one here if koh-samui ever gets one.
+  { path: '/ja/golf-courses/koh-samui/', expectedLocation: '/golf-courses/koh-samui/', label: 'Untranslated JA region hub (only translated regions may 200)' },
+  { path: '/ko/golf-courses/koh-samui/', expectedLocation: '/golf-courses/koh-samui/', label: 'Untranslated KO region hub (only translated regions may 200)' },
+  { path: '/zh/golf-courses/koh-samui/', expectedLocation: '/golf-courses/koh-samui/', label: 'Untranslated ZH region hub (only translated regions may 200)' },
   { path: '/ko/hotels/', expectedLocation: '/hotels/', label: 'Untranslated KO hotels hub' },
   { path: '/ko/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated KO privacy policy' },
   { path: '/zh/blog/', expectedLocation: '/blog/', label: 'Untranslated ZH blog page' },
