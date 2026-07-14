@@ -447,6 +447,16 @@ async function runRouteTests() {
       const res = await fetch(`${BASE}${t.path}`, { redirect: 'follow' })
       const body = await res.text()
 
+      // A redirected route test is a failure even when the destination is a
+      // healthy 200: a locale route that 301s to English would otherwise
+      // false-pass on the EN page's markup (observed against a server whose
+      // route manifest predated newly registered locale slugs).
+      const finalPath = new URL(res.url).pathname
+      if (finalPath !== t.path) {
+        fail(label, `redirected to ${finalPath} — route tests must resolve directly`)
+        continue
+      }
+
       if (!t.expectedStatus.includes(res.status)) {
         fail(label, `expected ${t.expectedStatus.join('|')}, got ${res.status}`)
         continue
