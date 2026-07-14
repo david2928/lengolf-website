@@ -18,11 +18,25 @@ interface Props {
 // Regions that also have an editorial "best courses" shortlist guide. The hub
 // is the complete directory; the guide is the curated pick. Cross-linking the
 // two (hub → guide here, guide → hub via related_slugs) splits search intent so
-// they stop competing for the same "<region> golf courses" queries. EN-only —
-// these guides have no ja/ko/zh translations, and translated hubs 301 to EN.
+// they stop competing for the same "<region> golf courses" queries. The slug
+// isn't derivable from the region key (note bangkok's is `…-near-bangkok`), so
+// it's an explicit map; add a row when a new region gains a shortlist guide.
 const GUIDE_BY_REGION: Record<string, string> = {
   bangkok: 'best-golf-courses-near-bangkok',
   phuket: 'best-golf-courses-phuket',
+}
+
+// The shortlist cross-link renders EN-only BY DESIGN: the CTA copy below is
+// hardcoded English, and these best-of guides have no ja/ko/zh/th translations
+// (a translated hub linking an EN guide would 301 and mix languages). To light
+// it up for a locale L you must do all three together: (1) translate the guide
+// entry (data/explainer-pages.ts, locale L), (2) allowlist it in L.staticRoutes
+// (lib/translated-routes.ts), and (3) localize the CTA copy into messages
+// (GolfCourseRegion namespace) with native-QA review — then gate on
+// hasTranslationForLocale(L, `/guide/${slug}`) here instead of locale === 'en'.
+function shortlistGuideForRegion(locale: string, region: string): string | null {
+  if (locale !== 'en') return null
+  return GUIDE_BY_REGION[region] ?? null
 }
 
 export async function generateStaticParams() {
@@ -78,6 +92,7 @@ export default async function RegionIndexPage({ params }: Props) {
   const label = tr?.label ?? meta.label
   const province = tr?.province ?? meta.province
   const description = tr?.description ?? meta.description
+  const shortlistGuide = shortlistGuideForRegion(locale, region)
 
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     // The /golf-courses/ hub is English-only (301s for other locales), so its
@@ -151,11 +166,11 @@ export default async function RegionIndexPage({ params }: Props) {
               })}
             </h1>
             <p className="max-w-lg text-sm leading-relaxed text-white/60">{description}</p>
-            {locale === 'en' && GUIDE_BY_REGION[region] && (
+            {shortlistGuide && (
               <p className="mt-4 text-sm text-white/50">
                 Just want the highlights?{' '}
                 <Link
-                  href={`/guide/${GUIDE_BY_REGION[region]}`}
+                  href={`/guide/${shortlistGuide}`}
                   className="font-medium text-[#c8a96e] underline-offset-4 hover:underline"
                 >
                   See our picks of the best courses in {label}

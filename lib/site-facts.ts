@@ -195,6 +195,14 @@ export async function getFactTokens(
     courseRentalDayNum: num(f.courseRentalDay),
     clubDeliveryNum: num(f.clubDelivery),
 
+    // Per-person bay cost DERIVED from the hourly rate ÷ group size. These MUST
+    // be tokens, not literals: a page that quotes the group rate (tokenized)
+    // next to a static per-person figure goes self-contradictory the moment the
+    // POS changes bay rates. Number-only (they sit inside ranges / beside a
+    // literal currency word). Rounded — the copy always frames them as "~/약/程度".
+    bayPerPersonMinNum: num(Math.round(f.bayHourlyMin / f.maxPlayersPerBay)),
+    bayPerPersonMaxNum: num(Math.round(f.bayHourlyMax / f.maxPlayersPerBay)),
+
     // Static facts (available to content; not currently referenced)
     openingHours: f.openingHours,
     lineHandle: f.lineHandle,

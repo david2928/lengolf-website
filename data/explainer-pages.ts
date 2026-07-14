@@ -66,7 +66,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'Where to Try a Golf Simulator in Bangkok',
-          body: 'Bangkok has several golf simulator venues, each with different technology and price points. LENGOLF at Mercury Ville (BTS Chidlom) uses Bravo launch monitors with rates starting at ~550 THB per hour for up to 5 people. Front 9 in Sukhumvit uses Trackman technology starting at ~600 THB per hour. Fairway Golf & City Club near BTS Phrom Phong offers Trackman bays from ~1,000 THB per hour.\n\nFor first-timers, the key factors to consider are location convenience, group size limits per bay, whether club rental is included (it\'s free at LENGOLF), and whether the venue serves food and drinks. Most simulator venues in Bangkok welcome beginners and non-golfers — no experience or equipment is needed.',
+          body: 'Bangkok has several golf simulator venues, each with different technology and price points. LENGOLF at Mercury Ville (BTS Chidlom) uses Bravo launch monitors with rates starting at ~{{bayHourlyFrom}} per hour for up to 5 people. Front 9 in Sukhumvit uses Trackman technology starting at ~600 THB per hour. Fairway Golf & City Club near BTS Phrom Phong offers Trackman bays from ~1,000 THB per hour.\n\nFor first-timers, the key factors to consider are location convenience, group size limits per bay, whether club rental is included (it\'s free at LENGOLF), and whether the venue serves food and drinks. Most simulator venues in Bangkok welcome beginners and non-golfers — no experience or equipment is needed.',
         },
       ],
 
@@ -76,7 +76,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         'You can play full 18-hole rounds on 100,000+ real courses, practice with instant swing data, or play non-golf games',
         'No golf experience or equipment is needed — venues provide clubs and guidance',
         'In Bangkok, indoor golf solves the heat and rain problem with air-conditioned, year-round play',
-        'LENGOLF rates start at ~550 THB/hour for up to 5 people at BTS Chidlom',
+        'LENGOLF rates start at ~{{bayHourlyFrom}}/hour for up to 5 people at BTS Chidlom',
       ],
 
 
@@ -200,7 +200,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'What to Expect on Your First Visit',
-          body: 'Here\'s what a first visit to LENGOLF looks like:\n\n**Arrival** — Walk into Mercury Ville at BTS Chidlom, take the elevator to the 4th floor. No reservation required for walk-ins, though booking ahead guarantees a bay during peak hours.\n\n**Setup** — Staff will set you up with a bay and clubs. If you mention it\'s your first time, they\'ll show you how to hold the club, where to stand, and how the screen works. This takes about 5 minutes.\n\n**Playing** — Choose a game mode. For beginners, the driving range mode is a great start — just hit balls at targets with no pressure. When you\'re comfortable, try a course round where each person takes turns.\n\n**Duration** — Most first-time groups book 1–2 hours. That\'s enough time to get comfortable, have some fun, and decide if you want to come back.\n\n**Cost** — Bays start at ~550 THB per hour for up to 5 people. That\'s ~110 THB per person in a group of 5 — less than a movie ticket.',
+          body: 'Here\'s what a first visit to LENGOLF looks like:\n\n**Arrival** — Walk into Mercury Ville at BTS Chidlom, take the elevator to the 4th floor. No reservation required for walk-ins, though booking ahead guarantees a bay during peak hours.\n\n**Setup** — Staff will set you up with a bay and clubs. If you mention it\'s your first time, they\'ll show you how to hold the club, where to stand, and how the screen works. This takes about 5 minutes.\n\n**Playing** — Choose a game mode. For beginners, the driving range mode is a great start — just hit balls at targets with no pressure. When you\'re comfortable, try a course round where each person takes turns.\n\n**Duration** — Most first-time groups book 1–2 hours. That\'s enough time to get comfortable, have some fun, and decide if you want to come back.\n\n**Cost** — Bays start at ~{{bayHourlyFrom}} per hour for up to 5 people. That\'s ~{{bayPerPersonMinNum}} THB per person in a group of 5 — less than a movie ticket.',
         },
         {
           heading: 'Games Beyond Golf',
@@ -224,7 +224,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         'No golf experience, equipment, or special clothing is needed — just show up',
         'About half of LENGOLF guests have never played golf before',
         'Party-friendly games like target practice and long drive contests are immediately fun for everyone',
-        'A group of 5 can play for ~110 THB per person per hour — cheaper than most entertainment options',
+        'A group of 5 can play for ~{{bayPerPersonMinNum}} THB per person per hour — cheaper than most entertainment options',
         'Flat shoes or sneakers are recommended but there\'s no dress code',
         'Simulators are a low-pressure way to try golf before committing to equipment and course fees',
       ],
@@ -2599,7 +2599,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'Screen Golf at LENGOLF — Korean Technology Included',
-          body: "LENGOLF's bays run Bravo Golf simulators — a Korean launch-monitor brand, the same technology culture Golfzon players know. Each bay measures 20+ club and ball parameters per swing and renders 100+ real courses.\n\nThe format follows screen golf convention: up to 5 players per bay at one hourly rate ({{bayHourlyMinNum}}–{{bayHourlyMaxNum}} THB per hour, as of July 2026), so a group splits it to ~110–190 THB per person per hour. Standard clubs are free, the venue is air-conditioned, and there's a full food and drink menu served to your bay. Open 9am–11pm daily at The Mercury Ville, directly connected to BTS Chidlom.",
+          body: "LENGOLF's bays run Bravo Golf simulators — a Korean launch-monitor brand, the same technology culture Golfzon players know. Each bay measures 20+ club and ball parameters per swing and renders 100+ real courses.\n\nThe format follows screen golf convention: up to 5 players per bay at one hourly rate ({{bayHourlyMinNum}}–{{bayHourlyMaxNum}} THB per hour, as of July 2026), so a group splits it to ~{{bayPerPersonMinNum}}–{{bayPerPersonMaxNum}} THB per person per hour. Standard clubs are free, the venue is air-conditioned, and there's a full food and drink menu served to your bay. Open 9am–11pm daily at The Mercury Ville, directly connected to BTS Chidlom.",
         },
         {
           heading: 'How It Compares to Screen Golf in Korea',
@@ -2650,7 +2650,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: '요금과 예약 (2026년 7월 기준)',
-          body: '**베이 요금:** 시간당 {{bayHourlyMinNum}}~{{bayHourlyMaxNum}}바트(시간대에 따라 다름). 베이당 최대 5명이므로 인원이 많을수록 1인당 부담은 내려갑니다 — 5명이면 1인당 시간당 110~190바트 수준.\n\n**포함 사항:** 스탠다드 클럽 세트·볼 무료. 빈손으로 오시면 됩니다.\n\n**예약:** booking.len.golf에서 온라인 예약(즉시 확정), 또는 LINE @lengolf — 한국어 상담이 가능합니다. 저녁 프라임 타임은 한국 스크린골프처럼 차기 쉬우니 미리 예약을 추천합니다.\n\n**영업시간:** 연중무휴 오전 9시~오후 11시.',
+          body: '**베이 요금:** 시간당 {{bayHourlyMinNum}}~{{bayHourlyMaxNum}}바트(시간대에 따라 다름). 베이당 최대 5명이므로 인원이 많을수록 1인당 부담은 내려갑니다 — 5명이면 1인당 시간당 {{bayPerPersonMinNum}}~{{bayPerPersonMaxNum}}바트 수준.\n\n**포함 사항:** 스탠다드 클럽 세트·볼 무료. 빈손으로 오시면 됩니다.\n\n**예약:** booking.len.golf에서 온라인 예약(즉시 확정), 또는 LINE @lengolf — 한국어 상담이 가능합니다. 저녁 프라임 타임은 한국 스크린골프처럼 차기 쉬우니 미리 예약을 추천합니다.\n\n**영업시간:** 연중무휴 오전 9시~오후 11시.',
         },
         {
           heading: '한국 스크린골프와 다른 점',
@@ -2709,7 +2709,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'LENGOLFのシミュレーションゴルフ — 韓国テクノロジー搭載',
-          body: 'LENGOLFのベイは韓国Bravo Golfのシミュレーターを使用しています。スイングごとに20以上のクラブ・ボールデータを計測し、100以上の実在コースを収録しています。\n\n料金はスクリーンゴルフのスタイルそのまま: 1ベイ最大5名を1つの時間料金でご利用いただけます（1時間{{bayHourlyMinNum}}〜{{bayHourlyMaxNum}}THB、2026年7月現在）。5名で分ければ1人あたり1時間110〜190THB程度です。スタンダードクラブは無料、店内は完全空調で、フードとドリンクのメニューをベイまでお届けします。営業は毎日9:00〜23:00、ザ・マーキュリービル（BTSチットロム駅直結）にあります。',
+          body: 'LENGOLFのベイは韓国Bravo Golfのシミュレーターを使用しています。スイングごとに20以上のクラブ・ボールデータを計測し、100以上の実在コースを収録しています。\n\n料金はスクリーンゴルフのスタイルそのまま: 1ベイ最大5名を1つの時間料金でご利用いただけます（1時間{{bayHourlyMinNum}}〜{{bayHourlyMaxNum}}THB、2026年7月現在）。5名で分ければ1人あたり1時間{{bayPerPersonMinNum}}〜{{bayPerPersonMaxNum}}THB程度です。スタンダードクラブは無料、店内は完全空調で、フードとドリンクのメニューをベイまでお届けします。営業は毎日9:00〜23:00、ザ・マーキュリービル（BTSチットロム駅直結）にあります。',
         },
         {
           heading: '日本で慣れ親しんだシミュレーションゴルフとの違い',
@@ -2770,7 +2770,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'LENGOLF的室内高尔夫 — 搭载韩国技术',
-          body: 'LENGOLF的球位使用韩国Bravo Golf模拟器——这正是Golfzon玩家熟悉的那套技术脉络。每个球位每次挥杆能测量20多项球杆与球的数据，并收录100多个真实球场。\n\n收费沿用屏幕高尔夫的方式：一个球位最多5人，共享同一个按小时计的价格（每小时{{bayHourlyMinNum}}–{{bayHourlyMaxNum}}泰铢，截至2026年7月）。5人平摊下来，每人每小时约110–190泰铢。标准球杆免费，室内全程空调，还有完整的餐饮菜单送到球位。营业时间为每天9:00–23:00，地点在与BTS Chidlom直接相连的The Mercury Ville。',
+          body: 'LENGOLF的球位使用韩国Bravo Golf模拟器——这正是Golfzon玩家熟悉的那套技术脉络。每个球位每次挥杆能测量20多项球杆与球的数据，并收录100多个真实球场。\n\n收费沿用屏幕高尔夫的方式：一个球位最多5人，共享同一个按小时计的价格（每小时{{bayHourlyMinNum}}–{{bayHourlyMaxNum}}泰铢，截至2026年7月）。5人平摊下来，每人每小时约{{bayPerPersonMinNum}}–{{bayPerPersonMaxNum}}泰铢。标准球杆免费，室内全程空调，还有完整的餐饮菜单送到球位。营业时间为每天9:00–23:00，地点在与BTS Chidlom直接相连的The Mercury Ville。',
         },
         {
           heading: '与韩国的屏幕高尔夫有何不同',
@@ -3897,7 +3897,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'How to Reduce Costs',
-          body: `Seven practical ways to keep the budget down:\n\n1. **Play weekdays only.** Weekend premiums are real; shift your schedule where possible.\n2. **Book low or shoulder season.** March–May and September–October offer lower fees and uncrowded courses.\n3. **Rent clubs locally** rather than paying airline baggage fees. Rental sets at most courses cost 1,000–2,500 THB per round — often less than checked baggage charges.\n4. **Use Grab instead of taxis.** Grab prices are transparent and typically competitive.\n5. **Eat where locals eat.** The quality gap between street food and hotel dining is small; the price gap is large.\n6. **Book tee times in advance online.** Walk-in rates at some courses are higher than pre-booked rates.\n7. **Mix simulator rounds into your schedule.** LENGOLF's indoor golf simulator starts from 550 THB per hour — practical for arrival/departure days or rain days.`,
+          body: `Seven practical ways to keep the budget down:\n\n1. **Play weekdays only.** Weekend premiums are real; shift your schedule where possible.\n2. **Book low or shoulder season.** March–May and September–October offer lower fees and uncrowded courses.\n3. **Rent clubs locally** rather than paying airline baggage fees. Rental sets at most courses cost 1,000–2,500 THB per round — often less than checked baggage charges.\n4. **Use Grab instead of taxis.** Grab prices are transparent and typically competitive.\n5. **Eat where locals eat.** The quality gap between street food and hotel dining is small; the price gap is large.\n6. **Book tee times in advance online.** Walk-in rates at some courses are higher than pre-booked rates.\n7. **Mix simulator rounds into your schedule.** LENGOLF's indoor golf simulator starts from {{bayHourlyFrom}} per hour — practical for arrival/departure days or rain days.`,
         },
       ],
       key_takeaways: [
@@ -3905,7 +3905,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         'Caddies are mandatory — budget 800–1,100 THB per round (fee + tip)',
         'Play weekdays to save 300–600 THB per round vs. weekend rates',
         'November–February is peak season; March–May and Sep–Oct offer lower fees',
-        'LENGOLF indoor simulator from 550 THB/hr — a cost-effective option for arrival days or rain days',
+        'LENGOLF indoor simulator from {{bayHourlyFrom}}/hr — a cost-effective option for arrival days or rain days',
         'All figures are approximate; verify current green fees directly with courses before booking',
       ],
       comparison_table: [],
