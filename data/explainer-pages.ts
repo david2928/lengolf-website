@@ -1,5 +1,19 @@
 import type { ExplainerSeoPage } from '@/types/seo-pages'
 
+// LENGOLF price claims in this file are TOKEN-RESOLVED, not hardcoded.
+// Placeholders like {{lessonHourly}}, {{bayHourlyFrom}}, {{bayHourlyMinNum}}/
+// {{bayHourlyMaxNum}}, {{courseRentalDay}} and {{clubDelivery}} are replaced at
+// render / revalidate time by the guide pipeline (app/[locale]/guide/[slug]/
+// page.tsx) using live POS pricing from lib/site-facts.ts. When the POS API is
+// unreachable they resolve to pinned fallbacks byte-identical to the previous
+// hardcoded copy. Currency-carrying tokens use the locale-default currency word
+// (en/ja → THB, ko → 바트, zh → 泰铢); the …Num number-only tokens keep the
+// currency word + range separator literal in the text (used for ranges and for
+// the JA バーツ minority). Third-party figures (green/caddie/airline fees) are
+// NOT tokenized and stay static. Only the entries listed in the retrofit remain
+// in scope; a few out-of-scope entries (exp-1, exp-3, gg-thailand-golf-trip-
+// cost) still carry static LENGOLF bay-rate literals.
+
 const now = '2026-03-28T00:00:00.000Z'
 
 export const explainerPages: ExplainerSeoPage[] = [
@@ -911,7 +925,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     slug: 'bring-golf-clubs-thailand-or-rent',
     title: 'タイゴルフ旅行、クラブは持参？現地レンタル？判断ガイド',
     meta_description:
-      'タイ・バンコクでのゴルフ、クラブは日本から持ち込むべき？現地レンタル？航空会社の手荷物規定、レンタルの品質と費用を比較。1日1,200バーツからのプレミアムレンタルやホテル配送も紹介します。',
+      'タイ・バンコクでのゴルフ、クラブは日本から持ち込むべき？現地レンタル？航空会社の手荷物規定、レンタルの品質と費用を比較。1日{{courseRentalDayNum}}バーツからのプレミアムレンタルやホテル配送も紹介します。',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -934,7 +948,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'タイで現地レンタルするメリット',
-          body: 'タイでのクラブレンタルは実用的で、多くの旅行者にとってはむしろ最良の選択です:\n\n**身軽な旅行** — タイは観光や街歩きと組み合わせて楽しむ旅行先。バンコク、プーケット、チェンマイと移動するなら、ゴルフトラベルバッグは大きな負担になります。\n\n**破損リスクゼロ** — ゴルフバッグは輸送中に手荒に扱われがちで、シャフト折れやドライバーヘッドの割れも珍しくありません。レンタルならそのリスクは消えます。\n\n**費用は意外と安い** — 2〜3ラウンドの旅行なら、超過手荷物料金＋トラベルケース＋運搬の手間を合計するより、レンタルの方が安く済むことも。LENGOLFのコースレンタルなら、CallawayやMajesty（マジェスティ）のプレミアムセットが1日1,200バーツから（2026年7月時点）。デポジット不要で、ホテルやゴルフ場への配送（往復500バーツ）にも対応しています。',
+          body: 'タイでのクラブレンタルは実用的で、多くの旅行者にとってはむしろ最良の選択です:\n\n**身軽な旅行** — タイは観光や街歩きと組み合わせて楽しむ旅行先。バンコク、プーケット、チェンマイと移動するなら、ゴルフトラベルバッグは大きな負担になります。\n\n**破損リスクゼロ** — ゴルフバッグは輸送中に手荒に扱われがちで、シャフト折れやドライバーヘッドの割れも珍しくありません。レンタルならそのリスクは消えます。\n\n**費用は意外と安い** — 2〜3ラウンドの旅行なら、超過手荷物料金＋トラベルケース＋運搬の手間を合計するより、レンタルの方が安く済むことも。LENGOLFのコースレンタルなら、CallawayやMajesty（マジェスティ）のプレミアムセットが1日{{courseRentalDayNum}}バーツから（2026年7月時点）。デポジット不要で、ホテルやゴルフ場への配送（往復{{clubDeliveryNum}}バーツ）にも対応しています。',
         },
         {
           heading: '航空会社の受託手荷物について',
@@ -949,7 +963,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         '観光を兼ねて1〜3ラウンドプレーするカジュアルゴルファーはレンタルが正解 — 身軽さのメリットが用具の妥協を上回ります',
         'ゴルフ目的の旅行で4ラウンド以上プレーする本格派は、一貫性のためマイクラブ持参がおすすめ',
         '日系大手航空会社ではゴルフバッグは無料受託手荷物枠内が一般的（LCCは有料が多い）— 予約前に必ず最新規定を確認',
-        'バンコクのレンタル品質は向上中 — LENGOLFならCallaway・Majestyのセットを1日1,200バーツから、ホテル配送・デポジット不要でレンタル可能',
+        'バンコクのレンタル品質は向上中 — LENGOLFならCallaway・Majestyのセットを1日{{courseRentalDayNum}}バーツから、ホテル配送・デポジット不要でレンタル可能',
       ],
       comparison_table: [],
     },
@@ -962,7 +976,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     slug: 'bring-golf-clubs-thailand-or-rent',
     title: '태국 골프여행, 클럽 가져갈까 현지 렌탈할까? 판단 가이드',
     meta_description:
-      '태국·방콕 골프여행, 클럽은 한국에서 가져가야 할까요, 현지에서 빌리는 게 나을까요? 항공사 수하물 규정, 렌탈 품질과 비용을 비교합니다. 하루 1,200바트부터 호텔 배송 프리미엄 렌탈도 소개.',
+      '태국·방콕 골프여행, 클럽은 한국에서 가져가야 할까요, 현지에서 빌리는 게 나을까요? 항공사 수하물 규정, 렌탈 품질과 비용을 비교합니다. 하루 {{courseRentalDay}}부터 호텔 배송 프리미엄 렌탈도 소개.',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -985,7 +999,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: '태국 현지 렌탈이 나은 이유',
-          body: '태국에서의 클럽 렌탈은 실용적이고, 많은 여행자에게는 오히려 더 나은 선택입니다:\n\n**가볍게 떠나는 여행** — 태국은 관광·시내 구경과 함께 즐기는 여행지입니다. 방콕, 푸켓, 치앙마이를 오간다면 골프 트래블백은 큰 짐이 됩니다.\n\n**파손 위험 제로** — 골프백은 운송 중 험하게 다뤄지기 쉽고, 샤프트 부러짐이나 드라이버 헤드 파손도 드물지 않습니다. 렌탈이라면 그 리스크가 사라집니다.\n\n**비용도 의외로 저렴** — 2~3라운드 일정이라면 초과 수하물 요금+트래블 케이스+운반 수고를 합친 것보다 렌탈이 쌀 수 있습니다. LENGOLF 코스 렌탈은 Callaway·Majesty 프리미엄 세트가 하루 1,200바트부터(2026년 7월 기준). 보증금 없이 호텔·골프장 배송(왕복 500바트)도 가능합니다.',
+          body: '태국에서의 클럽 렌탈은 실용적이고, 많은 여행자에게는 오히려 더 나은 선택입니다:\n\n**가볍게 떠나는 여행** — 태국은 관광·시내 구경과 함께 즐기는 여행지입니다. 방콕, 푸켓, 치앙마이를 오간다면 골프 트래블백은 큰 짐이 됩니다.\n\n**파손 위험 제로** — 골프백은 운송 중 험하게 다뤄지기 쉽고, 샤프트 부러짐이나 드라이버 헤드 파손도 드물지 않습니다. 렌탈이라면 그 리스크가 사라집니다.\n\n**비용도 의외로 저렴** — 2~3라운드 일정이라면 초과 수하물 요금+트래블 케이스+운반 수고를 합친 것보다 렌탈이 쌀 수 있습니다. LENGOLF 코스 렌탈은 Callaway·Majesty 프리미엄 세트가 하루 {{courseRentalDay}}부터(2026년 7월 기준). 보증금 없이 호텔·골프장 배송(왕복 {{clubDelivery}})도 가능합니다.',
         },
         {
           heading: '항공사 위탁 수하물 참고',
@@ -1000,7 +1014,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         '관광 겸 1~3라운드 플레이하는 캐주얼 골퍼는 렌탈이 정답 — 가벼움의 이점이 장비의 아쉬움을 앞섭니다',
         '골프 목적 여행에서 4라운드 이상이라면 일관성을 위해 본인 클럽 지참 추천',
         '국적 풀서비스 항공사는 골프백을 무료 수하물 범위에서 처리하는 것이 일반적(LCC는 유료가 많음) — 예약 전 최신 규정 확인 필수',
-        '방콕 렌탈 품질은 상승 중 — LENGOLF에서는 Callaway·Majesty 세트를 하루 1,200바트부터, 호텔 배송·보증금 없이 렌탈 가능',
+        '방콕 렌탈 품질은 상승 중 — LENGOLF에서는 Callaway·Majesty 세트를 하루 {{courseRentalDay}}부터, 호텔 배송·보증금 없이 렌탈 가능',
       ],
       comparison_table: [],
     },
@@ -1013,7 +1027,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     slug: 'bring-golf-clubs-thailand-or-rent',
     title: '泰国高尔夫之旅，自带球杆还是当地租借？判断指南',
     meta_description:
-      '去泰国、曼谷打高尔夫，球杆该从家里带去，还是在当地租借更好？对比航空公司行李规定、租借的品质与费用，并介绍每日1,200泰铢起、可送到酒店的高级租借服务。',
+      '去泰国、曼谷打高尔夫，球杆该从家里带去，还是在当地租借更好？对比航空公司行李规定、租借的品质与费用，并介绍每日{{courseRentalDay}}起、可送到酒店的高级租借服务。',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -1036,7 +1050,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: '在泰国当地租借的理由',
-          body: '在泰国租借球杆很实用，对许多游客而言反而是更好的选择：\n\n**轻装出行** — 泰国是许多球友与观光、逛城市结合起来游玩的目的地。在曼谷、普吉、清迈之间移动时，高尔夫旅行包是个大负担。\n\n**零损坏风险** — 高尔夫球包在运输途中常被粗暴对待，杆身折断、一号木杆头开裂的情况并不少见。租借的话这种风险就消失了。\n\n**费用可能比想象中低** — 对2至3轮的短途旅行来说，租借的费用往往比超重行李费＋旅行硬箱＋搬运麻烦的总和更划算。LENGOLF的球场租借服务提供Callaway、Majesty等高级套装，每日1,200泰铢起（截至2026年7月），无需押金，还可配送至酒店或球场（往返500泰铢）。',
+          body: '在泰国租借球杆很实用，对许多游客而言反而是更好的选择：\n\n**轻装出行** — 泰国是许多球友与观光、逛城市结合起来游玩的目的地。在曼谷、普吉、清迈之间移动时，高尔夫旅行包是个大负担。\n\n**零损坏风险** — 高尔夫球包在运输途中常被粗暴对待，杆身折断、一号木杆头开裂的情况并不少见。租借的话这种风险就消失了。\n\n**费用可能比想象中低** — 对2至3轮的短途旅行来说，租借的费用往往比超重行李费＋旅行硬箱＋搬运麻烦的总和更划算。LENGOLF的球场租借服务提供Callaway、Majesty等高级套装，每日{{courseRentalDay}}起（截至2026年7月），无需押金，还可配送至酒店或球场（往返{{clubDelivery}}）。',
         },
         {
           heading: '关于航空公司托运行李',
@@ -1051,7 +1065,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         '以观光为主、打1–3轮的休闲球友租借最合适——轻装的好处胜过球具上的妥协',
         '以高尔夫为目的、打4轮以上的认真型球友，为了一致性建议自带球杆',
         '中国大型全服务航空公司通常将高尔夫球包计入免费托运额度（廉价航空多为付费）——预订前务必确认最新规定',
-        '曼谷的租借品质正在提升——LENGOLF提供Callaway、Majesty套装，每日1,200泰铢起，可配送酒店、无需押金',
+        '曼谷的租借品质正在提升——LENGOLF提供Callaway、Majesty套装，每日{{courseRentalDay}}起，可配送酒店、无需押金',
       ],
       comparison_table: [],
     },
@@ -1448,15 +1462,16 @@ export const explainerPages: ExplainerSeoPage[] = [
   // LENGOLF has NO Japanese-speaking coaches / Japanese-language lessons — but
   // booking & consultation work in Japanese via LINE @lengolf, and the on-screen
   // simulator 数値 lowers the language barrier during the lesson itself. The
-  // LENGOLF fact set (free 1h trial, 1,800THB packages, BTS Chidlom, Thai-PGA
-  // coaches Boss/Ratchavin/Min) comes from shipped JA copy (messages/ja.json).
+  // LENGOLF fact set (free 1h trial, {{lessonHourly}}-token lesson packages, BTS
+  // Chidlom, Thai-PGA coaches Boss/Ratchavin/Min). Price is token-resolved from
+  // lib/site-facts.ts (POS-backed); other facts come from shipped JA copy.
   {
     id: 'exp-32-ja',
     page_type: 'explainer',
     slug: 'golf-lessons-bangkok-coaches',
     title: 'バンコクのゴルフレッスン — 費用とコーチの選び方',
     meta_description:
-      'バンコクでゴルフレッスンをお探しの方へ。シミュレーターを使ったデータ重視のレッスン、ドライビングレンジ指導との違い、コーチの選び方を解説。LENGOLFはタイPGA認定コーチによる1時間無料体験、パッケージ1,800THB〜、ご予約はLINEで日本語対応です（2026年7月現在）。',
+      'バンコクでゴルフレッスンをお探しの方へ。シミュレーターを使ったデータ重視のレッスン、ドライビングレンジ指導との違い、コーチの選び方を解説。LENGOLFはタイPGA認定コーチによる1時間無料体験、パッケージ{{lessonHourly}}〜、ご予約はLINEで日本語対応です（2026年7月現在）。',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -1484,7 +1499,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'LENGOLFのレッスン — シミュレーターの強み',
-          body: 'LENGOLFは、バンコク中心部のインドアシミュレーター施設でコーチングを行っています。旅行で訪れるゴルファーにとっての最大の利点はこれです: データが自動で取得され、すぐに表示されるため、スイングを変えた効果を同じショットで確認できます。修正が効いたかどうかが曖昧にならないので、1回のレッスンが従来のレンジ練習よりもずっと生産的になります。\n\nBTSでアクセスできる中心部の立地なので、早朝の出発や市内横断の移動も不要。レッスンはどんなスケジュールにも組み込めます。\n\nLENGOLFのレッスンの要点（2026年7月現在）:\n\n- タイPGA認定コーチ（PRO Boss、PRO Ratchavin、PRO Min）による個別指導\n- 1時間の無料体験レッスンから始められます\n- レッスンパッケージは1時間1,800THBから\n- BTSチットロム駅直結（ザ・マーキュリービル4階）\n- ご予約や事前のご相談はLINE @lengolfにて日本語で承ります',
+          body: 'LENGOLFは、バンコク中心部のインドアシミュレーター施設でコーチングを行っています。旅行で訪れるゴルファーにとっての最大の利点はこれです: データが自動で取得され、すぐに表示されるため、スイングを変えた効果を同じショットで確認できます。修正が効いたかどうかが曖昧にならないので、1回のレッスンが従来のレンジ練習よりもずっと生産的になります。\n\nBTSでアクセスできる中心部の立地なので、早朝の出発や市内横断の移動も不要。レッスンはどんなスケジュールにも組み込めます。\n\nLENGOLFのレッスンの要点（2026年7月現在）:\n\n- タイPGA認定コーチ（PRO Boss、PRO Ratchavin、PRO Min）による個別指導\n- 1時間の無料体験レッスンから始められます\n- レッスンパッケージは1時間{{lessonHourly}}から\n- BTSチットロム駅直結（ザ・マーキュリービル4階）\n- ご予約や事前のご相談はLINE @lengolfにて日本語で承ります',
         },
         {
           heading: '旅行中に現実的なレッスン回数は？',
@@ -1499,7 +1514,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         'シミュレーターを使ったコーチングは、ショットごとに客観的な弾道計測データが得られる — 従来のレンジレッスンにない大きな利点です',
         'PGA認定コーチを選び、最低2アングルの動画撮影を必須に。バンコクでは英語での指導が一般的です',
         '5〜7日間のゴルフ旅行なら集中レッスン1〜2回が現実的な目安 — 途中でスイングに情報を詰め込みすぎないこと',
-        'LENGOLFはタイPGA認定コーチによる1時間無料体験、パッケージ1,800THB〜、BTSチットロム直結。ご予約・ご相談はLINEで日本語対応（2026年7月現在）',
+        'LENGOLFはタイPGA認定コーチによる1時間無料体験、パッケージ{{lessonHourly}}〜、BTSチットロム直結。ご予約・ご相談はLINEで日本語対応（2026年7月現在）',
       ],
       comparison_table: [],
     },
@@ -1513,15 +1528,16 @@ export const explainerPages: ExplainerSeoPage[] = [
   // and LENGOLF has NO Korean-speaking coaches / Korean-language lessons — but
   // booking & consultation work in Korean via LINE @lengolf (shipped KO copy),
   // and the on-screen simulator 숫자 lowers the in-lesson language barrier. The
-  // LENGOLF fact set (free 1h trial, 1,800THB packages, Thai-PGA coaches
-  // Boss/Ratchavin/Min, BTS Chidlom) comes from shipped KO copy (messages/ko.json).
+  // LENGOLF fact set (free 1h trial, {{lessonHourly}}-token lesson packages,
+  // Thai-PGA coaches Boss/Ratchavin/Min, BTS Chidlom). Price is token-resolved
+  // from lib/site-facts.ts (POS-backed); other facts come from shipped KO copy.
   {
     id: 'exp-32-ko',
     page_type: 'explainer',
     slug: 'golf-lessons-bangkok-coaches',
     title: '방콕 골프레슨 — 요금·코치 선택 가이드',
     meta_description:
-      '방콕에서 골프레슨을 찾으세요? 시뮬레이터 데이터 기반 레슨과 드라이빙 레인지 레슨의 차이, 코치 선택 요령을 정리했습니다. LENGOLF는 태국 PGA 공인 코치의 1시간 무료 체험, 패키지 1,800바트부터, 예약·상담은 LINE @lengolf 한국어 대응입니다(2026년 7월 기준).',
+      '방콕에서 골프레슨을 찾으세요? 시뮬레이터 데이터 기반 레슨과 드라이빙 레인지 레슨의 차이, 코치 선택 요령을 정리했습니다. LENGOLF는 태국 PGA 공인 코치의 1시간 무료 체험, 패키지 {{lessonHourly}}부터, 예약·상담은 LINE @lengolf 한국어 대응입니다(2026년 7월 기준).',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -1549,7 +1565,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'LENGOLF 레슨 — 시뮬레이터의 강점',
-          body: 'LENGOLF는 방콕 중심가의 실내 시뮬레이터 시설에서 코칭을 진행해요. 여행으로 찾는 골퍼에게 가장 큰 이점은 이거예요: 데이터가 자동으로 측정되어 곧바로 표시되기 때문에, 스윙을 바꾼 효과를 같은 샷에서 확인할 수 있어요. 교정이 통했는지 애매하지 않으니, 1회 레슨이 기존 연습장 레슨보다 훨씬 알차집니다.\n\nBTS로 접근할 수 있는 중심가 위치라 이른 아침 출발이나 도심 횡단 이동이 필요 없어요. 레슨을 어떤 일정에도 끼워 넣을 수 있습니다.\n\nLENGOLF 레슨 요점(2026년 7월 기준):\n\n- 태국 PGA 공인 코치(PRO Boss, PRO Ratchavin, PRO Min)의 1:1 지도\n- 1시간 무료 체험 레슨부터 시작할 수 있어요\n- 레슨 패키지는 1시간 1,800바트부터\n- BTS 칫롬역 직결(The Mercury Ville 4층)\n- 연중무휴 오전 9시~오후 11시 운영\n- 스크린골프 시뮬레이터 데이터(스윙당 20개 이상)를 활용한 맞춤 코칭\n- 예약·사전 상담은 booking.len.golf 또는 LINE @lengolf 한국어 대응',
+          body: 'LENGOLF는 방콕 중심가의 실내 시뮬레이터 시설에서 코칭을 진행해요. 여행으로 찾는 골퍼에게 가장 큰 이점은 이거예요: 데이터가 자동으로 측정되어 곧바로 표시되기 때문에, 스윙을 바꾼 효과를 같은 샷에서 확인할 수 있어요. 교정이 통했는지 애매하지 않으니, 1회 레슨이 기존 연습장 레슨보다 훨씬 알차집니다.\n\nBTS로 접근할 수 있는 중심가 위치라 이른 아침 출발이나 도심 횡단 이동이 필요 없어요. 레슨을 어떤 일정에도 끼워 넣을 수 있습니다.\n\nLENGOLF 레슨 요점(2026년 7월 기준):\n\n- 태국 PGA 공인 코치(PRO Boss, PRO Ratchavin, PRO Min)의 1:1 지도\n- 1시간 무료 체험 레슨부터 시작할 수 있어요\n- 레슨 패키지는 1시간 {{lessonHourly}}부터\n- BTS 칫롬역 직결(The Mercury Ville 4층)\n- 연중무휴 오전 9시~오후 11시 운영\n- 스크린골프 시뮬레이터 데이터(스윙당 20개 이상)를 활용한 맞춤 코칭\n- 예약·사전 상담은 booking.len.golf 또는 LINE @lengolf 한국어 대응',
         },
         {
           heading: '여행 중 현실적인 레슨 횟수는?',
@@ -1564,7 +1580,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         '시뮬레이터 기반 코칭은 샷마다 객관적인 론치 모니터 데이터를 제공해요 — 기존 연습장 레슨에 없는 큰 이점이에요',
         'PGA 공인 코치를 고르고, 최소 2개 각도의 영상 촬영을 챙기세요. 방콕에서는 영어 지도가 일반적이에요',
         '5~7일 골프 여행이라면 집중 레슨 1~2회가 현실적인 목표예요 — 도중에 스윙에 정보를 너무 많이 넣지 마세요',
-        'LENGOLF는 태국 PGA 공인 코치의 1시간 무료 체험, 패키지 1,800바트부터, BTS 칫롬 직결. 예약·상담은 LINE @lengolf 한국어 대응(2026년 7월 기준)',
+        'LENGOLF는 태국 PGA 공인 코치의 1시간 무료 체험, 패키지 {{lessonHourly}}부터, BTS 칫롬 직결. 예약·상담은 LINE @lengolf 한국어 대응(2026년 7월 기준)',
       ],
       comparison_table: [],
     },
@@ -1969,9 +1985,9 @@ export const explainerPages: ExplainerSeoPage[] = [
   // booking routes, lead times (weekday 1–2 days / weekend 3–5 days / Dec–Feb
   // 1+ week), twilight after 2–3pm, caddie fee 300–500 THB, arrive 30 min early
   // — follow the EN source exactly. One LENGOLF tie-in closes the day-of
-  // section: premium Callaway/Majesty rental from 1,200 THB/day with
-  // hotel/course delivery (500 THB round trip, no deposit, 2026年7月現在) —
-  // facts from shipped JA copy (exp-screen-golf-bangkok-ja / exp-39-ja).
+  // section: premium Callaway/Majesty rental from {{courseRentalDay}} with
+  // hotel/course delivery ({{clubDelivery}} round trip, no deposit, 2026年7月
+  // 現在) — prices token-resolved from lib/site-facts.ts (POS-backed).
   {
     id: 'exp-37-ja',
     page_type: 'explainer',
@@ -2014,7 +2030,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: '当日のポイント',
-          body: 'ティータイムの30分以上前には到着し、チェックイン、事前精算、キャディーの割り当て、ウォームアップを済ませましょう。支払いは通常、到着時にプロショップで行います。ほとんどのクラブはタイバーツの現金を受け付けますが、クレジットカードが使えるかはコースによって異なるため、十分な現金を用意しておきましょう。キャディーフィーとチップは、ほぼ例外なく現金のみです。\n\nクラブを持たずに渡航した場合は、コースのレンタルセットのほかに、バンコクのLENGOLFでCallawayやMajesty（マジェスティ）のプレミアムセットを1日1,200THBからレンタルし、ホテルやコースへ配送してもらう方法もあります（往復配送500THB、デポジット不要、2026年7月現在）。',
+          body: 'ティータイムの30分以上前には到着し、チェックイン、事前精算、キャディーの割り当て、ウォームアップを済ませましょう。支払いは通常、到着時にプロショップで行います。ほとんどのクラブはタイバーツの現金を受け付けますが、クレジットカードが使えるかはコースによって異なるため、十分な現金を用意しておきましょう。キャディーフィーとチップは、ほぼ例外なく現金のみです。\n\nクラブを持たずに渡航した場合は、コースのレンタルセットのほかに、バンコクのLENGOLFでCallawayやMajesty（マジェスティ）のプレミアムセットを1日{{courseRentalDay}}からレンタルし、ホテルやコースへ配送してもらう方法もあります（往復配送{{clubDelivery}}、デポジット不要、2026年7月現在）。',
         },
       ],
       key_takeaways: [
@@ -2033,8 +2049,9 @@ export const explainerPages: ExplainerSeoPage[] = [
   // same/next-day, weekend 3–5일, Dec–Feb 1주일 이상), twilight after 2–3pm,
   // caddie fee 300–500 THB, arrive 30 min early — follow the EN source exactly.
   // One LENGOLF tie-in closes the day-of section: premium Callaway/Majesty
-  // rental from 1,200바트/day with hotel/course delivery (왕복 500바트, no
-  // deposit, 2026년 7월 기준) — facts from shipped KO copy (exp-screen-golf-bangkok-ko §4).
+  // rental from {{courseRentalDay}}/day with hotel/course delivery ({{clubDelivery}}
+  // round trip, no deposit, 2026년 7월 기준) — prices token-resolved from
+  // lib/site-facts.ts (POS-backed).
   {
     id: 'exp-37-ko',
     page_type: 'explainer',
@@ -2077,7 +2094,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: '당일 팁',
-          body: '티타임 30분 이상 전에는 도착해서 체크인, 사전 정산, 캐디 배정, 워밍업을 마치세요. 결제는 보통 도착 시 프로숍에서 해요. 대부분의 클럽이 태국 바트 현금을 받지만, 신용카드 사용 여부는 코스마다 다르니 충분한 현금을 준비해 두세요. 캐디피와 팁은 거의 예외 없이 현금으로만 받아요.\n\n클럽을 가져오지 않고 방문했다면, 코스의 렌탈 세트 외에 방콕 LENGOLF에서 Callaway·Majesty 프리미엄 세트를 하루 1,200바트부터 대여해 호텔이나 골프장으로 배송받는 방법도 있어요(왕복 배송 500바트, 보증금 없음, 2026년 7월 기준).',
+          body: '티타임 30분 이상 전에는 도착해서 체크인, 사전 정산, 캐디 배정, 워밍업을 마치세요. 결제는 보통 도착 시 프로숍에서 해요. 대부분의 클럽이 태국 바트 현금을 받지만, 신용카드 사용 여부는 코스마다 다르니 충분한 현금을 준비해 두세요. 캐디피와 팁은 거의 예외 없이 현금으로만 받아요.\n\n클럽을 가져오지 않고 방문했다면, 코스의 렌탈 세트 외에 방콕 LENGOLF에서 Callaway·Majesty 프리미엄 세트를 하루 {{courseRentalDay}}부터 대여해 호텔이나 골프장으로 배송받는 방법도 있어요(왕복 배송 {{clubDelivery}}, 보증금 없음, 2026년 7월 기준).',
         },
       ],
       key_takeaways: [
@@ -2232,7 +2249,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'キャディーとの連携と実践的なコツ',
-          body: 'タイのゴルフ場はキャディー帯同が基本なので、レンタルでも持参でもキャディーが付きます。サービスの質は変わりません。役立つ豆知識: キャディーはそのレンタルセットで何度もキャディーをした経験があることが多く、「このクラブは飛びやすい・飛ばない」を教えてくれます。遠慮なく聞きましょう。\n\n**実践的なコツ:**\n1. 事前に電話を — 左利き用セットは小さいコースでは少ないため、必ず事前確認を\n2. ティアを確認 — スタンダードとプレミアムがある場合、アップグレード料金は大抵手頃です\n3. 早めに到着 — セットを点検して交換を頼む余裕ができます\n4. 最新のレンタル料金を確認 — 料金は変わりやすく、オンラインに掲載されていないことも\n5. キャディーへのチップは変わらず — レンタルクラブはチップを減らす理由にはなりません\n\nなお、事前に確実にプレミアムセットでプレーしたい場合は、バンコクのLENGOLFのようなレンタルサービスでCallawayやMajestyのセットをオンライン予約し、ホテルやコースへ配送してもらう方法もあります（1日1,200バーツから）。当日プロショップで残っているセットに賭ける必要がありません。',
+          body: 'タイのゴルフ場はキャディー帯同が基本なので、レンタルでも持参でもキャディーが付きます。サービスの質は変わりません。役立つ豆知識: キャディーはそのレンタルセットで何度もキャディーをした経験があることが多く、「このクラブは飛びやすい・飛ばない」を教えてくれます。遠慮なく聞きましょう。\n\n**実践的なコツ:**\n1. 事前に電話を — 左利き用セットは小さいコースでは少ないため、必ず事前確認を\n2. ティアを確認 — スタンダードとプレミアムがある場合、アップグレード料金は大抵手頃です\n3. 早めに到着 — セットを点検して交換を頼む余裕ができます\n4. 最新のレンタル料金を確認 — 料金は変わりやすく、オンラインに掲載されていないことも\n5. キャディーへのチップは変わらず — レンタルクラブはチップを減らす理由にはなりません\n\nなお、事前に確実にプレミアムセットでプレーしたい場合は、バンコクのLENGOLFのようなレンタルサービスでCallawayやMajestyのセットをオンライン予約し、ホテルやコースへ配送してもらう方法もあります（1日{{courseRentalDayNum}}バーツから）。当日プロショップで残っているセットに賭ける必要がありません。',
         },
       ],
       key_takeaways: [
@@ -2284,7 +2301,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: '캐디 활용과 실전 팁',
-          body: '태국 골프장은 캐디 동반이 기본이라 렌탈이든 지참이든 캐디가 붙습니다. 서비스 품질은 똑같습니다. 유용한 팁 하나: 캐디는 그 렌탈 세트로 여러 번 캐디를 해봤을 가능성이 높아 "이 클럽은 잘 나간다·안 나간다"를 알려줄 수 있습니다. 부담 없이 물어보세요.\n\n**실전 팁:**\n1. 미리 전화하기 — 왼손잡이 세트는 작은 코스에는 드물기 때문에 반드시 사전 확인\n2. 등급 확인 — 스탠다드와 프리미엄이 있다면 업그레이드 요금은 대개 부담 없는 수준입니다\n3. 일찍 도착 — 세트를 점검하고 교환을 요청할 여유가 생깁니다\n4. 최신 렌탈 요금 확인 — 요금은 자주 바뀌고 온라인에 없는 경우도 많습니다\n5. 캐디 팁은 그대로 — 렌탈 클럽이 팁을 줄일 이유는 되지 않습니다\n\n참고로, 확실하게 프리미엄 세트로 플레이하고 싶다면 방콕 LENGOLF 같은 렌탈 서비스에서 Callaway·Majesty 세트를 온라인 예약하고 호텔이나 골프장으로 배송받는 방법도 있습니다(하루 1,200바트부터). 당일 프로샵에 남아 있는 세트에 운을 맡길 필요가 없습니다.',
+          body: '태국 골프장은 캐디 동반이 기본이라 렌탈이든 지참이든 캐디가 붙습니다. 서비스 품질은 똑같습니다. 유용한 팁 하나: 캐디는 그 렌탈 세트로 여러 번 캐디를 해봤을 가능성이 높아 "이 클럽은 잘 나간다·안 나간다"를 알려줄 수 있습니다. 부담 없이 물어보세요.\n\n**실전 팁:**\n1. 미리 전화하기 — 왼손잡이 세트는 작은 코스에는 드물기 때문에 반드시 사전 확인\n2. 등급 확인 — 스탠다드와 프리미엄이 있다면 업그레이드 요금은 대개 부담 없는 수준입니다\n3. 일찍 도착 — 세트를 점검하고 교환을 요청할 여유가 생깁니다\n4. 최신 렌탈 요금 확인 — 요금은 자주 바뀌고 온라인에 없는 경우도 많습니다\n5. 캐디 팁은 그대로 — 렌탈 클럽이 팁을 줄일 이유는 되지 않습니다\n\n참고로, 확실하게 프리미엄 세트로 플레이하고 싶다면 방콕 LENGOLF 같은 렌탈 서비스에서 Callaway·Majesty 세트를 온라인 예약하고 호텔이나 골프장으로 배송받는 방법도 있습니다(하루 {{courseRentalDay}}부터). 당일 프로샵에 남아 있는 세트에 운을 맡길 필요가 없습니다.',
         },
       ],
       key_takeaways: [
@@ -2336,7 +2353,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: '与球童的配合及实用贴士',
-          body: '泰国实行强制球童制度，所以不管你是租借还是自带，都会有球童。服务品质不会改变。一个有用的小知识：球童很可能用这套租借球具服务过多次，能告诉你某支球杆偏远还是偏近——尽管问他们。\n\n**实用贴士：**\n1. 提前致电——确认有无左手套装；小型球场的左手套装较少\n2. 询问档次——很多球场提供标准和高级两种租借，升级费用通常不高\n3. 早点到——留出时间检查球具，并在不耽误开球时间的情况下要求更换\n4. 确认最新租借费用——价格会变，且不一定在网上列出\n5. 球童小费照给——租借球杆绝不是减少小费的理由\n\n另外，如果想确保用高级套装打球，也可以在曼谷LENGOLF这类租借服务在线预订Callaway、Majesty套装，并配送到酒店或球场（每日1,200泰铢起，截至2026年7月），不必赌当天职业球具店还剩下哪套。',
+          body: '泰国实行强制球童制度，所以不管你是租借还是自带，都会有球童。服务品质不会改变。一个有用的小知识：球童很可能用这套租借球具服务过多次，能告诉你某支球杆偏远还是偏近——尽管问他们。\n\n**实用贴士：**\n1. 提前致电——确认有无左手套装；小型球场的左手套装较少\n2. 询问档次——很多球场提供标准和高级两种租借，升级费用通常不高\n3. 早点到——留出时间检查球具，并在不耽误开球时间的情况下要求更换\n4. 确认最新租借费用——价格会变，且不一定在网上列出\n5. 球童小费照给——租借球杆绝不是减少小费的理由\n\n另外，如果想确保用高级套装打球，也可以在曼谷LENGOLF这类租借服务在线预订Callaway、Majesty套装，并配送到酒店或球场（每日{{courseRentalDay}}起，截至2026年7月），不必赌当天职业球具店还剩下哪套。',
         },
       ],
       key_takeaways: [
@@ -2361,7 +2378,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     slug: 'screen-golf-bangkok',
     title: 'Screen Golf in Bangkok — Korean-Style Simulator Golf',
     meta_description:
-      'Looking for screen golf (스크린골프) in Bangkok? Play Korean-style simulator golf at LENGOLF, BTS Chidlom — Bravo Golf technology, from 550 THB/hour for up to 5 players, with food and drinks at your bay.',
+      'Looking for screen golf (스크린골프) in Bangkok? Play Korean-style simulator golf at LENGOLF, BTS Chidlom — Bravo Golf technology, from {{bayHourlyFrom}}/hour for up to 5 players, with food and drinks at your bay.',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -2377,7 +2394,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     updated_at: now,
     content: {
       intro:
-        "Screen golf — 스크린골프 — is what Koreans call indoor simulator golf, and in Korea it's a national pastime with thousands of dedicated venues. If you're visiting Bangkok and missing your weekly screen golf session, or you discovered the format on a trip to Seoul, you can play it here: LENGOLF at BTS Chidlom runs Korean Bravo Golf simulators in a lounge-and-bar setting, from 550 THB per hour for up to 5 players.",
+        "Screen golf — 스크린골프 — is what Koreans call indoor simulator golf, and in Korea it's a national pastime with thousands of dedicated venues. If you're visiting Bangkok and missing your weekly screen golf session, or you discovered the format on a trip to Seoul, you can play it here: LENGOLF at BTS Chidlom runs Korean Bravo Golf simulators in a lounge-and-bar setting, from {{bayHourlyFrom}} per hour for up to 5 players.",
       sections: [
         {
           heading: 'What Is Screen Golf?',
@@ -2385,7 +2402,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'Screen Golf at LENGOLF — Korean Technology Included',
-          body: "LENGOLF's bays run Bravo Golf simulators — a Korean launch-monitor brand, the same technology culture Golfzon players know. Each bay measures 20+ club and ball parameters per swing and renders 100+ real courses.\n\nThe format follows screen golf convention: up to 5 players per bay at one hourly rate (550–950 THB per hour, as of July 2026), so a group splits it to ~110–190 THB per person per hour. Standard clubs are free, the venue is air-conditioned, and there's a full food and drink menu served to your bay. Open 9am–11pm daily at The Mercury Ville, directly connected to BTS Chidlom.",
+          body: "LENGOLF's bays run Bravo Golf simulators — a Korean launch-monitor brand, the same technology culture Golfzon players know. Each bay measures 20+ club and ball parameters per swing and renders 100+ real courses.\n\nThe format follows screen golf convention: up to 5 players per bay at one hourly rate ({{bayHourlyMinNum}}–{{bayHourlyMaxNum}} THB per hour, as of July 2026), so a group splits it to ~110–190 THB per person per hour. Standard clubs are free, the venue is air-conditioned, and there's a full food and drink menu served to your bay. Open 9am–11pm daily at The Mercury Ville, directly connected to BTS Chidlom.",
         },
         {
           heading: 'How It Compares to Screen Golf in Korea',
@@ -2393,13 +2410,13 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'Practical Tips for Visiting Golfers',
-          body: '1. **Book ahead for evenings** — like Korean screen golf, prime time fills up; book online at booking.len.golf or walk in off-peak\n2. **Come empty-handed** — standard clubs, balls, and setup are included free\n3. **Bring non-golfers** — multiplayer modes and non-golf games make mixed groups work, screen-golf style\n4. **Korean-language support** — staff handle Korean inquiries via LINE @lengolf\n5. **Playing a real course later?** Premium club rental with hotel or course delivery starts at 1,200 THB/day (as of July 2026)',
+          body: '1. **Book ahead for evenings** — like Korean screen golf, prime time fills up; book online at booking.len.golf or walk in off-peak\n2. **Come empty-handed** — standard clubs, balls, and setup are included free\n3. **Bring non-golfers** — multiplayer modes and non-golf games make mixed groups work, screen-golf style\n4. **Korean-language support** — staff handle Korean inquiries via LINE @lengolf\n5. **Playing a real course later?** Premium club rental with hotel or course delivery starts at {{courseRentalDay}}/day (as of July 2026)',
         },
       ],
       key_takeaways: [
         'Screen golf (스크린골프) — Korean-style social simulator golf — is available in Bangkok at LENGOLF, BTS Chidlom',
         'Korean Bravo Golf technology: 20+ swing parameters, 100+ courses, up to 5 players per bay',
-        'Priced screen-golf style: one hourly bay rate (550–950 THB, as of July 2026) split by the group, clubs free',
+        'Priced screen-golf style: one hourly bay rate ({{bayHourlyMinNum}}–{{bayHourlyMaxNum}} THB, as of July 2026) split by the group, clubs free',
         'Open 9am–11pm daily with food and drinks served to the bay — a social round, not just practice',
       ],
       comparison_table: [],
@@ -2413,7 +2430,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     slug: 'screen-golf-bangkok',
     title: '방콕 스크린골프 가이드 — 요금·위치·예약 방법',
     meta_description:
-      '방콕에서 스크린골프? LENGOLF는 BTS 칫롬역 직결, 한국 Bravo Golf 시뮬레이터로 1시간 550바트부터 최대 5명까지. 요금, 예약 방법, 한국 스크린골프와 다른 점을 정리했습니다.',
+      '방콕에서 스크린골프? LENGOLF는 BTS 칫롬역 직결, 한국 Bravo Golf 시뮬레이터로 1시간 {{bayHourlyFrom}}부터 최대 5명까지. 요금, 예약 방법, 한국 스크린골프와 다른 점을 정리했습니다.',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -2428,7 +2445,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     updated_at: now,
     content: {
       intro:
-        '방콕 여행 중에 스크린골프 생각이 난다면 — 있습니다. LENGOLF는 BTS 칫롬역과 바로 연결된 The Mercury Ville 4층에서 한국 Bravo Golf 시뮬레이터로 스크린골프를 운영합니다. 1시간 550바트부터, 한 베이에 최대 5명까지 함께 플레이할 수 있고, 자리로 음식과 음료를 가져다주는 바가 함께 있습니다.',
+        '방콕 여행 중에 스크린골프 생각이 난다면 — 있습니다. LENGOLF는 BTS 칫롬역과 바로 연결된 The Mercury Ville 4층에서 한국 Bravo Golf 시뮬레이터로 스크린골프를 운영합니다. 1시간 {{bayHourlyFrom}}부터, 한 베이에 최대 5명까지 함께 플레이할 수 있고, 자리로 음식과 음료를 가져다주는 바가 함께 있습니다.',
       sections: [
         {
           heading: '방콕에도 스크린골프가 있습니다',
@@ -2436,7 +2453,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: '요금과 예약 (2026년 7월 기준)',
-          body: '**베이 요금:** 시간당 550~950바트(시간대에 따라 다름). 베이당 최대 5명이므로 인원이 많을수록 1인당 부담은 내려갑니다 — 5명이면 1인당 시간당 110~190바트 수준.\n\n**포함 사항:** 스탠다드 클럽 세트·볼 무료. 빈손으로 오시면 됩니다.\n\n**예약:** booking.len.golf에서 온라인 예약(즉시 확정), 또는 LINE @lengolf — 한국어 상담이 가능합니다. 저녁 프라임 타임은 한국 스크린골프처럼 차기 쉬우니 미리 예약을 추천합니다.\n\n**영업시간:** 연중무휴 오전 9시~오후 11시.',
+          body: '**베이 요금:** 시간당 {{bayHourlyMinNum}}~{{bayHourlyMaxNum}}바트(시간대에 따라 다름). 베이당 최대 5명이므로 인원이 많을수록 1인당 부담은 내려갑니다 — 5명이면 1인당 시간당 110~190바트 수준.\n\n**포함 사항:** 스탠다드 클럽 세트·볼 무료. 빈손으로 오시면 됩니다.\n\n**예약:** booking.len.golf에서 온라인 예약(즉시 확정), 또는 LINE @lengolf — 한국어 상담이 가능합니다. 저녁 프라임 타임은 한국 스크린골프처럼 차기 쉬우니 미리 예약을 추천합니다.\n\n**영업시간:** 연중무휴 오전 9시~오후 11시.',
         },
         {
           heading: '한국 스크린골프와 다른 점',
@@ -2444,14 +2461,14 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: '필드도 나가신다면',
-          body: '방콕 근교 골프장에서 라운딩 계획이 있다면 클럽 걱정은 필요 없습니다. LENGOLF에서 Callaway·Majesty 프리미엄 세트를 하루 1,200바트부터(2026년 7월 기준) 렌탈할 수 있고, 호텔이나 골프장까지 배송(왕복 500바트)됩니다. 보증금 없이 온라인 결제로 즉시 확정.\n\n스윙 점검이 필요하다면 태국 PGA 프로의 골프레슨도 운영합니다 — 1시간 무료 체험부터 시작할 수 있고, 스크린골프 시뮬레이터 데이터를 활용한 맞춤 코칭입니다.',
+          body: '방콕 근교 골프장에서 라운딩 계획이 있다면 클럽 걱정은 필요 없습니다. LENGOLF에서 Callaway·Majesty 프리미엄 세트를 하루 {{courseRentalDay}}부터(2026년 7월 기준) 렌탈할 수 있고, 호텔이나 골프장까지 배송(왕복 {{clubDelivery}})됩니다. 보증금 없이 온라인 결제로 즉시 확정.\n\n스윙 점검이 필요하다면 태국 PGA 프로의 골프레슨도 운영합니다 — 1시간 무료 체험부터 시작할 수 있고, 스크린골프 시뮬레이터 데이터를 활용한 맞춤 코칭입니다.',
         },
       ],
       key_takeaways: [
         '방콕 스크린골프는 LENGOLF — BTS 칫롬역 직결, 한국 Bravo Golf 시뮬레이터',
-        '시간당 550~950바트(2026년 7월 기준)를 최대 5명이 나눠서 — 클럽·볼 무료, 빈손 OK',
+        '시간당 {{bayHourlyMinNum}}~{{bayHourlyMaxNum}}바트(2026년 7월 기준)를 최대 5명이 나눠서 — 클럽·볼 무료, 빈손 OK',
         '온라인 예약 즉시 확정, LINE @lengolf 한국어 상담 가능, 연중무휴 9시~23시',
-        '필드 라운딩용 프리미엄 클럽 렌탈(하루 1,200바트부터, 호텔 배송)과 PGA 프로 레슨도 함께 운영',
+        '필드 라운딩용 프리미엄 클럽 렌탈(하루 {{courseRentalDay}}부터, 호텔 배송)과 PGA 프로 레슨도 함께 운영',
       ],
       comparison_table: [],
     },
@@ -2471,7 +2488,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     slug: 'screen-golf-bangkok',
     title: 'バンコクのシミュレーションゴルフ — 韓国発スクリーンゴルフを楽しむ',
     meta_description:
-      'バンコクでシミュレーションゴルフ（インドアゴルフ）をお探しの方へ。LENGOLFはBTSチットロム駅直結、韓国Bravo Golfのシミュレーターで1時間550THBから最大5名まで。韓国発のスクリーンゴルフスタイルで、ベイまで料理やドリンクをお届けします（2026年7月現在）。',
+      'バンコクでシミュレーションゴルフ（インドアゴルフ）をお探しの方へ。LENGOLFはBTSチットロム駅直結、韓国Bravo Golfのシミュレーターで1時間{{bayHourlyFrom}}から最大5名まで。韓国発のスクリーンゴルフスタイルで、ベイまで料理やドリンクをお届けします（2026年7月現在）。',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -2487,7 +2504,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     updated_at: now,
     content: {
       intro:
-        'バンコク旅行中に、日本で通っているようなシミュレーションゴルフ（インドアゴルフ）を楽しみたい——そんなときはLENGOLFへ。BTSチットロム駅直結のザ・マーキュリービル4階で、韓国Bravo Golfのシミュレーターを1時間550THBから、1ベイ最大5名でご利用いただけます。ベイまで料理やドリンクをお届けする、バー併設の空間です。',
+        'バンコク旅行中に、日本で通っているようなシミュレーションゴルフ（インドアゴルフ）を楽しみたい——そんなときはLENGOLFへ。BTSチットロム駅直結のザ・マーキュリービル4階で、韓国Bravo Golfのシミュレーターを1時間{{bayHourlyFrom}}から、1ベイ最大5名でご利用いただけます。ベイまで料理やドリンクをお届けする、バー併設の空間です。',
       sections: [
         {
           heading: 'スクリーンゴルフとは？シミュレーションゴルフとの関係',
@@ -2495,7 +2512,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'LENGOLFのシミュレーションゴルフ — 韓国テクノロジー搭載',
-          body: 'LENGOLFのベイは韓国Bravo Golfのシミュレーターを使用しています。スイングごとに20以上のクラブ・ボールデータを計測し、100以上の実在コースを収録しています。\n\n料金はスクリーンゴルフのスタイルそのまま: 1ベイ最大5名を1つの時間料金でご利用いただけます（1時間550〜950THB、2026年7月現在）。5名で分ければ1人あたり1時間110〜190THB程度です。スタンダードクラブは無料、店内は完全空調で、フードとドリンクのメニューをベイまでお届けします。営業は毎日9:00〜23:00、ザ・マーキュリービル（BTSチットロム駅直結）にあります。',
+          body: 'LENGOLFのベイは韓国Bravo Golfのシミュレーターを使用しています。スイングごとに20以上のクラブ・ボールデータを計測し、100以上の実在コースを収録しています。\n\n料金はスクリーンゴルフのスタイルそのまま: 1ベイ最大5名を1つの時間料金でご利用いただけます（1時間{{bayHourlyMinNum}}〜{{bayHourlyMaxNum}}THB、2026年7月現在）。5名で分ければ1人あたり1時間110〜190THB程度です。スタンダードクラブは無料、店内は完全空調で、フードとドリンクのメニューをベイまでお届けします。営業は毎日9:00〜23:00、ザ・マーキュリービル（BTSチットロム駅直結）にあります。',
         },
         {
           heading: '日本で慣れ親しんだシミュレーションゴルフとの違い',
@@ -2503,14 +2520,14 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: '旅行で訪れるゴルファーへの実践的なアドバイス',
-          body: '1. **夜は事前予約を** — スクリーンゴルフと同じく、プライムタイムは混み合います。booking.len.golfでオンライン予約するか、空いている時間帯にウォークインを\n2. **手ぶらでOK** — スタンダードクラブ、ボール、セットアップはすべて無料で含まれます\n3. **ゴルフをしない仲間も一緒に** — マルチプレイモードやゴルフ以外のゲームがあるので、混成グループでもスクリーンゴルフのように楽しめます\n4. **日本語サポート** — ご予約や事前のご相談は、LINE @lengolfにて日本語で承ります\n5. **このあと実際のコースへ？** ホテルやコースへの配送付きのプレミアムクラブレンタルは1日1,200THBから（往復配送500THB、デポジット不要、2026年7月現在）',
+          body: '1. **夜は事前予約を** — スクリーンゴルフと同じく、プライムタイムは混み合います。booking.len.golfでオンライン予約するか、空いている時間帯にウォークインを\n2. **手ぶらでOK** — スタンダードクラブ、ボール、セットアップはすべて無料で含まれます\n3. **ゴルフをしない仲間も一緒に** — マルチプレイモードやゴルフ以外のゲームがあるので、混成グループでもスクリーンゴルフのように楽しめます\n4. **日本語サポート** — ご予約や事前のご相談は、LINE @lengolfにて日本語で承ります\n5. **このあと実際のコースへ？** ホテルやコースへの配送付きのプレミアムクラブレンタルは1日{{courseRentalDay}}から（往復配送{{clubDelivery}}、デポジット不要、2026年7月現在）',
         },
       ],
       key_takeaways: [
         'バンコクのシミュレーションゴルフ（韓国発のスクリーンゴルフスタイル）はLENGOLFで — BTSチットロム駅直結、韓国Bravo Golf搭載',
-        '20以上のスイングデータ、100以上のコース、1ベイ最大5名。1時間550〜950THBをグループで分け合えます（2026年7月現在）',
+        '20以上のスイングデータ、100以上のコース、1ベイ最大5名。1時間{{bayHourlyMinNum}}〜{{bayHourlyMaxNum}}THBをグループで分け合えます（2026年7月現在）',
         'スタンダードクラブ・ボールは無料で手ぶらOK。フードとドリンクをベイまでお届け、毎日9:00〜23:00営業',
-        'ご予約はbooking.len.golfで、日本語のご相談はLINE @lengolf。実際のコース用にCallaway・Majestyのプレミアムレンタル（1日1,200THB〜、ホテル配送）もあります',
+        'ご予約はbooking.len.golfで、日本語のご相談はLINE @lengolf。実際のコース用にCallaway・Majestyのプレミアムレンタル（1日{{courseRentalDay}}〜、ホテル配送）もあります',
       ],
       comparison_table: [],
     },
