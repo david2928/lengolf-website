@@ -15,6 +15,16 @@ interface Props {
   params: Promise<{ locale: string; region: string }>
 }
 
+// Regions that also have an editorial "best courses" shortlist guide. The hub
+// is the complete directory; the guide is the curated pick. Cross-linking the
+// two (hub → guide here, guide → hub via related_slugs) splits search intent so
+// they stop competing for the same "<region> golf courses" queries. EN-only —
+// these guides have no ja/ko/zh translations, and translated hubs 301 to EN.
+const GUIDE_BY_REGION: Record<string, string> = {
+  bangkok: 'best-golf-courses-near-bangkok',
+  phuket: 'best-golf-courses-phuket',
+}
+
 export async function generateStaticParams() {
   // EN builds every region; other locales build only regions with a published
   // translation (untranslated locale URLs 301 to English via the middleware).
@@ -141,6 +151,18 @@ export default async function RegionIndexPage({ params }: Props) {
               })}
             </h1>
             <p className="max-w-lg text-sm leading-relaxed text-white/60">{description}</p>
+            {locale === 'en' && GUIDE_BY_REGION[region] && (
+              <p className="mt-4 text-sm text-white/50">
+                Just want the highlights?{' '}
+                <Link
+                  href={`/guide/${GUIDE_BY_REGION[region]}`}
+                  className="font-medium text-[#c8a96e] underline-offset-4 hover:underline"
+                >
+                  See our picks of the best courses in {label}
+                </Link>
+                .
+              </p>
+            )}
           </div>
         </div>
 
