@@ -13,6 +13,7 @@ LENGOLF website — a Next.js 15 (App Router) site for an indoor golf simulator 
 - **Start production:** `npm run start`
 - **Lint:** `npm run lint`
 - **Validate internal links:** `npm run validate:links` — checks that SEO cross-links in `data/*.ts` (`related_slugs`, FAQ `related_questions`) resolve to published pages. No server needed.
+- **Validate i18n house style:** `npm run validate:i18n` — lints localized guide content (ja/ko/zh/th entries in `data/explainer-pages.ts` + `REGION_HUB_I18N` in `data/golf-courses-i18n.ts`) against the machine-readable glossaries in `data/i18n-glossary/*.json`. ERROR-level (fails): emoji, exclamation marks, full-width digits (ja), terminology `avoid` variants, brand-immutable case corruption, unbalanced `**`/broken `{{ }}`. WARN-level (non-blocking): currency-convention drift, unscoped honesty claims, prices with no "as of" marker. Automates the mechanical subset of `docs/i18n-review-checklist.md`; `--self-test` proves the detectors. No server needed.
 - **Smoke tests:** `npm run test:smoke` (requires a running server on localhost:3000)
 - **Page inventory:** `npm run inventory [base-url]` — table of published pages per section × language (EN/TH/JA/KO/ZH), parsed from the sitemap. Needs a running server **with DB access** (real `.env.local`), else DB-driven blog/location sections read 0. Point at prod with `npm run inventory https://www.len.golf`.
 - **Migrate blog posts:** `npx tsx scripts/migrate-blog-posts.ts` (one-time migration, already run)
@@ -22,7 +23,7 @@ LENGOLF website — a Next.js 15 (App Router) site for an indoor golf simulator 
 
 GitHub Actions workflow (`.github/workflows/ci.yml`) runs on every PR to `main`:
 
-- **`lint`** — `npm run lint` with ESLint flat config (`eslint.config.mjs`), then `npm run validate:links` (internal SEO cross-link validator — a red "lint" check can be either one)
+- **`lint`** — `npm run lint` with ESLint flat config (`eslint.config.mjs`), then `npm run validate:links` (internal SEO cross-link validator), then `npm run validate:i18n` (i18n house-style/honesty linter — mechanical subset of the native-QA rubric; a red "lint" check can be any of the three)
 - **`build-and-smoke`** — builds the app, starts the production server, runs smoke tests across 11 categories (per-category test counts live in `scripts/smoke-test.ts`):
   - **A) Route tests** — pages across all locales return 200 with `<main id="main-content">`
   - **B) Redirect tests** — WordPress legacy URLs, GSC 404 fixes, and location redirects

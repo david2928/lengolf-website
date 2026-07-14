@@ -26,6 +26,11 @@ jobs:
       # Guards against wrong-prefix SEO cross-links (a FAQ slug linked as
       # /guide/… or vice-versa) shipping as live 404s. No server needed.
       - run: npm run validate:links
+      # Automates the mechanical subset of the i18n native-QA rubric: emoji/！,
+      # full-width digits, terminology `avoid` variants, brand-immutable casing,
+      # markdown/placeholder integrity, per the data/i18n-glossary/*.json house
+      # style. No server needed.
+      - run: npm run validate:i18n
 
   build-and-smoke:
     runs-on: ubuntu-latest
