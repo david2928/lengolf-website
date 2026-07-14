@@ -1,5 +1,19 @@
 import type { ExplainerSeoPage } from '@/types/seo-pages'
 
+// LENGOLF price claims in this file are TOKEN-RESOLVED, not hardcoded.
+// Placeholders like {{lessonHourly}}, {{bayHourlyFrom}}, {{bayHourlyMinNum}}/
+// {{bayHourlyMaxNum}}, {{courseRentalDay}} and {{clubDelivery}} are replaced at
+// render / revalidate time by the guide pipeline (app/[locale]/guide/[slug]/
+// page.tsx) using live POS pricing from lib/site-facts.ts. When the POS API is
+// unreachable they resolve to pinned fallbacks byte-identical to the previous
+// hardcoded copy. Currency-carrying tokens use the locale-default currency word
+// (en/ja → THB, ko → 바트, zh → 泰铢); the …Num number-only tokens keep the
+// currency word + range separator literal in the text (used for ranges and for
+// the JA バーツ minority). Third-party figures (green/caddie/airline fees) are
+// NOT tokenized and stay static. Only the entries listed in the retrofit remain
+// in scope; a few out-of-scope entries (exp-1, exp-3, gg-thailand-golf-trip-
+// cost) still carry static LENGOLF bay-rate literals.
+
 const now = '2026-03-28T00:00:00.000Z'
 
 export const explainerPages: ExplainerSeoPage[] = [
@@ -52,7 +66,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'Where to Try a Golf Simulator in Bangkok',
-          body: 'Bangkok has several golf simulator venues, each with different technology and price points. LENGOLF at Mercury Ville (BTS Chidlom) uses Bravo launch monitors with rates starting at ~550 THB per hour for up to 5 people. Front 9 in Sukhumvit uses Trackman technology starting at ~600 THB per hour. Fairway Golf & City Club near BTS Phrom Phong offers Trackman bays from ~1,000 THB per hour.\n\nFor first-timers, the key factors to consider are location convenience, group size limits per bay, whether club rental is included (it\'s free at LENGOLF), and whether the venue serves food and drinks. Most simulator venues in Bangkok welcome beginners and non-golfers — no experience or equipment is needed.',
+          body: 'Bangkok has several golf simulator venues, each with different technology and price points. LENGOLF at Mercury Ville (BTS Chidlom) uses Bravo launch monitors with rates starting at ~{{bayHourlyFrom}} per hour for up to 5 people. Front 9 in Sukhumvit uses Trackman technology starting at ~600 THB per hour. Fairway Golf & City Club near BTS Phrom Phong offers Trackman bays from ~1,000 THB per hour.\n\nFor first-timers, the key factors to consider are location convenience, group size limits per bay, whether club rental is included (it\'s free at LENGOLF), and whether the venue serves food and drinks. Most simulator venues in Bangkok welcome beginners and non-golfers — no experience or equipment is needed.',
         },
       ],
 
@@ -62,7 +76,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         'You can play full 18-hole rounds on 100,000+ real courses, practice with instant swing data, or play non-golf games',
         'No golf experience or equipment is needed — venues provide clubs and guidance',
         'In Bangkok, indoor golf solves the heat and rain problem with air-conditioned, year-round play',
-        'LENGOLF rates start at ~550 THB/hour for up to 5 people at BTS Chidlom',
+        'LENGOLF rates start at ~{{bayHourlyFrom}}/hour for up to 5 people at BTS Chidlom',
       ],
 
 
@@ -186,7 +200,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'What to Expect on Your First Visit',
-          body: 'Here\'s what a first visit to LENGOLF looks like:\n\n**Arrival** — Walk into Mercury Ville at BTS Chidlom, take the elevator to the 4th floor. No reservation required for walk-ins, though booking ahead guarantees a bay during peak hours.\n\n**Setup** — Staff will set you up with a bay and clubs. If you mention it\'s your first time, they\'ll show you how to hold the club, where to stand, and how the screen works. This takes about 5 minutes.\n\n**Playing** — Choose a game mode. For beginners, the driving range mode is a great start — just hit balls at targets with no pressure. When you\'re comfortable, try a course round where each person takes turns.\n\n**Duration** — Most first-time groups book 1–2 hours. That\'s enough time to get comfortable, have some fun, and decide if you want to come back.\n\n**Cost** — Bays start at ~550 THB per hour for up to 5 people. That\'s ~110 THB per person in a group of 5 — less than a movie ticket.',
+          body: 'Here\'s what a first visit to LENGOLF looks like:\n\n**Arrival** — Walk into Mercury Ville at BTS Chidlom, take the elevator to the 4th floor. No reservation required for walk-ins, though booking ahead guarantees a bay during peak hours.\n\n**Setup** — Staff will set you up with a bay and clubs. If you mention it\'s your first time, they\'ll show you how to hold the club, where to stand, and how the screen works. This takes about 5 minutes.\n\n**Playing** — Choose a game mode. For beginners, the driving range mode is a great start — just hit balls at targets with no pressure. When you\'re comfortable, try a course round where each person takes turns.\n\n**Duration** — Most first-time groups book 1–2 hours. That\'s enough time to get comfortable, have some fun, and decide if you want to come back.\n\n**Cost** — Bays start at ~{{bayHourlyFrom}} per hour for up to 5 people. That\'s ~{{bayPerPersonMinNum}} THB per person in a group of 5 — less than a movie ticket.',
         },
         {
           heading: 'Games Beyond Golf',
@@ -210,7 +224,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         'No golf experience, equipment, or special clothing is needed — just show up',
         'About half of LENGOLF guests have never played golf before',
         'Party-friendly games like target practice and long drive contests are immediately fun for everyone',
-        'A group of 5 can play for ~110 THB per person per hour — cheaper than most entertainment options',
+        'A group of 5 can play for ~{{bayPerPersonMinNum}} THB per person per hour — cheaper than most entertainment options',
         'Flat shoes or sneakers are recommended but there\'s no dress code',
         'Simulators are a low-pressure way to try golf before committing to equipment and course fees',
       ],
@@ -911,7 +925,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     slug: 'bring-golf-clubs-thailand-or-rent',
     title: 'タイゴルフ旅行、クラブは持参？現地レンタル？判断ガイド',
     meta_description:
-      'タイ・バンコクでのゴルフ、クラブは日本から持ち込むべき？現地レンタル？航空会社の手荷物規定、レンタルの品質と費用を比較。1日1,200バーツからのプレミアムレンタルやホテル配送も紹介します。',
+      'タイ・バンコクでのゴルフ、クラブは日本から持ち込むべき？現地レンタル？航空会社の手荷物規定、レンタルの品質と費用を比較。1日{{courseRentalDayNum}}バーツからのプレミアムレンタルやホテル配送も紹介します。',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -934,7 +948,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'タイで現地レンタルするメリット',
-          body: 'タイでのクラブレンタルは実用的で、多くの旅行者にとってはむしろ最良の選択です:\n\n**身軽な旅行** — タイは観光や街歩きと組み合わせて楽しむ旅行先。バンコク、プーケット、チェンマイと移動するなら、ゴルフトラベルバッグは大きな負担になります。\n\n**破損リスクゼロ** — ゴルフバッグは輸送中に手荒に扱われがちで、シャフト折れやドライバーヘッドの割れも珍しくありません。レンタルならそのリスクは消えます。\n\n**費用は意外と安い** — 2〜3ラウンドの旅行なら、超過手荷物料金＋トラベルケース＋運搬の手間を合計するより、レンタルの方が安く済むことも。LENGOLFのコースレンタルなら、CallawayやMajesty（マジェスティ）のプレミアムセットが1日1,200バーツから（2026年7月時点）。デポジット不要で、ホテルやゴルフ場への配送（往復500バーツ）にも対応しています。',
+          body: 'タイでのクラブレンタルは実用的で、多くの旅行者にとってはむしろ最良の選択です:\n\n**身軽な旅行** — タイは観光や街歩きと組み合わせて楽しむ旅行先。バンコク、プーケット、チェンマイと移動するなら、ゴルフトラベルバッグは大きな負担になります。\n\n**破損リスクゼロ** — ゴルフバッグは輸送中に手荒に扱われがちで、シャフト折れやドライバーヘッドの割れも珍しくありません。レンタルならそのリスクは消えます。\n\n**費用は意外と安い** — 2〜3ラウンドの旅行なら、超過手荷物料金＋トラベルケース＋運搬の手間を合計するより、レンタルの方が安く済むことも。LENGOLFのコースレンタルなら、CallawayやMajesty（マジェスティ）のプレミアムセットが1日{{courseRentalDayNum}}バーツから（2026年7月時点）。デポジット不要で、ホテルやゴルフ場への配送（往復{{clubDeliveryNum}}バーツ）にも対応しています。',
         },
         {
           heading: '航空会社の受託手荷物について',
@@ -949,7 +963,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         '観光を兼ねて1〜3ラウンドプレーするカジュアルゴルファーはレンタルが正解 — 身軽さのメリットが用具の妥協を上回ります',
         'ゴルフ目的の旅行で4ラウンド以上プレーする本格派は、一貫性のためマイクラブ持参がおすすめ',
         '日系大手航空会社ではゴルフバッグは無料受託手荷物枠内が一般的（LCCは有料が多い）— 予約前に必ず最新規定を確認',
-        'バンコクのレンタル品質は向上中 — LENGOLFならCallaway・Majestyのセットを1日1,200バーツから、ホテル配送・デポジット不要でレンタル可能',
+        'バンコクのレンタル品質は向上中 — LENGOLFならCallaway・Majestyのセットを1日{{courseRentalDayNum}}バーツから、ホテル配送・デポジット不要でレンタル可能',
       ],
       comparison_table: [],
     },
@@ -962,7 +976,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     slug: 'bring-golf-clubs-thailand-or-rent',
     title: '태국 골프여행, 클럽 가져갈까 현지 렌탈할까? 판단 가이드',
     meta_description:
-      '태국·방콕 골프여행, 클럽은 한국에서 가져가야 할까요, 현지에서 빌리는 게 나을까요? 항공사 수하물 규정, 렌탈 품질과 비용을 비교합니다. 하루 1,200바트부터 호텔 배송 프리미엄 렌탈도 소개.',
+      '태국·방콕 골프여행, 클럽은 한국에서 가져가야 할까요, 현지에서 빌리는 게 나을까요? 항공사 수하물 규정, 렌탈 품질과 비용을 비교합니다. 하루 {{courseRentalDay}}부터 호텔 배송 프리미엄 렌탈도 소개.',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -985,7 +999,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: '태국 현지 렌탈이 나은 이유',
-          body: '태국에서의 클럽 렌탈은 실용적이고, 많은 여행자에게는 오히려 더 나은 선택입니다:\n\n**가볍게 떠나는 여행** — 태국은 관광·시내 구경과 함께 즐기는 여행지입니다. 방콕, 푸켓, 치앙마이를 오간다면 골프 트래블백은 큰 짐이 됩니다.\n\n**파손 위험 제로** — 골프백은 운송 중 험하게 다뤄지기 쉽고, 샤프트 부러짐이나 드라이버 헤드 파손도 드물지 않습니다. 렌탈이라면 그 리스크가 사라집니다.\n\n**비용도 의외로 저렴** — 2~3라운드 일정이라면 초과 수하물 요금+트래블 케이스+운반 수고를 합친 것보다 렌탈이 쌀 수 있습니다. LENGOLF 코스 렌탈은 Callaway·Majesty 프리미엄 세트가 하루 1,200바트부터(2026년 7월 기준). 보증금 없이 호텔·골프장 배송(왕복 500바트)도 가능합니다.',
+          body: '태국에서의 클럽 렌탈은 실용적이고, 많은 여행자에게는 오히려 더 나은 선택입니다:\n\n**가볍게 떠나는 여행** — 태국은 관광·시내 구경과 함께 즐기는 여행지입니다. 방콕, 푸켓, 치앙마이를 오간다면 골프 트래블백은 큰 짐이 됩니다.\n\n**파손 위험 제로** — 골프백은 운송 중 험하게 다뤄지기 쉽고, 샤프트 부러짐이나 드라이버 헤드 파손도 드물지 않습니다. 렌탈이라면 그 리스크가 사라집니다.\n\n**비용도 의외로 저렴** — 2~3라운드 일정이라면 초과 수하물 요금+트래블 케이스+운반 수고를 합친 것보다 렌탈이 쌀 수 있습니다. LENGOLF 코스 렌탈은 Callaway·Majesty 프리미엄 세트가 하루 {{courseRentalDay}}부터(2026년 7월 기준). 보증금 없이 호텔·골프장 배송(왕복 {{clubDelivery}})도 가능합니다.',
         },
         {
           heading: '항공사 위탁 수하물 참고',
@@ -1000,7 +1014,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         '관광 겸 1~3라운드 플레이하는 캐주얼 골퍼는 렌탈이 정답 — 가벼움의 이점이 장비의 아쉬움을 앞섭니다',
         '골프 목적 여행에서 4라운드 이상이라면 일관성을 위해 본인 클럽 지참 추천',
         '국적 풀서비스 항공사는 골프백을 무료 수하물 범위에서 처리하는 것이 일반적(LCC는 유료가 많음) — 예약 전 최신 규정 확인 필수',
-        '방콕 렌탈 품질은 상승 중 — LENGOLF에서는 Callaway·Majesty 세트를 하루 1,200바트부터, 호텔 배송·보증금 없이 렌탈 가능',
+        '방콕 렌탈 품질은 상승 중 — LENGOLF에서는 Callaway·Majesty 세트를 하루 {{courseRentalDay}}부터, 호텔 배송·보증금 없이 렌탈 가능',
       ],
       comparison_table: [],
     },
@@ -1013,7 +1027,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     slug: 'bring-golf-clubs-thailand-or-rent',
     title: '泰国高尔夫之旅，自带球杆还是当地租借？判断指南',
     meta_description:
-      '去泰国、曼谷打高尔夫，球杆该从家里带去，还是在当地租借更好？对比航空公司行李规定、租借的品质与费用，并介绍每日1,200泰铢起、可送到酒店的高级租借服务。',
+      '去泰国、曼谷打高尔夫，球杆该从家里带去，还是在当地租借更好？对比航空公司行李规定、租借的品质与费用，并介绍每日{{courseRentalDay}}起、可送到酒店的高级租借服务。',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -1036,7 +1050,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: '在泰国当地租借的理由',
-          body: '在泰国租借球杆很实用，对许多游客而言反而是更好的选择：\n\n**轻装出行** — 泰国是许多球友与观光、逛城市结合起来游玩的目的地。在曼谷、普吉、清迈之间移动时，高尔夫旅行包是个大负担。\n\n**零损坏风险** — 高尔夫球包在运输途中常被粗暴对待，杆身折断、一号木杆头开裂的情况并不少见。租借的话这种风险就消失了。\n\n**费用可能比想象中低** — 对2至3轮的短途旅行来说，租借的费用往往比超重行李费＋旅行硬箱＋搬运麻烦的总和更划算。LENGOLF的球场租借服务提供Callaway、Majesty等高级套装，每日1,200泰铢起（截至2026年7月），无需押金，还可配送至酒店或球场（往返500泰铢）。',
+          body: '在泰国租借球杆很实用，对许多游客而言反而是更好的选择：\n\n**轻装出行** — 泰国是许多球友与观光、逛城市结合起来游玩的目的地。在曼谷、普吉、清迈之间移动时，高尔夫旅行包是个大负担。\n\n**零损坏风险** — 高尔夫球包在运输途中常被粗暴对待，杆身折断、一号木杆头开裂的情况并不少见。租借的话这种风险就消失了。\n\n**费用可能比想象中低** — 对2至3轮的短途旅行来说，租借的费用往往比超重行李费＋旅行硬箱＋搬运麻烦的总和更划算。LENGOLF的球场租借服务提供Callaway、Majesty等高级套装，每日{{courseRentalDay}}起（截至2026年7月），无需押金，还可配送至酒店或球场（往返{{clubDelivery}}）。',
         },
         {
           heading: '关于航空公司托运行李',
@@ -1051,7 +1065,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         '以观光为主、打1–3轮的休闲球友租借最合适——轻装的好处胜过球具上的妥协',
         '以高尔夫为目的、打4轮以上的认真型球友，为了一致性建议自带球杆',
         '中国大型全服务航空公司通常将高尔夫球包计入免费托运额度（廉价航空多为付费）——预订前务必确认最新规定',
-        '曼谷的租借品质正在提升——LENGOLF提供Callaway、Majesty套装，每日1,200泰铢起，可配送酒店、无需押金',
+        '曼谷的租借品质正在提升——LENGOLF提供Callaway、Majesty套装，每日{{courseRentalDay}}起，可配送酒店、无需押金',
       ],
       comparison_table: [],
     },
@@ -1441,6 +1455,203 @@ export const explainerPages: ExplainerSeoPage[] = [
     },
   },
 
+  // ─── exp-32 (JA): 日本語版 — バンコクのゴルフレッスン・コーチの選び方 ─────────
+  // Faithful translation of the EN guide targeting バンコク ゴルフレッスン long-tail
+  // (料金 / 安い / 日本人 intent). The "coach communication" point is localized
+  // HONESTLY for JP readers: English-language coaching is the Bangkok norm and
+  // LENGOLF has NO Japanese-speaking coaches / Japanese-language lessons — but
+  // booking & consultation work in Japanese via LINE @lengolf, and the on-screen
+  // simulator 数値 lowers the language barrier during the lesson itself. The
+  // LENGOLF fact set (free 1h trial, {{lessonHourly}}-token lesson packages, BTS
+  // Chidlom, Thai-PGA coaches Boss/Ratchavin/Min). Price is token-resolved from
+  // lib/site-facts.ts (POS-backed); other facts come from shipped JA copy.
+  {
+    id: 'exp-32-ja',
+    page_type: 'explainer',
+    slug: 'golf-lessons-bangkok-coaches',
+    title: 'バンコクのゴルフレッスン — 費用とコーチの選び方',
+    meta_description:
+      'バンコクでゴルフレッスンをお探しの方へ。シミュレーターを使ったデータ重視のレッスン、ドライビングレンジ指導との違い、コーチの選び方を解説。LENGOLFはタイPGA認定コーチによる1時間無料体験、パッケージ{{lessonHourly}}〜、ご予約はLINEで日本語対応です（2026年7月現在）。',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'lessons-coaching',
+    locale: 'ja',
+    related_slugs: [
+      '/lessons',
+      '/golf',
+      '/guide/screen-golf-bangkok',
+      '/guide/round-of-golf-cost-bangkok',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        'バンコクには、旅行で訪れるゴルファー向けのコーチング環境が充実しています。一年中ゴルフができる気候、大きな在住外国人コミュニティ、そして本格的なローカルのゴルフ文化——この組み合わせにより、特定の課題を直す1回のレッスンから、数日にわたる体系的なプログラムまで、質の高い指導を受けられます。バンコクが特に面白いのは、シミュレーターを使ったコーチングを受けられる点です。これは、レンジでのレッスンでは得にくい数値フィードバックを提供してくれます。',
+      sections: [
+        {
+          heading: 'バンコクで受けられるレッスンの種類',
+          body: '**1. シミュレーターレッスン** — 最も技術的に精密なコーチングは、プロ仕様のシミュレーターを指導環境として使う方法です。弾道計測器がショットごとにヘッドスピード、ボールスピード、打ち出し角、スピン量、キャリー距離、フェース角を計測します。このデータをもとに指導するコーチは、肉眼では見えないスイングの課題を特定し、修正が機能しているかをリアルタイムで確認できます。\n\nシミュレーターレッスンが特に効果的なのは: 繰り返し出るショットの傾向（スライス、フック、トップ）の診断、アイアンの入射角の調整、ドライバーの打ち出し角とスピン量の最適化、フェース角とパスのデータを見ながらのパッティングなどです。\n\n空調の効いた環境なので、バンコクの暑さや雨季に左右されません。8月の夜7時のレッスンも、天気の心配なく予約できます。\n\n**2. ゴルフ場のドライビングレンジレッスン** — バンコク近郊の多くのコースでは、常駐のPGA認定プロや上級ティーチングアシスタントによるレッスンを提供しています。屋外レンジで動画フィードバックと口頭指導を受ける形式で、屋外で感覚やリズムを磨きたい方に向いています。\n\n**3. オンコース・プレーイングレッスン** — 9ホールまたは18ホールに同行し、実際のコース状況の中で指導するコーチもいます。コースマネジメント、プレショットルーティン、プレッシャーへの対処に特に役立ちます。',
+        },
+        {
+          heading: 'バンコクでコーチを選ぶときのポイント',
+          body: '1. **資格** — PGA認定またはそれに相当する資格を確認しましょう。バンコクのコーチには英国、オーストラリア、米国で研鑽を積んだ人も多くいます\n2. **指導スタイル** — 数値重視でテクニカルなコーチもいれば、感覚やリズムを重視するコーチもいます。予約前に自分に合うタイプを把握しておきましょう\n3. **動画分析** — 今日のまともなレッスンなら、最低2アングルからの動画撮影は含まれているべきです\n4. **言語とコミュニケーション** — バンコクでは英語での指導が一般的です。LENGOLFには日本人コーチや日本語でのレッスンはありませんが、予約や事前のご相談はLINE @lengolfにて日本語で承っています。またレッスン中は、ヘッドスピードや打ち出し角といったシミュレーターの数値が画面に表示されるため、言葉の壁があっても改善点を目で見て理解しやすいのが特長です\n5. **得意分野** — 初心者を得意とするコーチもいれば、低ハンディキャップのプレーヤーを見るコーチもいます。自分のレベルにコーチの専門性を合わせましょう',
+        },
+        {
+          heading: 'LENGOLFのレッスン — シミュレーターの強み',
+          body: 'LENGOLFは、バンコク中心部のインドアシミュレーター施設でコーチングを行っています。旅行で訪れるゴルファーにとっての最大の利点はこれです: データが自動で取得され、すぐに表示されるため、スイングを変えた効果を同じショットで確認できます。修正が効いたかどうかが曖昧にならないので、1回のレッスンが従来のレンジ練習よりもずっと生産的になります。\n\nBTSでアクセスできる中心部の立地なので、早朝の出発や市内横断の移動も不要。レッスンはどんなスケジュールにも組み込めます。\n\nLENGOLFのレッスンの要点（2026年7月現在）:\n\n- タイPGA認定コーチ（PRO Boss、PRO Ratchavin、PRO Min）による個別指導\n- 1時間の無料体験レッスンから始められます\n- レッスンパッケージは1時間{{lessonHourly}}から\n- BTSチットロム駅直結（ザ・マーキュリービル4階）\n- ご予約や事前のご相談はLINE @lengolfにて日本語で承ります',
+        },
+        {
+          heading: '旅行中に現実的なレッスン回数は？',
+          body: '5〜7日間のゴルフ旅行なら、まる一日コースを回る日と並行して、集中したレッスンを1〜2回受けるのが現実的な目安です。それ以上になると、旅行の途中でスイングに新しい情報を詰め込みすぎるリスクがあります。\n\n最も効果的な組み立て方: 旅行の序盤にシミュレーターで1回受けて特定の課題を洗い出し、2〜3日後にもう一度受けて修正を定着させる方法です。その間はラウンドをこなして、調整を実戦の条件に馴染ませます。',
+        },
+        {
+          heading: '予約のコツ',
+          body: '1. レッスンの枠は、コースのティータイムと同じタイミングで予約を — 人気のコーチング枠は埋まりやすいです\n2. 問い合わせの際は、ハンディキャップと直したい具体的な課題を伝えましょう\n3. シミュレーターレッスンなら、レッスン後にデータレポートをもらえるか確認を\n4. 初回は最低90分を確保 — 60分の打球練習に加えて振り返りの時間が必要です',
+        },
+      ],
+      key_takeaways: [
+        'シミュレーターを使ったコーチングは、ショットごとに客観的な弾道計測データが得られる — 従来のレンジレッスンにない大きな利点です',
+        'PGA認定コーチを選び、最低2アングルの動画撮影を必須に。バンコクでは英語での指導が一般的です',
+        '5〜7日間のゴルフ旅行なら集中レッスン1〜2回が現実的な目安 — 途中でスイングに情報を詰め込みすぎないこと',
+        'LENGOLFはタイPGA認定コーチによる1時間無料体験、パッケージ{{lessonHourly}}〜、BTSチットロム直結。ご予約・ご相談はLINEで日本語対応（2026年7月現在）',
+      ],
+      comparison_table: [],
+    },
+  },
+
+  // ─── exp-32 (KO): 한국어판 — 방콕 골프레슨·코치 선택 가이드 ────────────────────
+  // Faithful translation of the EN guide targeting 방콕 골프레슨 / 골프 레슨 가격.
+  // Completes the KO guide cluster (previously club rental + screen golf only)
+  // and feeds /ko/lessons/ (KO's #2 organic page). The "coach communication"
+  // point is localized HONESTLY: English-language coaching is the Bangkok norm
+  // and LENGOLF has NO Korean-speaking coaches / Korean-language lessons — but
+  // booking & consultation work in Korean via LINE @lengolf (shipped KO copy),
+  // and the on-screen simulator 숫자 lowers the in-lesson language barrier. The
+  // LENGOLF fact set (free 1h trial, {{lessonHourly}}-token lesson packages,
+  // Thai-PGA coaches Boss/Ratchavin/Min, BTS Chidlom). Price is token-resolved
+  // from lib/site-facts.ts (POS-backed); other facts come from shipped KO copy.
+  {
+    id: 'exp-32-ko',
+    page_type: 'explainer',
+    slug: 'golf-lessons-bangkok-coaches',
+    title: '방콕 골프레슨 — 요금·코치 선택 가이드',
+    meta_description:
+      '방콕에서 골프레슨을 찾으세요? 시뮬레이터 데이터 기반 레슨과 드라이빙 레인지 레슨의 차이, 코치 선택 요령을 정리했습니다. LENGOLF는 태국 PGA 공인 코치의 1시간 무료 체험, 패키지 {{lessonHourly}}부터, 예약·상담은 LINE @lengolf 한국어 대응입니다(2026년 7월 기준).',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'lessons-coaching',
+    locale: 'ko',
+    related_slugs: [
+      '/lessons',
+      '/golf',
+      '/guide/screen-golf-bangkok',
+      '/golf-course-club-rental',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        '방콕에는 여행으로 찾는 골퍼를 위한 코칭 환경이 잘 갖춰져 있어요. 일 년 내내 골프를 칠 수 있는 기후, 큰 해외 거주자 커뮤니티, 그리고 탄탄한 현지 골프 문화가 어우러져, 특정 문제를 잡는 1회 레슨부터 며칠에 걸친 체계적인 프로그램까지 질 높은 지도를 받을 수 있어요. 방콕이 특히 흥미로운 점은 시뮬레이터를 활용한 코칭을 받을 수 있다는 것이에요. 이는 연습장 레슨에서는 얻기 어려운 데이터 피드백을 제공해 줍니다.',
+      sections: [
+        {
+          heading: '방콕에서 받을 수 있는 레슨의 종류',
+          body: '**1. 시뮬레이터 레슨** — 기술적으로 가장 정밀한 코칭은 프로용 시뮬레이터를 지도 환경으로 쓰는 방식이에요. 론치 모니터가 샷마다 헤드 스피드, 볼 스피드, 발사각, 스핀량, 캐리 거리, 페이스 각을 측정합니다. 이 데이터를 바탕으로 지도하는 코치는 육안으로는 보이지 않는 스윙 결함을 짚어내고, 교정이 실제로 통하는지 실시간으로 확인할 수 있어요.\n\n시뮬레이터 레슨이 특히 효과적인 경우는 다음과 같아요: 반복되는 구질(슬라이스, 훅, 토핑) 진단, 아이언 다운블로와 입사각 작업, 드라이버 발사각·스핀량 최적화, 페이스 각과 스윙 경로 데이터를 보며 하는 퍼팅.\n\n냉방이 되는 실내라 방콕의 더위나 우기에 영향을 받지 않아요. 8월에도 저녁 7시 레슨을 날씨 걱정 없이 예약할 수 있습니다.\n\n**2. 골프장 드라이빙 레인지 레슨** — 방콕 근교 대부분의 코스는 상주 PGA 공인 프로나 선임 티칭 어시스턴트와 함께하는 레슨을 운영해요. 야외 연습장에서 영상 피드백과 구두 지도를 받는 방식으로, 야외에서 감각과 리듬을 다듬고 싶은 분에게 잘 맞아요.\n\n**3. 온코스 플레잉 레슨** — 9홀이나 18홀을 함께 돌며 실제 코스 상황 속에서 지도하는 코치도 있어요. 코스 매니지먼트, 프리샷 루틴, 압박 상황 대처에 특히 도움이 됩니다.',
+        },
+        {
+          heading: '방콕 코치를 고를 때 살펴볼 점',
+          body: '1. **자격** — PGA 공인 또는 그에 준하는 자격을 확인하세요. 방콕 코치 중에는 영국, 호주, 미국에서 경력을 쌓은 분도 많아요\n2. **지도 스타일** — 데이터 중심의 테크니컬한 코치도 있고, 감각과 리듬을 중시하는 코치도 있어요. 예약 전에 자신에게 맞는 스타일을 파악해 두세요\n3. **영상 분석** — 요즘의 제대로 된 레슨이라면 최소 2개 각도의 영상 촬영은 포함되어야 해요\n4. **언어와 소통** — 방콕에서는 영어로 진행하는 레슨이 일반적이에요. LENGOLF에 한국인 코치나 한국어 레슨은 없지만, 예약과 사전 상담은 LINE @lengolf에서 한국어로 도와드려요. 또 레슨 중에는 헤드 스피드나 발사각 같은 시뮬레이터 숫자가 화면에 표시되기 때문에, 언어의 벽이 있어도 고칠 점을 눈으로 보고 이해하기 쉬워요\n5. **전문 분야** — 초보자를 잘 보는 코치가 있고, 로핸디캡 플레이어를 다루는 코치도 있어요. 자신의 수준에 코치의 전문성을 맞추세요',
+        },
+        {
+          heading: 'LENGOLF 레슨 — 시뮬레이터의 강점',
+          body: 'LENGOLF는 방콕 중심가의 실내 시뮬레이터 시설에서 코칭을 진행해요. 여행으로 찾는 골퍼에게 가장 큰 이점은 이거예요: 데이터가 자동으로 측정되어 곧바로 표시되기 때문에, 스윙을 바꾼 효과를 같은 샷에서 확인할 수 있어요. 교정이 통했는지 애매하지 않으니, 1회 레슨이 기존 연습장 레슨보다 훨씬 알차집니다.\n\nBTS로 접근할 수 있는 중심가 위치라 이른 아침 출발이나 도심 횡단 이동이 필요 없어요. 레슨을 어떤 일정에도 끼워 넣을 수 있습니다.\n\nLENGOLF 레슨 요점(2026년 7월 기준):\n\n- 태국 PGA 공인 코치(PRO Boss, PRO Ratchavin, PRO Min)의 1:1 지도\n- 1시간 무료 체험 레슨부터 시작할 수 있어요\n- 레슨 패키지는 1시간 {{lessonHourly}}부터\n- BTS 칫롬역 직결(The Mercury Ville 4층)\n- 연중무휴 오전 9시~오후 11시 운영\n- 스크린골프 시뮬레이터 데이터(스윙당 20개 이상)를 활용한 맞춤 코칭\n- 예약·사전 상담은 booking.len.golf 또는 LINE @lengolf 한국어 대응',
+        },
+        {
+          heading: '여행 중 현실적인 레슨 횟수는?',
+          body: '5~7일 골프 여행이라면, 하루 종일 코스를 도는 날과 병행해 집중 레슨을 1~2회 받는 것이 현실적인 목표예요. 그 이상이면 여행 도중에 스윙에 새 정보를 너무 많이 집어넣을 위험이 있어요.\n\n가장 효과적인 구성은 다음과 같아요: 여행 초반에 시뮬레이터로 1회 받아 특정 문제를 찾아내고, 2~3일 뒤에 한 번 더 받아 교정을 굳히는 방식이에요. 그 사이에는 라운딩을 하며 조정한 부분을 실전 조건에 익혀 두세요.',
+        },
+        {
+          heading: '예약 팁',
+          body: '1. 레슨 슬롯은 코스 티타임과 같은 타이밍에 예약하세요 — 인기 코칭 슬롯은 금방 차요\n2. 문의할 때 핸디캡과 고치고 싶은 구체적인 문제를 함께 알려 주세요\n3. 시뮬레이터 레슨이라면, 레슨 후 데이터 리포트를 받을 수 있는지 물어보세요\n4. 첫 세션은 최소 90분을 확보하세요 — 60분의 볼 타격에 더해 복기 시간이 필요해요',
+        },
+      ],
+      key_takeaways: [
+        '시뮬레이터 기반 코칭은 샷마다 객관적인 론치 모니터 데이터를 제공해요 — 기존 연습장 레슨에 없는 큰 이점이에요',
+        'PGA 공인 코치를 고르고, 최소 2개 각도의 영상 촬영을 챙기세요. 방콕에서는 영어 지도가 일반적이에요',
+        '5~7일 골프 여행이라면 집중 레슨 1~2회가 현실적인 목표예요 — 도중에 스윙에 정보를 너무 많이 넣지 마세요',
+        'LENGOLF는 태국 PGA 공인 코치의 1시간 무료 체험, 패키지 {{lessonHourly}}부터, BTS 칫롬 직결. 예약·상담은 LINE @lengolf 한국어 대응(2026년 7월 기준)',
+      ],
+      comparison_table: [],
+    },
+  },
+
+  // ─── exp-32 (ZH): 简体中文版 — 曼谷高尔夫课程·教练的选择 ────────────────────
+  // Faithful translation of the EN guide, mirroring the JA/KO honesty
+  // localization. The "coach communication" point is scoped to LENGOLF: English
+  // coaching is the Bangkok norm and LENGOLF没有中国人教练、也没有中文课程 — but
+  // booking & consultation work in Chinese via LINE @lengolf (shipped HomeZh
+  // "LINE中文咨询"), and the on-screen simulator 数据 lowers the in-lesson
+  // language barrier. The negative is LENGOLF-scoped (never city-wide); the only
+  // city-wide claim is POSITIVE (在曼谷，用英语授课很普遍). LENGOLF fact set: free
+  // 1h trial, {{lessonHourly}}-token packages, Thai-PGA coaches Boss/Ratchavin/
+  // Min, BTS Chidlom / The Mercury Ville 4层 (Latin per zh glossary), 截至2026年7月
+  // on the fact block. Price token-resolved from lib/site-facts.ts (POS-backed).
+  {
+    id: 'exp-32-zh',
+    page_type: 'explainer',
+    slug: 'golf-lessons-bangkok-coaches',
+    title: '曼谷高尔夫课程 — 费用、教练选择与预约指南',
+    meta_description:
+      '在曼谷找高尔夫课程？对比模拟器数据教学与练习场教学的差别，看看该如何挑选教练。LENGOLF由泰国PGA认定教练提供1小时免费体验，套餐{{lessonHourly}}起，预订与咨询可用LINE中文办理（截至2026年7月）。',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'lessons-coaching',
+    locale: 'zh',
+    related_slugs: [
+      '/lessons',
+      '/golf',
+      '/guide/screen-golf-bangkok',
+      '/guide/round-of-golf-cost-bangkok',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        '曼谷为到访的球友准备了相当完善的教学环境。全年可打的气候、庞大的外籍居民社群，加上认真的本地高尔夫文化，意味着无论你只想上一堂课解决某个具体问题，还是想在几天里接受系统化的训练，都能找到高质量的指导。曼谷特别有意思的一点，是可以接受基于模拟器的教学——它提供的数据反馈，是多数练习场课程难以做到的。',
+      sections: [
+        {
+          heading: '曼谷可以上哪些类型的课',
+          body: '**1. 模拟器课程** — 技术上最精准的教学，是把专业级模拟器当作教学环境。弹道监测技术会记录每一次击球的杆头速度、球速、发射角、倒旋量、飞行距离和杆面角度。借助这些数据，教练能找出肉眼看不见的挥杆缺陷，并实时验证某项修正是否见效。\n\n模拟器课程在以下方面尤其有效：诊断反复出现的球路（右曲、左曲、打薄）；铁杆压球与击球攻角的调整；一号木发射角与倒旋量的优化；以及带杆面角度和杆头轨迹数据反馈的推杆练习。\n\n恒温的室内环境意味着课程不受曼谷的高温或雨季影响——你可以放心地在8月预约一堂晚上7点的课，完全不用担心天气。\n\n**2. 曼谷球场的练习场课程** — 曼谷周边大多数球场都提供由常驻PGA认证职业教练或资深教学助理指导的课程。这类课在户外练习场进行，配合视频反馈和口头指导，适合想在户外打磨手感和节奏的球友。\n\n**3. 下场实战课程** — 有些教练会陪你打9洞或18洞，在真实的下场情境中指导。对球场管理、击球前例行动作以及应对压力特别有帮助。',
+        },
+        {
+          heading: '在曼谷挑选高尔夫教练的要点',
+          body: '1. **资质** — 认准PGA认证或同等资格。曼谷不少教练曾在英国、澳大利亚或美国接受训练\n2. **教学风格** — 有的教练偏技术、以数据为主导，有的则重视手感与节奏。预订前先弄清楚哪种适合你\n3. **视频分析** — 如今像样的课程，都应至少包含两个角度的视频记录\n4. **语言与沟通** — 在曼谷，用英语授课很普遍。LENGOLF没有中国人教练，也没有中文课程，但预订和事前咨询可以通过LINE @lengolf用中文办理；而且上课时，杆头速度、发射角等模拟器数据会显示在屏幕上，即使有语言隔阂，你也能用眼睛看懂需要改进的地方\n5. **专长** — 有的教练擅长带初学者，有的则专攻低差点球友。让教练的专长匹配你的水平',
+        },
+        {
+          heading: 'LENGOLF的课程 — 模拟器的优势',
+          body: 'LENGOLF在曼谷市中心的室内模拟器场馆提供教学。对到访的球友来说，最大的好处在于：数据自动采集并即时显示，你能在同一次击球上看到挥杆改动的效果。修正是否见效不再含糊——这让一堂课比传统练习场课程高效得多。\n\n场馆位于BTS可直达的市中心，无需清晨出发或横穿城市。课程能轻松安排进任何行程。\n\nLENGOLF课程要点（截至2026年7月）：\n\n- 由泰国PGA认定教练（PRO Boss、PRO Ratchavin、PRO Min）一对一指导\n- 可从1小时免费体验课开始\n- 课程套餐每小时{{lessonHourly}}起\n- BTS Chidlom直连（The Mercury Ville 4层）\n- 每天9:00–23:00营业\n- 预订与事前咨询可通过LINE @lengolf用中文办理',
+        },
+        {
+          heading: '一次旅行安排几堂课比较现实？',
+          body: '如果是5–7天的高尔夫之旅，在整天下场之余，安排1到2堂有针对性的课是比较现实的目标。超过这个数量，就有在旅途中给挥杆塞进太多新信息的风险。\n\n最有效的安排是：旅程前段先上一堂模拟器课，找出某个具体问题，2–3天后再上一堂巩固修正。中间穿插下场打球，把调整过的动作在实战条件下固定下来。',
+        },
+        {
+          heading: '预约小贴士',
+          body: '1. 把课程时段和球场的开球时间一起预订——热门的教练时段很快就满\n2. 咨询时说明你的差点，以及想解决的具体问题\n3. 如果上模拟器课，问清楚课后能否拿到数据报告\n4. 首堂课至少预留90分钟——60分钟击球加上复盘的时间',
+        },
+      ],
+      key_takeaways: [
+        '基于模拟器的教学能在每一次击球上提供客观的弹道监测数据——这是传统练习场课程没有的一大优势',
+        '认准PGA认证教练，坚持至少两个角度的视频记录。在曼谷，用英语授课很普遍',
+        '5–7天的高尔夫之旅，安排1到2堂有针对性的课比较现实——别在途中给挥杆塞入太多信息',
+        'LENGOLF由泰国PGA认定教练提供1小时免费体验，套餐{{lessonHourly}}起，BTS Chidlom直连；预订与咨询可用LINE中文办理（截至2026年7月）',
+      ],
+      comparison_table: [],
+    },
+  },
+
   // ─── GG-049: Golf Simulator vs Real Course Bangkok ───────────────────────────
   {
     id: 'exp-33',
@@ -1602,6 +1813,197 @@ export const explainerPages: ExplainerSeoPage[] = [
     },
   },
 
+  // ─── exp-35 (JA): 日本語版 — バンコクのゴルフ場料金・グリーンフィー比較 ────────
+  // Faithful translation of the EN guide targeting バンコク ゴルフ場料金 /
+  // バンコク の ゴルフ場 安い (GSC pos 8 / 63, currently served only by EN pages).
+  // ALL figures — the four-tier price table, Nikanti/Alpine rates, and the
+  // caddie tip of 100–200 THB — follow THIS guide's EN source exactly. The tip
+  // figure intentionally differs from round-of-golf-cost-bangkok's 200–300 THB;
+  // do NOT harmonize across guides. No LENGOLF tie-in (matches exp-40-ja).
+  {
+    id: 'exp-35-ja',
+    page_type: 'explainer',
+    slug: 'green-fees-bangkok-golf-courses',
+    title: 'バンコクのゴルフ場料金 — グリーンフィーをグレード別に比較',
+    meta_description:
+      'バンコクのゴルフ場料金をグレード別に比較。平日1,500THBからの格安コースからオールインクルーシブのプレミアムコースまで、キャディーフィーやチップを含めた実際の総額を解説します（料金は変動するため要確認）。',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'costs',
+    locale: 'ja',
+    related_slugs: [
+      '/guide/round-of-golf-cost-bangkok',
+      '/guide/how-to-book-golf-tee-times-thailand',
+      '/guide/renting-golf-clubs-thai-golf-courses',
+      '/golf-course-club-rental',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        'バンコクは世界でも有数のコストパフォーマンスでゴルフを楽しめる街です。手入れの行き届いた、キャディー付きのコースをカート込みでラウンドしても、欧米の多くのパブリックコースの格安ラウンドより安く済みます。とはいえ、タイの「グリーンフィー」が総額を表していることはほとんどありません。料金の仕組みを理解しておけば、精算時に驚くことはなくなります。',
+      sections: [
+        {
+          heading: 'タイのゴルフ場料金の仕組み',
+          body: 'バンコクのほとんどのコースは、基本のグリーンフィーに、必須または任意の項目を加算する形で料金を提示します:\n\n1. **グリーンフィー** — コースをプレーするための料金\n2. **キャディーフィー** — 通常300〜500THBで、ほぼ必ず必須\n3. **カート代** — 300〜600THB。通常は任意ですが、利用が強く推奨されます\n4. **キャディーへのチップ** — 標準的なサービスなら100〜200THBが相場。素晴らしいキャディーにはそれ以上を\n5. **保険・雑費** — 一部のコースで50〜100THB\n\nキャディーとカートが含まれない表示価格2,500THBのラウンドは、ティーオフまでに3,300〜3,500THBになることもあります。提示された料金が基本のグリーンフィーなのか、すべて込みのパッケージなのか、必ず確認しましょう。',
+        },
+        {
+          heading: 'グレード別に見るバンコクのゴルフ場料金',
+          body: '以下は平日料金です。週末は通常20〜40%高くなります。\n\n| グレード | 平日グリーンフィー（THB） | 通常含まれるもの |\n|---|---|---|\n| 格安 | 1,500〜2,500 | グリーンフィーのみ。キャディーとカートは別料金 |\n| 中級 | 2,500〜4,000 | グリーンフィー＋キャディー。カートは任意 |\n| プレミアム | 4,000〜5,500以上 | グリーンフィー＋キャディー＋カート。食事付きの場合も |\n| オールインクルーシブ | 5,500〜7,500 | すべて込み — 追加料金なし |',
+        },
+        {
+          heading: '代表的なコースの料金例',
+          body: '**Nikanti Golf Club** — バンコク屈指のオールインクルーシブ体験。表示料金にグリーンフィー、キャディー、キャディーへのチップ、カート、ラウンド中の飲み物、食事2回まで含まれます。追加料金は一切ありません。\n- 平日（オールインクルーシブ）: 約5,500THB\n- 週末（オールインクルーシブ）: 約6,500THB\n\n**Alpine Golf Club** — バンコク東部にある歴史ある名門コースで、タイ国内トップクラスの評価を安定して維持しています。\n- 平日: 約5,400THB（キャディー・カート込み）\n- 週末: 約7,400THB（キャディー・カート込み）\n\n注: 料金は目安です。季節のプロモーションやパッケージが頻繁にあるため、予約前に必ずゴルフ場へ直接、最新料金をご確認ください。',
+        },
+        {
+          heading: '平日・週末・トワイライトの料金差',
+          body: '料金を最も大きく左右するのは、次の3つの変数です:\n\n1. **平日か週末か** — 最大の要因。同じコースでも週末は1,000〜2,000THB高くなることがあります\n2. **午前かトワイライトか** — 多くのコースが14〜15時以降のティータイムに割引のトワイライト料金を設定しています。500〜1,500THBの節約が一般的です\n3. **ハイシーズンかローシーズンか** — 12〜2月が最も高く、5〜9月は稼働率が下がりプロモーションが出ます\n\nローシーズンの平日、中級コースのトワイライトなら、総額2,500THB以下に収まることもあります。',
+        },
+        {
+          heading: 'グリーンフィーを安く抑えるコツ',
+          body: '1. 平日に予約する — 最も効果的な費用削減策です\n2. トワイライトのティータイムを選ぶ — 午前のフルラウンドにこだわらなければ、しっかり節約できます\n3. 直接予約する — サードパーティのプラットフォームより安い料金や無料特典（練習ボール、ランチ）を用意しているコースもあります\n4. ピークシーズンを外して渡航する — 11月、3月、4月は天候が良く、料金も比較的手頃です\n5. パッケージを探す — 複数ラウンドのパッケージやホテル＋ゴルフのセットは、個別に予約するより安いことが多いです\n6. プロモーションを尋ねる — オンラインには掲載されない、リピーター向けの控えめなプロモーションを実施しているコースもあります',
+        },
+      ],
+      key_takeaways: [
+        'キャディーフィー、カート代、チップ、雑費まで含めた総額で必ず計算を — 表示のグリーンフィーが最終価格であることはほとんどありません',
+        'Nikantiは最も明朗なオールインクルーシブ料金（平日約5,500THB）。Alpineも同水準ですが、キャディーとカートは別計上です',
+        '週末は20〜40%高く、トワイライト料金なら午前のラウンドより500〜1,500THBの節約に',
+        'ローシーズンの平日トワイライトなら、中級コースで総額2,500THB以下も可能',
+      ],
+      comparison_table: [],
+    },
+  },
+
+  // ─── exp-35 (KO): 한국어판 — 방콕 골프장 그린피 비교 ─────────────────────────
+  // Faithful translation of the EN guide targeting 방콕 골프장 그린피 / 골프 비용.
+  // ALL figures — the four-tier price table, Nikanti/Alpine rates, and the
+  // caddie tip of 100–200 THB — follow THIS guide's EN source exactly. The tip
+  // figure intentionally differs from round-of-golf-cost-bangkok's 200–300 THB;
+  // do NOT harmonize across guides. No LENGOLF tie-in in body (matches exp-35-ja);
+  // the /golf-course-club-rental related_slug carries the funnel.
+  {
+    id: 'exp-35-ko',
+    page_type: 'explainer',
+    slug: 'green-fees-bangkok-golf-courses',
+    title: '방콕 골프장 그린피 — 코스 등급별 비교',
+    meta_description:
+      '방콕 골프장 그린피를 등급별로 비교했습니다. 평일 1,500바트부터의 저렴한 코스부터 올인클루시브 프리미엄 코스까지, 캐디피와 팁을 포함한 실제 총액을 정리했어요(요금은 변동되니 확인 필요).',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'costs',
+    locale: 'ko',
+    related_slugs: [
+      '/guide/round-of-golf-cost-bangkok',
+      '/guide/how-to-book-golf-tee-times-thailand',
+      '/guide/renting-golf-clubs-thai-golf-courses',
+      '/golf-course-club-rental',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        '방콕은 세계에서도 손꼽히는 가성비 골프를 즐길 수 있는 곳이에요. 잘 관리된, 캐디가 함께하는 코스를 카트까지 포함해 라운딩해도, 서구의 많은 퍼블릭 코스의 저렴한 라운딩보다 싸게 끝나요. 다만 태국에서 "그린피"가 총액을 뜻하는 경우는 드물어요 — 요금 구조를 이해해 두면 정산할 때 놀랄 일이 없어요.',
+      sections: [
+        {
+          heading: '태국 골프장 요금 구조',
+          body: '방콕 대부분의 코스는 기본 그린피를 제시한 뒤, 필수 또는 선택 항목을 더하는 방식이에요:\n\n1. **그린피** — 코스를 플레이하는 요금\n2. **캐디피** — 보통 300~500바트로, 거의 항상 필수예요\n3. **카트 대여** — 300~600바트. 보통은 선택이지만 이용이 강하게 권장돼요\n4. **캐디 팁** — 평범한 서비스라면 100~200바트가 시세예요. 훌륭한 캐디에게는 그 이상을\n5. **보험·기타 비용** — 일부 코스에서 50~100바트\n\n캐디와 카트가 빠진 표시 가격 2,500바트짜리 라운딩이, 티오프할 무렵에는 3,300~3,500바트가 되기도 해요. 제시된 요금이 기본 그린피인지, 전부 포함된 패키지인지 반드시 확인하세요.',
+        },
+        {
+          heading: '가격 등급별 방콕 골프장',
+          body: '아래는 평일 요금이에요. 주말은 보통 20~40% 높아져요.\n\n| 등급 | 평일 그린피(바트) | 보통 포함되는 것 |\n|---|---|---|\n| 저렴 | 1,500~2,500 | 그린피만. 캐디와 카트는 별도 |\n| 중급 | 2,500~4,000 | 그린피+캐디. 카트는 선택 |\n| 프리미엄 | 4,000~5,500 이상 | 그린피+캐디+카트. 식사 포함인 경우도 |\n| 올인클루시브 | 5,500~7,500 | 전부 포함 — 추가 요금 없음 |',
+        },
+        {
+          heading: '대표 코스 요금 예시',
+          body: '**Nikanti Golf Club** — 방콕 최고 수준의 올인클루시브 경험이에요. 표시 요금에 그린피, 캐디, 캐디 팁, 카트, 라운딩 중 음료, 식사 2회까지 포함돼요. 숨은 추가 요금이 없어요.\n- 평일(올인클루시브): 약 5,500바트\n- 주말(올인클루시브): 약 6,500바트\n\n**Alpine Golf Club** — 방콕 동쪽에 있는 역사 깊은 명문 코스로, 태국 국내 톱클래스 평가를 꾸준히 유지하고 있어요.\n- 평일: 약 5,400바트(캐디+카트 포함)\n- 주말: 약 7,400바트(캐디+카트 포함)\n\n참고: 요금은 참고용이에요. 시즌 프로모션과 패키지가 자주 나오니, 예약 전에 반드시 골프장에 직접 최신 요금을 확인하세요.',
+        },
+        {
+          heading: '평일·주말·트와일라잇 요금 차이',
+          body: '요금을 가장 크게 좌우하는 것은 다음 세 가지 변수예요:\n\n1. **평일이냐 주말이냐** — 가장 큰 요인이에요. 같은 코스라도 주말은 1,000~2,000바트 비싸질 수 있어요\n2. **오전이냐 트와일라잇이냐** — 많은 코스가 오후 2~3시 이후 티타임에 할인된 트와일라잇 요금을 적용해요. 500~1,500바트 절약이 일반적이에요\n3. **성수기냐 비수기냐** — 12~2월이 가장 비싸고, 5~9월은 이용률이 낮아 프로모션이 나와요\n\n비수기 평일, 중급 코스의 트와일라잇이라면 총액 2,500바트 이하로 끝나기도 해요.',
+        },
+        {
+          heading: '그린피를 저렴하게 잡는 요령',
+          body: '1. 평일에 예약하세요 — 가장 효과적인 비용 절감이에요\n2. 트와일라잇 티타임을 고르세요 — 오전 풀라운딩을 고집하지 않는다면 확실히 절약돼요\n3. 직접 예약하세요 — 서드파티 플랫폼보다 저렴한 요금이나 무료 혜택(연습 볼, 점심)을 주는 코스도 있어요\n4. 성수기를 피해 방문하세요 — 11월, 3월, 4월은 날씨가 좋고 요금도 비교적 합리적이에요\n5. 패키지를 찾아보세요 — 여러 라운딩 패키지나 호텔+골프 세트는 개별 예약보다 저렴한 경우가 많아요\n6. 프로모션을 물어보세요 — 온라인에 올라오지 않는, 재방문객 대상의 조용한 프로모션을 진행하는 코스도 있어요',
+        },
+      ],
+      key_takeaways: [
+        '캐디피, 카트비, 팁, 기타 비용까지 포함한 총액으로 반드시 계산하세요 — 표시된 그린피가 최종 가격인 경우는 드물어요',
+        'Nikanti는 가장 명확한 올인클루시브 요금(평일 약 5,500바트)이에요. Alpine도 비슷한 수준이지만 캐디와 카트를 따로 청구해요',
+        '주말은 20~40% 비싸고, 트와일라잇 요금이면 오전 라운딩보다 500~1,500바트 절약돼요',
+        '비수기 평일 트와일라잇이라면 중급 코스에서 총액 2,500바트 이하도 가능해요',
+      ],
+      comparison_table: [],
+    },
+  },
+
+  // ─── exp-35 (ZH): 简体中文版 — 曼谷高尔夫球场果岭费比较 ─────────────────────
+  // Faithful translation of the EN guide, mirroring the JA/KO twins. ALL figures
+  // — the four-tier price table (1,500–2,500 / 2,500–4,000 / 4,000–5,500+ /
+  // 5,500–7,500), Nikanti (~5,500/6,500) and Alpine (~5,400/7,400) rates, and the
+  // caddie tip of 100–200泰铢 — follow THIS guide's EN source exactly. WARNING:
+  // the caddie tip here (100–200) intentionally DIFFERS from
+  // round-of-golf-cost-bangkok's 200–300; each is faithful to its own EN source —
+  // do NOT harmonize across guides. No LENGOLF tie-in in body (matches
+  // exp-35-ja/ko); the /golf-course-club-rental related_slug carries the funnel.
+  // No 截至2026年7月 framing (EN source carries none — only "confirm current rates"
+  // disclaimers, translated as-is; this leaves the same price-as-of validate:i18n
+  // warnings the JA/KO siblings already produce).
+  {
+    id: 'exp-35-zh',
+    page_type: 'explainer',
+    slug: 'green-fees-bangkok-golf-courses',
+    title: '曼谷高尔夫球场果岭费 — 各球场分档比较',
+    meta_description:
+      '按等级比较曼谷各高尔夫球场的果岭费——从2,000泰铢以下的平价球场，到全部打包的高级全包套餐。看清你实际要付多少钱。',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'costs',
+    locale: 'zh',
+    related_slugs: [
+      '/guide/round-of-golf-cost-bangkok',
+      '/guide/how-to-book-golf-tee-times-thailand',
+      '/guide/renting-golf-clubs-thai-golf-courses',
+      '/golf-course-club-rental',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        '曼谷提供着全球顶级性价比的高尔夫。在一座维护良好、配有球童并含球车的球场打一轮，比许多西方公众球场的平价一轮还便宜。话虽如此，在泰国，“果岭费”很少能说明全部——弄懂费用的构成，才能避免在收银台被吓一跳。',
+      sections: [
+        {
+          heading: '泰国的高尔夫费用是怎么构成的',
+          body: '曼谷大多数球场会先报一个基础果岭费，再加上强制或可选的收费项目：\n\n1. **果岭费** — 下场打球的费用\n2. **球童费** — 通常300–500泰铢，几乎总是强制的\n3. **球车租用** — 300–600泰铢，一般可选，但会被大力推荐\n4. **球童小费** — 一般服务给100–200泰铢是常态；表现出色的球童给更多\n5. **保险／杂费** — 部分球场收取50–100泰铢\n\n一个不含球童和球车的2,500泰铢标示价，等你开球时可能已变成3,300–3,500泰铢。务必弄清报价是基础果岭费，还是全包套餐。',
+        },
+        {
+          heading: '按价格分档看曼谷高尔夫球场',
+          body: '以下为平日价格；周末通常高出20%–40%。\n\n| 等级 | 平日果岭费（泰铢） | 通常包含 |\n|---|---|---|\n| 平价 | 1,500–2,500 | 仅果岭费；球童和球车另计 |\n| 中档 | 2,500–4,000 | 果岭费＋球童；球车可选 |\n| 高级 | 4,000–5,500以上 | 果岭费＋球童＋球车；有时含餐 |\n| 全包 | 5,500–7,500 | 全部打包——没有隐藏费用 |',
+        },
+        {
+          heading: '具名球场示例',
+          body: '**Nikanti Golf Club** — 曼谷最出色的全包体验。标示价涵盖果岭费、球童、球童小费、球车、全程饮料以及两餐。没有任何隐藏附加。\n- 平日（全包）：约5,500泰铢\n- 周末（全包）：约6,500泰铢\n\n**Alpine Golf Club** — 位于曼谷东侧的老牌标杆球场，长期名列泰国顶尖球场之列。\n- 平日：约5,400泰铢（含球童＋球车）\n- 周末：约7,400泰铢（含球童＋球车）\n\n注：价格仅供参考。由于季节促销与套餐组合很常见，预订前请务必直接向球场确认最新价格。',
+        },
+        {
+          heading: '平日、周末与黄昏时段',
+          body: '最能左右价格的，是以下三个变量：\n\n1. **平日还是周末** — 最大的杠杆。同一座球场，周末可能贵1,000–2,000泰铢\n2. **上午还是黄昏时段** — 多数球场对约14–15点后的开球时间提供折扣的黄昏价，常见能省500–1,500泰铢\n3. **旺季还是淡季** — 12月至2月价格最高；5月至9月入场率下降，会有促销\n\n淡季平日、中档球场的黄昏时段，合计可以压到2,500泰铢以下。',
+        },
+        {
+          heading: '怎样拿到最优的果岭费价格',
+          body: '1. 选平日预订——最有效的一招省钱方法\n2. 挑黄昏时段的开球时间——如果不非得打上午的完整一轮，能实打实省下不少\n3. 直接预订——有些球场给的价格或免费赠品（练习球、午餐）比第三方平台更划算\n4. 避开旺季出行——11月、3月和4月天气好、价格也相对温和\n5. 留意套餐——多轮套餐和“酒店＋高尔夫”组合常常比单独预订更便宜\n6. 主动问促销——有些球场会为回头客做一些不在网上公开的低调促销',
+        },
+      ],
+      key_takeaways: [
+        '务必按含球童费、球车、小费和各种杂费的合计来计算——标示的果岭费很少是最终价格',
+        'Nikanti的全包定价最透明（平日约5,500泰铢）；Alpine价格相近，但球童和球车分开计费',
+        '周末贵20%–40%；黄昏时段比上午一轮省500–1,500泰铢',
+        '淡季平日的黄昏时段，中档球场合计可低于2,500泰铢',
+      ],
+      comparison_table: [],
+    },
+  },
+
   // ─── GG-032: Hotels Near Hua Hin Golf Courses ────────────────────────────────
   {
     id: 'exp-36',
@@ -1705,6 +2107,198 @@ export const explainerPages: ExplainerSeoPage[] = [
         'Book weekday rounds 1–2 days ahead; weekend rounds 3–5 days ahead; peak season (Dec–Feb) rounds 1+ week ahead',
         'Always confirm the all-in cost including caddie fee, buggy, and any levies — not just the headline green fee',
         'Arrive 30 minutes early; carry cash for caddie fees and tips which are almost always cash-only',
+      ],
+      comparison_table: [],
+    },
+  },
+
+  // ─── exp-37 (JA): 日本語版 — タイのゴルフ場予約ガイド ─────────────────────────
+  // Faithful translation of the EN guide targeting バンコク ゴルフ 予約 /
+  // バンコク ゴルフ場予約 (GSC pos ~48 with no JA content). All figures — three
+  // booking routes, lead times (weekday 1–2 days / weekend 3–5 days / Dec–Feb
+  // 1+ week), twilight after 2–3pm, caddie fee 300–500 THB, arrive 30 min early
+  // — follow the EN source exactly. One LENGOLF tie-in closes the day-of
+  // section: premium Callaway/Majesty rental from {{courseRentalDay}} with
+  // hotel/course delivery ({{clubDelivery}} round trip, no deposit, 2026年7月
+  // 現在) — prices token-resolved from lib/site-facts.ts (POS-backed).
+  {
+    id: 'exp-37-ja',
+    page_type: 'explainer',
+    slug: 'how-to-book-golf-tee-times-thailand',
+    title: 'タイのゴルフ場予約ガイド — ティータイムの取り方と確認事項',
+    meta_description:
+      'タイ・バンコクのゴルフ場予約は思ったより簡単です。直接予約・オンラインプラットフォーム・ホテルコンシェルジュの3つの方法、予約のタイミングの目安、予約時に確認すべき料金やキャディーのポイントを解説します。',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'tee-time-booking',
+    locale: 'ja',
+    related_slugs: [
+      '/guide/green-fees-bangkok-golf-courses',
+      '/guide/round-of-golf-cost-bangkok',
+      '/guide/renting-golf-clubs-thai-golf-courses',
+      '/golf-course-club-rental',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        'タイでのゴルフラウンドの予約は、多くの旅行者が想像するよりずっとシンプルです。バンコク中心部から1時間以内に50以上のコースがあるため、本当に悩むのは「複雑な予約システムの攻略」ではなく「どこでプレーするか」です。',
+      sections: [
+        {
+          heading: 'ティータイムを予約する3つの方法',
+          body: '**1. ゴルフ場へ直接予約する** — 最もシンプルな方法です。タイのほぼすべてのクラブが電話またはメールでの直接予約を受け付けており、大きめのクラブのスタッフなら英語は十分通じます。最新のグリーンフィー、プロモーション料金、コースコンディションについて最も正確な情報が得られます。プレーしたいコースが決まっている場合、リピーターの場合、グループでのラウンドに最適です。\n\n**2. オンライン予約プラットフォームを使う** — GolfAsian、GolfNow、GolfSavers、Deemplesなどのプラットフォームでは、タイ各地のコースのティータイムをまとめて検索できます。複数コースの空き状況と料金を一か所で比較できるのが便利です。キャンセルポリシーは注意深く確認し、週末のラウンドでは予約番号をコースに直接確認しておくと安心です。\n\n**3. ホテルのコンシェルジュに頼む** — バンコクの5つ星ホテルは近隣のクラブと関係を築いており、代わりに予約を手配してくれるうえ、今コンディションの良いコースも把握しています。直前のティータイム確保には最も手軽な選択肢のひとつです。',
+        },
+        {
+          heading: 'どのくらい前に予約すべきか',
+          body: '平日なら、祝日を除けば当日や翌日のリクエストに応じてくれるコースが多くあります。週末のラウンドは少なくとも3〜5日前に予約しましょう — バンコク近郊のコースは土日にすぐ埋まり、早朝の枠から先になくなります。\n\nピークシーズン（12〜2月）には、人気コースが1週間以上前に満枠になることもあります。渡航日程がピークシーズンにあたり、プレーしたいコースが決まっているなら、出発前に予約を済ませておくのが賢明です。',
+        },
+        {
+          heading: 'ティータイム戦略: 午前かトワイライトか',
+          body: '一年を通じてベストなティータイムは朝6時〜9時です。早いスタートなら気温は低く、湿度も控えめで、コースが混み合うこともほとんどありません。\n\n多くのコースが、14〜15時以降にスタートするラウンドにトワイライト料金を設定しています。時間に融通が利くなら、この割引枠は検討の価値があります — グリーンフィーは通常安く、空きも見つけやすいためです。ただし日照時間が足りず、18ホールを回りきれない可能性がある点には注意しましょう。',
+        },
+        {
+          heading: '予約時に確認すべきこと',
+          body: '1. **グリーンフィー** — プレー日とスタート時間に対する正確な料金を、週末やピークシーズンの割増も含めて確認\n2. **キャディーフィー** — タイのほぼすべてのゴルフ場でキャディーは必須です。料金は通常300〜500THBで、別途支払います\n3. **カートの有無** — 歩いて回りたい場合は徒歩プレーが許可されているか確認を。カートは通常追加のレンタル料金がかかります\n4. **ドレスコード** — 襟付きシャツが標準。デニムや膝上のショートパンツを禁止するクラブもあります\n5. **キャンセルポリシー** — 変更の締め切りを把握しておきましょう。天候や日程変更に左右されやすい旅程では特に重要です',
+        },
+        {
+          heading: '当日のポイント',
+          body: 'ティータイムの30分以上前には到着し、チェックイン、事前精算、キャディーの割り当て、ウォームアップを済ませましょう。支払いは通常、到着時にプロショップで行います。ほとんどのクラブはタイバーツの現金を受け付けますが、クレジットカードが使えるかはコースによって異なるため、十分な現金を用意しておきましょう。キャディーフィーとチップは、ほぼ例外なく現金のみです。\n\nクラブを持たずに渡航した場合は、コースのレンタルセットのほかに、バンコクのLENGOLFでCallawayやMajesty（マジェスティ）のプレミアムセットを1日{{courseRentalDay}}からレンタルし、ホテルやコースへ配送してもらう方法もあります（往復配送{{clubDelivery}}、デポジット不要、2026年7月現在）。',
+        },
+      ],
+      key_takeaways: [
+        '予約ルートは3つ: ゴルフ場への直接予約、オンラインプラットフォーム（GolfAsian、GolfNowなど）、ホテルのコンシェルジュ',
+        '平日は1〜2日前、週末は3〜5日前、ピークシーズン（12〜2月）は1週間以上前の予約が目安',
+        '表示のグリーンフィーだけでなく、キャディーフィー、カート代、雑費まで含めた総額を必ず確認',
+        '当日は30分前に到着を。キャディーフィーとチップはほぼ現金のみなので、現金の用意を忘れずに',
+      ],
+      comparison_table: [],
+    },
+  },
+
+  // ─── exp-37 (KO): 한국어판 — 태국·방콕 골프장 예약 가이드 ────────────────────
+  // Faithful translation of the EN guide targeting 방콕 골프장 예약 (GSC pos 12,
+  // no KO content). All figures — three booking routes, lead times (weekday
+  // same/next-day, weekend 3–5일, Dec–Feb 1주일 이상), twilight after 2–3pm,
+  // caddie fee 300–500 THB, arrive 30 min early — follow the EN source exactly.
+  // One LENGOLF tie-in closes the day-of section: premium Callaway/Majesty
+  // rental from {{courseRentalDay}}/day with hotel/course delivery ({{clubDelivery}}
+  // round trip, no deposit, 2026년 7월 기준) — prices token-resolved from
+  // lib/site-facts.ts (POS-backed).
+  {
+    id: 'exp-37-ko',
+    page_type: 'explainer',
+    slug: 'how-to-book-golf-tee-times-thailand',
+    title: '태국 골프장 예약 방법 — 방콕 티타임 잡는 법과 확인 사항',
+    meta_description:
+      '태국·방콕 골프장 예약은 생각보다 간단해요. 직접 예약, 온라인 플랫폼, 호텔 컨시어지 세 가지 방법과 예약 타이밍, 예약 시 확인할 요금·캐디 포인트를 정리했습니다.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'tee-time-booking',
+    locale: 'ko',
+    related_slugs: [
+      '/guide/green-fees-bangkok-golf-courses',
+      '/guide/round-of-golf-cost-bangkok',
+      '/guide/renting-golf-clubs-thai-golf-courses',
+      '/golf-course-club-rental',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        '태국에서 골프 라운딩을 예약하는 건 많은 여행자가 생각하는 것보다 훨씬 간단해요. 방콕 도심에서 1시간 이내에 50개가 넘는 코스가 있어서, 정말 고민되는 건 "복잡한 예약 시스템 공략"이 아니라 "어디서 플레이할까"예요.',
+      sections: [
+        {
+          heading: '티타임을 예약하는 세 가지 방법',
+          body: '**1. 골프장에 직접 예약하기** — 가장 간단한 방법이에요. 태국의 거의 모든 클럽이 전화나 이메일로 직접 예약을 받고, 규모가 큰 클럽 직원이라면 영어가 충분히 통해요. 최신 그린피, 프로모션 요금, 코스 컨디션에 대해 가장 정확한 정보를 얻을 수 있어요. 플레이할 코스가 이미 정해진 경우, 재방문객, 그룹 라운딩에 가장 잘 맞아요.\n\n**2. 온라인 예약 플랫폼 이용하기** — GolfAsian, GolfNow, GolfSavers, Deemples 같은 플랫폼에서는 태국 각지 코스의 티타임을 한 번에 검색할 수 있어요. 여러 코스의 빈자리와 요금을 한곳에서 비교할 수 있어 편리해요. 취소 정책은 꼼꼼히 확인하고, 주말 라운딩이라면 예약 번호를 코스에 직접 확인해 두면 안심돼요.\n\n**3. 호텔 컨시어지에 부탁하기** — 방콕의 5성급 호텔은 인근 클럽과 관계를 맺고 있어서, 대신 예약을 잡아 주고 지금 컨디션이 좋은 코스도 파악하고 있어요. 촉박한 티타임 확보에는 가장 손쉬운 선택지 중 하나예요.',
+        },
+        {
+          heading: '얼마나 미리 예약해야 할까',
+          body: '평일이라면 공휴일을 빼고는 당일이나 다음 날 요청에 응해 주는 코스가 많아요. 주말 라운딩은 최소 3~5일 전에 예약하세요 — 방콕 근교 코스는 토·일요일에 금방 차고, 이른 아침 슬롯부터 먼저 없어져요.\n\n성수기(12~2월)에는 인기 코스가 1주일 이상 전에 만석이 되기도 해요. 여행 일정이 성수기이고 플레이할 코스가 정해져 있다면, 출발 전에 미리 예약을 마쳐 두는 것이 현명해요.',
+        },
+        {
+          heading: '티타임 전략: 오전이냐 트와일라잇이냐',
+          body: '일 년 내내 가장 좋은 티타임은 오전 6시~9시예요. 일찍 시작하면 기온이 낮고 습도도 덜하며, 코스가 붐비는 일도 거의 없어요.\n\n많은 코스가 오후 2~3시 이후 시작하는 라운딩에 트와일라잇 요금을 적용해요. 시간에 여유가 있다면 이 할인 슬롯은 고려해 볼 만해요 — 그린피가 대체로 저렴하고 빈자리도 찾기 쉬워요. 다만 해가 짧아 18홀을 다 돌지 못할 수 있다는 점은 유의하세요.',
+        },
+        {
+          heading: '예약할 때 확인할 것',
+          body: '1. **그린피** — 플레이 날짜와 시작 시간에 맞는 정확한 요금을, 주말이나 성수기 할증까지 포함해 확인하세요\n2. **캐디피** — 태국 거의 모든 골프장에서 캐디는 필수예요. 요금은 보통 300~500바트이고, 별도로 지불해요\n3. **카트 유무** — 걸어서 돌고 싶다면 도보 플레이가 허용되는지 확인하세요. 카트는 보통 추가 대여 요금이 있어요\n4. **드레스 코드** — 카라 셔츠가 기본이에요. 데님이나 무릎 위 반바지를 금지하는 클럽도 있어요\n5. **취소 정책** — 변경 마감 시점을 파악해 두세요. 날씨나 일정 변동에 좌우되기 쉬운 여정이라면 특히 중요해요',
+        },
+        {
+          heading: '당일 팁',
+          body: '티타임 30분 이상 전에는 도착해서 체크인, 사전 정산, 캐디 배정, 워밍업을 마치세요. 결제는 보통 도착 시 프로숍에서 해요. 대부분의 클럽이 태국 바트 현금을 받지만, 신용카드 사용 여부는 코스마다 다르니 충분한 현금을 준비해 두세요. 캐디피와 팁은 거의 예외 없이 현금으로만 받아요.\n\n클럽을 가져오지 않고 방문했다면, 코스의 렌탈 세트 외에 방콕 LENGOLF에서 Callaway·Majesty 프리미엄 세트를 하루 {{courseRentalDay}}부터 대여해 호텔이나 골프장으로 배송받는 방법도 있어요(왕복 배송 {{clubDelivery}}, 보증금 없음, 2026년 7월 기준).',
+        },
+      ],
+      key_takeaways: [
+        '예약 경로는 세 가지: 골프장 직접 예약, 온라인 플랫폼(GolfAsian, GolfNow 등), 호텔 컨시어지',
+        '평일은 1~2일 전, 주말은 3~5일 전, 성수기(12~2월)는 1주일 이상 전 예약이 기준이에요',
+        '표시된 그린피만이 아니라 캐디피, 카트비, 기타 비용까지 포함한 총액을 반드시 확인하세요',
+        '당일은 30분 전에 도착하세요. 캐디피와 팁은 거의 현금으로만 받으니 현금을 잊지 말고 준비하세요',
+      ],
+      comparison_table: [],
+    },
+  },
+
+  // ─── exp-37 (ZH): 简体中文版 — 泰国·曼谷高尔夫球场预订指南 ─────────────────
+  // Faithful translation of the EN guide, mirroring the JA/KO twins. All figures
+  // — three booking routes (direct / GolfAsian·GolfNow·GolfSavers·Deemples /
+  // hotel concierge), lead times (weekday same/next-day, weekend 3–5天, Dec–Feb
+  // 1周以上), 6–9am vs 14–15点后 twilight, 5-point checklist (caddie 300–500泰铢),
+  // day-of tips — follow the EN source exactly. ONE LENGOLF tie-in closes the
+  // day-of section: premium Callaway/Majesty rental from {{courseRentalDay}}/day
+  // with hotel/course delivery (往返{{clubDelivery}}, 无需押金, 截至2026年7月) —
+  // prices token-resolved from lib/site-facts.ts (POS-backed).
+  {
+    id: 'exp-37-zh',
+    page_type: 'explainer',
+    slug: 'how-to-book-golf-tee-times-thailand',
+    title: '如何在泰国预订高尔夫开球时间 — 曼谷订场指南',
+    meta_description:
+      '在泰国怎么预订高尔夫开球时间？直接预订、在线平台还是酒店礼宾——三种方式，加上预订时机与开球前必须确认的要点，一次讲清。',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'tee-time-booking',
+    locale: 'zh',
+    related_slugs: [
+      '/guide/green-fees-bangkok-golf-courses',
+      '/guide/round-of-golf-cost-bangkok',
+      '/guide/renting-golf-clubs-thai-golf-courses',
+      '/golf-course-club-rental',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        '在泰国预订一轮高尔夫，比很多访客想象的简单得多。曼谷市中心1小时车程内就有50多座球场，真正让人纠结的不是“攻克复杂的预订系统”，而是“该去哪一座打”。',
+      sections: [
+        {
+          heading: '预订开球时间的三种方式',
+          body: '**1. 直接向球场预订** — 最直接的方式。泰国几乎每一家球会都接受电话或邮件直接预订，规模较大的球会员工英语大多够用。你能拿到关于当前果岭费、促销价和球场状态的最准确信息。适合已经选好球场、回头客，或团体打球的情况。\n\n**2. 使用在线预订平台** — GolfAsian、GolfNow、GolfSavers、Deemples等平台把泰国各地球场的开球时间汇总在一起，方便你在一处比较多家球场的空位和价格。请仔细阅读取消政策；周末打球的话，最好再向球场直接确认一次你的预订编号。\n\n**3. 请酒店礼宾代订** — 曼谷的五星级酒店和周边球会保持着往来，能替你搞定预订，也清楚哪些球场眼下状态正好。这是临时订开球时间最省心的选择之一。',
+        },
+        {
+          heading: '应该提前多久预订',
+          body: '平日的话，除公众假期外，许多球场都能应付当天或次日的请求。周末打球至少提前3–5天预订——曼谷近郊球场在周六日很快订满，清晨的时段最先没。\n\n旺季（12月至2月）时，热门球场可能提前1周以上就被订光。如果你的出行日期正逢旺季，又心里有了明确想打的球场，出发前先订好是明智的稳妥之举。',
+        },
+        {
+          heading: '开球时间策略：上午还是黄昏时段',
+          body: '全年最好的开球时间是早上6点到9点之间。开得早意味着气温更低、湿度更小，球场也很少拥挤。\n\n很多球场对约14–15点后开始的一轮提供黄昏时段价。如果你时间上灵活，这类折扣时段值得考虑——果岭费通常更低，空位也更好找。要注意的是，黄昏一轮可能因日照不足而打不完全部18洞。',
+        },
+        {
+          heading: '预订时该确认什么',
+          body: '1. **果岭费** — 确认你所选日期和开球时间的确切价格，包括任何周末或旺季的加收\n2. **球童费** — 泰国几乎所有球场都强制配球童；费用通常为300–500泰铢，另行支付\n3. **球车供应** — 如果你更想步行，确认球场是否允许；球车通常另收租用费\n4. **着装要求** — 有领衬衫为标配；有些球会禁止牛仔布或过膝以上的短裤\n5. **取消政策** — 弄清可变更的截止时间，尤其是当你的行程可能受天气或日程变动影响时',
+        },
+        {
+          heading: '当天的实用贴士',
+          body: '至少在开球时间前30分钟到达，办好登记、结清预付、领取分配给你的球童，并做好热身。付款通常在到达时于职业球具店完成——大多数球会接受泰铢现金，能否刷信用卡则因球场而异，所以请带足现金。球童费和小费几乎总是只收现金。\n\n如果你没带球杆出行，除了球场的租借套装外，也可以在曼谷LENGOLF租借Callaway、Majesty高级套装，每日{{courseRentalDay}}起，并配送到酒店或球场（往返配送{{clubDelivery}}，无需押金，截至2026年7月）。',
+        },
+      ],
+      key_takeaways: [
+        '三条预订路径：向球场直接预订、在线平台（GolfAsian、GolfNow等）、酒店礼宾',
+        '平日提前1–2天预订；周末提前3–5天；旺季（12月至2月）提前1周以上',
+        '别只看标示的果岭费，务必确认含球童费、球车和各种杂费的合计',
+        '当天提前30分钟到场；球童费和小费几乎只收现金，记得带足现金',
       ],
       comparison_table: [],
     },
@@ -1852,7 +2446,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'キャディーとの連携と実践的なコツ',
-          body: 'タイのゴルフ場はキャディー帯同が基本なので、レンタルでも持参でもキャディーが付きます。サービスの質は変わりません。役立つ豆知識: キャディーはそのレンタルセットで何度もキャディーをした経験があることが多く、「このクラブは飛びやすい・飛ばない」を教えてくれます。遠慮なく聞きましょう。\n\n**実践的なコツ:**\n1. 事前に電話を — 左利き用セットは小さいコースでは少ないため、必ず事前確認を\n2. ティアを確認 — スタンダードとプレミアムがある場合、アップグレード料金は大抵手頃です\n3. 早めに到着 — セットを点検して交換を頼む余裕ができます\n4. 最新のレンタル料金を確認 — 料金は変わりやすく、オンラインに掲載されていないことも\n5. キャディーへのチップは変わらず — レンタルクラブはチップを減らす理由にはなりません\n\nなお、事前に確実にプレミアムセットでプレーしたい場合は、バンコクのLENGOLFのようなレンタルサービスでCallawayやMajestyのセットをオンライン予約し、ホテルやコースへ配送してもらう方法もあります（1日1,200バーツから）。当日プロショップで残っているセットに賭ける必要がありません。',
+          body: 'タイのゴルフ場はキャディー帯同が基本なので、レンタルでも持参でもキャディーが付きます。サービスの質は変わりません。役立つ豆知識: キャディーはそのレンタルセットで何度もキャディーをした経験があることが多く、「このクラブは飛びやすい・飛ばない」を教えてくれます。遠慮なく聞きましょう。\n\n**実践的なコツ:**\n1. 事前に電話を — 左利き用セットは小さいコースでは少ないため、必ず事前確認を\n2. ティアを確認 — スタンダードとプレミアムがある場合、アップグレード料金は大抵手頃です\n3. 早めに到着 — セットを点検して交換を頼む余裕ができます\n4. 最新のレンタル料金を確認 — 料金は変わりやすく、オンラインに掲載されていないことも\n5. キャディーへのチップは変わらず — レンタルクラブはチップを減らす理由にはなりません\n\nなお、事前に確実にプレミアムセットでプレーしたい場合は、バンコクのLENGOLFのようなレンタルサービスでCallawayやMajestyのセットをオンライン予約し、ホテルやコースへ配送してもらう方法もあります（1日{{courseRentalDayNum}}バーツから）。当日プロショップで残っているセットに賭ける必要がありません。',
         },
       ],
       key_takeaways: [
@@ -1904,7 +2498,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: '캐디 활용과 실전 팁',
-          body: '태국 골프장은 캐디 동반이 기본이라 렌탈이든 지참이든 캐디가 붙습니다. 서비스 품질은 똑같습니다. 유용한 팁 하나: 캐디는 그 렌탈 세트로 여러 번 캐디를 해봤을 가능성이 높아 "이 클럽은 잘 나간다·안 나간다"를 알려줄 수 있습니다. 부담 없이 물어보세요.\n\n**실전 팁:**\n1. 미리 전화하기 — 왼손잡이 세트는 작은 코스에는 드물기 때문에 반드시 사전 확인\n2. 등급 확인 — 스탠다드와 프리미엄이 있다면 업그레이드 요금은 대개 부담 없는 수준입니다\n3. 일찍 도착 — 세트를 점검하고 교환을 요청할 여유가 생깁니다\n4. 최신 렌탈 요금 확인 — 요금은 자주 바뀌고 온라인에 없는 경우도 많습니다\n5. 캐디 팁은 그대로 — 렌탈 클럽이 팁을 줄일 이유는 되지 않습니다\n\n참고로, 확실하게 프리미엄 세트로 플레이하고 싶다면 방콕 LENGOLF 같은 렌탈 서비스에서 Callaway·Majesty 세트를 온라인 예약하고 호텔이나 골프장으로 배송받는 방법도 있습니다(하루 1,200바트부터). 당일 프로샵에 남아 있는 세트에 운을 맡길 필요가 없습니다.',
+          body: '태국 골프장은 캐디 동반이 기본이라 렌탈이든 지참이든 캐디가 붙습니다. 서비스 품질은 똑같습니다. 유용한 팁 하나: 캐디는 그 렌탈 세트로 여러 번 캐디를 해봤을 가능성이 높아 "이 클럽은 잘 나간다·안 나간다"를 알려줄 수 있습니다. 부담 없이 물어보세요.\n\n**실전 팁:**\n1. 미리 전화하기 — 왼손잡이 세트는 작은 코스에는 드물기 때문에 반드시 사전 확인\n2. 등급 확인 — 스탠다드와 프리미엄이 있다면 업그레이드 요금은 대개 부담 없는 수준입니다\n3. 일찍 도착 — 세트를 점검하고 교환을 요청할 여유가 생깁니다\n4. 최신 렌탈 요금 확인 — 요금은 자주 바뀌고 온라인에 없는 경우도 많습니다\n5. 캐디 팁은 그대로 — 렌탈 클럽이 팁을 줄일 이유는 되지 않습니다\n\n참고로, 확실하게 프리미엄 세트로 플레이하고 싶다면 방콕 LENGOLF 같은 렌탈 서비스에서 Callaway·Majesty 세트를 온라인 예약하고 호텔이나 골프장으로 배송받는 방법도 있습니다(하루 {{courseRentalDay}}부터). 당일 프로샵에 남아 있는 세트에 운을 맡길 필요가 없습니다.',
         },
       ],
       key_takeaways: [
@@ -1956,7 +2550,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: '与球童的配合及实用贴士',
-          body: '泰国实行强制球童制度，所以不管你是租借还是自带，都会有球童。服务品质不会改变。一个有用的小知识：球童很可能用这套租借球具服务过多次，能告诉你某支球杆偏远还是偏近——尽管问他们。\n\n**实用贴士：**\n1. 提前致电——确认有无左手套装；小型球场的左手套装较少\n2. 询问档次——很多球场提供标准和高级两种租借，升级费用通常不高\n3. 早点到——留出时间检查球具，并在不耽误开球时间的情况下要求更换\n4. 确认最新租借费用——价格会变，且不一定在网上列出\n5. 球童小费照给——租借球杆绝不是减少小费的理由\n\n另外，如果想确保用高级套装打球，也可以在曼谷LENGOLF这类租借服务在线预订Callaway、Majesty套装，并配送到酒店或球场（每日1,200泰铢起，截至2026年7月），不必赌当天职业球具店还剩下哪套。',
+          body: '泰国实行强制球童制度，所以不管你是租借还是自带，都会有球童。服务品质不会改变。一个有用的小知识：球童很可能用这套租借球具服务过多次，能告诉你某支球杆偏远还是偏近——尽管问他们。\n\n**实用贴士：**\n1. 提前致电——确认有无左手套装；小型球场的左手套装较少\n2. 询问档次——很多球场提供标准和高级两种租借，升级费用通常不高\n3. 早点到——留出时间检查球具，并在不耽误开球时间的情况下要求更换\n4. 确认最新租借费用——价格会变，且不一定在网上列出\n5. 球童小费照给——租借球杆绝不是减少小费的理由\n\n另外，如果想确保用高级套装打球，也可以在曼谷LENGOLF这类租借服务在线预订Callaway、Majesty套装，并配送到酒店或球场（每日{{courseRentalDay}}起，截至2026年7月），不必赌当天职业球具店还剩下哪套。',
         },
       ],
       key_takeaways: [
@@ -1981,7 +2575,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     slug: 'screen-golf-bangkok',
     title: 'Screen Golf in Bangkok — Korean-Style Simulator Golf',
     meta_description:
-      'Looking for screen golf (스크린골프) in Bangkok? Play Korean-style simulator golf at LENGOLF, BTS Chidlom — Bravo Golf technology, from 550 THB/hour for up to 5 players, with food and drinks at your bay.',
+      'Looking for screen golf (스크린골프) in Bangkok? Play Korean-style simulator golf at LENGOLF, BTS Chidlom — Bravo Golf technology, from {{bayHourlyFrom}}/hour for up to 5 players, with food and drinks at your bay.',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -1997,7 +2591,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     updated_at: now,
     content: {
       intro:
-        "Screen golf — 스크린골프 — is what Koreans call indoor simulator golf, and in Korea it's a national pastime with thousands of dedicated venues. If you're visiting Bangkok and missing your weekly screen golf session, or you discovered the format on a trip to Seoul, you can play it here: LENGOLF at BTS Chidlom runs Korean Bravo Golf simulators in a lounge-and-bar setting, from 550 THB per hour for up to 5 players.",
+        "Screen golf — 스크린골프 — is what Koreans call indoor simulator golf, and in Korea it's a national pastime with thousands of dedicated venues. If you're visiting Bangkok and missing your weekly screen golf session, or you discovered the format on a trip to Seoul, you can play it here: LENGOLF at BTS Chidlom runs Korean Bravo Golf simulators in a lounge-and-bar setting, from {{bayHourlyFrom}} per hour for up to 5 players.",
       sections: [
         {
           heading: 'What Is Screen Golf?',
@@ -2005,7 +2599,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'Screen Golf at LENGOLF — Korean Technology Included',
-          body: "LENGOLF's bays run Bravo Golf simulators — a Korean launch-monitor brand, the same technology culture Golfzon players know. Each bay measures 20+ club and ball parameters per swing and renders 100+ real courses.\n\nThe format follows screen golf convention: up to 5 players per bay at one hourly rate (550–950 THB per hour, as of July 2026), so a group splits it to ~110–190 THB per person per hour. Standard clubs are free, the venue is air-conditioned, and there's a full food and drink menu served to your bay. Open 9am–11pm daily at The Mercury Ville, directly connected to BTS Chidlom.",
+          body: "LENGOLF's bays run Bravo Golf simulators — a Korean launch-monitor brand, the same technology culture Golfzon players know. Each bay measures 20+ club and ball parameters per swing and renders 100+ real courses.\n\nThe format follows screen golf convention: up to 5 players per bay at one hourly rate ({{bayHourlyMinNum}}–{{bayHourlyMaxNum}} THB per hour, as of July 2026), so a group splits it to ~{{bayPerPersonMinNum}}–{{bayPerPersonMaxNum}} THB per person per hour. Standard clubs are free, the venue is air-conditioned, and there's a full food and drink menu served to your bay. Open 9am–11pm daily at The Mercury Ville, directly connected to BTS Chidlom.",
         },
         {
           heading: 'How It Compares to Screen Golf in Korea',
@@ -2013,13 +2607,13 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'Practical Tips for Visiting Golfers',
-          body: '1. **Book ahead for evenings** — like Korean screen golf, prime time fills up; book online at booking.len.golf or walk in off-peak\n2. **Come empty-handed** — standard clubs, balls, and setup are included free\n3. **Bring non-golfers** — multiplayer modes and non-golf games make mixed groups work, screen-golf style\n4. **Korean-language support** — staff handle Korean inquiries via LINE @lengolf\n5. **Playing a real course later?** Premium club rental with hotel or course delivery starts at 1,200 THB/day (as of July 2026)',
+          body: '1. **Book ahead for evenings** — like Korean screen golf, prime time fills up; book online at booking.len.golf or walk in off-peak\n2. **Come empty-handed** — standard clubs, balls, and setup are included free\n3. **Bring non-golfers** — multiplayer modes and non-golf games make mixed groups work, screen-golf style\n4. **Korean-language support** — staff handle Korean inquiries via LINE @lengolf\n5. **Playing a real course later?** Premium club rental with hotel or course delivery starts at {{courseRentalDay}}/day (as of July 2026)',
         },
       ],
       key_takeaways: [
         'Screen golf (스크린골프) — Korean-style social simulator golf — is available in Bangkok at LENGOLF, BTS Chidlom',
         'Korean Bravo Golf technology: 20+ swing parameters, 100+ courses, up to 5 players per bay',
-        'Priced screen-golf style: one hourly bay rate (550–950 THB, as of July 2026) split by the group, clubs free',
+        'Priced screen-golf style: one hourly bay rate ({{bayHourlyMinNum}}–{{bayHourlyMaxNum}} THB, as of July 2026) split by the group, clubs free',
         'Open 9am–11pm daily with food and drinks served to the bay — a social round, not just practice',
       ],
       comparison_table: [],
@@ -2033,7 +2627,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     slug: 'screen-golf-bangkok',
     title: '방콕 스크린골프 가이드 — 요금·위치·예약 방법',
     meta_description:
-      '방콕에서 스크린골프? LENGOLF는 BTS 칫롬역 직결, 한국 Bravo Golf 시뮬레이터로 1시간 550바트부터 최대 5명까지. 요금, 예약 방법, 한국 스크린골프와 다른 점을 정리했습니다.',
+      '방콕에서 스크린골프? LENGOLF는 BTS 칫롬역 직결, 한국 Bravo Golf 시뮬레이터로 1시간 {{bayHourlyFrom}}부터 최대 5명까지. 요금, 예약 방법, 한국 스크린골프와 다른 점을 정리했습니다.',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -2048,7 +2642,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     updated_at: now,
     content: {
       intro:
-        '방콕 여행 중에 스크린골프 생각이 난다면 — 있습니다. LENGOLF는 BTS 칫롬역과 바로 연결된 The Mercury Ville 4층에서 한국 Bravo Golf 시뮬레이터로 스크린골프를 운영합니다. 1시간 550바트부터, 한 베이에 최대 5명까지 함께 플레이할 수 있고, 자리로 음식과 음료를 가져다주는 바가 함께 있습니다.',
+        '방콕 여행 중에 스크린골프 생각이 난다면 — 있습니다. LENGOLF는 BTS 칫롬역과 바로 연결된 The Mercury Ville 4층에서 한국 Bravo Golf 시뮬레이터로 스크린골프를 운영합니다. 1시간 {{bayHourlyFrom}}부터, 한 베이에 최대 5명까지 함께 플레이할 수 있고, 자리로 음식과 음료를 가져다주는 바가 함께 있습니다.',
       sections: [
         {
           heading: '방콕에도 스크린골프가 있습니다',
@@ -2056,7 +2650,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: '요금과 예약 (2026년 7월 기준)',
-          body: '**베이 요금:** 시간당 550~950바트(시간대에 따라 다름). 베이당 최대 5명이므로 인원이 많을수록 1인당 부담은 내려갑니다 — 5명이면 1인당 시간당 110~190바트 수준.\n\n**포함 사항:** 스탠다드 클럽 세트·볼 무료. 빈손으로 오시면 됩니다.\n\n**예약:** booking.len.golf에서 온라인 예약(즉시 확정), 또는 LINE @lengolf — 한국어 상담이 가능합니다. 저녁 프라임 타임은 한국 스크린골프처럼 차기 쉬우니 미리 예약을 추천합니다.\n\n**영업시간:** 연중무휴 오전 9시~오후 11시.',
+          body: '**베이 요금:** 시간당 {{bayHourlyMinNum}}~{{bayHourlyMaxNum}}바트(시간대에 따라 다름). 베이당 최대 5명이므로 인원이 많을수록 1인당 부담은 내려갑니다 — 5명이면 1인당 시간당 {{bayPerPersonMinNum}}~{{bayPerPersonMaxNum}}바트 수준.\n\n**포함 사항:** 스탠다드 클럽 세트·볼 무료. 빈손으로 오시면 됩니다.\n\n**예약:** booking.len.golf에서 온라인 예약(즉시 확정), 또는 LINE @lengolf — 한국어 상담이 가능합니다. 저녁 프라임 타임은 한국 스크린골프처럼 차기 쉬우니 미리 예약을 추천합니다.\n\n**영업시간:** 연중무휴 오전 9시~오후 11시.',
         },
         {
           heading: '한국 스크린골프와 다른 점',
@@ -2064,14 +2658,134 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: '필드도 나가신다면',
-          body: '방콕 근교 골프장에서 라운딩 계획이 있다면 클럽 걱정은 필요 없습니다. LENGOLF에서 Callaway·Majesty 프리미엄 세트를 하루 1,200바트부터(2026년 7월 기준) 렌탈할 수 있고, 호텔이나 골프장까지 배송(왕복 500바트)됩니다. 보증금 없이 온라인 결제로 즉시 확정.\n\n스윙 점검이 필요하다면 태국 PGA 프로의 골프레슨도 운영합니다 — 1시간 무료 체험부터 시작할 수 있고, 스크린골프 시뮬레이터 데이터를 활용한 맞춤 코칭입니다.',
+          body: '방콕 근교 골프장에서 라운딩 계획이 있다면 클럽 걱정은 필요 없습니다. LENGOLF에서 Callaway·Majesty 프리미엄 세트를 하루 {{courseRentalDay}}부터(2026년 7월 기준) 렌탈할 수 있고, 호텔이나 골프장까지 배송(왕복 {{clubDelivery}})됩니다. 보증금 없이 온라인 결제로 즉시 확정.\n\n스윙 점검이 필요하다면 태국 PGA 프로의 골프레슨도 운영합니다 — 1시간 무료 체험부터 시작할 수 있고, 스크린골프 시뮬레이터 데이터를 활용한 맞춤 코칭입니다.',
         },
       ],
       key_takeaways: [
         '방콕 스크린골프는 LENGOLF — BTS 칫롬역 직결, 한국 Bravo Golf 시뮬레이터',
-        '시간당 550~950바트(2026년 7월 기준)를 최대 5명이 나눠서 — 클럽·볼 무료, 빈손 OK',
+        '시간당 {{bayHourlyMinNum}}~{{bayHourlyMaxNum}}바트(2026년 7월 기준)를 최대 5명이 나눠서 — 클럽·볼 무료, 빈손 OK',
         '온라인 예약 즉시 확정, LINE @lengolf 한국어 상담 가능, 연중무휴 9시~23시',
-        '필드 라운딩용 프리미엄 클럽 렌탈(하루 1,200바트부터, 호텔 배송)과 PGA 프로 레슨도 함께 운영',
+        '필드 라운딩용 프리미엄 클럽 렌탈(하루 {{courseRentalDay}}부터, 호텔 배송)과 PGA 프로 레슨도 함께 운영',
+      ],
+      comparison_table: [],
+    },
+  },
+
+  // ─── screen-golf-bangkok (JA): 日本語版 — バンコクのシミュレーションゴルフ ────
+  // ADAPTATION (not a literal translation). Japanese searchers use
+  // シミュレーションゴルフ / インドアゴルフ, so the title/meta lead with that
+  // vocabulary; スクリーンゴルフ is introduced as the Korean-origin social format
+  // (the guide's hook). One graceful nod to the common シュミレーションゴルフ
+  // misspelling (earns impressions at pos ~3.3 per GSC). Every fact from the
+  // EN/KO versions is preserved; language support is Japanese (LINE @lengolf),
+  // NOT Korean.
+  {
+    id: 'exp-screen-golf-bangkok-ja',
+    page_type: 'explainer',
+    slug: 'screen-golf-bangkok',
+    title: 'バンコクのシミュレーションゴルフ — 韓国発スクリーンゴルフを楽しむ',
+    meta_description:
+      'バンコクでシミュレーションゴルフ（インドアゴルフ）をお探しの方へ。LENGOLFはBTSチットロム駅直結、韓国Bravo Golfのシミュレーターで1時間{{bayHourlyFrom}}から最大5名まで。韓国発のスクリーンゴルフスタイルで、ベイまで料理やドリンクをお届けします（2026年7月現在）。',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'technology',
+    locale: 'ja',
+    related_slugs: [
+      '/golf',
+      '/lessons',
+      '/golf-course-club-rental',
+      '/guide/golf-lessons-bangkok-coaches',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        'バンコク旅行中に、日本で通っているようなシミュレーションゴルフ（インドアゴルフ）を楽しみたい——そんなときはLENGOLFへ。BTSチットロム駅直結のザ・マーキュリービル4階で、韓国Bravo Golfのシミュレーターを1時間{{bayHourlyFrom}}から、1ベイ最大5名でご利用いただけます。ベイまで料理やドリンクをお届けする、バー併設の空間です。',
+      sections: [
+        {
+          heading: 'スクリーンゴルフとは？シミュレーションゴルフとの関係',
+          body: 'スクリーンゴルフは、韓国で生まれたシミュレーションゴルフの呼び方です。実際のボールをスクリーンに打ち込み、センサーがクラブとボールのデータを計測して、ソフトウェアがバーチャルコース上にショットを再現します。日本では「シミュレーションゴルフ」や「インドアゴルフ」と呼ばれることが多く、まれに「シュミレーションゴルフ」と表記されることもありますが、指しているものは同じです。\n\n違いは「社交の場」という捉え方にあります。韓国では2000年代のブームを経て、シミュレーターが練習ツールから仲間と過ごす夜の遊びへと発展しました——ショットの合間に飲んだり食べたりしながら、グループでフルラウンドを回るスタイルです。欧米ではシミュレーターを練習用テクノロジーとして売り出すことが多いのに対し、スクリーンゴルフ文化ではボウリングやカラオケに近い、仲間とのラウンドの場として楽しみます。',
+        },
+        {
+          heading: 'LENGOLFのシミュレーションゴルフ — 韓国テクノロジー搭載',
+          body: 'LENGOLFのベイは韓国Bravo Golfのシミュレーターを使用しています。スイングごとに20以上のクラブ・ボールデータを計測し、100以上の実在コースを収録しています。\n\n料金はスクリーンゴルフのスタイルそのまま: 1ベイ最大5名を1つの時間料金でご利用いただけます（1時間{{bayHourlyMinNum}}〜{{bayHourlyMaxNum}}THB、2026年7月現在）。5名で分ければ1人あたり1時間{{bayPerPersonMinNum}}〜{{bayPerPersonMaxNum}}THB程度です。スタンダードクラブは無料、店内は完全空調で、フードとドリンクのメニューをベイまでお届けします。営業は毎日9:00〜23:00、ザ・マーキュリービル（BTSチットロム駅直結）にあります。',
+        },
+        {
+          heading: '日本で慣れ親しんだシミュレーションゴルフとの違い',
+          body: '**共通する点** — グループで分け合う時間制のベイ料金、フルラウンドのコースプレー、画面に表示されるクラブ・ボールデータ、夜遅くまでの営業。\n\n**異なる点** — LENGOLFはスタジオ型ではなく、バーを併設したラウンジスタイルです。ベイまで注文できるフード・ドリンクのメニューがあり、ゴルフをしない同行者もマルチプレイのゲームやゴルフ以外のゲームで一緒に楽しめます。収録コースは使用ソフトによって異なり、Bravoは100以上のコースを収録。タイや世界のコースも含まれるので、実際に行く前に予習できます。\n\nタイ滞在中に実際のラウンドを予定しているなら、シミュレーターはコースの下見にもなります。LENGOLFではバンコクのどのコースにも持ち込める、CallawayやMajesty（マジェスティ）のプレミアムセットのレンタルも行っています。',
+        },
+        {
+          heading: '旅行で訪れるゴルファーへの実践的なアドバイス',
+          body: '1. **夜は事前予約を** — スクリーンゴルフと同じく、プライムタイムは混み合います。booking.len.golfでオンライン予約するか、空いている時間帯にウォークインを\n2. **手ぶらでOK** — スタンダードクラブ、ボール、セットアップはすべて無料で含まれます\n3. **ゴルフをしない仲間も一緒に** — マルチプレイモードやゴルフ以外のゲームがあるので、混成グループでもスクリーンゴルフのように楽しめます\n4. **日本語サポート** — ご予約や事前のご相談は、LINE @lengolfにて日本語で承ります\n5. **このあと実際のコースへ？** ホテルやコースへの配送付きのプレミアムクラブレンタルは1日{{courseRentalDay}}から（往復配送{{clubDelivery}}、デポジット不要、2026年7月現在）',
+        },
+      ],
+      key_takeaways: [
+        'バンコクのシミュレーションゴルフ（韓国発のスクリーンゴルフスタイル）はLENGOLFで — BTSチットロム駅直結、韓国Bravo Golf搭載',
+        '20以上のスイングデータ、100以上のコース、1ベイ最大5名。1時間{{bayHourlyMinNum}}〜{{bayHourlyMaxNum}}THBをグループで分け合えます（2026年7月現在）',
+        'スタンダードクラブ・ボールは無料で手ぶらOK。フードとドリンクをベイまでお届け、毎日9:00〜23:00営業',
+        'ご予約はbooking.len.golfで、日本語のご相談はLINE @lengolf。実際のコース用にCallaway・Majestyのプレミアムレンタル（1日{{courseRentalDay}}〜、ホテル配送）もあります',
+      ],
+      comparison_table: [],
+    },
+  },
+
+  // ─── screen-golf-bangkok (ZH): 简体中文版 — 曼谷室内高尔夫练习场·屏幕高尔夫 ───
+  // ADAPTATION (mirrors the JA twin, not a literal translation). Chinese searchers
+  // say 室内高尔夫 / 高尔夫模拟器 / 室内高尔夫练习场, so the title/meta lead with that
+  // vocabulary and work in 收费 (the live GSC query is 室内高尔夫球练习场 收费,
+  // pos 26). 韩式屏幕高尔夫 (Korea's 스크린골프 culture) is the format hook. Every
+  // fact from the EN/KO/JA twins, token-resolved: bay rates
+  // {{bayHourlyMinNum}}–{{bayHourlyMaxNum}}泰铢 + {{bayHourlyFrom}}, course rental
+  // {{courseRentalDay}}, delivery {{clubDelivery}}. Language support is CHINESE via
+  // LINE @lengolf (shipped HomeZh "LINE中文咨询") — NOT Korean/Japanese. Inserted
+  // after the JA sibling to keep the same-slug group (EN→KO→JA→ZH) contiguous.
+  {
+    id: 'exp-screen-golf-bangkok-zh',
+    page_type: 'explainer',
+    slug: 'screen-golf-bangkok',
+    title: '曼谷室内高尔夫练习场 — 韩式屏幕高尔夫模拟器收费',
+    meta_description:
+      '在曼谷找室内高尔夫练习场？LENGOLF位于BTS Chidlom，用韩国Bravo Golf模拟器体验韩式屏幕高尔夫，1小时{{bayHourlyFrom}}起、最多5人，餐饮直接送到球位，LINE中文咨询。',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'technology',
+    locale: 'zh',
+    related_slugs: [
+      '/golf',
+      '/lessons',
+      '/golf-course-club-rental',
+      '/guide/golf-lessons-bangkok-coaches',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        '想在曼谷找一处室内高尔夫练习场，重温你熟悉的屏幕高尔夫？来LENGOLF就对了。我们位于BTS Chidlom的The Mercury Ville 4层，用韩国Bravo Golf模拟器提供韩式屏幕高尔夫，1小时{{bayHourlyFrom}}起，一个球位最多可5人同时使用，还有酒吧把餐饮直接送到你的球位。',
+      sections: [
+        {
+          heading: '什么是屏幕高尔夫？',
+          body: '屏幕高尔夫（韩语스크린골프）是韩国对室内高尔夫模拟器的叫法。你把真实的球打向击球幕布，传感器同时捕捉球杆和球的数据，软件再把你的击球还原到虚拟球场上。这个词源于2000年代韩国以Golfzon为首掀起的热潮——它把模拟器从练习工具变成了朋友聚会的夜间娱乐：大家一边打完整一轮，一边在击球间隙吃喝聊天。\n\n差别就在于“社交场景”这层定位。欧美常把模拟器当作练习科技来推广；而屏幕高尔夫文化把模拟器当成和朋友打球的场所——更接近保龄球或卡拉OK，而不是练习场。',
+        },
+        {
+          heading: 'LENGOLF的室内高尔夫 — 搭载韩国技术',
+          body: 'LENGOLF的球位使用韩国Bravo Golf模拟器——这正是Golfzon玩家熟悉的那套技术脉络。每个球位每次挥杆能测量20多项球杆与球的数据，并收录100多个真实球场。\n\n收费沿用屏幕高尔夫的方式：一个球位最多5人，共享同一个按小时计的价格（每小时{{bayHourlyMinNum}}–{{bayHourlyMaxNum}}泰铢，截至2026年7月）。5人平摊下来，每人每小时约{{bayPerPersonMinNum}}–{{bayPerPersonMaxNum}}泰铢。标准球杆免费，室内全程空调，还有完整的餐饮菜单送到球位。营业时间为每天9:00–23:00，地点在与BTS Chidlom直接相连的The Mercury Ville。',
+        },
+        {
+          heading: '与韩国的屏幕高尔夫有何不同',
+          body: '**相同之处：** 由同行者平摊的按小时球位收费、完整一轮的球场对局、屏幕上的球杆与球数据、营业到深夜。\n\n**不同之处：** 曼谷的场馆数量比韩国密集的工作室型店铺少，也更偏休闲酒吧风格——LENGOLF把球位和酒吧结合在一起，而不是首尔常见的自助贩卖机式工作室。收录球场因软件而异（Bravo的100多个球场，与Golfzon以韩国球场为主的清单不同），你还能找到泰国和世界各地的球场，在实际下场前先预习一遍。\n\n如果你计划在泰国期间到真实球场打球，模拟器也能当作球场预习——LENGOLF还提供Callaway、Majesty高级套装租借，可带到曼谷任何一座球场。',
+        },
+        {
+          heading: '给旅行球友的实用贴士',
+          body: '1. **晚间请提前预订** — 和韩国屏幕高尔夫一样，黄金时段很快就满；可在booking.len.golf在线预订，或挑非高峰时段直接到店\n2. **空手来就行** — 标准球杆、球和场地设置都免费包含\n3. **带上不打球的朋友** — 多人对战模式和非高尔夫游戏让混合组队也能玩得开，正是屏幕高尔夫的玩法\n4. **中文咨询** — 预订与咨询可通过LINE @lengolf用中文办理\n5. **之后要去真实球场？** 含酒店或球场配送的高级球杆租借，每日{{courseRentalDay}}起（往返配送{{clubDelivery}}，截至2026年7月）',
+        },
+      ],
+      key_takeaways: [
+        '曼谷的屏幕高尔夫（韩式社交型室内高尔夫模拟器）在LENGOLF就能玩——BTS Chidlom直连，搭载韩国Bravo Golf技术',
+        '韩国Bravo Golf技术：每次挥杆20多项数据、100多个球场，一个球位最多5人',
+        '屏幕高尔夫式收费：一个球位一个按小时价（每小时{{bayHourlyMinNum}}–{{bayHourlyMaxNum}}泰铢，截至2026年7月）由同行者平摊，球杆免费',
+        '每天9:00–23:00营业，餐饮送到球位——是一场社交球局，而不只是练习',
       ],
       comparison_table: [],
     },
@@ -2128,6 +2842,195 @@ export const explainerPages: ExplainerSeoPage[] = [
         'Caddies are mandatory — factor in 300–500 THB caddie fee plus 200–300 THB tip on every round',
         'Weekend rates are 20–40% higher; twilight rates are 20–30% cheaper — both levers significantly affect total cost',
         'Nikanti and Alpine at the premium end are ~5,500 THB weekday all-in; budget courses can be under 2,500 THB all-in',
+      ],
+      comparison_table: [],
+    },
+  },
+
+  // ─── exp-40 (JA): 日本語版 — バンコクのゴルフラウンドの費用 ────────────────────
+  // Faithful translation of the EN guide targeting バンコク ゴルフ 料金 / 安い.
+  // ALL numeric facts (green fees, caddie fees, tips, cart, comparison figures,
+  // Nikanti/Alpine prices, the two markdown tables) are preserved exactly. No
+  // 2026年7月現在 framing is added because the EN source carries no as-of dates —
+  // only "confirm current rates" disclaimers, which are translated as-is.
+  {
+    id: 'exp-40-ja',
+    page_type: 'explainer',
+    slug: 'round-of-golf-cost-bangkok',
+    title: 'バンコクのゴルフラウンドの費用は？グリーンフィー・キャディー代の相場',
+    meta_description:
+      'バンコクでゴルフを1ラウンドする費用は？グリーンフィー、キャディーフィー、キャディーへのチップ、カート代まで、格安コースの1,500THBからプレミアムコースの7,000THB超まで、総額の相場を解説します（料金は変動するため要確認）。',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'costs',
+    locale: 'ja',
+    related_slugs: [
+      '/golf',
+      '/golf-course-club-rental',
+      '/guide/renting-golf-clubs-thai-golf-courses',
+      '/guide/golf-lessons-bangkok-coaches',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        'バンコクはアジア屈指のコストパフォーマンスを誇るゴルフ目的地です。手入れの行き届いた、キャディー付きのコースでの1ラウンドは、日本、オーストラリア、英国で支払う金額のほんの一部で楽しめます——しかもコースの質は本当に見事です。',
+      sections: [
+        {
+          heading: '総額の内訳',
+          body: 'バンコク近郊の中級コースでの平日1ラウンドの目安:\n\n| 項目 | 費用（THB） |\n|---|---|\n| グリーンフィー（中級・平日） | 2,500〜3,500 |\n| キャディーフィー（必須） | 300〜500 |\n| キャディーへのチップ（慣習） | 200〜300 |\n| カート代（任意） | 300〜600 |\n| **総額（概算）** | **3,300〜4,900** |\n\nプレミアムコースでは総額が6,000〜8,000THB以上になります。格安のパブリックコースなら、総額2,000〜2,500THBも可能です。\n\n*グリーンフィーは季節によって変動します。予約前に必ずゴルフ場へ直接、最新料金をご確認ください。*',
+        },
+        {
+          heading: 'グレード別のグリーンフィー',
+          body: '**1. 格安コース — 1,500〜2,000THB（平日グリーンフィー）**\n公営や一般開放の歴史あるクラブ。設備はより簡素ですが、プレー自体は問題なく楽しめます。\n\n**2. 中級コース — 2,500〜3,500THB（平日）**\nビジターも受け入れる、手入れの行き届いたメンバーコース。良好なコースコンディション、充実したクラブハウス、整ったティータイムシステム。多くの旅行ゴルファーにとって最もバランスの取れた選択です。\n\n**3. プレミアムコース — 4,500THB〜（平日）**\n- **Nikanti Golf Club:** 平日約5,500THB / 週末約6,500THB（キャディー、チップ、飲み物、食事2回込みのオールインクルーシブ）\n- **Alpine Golf Club:** 平日約5,400THB / 週末約7,400THB（通常キャディーとカート込み）\n\nチャンピオンシップ水準のレイアウトと、非の打ちどころのないコンディション。価格は目安です——クラブへ直接ご確認ください。',
+        },
+        {
+          heading: '必須の費用と任意の費用',
+          body: '**キャディーフィー（必須）:** ゴルフ場が設定する300〜500THB。バンコクのほぼすべてのコースで必須で、交渉の余地はありません。\n\n**キャディーへのチップ（強く期待される）:** 満足のいくラウンドで200〜300THB、素晴らしいキャディーには300〜500THB。キャディーの給与の後半分と考えてください——省くと気づかれますし、マナー違反とみなされます。\n\n**カート代（任意）:** 乗り合いカートで300〜600THB。バンコクの暑さと湿度の中で18ホールを歩くことは可能ですが、かなり大変です。多くの旅行者はカートを利用します。\n\n**飲食:** ラウンド後のクラブハウスでの食事とドリンクに200〜500THBを見込んでおきましょう。',
+        },
+        {
+          heading: '料金を左右する要素と節約のコツ',
+          body: '**週末の割増:** 平日料金より20〜40%高くなります。月曜〜金曜にプレーすることが、最も効果的な費用削減策です。\n\n**トワイライト料金:** 多くのコースが14〜15時以降のティータイムに割引料金を設定しています。20〜30%の割引が一般的です。\n\n**シーズン:** 12〜2月（ピーク）が最も高く、5〜9月は稼働率が下がりプロモーションが出ます。\n\n**費用を抑えるコツ:**\n1. 平日にプレーする\n2. トワイライトのティータイムを予約する\n3. 予約プラットフォームでコースのプロモーション料金を比較する\n4. カートを乗り合いにする — 費用が半分になります\n5. チップは適正に、ただし出しすぎず: 通常のラウンドなら200〜300THBが適切です',
+        },
+        {
+          heading: 'バンコクの費用を世界と比較すると',
+          body: '| 目的地 | 中級コースのグリーンフィー目安 |\n|---|---|\n| タイ・バンコク | 2,500〜3,500THB（約£55〜75 / A$110〜140） |\n| 日本・東京 | ¥15,000〜25,000（約£75〜125 / A$150〜240） |\n| シドニー / メルボルン | A$80〜180（約£40〜90） |\n| 英国・ロンドン | £50〜120以上 |\n\n必須のキャディーフィーを加味しても、バンコクは日本より一貫して割安で、オーストラリアや英国の中価格帯コースとも十分に競争力があります。',
+        },
+      ],
+      key_takeaways: [
+        'バンコクの中級コースの1ラウンドは、グリーンフィー・キャディー・チップ・カート込みで総額3,300〜4,900THB',
+        'キャディーは必須 — 毎ラウンド、キャディーフィー300〜500THBに加えてチップ200〜300THBを見込みましょう',
+        '週末料金は20〜40%高く、トワイライト料金は20〜30%安い — どちらも総額に大きく影響します',
+        'プレミアムのNikanti・Alpineは平日の総額で約5,500THB、格安コースなら総額2,500THB以下も可能',
+      ],
+      comparison_table: [],
+    },
+  },
+
+  // ─── exp-40 (KO): 한국어판 — 방콕 골프 라운딩 비용 ────────────────────────────
+  // Faithful translation of the EN guide targeting 방콕 골프 비용 / 라운딩 비용.
+  // ALL numeric facts (green fees, caddie fees, tips, cart, comparison figures,
+  // Nikanti/Alpine prices, the two markdown tables) are preserved exactly. No
+  // LENGOLF tie-in in body (matches exp-40-ja); the /golf-course-club-rental
+  // related_slug carries the funnel. This source's caddie tip is 200–300 THB —
+  // green-fees-bangkok-golf-courses uses 100–200; do NOT harmonize across guides.
+  {
+    id: 'exp-40-ko',
+    page_type: 'explainer',
+    slug: 'round-of-golf-cost-bangkok',
+    title: '방콕 골프 라운딩 비용은? 그린피·캐디피 총정리',
+    meta_description:
+      '방콕에서 골프 1라운딩 비용은 얼마일까요? 그린피, 캐디피, 캐디 팁, 카트비까지 — 저렴한 코스 1,500바트부터 프리미엄 클럽 7,000바트 이상까지 총액 상세를 정리했습니다.',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'costs',
+    locale: 'ko',
+    related_slugs: [
+      '/guide/green-fees-bangkok-golf-courses',
+      '/guide/how-to-book-golf-tee-times-thailand',
+      '/golf-course-club-rental',
+      '/golf',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        '방콕은 아시아에서도 손꼽히는 가성비 좋은 골프 여행지예요. 잘 관리된, 캐디가 함께하는 코스에서의 18홀 라운딩 비용이 일본, 호주, 영국에서 내는 금액의 일부에 불과하고 — 코스의 수준도 정말 인상적이에요.',
+      sections: [
+        {
+          heading: '라운딩 총액 내역',
+          body: '방콕 근교 중급 코스에서의 평일 18홀 라운딩 기준이에요:\n\n| 항목 | 비용(바트) |\n|---|---|\n| 그린피(중급·평일) | 2,500~3,500 |\n| 캐디피(필수) | 300~500 |\n| 캐디 팁(관례) | 200~300 |\n| 카트 대여(선택) | 300~600 |\n| **총액(예상)** | **3,300~4,900** |\n\n프리미엄 코스라면 총액이 6,000~8,000바트 이상으로 올라가요. 저렴한 퍼블릭 코스라면 총액 2,000~2,500바트도 가능합니다.\n\n*그린피는 계절에 따라 달라져요. 예약 전에 반드시 골프장에 직접 최신 요금을 확인하세요.*',
+        },
+        {
+          heading: '등급별 그린피',
+          body: '**1. 저렴한 코스 — 1,500~2,000바트(평일 그린피)**\n공영이나 일반 개방형의 오래된 클럽이에요. 시설은 다소 소박하지만 플레이 자체는 문제없이 즐길 수 있어요.\n\n**2. 중급 코스 — 2,500~3,500바트(평일)**\n비지터도 받는, 잘 관리된 멤버 코스예요. 좋은 코스 컨디션, 충실한 클럽하우스, 잘 정비된 티타임 시스템을 갖추고 있어요. 여행으로 찾는 대부분의 골퍼에게 가장 균형 잡힌 선택이에요.\n\n**3. 프리미엄 코스 — 4,500바트 이상(평일)**\n- **Nikanti Golf Club:** 평일 약 5,500바트 / 주말 약 6,500바트(캐디, 팁, 음료, 식사 2회 포함 올인클루시브)\n- **Alpine Golf Club:** 평일 약 5,400바트 / 주말 약 7,400바트(보통 캐디와 카트 포함)\n\n챔피언십 수준의 레이아웃과 흠잡을 데 없는 컨디션이에요. 가격은 참고용이니 클럽에 직접 확인하세요.',
+        },
+        {
+          heading: '필수 비용과 선택 비용',
+          body: '**캐디피(필수):** 골프장이 정하는 300~500바트예요. 방콕 거의 모든 코스에서 필수이고, 협상의 여지는 없어요.\n\n**캐디 팁(강하게 기대됨):** 만족스러운 라운딩이라면 200~300바트, 훌륭한 캐디에게는 300~500바트예요. 캐디 급여의 나머지 절반이라고 생각하세요 — 빼먹으면 티가 나고, 매너에 어긋난다고 여겨져요.\n\n**카트 대여(선택):** 함께 타는 카트가 300~600바트예요. 방콕의 더위와 습도 속에서 18홀을 걷는 것도 가능하지만 꽤 힘들어요. 대부분의 여행자는 카트를 이용해요.\n\n**식음료:** 라운딩 후 클럽하우스에서의 식사와 음료로 200~500바트 정도 잡아 두세요.',
+        },
+        {
+          heading: '가격을 좌우하는 요소와 절약 방법',
+          body: '**주말 할증:** 평일 요금보다 20~40% 높아요. 월요일~금요일에 플레이하는 것이 가장 효과적인 비용 절감이에요.\n\n**트와일라잇 요금:** 대부분의 코스가 오후 2~3시 이후 티타임에 할인 요금을 적용해요. 20~30% 할인이 일반적이에요.\n\n**시즌:** 12~2월(성수기)이 가장 비싸고, 5~9월은 이용률이 낮아 프로모션이 나와요.\n\n**비용을 낮추는 팁:**\n1. 평일에 플레이하세요\n2. 트와일라잇 티타임을 예약하세요\n3. 예약 플랫폼에서 코스별 프로모션 요금을 비교하세요\n4. 카트를 함께 타세요 — 비용이 절반이 돼요\n5. 팁은 적정하게, 다만 과하지 않게: 일반적인 라운딩이라면 200~300바트가 적당해요',
+        },
+        {
+          heading: '방콕 비용을 세계와 비교하면',
+          body: '| 지역 | 중급 코스 그린피 기준 |\n|---|---|\n| 태국 방콕 | 2,500~3,500바트(약 £55~75 / A$110~140) |\n| 일본 도쿄 | ¥15,000~25,000(약 £75~125 / A$150~240) |\n| 시드니 / 멜버른 | A$80~180(약 £40~90) |\n| 영국 런던 | £50~120 이상 |\n\n필수 캐디피를 감안해도, 방콕은 일본보다 일관되게 저렴하고, 호주나 영국의 중가격대 코스와도 충분히 경쟁력이 있어요.',
+        },
+      ],
+      key_takeaways: [
+        '방콕 중급 코스의 18홀 라운딩은 그린피·캐디·팁·카트 포함 총액 3,300~4,900바트예요',
+        '캐디는 필수 — 라운딩마다 캐디피 300~500바트에 더해 팁 200~300바트를 잡아 두세요',
+        '주말 요금은 20~40% 높고, 트와일라잇 요금은 20~30% 저렴해요 — 둘 다 총액에 크게 영향을 줘요',
+        '프리미엄인 Nikanti·Alpine은 평일 총액 약 5,500바트, 저렴한 코스라면 총액 2,500바트 이하도 가능해요',
+      ],
+      comparison_table: [],
+    },
+  },
+
+  // ─── exp-40 (ZH): 简体中文版 — 曼谷打一场高尔夫的费用 ─────────────────────────
+  // Faithful translation of the EN guide, mirroring the JA/KO twins. ALL numeric
+  // facts (green fees, caddie fee, cart, comparison figures, Nikanti/Alpine
+  // prices, and BOTH markdown tables — the all-in breakdown 2,500–3,500 / 300–500
+  // / 200–300 / 300–600 / **3,300–4,900**, and the global comparison with
+  // ¥/£/A$ preserved) are kept cell-exact. This source's caddie tip is
+  // 200–300泰铢 — green-fees-bangkok-golf-courses uses 100–200; the per-source
+  // divergence is CORRECT, do NOT harmonize. No LENGOLF tie-in in body (matches
+  // exp-40-ja/ko); the /golf-course-club-rental related_slug carries the funnel.
+  // No 截至2026年7月 framing (EN source carries none — only "confirm current rates"
+  // disclaimers; leaves the same price-as-of validate:i18n warnings as JA/KO).
+  {
+    id: 'exp-40-zh',
+    page_type: 'explainer',
+    slug: 'round-of-golf-cost-bangkok',
+    title: '曼谷打一场高尔夫要多少钱？果岭费与球童费全解析',
+    meta_description:
+      '曼谷打一场高尔夫的费用有多少？果岭费、球童费、球童小费到球车费——从平价球场的1,500泰铢到高级球会7,000泰铢以上，为你拆解总额。',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'costs',
+    locale: 'zh',
+    related_slugs: [
+      '/guide/green-fees-bangkok-golf-courses',
+      '/guide/how-to-book-golf-tee-times-thailand',
+      '/golf-course-club-rental',
+      '/golf',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        '曼谷是亚洲性价比最高的高尔夫目的地之一。在一座维护良好、配有球童的球场打完整一轮，花费只是你在日本、澳大利亚或英国所付的一小部分——而球场的品质确实令人惊艳。',
+      sections: [
+        {
+          heading: '总费用拆解',
+          body: '曼谷中档球场平日一轮的典型花费：\n\n| 项目 | 费用（泰铢） |\n|---|---|\n| 果岭费（中档、平日） | 2,500–3,500 |\n| 球童费（强制） | 300–500 |\n| 球童小费（惯例） | 200–300 |\n| 球车租用（可选） | 300–600 |\n| **全部合计（估算）** | **3,300–4,900** |\n\n在高级球场，合计金额会升到6,000–8,000泰铢甚至更高。在平价的公众球场，合计2,000–2,500泰铢也做得到。\n\n*果岭费会随季节变动。预订前请务必直接向球场确认最新价格。*',
+        },
+        {
+          heading: '分档看果岭费',
+          body: '**1. 平价球场 — 1,500–2,000泰铢（平日果岭费）**\n历史较久的公众开放及市政球场。设施较为基础，但打球体验完全没问题。\n\n**2. 中档球场 — 2,500–3,500泰铢（平日）**\n对访客开放、维护良好的会员制球场。球场状态好、会所设施完整、开球时间系统规范。对大多数到访球友而言最为均衡的选择。\n\n**3. 高级球场 — 4,500泰铢起（平日）**\n- **Nikanti Golf Club：** 平日约5,500泰铢 / 周末约6,500泰铢（全包——含球童、小费、饮料和两餐）\n- **Alpine Golf Club：** 平日约5,400泰铢 / 周末约7,400泰铢（通常含球童和球车）\n\n锦标赛水准的球道设计，保养无可挑剔。价格仅供参考——请直接向球会确认。',
+        },
+        {
+          heading: '强制与可选的额外费用',
+          body: '**球童费（强制）：** 由球场收取的300–500泰铢。几乎每一座曼谷球场都不可免。\n\n**球童小费（强烈期待）：** 一轮打得满意给200–300泰铢；球童表现出色给300–500泰铢。可以把它看作球童收入的另一半——省掉会被注意到，也被视为失礼。\n\n**球车租用（可选）：** 拼用一辆球车约300–600泰铢。在曼谷的高温和湿热里步行打完18洞是可行的，但相当吃力，多数访客都会选择球车。\n\n**餐饮：** 在会所吃一顿球后餐加饮料，预留200–500泰铢。',
+        },
+        {
+          heading: '影响价格的变量与省钱方法',
+          body: '**周末溢价：** 比平日高出20%–40%。改在周一至周五打球，是最有效的一招省钱方法。\n\n**黄昏时段（Twilight）价格：** 多数球场对约14–15点后的开球时间提供折扣，常见的降幅是20%–30%。\n\n**季节：** 12月至2月（旺季）价格最高；5月至9月入场率较低，会有促销。\n\n**压低费用的贴士：**\n1. 选平日打球\n2. 预订黄昏时段的开球时间\n3. 在预订平台上比较各球场的促销价\n4. 拼一辆球车——费用直接减半\n5. 小费给得合理但不过度：一轮普通的球，200–300泰铢就很合适',
+        },
+        {
+          heading: '曼谷与全球比较',
+          body: '| 目的地 | 中档球场果岭费参考 |\n|---|---|\n| 泰国曼谷 | 2,500–3,500泰铢（约£55–75 / A$110–140） |\n| 日本东京 | ¥15,000–25,000（约£75–125 / A$150–240） |\n| 悉尼／墨尔本 | A$80–180（约£40–90） |\n| 英国伦敦 | £50–120以上 |\n\n即便算上强制的球童费，曼谷也一贯比日本划算，并与澳大利亚和英国的中价位球场大致相当。',
+        },
+      ],
+      key_takeaways: [
+        '曼谷中档球场打一轮，含果岭费、球童、小费和球车，合计3,300–4,900泰铢',
+        '球童为强制——每一轮都要算上300–500泰铢球童费，外加200–300泰铢小费',
+        '周末价格高出20%–40%；黄昏时段便宜20%–30%——两个杠杆都会明显影响总额',
+        '高级端的Nikanti和Alpine平日合计约5,500泰铢；平价球场合计可低于2,500泰铢',
       ],
       comparison_table: [],
     },
@@ -2195,7 +3098,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     status: 'published',
     category: 'destination-guides',
     locale: 'en',
-    related_slugs: ['/golf-in-thailand-guide', '/guide/is-thailand-good-for-golf', '/guide/best-golf-courses-near-bangkok'],
+    related_slugs: ['/golf-in-thailand-guide', '/guide/is-thailand-good-for-golf', '/guide/best-golf-courses-near-bangkok', '/guide/best-golf-courses-phuket'],
     created_at: '2026-03-28T00:00:00.000Z',
     updated_at: '2026-03-28T00:00:00.000Z',
     content: {
@@ -2639,26 +3542,30 @@ export const explainerPages: ExplainerSeoPage[] = [
     id: 'exp-21',
     page_type: 'explainer',
     slug: 'best-golf-courses-near-bangkok',
-    title: 'Best Golf Courses Near Bangkok — Complete Guide',
-    meta_description: 'Bangkok has 50+ golf courses within an hour of the city. Here\'s how to choose — courses, green fees, caddies, booking, and what to expect in 2026.',
+    title: '7 Best Golf Courses Near Bangkok (2026 Green Fees)',
+    meta_description: 'The 7 best golf courses near Bangkok for 2026 — Nikanti, Alpine and airport-side courses from ~2,000 THB, with green fees, drive times and how to book.',
     featured_image: null,
     schema_markup: null,
     status: 'published',
     category: 'golf-courses',
     locale: 'en',
-    related_slugs: ['/golf-in-thailand-guide', '/guide/nikanti-golf-club-bangkok', '/guide/alpine-golf-club-bangkok', '/guide/thai-country-club-bangkok', '/guide/black-mountain-golf-club-hua-hin'],
+    related_slugs: ['/golf-courses/bangkok', '/golf-in-thailand-guide', '/guide/nikanti-golf-club-bangkok', '/guide/alpine-golf-club-bangkok', '/guide/thai-country-club-bangkok', '/guide/green-fees-bangkok-golf-courses', '/guide/how-to-book-golf-tee-times-thailand', '/guide/suvarnabhumi-airport-to-bangkok-golf', '/golf-courses/bangkok/green-valley-country-club', '/golf-courses/bangkok/summit-windmill-golf-club', '/guide/best-golf-courses-phuket', '/guide/black-mountain-golf-club-hua-hin'],
     created_at: '2026-03-28T00:00:00.000Z',
     updated_at: '2026-03-28T00:00:00.000Z',
     content: {
-      intro: `Bangkok is one of the best cities in the world for a golfer to be based. With 50+ courses within roughly an hour of the city centre, you could play a different course every day for several weeks without repeating. Prices are a fraction of equivalent courses in Europe, Japan, or Australia. Caddies are included. And tee times are available year-round.`,
+      intro: `Bangkok is one of the best cities in the world for a golfer to be based. With 50+ courses within roughly an hour of the city centre, you could play a different course every day for several weeks without repeating. Prices are a fraction of equivalent courses in Europe, Japan, or Australia. Caddies are included, and tee times are available year-round.\n\nThis guide is our editorial shortlist — the seven standout rounds most worth your time, plus the closest courses to both Bangkok airports. If you want the complete directory instead — all 58 Bangkok-area courses with green fees, distances and an interactive map — use the Bangkok golf courses hub linked at the foot of this page.`,
       sections: [
         {
           heading: 'How to Choose a Course',
-          body: `Before booking, narrow down by four factors:\n\n1. **Location from your hotel** — Bangkok's traffic is significant. A course 40km away can take 90 minutes in peak hour. Check the direction from your hotel and plan accordingly.\n2. **Budget** — Green fees range from around 1,500 THB at accessible daily-fee courses to 5,000+ THB at premium clubs. Weekends cost 20–40% more.\n3. **Skill level and style** — Some courses are genuine championship challenges; others are resort-friendly and forgiving.\n4. **Public access** — Most Bangkok-area courses accept visiting golfers. A few operate primarily for members and require advance arrangement.`,
+          body: `Before booking, narrow down by four factors:\n\n1. **Location from your hotel** — Bangkok's traffic is significant. A course 40km away can take 90 minutes in peak hour. Check the direction from your hotel and plan accordingly.\n2. **Budget** — Green fees range from around 1,500 THB at accessible daily-fee courses to 6,500+ THB at premium clubs. Weekends cost 20–40% more.\n3. **Skill level and style** — Some courses are genuine championship challenges; others are resort-friendly and forgiving.\n4. **Public access** — Most Bangkok-area courses accept visiting golfers. A few operate primarily for members and require advance arrangement.`,
         },
         {
-          heading: 'Notable Courses Near Bangkok',
-          body: `**Nikanti Golf Club — Nakhon Pathom (~45 min west)**\nNikanti is one of the most talked-about courses in the Bangkok area. Its links-style design is unusual for Thailand — open fairways, undulating terrain, and wind that plays a genuine role — and the conditioning is consistently high. It's accessible to visiting golfers and bookable online.\n\n**Alpine Golf Club — Pathum Thani (~30 min north)**\nAlpine has Asian Tour heritage and the course quality to match. The layout is mature, tree-lined, and offers a classic parkland experience. One of the easier courses to reach from the city without fighting eastbound or westbound motorway traffic.\n\n**Thai Country Club — Chonburi (~1 hour east)**\nOne of the most prestigious clubs in Thailand, Thai Country Club operates primarily as a private members' club. Public access is limited — visiting golfers typically need a hotel concierge connection or direct advance arrangement. For those who can get in, it represents one of the finest rounds available in the country.\n\n**Hua Hin (day trip / overnight)**\nBlack Mountain Golf Club in Hua Hin, about three hours south of Bangkok, is regularly cited among the best courses in Asia. Not a day-trip course for casual golfers — the drive requires an overnight stay — but for serious golfers building a Thailand itinerary, it belongs on the list.`,
+          heading: 'The 7 Best Golf Courses Near Bangkok',
+          body: `Our shortlist balances course pedigree, conditioning and accessibility to visiting golfers. Green fees below are indicative 2026 weekday starting rates before caddie and cart — always confirm current pricing with the course or your booking platform, as rates change seasonally.\n\n**1. Nikanti Golf Club — Nakhon Pathom (~45 min west)**\nOne of the most talked-about courses in the Bangkok area. Its links-style design is unusual for Thailand — open fairways, undulating terrain, and wind that plays a genuine role — with consistently high conditioning. Accessible to visiting golfers and bookable online. Weekday green fees around 5,500 THB (weekend ~6,500 THB).\n\n**2. Alpine Golf Club — Pathum Thani (~50 min north)**\nAlpine has Asian Tour heritage and the course quality to match: a mature, tree-lined, classic parkland layout. Weekday green fees around 5,400 THB (weekend ~7,400 THB).\n\n**3. Thai Country Club — Chachoengsao (~45 min east)**\nOne of the most prestigious clubs in Thailand and a genuine championship test on the Bangna-Trad corridor. It runs a seasonal pricing structure and books out early — reserve well ahead. Weekday green fees around 4,500 THB (weekend ~5,500 THB). It's also only about 25 minutes from Suvarnabhumi Airport.\n\n**4. Siam Country Club Bangkok — Samut Prakan (~40 min)**\nA newer premium layout near the airport corridor that has drawn strong interest from local and visiting golfers. Fees are all-inclusive of green fee, caddie and cart and sit at the top of the Bangkok market — weekday packages from around 6,500 THB (weekend ~7,500 THB).\n\n**5. Riverdale Golf Club — Pathum Thani (~30 min north)**\nA well-regarded championship layout that has hosted professional events, and the best value of the top tier here at around 2,700 THB weekday and weekend alike — a strong pick if you want tournament-grade golf without premium pricing.\n\n**6. Summit Windmill Golf Club — Samut Prakan (~30 min)**\nOne of very few Nick Faldo designs in Thailand, with floodlit night golf and a location just minutes from Suvarnabhumi Airport. Weekday green fees around 3,000 THB (weekend ~4,000 THB).\n\n**7. Thana City Golf & Sports Club — Samut Prakan (~30 min)**\nThailand's only Greg Norman design, on the Bangna-Trad highway minutes from Suvarnabhumi. A quality, accessible round below the pricing of the top-tier venues — around 2,900 THB weekday (weekend ~4,100 THB).\n\n**Worth the trip: Black Mountain Golf Club — Hua Hin (~3 hours south)**\nRegularly cited among the best courses in Asia. Too far for a day trip — the drive warrants an overnight stay — but for serious golfers building a Thailand itinerary it belongs on the list. Green fees around 4,500 THB.`,
+        },
+        {
+          heading: 'Closest Courses to Suvarnabhumi & Don Mueang Airports',
+          body: `Landing at BKK or DMK with a tee time to make — or squeezing in a round before a late departure? These courses are the most practical, ranked by driving time from each airport (weekday starting green fees before caddie and cart):\n\n| Course | Nearest airport | Drive from airport | Weekday green fee |\n|---|---|---|---|\n| Royal Golf & Country Club | Suvarnabhumi (BKK) | ~10 min | ~3,500 THB |\n| Green Valley Country Club | Suvarnabhumi (BKK) | ~15 min | ~2,000 THB |\n| Summit Windmill (Nick Faldo) | Suvarnabhumi (BKK) | ~10–15 min | ~3,000 THB |\n| Subhapruek Golf Club | Suvarnabhumi (BKK) | ~20 min | ~1,500 THB |\n| Krung Kavee Golf Course | Don Mueang (DMK) | ~15 min | ~1,600 THB |\n| Pinehurst Golf & Country Club | Don Mueang (DMK) | ~15 min | ~1,700 THB |\n| Flora Ville Golf & Country Club | Don Mueang (DMK) | ~20 min | ~1,200 THB |\n\nGreen Valley is often described as one of the closest quality courses to Suvarnabhumi, and the Don Mueang cluster in Pathum Thani (Krung Kavee, Pinehurst) is ideal for arrivals or departures through the north terminal. For getting into the city with clubs, see our Suvarnabhumi airport transfer guide linked below.`,
         },
         {
           heading: 'What to Expect at Thai Golf Courses',
@@ -2675,8 +3582,8 @@ export const explainerPages: ExplainerSeoPage[] = [
       ],
       key_takeaways: [
         '50+ courses within an hour of central Bangkok — green fees 50–70% lower than comparable UK/US courses',
-        'Nikanti (links-style, ~45 min west) and Alpine (parkland, ~30 min north) are the most accessible top-tier options',
-        'Thai Country Club is prestigious but requires advance arrangement or concierge connection for public access',
+        'Nikanti (links-style, ~45 min west) and Alpine (parkland, ~50 min north) are the standout top-tier rounds; Riverdale (~2,700 THB) is the best value of the elite group',
+        'Closest to Suvarnabhumi: Royal Golf (~10 min), Green Valley (~15 min) and Nick Faldo–designed Summit Windmill; closest to Don Mueang: Krung Kavee and Pinehurst (~15 min)',
         'Caddies are mandatory at all courses — tip 200–500 THB depending on service quality',
         'November–February is the ideal season; early tee times (6–9am) are recommended year-round',
       ],
@@ -2689,22 +3596,26 @@ export const explainerPages: ExplainerSeoPage[] = [
     id: 'exp-22',
     page_type: 'explainer',
     slug: 'best-golf-courses-phuket',
-    title: 'Phuket Golf Courses — The Best Courses for Visitors',
-    meta_description: 'Plan your Phuket golf trip with confidence. Green fees, caddies, best tee times, rainy season tips, and how Phuket compares to Bangkok for golf.',
+    title: 'Best Golf Courses in Phuket: Our Top Picks for 2026',
+    meta_description: "Our pick of Phuket's best golf courses for 2026 — Red Mountain, Blue Canyon, Laguna and Mission Hills. Green fees, best tee times and how to plan your trip.",
     featured_image: null,
     schema_markup: null,
     status: 'published',
     category: 'golf-courses',
     locale: 'en',
-    related_slugs: ['/golf-in-thailand-guide', '/guide/best-golf-courses-near-bangkok', '/guide/best-time-play-golf-thailand'],
+    related_slugs: ['/golf-courses/phuket', '/golf-in-thailand-guide', '/guide/best-golf-courses-near-bangkok', '/guide/best-time-play-golf-thailand', '/guide/thailand-golf-trip-cost'],
     created_at: '2026-03-28T00:00:00.000Z',
     updated_at: '2026-03-28T00:00:00.000Z',
     content: {
-      intro: `Phuket is one of Southeast Asia's most popular resort destinations, and its golf scene is built to match. While Bangkok draws serious golfers with sheer volume, Phuket offers something different: golf in a tropical resort setting, often with sea views, lush mountain backdrops, and a relaxed pace that suits a golf holiday rather than a regular weekend round.`,
+      intro: `Phuket is one of Southeast Asia's most popular resort destinations, and its golf scene is built to match. While Bangkok draws serious golfers with sheer volume, Phuket offers something different: golf in a tropical resort setting, often with sea views, lush mountain backdrops, and a relaxed pace that suits a golf holiday rather than a regular weekend round.\n\nBelow are our picks of the island's best courses, followed by everything you need to plan the trip. For the complete list — every Phuket course with green fees on one map — use the Phuket golf courses hub linked at the foot of this page.`,
       sections: [
         {
           heading: 'What Makes Phuket Golf Different',
           body: `The defining characteristic of golf in Phuket is the resort integration. Most courses are attached to or aligned with major hotel and villa developments, which means the entire experience — accommodation, dining, spa, and golf — tends to be packaged together. This is very different from Bangkok, where golfers typically drive out to a standalone course, play, and head back to the city.\n\nPhuket's terrain also sets it apart. The island is hilly and forested, giving many courses dramatic elevation changes and, on certain holes, coastal views. Fairways often wind through rubber tree plantations and tropical gardens, and the combination of sea breeze and elevated positions can make club selection more challenging than a flat-land course.\n\nBecause Phuket is tourist-focused year-round, the courses here are generally well set up for visiting golfers. Staff at most clubs are accustomed to international guests and English is widely spoken.`,
+        },
+        {
+          heading: 'The Best Golf Courses in Phuket',
+          body: `Phuket's standout courses cluster in the Kathu and Thalang districts, most within 20–40 minutes of the Patong, Laguna and Kata resort areas. Green fees below are indicative 2026 weekday starting rates before caddie and cart — confirm current pricing with the club, as resort courses adjust seasonally.\n\n**Red Mountain Golf Club — Kathu**\nConsistently ranked among Phuket's top courses. Opened in 2007 and carved from a former tin mine, its dramatic red laterite cliffs and exposed rock faces give it a look unlike anything else on the island. Weekday green fees around 3,500 THB.\n\n**Blue Canyon Country Club (Canyon Course) — Thalang**\nOne of Southeast Asia's most historically significant tournament venues, having hosted the Johnnie Walker Classic in 1994 and 1998 — the events that brought Tiger Woods and Ernie Els to the island. Weekday green fees around 3,400 THB. The sister Lakes Course is a gentler, better-value round at around 1,850 THB.\n\n**Laguna Golf Phuket — Cherngtalay**\nThe resort course of the Laguna Phuket complex along Bang Tao Beach, substantially redesigned in 2014 to modern USGA specification and an Asian Tour host. Weekday green fees around 3,700 THB (weekend ~5,200 THB).\n\n**Mission Hills Phuket — Pa Klok**\nThe only Phuket course where you play alongside the Andaman Sea, designed by Jack Nicklaus and set on the northeast coast about ten minutes from the airport — handy for an arrival- or departure-day round. Weekday green fees around 2,650 THB (weekend ~3,500 THB).\n\n**Loch Palm Golf Club — Kathu**\nBuilt around Crystal Lake and directly adjacent to Red Mountain (both under the same ownership), Loch Palm is the more forgiving, scenic option of the pair and pairs well with it for a two-round Kathu stay. Weekday green fees around 3,300 THB.`,
         },
         {
           heading: 'What to Expect on the Course',
@@ -2724,11 +3635,11 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
       ],
       key_takeaways: [
-        'Phuket golf is resort-integrated — most courses are attached to hotel/villa developments',
+        "Red Mountain (former tin mine, ~3,500 THB) and Blue Canyon's Canyon Course (Johnnie Walker Classic venue, ~3,400 THB) are the island's marquee rounds",
+        'Mission Hills is the only course played alongside the Andaman Sea and sits ~10 min from the airport — ideal for an arrival- or departure-day round',
         'Green fees are higher than Bangkok average — typically 2,500 THB+ with peak rates reaching 5,000 THB+',
         'Caddies are mandatory; tip 200–300 THB standard for a full 18-hole round',
         'Dry season (November–April) is the prime golf window — avoid June–September if possible',
-        'Bangkok has more courses and lower fees; Phuket suits resort-style mixed holidays',
       ],
       comparison_table: [],
     },
@@ -2746,7 +3657,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     status: 'published',
     category: 'golf-in-thailand',
     locale: 'en',
-    related_slugs: ['/golf-in-thailand-guide', '/guide/best-golf-courses-near-bangkok', '/guide/best-time-play-golf-thailand'],
+    related_slugs: ['/golf-in-thailand-guide', '/guide/best-golf-courses-near-bangkok', '/guide/best-golf-courses-phuket', '/guide/best-time-play-golf-thailand'],
     created_at: '2026-03-28T00:00:00.000Z',
     updated_at: '2026-03-28T00:00:00.000Z',
     content: {
@@ -2986,7 +3897,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         },
         {
           heading: 'How to Reduce Costs',
-          body: `Seven practical ways to keep the budget down:\n\n1. **Play weekdays only.** Weekend premiums are real; shift your schedule where possible.\n2. **Book low or shoulder season.** March–May and September–October offer lower fees and uncrowded courses.\n3. **Rent clubs locally** rather than paying airline baggage fees. Rental sets at most courses cost 1,000–2,500 THB per round — often less than checked baggage charges.\n4. **Use Grab instead of taxis.** Grab prices are transparent and typically competitive.\n5. **Eat where locals eat.** The quality gap between street food and hotel dining is small; the price gap is large.\n6. **Book tee times in advance online.** Walk-in rates at some courses are higher than pre-booked rates.\n7. **Mix simulator rounds into your schedule.** LENGOLF's indoor golf simulator starts from 550 THB per hour — practical for arrival/departure days or rain days.`,
+          body: `Seven practical ways to keep the budget down:\n\n1. **Play weekdays only.** Weekend premiums are real; shift your schedule where possible.\n2. **Book low or shoulder season.** March–May and September–October offer lower fees and uncrowded courses.\n3. **Rent clubs locally** rather than paying airline baggage fees. Rental sets at most courses cost 1,000–2,500 THB per round — often less than checked baggage charges.\n4. **Use Grab instead of taxis.** Grab prices are transparent and typically competitive.\n5. **Eat where locals eat.** The quality gap between street food and hotel dining is small; the price gap is large.\n6. **Book tee times in advance online.** Walk-in rates at some courses are higher than pre-booked rates.\n7. **Mix simulator rounds into your schedule.** LENGOLF's indoor golf simulator starts from {{bayHourlyFrom}} per hour — practical for arrival/departure days or rain days.`,
         },
       ],
       key_takeaways: [
@@ -2994,7 +3905,7 @@ export const explainerPages: ExplainerSeoPage[] = [
         'Caddies are mandatory — budget 800–1,100 THB per round (fee + tip)',
         'Play weekdays to save 300–600 THB per round vs. weekend rates',
         'November–February is peak season; March–May and Sep–Oct offer lower fees',
-        'LENGOLF indoor simulator from 550 THB/hr — a cost-effective option for arrival days or rain days',
+        'LENGOLF indoor simulator from {{bayHourlyFrom}}/hr — a cost-effective option for arrival days or rain days',
         'All figures are approximate; verify current green fees directly with courses before booking',
       ],
       comparison_table: [],

@@ -1,6 +1,17 @@
 // Dynamic pricing fetch helper — pulls live prices from the forms app API
 // Falls back gracefully if the API is unreachable
 
+import { cache } from 'react'
+
+// React's `cache` dedupes a call per server request, but it only exists in the
+// RSC runtime. Plain tsx/node consumers that import the data layer (smoke
+// tests, the validators) resolve `react` without it, where the bare call would
+// throw at module load. Fall back to identity there — those one-shot scripts
+// call the catalog at most once and don't need request memoization.
+const perRequest = (
+  typeof cache === 'function' ? cache : (fn: (...a: never[]) => unknown) => fn
+) as <F extends (...a: never[]) => unknown>(fn: F) => F
+
 export interface PricingProduct {
   name: string
   price: number
@@ -28,7 +39,14 @@ export interface PricingCatalog {
 const PRICING_API =
   process.env.NEXT_PUBLIC_PRICING_API_URL || 'https://lengolf-forms.vercel.app/api/pricing'
 
-export async function getPricingCatalog(): Promise<PricingCatalog | null> {
+// Wrapped in React `cache()` so all consumers within one server request share a
+// single fetch. A guide render calls this via getFactTokens() in BOTH
+// generateMetadata and the page body; the data/* getters call it again for the
+// same page. The AbortSignal below opts the fetch out of Next's request-level
+// dedup, so without this wrapper each of those would hit the POS API separately
+// (~2× per guide page, and one extra per data getter). Cache lifetime is a
+// single request/render pass, so ISR revalidation still refreshes on schedule.
+export const getPricingCatalog = perRequest(async (): Promise<PricingCatalog | null> => {
   try {
     const res = await fetch(PRICING_API, {
       next: { revalidate: 300 },
@@ -40,7 +58,7 @@ export async function getPricingCatalog(): Promise<PricingCatalog | null> {
     console.warn('[pricing] Failed to fetch pricing catalog, using fallback defaults:', err)
     return null
   }
-}
+})
 
 /** Format a number as "X,XXX THB" */
 export function formatThb(price: number): string {

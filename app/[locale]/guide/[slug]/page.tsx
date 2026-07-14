@@ -4,8 +4,50 @@ import { notFound } from 'next/navigation'
 import { getAllSeoPageParams, getSeoPageBySlug, ROUTE_PREFIX_TO_TYPE } from '@/lib/seo-pages'
 import { getAlternates, getCanonical } from '@/lib/translated-routes'
 import { getExplainerPageJsonLd } from '@/lib/jsonld'
+import { getFactTokens, interpolateFacts } from '@/lib/site-facts'
 import ExplainerPageComponent from '@/components/guides/ExplainerPage'
-import type { ExplainerSeoPage } from '@/types/seo-pages'
+import type { ExplainerSeoPage, ExplainerContent } from '@/types/seo-pages'
+
+// Replace {{token}} placeholders (POS-backed price facts) throughout an
+// explainer page's user-visible strings. Applied at render + generateMetadata
+// time; unknown tokens throw at build (see lib/site-facts.ts).
+function interpolateExplainerPage(
+  page: ExplainerSeoPage,
+  tokens: Record<string, string>
+): ExplainerSeoPage {
+  const c = page.content
+  const content: ExplainerContent = {
+    ...c,
+    intro: interpolateFacts(c.intro, tokens),
+    sections: c.sections.map((s) => ({
+      heading: interpolateFacts(s.heading, tokens),
+      body: interpolateFacts(s.body, tokens),
+    })),
+    key_takeaways: c.key_takeaways.map((k) => interpolateFacts(k, tokens)),
+    comparison_table: c.comparison_table.map((r) => ({
+      feature: interpolateFacts(r.feature, tokens),
+      simulator: interpolateFacts(r.simulator, tokens),
+      real_golf: interpolateFacts(r.real_golf, tokens),
+    })),
+    table_heading: c.table_heading
+      ? interpolateFacts(c.table_heading, tokens)
+      : c.table_heading,
+    col_a_label: c.col_a_label
+      ? interpolateFacts(c.col_a_label, tokens)
+      : c.col_a_label,
+    col_b_label: c.col_b_label
+      ? interpolateFacts(c.col_b_label, tokens)
+      : c.col_b_label,
+  }
+  return {
+    ...page,
+    title: interpolateFacts(page.title, tokens),
+    meta_description: page.meta_description
+      ? interpolateFacts(page.meta_description, tokens)
+      : page.meta_description,
+    content,
+  }
+}
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>
@@ -68,16 +110,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: 'Page Not Found' }
   }
 
+  // Resolve POS-backed price tokens in the title/meta before emitting metadata.
+  const tokens = await getFactTokens(locale)
+  const title = interpolateFacts(page.title, tokens)
+  const description = page.meta_description
+    ? interpolateFacts(page.meta_description, tokens)
+    : undefined
+
   // Only emit hreflang when a translation actually exists — a lone
   // self-referential hreflang="en" cluster is audit noise and would
   // contradict the sitemap, which applies the same guard.
   const languages = getAlternates(`/guide/${slug}/`)
   return {
-    title: page.title,
-    description: page.meta_description || undefined,
+    title,
+    description,
     openGraph: {
-      title: page.title,
-      description: page.meta_description || undefined,
+      title,
+      description,
       url: getCanonical(locale, `/guide/${slug}/`),
       type: 'article',
     },
@@ -91,11 +140,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ExplainerPage({ params }: Props) {
   const { locale, slug } = await params
   setRequestLocale(locale)
-  const page = await getSeoPageBySlug(slug, 'explainer', locale) as ExplainerSeoPage | null
+  const rawPage = await getSeoPageBySlug(slug, 'explainer', locale) as ExplainerSeoPage | null
 
-  if (!page) {
+  if (!rawPage) {
     notFound()
   }
+
+  // Resolve POS-backed price tokens ({{lessonHourly}}, {{bayRateRange}}, …) so
+  // both the JSON-LD and the rendered page reflect live pricing (or the pinned
+  // fallbacks when the POS API is unreachable).
+  const tokens = await getFactTokens(locale)
+  const page = interpolateExplainerPage(rawPage, tokens)
 
   const jsonLd = getExplainerPageJsonLd({
     title: page.title,

@@ -1101,8 +1101,8 @@
     "floorPlan": "FLOOR PLAN"
   },
   "GolfCourseRegion": {
-    "metaTitle": "Golf Courses in {label} — Green Fees & Course Guides",
-    "metaDescription": "Explore {count} golf courses in {label}. Compare green fees, course ratings, and arrange golf club rental delivered to your hotel.",
+    "metaTitle": "{label} Golf Courses — Green Fees, Map & Full Directory",
+    "metaDescription": "The full directory of all {count} golf courses in {label} — compare green fees, distances and details on one map, plus club rental delivered to your hotel.",
     "heroHeading": "Golf Courses<br></br><muted>in {label}</muted>",
     "breadcrumbGolfCourses": "Golf Courses",
     "rentalEyebrow": "No clubs? No problem.",

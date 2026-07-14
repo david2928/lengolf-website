@@ -132,22 +132,38 @@ const routeTests: RouteTest[] = [
   { path: '/guide/best-golf-simulators-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // New EN guide (screen golf — Korean-style simulator golf)
-  { path: '/guide/screen-golf-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  // contentAbsent '{{' guards fact-token interpolation completeness (lib/site-facts.ts):
+  // an unresolved {{token}} must never reach rendered HTML (price literals are token-resolved).
+  { path: '/guide/screen-golf-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">', contentAbsent: '{{' },
   // New EN guide (golf attire / dress code — fills a prior dead-link content gap)
   { path: '/guide/what-to-wear-golf-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Translated JA guides (data/explainer-pages.ts locale:'ja' + ja allowlist entries)
-  { path: '/ja/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">', contentAbsent: '{{' },
   // Translated KO guides (data/explainer-pages.ts locale:'ko' + ko allowlist entries)
   { path: '/ko/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ko/guide/golf-club-baggage-fees-airlines-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/guide/golf-lessons-bangkok-coaches/', expectedStatus: [200], contentMarker: '<main id="main-content">', contentAbsent: '{{' },
   { path: '/ko/guide/renting-golf-clubs-thai-golf-courses/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  { path: '/ko/guide/screen-golf-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/guide/screen-golf-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">', contentAbsent: '{{' },
+  { path: '/ko/guide/round-of-golf-cost-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/guide/green-fees-bangkok-golf-courses/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/guide/how-to-book-golf-tee-times-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ja/guide/golf-club-baggage-fees-airlines-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  { path: '/ja/guide/renting-golf-clubs-thai-golf-courses/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/guide/renting-golf-clubs-thai-golf-courses/', expectedStatus: [200], contentMarker: '<main id="main-content">', contentAbsent: '{{' },
+  { path: '/ja/guide/golf-lessons-bangkok-coaches/', expectedStatus: [200], contentMarker: '<main id="main-content">', contentAbsent: '{{' },
+  { path: '/ja/guide/screen-golf-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">', contentAbsent: '{{' },
+  { path: '/ja/guide/round-of-golf-cost-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/guide/green-fees-bangkok-golf-courses/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/guide/how-to-book-golf-tee-times-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Translated ZH guides (data/explainer-pages.ts locale:'zh' + zh allowlist entries)
-  { path: '/zh/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/guide/bring-golf-clubs-thailand-or-rent/', expectedStatus: [200], contentMarker: '<main id="main-content">', contentAbsent: '{{' },
   { path: '/zh/guide/golf-club-baggage-fees-airlines-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
-  { path: '/zh/guide/renting-golf-clubs-thai-golf-courses/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/guide/renting-golf-clubs-thai-golf-courses/', expectedStatus: [200], contentMarker: '<main id="main-content">', contentAbsent: '{{' },
+  { path: '/zh/guide/screen-golf-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">', contentAbsent: '{{' },
+  { path: '/zh/guide/golf-lessons-bangkok-coaches/', expectedStatus: [200], contentMarker: '<main id="main-content">', contentAbsent: '{{' },
+  { path: '/zh/guide/round-of-golf-cost-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">', contentAbsent: '{{' },
+  { path: '/zh/guide/green-fees-bangkok-golf-courses/', expectedStatus: [200], contentMarker: '<main id="main-content">', contentAbsent: '{{' },
+  { path: '/zh/guide/how-to-book-golf-tee-times-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">', contentAbsent: '{{' },
   // FAQ pages — spot-check original + newly added slugs
   { path: '/faq/can-i-rent-golf-clubs-in-bangkok/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/faq/can-you-bring-golf-clubs-as-checked-baggage-thailand/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
@@ -171,6 +187,15 @@ const routeTests: RouteTest[] = [
   { path: '/ja/golf-courses/phuket/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/ko/golf-courses/phuket/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/zh/golf-courses/phuket/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/golf-courses/pattaya/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/golf-courses/pattaya/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/golf-courses/pattaya/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/golf-courses/hua-hin/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/golf-courses/hua-hin/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/golf-courses/hua-hin/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ja/golf-courses/chiang-mai/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/ko/golf-courses/chiang-mai/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
+  { path: '/zh/golf-courses/chiang-mai/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   // Golf course detail pages — spot-check one Bangkok + two Pattaya + two Hua Hin + two Phuket
   { path: '/golf-courses/bangkok/nikanti-golf-club/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
   { path: '/golf-courses/bangkok/navatanee-golf-course/', expectedStatus: [200], contentMarker: '<main id="main-content">' },
@@ -363,11 +388,13 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
   { path: '/ja/guide/what-is-a-golf-simulator/', expectedLocation: '/guide/what-is-a-golf-simulator/', label: 'Untranslated JA guide (only translated guide slugs may 200)' },
   { path: '/ko/guide/what-is-a-golf-simulator/', expectedLocation: '/guide/what-is-a-golf-simulator/', label: 'Untranslated KO guide (only translated guide slugs may 200)' },
   { path: '/zh/guide/what-is-a-golf-simulator/', expectedLocation: '/guide/what-is-a-golf-simulator/', label: 'Untranslated ZH guide (only translated guide slugs may 200)' },
-  // Untranslated region hubs must still 301 to English — only bangkok/phuket are
-  // translated (data/golf-courses-i18n.ts). Guards the region-hub allowlist.
-  { path: '/ja/golf-courses/pattaya/', expectedLocation: '/golf-courses/pattaya/', label: 'Untranslated JA region hub (only bangkok/phuket may 200)' },
-  { path: '/ko/golf-courses/pattaya/', expectedLocation: '/golf-courses/pattaya/', label: 'Untranslated KO region hub (only bangkok/phuket may 200)' },
-  { path: '/zh/golf-courses/pattaya/', expectedLocation: '/golf-courses/pattaya/', label: 'Untranslated ZH region hub (only bangkok/phuket may 200)' },
+  // Untranslated region hubs must still 301 to English — only regions present in
+  // data/golf-courses-i18n.ts are translated (bangkok/phuket/pattaya/hua-hin/
+  // chiang-mai as of this test). Guards the region-hub allowlist with a region
+  // that has NO translation; pick a new one here if koh-samui ever gets one.
+  { path: '/ja/golf-courses/koh-samui/', expectedLocation: '/golf-courses/koh-samui/', label: 'Untranslated JA region hub (only translated regions may 200)' },
+  { path: '/ko/golf-courses/koh-samui/', expectedLocation: '/golf-courses/koh-samui/', label: 'Untranslated KO region hub (only translated regions may 200)' },
+  { path: '/zh/golf-courses/koh-samui/', expectedLocation: '/golf-courses/koh-samui/', label: 'Untranslated ZH region hub (only translated regions may 200)' },
   { path: '/ko/hotels/', expectedLocation: '/hotels/', label: 'Untranslated KO hotels hub' },
   { path: '/ko/privacy-policy/', expectedLocation: '/privacy-policy/', label: 'Untranslated KO privacy policy' },
   { path: '/zh/blog/', expectedLocation: '/blog/', label: 'Untranslated ZH blog page' },
@@ -430,6 +457,16 @@ async function runRouteTests() {
     try {
       const res = await fetch(`${BASE}${t.path}`, { redirect: 'follow' })
       const body = await res.text()
+
+      // A redirected route test is a failure even when the destination is a
+      // healthy 200: a locale route that 301s to English would otherwise
+      // false-pass on the EN page's markup (observed against a server whose
+      // route manifest predated newly registered locale slugs).
+      const finalPath = new URL(res.url).pathname
+      if (finalPath !== t.path) {
+        fail(label, `redirected to ${finalPath} — route tests must resolve directly`)
+        continue
+      }
 
       if (!t.expectedStatus.includes(res.status)) {
         fail(label, `expected ${t.expectedStatus.join('|')}, got ${res.status}`)
@@ -646,6 +683,10 @@ async function runLlmDiscoverabilityTests() {
     if (!ct.includes('text/plain')) issues.push(`content-type not text/plain: "${ct}"`)
     if (!body.includes('# LENGOLF')) issues.push('missing "# LENGOLF" heading')
     if (!body.includes('/golf-club-rental/')) issues.push('missing key page link')
+    // Guide titles/metas may carry {{price}} tokens (lib/site-facts.ts); every
+    // surface that prints entry text must interpolate them — a literal '{{'
+    // here means a consumer skipped interpolateFacts (this leaked once).
+    if (body.includes('{{')) issues.push("unresolved '{{' fact token in output")
     if (issues.length > 0) fail('GET /llms.txt', issues.join('; '))
     else pass('GET /llms.txt (served as text, curated)')
   } catch (err) {

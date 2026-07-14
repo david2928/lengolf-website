@@ -8,6 +8,7 @@
     "lib/translations/**/*.ts",
     "scripts/translation-*.ts",
     "scripts/validate-internal-links.ts",
+    "scripts/validate-i18n.ts",
     "scripts/smoke-test.ts",
     "scripts/page-inventory.ts"
   ],
