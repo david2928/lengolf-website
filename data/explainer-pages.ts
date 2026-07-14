@@ -1586,6 +1586,72 @@ export const explainerPages: ExplainerSeoPage[] = [
     },
   },
 
+  // ─── exp-32 (ZH): 简体中文版 — 曼谷高尔夫课程·教练的选择 ────────────────────
+  // Faithful translation of the EN guide, mirroring the JA/KO honesty
+  // localization. The "coach communication" point is scoped to LENGOLF: English
+  // coaching is the Bangkok norm and LENGOLF没有中国人教练、也没有中文课程 — but
+  // booking & consultation work in Chinese via LINE @lengolf (shipped HomeZh
+  // "LINE中文咨询"), and the on-screen simulator 数据 lowers the in-lesson
+  // language barrier. The negative is LENGOLF-scoped (never city-wide); the only
+  // city-wide claim is POSITIVE (在曼谷，用英语授课很普遍). LENGOLF fact set: free
+  // 1h trial, {{lessonHourly}}-token packages, Thai-PGA coaches Boss/Ratchavin/
+  // Min, BTS Chidlom / The Mercury Ville 4层 (Latin per zh glossary), 截至2026年7月
+  // on the fact block. Price token-resolved from lib/site-facts.ts (POS-backed).
+  {
+    id: 'exp-32-zh',
+    page_type: 'explainer',
+    slug: 'golf-lessons-bangkok-coaches',
+    title: '曼谷高尔夫课程 — 费用、教练选择与预约指南',
+    meta_description:
+      '在曼谷找高尔夫课程？对比模拟器数据教学与练习场教学的差别，看看该如何挑选教练。LENGOLF由泰国PGA认定教练提供1小时免费体验，套餐{{lessonHourly}}起，预订与咨询可用LINE中文办理（截至2026年7月）。',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'lessons-coaching',
+    locale: 'zh',
+    related_slugs: [
+      '/lessons',
+      '/golf',
+      '/guide/screen-golf-bangkok',
+      '/guide/round-of-golf-cost-bangkok',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        '曼谷为到访的球友准备了相当完善的教学环境。全年可打的气候、庞大的外籍居民社群，加上认真的本地高尔夫文化，意味着无论你只想上一堂课解决某个具体问题，还是想在几天里接受系统化的训练，都能找到高质量的指导。曼谷特别有意思的一点，是可以接受基于模拟器的教学——它提供的数据反馈，是多数练习场课程难以做到的。',
+      sections: [
+        {
+          heading: '曼谷可以上哪些类型的课',
+          body: '**1. 模拟器课程** — 技术上最精准的教学，是把专业级模拟器当作教学环境。弹道监测技术会记录每一次击球的杆头速度、球速、发射角、倒旋量、飞行距离和杆面角度。借助这些数据，教练能找出肉眼看不见的挥杆缺陷，并实时验证某项修正是否见效。\n\n模拟器课程在以下方面尤其有效：诊断反复出现的球路（右曲、左曲、打薄）；铁杆压球与击球攻角的调整；一号木发射角与倒旋量的优化；以及带杆面角度和杆头轨迹数据反馈的推杆练习。\n\n恒温的室内环境意味着课程不受曼谷的高温或雨季影响——你可以放心地在8月预约一堂晚上7点的课，完全不用担心天气。\n\n**2. 曼谷球场的练习场课程** — 曼谷周边大多数球场都提供由常驻PGA认证职业教练或资深教学助理指导的课程。这类课在户外练习场进行，配合视频反馈和口头指导，适合想在户外打磨手感和节奏的球友。\n\n**3. 下场实战课程** — 有些教练会陪你打9洞或18洞，在真实的下场情境中指导。对球场管理、击球前例行动作以及应对压力特别有帮助。',
+        },
+        {
+          heading: '在曼谷挑选高尔夫教练的要点',
+          body: '1. **资质** — 认准PGA认证或同等资格。曼谷不少教练曾在英国、澳大利亚或美国接受训练\n2. **教学风格** — 有的教练偏技术、以数据为主导，有的则重视手感与节奏。预订前先弄清楚哪种适合你\n3. **视频分析** — 如今像样的课程，都应至少包含两个角度的视频记录\n4. **语言与沟通** — 在曼谷，用英语授课很普遍。LENGOLF没有中国人教练，也没有中文课程，但预订和事前咨询可以通过LINE @lengolf用中文办理；而且上课时，杆头速度、发射角等模拟器数据会显示在屏幕上，即使有语言隔阂，你也能用眼睛看懂需要改进的地方\n5. **专长** — 有的教练擅长带初学者，有的则专攻低差点球友。让教练的专长匹配你的水平',
+        },
+        {
+          heading: 'LENGOLF的课程 — 模拟器的优势',
+          body: 'LENGOLF在曼谷市中心的室内模拟器场馆提供教学。对到访的球友来说，最大的好处在于：数据自动采集并即时显示，你能在同一次击球上看到挥杆改动的效果。修正是否见效不再含糊——这让一堂课比传统练习场课程高效得多。\n\n场馆位于BTS可直达的市中心，无需清晨出发或横穿城市。课程能轻松安排进任何行程。\n\nLENGOLF课程要点（截至2026年7月）：\n\n- 由泰国PGA认定教练（PRO Boss、PRO Ratchavin、PRO Min）一对一指导\n- 可从1小时免费体验课开始\n- 课程套餐每小时{{lessonHourly}}起\n- BTS Chidlom直连（The Mercury Ville 4层）\n- 每天9:00–23:00营业\n- 预订与事前咨询可通过LINE @lengolf用中文办理',
+        },
+        {
+          heading: '一次旅行安排几堂课比较现实？',
+          body: '如果是5–7天的高尔夫之旅，在整天下场之余，安排1到2堂有针对性的课是比较现实的目标。超过这个数量，就有在旅途中给挥杆塞进太多新信息的风险。\n\n最有效的安排是：旅程前段先上一堂模拟器课，找出某个具体问题，2–3天后再上一堂巩固修正。中间穿插下场打球，把调整过的动作在实战条件下固定下来。',
+        },
+        {
+          heading: '预约小贴士',
+          body: '1. 把课程时段和球场的开球时间一起预订——热门的教练时段很快就满\n2. 咨询时说明你的差点，以及想解决的具体问题\n3. 如果上模拟器课，问清楚课后能否拿到数据报告\n4. 首堂课至少预留90分钟——60分钟击球加上复盘的时间',
+        },
+      ],
+      key_takeaways: [
+        '基于模拟器的教学能在每一次击球上提供客观的弹道监测数据——这是传统练习场课程没有的一大优势',
+        '认准PGA认证教练，坚持至少两个角度的视频记录。在曼谷，用英语授课很普遍',
+        '5–7天的高尔夫之旅，安排1到2堂有针对性的课比较现实——别在途中给挥杆塞入太多信息',
+        'LENGOLF由泰国PGA认定教练提供1小时免费体验，套餐{{lessonHourly}}起，BTS Chidlom直连；预订与咨询可用LINE中文办理（截至2026年7月）',
+      ],
+      comparison_table: [],
+    },
+  },
+
   // ─── GG-049: Golf Simulator vs Real Course Bangkok ───────────────────────────
   {
     id: 'exp-33',
@@ -1871,6 +1937,73 @@ export const explainerPages: ExplainerSeoPage[] = [
     },
   },
 
+  // ─── exp-35 (ZH): 简体中文版 — 曼谷高尔夫球场果岭费比较 ─────────────────────
+  // Faithful translation of the EN guide, mirroring the JA/KO twins. ALL figures
+  // — the four-tier price table (1,500–2,500 / 2,500–4,000 / 4,000–5,500+ /
+  // 5,500–7,500), Nikanti (~5,500/6,500) and Alpine (~5,400/7,400) rates, and the
+  // caddie tip of 100–200泰铢 — follow THIS guide's EN source exactly. WARNING:
+  // the caddie tip here (100–200) intentionally DIFFERS from
+  // round-of-golf-cost-bangkok's 200–300; each is faithful to its own EN source —
+  // do NOT harmonize across guides. No LENGOLF tie-in in body (matches
+  // exp-35-ja/ko); the /golf-course-club-rental related_slug carries the funnel.
+  // No 截至2026年7月 framing (EN source carries none — only "confirm current rates"
+  // disclaimers, translated as-is; this leaves the same price-as-of validate:i18n
+  // warnings the JA/KO siblings already produce).
+  {
+    id: 'exp-35-zh',
+    page_type: 'explainer',
+    slug: 'green-fees-bangkok-golf-courses',
+    title: '曼谷高尔夫球场果岭费 — 各球场分档比较',
+    meta_description:
+      '按等级比较曼谷各高尔夫球场的果岭费——从2,000泰铢以下的平价球场，到全部打包的高级全包套餐。看清你实际要付多少钱。',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'costs',
+    locale: 'zh',
+    related_slugs: [
+      '/guide/round-of-golf-cost-bangkok',
+      '/guide/how-to-book-golf-tee-times-thailand',
+      '/guide/renting-golf-clubs-thai-golf-courses',
+      '/golf-course-club-rental',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        '曼谷提供着全球顶级性价比的高尔夫。在一座维护良好、配有球童并含球车的球场打一轮，比许多西方公众球场的平价一轮还便宜。话虽如此，在泰国，“果岭费”很少能说明全部——弄懂费用的构成，才能避免在收银台被吓一跳。',
+      sections: [
+        {
+          heading: '泰国的高尔夫费用是怎么构成的',
+          body: '曼谷大多数球场会先报一个基础果岭费，再加上强制或可选的收费项目：\n\n1. **果岭费** — 下场打球的费用\n2. **球童费** — 通常300–500泰铢，几乎总是强制的\n3. **球车租用** — 300–600泰铢，一般可选，但会被大力推荐\n4. **球童小费** — 一般服务给100–200泰铢是常态；表现出色的球童给更多\n5. **保险／杂费** — 部分球场收取50–100泰铢\n\n一个不含球童和球车的2,500泰铢标示价，等你开球时可能已变成3,300–3,500泰铢。务必弄清报价是基础果岭费，还是全包套餐。',
+        },
+        {
+          heading: '按价格分档看曼谷高尔夫球场',
+          body: '以下为平日价格；周末通常高出20%–40%。\n\n| 等级 | 平日果岭费（泰铢） | 通常包含 |\n|---|---|---|\n| 平价 | 1,500–2,500 | 仅果岭费；球童和球车另计 |\n| 中档 | 2,500–4,000 | 果岭费＋球童；球车可选 |\n| 高级 | 4,000–5,500以上 | 果岭费＋球童＋球车；有时含餐 |\n| 全包 | 5,500–7,500 | 全部打包——没有隐藏费用 |',
+        },
+        {
+          heading: '具名球场示例',
+          body: '**Nikanti Golf Club** — 曼谷最出色的全包体验。标示价涵盖果岭费、球童、球童小费、球车、全程饮料以及两餐。没有任何隐藏附加。\n- 平日（全包）：约5,500泰铢\n- 周末（全包）：约6,500泰铢\n\n**Alpine Golf Club** — 位于曼谷东侧的老牌标杆球场，长期名列泰国顶尖球场之列。\n- 平日：约5,400泰铢（含球童＋球车）\n- 周末：约7,400泰铢（含球童＋球车）\n\n注：价格仅供参考。由于季节促销与套餐组合很常见，预订前请务必直接向球场确认最新价格。',
+        },
+        {
+          heading: '平日、周末与黄昏时段',
+          body: '最能左右价格的，是以下三个变量：\n\n1. **平日还是周末** — 最大的杠杆。同一座球场，周末可能贵1,000–2,000泰铢\n2. **上午还是黄昏时段** — 多数球场对约14–15点后的开球时间提供折扣的黄昏价，常见能省500–1,500泰铢\n3. **旺季还是淡季** — 12月至2月价格最高；5月至9月入场率下降，会有促销\n\n淡季平日、中档球场的黄昏时段，合计可以压到2,500泰铢以下。',
+        },
+        {
+          heading: '怎样拿到最优的果岭费价格',
+          body: '1. 选平日预订——最有效的一招省钱方法\n2. 挑黄昏时段的开球时间——如果不非得打上午的完整一轮，能实打实省下不少\n3. 直接预订——有些球场给的价格或免费赠品（练习球、午餐）比第三方平台更划算\n4. 避开旺季出行——11月、3月和4月天气好、价格也相对温和\n5. 留意套餐——多轮套餐和“酒店＋高尔夫”组合常常比单独预订更便宜\n6. 主动问促销——有些球场会为回头客做一些不在网上公开的低调促销',
+        },
+      ],
+      key_takeaways: [
+        '务必按含球童费、球车、小费和各种杂费的合计来计算——标示的果岭费很少是最终价格',
+        'Nikanti的全包定价最透明（平日约5,500泰铢）；Alpine价格相近，但球童和球车分开计费',
+        '周末贵20%–40%；黄昏时段比上午一轮省500–1,500泰铢',
+        '淡季平日的黄昏时段，中档球场合计可低于2,500泰铢',
+      ],
+      comparison_table: [],
+    },
+  },
+
   // ─── GG-032: Hotels Near Hua Hin Golf Courses ────────────────────────────────
   {
     id: 'exp-36',
@@ -2102,6 +2235,70 @@ export const explainerPages: ExplainerSeoPage[] = [
         '평일은 1~2일 전, 주말은 3~5일 전, 성수기(12~2월)는 1주일 이상 전 예약이 기준이에요',
         '표시된 그린피만이 아니라 캐디피, 카트비, 기타 비용까지 포함한 총액을 반드시 확인하세요',
         '당일은 30분 전에 도착하세요. 캐디피와 팁은 거의 현금으로만 받으니 현금을 잊지 말고 준비하세요',
+      ],
+      comparison_table: [],
+    },
+  },
+
+  // ─── exp-37 (ZH): 简体中文版 — 泰国·曼谷高尔夫球场预订指南 ─────────────────
+  // Faithful translation of the EN guide, mirroring the JA/KO twins. All figures
+  // — three booking routes (direct / GolfAsian·GolfNow·GolfSavers·Deemples /
+  // hotel concierge), lead times (weekday same/next-day, weekend 3–5天, Dec–Feb
+  // 1周以上), 6–9am vs 14–15点后 twilight, 5-point checklist (caddie 300–500泰铢),
+  // day-of tips — follow the EN source exactly. ONE LENGOLF tie-in closes the
+  // day-of section: premium Callaway/Majesty rental from {{courseRentalDay}}/day
+  // with hotel/course delivery (往返{{clubDelivery}}, 无需押金, 截至2026年7月) —
+  // prices token-resolved from lib/site-facts.ts (POS-backed).
+  {
+    id: 'exp-37-zh',
+    page_type: 'explainer',
+    slug: 'how-to-book-golf-tee-times-thailand',
+    title: '如何在泰国预订高尔夫开球时间 — 曼谷订场指南',
+    meta_description:
+      '在泰国怎么预订高尔夫开球时间？直接预订、在线平台还是酒店礼宾——三种方式，加上预订时机与开球前必须确认的要点，一次讲清。',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'tee-time-booking',
+    locale: 'zh',
+    related_slugs: [
+      '/guide/green-fees-bangkok-golf-courses',
+      '/guide/round-of-golf-cost-bangkok',
+      '/guide/renting-golf-clubs-thai-golf-courses',
+      '/golf-course-club-rental',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        '在泰国预订一轮高尔夫，比很多访客想象的简单得多。曼谷市中心1小时车程内就有50多座球场，真正让人纠结的不是“攻克复杂的预订系统”，而是“该去哪一座打”。',
+      sections: [
+        {
+          heading: '预订开球时间的三种方式',
+          body: '**1. 直接向球场预订** — 最直接的方式。泰国几乎每一家球会都接受电话或邮件直接预订，规模较大的球会员工英语大多够用。你能拿到关于当前果岭费、促销价和球场状态的最准确信息。适合已经选好球场、回头客，或团体打球的情况。\n\n**2. 使用在线预订平台** — GolfAsian、GolfNow、GolfSavers、Deemples等平台把泰国各地球场的开球时间汇总在一起，方便你在一处比较多家球场的空位和价格。请仔细阅读取消政策；周末打球的话，最好再向球场直接确认一次你的预订编号。\n\n**3. 请酒店礼宾代订** — 曼谷的五星级酒店和周边球会保持着往来，能替你搞定预订，也清楚哪些球场眼下状态正好。这是临时订开球时间最省心的选择之一。',
+        },
+        {
+          heading: '应该提前多久预订',
+          body: '平日的话，除公众假期外，许多球场都能应付当天或次日的请求。周末打球至少提前3–5天预订——曼谷近郊球场在周六日很快订满，清晨的时段最先没。\n\n旺季（12月至2月）时，热门球场可能提前1周以上就被订光。如果你的出行日期正逢旺季，又心里有了明确想打的球场，出发前先订好是明智的稳妥之举。',
+        },
+        {
+          heading: '开球时间策略：上午还是黄昏时段',
+          body: '全年最好的开球时间是早上6点到9点之间。开得早意味着气温更低、湿度更小，球场也很少拥挤。\n\n很多球场对约14–15点后开始的一轮提供黄昏时段价。如果你时间上灵活，这类折扣时段值得考虑——果岭费通常更低，空位也更好找。要注意的是，黄昏一轮可能因日照不足而打不完全部18洞。',
+        },
+        {
+          heading: '预订时该确认什么',
+          body: '1. **果岭费** — 确认你所选日期和开球时间的确切价格，包括任何周末或旺季的加收\n2. **球童费** — 泰国几乎所有球场都强制配球童；费用通常为300–500泰铢，另行支付\n3. **球车供应** — 如果你更想步行，确认球场是否允许；球车通常另收租用费\n4. **着装要求** — 有领衬衫为标配；有些球会禁止牛仔布或过膝以上的短裤\n5. **取消政策** — 弄清可变更的截止时间，尤其是当你的行程可能受天气或日程变动影响时',
+        },
+        {
+          heading: '当天的实用贴士',
+          body: '至少在开球时间前30分钟到达，办好登记、结清预付、领取分配给你的球童，并做好热身。付款通常在到达时于职业球具店完成——大多数球会接受泰铢现金，能否刷信用卡则因球场而异，所以请带足现金。球童费和小费几乎总是只收现金。\n\n如果你没带球杆出行，除了球场的租借套装外，也可以在曼谷LENGOLF租借Callaway、Majesty高级套装，每日{{courseRentalDay}}起，并配送到酒店或球场（往返配送{{clubDelivery}}，无需押金，截至2026年7月）。',
+        },
+      ],
+      key_takeaways: [
+        '三条预订路径：向球场直接预订、在线平台（GolfAsian、GolfNow等）、酒店礼宾',
+        '平日提前1–2天预订；周末提前3–5天；旺季（12月至2月）提前1周以上',
+        '别只看标示的果岭费，务必确认含球童费、球车和各种杂费的合计',
+        '当天提前30分钟到场；球童费和小费几乎只收现金，记得带足现金',
       ],
       comparison_table: [],
     },
@@ -2533,6 +2730,67 @@ export const explainerPages: ExplainerSeoPage[] = [
     },
   },
 
+  // ─── screen-golf-bangkok (ZH): 简体中文版 — 曼谷室内高尔夫练习场·屏幕高尔夫 ───
+  // ADAPTATION (mirrors the JA twin, not a literal translation). Chinese searchers
+  // say 室内高尔夫 / 高尔夫模拟器 / 室内高尔夫练习场, so the title/meta lead with that
+  // vocabulary and work in 收费 (the live GSC query is 室内高尔夫球练习场 收费,
+  // pos 26). 韩式屏幕高尔夫 (Korea's 스크린골프 culture) is the format hook. Every
+  // fact from the EN/KO/JA twins, token-resolved: bay rates
+  // {{bayHourlyMinNum}}–{{bayHourlyMaxNum}}泰铢 + {{bayHourlyFrom}}, course rental
+  // {{courseRentalDay}}, delivery {{clubDelivery}}. Language support is CHINESE via
+  // LINE @lengolf (shipped HomeZh "LINE中文咨询") — NOT Korean/Japanese. Inserted
+  // after the JA sibling to keep the same-slug group (EN→KO→JA→ZH) contiguous.
+  {
+    id: 'exp-screen-golf-bangkok-zh',
+    page_type: 'explainer',
+    slug: 'screen-golf-bangkok',
+    title: '曼谷室内高尔夫练习场 — 韩式屏幕高尔夫模拟器收费',
+    meta_description:
+      '在曼谷找室内高尔夫练习场？LENGOLF位于BTS Chidlom，用韩国Bravo Golf模拟器体验韩式屏幕高尔夫，1小时{{bayHourlyFrom}}起、最多5人，餐饮直接送到球位，LINE中文咨询。',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'technology',
+    locale: 'zh',
+    related_slugs: [
+      '/golf',
+      '/lessons',
+      '/golf-course-club-rental',
+      '/guide/golf-lessons-bangkok-coaches',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        '想在曼谷找一处室内高尔夫练习场，重温你熟悉的屏幕高尔夫？来LENGOLF就对了。我们位于BTS Chidlom的The Mercury Ville 4层，用韩国Bravo Golf模拟器提供韩式屏幕高尔夫，1小时{{bayHourlyFrom}}起，一个球位最多可5人同时使用，还有酒吧把餐饮直接送到你的球位。',
+      sections: [
+        {
+          heading: '什么是屏幕高尔夫？',
+          body: '屏幕高尔夫（韩语스크린골프）是韩国对室内高尔夫模拟器的叫法。你把真实的球打向击球幕布，传感器同时捕捉球杆和球的数据，软件再把你的击球还原到虚拟球场上。这个词源于2000年代韩国以Golfzon为首掀起的热潮——它把模拟器从练习工具变成了朋友聚会的夜间娱乐：大家一边打完整一轮，一边在击球间隙吃喝聊天。\n\n差别就在于“社交场景”这层定位。欧美常把模拟器当作练习科技来推广；而屏幕高尔夫文化把模拟器当成和朋友打球的场所——更接近保龄球或卡拉OK，而不是练习场。',
+        },
+        {
+          heading: 'LENGOLF的室内高尔夫 — 搭载韩国技术',
+          body: 'LENGOLF的球位使用韩国Bravo Golf模拟器——这正是Golfzon玩家熟悉的那套技术脉络。每个球位每次挥杆能测量20多项球杆与球的数据，并收录100多个真实球场。\n\n收费沿用屏幕高尔夫的方式：一个球位最多5人，共享同一个按小时计的价格（每小时{{bayHourlyMinNum}}–{{bayHourlyMaxNum}}泰铢，截至2026年7月）。5人平摊下来，每人每小时约110–190泰铢。标准球杆免费，室内全程空调，还有完整的餐饮菜单送到球位。营业时间为每天9:00–23:00，地点在与BTS Chidlom直接相连的The Mercury Ville。',
+        },
+        {
+          heading: '与韩国的屏幕高尔夫有何不同',
+          body: '**相同之处：** 由同行者平摊的按小时球位收费、完整一轮的球场对局、屏幕上的球杆与球数据、营业到深夜。\n\n**不同之处：** 曼谷的场馆数量比韩国密集的工作室型店铺少，也更偏休闲酒吧风格——LENGOLF把球位和酒吧结合在一起，而不是首尔常见的自助贩卖机式工作室。收录球场因软件而异（Bravo的100多个球场，与Golfzon以韩国球场为主的清单不同），你还能找到泰国和世界各地的球场，在实际下场前先预习一遍。\n\n如果你计划在泰国期间到真实球场打球，模拟器也能当作球场预习——LENGOLF还提供Callaway、Majesty高级套装租借，可带到曼谷任何一座球场。',
+        },
+        {
+          heading: '给旅行球友的实用贴士',
+          body: '1. **晚间请提前预订** — 和韩国屏幕高尔夫一样，黄金时段很快就满；可在booking.len.golf在线预订，或挑非高峰时段直接到店\n2. **空手来就行** — 标准球杆、球和场地设置都免费包含\n3. **带上不打球的朋友** — 多人对战模式和非高尔夫游戏让混合组队也能玩得开，正是屏幕高尔夫的玩法\n4. **中文咨询** — 预订与咨询可通过LINE @lengolf用中文办理\n5. **之后要去真实球场？** 含酒店或球场配送的高级球杆租借，每日{{courseRentalDay}}起（往返配送{{clubDelivery}}，截至2026年7月）',
+        },
+      ],
+      key_takeaways: [
+        '曼谷的屏幕高尔夫（韩式社交型室内高尔夫模拟器）在LENGOLF就能玩——BTS Chidlom直连，搭载韩国Bravo Golf技术',
+        '韩国Bravo Golf技术：每次挥杆20多项数据、100多个球场，一个球位最多5人',
+        '屏幕高尔夫式收费：一个球位一个按小时价（每小时{{bayHourlyMinNum}}–{{bayHourlyMaxNum}}泰铢，截至2026年7月）由同行者平摊，球杆免费',
+        '每天9:00–23:00营业，餐饮送到球位——是一场社交球局，而不只是练习',
+      ],
+      comparison_table: [],
+    },
+  },
+
   // ─── GG-022: Round of Golf Cost Bangkok ──────────────────────────────────────
   {
     id: 'exp-40',
@@ -2707,6 +2965,72 @@ export const explainerPages: ExplainerSeoPage[] = [
         '캐디는 필수 — 라운딩마다 캐디피 300~500바트에 더해 팁 200~300바트를 잡아 두세요',
         '주말 요금은 20~40% 높고, 트와일라잇 요금은 20~30% 저렴해요 — 둘 다 총액에 크게 영향을 줘요',
         '프리미엄인 Nikanti·Alpine은 평일 총액 약 5,500바트, 저렴한 코스라면 총액 2,500바트 이하도 가능해요',
+      ],
+      comparison_table: [],
+    },
+  },
+
+  // ─── exp-40 (ZH): 简体中文版 — 曼谷打一场高尔夫的费用 ─────────────────────────
+  // Faithful translation of the EN guide, mirroring the JA/KO twins. ALL numeric
+  // facts (green fees, caddie fee, cart, comparison figures, Nikanti/Alpine
+  // prices, and BOTH markdown tables — the all-in breakdown 2,500–3,500 / 300–500
+  // / 200–300 / 300–600 / **3,300–4,900**, and the global comparison with
+  // ¥/£/A$ preserved) are kept cell-exact. This source's caddie tip is
+  // 200–300泰铢 — green-fees-bangkok-golf-courses uses 100–200; the per-source
+  // divergence is CORRECT, do NOT harmonize. No LENGOLF tie-in in body (matches
+  // exp-40-ja/ko); the /golf-course-club-rental related_slug carries the funnel.
+  // No 截至2026年7月 framing (EN source carries none — only "confirm current rates"
+  // disclaimers; leaves the same price-as-of validate:i18n warnings as JA/KO).
+  {
+    id: 'exp-40-zh',
+    page_type: 'explainer',
+    slug: 'round-of-golf-cost-bangkok',
+    title: '曼谷打一场高尔夫要多少钱？果岭费与球童费全解析',
+    meta_description:
+      '曼谷打一场高尔夫的费用有多少？果岭费、球童费、球童小费到球车费——从平价球场的1,500泰铢到高级球会7,000泰铢以上，为你拆解总额。',
+    featured_image: null,
+    schema_markup: null,
+    status: 'published',
+    category: 'costs',
+    locale: 'zh',
+    related_slugs: [
+      '/guide/green-fees-bangkok-golf-courses',
+      '/guide/how-to-book-golf-tee-times-thailand',
+      '/golf-course-club-rental',
+      '/golf',
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        '曼谷是亚洲性价比最高的高尔夫目的地之一。在一座维护良好、配有球童的球场打完整一轮，花费只是你在日本、澳大利亚或英国所付的一小部分——而球场的品质确实令人惊艳。',
+      sections: [
+        {
+          heading: '总费用拆解',
+          body: '曼谷中档球场平日一轮的典型花费：\n\n| 项目 | 费用（泰铢） |\n|---|---|\n| 果岭费（中档、平日） | 2,500–3,500 |\n| 球童费（强制） | 300–500 |\n| 球童小费（惯例） | 200–300 |\n| 球车租用（可选） | 300–600 |\n| **全部合计（估算）** | **3,300–4,900** |\n\n在高级球场，合计金额会升到6,000–8,000泰铢甚至更高。在平价的公众球场，合计2,000–2,500泰铢也做得到。\n\n*果岭费会随季节变动。预订前请务必直接向球场确认最新价格。*',
+        },
+        {
+          heading: '分档看果岭费',
+          body: '**1. 平价球场 — 1,500–2,000泰铢（平日果岭费）**\n历史较久的公众开放及市政球场。设施较为基础，但打球体验完全没问题。\n\n**2. 中档球场 — 2,500–3,500泰铢（平日）**\n对访客开放、维护良好的会员制球场。球场状态好、会所设施完整、开球时间系统规范。对大多数到访球友而言最为均衡的选择。\n\n**3. 高级球场 — 4,500泰铢起（平日）**\n- **Nikanti Golf Club：** 平日约5,500泰铢 / 周末约6,500泰铢（全包——含球童、小费、饮料和两餐）\n- **Alpine Golf Club：** 平日约5,400泰铢 / 周末约7,400泰铢（通常含球童和球车）\n\n锦标赛水准的球道设计，保养无可挑剔。价格仅供参考——请直接向球会确认。',
+        },
+        {
+          heading: '强制与可选的额外费用',
+          body: '**球童费（强制）：** 由球场收取的300–500泰铢。几乎每一座曼谷球场都不可免。\n\n**球童小费（强烈期待）：** 一轮打得满意给200–300泰铢；球童表现出色给300–500泰铢。可以把它看作球童收入的另一半——省掉会被注意到，也被视为失礼。\n\n**球车租用（可选）：** 拼用一辆球车约300–600泰铢。在曼谷的高温和湿热里步行打完18洞是可行的，但相当吃力，多数访客都会选择球车。\n\n**餐饮：** 在会所吃一顿球后餐加饮料，预留200–500泰铢。',
+        },
+        {
+          heading: '影响价格的变量与省钱方法',
+          body: '**周末溢价：** 比平日高出20%–40%。改在周一至周五打球，是最有效的一招省钱方法。\n\n**黄昏时段（Twilight）价格：** 多数球场对约14–15点后的开球时间提供折扣，常见的降幅是20%–30%。\n\n**季节：** 12月至2月（旺季）价格最高；5月至9月入场率较低，会有促销。\n\n**压低费用的贴士：**\n1. 选平日打球\n2. 预订黄昏时段的开球时间\n3. 在预订平台上比较各球场的促销价\n4. 拼一辆球车——费用直接减半\n5. 小费给得合理但不过度：一轮普通的球，200–300泰铢就很合适',
+        },
+        {
+          heading: '曼谷与全球比较',
+          body: '| 目的地 | 中档球场果岭费参考 |\n|---|---|\n| 泰国曼谷 | 2,500–3,500泰铢（约£55–75 / A$110–140） |\n| 日本东京 | ¥15,000–25,000（约£75–125 / A$150–240） |\n| 悉尼／墨尔本 | A$80–180（约£40–90） |\n| 英国伦敦 | £50–120以上 |\n\n即便算上强制的球童费，曼谷也一贯比日本划算，并与澳大利亚和英国的中价位球场大致相当。',
+        },
+      ],
+      key_takeaways: [
+        '曼谷中档球场打一轮，含果岭费、球童、小费和球车，合计3,300–4,900泰铢',
+        '球童为强制——每一轮都要算上300–500泰铢球童费，外加200–300泰铢小费',
+        '周末价格高出20%–40%；黄昏时段便宜20%–30%——两个杠杆都会明显影响总额',
+        '高级端的Nikanti和Alpine平日合计约5,500泰铢；平价球场合计可低于2,500泰铢',
       ],
       comparison_table: [],
     },
