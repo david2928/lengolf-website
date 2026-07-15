@@ -2197,20 +2197,26 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
     expectedLocation: "/privacy-policy/",
     label: "Untranslated JA privacy policy",
   },
+  // Untranslated guide must still 301 to English. ja/ko/zh now have FULL guide
+  // coverage, so the only locale with untranslated guides is th (the 8 guides
+  // from PR #52 were never translated to Thai). These canaries must be guides
+  // translated in ja/ko/zh but NOT th — if th ever gains them, pick others.
   {
-    path: "/ja/guide/what-is-a-golf-simulator/",
-    expectedLocation: "/guide/what-is-a-golf-simulator/",
-    label: "Untranslated JA guide (only translated guide slugs may 200)",
+    path: "/th/guide/golf-lessons-bangkok-coaches/",
+    expectedLocation: "/guide/golf-lessons-bangkok-coaches/",
+    label: "Untranslated TH guide (only translated guide slugs may 200)",
   },
   {
-    path: "/ko/guide/what-is-a-golf-simulator/",
-    expectedLocation: "/guide/what-is-a-golf-simulator/",
-    label: "Untranslated KO guide (only translated guide slugs may 200)",
+    path: "/th/guide/round-of-golf-cost-bangkok/",
+    expectedLocation: "/guide/round-of-golf-cost-bangkok/",
+    label:
+      "Untranslated TH guide — round-of-golf-cost (only translated guide slugs may 200)",
   },
   {
-    path: "/zh/guide/what-is-a-golf-simulator/",
-    expectedLocation: "/guide/what-is-a-golf-simulator/",
-    label: "Untranslated ZH guide (only translated guide slugs may 200)",
+    path: "/th/guide/green-fees-bangkok-golf-courses/",
+    expectedLocation: "/guide/green-fees-bangkok-golf-courses/",
+    label:
+      "Untranslated TH guide — green-fees (only translated guide slugs may 200)",
   },
   // Untranslated region hubs must still 301 to English — only regions present in
   // data/golf-courses-i18n.ts are translated (bangkok/phuket/pattaya/hua-hin/
@@ -2271,8 +2277,12 @@ const thaiCookieTests: ThaiCookieTest[] = [
     label: "Golf in Thailand guide with Thai cookie",
   },
   {
-    path: "/guide/what-is-a-golf-simulator/",
-    label: "Guide page with Thai cookie",
+    // Must be a guide with NO th translation, so it stays English under a th
+    // cookie (a th-translated guide correctly 307s to /th/ per next-intl cookie
+    // behavior). what-is-a-golf-simulator gained a th version, so use a PR #52
+    // guide that was never translated to Thai.
+    path: "/guide/golf-lessons-bangkok-coaches/",
+    label: "Guide page (th-less) with Thai cookie",
   },
   {
     path: "/faq/can-i-rent-golf-clubs-in-bangkok/",
