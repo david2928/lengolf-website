@@ -38,11 +38,36 @@
     "All numerals (do not translate to Thai numerals)"
   ],
   "terminology": [
-    { "term": "กรีนฟี", "use": "ค่ากรีนฟี", "avoid": ["ค่ากรีน ฟี"], "note": "green fee — keep กรีน as the familiar Thai golf loanword; no interior space." },
-    { "term": "แคดดี้", "use": "แคดดี้", "avoid": ["แคดดี", "แค็ดดี้"], "note": "caddie. Caddie fee = ค่าแคดดี้; caddie tip = ทิปแคดดี้." },
-    { "term": "ทีไทม์", "use": "ทีไทม์", "avoid": ["ที ไทม์"], "note": "tee time." },
-    { "term": "ไดรฟกอล์ฟ / สนามไดรฟ์", "use": "สนามไดรฟ์", "avoid": [], "note": "driving range." },
-    { "term": "กรีน / แฟร์เวย์ / สวิง", "use": "กรีน / แฟร์เวย์ / สวิง", "avoid": [], "note": "familiar Thai golf loanwords — keep, do not force pure-Thai equivalents (per tone)." }
+    {
+      "term": "กรีนฟี",
+      "use": "ค่ากรีนฟี",
+      "avoid": ["ค่ากรีน ฟี"],
+      "note": "green fee — keep กรีน as the familiar Thai golf loanword; no interior space."
+    },
+    {
+      "term": "แคดดี้",
+      "use": "แคดดี้",
+      "avoid": ["แคดดี", "แค็ดดี้"],
+      "note": "caddie. Caddie fee = ค่าแคดดี้; caddie tip = ทิปแคดดี้."
+    },
+    {
+      "term": "ทีไทม์",
+      "use": "ทีไทม์",
+      "avoid": ["ที ไทม์"],
+      "note": "tee time."
+    },
+    {
+      "term": "ไดรฟกอล์ฟ / สนามไดรฟ์",
+      "use": "สนามไดรฟ์",
+      "avoid": [],
+      "note": "driving range."
+    },
+    {
+      "term": "กรีน / แฟร์เวย์ / สวิง",
+      "use": "กรีน / แฟร์เวย์ / สวิง",
+      "avoid": [],
+      "note": "familiar Thai golf loanwords — keep, do not force pure-Thai equivalents (per tone)."
+    }
   ],
   "conventions": {
     "currency": {
@@ -67,5 +92,6 @@
     "Polite (สุภาพ) register; avoid spoken particles ครับ/ค่ะ except in direct CTA address.",
     "Keep familiar English-derived golf terms (กรีน, แฟร์เวย์, สวิง, พาร์, เบอร์ดี้) rather than pure-Thai coinages.",
     "Arabic digits with a space before spelled units (1,800 บาท); no exclamation marks, no emoji."
-  ]
+  ],
+  "transliterations": {}
 }

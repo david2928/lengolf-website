@@ -1,21 +1,62 @@
-import { SITE_URL } from './constants'
+import { SITE_URL } from "./constants";
 
 /**
  * Registry of routes that have translations per locale.
  * Routes NOT in this list will redirect from /<locale>/* to the English equivalent.
  */
-const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynamicRoutePatterns: readonly string[] }> = {
+const TRANSLATED_ROUTES: Record<
+  string,
+  { staticRoutes: readonly string[]; dynamicRoutePatterns: readonly string[] }
+> = {
   th: {
     staticRoutes: [
-      '/',
-      '/golf',
-      '/events',
-      '/golf-club-rental',
-      '/golf-course-club-rental',
-      '/lessons',
-      '/about-us',
-      '/blog',
-      '/menu',
+      "/",
+      "/golf",
+      "/events",
+      "/golf-club-rental",
+      "/golf-course-club-rental",
+      "/lessons",
+      "/about-us",
+      "/blog",
+      "/menu",
+      "/guide/corporate-golf-events-bangkok",
+      "/guide/best-time-play-golf-thailand",
+      "/guide/nikanti-golf-club-bangkok",
+      "/guide/thailand-golf-trip-cost",
+      "/guide/alpine-golf-club-bangkok",
+      "/guide/thai-country-club-bangkok",
+      "/guide/best-golf-courses-near-bangkok",
+      "/guide/banyan-golf-club-hua-hin",
+      "/guide/best-airlines-fly-golf-clubs-bangkok",
+      "/guide/bangkok-bts-guide-golfers",
+      "/guide/bangkok-to-hua-hin-golf-transport",
+      "/guide/bangkok-hotels-to-golf-courses-transport",
+      "/guide/best-bangkok-hotels-golfers",
+      "/guide/best-golf-courses-phuket",
+      "/guide/black-mountain-golf-club-hua-hin",
+      "/guide/first-time-golf-thailand",
+      "/guide/don-mueang-airport-to-bangkok",
+      "/guide/golf-bangkok-rainy-season",
+      "/guide/golf-club-rental-bangkok-guide",
+      "/guide/golf-courses-chiang-mai",
+      "/guide/golf-hotels-near-bangkok",
+      "/guide/golf-thailand-beginners",
+      "/guide/golf-tournament-packages-bangkok",
+      "/guide/golf-weather-bangkok-by-month",
+      "/guide/golfnow-thailand-review",
+      "/guide/hotels-near-hua-hin-golf-courses",
+      "/guide/how-to-pack-golf-clubs-flight-thailand",
+      "/guide/is-thailand-good-for-golf",
+      "/guide/suvarnabhumi-airport-to-bangkok-golf",
+      "/guide/thai-golf-course-etiquette",
+      "/guide/solo-golf-trip-thailand",
+      "/guide/thailand-vs-bali-vs-vietnam-golf-holiday",
+      "/guide/what-to-wear-golf-thailand",
+      "/guide/what-is-a-golf-simulator",
+      "/guide/is-indoor-golf-realistic",
+      "/guide/golf-simulator-for-non-golfers-guide",
+      "/guide/best-golf-simulators-bangkok",
+      "/guide/golf-simulator-vs-real-course-bangkok",
     ],
     dynamicRoutePatterns: [],
   },
@@ -26,148 +67,265 @@ const TRANSLATED_ROUTES: Record<string, { staticRoutes: readonly string[]; dynam
   // Google and hreflang gets flagged as mismatched.
   ko: {
     staticRoutes: [
-      '/',
-      '/golf',
-      '/lessons',
-      '/events',
-      '/about-us',
-      '/golf-club-rental',
-      '/golf-course-club-rental',
-      '/menu',
+      "/",
+      "/golf",
+      "/lessons",
+      "/events",
+      "/about-us",
+      "/golf-club-rental",
+      "/golf-course-club-rental",
+      "/menu",
       // Translated guide pages (data/explainer-pages.ts entries with
       // locale: 'ko') — must stay in sync with the data file; the
       // smoke-test registry-consistency check (section I) enforces it.
-      '/guide/bring-golf-clubs-thailand-or-rent',
-      '/guide/golf-club-baggage-fees-airlines-bangkok',
-      '/guide/golf-lessons-bangkok-coaches',
-      '/guide/green-fees-bangkok-golf-courses',
-      '/guide/how-to-book-golf-tee-times-thailand',
-      '/guide/renting-golf-clubs-thai-golf-courses',
-      '/guide/round-of-golf-cost-bangkok',
-      '/guide/screen-golf-bangkok',
+      "/guide/bring-golf-clubs-thailand-or-rent",
+      "/guide/golf-club-baggage-fees-airlines-bangkok",
+      "/guide/golf-lessons-bangkok-coaches",
+      "/guide/green-fees-bangkok-golf-courses",
+      "/guide/how-to-book-golf-tee-times-thailand",
+      "/guide/renting-golf-clubs-thai-golf-courses",
+      "/guide/round-of-golf-cost-bangkok",
+      "/guide/screen-golf-bangkok",
       // Translated region hubs (data/golf-courses-i18n.ts) — kept in sync by the
       // smoke-test region-hub consistency check.
-      '/golf-courses/bangkok',
-      '/golf-courses/phuket',
-      '/golf-courses/pattaya',
-      '/golf-courses/hua-hin',
-      '/golf-courses/chiang-mai',
+      "/golf-courses/bangkok",
+      "/golf-courses/phuket",
+      "/golf-courses/pattaya",
+      "/golf-courses/hua-hin",
+      "/golf-courses/chiang-mai",
+      "/guide/corporate-golf-events-bangkok",
+      "/guide/best-time-play-golf-thailand",
+      "/guide/nikanti-golf-club-bangkok",
+      "/guide/thailand-golf-trip-cost",
+      "/guide/alpine-golf-club-bangkok",
+      "/guide/thai-country-club-bangkok",
+      "/guide/best-golf-courses-near-bangkok",
+      "/guide/banyan-golf-club-hua-hin",
+      "/guide/best-airlines-fly-golf-clubs-bangkok",
+      "/guide/bangkok-bts-guide-golfers",
+      "/guide/bangkok-to-hua-hin-golf-transport",
+      "/guide/bangkok-hotels-to-golf-courses-transport",
+      "/guide/best-bangkok-hotels-golfers",
+      "/guide/best-golf-courses-phuket",
+      "/guide/black-mountain-golf-club-hua-hin",
+      "/guide/first-time-golf-thailand",
+      "/guide/don-mueang-airport-to-bangkok",
+      "/guide/golf-bangkok-rainy-season",
+      "/guide/golf-club-rental-bangkok-guide",
+      "/guide/golf-courses-chiang-mai",
+      "/guide/golf-hotels-near-bangkok",
+      "/guide/golf-thailand-beginners",
+      "/guide/golf-tournament-packages-bangkok",
+      "/guide/golf-weather-bangkok-by-month",
+      "/guide/golfnow-thailand-review",
+      "/guide/hotels-near-hua-hin-golf-courses",
+      "/guide/how-to-pack-golf-clubs-flight-thailand",
+      "/guide/is-thailand-good-for-golf",
+      "/guide/suvarnabhumi-airport-to-bangkok-golf",
+      "/guide/thai-golf-course-etiquette",
+      "/guide/solo-golf-trip-thailand",
+      "/guide/thailand-vs-bali-vs-vietnam-golf-holiday",
+      "/guide/what-to-wear-golf-thailand",
+      "/guide/what-is-a-golf-simulator",
+      "/guide/is-indoor-golf-realistic",
+      "/guide/golf-simulator-for-non-golfers-guide",
+      "/guide/best-golf-simulators-bangkok",
+      "/guide/golf-simulator-vs-real-course-bangkok",
     ],
     dynamicRoutePatterns: [],
   },
   zh: {
     staticRoutes: [
-      '/',
-      '/golf',
-      '/lessons',
-      '/events',
-      '/about-us',
-      '/golf-club-rental',
-      '/golf-course-club-rental',
-      '/menu',
+      "/",
+      "/golf",
+      "/lessons",
+      "/events",
+      "/about-us",
+      "/golf-club-rental",
+      "/golf-course-club-rental",
+      "/menu",
       // Translated guide pages (data/explainer-pages.ts entries with
       // locale: 'zh') — must stay in sync with the data file; the
       // smoke-test registry-consistency check (section I) enforces it.
-      '/guide/bring-golf-clubs-thailand-or-rent',
-      '/guide/golf-club-baggage-fees-airlines-bangkok',
-      '/guide/golf-lessons-bangkok-coaches',
-      '/guide/green-fees-bangkok-golf-courses',
-      '/guide/how-to-book-golf-tee-times-thailand',
-      '/guide/renting-golf-clubs-thai-golf-courses',
-      '/guide/round-of-golf-cost-bangkok',
-      '/guide/screen-golf-bangkok',
+      "/guide/bring-golf-clubs-thailand-or-rent",
+      "/guide/golf-club-baggage-fees-airlines-bangkok",
+      "/guide/golf-lessons-bangkok-coaches",
+      "/guide/green-fees-bangkok-golf-courses",
+      "/guide/how-to-book-golf-tee-times-thailand",
+      "/guide/renting-golf-clubs-thai-golf-courses",
+      "/guide/round-of-golf-cost-bangkok",
+      "/guide/screen-golf-bangkok",
       // Translated region hubs (data/golf-courses-i18n.ts) — kept in sync by the
       // smoke-test region-hub consistency check.
-      '/golf-courses/bangkok',
-      '/golf-courses/phuket',
-      '/golf-courses/pattaya',
-      '/golf-courses/hua-hin',
-      '/golf-courses/chiang-mai',
+      "/golf-courses/bangkok",
+      "/golf-courses/phuket",
+      "/golf-courses/pattaya",
+      "/golf-courses/hua-hin",
+      "/golf-courses/chiang-mai",
+      "/guide/corporate-golf-events-bangkok",
+      "/guide/best-time-play-golf-thailand",
+      "/guide/nikanti-golf-club-bangkok",
+      "/guide/thailand-golf-trip-cost",
+      "/guide/alpine-golf-club-bangkok",
+      "/guide/thai-country-club-bangkok",
+      "/guide/best-golf-courses-near-bangkok",
+      "/guide/banyan-golf-club-hua-hin",
+      "/guide/best-airlines-fly-golf-clubs-bangkok",
+      "/guide/bangkok-bts-guide-golfers",
+      "/guide/bangkok-to-hua-hin-golf-transport",
+      "/guide/bangkok-hotels-to-golf-courses-transport",
+      "/guide/best-bangkok-hotels-golfers",
+      "/guide/best-golf-courses-phuket",
+      "/guide/black-mountain-golf-club-hua-hin",
+      "/guide/first-time-golf-thailand",
+      "/guide/don-mueang-airport-to-bangkok",
+      "/guide/golf-bangkok-rainy-season",
+      "/guide/golf-club-rental-bangkok-guide",
+      "/guide/golf-courses-chiang-mai",
+      "/guide/golf-hotels-near-bangkok",
+      "/guide/golf-thailand-beginners",
+      "/guide/golf-tournament-packages-bangkok",
+      "/guide/golf-weather-bangkok-by-month",
+      "/guide/golfnow-thailand-review",
+      "/guide/hotels-near-hua-hin-golf-courses",
+      "/guide/how-to-pack-golf-clubs-flight-thailand",
+      "/guide/is-thailand-good-for-golf",
+      "/guide/suvarnabhumi-airport-to-bangkok-golf",
+      "/guide/thai-golf-course-etiquette",
+      "/guide/solo-golf-trip-thailand",
+      "/guide/thailand-vs-bali-vs-vietnam-golf-holiday",
+      "/guide/what-to-wear-golf-thailand",
+      "/guide/what-is-a-golf-simulator",
+      "/guide/is-indoor-golf-realistic",
+      "/guide/golf-simulator-for-non-golfers-guide",
+      "/guide/best-golf-simulators-bangkok",
+      "/guide/golf-simulator-vs-real-course-bangkok",
     ],
     dynamicRoutePatterns: [],
   },
   ja: {
     staticRoutes: [
-      '/',
-      '/golf',
-      '/lessons',
-      '/events',
-      '/about-us',
-      '/golf-club-rental',
-      '/golf-course-club-rental',
-      '/menu',
+      "/",
+      "/golf",
+      "/lessons",
+      "/events",
+      "/about-us",
+      "/golf-club-rental",
+      "/golf-course-club-rental",
+      "/menu",
       // Translated guide pages (data/explainer-pages.ts entries with
       // locale: 'ja'). List each translated slug explicitly — a broad
       // /guide/[slug] pattern would let untranslated guides 200 in JA.
-      '/guide/bring-golf-clubs-thailand-or-rent',
-      '/guide/golf-club-baggage-fees-airlines-bangkok',
-      '/guide/golf-lessons-bangkok-coaches',
-      '/guide/green-fees-bangkok-golf-courses',
-      '/guide/how-to-book-golf-tee-times-thailand',
-      '/guide/renting-golf-clubs-thai-golf-courses',
-      '/guide/round-of-golf-cost-bangkok',
-      '/guide/screen-golf-bangkok',
+      "/guide/bring-golf-clubs-thailand-or-rent",
+      "/guide/golf-club-baggage-fees-airlines-bangkok",
+      "/guide/golf-lessons-bangkok-coaches",
+      "/guide/green-fees-bangkok-golf-courses",
+      "/guide/how-to-book-golf-tee-times-thailand",
+      "/guide/renting-golf-clubs-thai-golf-courses",
+      "/guide/round-of-golf-cost-bangkok",
+      "/guide/screen-golf-bangkok",
       // Translated region hubs (data/golf-courses-i18n.ts) — kept in sync by the
       // smoke-test region-hub consistency check.
-      '/golf-courses/bangkok',
-      '/golf-courses/phuket',
-      '/golf-courses/pattaya',
-      '/golf-courses/hua-hin',
-      '/golf-courses/chiang-mai',
+      "/golf-courses/bangkok",
+      "/golf-courses/phuket",
+      "/golf-courses/pattaya",
+      "/golf-courses/hua-hin",
+      "/golf-courses/chiang-mai",
+      "/guide/corporate-golf-events-bangkok",
+      "/guide/best-time-play-golf-thailand",
+      "/guide/nikanti-golf-club-bangkok",
+      "/guide/thailand-golf-trip-cost",
+      "/guide/alpine-golf-club-bangkok",
+      "/guide/thai-country-club-bangkok",
+      "/guide/best-golf-courses-near-bangkok",
+      "/guide/banyan-golf-club-hua-hin",
+      "/guide/best-airlines-fly-golf-clubs-bangkok",
+      "/guide/bangkok-bts-guide-golfers",
+      "/guide/bangkok-to-hua-hin-golf-transport",
+      "/guide/bangkok-hotels-to-golf-courses-transport",
+      "/guide/best-bangkok-hotels-golfers",
+      "/guide/best-golf-courses-phuket",
+      "/guide/black-mountain-golf-club-hua-hin",
+      "/guide/first-time-golf-thailand",
+      "/guide/don-mueang-airport-to-bangkok",
+      "/guide/golf-bangkok-rainy-season",
+      "/guide/golf-club-rental-bangkok-guide",
+      "/guide/golf-courses-chiang-mai",
+      "/guide/golf-hotels-near-bangkok",
+      "/guide/golf-thailand-beginners",
+      "/guide/golf-tournament-packages-bangkok",
+      "/guide/golf-weather-bangkok-by-month",
+      "/guide/golfnow-thailand-review",
+      "/guide/hotels-near-hua-hin-golf-courses",
+      "/guide/how-to-pack-golf-clubs-flight-thailand",
+      "/guide/is-thailand-good-for-golf",
+      "/guide/suvarnabhumi-airport-to-bangkok-golf",
+      "/guide/thai-golf-course-etiquette",
+      "/guide/solo-golf-trip-thailand",
+      "/guide/thailand-vs-bali-vs-vietnam-golf-holiday",
+      "/guide/what-to-wear-golf-thailand",
+      "/guide/what-is-a-golf-simulator",
+      "/guide/is-indoor-golf-realistic",
+      "/guide/golf-simulator-for-non-golfers-guide",
+      "/guide/best-golf-simulators-bangkok",
+      "/guide/golf-simulator-vs-real-course-bangkok",
     ],
     dynamicRoutePatterns: [],
   },
-}
+};
 
-export const ALL_LOCALES = ['en', 'th', 'ko', 'ja', 'zh'] as const
-export type Locale = (typeof ALL_LOCALES)[number]
+export const ALL_LOCALES = ["en", "th", "ko", "ja", "zh"] as const;
+export type Locale = (typeof ALL_LOCALES)[number];
 
 export const OG_LOCALES: Record<Locale, string> = {
-  en: 'en_US',
-  th: 'th_TH',
-  ja: 'ja_JP',
-  ko: 'ko_KR',
-  zh: 'zh_CN',
-}
+  en: "en_US",
+  th: "th_TH",
+  ja: "ja_JP",
+  ko: "ko_KR",
+  zh: "zh_CN",
+};
 
 // Pre-compute normalized static routes per locale at module load time
 const NORMALIZED_ROUTES = Object.fromEntries(
   Object.entries(TRANSLATED_ROUTES).map(([locale, { staticRoutes }]) => [
     locale,
-    staticRoutes.map(r => (r === '/' ? '/' : r.replace(/\/$/, ''))),
-  ])
-)
+    staticRoutes.map((r) => (r === "/" ? "/" : r.replace(/\/$/, ""))),
+  ]),
+);
 
 function normalizePath(pathname: string): string {
-  return pathname.replace(/\/$/, '') || '/'
+  return pathname.replace(/\/$/, "") || "/";
 }
 
 /**
  * Check if a given pathname has a translation available for the given locale.
  * Expects a locale-free path (middleware strips /<locale> prefix before calling).
  */
-export function hasTranslationForLocale(locale: string, pathname: string): boolean {
-  const entry = TRANSLATED_ROUTES[locale]
-  if (!entry) return false
+export function hasTranslationForLocale(
+  locale: string,
+  pathname: string,
+): boolean {
+  const entry = TRANSLATED_ROUTES[locale];
+  if (!entry) return false;
 
-  const normalizedPath = normalizePath(pathname)
-  const normalizedStatic = NORMALIZED_ROUTES[locale] ?? []
+  const normalizedPath = normalizePath(pathname);
+  const normalizedStatic = NORMALIZED_ROUTES[locale] ?? [];
 
-  if (normalizedStatic.includes(normalizedPath)) return true
+  if (normalizedStatic.includes(normalizedPath)) return true;
 
   for (const pattern of entry.dynamicRoutePatterns) {
-    const regex = new RegExp('^' + pattern.replace(/\[slug\]/g, '[^/]+') + '$')
-    if (regex.test(normalizedPath)) return true
+    const regex = new RegExp("^" + pattern.replace(/\[slug\]/g, "[^/]+") + "$");
+    if (regex.test(normalizedPath)) return true;
   }
 
-  return false
+  return false;
 }
 
 /**
  * @deprecated Use hasTranslationForLocale('th', pathname) instead.
  */
 export function hasThaiTranslation(pathname: string): boolean {
-  return hasTranslationForLocale('th', pathname)
+  return hasTranslationForLocale("th", pathname);
 }
 
 /**
@@ -179,8 +337,8 @@ export function hasThaiTranslation(pathname: string): boolean {
  */
 export function getRegisteredGuidePaths(locale: string): string[] {
   return (TRANSLATED_ROUTES[locale]?.staticRoutes ?? []).filter((r) =>
-    r.startsWith('/guide/')
-  )
+    r.startsWith("/guide/"),
+  );
 }
 
 /**
@@ -193,32 +351,34 @@ export function getRegisteredGuidePaths(locale: string): string[] {
  */
 export function getRegisteredRegionHubPaths(locale: string): string[] {
   return (TRANSLATED_ROUTES[locale]?.staticRoutes ?? []).filter(
-    (r) => r.startsWith('/golf-courses/') && r.split('/').filter(Boolean).length === 2
-  )
+    (r) =>
+      r.startsWith("/golf-courses/") &&
+      r.split("/").filter(Boolean).length === 2,
+  );
 }
 
 /**
  * Return the set of locales (including 'en') that have a translation for this path.
  */
 export function getLocalesForPath(pathname: string): Locale[] {
-  const normalizedPath = normalizePath(pathname)
+  const normalizedPath = normalizePath(pathname);
   // English is always available (it's the default locale, source of truth)
-  const locales: Locale[] = ['en']
-  for (const locale of ['th', 'ko', 'ja', 'zh'] as const) {
+  const locales: Locale[] = ["en"];
+  for (const locale of ["th", "ko", "ja", "zh"] as const) {
     if (hasTranslationForLocale(locale, normalizedPath)) {
-      locales.push(locale)
+      locales.push(locale);
     }
   }
-  return locales
+  return locales;
 }
 
 function localePrefix(locale: Locale): string {
-  return locale === 'en' ? '' : `/${locale}`
+  return locale === "en" ? "" : `/${locale}`;
 }
 
 function pathSuffix(pathname: string): string {
-  const normalized = normalizePath(pathname)
-  return normalized === '/' ? '/' : `${normalized}/`
+  const normalized = normalizePath(pathname);
+  return normalized === "/" ? "/" : `${normalized}/`;
 }
 
 /**
@@ -230,11 +390,11 @@ function pathSuffix(pathname: string): string {
  *   { en: 'https://www.len.golf/golf/', th: 'https://www.len.golf/th/golf/', ... }
  */
 export function getAlternates(pathname: string): Record<string, string> {
-  const suffix = pathSuffix(pathname)
-  const locales = getLocalesForPath(pathname)
+  const suffix = pathSuffix(pathname);
+  const locales = getLocalesForPath(pathname);
   return Object.fromEntries(
-    locales.map((l) => [l, `${SITE_URL}${localePrefix(l)}${suffix}`])
-  )
+    locales.map((l) => [l, `${SITE_URL}${localePrefix(l)}${suffix}`]),
+  );
 }
 
 /**
@@ -242,7 +402,9 @@ export function getAlternates(pathname: string): Record<string, string> {
  * prefix scheme used by `getAlternates`.
  */
 export function getCanonical(locale: string, pathname: string): string {
-  const suffix = pathSuffix(pathname)
-  const l: Locale = (ALL_LOCALES as readonly string[]).includes(locale) ? (locale as Locale) : 'en'
-  return `${SITE_URL}${localePrefix(l)}${suffix}`
+  const suffix = pathSuffix(pathname);
+  const l: Locale = (ALL_LOCALES as readonly string[]).includes(locale)
+    ? (locale as Locale)
+    : "en";
+  return `${SITE_URL}${localePrefix(l)}${suffix}`;
 }
