@@ -1345,6 +1345,79 @@ const routeTests: RouteTest[] = [
     contentMarker: '<main id="main-content">',
     contentAbsent: "{{",
   },
+  // Auto-translated guide batch (ja/ko/zh/th)
+  {
+    path: "/ja/guide/solo-golf-trip-thailand/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+    contentAbsent: "{{",
+  },
+  {
+    path: "/ko/guide/solo-golf-trip-thailand/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+    contentAbsent: "{{",
+  },
+  {
+    path: "/zh/guide/solo-golf-trip-thailand/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+    contentAbsent: "{{",
+  },
+  {
+    path: "/th/guide/solo-golf-trip-thailand/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+    contentAbsent: "{{",
+  },
+  {
+    path: "/ja/guide/thailand-vs-bali-vs-vietnam-golf-holiday/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+    contentAbsent: "{{",
+  },
+  {
+    path: "/ko/guide/thailand-vs-bali-vs-vietnam-golf-holiday/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+    contentAbsent: "{{",
+  },
+  {
+    path: "/zh/guide/thailand-vs-bali-vs-vietnam-golf-holiday/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+    contentAbsent: "{{",
+  },
+  {
+    path: "/th/guide/thailand-vs-bali-vs-vietnam-golf-holiday/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+    contentAbsent: "{{",
+  },
+  {
+    path: "/ja/guide/what-to-wear-golf-thailand/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+    contentAbsent: "{{",
+  },
+  {
+    path: "/ko/guide/what-to-wear-golf-thailand/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+    contentAbsent: "{{",
+  },
+  {
+    path: "/zh/guide/what-to-wear-golf-thailand/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+    contentAbsent: "{{",
+  },
+  {
+    path: "/th/guide/what-to-wear-golf-thailand/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+    contentAbsent: "{{",
+  },
   // FAQ pages — spot-check original + newly added slugs
   {
     path: "/faq/can-i-rent-golf-clubs-in-bangkok/",
