@@ -141,12 +141,9 @@ export default async function CoursesUnderPricePage({ params }: Props) {
           />
         </section>
 
-        <RentalCtaBanner
-          eyebrow={t('rentalEyebrow')}
-          body={t.rich('rentalBody', {
-            price: (chunks) => <strong className="text-white">{chunks}</strong>,
-          })}
-        />
+        {/* Default copy comes from GolfCourseShared (localized inside the
+            component) — no per-page override needed. */}
+        <RentalCtaBanner />
 
         <CrossLinkBlock
           heading={t('otherPriceBands')}

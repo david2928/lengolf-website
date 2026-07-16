@@ -1138,7 +1138,12 @@
     "catchHeading": "What's the catch?",
     "topCoursesHeading": "Top {count} courses, weekday fee under ฿{amount}",
     "roundupReason": "Weekday from {price} THB.",
-    "otherPriceBands": "Other price bands",
+    "otherPriceBands": "Other price bands"
+  },
+  "GolfCourseShared": {
+    "feeFrom": "from {price} THB",
+    "bookNow": "Book now",
+    "learnMore": "Learn more",
     "rentalEyebrow": "No clubs? No problem.",
     "rentalBody": "Rent premium clubs delivered to your Bangkok hotel — Callaway Paradym, Warbird, Majesty. From <price>1,200 THB/day</price>. No baggage fees, no airport hassle."
   },

@@ -189,12 +189,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }))
 
-  const golfPriceTierPages: MetadataRoute.Sitemap = getPriceTierSlugs().map((tier) => ({
-    url: `${SITE_URL}/golf-courses/under/${tier}/`,
-    lastModified: reviewed,
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }))
+  const golfPriceTierPages: MetadataRoute.Sitemap = getPriceTierSlugs().map((tier) => {
+    // Emit hreflang alternates only for tiers with translations
+    // (registered in lib/translated-routes.ts) — EN-only tiers stay plain.
+    // Mirrors the region-hub and FAQ entries above; without this the tier
+    // pages' on-page hreflang would contradict the sitemap.
+    const languages = getAlternates(`/golf-courses/under/${tier}/`)
+    return {
+      url: `${SITE_URL}/golf-courses/under/${tier}/`,
+      lastModified: reviewed,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+      ...(Object.keys(languages).length > 1 ? { alternates: { languages } } : {}),
+    }
+  })
 
   const golfBestForPages: MetadataRoute.Sitemap = USE_CASES.map((useCase) => ({
     url: `${SITE_URL}/golf-courses/best-for/${useCase}/`,

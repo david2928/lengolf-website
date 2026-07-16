@@ -1138,7 +1138,12 @@
     "catchHeading": "ข้อควรทราบ",
     "topCoursesHeading": "{count} สนามอันดับต้น ค่ากรีนฟีวันธรรมดาไม่เกิน ฿{amount}",
     "roundupReason": "เริ่มต้น {price} บาท (วันธรรมดา)",
-    "otherPriceBands": "ช่วงราคาอื่น ๆ",
+    "otherPriceBands": "ช่วงราคาอื่น ๆ"
+  },
+  "GolfCourseShared": {
+    "feeFrom": "เริ่มต้น {price} บาท",
+    "bookNow": "จองเลย",
+    "learnMore": "ดูเพิ่มเติม",
     "rentalEyebrow": "ไม่มีไม้กอล์ฟก็ไม่ใช่ปัญหา",
     "rentalBody": "เช่าไม้กอล์ฟพรีเมียมส่งถึงโรงแรมของคุณในกรุงเทพฯ — Callaway Paradym, Warbird, Majesty เริ่มต้น <price>1,200 บาท/วัน</price> ไม่มีค่าธรรมเนียมสัมภาระ ไม่ต้องกังวลเรื่องสนามบิน"
   },
