@@ -3,6 +3,8 @@ import { SITE_URL, BUSINESS_INFO, SOCIAL_LINKS, BOOKING_URL } from '@/lib/consta
 import { getAllPosts } from '@/lib/blog'
 import { getSeoPagesByType } from '@/lib/seo-pages'
 import { getFactTokens, interpolateFacts } from '@/lib/site-facts'
+import { ALL_LOCALES, type Locale } from '@/lib/translated-routes'
+import type { SeoPageType } from '@/types/seo-pages'
 
 /**
  * /llms.txt — a curated, markdown-formatted map of the site for AI assistants and
@@ -11,6 +13,37 @@ import { getFactTokens, interpolateFacts } from '@/lib/site-facts'
  * Regenerated daily via ISR; the long tail of URLs lives in /sitemap.xml.
  */
 export const revalidate = 86400
+
+// Human-readable label for each non-EN locale, used in section headings and
+// the Languages blurb. EN has no entry — it isn't locale-prefixed.
+const LOCALE_LABELS: Record<Exclude<Locale, 'en'>, string> = {
+  th: 'ภาษาไทย',
+  ja: '日本語',
+  ko: '한국어',
+  zh: '中文',
+}
+
+const NON_EN_LOCALES = ALL_LOCALES.filter(
+  (l): l is Exclude<Locale, 'en'> => l !== 'en'
+)
+
+/**
+ * SEO page types that get a per-locale listing section below (title + URL
+ * only — see the curation note by LOCALE_PAGE_TYPES' usage). Add an entry
+ * here to extend the locale loop to a new page type; each becomes
+ * "## <label> (<LOCALE_LABELS[locale]>)" once that locale has published pages.
+ *
+ * TH FAQ is landing in a parallel workstream this batch — once data/faq-pages.ts
+ * has published 'th' entries, add { type: 'faq', label: 'FAQ', urlPrefix: 'faq' }
+ * — but ONLY once the '/faq/<slug>' paths are also registered in that locale's
+ * staticRoutes (lib/translated-routes.ts). Otherwise the middleware 301s every
+ * emitted /<locale>/faq/<slug>/ URL to English, and this file would advertise
+ * "translated" links that redirect away. (Guides are safe because smoke
+ * section I enforces registry ⇄ data sync; give FAQ the same check.)
+ */
+const LOCALE_PAGE_TYPES: { type: SeoPageType; label: string; urlPrefix: string }[] = [
+  { type: 'explainer', label: 'Guides', urlPrefix: 'guide' },
+]
 
 const KEY_PAGES: { title: string; path: string; desc: string }[] = [
   { title: 'Bay Rates & Simulators', path: '/golf/', desc: 'Indoor golf simulator bay rates, monthly packages, and how booking works.' },
@@ -52,9 +85,25 @@ export async function GET() {
     `## Key pages\n${KEY_PAGES.map((p) => link(p.title, `${SITE_URL}${p.path}`, p.desc)).join('\n')}`
   )
 
+  // Language list is generated from LOCALE_LABELS so a new locale added to
+  // ALL_LOCALES (which forces a LOCALE_LABELS entry via the Record type)
+  // automatically appears here too.
+  const localeList = NON_EN_LOCALES.map((l) => `${LOCALE_LABELS[l]} (/${l}/)`).join(', ')
+  sections.push(
+    `## Languages / ${NON_EN_LOCALES.map((l) => LOCALE_LABELS[l]).join(' / ')}\n` +
+      `LENGOLF content is published in English (default, unprefixed) and: ${localeList}. ` +
+      `Translated pages use a locale-prefixed URL: ${SITE_URL}/<locale>/<path>/ — ` +
+      `e.g. ${SITE_URL}/ja/guide/screen-golf-bangkok/. ` +
+      'Not every English page has a translation in every locale yet; the complete, hreflang-tagged ' +
+      `URL list is in ${SITE_URL}/sitemap.xml.`
+  )
+
   if (faqs.length) {
+    // interpolateFacts is a no-op while FAQ entries carry no {{tokens}}, but
+    // wrapping now keeps EN symmetric with the locale sections below — if a
+    // token ever lands in FAQ copy, it resolves here instead of leaking.
     sections.push(
-      `## FAQ\n${faqs.map((p) => link(p.title, `${SITE_URL}/faq/${p.slug}/`, p.meta_description || undefined)).join('\n')}`
+      `## FAQ\n${faqs.map((p) => link(interpolateFacts(p.title, tokens), `${SITE_URL}/faq/${p.slug}/`, p.meta_description ? interpolateFacts(p.meta_description, tokens) : undefined)).join('\n')}`
     )
   }
 
@@ -62,6 +111,31 @@ export async function GET() {
     sections.push(
       `## Guides\n${guides.map((p) => link(interpolateFacts(p.title, tokens), `${SITE_URL}/guide/${p.slug}/`, p.meta_description ? interpolateFacts(p.meta_description, tokens) : undefined)).join('\n')}`
     )
+  }
+
+  // Per-locale listings for translated SEO page types (see LOCALE_PAGE_TYPES).
+  // Curation choice: title + URL only, no meta descriptions — with ~4 locales
+  // × up to ~46 guides each, descriptions would roughly 3x this file's size for
+  // a map that's meant to stay skimmable. Fact tokens are interpolated with
+  // that locale's tokens (getFactTokens(locale)) so no literal "{{" leaks.
+  for (const { type, label, urlPrefix } of LOCALE_PAGE_TYPES) {
+    for (const locale of NON_EN_LOCALES) {
+      const [localePages, localeTokens] = await Promise.all([
+        getSeoPagesByType(type, locale),
+        getFactTokens(locale),
+      ])
+      if (!localePages.length) continue
+      sections.push(
+        `## ${label} (${LOCALE_LABELS[locale]})\n${localePages
+          .map((p) =>
+            link(
+              interpolateFacts(p.title, localeTokens),
+              `${SITE_URL}/${locale}/${urlPrefix}/${p.slug}/`
+            )
+          )
+          .join('\n')}`
+      )
+    }
   }
 
   if (posts.length) {
