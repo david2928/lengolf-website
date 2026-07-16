@@ -17,10 +17,11 @@
  *   G) WordPress admin paths return 404 (not redirect)
  *   H) LLM / AI discoverability (llms.txt is served as text, robots.txt names AI
  *      crawlers, and the LocalBusiness opening-hours schema is consistent)
- *   I) Translated-guide registry consistency: the '/guide/...' allowlist in
- *      lib/translated-routes.ts must exactly match the locale-tagged entries in
- *      data/explainer-pages.ts (drift ships unreachable translations or
- *      hreflang links to 404s) — pure import check, no server needed
+ *   I) Translated-guide/FAQ registry consistency: the '/guide/...' and
+ *      '/faq/...' allowlists in lib/translated-routes.ts must exactly match
+ *      the locale-tagged entries in data/explainer-pages.ts and
+ *      data/faq-pages.ts respectively (drift ships unreachable translations
+ *      or hreflang links to 404s) — pure import check, no server needed
  *
  * Usage: tsx scripts/smoke-test.ts [base-url]
  * Default: http://localhost:3000
@@ -622,6 +623,11 @@ const routeTests: RouteTest[] = [
     expectedStatus: [200],
     contentMarker: '<main id="main-content">',
     contentAbsent: "{{",
+  },
+  {
+    path: "/th/guide/green-fees-bangkok-golf-courses/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
   },
   // Auto-translated guide batch (ja/ko/zh/th)
   {
@@ -1439,6 +1445,50 @@ const routeTests: RouteTest[] = [
     expectedStatus: [200],
     contentMarker: '<main id="main-content">',
   },
+  // Translated TH FAQ pages (data/faq-pages.ts locale:'th' entries + th allowlist
+  // entries in lib/translated-routes.ts). No contentAbsent '{{' guard — FAQ
+  // rendering (app/[locale]/faq/[slug]/page.tsx) never runs interpolateFacts,
+  // so these pages never carry fact tokens to begin with.
+  {
+    path: "/th/faq/can-i-rent-golf-clubs-in-bangkok/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/faq/are-rental-golf-clubs-good-enough/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/faq/how-accurate-are-golf-simulators/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/faq/do-i-need-experience-to-play-golf-simulator/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/faq/can-beginners-play-golf-simulators/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/faq/how-long-does-simulator-golf-take/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/faq/best-way-to-learn-golf-in-bangkok/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/faq/can-kids-play-golf-simulators/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
   // Hotel concierge pages — spot-check a few slugs
   {
     path: "/hotels/things-to-do-near-grand-hyatt-erawan/",
@@ -1555,6 +1605,59 @@ const routeTests: RouteTest[] = [
   },
   {
     path: "/zh/golf-courses/chiang-mai/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  // Translated TH region hubs (data/golf-courses-i18n.ts + th allowlist entries)
+  {
+    path: "/th/golf-courses/bangkok/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/golf-courses/phuket/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/golf-courses/pattaya/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/golf-courses/hua-hin/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/golf-courses/chiang-mai/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  // Translated TH price-tier pages (data/price-tiers.ts PRICE_TIER_I18N + th
+  // allowlist entries) — all 5 tiers are translated in this batch.
+  {
+    path: "/th/golf-courses/under/1500-baht/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/golf-courses/under/2500-baht/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/golf-courses/under/3500-baht/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/golf-courses/under/5000-baht/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/golf-courses/under/7500-baht/",
     expectedStatus: [200],
     contentMarker: '<main id="main-content">',
   },
@@ -2212,11 +2315,16 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
     label:
       "Untranslated TH guide — round-of-golf-cost (only translated guide slugs may 200)",
   },
+  // Untranslated FAQ must still 301 to English. Only the 8 FAQ slugs in the
+  // th.staticRoutes allowlist (lib/translated-routes.ts) may 200 under /th/faq/.
+  // This canary is deliberately NOT one of those 8 — if it ever gains a TH
+  // translation, pick another untranslated FAQ slug here instead of deleting
+  // the guard (a previous batch went stale exactly this way).
   {
-    path: "/th/guide/green-fees-bangkok-golf-courses/",
-    expectedLocation: "/guide/green-fees-bangkok-golf-courses/",
+    path: "/th/faq/can-you-play-golf-in-bangkok-when-it-rains/",
+    expectedLocation: "/faq/can-you-play-golf-in-bangkok-when-it-rains/",
     label:
-      "Untranslated TH guide — green-fees (only translated guide slugs may 200)",
+      "Untranslated TH FAQ (only translated FAQ slugs may 200)",
   },
   // Untranslated region hubs must still 301 to English — only regions present in
   // data/golf-courses-i18n.ts are translated (bangkok/phuket/pattaya/hua-hin/
@@ -2236,6 +2344,19 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
     path: "/zh/golf-courses/koh-samui/",
     expectedLocation: "/golf-courses/koh-samui/",
     label: "Untranslated ZH region hub (only translated regions may 200)",
+  },
+  {
+    path: "/th/golf-courses/koh-samui/",
+    expectedLocation: "/golf-courses/koh-samui/",
+    label: "Untranslated TH region hub (only translated regions may 200)",
+  },
+  // Untranslated price-tier locale must still 301 to English — ja has no
+  // PRICE_TIER_I18N entries (only th is translated as of this batch). Guards
+  // the price-tier allowlist; pick another locale here if ja ever gains one.
+  {
+    path: "/ja/golf-courses/under/3500-baht/",
+    expectedLocation: "/golf-courses/under/3500-baht/",
+    label: "Untranslated JA price tier (only translated locales may 200)",
   },
   {
     path: "/ko/hotels/",
@@ -2285,8 +2406,13 @@ const thaiCookieTests: ThaiCookieTest[] = [
     label: "Guide page (th-less) with Thai cookie",
   },
   {
-    path: "/faq/can-i-rent-golf-clubs-in-bangkok/",
-    label: "FAQ page with Thai cookie",
+    // Must be an FAQ slug with NO th translation, so it stays English under a
+    // th cookie (a th-translated FAQ correctly 307s to /th/ per next-intl
+    // cookie behavior — same rule as the guide-page canary above).
+    // can-i-rent-golf-clubs-in-bangkok gained a th version, so use one that
+    // was not part of that batch.
+    path: "/faq/can-you-play-golf-in-bangkok-when-it-rains/",
+    label: "FAQ page (th-less) with Thai cookie",
   },
   { path: "/hotels/", label: "Hotels hub with Thai cookie" },
   { path: "/activities/", label: "Activities hub with Thai cookie" },
@@ -2677,17 +2803,17 @@ async function runLlmDiscoverabilityTests() {
   }
 }
 
-// ── I) Translated-guide registry consistency ────────────────────────
+// ── I) Translated-guide/FAQ registry consistency ─────────────────────
 // The middleware allowlist (lib/translated-routes.ts) cannot import the
 // content data (it's bundled into the edge middleware), so nothing at build
 // time ties the two lists together. This check makes drift fail CI in both
-// directions: a locale-tagged guide missing from the registry would be built
-// but 301'd away (translation silently unreachable); a registry entry
+// directions: a locale-tagged guide/FAQ missing from the registry would be
+// built but 301'd away (translation silently unreachable); a registry entry
 // without data would 200 through the middleware into a notFound() while
 // hreflang/sitemap advertise the 404ing URL.
 
 async function runRegistryConsistencyTests() {
-  console.log("\n\x1b[1mI) Translated-guide registry consistency\x1b[0m");
+  console.log("\n\x1b[1mI) Translated-guide/FAQ registry consistency\x1b[0m");
   const { explainerPages } = await import("../data/explainer-pages");
   const { getRegisteredGuidePaths, ALL_LOCALES } =
     await import("../lib/translated-routes");
@@ -2718,6 +2844,43 @@ async function runRegistryConsistencyTests() {
         fail(
           `Registry lists '${locale}' guide(s) with no data`,
           `${missingInData.join(", ")} — remove from lib/translated-routes.ts or add a locale:'${locale}' entry in data/explainer-pages.ts (currently 404s while advertised in hreflang)`,
+        );
+      }
+    }
+  }
+
+  // FAQ pages — same drift guard as the guide loop above, for data/faq-pages.ts
+  // locale-tagged entries vs. the '/faq/...' allowlist entries in
+  // lib/translated-routes.ts (getRegisteredFaqPaths).
+  const { faqPages } = await import("../data/faq-pages");
+  const { getRegisteredFaqPaths } = await import("../lib/translated-routes");
+
+  for (const locale of ALL_LOCALES) {
+    if (locale === "en") continue;
+    const fromData = new Set(
+      faqPages
+        .filter((p) => p.locale === locale && p.status === "published")
+        .map((p) => `/faq/${p.slug}`),
+    );
+    const fromRegistry = new Set(getRegisteredFaqPaths(locale));
+    const missingInRegistry = [...fromData].filter((p) => !fromRegistry.has(p));
+    const missingInData = [...fromRegistry].filter((p) => !fromData.has(p));
+
+    if (missingInRegistry.length === 0 && missingInData.length === 0) {
+      pass(
+        `FAQ registry ⇄ data in sync for '${locale}' (${fromData.size} translated FAQs)`,
+      );
+    } else {
+      if (missingInRegistry.length > 0) {
+        fail(
+          `Registry missing '${locale}' FAQ(s)`,
+          `${missingInRegistry.join(", ")} — add to ${locale}.staticRoutes in lib/translated-routes.ts or the translation is unreachable (middleware 301s it)`,
+        );
+      }
+      if (missingInData.length > 0) {
+        fail(
+          `Registry lists '${locale}' FAQ(s) with no data`,
+          `${missingInData.join(", ")} — remove from lib/translated-routes.ts or add a locale:'${locale}' entry in data/faq-pages.ts (currently 404s while advertised in hreflang)`,
         );
       }
     }
@@ -2767,6 +2930,57 @@ async function runRegionHubRegistryConsistencyTests() {
         fail(
           `Registry lists '${locale}' region hub(s) with no data`,
           `${missingInData.join(", ")} — remove from lib/translated-routes.ts or add a translation in data/golf-courses-i18n.ts (currently serves EN fallback while advertised in hreflang)`,
+        );
+      }
+    }
+  }
+}
+
+// ── J2) Translated price-tier registry consistency ──────────────────
+// Same drift guard as section J, for the golf-course PRICE-TIER pages. The
+// middleware allowlist (lib/translated-routes.ts) cannot import
+// data/price-tiers.ts (edge-bundled), so nothing at build time ties the two
+// lists together. Fails CI in both directions: a translated tier missing from
+// the registry is built but 301'd away (translation unreachable); a registry
+// entry without a translation would 200 into the EN-fallback while
+// hreflang/sitemap advertise it.
+
+async function runPriceTierRegistryConsistencyTests() {
+  console.log("\n\x1b[1mJ2) Translated price-tier registry consistency\x1b[0m");
+  const { getTranslatedPriceTierParams } = await import("../data/price-tiers");
+  const { getRegisteredPriceTierPaths, ALL_LOCALES } =
+    await import("../lib/translated-routes");
+
+  // Per-locale sets of '/golf-courses/under/<tier>' paths from the data file.
+  const dataByLocale: Record<string, Set<string>> = {};
+  for (const { locale, tier } of getTranslatedPriceTierParams()) {
+    (dataByLocale[locale] ??= new Set<string>()).add(
+      `/golf-courses/under/${tier}`,
+    );
+  }
+
+  for (const locale of ALL_LOCALES) {
+    if (locale === "en") continue;
+    const fromData = dataByLocale[locale] ?? new Set<string>();
+    const fromRegistry = new Set(getRegisteredPriceTierPaths(locale));
+    const missingInRegistry = [...fromData].filter((p) => !fromRegistry.has(p));
+    const missingInData = [...fromRegistry].filter((p) => !fromData.has(p));
+
+    if (missingInRegistry.length === 0 && missingInData.length === 0) {
+      pass(
+        `Price-tier registry ⇄ data in sync for '${locale}' (${fromData.size} translated tiers)`,
+      );
+    } else {
+      if (missingInRegistry.length > 0) {
+        fail(
+          `Registry missing '${locale}' price tier(s)`,
+          `${missingInRegistry.join(", ")} — add to ${locale}.staticRoutes in lib/translated-routes.ts or the translation is unreachable (middleware 301s it)`,
+        );
+      }
+      if (missingInData.length > 0) {
+        fail(
+          `Registry lists '${locale}' price tier(s) with no data`,
+          `${missingInData.join(", ")} — remove from lib/translated-routes.ts or add a translation in data/price-tiers.ts PRICE_TIER_I18N (currently serves EN fallback while advertised in hreflang)`,
         );
       }
     }
@@ -2847,6 +3061,7 @@ async function main() {
   await runLlmDiscoverabilityTests();
   await runRegistryConsistencyTests();
   await runRegionHubRegistryConsistencyTests();
+  await runPriceTierRegistryConsistencyTests();
   await runDataLinkLivenessTests();
 
   console.log(`\n\x1b[1m${passed} passed, ${failed} failed\x1b[0m`);

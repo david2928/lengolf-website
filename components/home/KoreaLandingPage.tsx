@@ -1,9 +1,11 @@
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
-import { CalendarDays, MessageCircle, MapPin, Clock, Sparkles, ExternalLink } from 'lucide-react'
+import { CalendarDays, MessageCircle, MapPin, Clock, Sparkles, ExternalLink, ArrowRight } from 'lucide-react'
 import FaqSection from '@/components/shared/FaqSection'
 import { getFaqPageJsonLd } from '@/lib/jsonld'
+import { getSeoPageBySlug } from '@/lib/seo-pages'
+import { getFactTokens, interpolateFacts } from '@/lib/site-facts'
 import {
   storageUrl,
   BOOKING_URL,
@@ -83,6 +85,31 @@ export default async function KoreaLandingPage() {
     answer: t(`a${i + 1}`),
   }))
   const faqJsonLd = getFaqPageJsonLd(faqItems)
+
+  // Curated KO guide links. The screen-golf guide had ZERO GSC impressions in
+  // 90 days because no core page linked it (its only inbound link was another
+  // guide's related_slugs) — 방콕 스크린골프 queries were landing on the EN
+  // homepage instead. Titles come from the published KO entries in
+  // data/explainer-pages.ts, so this renders nothing for a slug whose KO
+  // translation is ever unpublished (and never an EN title under lang="ko").
+  const guideSlugs = [
+    'screen-golf-bangkok',
+    'golf-lessons-bangkok-coaches',
+    'how-to-book-golf-tee-times-thailand',
+    'round-of-golf-cost-bangkok',
+  ]
+  // Guide titles may carry {{price}} tokens (lib/site-facts.ts) — every surface
+  // that prints entry text must interpolate or the literal placeholder leaks
+  // (same class of bug as the llms.txt leak). None of these four carry tokens
+  // today; this keeps the surface safe if one ever does.
+  const koTokens = await getFactTokens('ko')
+  const guides = (
+    await Promise.all(
+      guideSlugs.map((slug) => getSeoPageBySlug(slug, 'explainer', 'ko'))
+    )
+  )
+    .filter((g): g is NonNullable<typeof g> => g !== null)
+    .map((g) => ({ slug: g.slug, title: interpolateFacts(g.title, koTokens) }))
 
   return (
     <>
@@ -241,6 +268,32 @@ export default async function KoreaLandingPage() {
           </div>
         </div>
       </section>
+
+      {/* ── 6. Guides ── */}
+      {guides.length > 0 && (
+        <section className="py-16 lg:py-20" style={{ backgroundColor: '#F6FFFA' }}>
+          <div className="section-max-width section-padding">
+            <h2 className="mb-10 text-center text-3xl font-bold italic lg:text-4xl">
+              <span className="text-foreground">{t('guidesTitle')}</span>{' '}
+              <span style={{ color: '#007429' }}>{t('guidesTitleSuffix')}</span>
+            </h2>
+            <div className="mx-auto grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2">
+              {guides.map((g) => (
+                <Link
+                  key={g.slug}
+                  href={`/guide/${g.slug}`}
+                  className="group flex items-center justify-between gap-3 rounded-2xl border border-primary/15 bg-white p-5 shadow-sm transition-all hover:shadow-md"
+                >
+                  <span className="text-sm font-semibold leading-relaxed text-foreground transition-colors group-hover:text-primary">
+                    {g.title}
+                  </span>
+                  <ArrowRight size={14} className="shrink-0 text-primary opacity-60 transition-opacity group-hover:opacity-100" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── 7. KR tourist FAQ ── */}
       <FaqSection

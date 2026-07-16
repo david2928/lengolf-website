@@ -1,4 +1,5 @@
 import { ArrowRight, MapPin } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import type { GolfCourse } from '@/types/golf-courses'
 import { driveTimeLabel } from '@/lib/format'
@@ -20,6 +21,9 @@ function firstSentence(text: string): string {
 }
 
 export default function RoundupList({ items }: Props) {
+  // Localized UI labels — this component renders on translated locale routes
+  // (e.g. /th/golf-courses/under/*), so chip text must not be hardcoded EN.
+  const t = useTranslations('GolfCourseShared')
   return (
     <ol className="space-y-4">
       {items.map((item, idx) => {
@@ -55,7 +59,7 @@ export default function RoundupList({ items }: Props) {
                 <div className="mt-2.5 flex flex-wrap items-center gap-2">
                   {c.green_fee_weekday_thb !== null && (
                     <span className="rounded-full border border-primary/20 bg-primary/5 px-2.5 py-0.5 text-[11px] font-semibold text-primary">
-                      from {c.green_fee_weekday_thb.toLocaleString('en-US')} THB
+                      {t('feeFrom', { price: c.green_fee_weekday_thb.toLocaleString('en-US') })}
                     </span>
                   )}
                   {c.drive_time_from_bangkok_min !== null && (

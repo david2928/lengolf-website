@@ -57,6 +57,32 @@ const TRANSLATED_ROUTES: Record<
       "/guide/golf-simulator-for-non-golfers-guide",
       "/guide/best-golf-simulators-bangkok",
       "/guide/golf-simulator-vs-real-course-bangkok",
+      "/guide/green-fees-bangkok-golf-courses",
+      // Translated region hubs (data/golf-courses-i18n.ts) — kept in sync by the
+      // smoke-test region-hub consistency check.
+      "/golf-courses/bangkok",
+      "/golf-courses/phuket",
+      "/golf-courses/pattaya",
+      "/golf-courses/hua-hin",
+      "/golf-courses/chiang-mai",
+      // Translated price-tier pages (data/price-tiers.ts PRICE_TIER_I18N) —
+      // kept in sync by the smoke-test price-tier registry consistency check.
+      "/golf-courses/under/1500-baht",
+      "/golf-courses/under/2500-baht",
+      "/golf-courses/under/3500-baht",
+      "/golf-courses/under/5000-baht",
+      "/golf-courses/under/7500-baht",
+      // Translated FAQ pages (data/faq-pages.ts entries with locale: 'th') —
+      // must stay in sync with the data file; the smoke-test registry-
+      // consistency check (section I) enforces it, mirroring the guide check.
+      "/faq/can-i-rent-golf-clubs-in-bangkok",
+      "/faq/are-rental-golf-clubs-good-enough",
+      "/faq/how-accurate-are-golf-simulators",
+      "/faq/do-i-need-experience-to-play-golf-simulator",
+      "/faq/can-beginners-play-golf-simulators",
+      "/faq/how-long-does-simulator-golf-take",
+      "/faq/best-way-to-learn-golf-in-bangkok",
+      "/faq/can-kids-play-golf-simulators",
     ],
     dynamicRoutePatterns: [],
   },
@@ -342,6 +368,20 @@ export function getRegisteredGuidePaths(locale: string): string[] {
 }
 
 /**
+ * FAQ paths registered as translated for `locale` (the '/faq/...' entries in
+ * staticRoutes). Mirrors getRegisteredGuidePaths — this registry cannot
+ * import data/faq-pages.ts (it is bundled into the edge middleware, and
+ * data/faq-pages.ts runtime-imports lib/pricing), so the smoke tests assert
+ * this list stays in sync with the locale-tagged entries in the data file —
+ * see scripts/smoke-test.ts registry-consistency check.
+ */
+export function getRegisteredFaqPaths(locale: string): string[] {
+  return (TRANSLATED_ROUTES[locale]?.staticRoutes ?? []).filter((r) =>
+    r.startsWith("/faq/"),
+  );
+}
+
+/**
  * Region-hub paths registered as translated for `locale` (the two-segment
  * '/golf-courses/<region>' entries in staticRoutes). Like getRegisteredGuidePaths,
  * this registry cannot import data/golf-courses-i18n.ts (it is bundled into the
@@ -354,6 +394,24 @@ export function getRegisteredRegionHubPaths(locale: string): string[] {
     (r) =>
       r.startsWith("/golf-courses/") &&
       r.split("/").filter(Boolean).length === 2,
+  );
+}
+
+/**
+ * Price-tier paths registered as translated for `locale` (the three-segment
+ * '/golf-courses/under/<tier>' entries in staticRoutes). Like
+ * getRegisteredRegionHubPaths, this registry cannot import data/price-tiers.ts
+ * for the tier prefix check (kept consistent with the sibling helpers even
+ * though price-tiers.ts itself has no server-only guard), so the smoke tests
+ * assert this list stays in sync with PRICE_TIER_I18N — see scripts/smoke-test.ts
+ * price-tier registry consistency check. The prefix + length===3 filter
+ * excludes the two-segment region-hub paths above.
+ */
+export function getRegisteredPriceTierPaths(locale: string): string[] {
+  return (TRANSLATED_ROUTES[locale]?.staticRoutes ?? []).filter(
+    (r) =>
+      r.startsWith("/golf-courses/under/") &&
+      r.split("/").filter(Boolean).length === 3,
   );
 }
 

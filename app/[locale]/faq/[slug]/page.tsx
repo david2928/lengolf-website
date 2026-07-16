@@ -1,43 +1,49 @@
 import { setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getAllSeoPageSlugs, getSeoPageBySlug } from '@/lib/seo-pages'
-import { SITE_URL } from '@/lib/constants'
+import { getAllSeoPageParams, getSeoPageBySlug } from '@/lib/seo-pages'
+import { getAlternates, getCanonical } from '@/lib/translated-routes'
 import { getSeoFaqPageJsonLd } from '@/lib/jsonld'
 import FaqPageComponent from '@/components/faq/FaqPage'
 import type { FaqSeoPage } from '@/types/seo-pages'
-import { routing } from '@/i18n/routing'
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>
 }
 
 export async function generateStaticParams() {
-  const slugs = await getAllSeoPageSlugs('faq')
-  return routing.locales.flatMap((locale) =>
-    slugs.map((slug) => ({ locale, slug }))
-  )
+  // Only build locale×slug combos that have published content — untranslated
+  // locale URLs 301 to English via the middleware (lib/translated-routes.ts).
+  // (Previously this built every slug × every locale, which was harmless while
+  // no FAQ translations existed; with locale entries it would render the wrong
+  // language. Mirrors app/[locale]/guide/[slug]/page.tsx.)
+  return getAllSeoPageParams('faq')
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params
-  const page = await getSeoPageBySlug(slug, 'faq')
+  const { locale, slug } = await params
+  const page = await getSeoPageBySlug(slug, 'faq', locale)
 
   if (!page) {
     return { title: 'Page Not Found' }
   }
 
+  // Only emit hreflang when a translation actually exists — a lone
+  // self-referential hreflang="en" cluster is audit noise and would
+  // contradict the sitemap, which applies the same guard.
+  const languages = getAlternates(`/faq/${slug}/`)
   return {
     title: page.title,
     description: page.meta_description || undefined,
     openGraph: {
       title: page.title,
       description: page.meta_description || undefined,
-      url: `${SITE_URL}/faq/${slug}/`,
+      url: getCanonical(locale, `/faq/${slug}/`),
       type: 'website',
     },
     alternates: {
-      canonical: `${SITE_URL}/faq/${slug}/`,
+      canonical: getCanonical(locale, `/faq/${slug}/`),
+      ...(Object.keys(languages).length > 1 ? { languages } : {}),
     },
   }
 }
@@ -45,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function FaqPage({ params }: Props) {
   const { locale, slug } = await params
   setRequestLocale(locale)
-  const page = await getSeoPageBySlug(slug, 'faq') as FaqSeoPage | null
+  const page = await getSeoPageBySlug(slug, 'faq', locale) as FaqSeoPage | null
 
   if (!page) {
     notFound()

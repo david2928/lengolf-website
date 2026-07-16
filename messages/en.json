@@ -1130,6 +1130,23 @@
     "openGuide": "Open guide",
     "close": "Close"
   },
+  "GolfCoursePriceTier": {
+    "metaDescription": "Top Bangkok-area golf courses with weekday green fees under ฿{amount}, with what to expect at this price band.",
+    "breadcrumbGolfCourses": "Golf Courses",
+    "breadcrumbCurrent": "Under ฿{amount}",
+    "eyebrowBadge": "Weekday green fee · Under ฿{amount}",
+    "catchHeading": "What's the catch?",
+    "topCoursesHeading": "Top {count} courses, weekday fee under ฿{amount}",
+    "roundupReason": "Weekday from {price} THB.",
+    "otherPriceBands": "Other price bands"
+  },
+  "GolfCourseShared": {
+    "feeFrom": "from {price} THB",
+    "bookNow": "Book now",
+    "learnMore": "Learn more",
+    "rentalEyebrow": "No clubs? No problem.",
+    "rentalBody": "Rent premium clubs delivered to your Bangkok hotel — Callaway Paradym, Warbird, Majesty. From <price>1,200 THB/day</price>. No baggage fees, no airport hassle."
+  },
   "ExplainerPage": {
     "guideLabel": "LENGOLF Guide",
     "bookABay": "Book a Bay",
