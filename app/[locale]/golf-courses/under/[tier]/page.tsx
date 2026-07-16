@@ -1,11 +1,12 @@
-import { setRequestLocale } from 'next-intl/server'
+import { setRequestLocale, getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { Link } from '@/i18n/navigation'
 import { SITE_URL } from '@/lib/constants'
+import { getAlternates, getCanonical } from '@/lib/translated-routes'
 import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 import { getCourseRoundupJsonLd } from '@/lib/jsonld-courses'
-import { PRICE_TIERS } from '@/data/price-tiers'
+import { PRICE_TIERS, getPriceTierTranslation, getTranslatedPriceTierParams } from '@/data/price-tiers'
 import { getCoursesUnderPrice, getPriceTierSlugs } from '@/lib/golf-courses-derived'
 import RoundupList from '@/components/golf-courses/RoundupList'
 import CrossLinkBlock from '@/components/golf-courses/CrossLinkBlock'
@@ -18,22 +19,39 @@ interface Props {
 export const revalidate = 86400
 
 export async function generateStaticParams() {
-  return getPriceTierSlugs().map((tier) => ({ tier }))
+  // EN builds every tier; other locales build only tiers with a published
+  // translation (untranslated locale URLs 301 to English via the middleware).
+  return [
+    ...getPriceTierSlugs().map((tier) => ({ locale: 'en', tier })),
+    ...getTranslatedPriceTierParams(),
+  ]
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { tier } = await params
+  const { locale, tier } = await params
   const meta = PRICE_TIERS.find((t) => t.slug === tier)
   if (!meta) return { title: 'Price Tier Not Found' }
 
-  const description = `Top Bangkok-area golf courses with weekday green fees under ฿${meta.thb.toLocaleString('en-US')}, with what to expect at this price band.`
-  const canonicalUrl = `${SITE_URL}/golf-courses/under/${tier}/`
+  const tr = getPriceTierTranslation(tier, locale)
+  const title = tr?.title ?? meta.title
+  const amount = meta.thb.toLocaleString('en-US')
+  const t = await getTranslations({ locale, namespace: 'GolfCoursePriceTier' })
+  const description = t('metaDescription', { amount })
+  const path = `/golf-courses/under/${tier}/`
+  const canonical = getCanonical(locale, path)
+
+  // Only emit hreflang when a translation actually exists — a lone
+  // self-referential hreflang="en" cluster is audit noise (matches the sitemap).
+  const languages = getAlternates(path)
 
   return {
-    title: meta.title,
+    title,
     description,
-    alternates: { canonical: canonicalUrl },
-    openGraph: { title: meta.title, description, url: canonicalUrl, type: 'website' },
+    alternates: {
+      canonical,
+      ...(Object.keys(languages).length > 1 ? { languages } : {}),
+    },
+    openGraph: { title, description, url: canonical, type: 'website' },
   }
 }
 
@@ -47,15 +65,22 @@ export default async function CoursesUnderPricePage({ params }: Props) {
   const courses = await getCoursesUnderPrice(meta.thb, 12)
   if (courses.length === 0) notFound()
 
-  const canonicalUrl = `${SITE_URL}/golf-courses/under/${tier}/`
+  const t = await getTranslations('GolfCoursePriceTier')
+  const tr = getPriceTierTranslation(tier, locale)
+  const title = tr?.title ?? meta.title
+  const framing = tr?.framing ?? meta.framing
+  const catchText = tr?.catch ?? meta.catch
+  const amount = meta.thb.toLocaleString('en-US')
+
+  const canonicalUrl = getCanonical(locale, `/golf-courses/under/${tier}/`)
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
-    { name: 'Golf Courses', url: `${SITE_URL}/golf-courses/` },
-    { name: meta.title, url: canonicalUrl },
+    { name: t('breadcrumbGolfCourses'), url: `${SITE_URL}/golf-courses/` },
+    { name: title, url: canonicalUrl },
   ])
-  const listJsonLd = getCourseRoundupJsonLd(courses, canonicalUrl, meta.title)
+  const listJsonLd = getCourseRoundupJsonLd(courses, canonicalUrl, title)
 
-  const otherTiers = PRICE_TIERS.filter((t) => t.slug !== tier)
+  const otherTiers = PRICE_TIERS.filter((pt) => pt.slug !== tier)
 
   return (
     <>
@@ -70,18 +95,18 @@ export default async function CoursesUnderPricePage({ params }: Props) {
         </div>
         <div className="relative mx-auto max-w-5xl px-4 pb-16 pt-10 sm:px-6 lg:px-8">
           <nav className="mb-6 flex items-center gap-1.5 text-xs text-white/50">
-            <Link href="/golf-courses" className="transition-colors hover:text-white/80">Golf Courses</Link>
+            <Link href="/golf-courses" className="transition-colors hover:text-white/80">{t('breadcrumbGolfCourses')}</Link>
             <span>/</span>
-            <span className="text-white/70">Under ฿{meta.thb.toLocaleString('en-US')}</span>
+            <span className="text-white/70">{t('breadcrumbCurrent', { amount })}</span>
           </nav>
           <div className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white/80 backdrop-blur-sm">
-            Weekday green fee · Under ฿{meta.thb.toLocaleString('en-US')}
+            {t('eyebrowBadge', { amount })}
           </div>
           <h1 className="text-3xl font-black leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
-            {meta.title}
+            {title}
           </h1>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-white/75">
-            {meta.framing}
+            {framing}
           </p>
         </div>
         <div className="absolute -bottom-px left-0 right-0" aria-hidden="true">
@@ -96,33 +121,38 @@ export default async function CoursesUnderPricePage({ params }: Props) {
         {/* What's the catch */}
         <section className="rounded-2xl border border-accent/30 bg-accent/5 p-5">
           <h2 className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: '#b8892e' }}>
-            What&apos;s the catch?
+            {t('catchHeading')}
           </h2>
-          <p className="text-sm leading-relaxed text-foreground/85">{meta.catch}</p>
+          <p className="text-sm leading-relaxed text-foreground/85">{catchText}</p>
         </section>
 
         <section>
           <h2 className="mb-4 text-xs font-bold uppercase tracking-widest text-primary">
-            Top {courses.length} courses, weekday fee under ฿{meta.thb.toLocaleString('en-US')}
+            {t('topCoursesHeading', { count: courses.length, amount })}
           </h2>
           <RoundupList
             items={courses.map((c) => ({
               course: c,
               reason:
                 c.green_fee_weekday_thb !== null
-                  ? `Weekday from ${c.green_fee_weekday_thb.toLocaleString('en-US')} THB.`
+                  ? t('roundupReason', { price: c.green_fee_weekday_thb.toLocaleString('en-US') })
                   : '',
             }))}
           />
         </section>
 
-        <RentalCtaBanner />
+        <RentalCtaBanner
+          eyebrow={t('rentalEyebrow')}
+          body={t.rich('rentalBody', {
+            price: (chunks) => <strong className="text-white">{chunks}</strong>,
+          })}
+        />
 
         <CrossLinkBlock
-          heading="Other price bands"
-          items={otherTiers.map((t) => ({
-            label: t.title.replace('Best Bangkok-Area Golf Courses ', ''),
-            href: `/golf-courses/under/${t.slug}`,
+          heading={t('otherPriceBands')}
+          items={otherTiers.map((ot) => ({
+            label: t('breadcrumbCurrent', { amount: ot.thb.toLocaleString('en-US') }),
+            href: `/golf-courses/under/${ot.slug}`,
           }))}
         />
       </div>

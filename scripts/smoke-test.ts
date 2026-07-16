@@ -1629,6 +1629,33 @@ const routeTests: RouteTest[] = [
     expectedStatus: [200],
     contentMarker: '<main id="main-content">',
   },
+  // Translated TH price-tier pages (data/price-tiers.ts PRICE_TIER_I18N + th
+  // allowlist entries) — all 5 tiers are translated in this batch.
+  {
+    path: "/th/golf-courses/under/1500-baht/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/golf-courses/under/2500-baht/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/golf-courses/under/3500-baht/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/golf-courses/under/5000-baht/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/golf-courses/under/7500-baht/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
   // Golf course detail pages — spot-check one Bangkok + two Pattaya + two Hua Hin + two Phuket
   {
     path: "/golf-courses/bangkok/nikanti-golf-club/",
@@ -2324,6 +2351,14 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
     expectedLocation: "/golf-courses/koh-samui/",
     label: "Untranslated TH region hub (only translated regions may 200)",
   },
+  // Untranslated price-tier locale must still 301 to English — ja has no
+  // PRICE_TIER_I18N entries (only th is translated as of this batch). Guards
+  // the price-tier allowlist; pick another locale here if ja ever gains one.
+  {
+    path: "/ja/golf-courses/under/3500-baht/",
+    expectedLocation: "/golf-courses/under/3500-baht/",
+    label: "Untranslated JA price tier (only translated locales may 200)",
+  },
   {
     path: "/ko/hotels/",
     expectedLocation: "/hotels/",
@@ -2902,6 +2937,57 @@ async function runRegionHubRegistryConsistencyTests() {
   }
 }
 
+// ── J2) Translated price-tier registry consistency ──────────────────
+// Same drift guard as section J, for the golf-course PRICE-TIER pages. The
+// middleware allowlist (lib/translated-routes.ts) cannot import
+// data/price-tiers.ts (edge-bundled), so nothing at build time ties the two
+// lists together. Fails CI in both directions: a translated tier missing from
+// the registry is built but 301'd away (translation unreachable); a registry
+// entry without a translation would 200 into the EN-fallback while
+// hreflang/sitemap advertise it.
+
+async function runPriceTierRegistryConsistencyTests() {
+  console.log("\n\x1b[1mJ2) Translated price-tier registry consistency\x1b[0m");
+  const { getTranslatedPriceTierParams } = await import("../data/price-tiers");
+  const { getRegisteredPriceTierPaths, ALL_LOCALES } =
+    await import("../lib/translated-routes");
+
+  // Per-locale sets of '/golf-courses/under/<tier>' paths from the data file.
+  const dataByLocale: Record<string, Set<string>> = {};
+  for (const { locale, tier } of getTranslatedPriceTierParams()) {
+    (dataByLocale[locale] ??= new Set<string>()).add(
+      `/golf-courses/under/${tier}`,
+    );
+  }
+
+  for (const locale of ALL_LOCALES) {
+    if (locale === "en") continue;
+    const fromData = dataByLocale[locale] ?? new Set<string>();
+    const fromRegistry = new Set(getRegisteredPriceTierPaths(locale));
+    const missingInRegistry = [...fromData].filter((p) => !fromRegistry.has(p));
+    const missingInData = [...fromRegistry].filter((p) => !fromData.has(p));
+
+    if (missingInRegistry.length === 0 && missingInData.length === 0) {
+      pass(
+        `Price-tier registry ⇄ data in sync for '${locale}' (${fromData.size} translated tiers)`,
+      );
+    } else {
+      if (missingInRegistry.length > 0) {
+        fail(
+          `Registry missing '${locale}' price tier(s)`,
+          `${missingInRegistry.join(", ")} — add to ${locale}.staticRoutes in lib/translated-routes.ts or the translation is unreachable (middleware 301s it)`,
+        );
+      }
+      if (missingInData.length > 0) {
+        fail(
+          `Registry lists '${locale}' price tier(s) with no data`,
+          `${missingInData.join(", ")} — remove from lib/translated-routes.ts or add a translation in data/price-tiers.ts PRICE_TIER_I18N (currently serves EN fallback while advertised in hreflang)`,
+        );
+      }
+    }
+  }
+}
+
 // ── K) Data-driven internal-link liveness ───────────────────────────
 // Complement to scripts/validate-internal-links.ts: the static validator
 // covers the six SEO sections (/faq, /guide, /cost, /best, /activities,
@@ -2976,6 +3062,7 @@ async function main() {
   await runLlmDiscoverabilityTests();
   await runRegistryConsistencyTests();
   await runRegionHubRegistryConsistencyTests();
+  await runPriceTierRegistryConsistencyTests();
   await runDataLinkLivenessTests();
 
   console.log(`\n\x1b[1m${passed} passed, ${failed} failed\x1b[0m`);

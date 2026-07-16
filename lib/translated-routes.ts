@@ -64,6 +64,13 @@ const TRANSLATED_ROUTES: Record<
       "/golf-courses/pattaya",
       "/golf-courses/hua-hin",
       "/golf-courses/chiang-mai",
+      // Translated price-tier pages (data/price-tiers.ts PRICE_TIER_I18N) —
+      // kept in sync by the smoke-test price-tier registry consistency check.
+      "/golf-courses/under/1500-baht",
+      "/golf-courses/under/2500-baht",
+      "/golf-courses/under/3500-baht",
+      "/golf-courses/under/5000-baht",
+      "/golf-courses/under/7500-baht",
       // Translated FAQ pages (data/faq-pages.ts entries with locale: 'th') —
       // must stay in sync with the data file; the smoke-test registry-
       // consistency check (section I) enforces it, mirroring the guide check.
@@ -386,6 +393,24 @@ export function getRegisteredRegionHubPaths(locale: string): string[] {
     (r) =>
       r.startsWith("/golf-courses/") &&
       r.split("/").filter(Boolean).length === 2,
+  );
+}
+
+/**
+ * Price-tier paths registered as translated for `locale` (the three-segment
+ * '/golf-courses/under/<tier>' entries in staticRoutes). Like
+ * getRegisteredRegionHubPaths, this registry cannot import data/price-tiers.ts
+ * for the tier prefix check (kept consistent with the sibling helpers even
+ * though price-tiers.ts itself has no server-only guard), so the smoke tests
+ * assert this list stays in sync with PRICE_TIER_I18N — see scripts/smoke-test.ts
+ * price-tier registry consistency check. The prefix + length===3 filter
+ * excludes the two-segment region-hub paths above.
+ */
+export function getRegisteredPriceTierPaths(locale: string): string[] {
+  return (TRANSLATED_ROUTES[locale]?.staticRoutes ?? []).filter(
+    (r) =>
+      r.startsWith("/golf-courses/under/") &&
+      r.split("/").filter(Boolean).length === 3,
   );
 }
 
