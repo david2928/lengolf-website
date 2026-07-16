@@ -57,6 +57,17 @@ const TRANSLATED_ROUTES: Record<
       "/guide/golf-simulator-for-non-golfers-guide",
       "/guide/best-golf-simulators-bangkok",
       "/guide/golf-simulator-vs-real-course-bangkok",
+      // Translated FAQ pages (data/faq-pages.ts entries with locale: 'th') —
+      // must stay in sync with the data file; the smoke-test registry-
+      // consistency check (section I) enforces it, mirroring the guide check.
+      "/faq/can-i-rent-golf-clubs-in-bangkok",
+      "/faq/are-rental-golf-clubs-good-enough",
+      "/faq/how-accurate-are-golf-simulators",
+      "/faq/do-i-need-experience-to-play-golf-simulator",
+      "/faq/can-beginners-play-golf-simulators",
+      "/faq/how-long-does-simulator-golf-take",
+      "/faq/best-way-to-learn-golf-in-bangkok",
+      "/faq/can-kids-play-golf-simulators",
     ],
     dynamicRoutePatterns: [],
   },
@@ -338,6 +349,20 @@ export function hasThaiTranslation(pathname: string): boolean {
 export function getRegisteredGuidePaths(locale: string): string[] {
   return (TRANSLATED_ROUTES[locale]?.staticRoutes ?? []).filter((r) =>
     r.startsWith("/guide/"),
+  );
+}
+
+/**
+ * FAQ paths registered as translated for `locale` (the '/faq/...' entries in
+ * staticRoutes). Mirrors getRegisteredGuidePaths — this registry cannot
+ * import data/faq-pages.ts (it is bundled into the edge middleware, and
+ * data/faq-pages.ts runtime-imports lib/pricing), so the smoke tests assert
+ * this list stays in sync with the locale-tagged entries in the data file —
+ * see scripts/smoke-test.ts registry-consistency check.
+ */
+export function getRegisteredFaqPaths(locale: string): string[] {
+  return (TRANSLATED_ROUTES[locale]?.staticRoutes ?? []).filter((r) =>
+    r.startsWith("/faq/"),
   );
 }
 

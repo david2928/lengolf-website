@@ -102,12 +102,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   }))
 
-  const faqPageEntries: MetadataRoute.Sitemap = faqSlugs.map((slug) => ({
-    url: `${SITE_URL}/faq/${slug}/`,
-    lastModified: reviewed,
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }))
+  const faqPageEntries: MetadataRoute.Sitemap = faqSlugs.map((slug) => {
+    // Emit hreflang alternates only for FAQs with translations
+    // (registered in lib/translated-routes.ts) — EN-only FAQs stay plain.
+    const languages = getAlternates(`/faq/${slug}/`)
+    return {
+      url: `${SITE_URL}/faq/${slug}/`,
+      lastModified: reviewed,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+      ...(Object.keys(languages).length > 1 ? { alternates: { languages } } : {}),
+    }
+  })
 
   const hotelPages: MetadataRoute.Sitemap = hotelSlugs.map((slug) => ({
     url: `${SITE_URL}/hotels/${slug}/`,
