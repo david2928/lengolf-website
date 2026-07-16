@@ -57,6 +57,13 @@ const TRANSLATED_ROUTES: Record<
       "/guide/golf-simulator-for-non-golfers-guide",
       "/guide/best-golf-simulators-bangkok",
       "/guide/golf-simulator-vs-real-course-bangkok",
+      // Translated region hubs (data/golf-courses-i18n.ts) — kept in sync by the
+      // smoke-test region-hub consistency check.
+      "/golf-courses/bangkok",
+      "/golf-courses/phuket",
+      "/golf-courses/pattaya",
+      "/golf-courses/hua-hin",
+      "/golf-courses/chiang-mai",
       // Translated FAQ pages (data/faq-pages.ts entries with locale: 'th') —
       // must stay in sync with the data file; the smoke-test registry-
       // consistency check (section I) enforces it, mirroring the guide check.

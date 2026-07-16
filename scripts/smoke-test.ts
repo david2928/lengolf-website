@@ -1603,6 +1603,32 @@ const routeTests: RouteTest[] = [
     expectedStatus: [200],
     contentMarker: '<main id="main-content">',
   },
+  // Translated TH region hubs (data/golf-courses-i18n.ts + th allowlist entries)
+  {
+    path: "/th/golf-courses/bangkok/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/golf-courses/phuket/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/golf-courses/pattaya/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/golf-courses/hua-hin/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/th/golf-courses/chiang-mai/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
   // Golf course detail pages — spot-check one Bangkok + two Pattaya + two Hua Hin + two Phuket
   {
     path: "/golf-courses/bangkok/nikanti-golf-club/",
@@ -2292,6 +2318,11 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
     path: "/zh/golf-courses/koh-samui/",
     expectedLocation: "/golf-courses/koh-samui/",
     label: "Untranslated ZH region hub (only translated regions may 200)",
+  },
+  {
+    path: "/th/golf-courses/koh-samui/",
+    expectedLocation: "/golf-courses/koh-samui/",
+    label: "Untranslated TH region hub (only translated regions may 200)",
   },
   {
     path: "/ko/hotels/",

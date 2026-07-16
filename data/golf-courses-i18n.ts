@@ -10,7 +10,7 @@
  *
  * `label` is intentionally translated (not passed through from REGION_META): the
  * localized place name is the SEO crux for these hubs — target queries are
- * 曼谷高尔夫球场 / バンコク ゴルフ場 / 방콕 골프장.
+ * 曼谷高尔夫球场 / バンコク ゴルフ場 / 방콕 골프장 / สนามกอล์ฟกรุงเทพฯ.
  *
  * Only regions with a published translation appear here. Adding a (region,
  * locale) below REQUIRES adding the matching '/golf-courses/<region>' entry to
@@ -28,7 +28,7 @@ export interface RegionHubTranslation {
   description: string
 }
 
-type HubLocale = 'ja' | 'ko' | 'zh'
+type HubLocale = 'ja' | 'ko' | 'zh' | 'th'
 
 export const REGION_HUB_I18N: Partial<
   Record<Region, Partial<Record<HubLocale, RegionHubTranslation>>>
@@ -52,6 +52,12 @@ export const REGION_HUB_I18N: Partial<
       description:
         '曼谷及其周边府拥有泰国一些最优质的高尔夫球场——从巴吞他尼的锦标赛级球场，到距离市中心90分钟车程以内的度假村球场，选择丰富。',
     },
+    th: {
+      label: 'กรุงเทพฯ',
+      province: 'กรุงเทพฯ และจังหวัดโดยรอบ',
+      description:
+        'กรุงเทพฯ และจังหวัดโดยรอบเป็นที่ตั้งของสนามกอล์ฟที่ดีที่สุดแห่งหนึ่งของไทย ตั้งแต่สนามระดับแชมเปียนชิพในปทุมธานี ไปจนถึงสนามรีสอร์ตที่เข้าถึงง่ายภายในระยะเวลาไม่เกิน 90 นาทีจากใจกลางเมือง',
+    },
   },
   phuket: {
     ja: {
@@ -71,6 +77,12 @@ export const REGION_HUB_I18N: Partial<
       province: '普吉',
       description:
         '普吉的高尔夫以昔日锡矿改造而成的壮观地貌、举世闻名的赛事球场，以及沿着岛上著名海岸线铺展的度假村球场著称——从备受赞誉的红山球场，到举办过尊尼获加精英赛的蓝色峡谷球道，应有尽有。',
+    },
+    th: {
+      label: 'ภูเก็ต',
+      province: 'ภูเก็ต',
+      description:
+        'วงการกอล์ฟภูเก็ตโดดเด่นด้วยภูมิทัศน์อดีตเหมืองแร่ดีบุกอันน่าตื่นตา สนามอันโด่งดังที่เคยเป็นเจ้าภาพจัดการแข่งขัน และสนามรีสอร์ตที่ทอดยาวตามแนวชายฝั่งอันโด่งดังของเกาะ — ตั้งแต่ Red Mountain ที่ได้รับการยกย่อง ไปจนถึงแฟร์เวย์ของ Blue Canyon ที่เคยจัดการแข่งขัน Johnnie Walker Classic',
     },
   },
   pattaya: {
@@ -92,6 +104,12 @@ export const REGION_HUB_I18N: Partial<
       description:
         '芭提雅与泰国东部沿海地区坐拥全国一些最壮观的高尔夫球场——既有举办过亚巡赛的锦标赛球场，也有可眺望海景的海岸球场，还有隐于热带丘陵间的会员制私人俱乐部。',
     },
+    th: {
+      label: 'พัทยา',
+      province: 'ชลบุรีและชายฝั่งทะเลตะวันออก',
+      description:
+        'พัทยาและชายฝั่งทะเลตะวันออกของไทยมีสนามกอล์ฟที่งดงามที่สุดแห่งหนึ่งของประเทศ ทั้งสนามระดับแชมเปียนชิพที่เคยเป็นเจ้าภาพจัดการแข่งขัน Asian Tour สนามริมทะเลที่มองเห็นวิวทะเล และคันทรีคลับสำหรับสมาชิกท่ามกลางเนินเขาเขตร้อน',
+    },
   },
   'hua-hin': {
     ja: {
@@ -112,6 +130,12 @@ export const REGION_HUB_I18N: Partial<
       description:
         '华欣与差安坐拥泰国一些最负盛名的高尔夫球场——从入选《高尔夫文摘》百佳榜的黑山球场，到跻身世界排名的菠萝谷球场，皆坐落于群山与泰国湾的环抱之中。',
     },
+    th: {
+      label: 'หัวหิน',
+      province: 'ประจวบคีรีขันธ์และเพชรบุรี',
+      description:
+        'หัวหินและชะอำเป็นที่ตั้งของสนามกอล์ฟที่มีชื่อเสียงที่สุดแห่งหนึ่งของไทย ตั้งแต่ Black Mountain สนามที่ติดอันดับ Golf Digest Top 100 ไปจนถึง Pineapple Valley สนามที่ติดอันดับโลก โดยทุกสนามตั้งอยู่ท่ามกลางแนวเทือกเขาและอ่าวไทย',
+    },
   },
   'chiang-mai': {
     ja: {
@@ -131,6 +155,12 @@ export const REGION_HUB_I18N: Partial<
       province: '清迈府',
       description:
         '清迈拥有泰国北部最为丰富多样的高尔夫球场——从卡桑集团旗下三座风格迥异的锦标赛球场，到彼得·汤姆森设计的皇家清迈球场、位于市区的27洞兰纳球场，以及邻近因他侬国家公园、高性价比的清迈因他侬度假村。所有球场距曼谷仅有短途航程。',
+    },
+    th: {
+      label: 'เชียงใหม่',
+      province: 'เชียงใหม่',
+      description:
+        'เชียงใหม่มอบประสบการณ์กอล์ฟที่หลากหลายที่สุดของภาคเหนือ ตั้งแต่สนามแชมเปียนชิพทั้งสามแห่งอันมีเอกลักษณ์เฉพาะตัวของกลุ่ม Gassan ไปจนถึง Royal Chiang Mai ที่ออกแบบโดย Peter Thomson สนาม Lanna 27 หลุมใจกลางเมือง และ Chiangmai Inthanon รีสอร์ตคุ้มราคาใกล้อุทยานแห่งชาติดอยอินทนนท์ ทุกสนามอยู่ห่างจากกรุงเทพฯ เพียงเที่ยวบินระยะสั้น',
     },
   },
 }
