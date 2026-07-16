@@ -57,6 +57,7 @@ const TRANSLATED_ROUTES: Record<
       "/guide/golf-simulator-for-non-golfers-guide",
       "/guide/best-golf-simulators-bangkok",
       "/guide/golf-simulator-vs-real-course-bangkok",
+      "/guide/green-fees-bangkok-golf-courses",
       // Translated region hubs (data/golf-courses-i18n.ts) — kept in sync by the
       // smoke-test region-hub consistency check.
       "/golf-courses/bangkok",

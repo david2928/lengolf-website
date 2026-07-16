@@ -624,6 +624,11 @@ const routeTests: RouteTest[] = [
     contentMarker: '<main id="main-content">',
     contentAbsent: "{{",
   },
+  {
+    path: "/th/guide/green-fees-bangkok-golf-courses/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
   // Auto-translated guide batch (ja/ko/zh/th)
   {
     path: "/ja/guide/corporate-golf-events-bangkok/",
@@ -2309,12 +2314,6 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
     expectedLocation: "/guide/round-of-golf-cost-bangkok/",
     label:
       "Untranslated TH guide — round-of-golf-cost (only translated guide slugs may 200)",
-  },
-  {
-    path: "/th/guide/green-fees-bangkok-golf-courses/",
-    expectedLocation: "/guide/green-fees-bangkok-golf-courses/",
-    label:
-      "Untranslated TH guide — green-fees (only translated guide slugs may 200)",
   },
   // Untranslated FAQ must still 301 to English. Only the 8 FAQ slugs in the
   // th.staticRoutes allowlist (lib/translated-routes.ts) may 200 under /th/faq/.
