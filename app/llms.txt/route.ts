@@ -3,7 +3,8 @@ import { SITE_URL, BUSINESS_INFO, SOCIAL_LINKS, BOOKING_URL } from '@/lib/consta
 import { getAllPosts } from '@/lib/blog'
 import { getSeoPagesByType } from '@/lib/seo-pages'
 import { getFactTokens, interpolateFacts } from '@/lib/site-facts'
-import { ALL_LOCALES, type Locale } from '@/lib/translated-routes'
+import { ALL_LOCALES, getRegisteredRegionHubPaths, type Locale } from '@/lib/translated-routes'
+import { getRegionHubTranslation } from '@/data/golf-courses-i18n'
 import type { SeoPageType } from '@/types/seo-pages'
 
 /**
@@ -33,16 +34,16 @@ const NON_EN_LOCALES = ALL_LOCALES.filter(
  * here to extend the locale loop to a new page type; each becomes
  * "## <label> (<LOCALE_LABELS[locale]>)" once that locale has published pages.
  *
- * TH FAQ is landing in a parallel workstream this batch — once data/faq-pages.ts
- * has published 'th' entries, add { type: 'faq', label: 'FAQ', urlPrefix: 'faq' }
- * — but ONLY once the '/faq/<slug>' paths are also registered in that locale's
- * staticRoutes (lib/translated-routes.ts). Otherwise the middleware 301s every
- * emitted /<locale>/faq/<slug>/ URL to English, and this file would advertise
- * "translated" links that redirect away. (Guides are safe because smoke
- * section I enforces registry ⇄ data sync; give FAQ the same check.)
+ * Before adding a future page type here, confirm its published locale entries
+ * in the data file are ALSO registered as '/<prefix>/<slug>' paths in that
+ * locale's staticRoutes (lib/translated-routes.ts). Otherwise the middleware
+ * 301s every emitted /<locale>/<prefix>/<slug>/ URL to English, and this file
+ * would advertise "translated" links that redirect away. (Guides and FAQ are
+ * both safe: smoke section I enforces registry ⇄ data sync for each.)
  */
 const LOCALE_PAGE_TYPES: { type: SeoPageType; label: string; urlPrefix: string }[] = [
   { type: 'explainer', label: 'Guides', urlPrefix: 'guide' },
+  { type: 'faq', label: 'FAQ', urlPrefix: 'faq' },
 ]
 
 const KEY_PAGES: { title: string; path: string; desc: string }[] = [
@@ -136,6 +137,28 @@ export async function GET() {
           .join('\n')}`
       )
     }
+  }
+
+  // Per-locale region-hub listings (app/[locale]/golf-courses/[region]/page.tsx).
+  // Hubs are a distinct mechanism from LOCALE_PAGE_TYPES above: they aren't a
+  // SeoPageType / getSeoPagesByType entry, and their localized label comes
+  // from getRegionHubTranslation (data/golf-courses-i18n.ts), not fact tokens
+  // — hub labels carry no {{tokens}}. getRegisteredRegionHubPaths(locale)
+  // (lib/translated-routes.ts) is the source of truth for which regions are
+  // actually translation-registered for that locale, so this reflects
+  // whatever's registered at build time regardless of when new hubs land.
+  for (const locale of NON_EN_LOCALES) {
+    const hubPaths = getRegisteredRegionHubPaths(locale)
+    if (!hubPaths.length) continue
+    sections.push(
+      `## Golf Course Regions (${LOCALE_LABELS[locale]})\n${hubPaths
+        .map((path) => {
+          const region = path.split('/')[2]
+          const translation = getRegionHubTranslation(region, locale)
+          return link(translation?.label ?? region, `${SITE_URL}/${locale}${path}/`)
+        })
+        .join('\n')}`
+    )
   }
 
   if (posts.length) {
