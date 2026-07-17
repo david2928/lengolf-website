@@ -40,6 +40,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export const revalidate = 86400
 
+// Unknown slugs 404 at the routing layer (no on-demand render). Required on
+// Vercel: an ISR page (revalidate set) that reaches notFound() during on-demand
+// rendering of a non-prebuilt param returns 500, not 404. New pages appear
+// after a redeploy regenerates generateStaticParams; edits ISR-revalidate.
+export const dynamicParams = false
+
 export default async function LocationPage({ params }: Props) {
   const { locale, slug } = await params
   setRequestLocale(locale)

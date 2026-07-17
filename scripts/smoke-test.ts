@@ -2172,12 +2172,6 @@ const redirectTests: RedirectTest[] = [
     expectedStatus: 308,
     expectedLocation: "/blog/topgolf-bangkok-vs-lengolf/",
   },
-  // Untranslated localized blog post → English canonical (page-level fallback redirect)
-  {
-    path: "/ko/blog/topgolf-bangkok-vs-lengolf/",
-    expectedStatus: 307,
-    expectedLocation: "/blog/topgolf-bangkok-vs-lengolf/",
-  },
   // Tag/category archives → /blog/
   { path: "/tag/bangkok/", expectedStatus: 308, expectedLocation: "/blog/" },
   { path: "/category/golf/", expectedStatus: 308, expectedLocation: "/blog/" },
@@ -2415,6 +2409,22 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
     expectedLocation: "/golf-courses/under/3500-baht/",
     label: "Untranslated JA price tier (only translated locales may 200)",
   },
+  // Untranslated localized blog post must 301 to the English canonical — only
+  // slugs in data/blog-translated-slugs.ts[locale] may 200 under /<locale>/blog/.
+  // topgolf-bangkok-vs-lengolf is an EN-only post (never translated), so it is
+  // the canary. Before the slug-accurate registry, the old coarse
+  // '/blog/[slug]' pattern let these through to a 404 instead of redirecting;
+  // pick another untranslated slug here if this one ever gains a translation.
+  {
+    path: "/ko/blog/topgolf-bangkok-vs-lengolf/",
+    expectedLocation: "/blog/topgolf-bangkok-vs-lengolf/",
+    label: "Untranslated KO blog post (only translated slugs may 200)",
+  },
+  {
+    path: "/ja/blog/topgolf-bangkok-vs-lengolf/",
+    expectedLocation: "/blog/topgolf-bangkok-vs-lengolf/",
+    label: "Untranslated JA blog post (only translated slugs may 200)",
+  },
   {
     path: "/ko/hotels/",
     expectedLocation: "/hotels/",
@@ -2432,17 +2442,36 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
   },
 ];
 
-// F) Thai cookie tests — English pages must work even with NEXT_LOCALE=th cookie
-// Catches redirect loops and middleware bypass issues
+// F) Locale-cookie tests — English pages must work even with a NEXT_LOCALE
+// cookie set (defaults to th; entries may override). Catches redirect loops
+// and middleware bypass issues.
 interface ThaiCookieTest {
   path: string;
   label: string;
+  /** NEXT_LOCALE cookie value to send; defaults to "th". */
+  cookie?: string;
 }
 
 const thaiCookieTests: ThaiCookieTest[] = [
   {
     path: "/blog/golf-lessons-in-bangkok/",
     label: "Blog post with Thai cookie",
+  },
+  {
+    // Regression guard for the prod bug where a ko/ja cookie 307'd an
+    // EN-only blog post to /<locale>/blog/<slug> → 404/500. The middleware
+    // intl-redirect intercept must strip the cookie and serve the EN page,
+    // because the slug is not in data/blog-translated-slugs.ts for that
+    // locale. Must be an EN-only post (a translated one correctly 307s to
+    // its /<locale>/ version).
+    path: "/blog/topgolf-bangkok-vs-lengolf/",
+    label: "EN-only blog post with KO cookie (no 404/redirect loop)",
+    cookie: "ko",
+  },
+  {
+    path: "/blog/topgolf-bangkok-vs-lengolf/",
+    label: "EN-only blog post with JA cookie (no 404/redirect loop)",
+    cookie: "ja",
   },
   { path: "/privacy-policy/", label: "Privacy policy with Thai cookie" },
   {
@@ -2487,6 +2516,24 @@ const notFoundTests: NotFoundTest[] = [
   {
     path: "/golf-courses/not-a-real-region/",
     label: "Golf region unknown slug → 404",
+  },
+  // ISR dynamic routes: unknown params must 404, not 500. These 500'd on Vercel
+  // before dynamicParams=false (an ISR page reaching notFound() on-demand).
+  {
+    path: "/location/not-a-real-location-xyz/",
+    label: "Location unknown slug → 404 (not 500)",
+  },
+  {
+    path: "/golf-courses/under/99999-baht/",
+    label: "Golf price tier unknown → 404 (not 500)",
+  },
+  {
+    path: "/golf-courses/near/not-a-real-station/",
+    label: "Golf near-station unknown → 404 (not 500)",
+  },
+  {
+    path: "/golf-courses/best-for/not-a-real-usecase/",
+    label: "Golf best-for unknown → 404 (not 500)",
   },
 ];
 
@@ -2700,10 +2747,11 @@ async function runThaiCookieTests() {
   for (const t of thaiCookieTests) {
     const label = t.label;
     try {
-      // Send NEXT_LOCALE=th cookie — simulates a user who previously visited /th/ pages
+      // Send a NEXT_LOCALE cookie — simulates a user who previously picked a
+      // non-English locale (defaults to th; entries may override).
       const res = await fetch(`${BASE}${t.path}`, {
         redirect: "manual",
-        headers: { Cookie: "NEXT_LOCALE=th" },
+        headers: { Cookie: `NEXT_LOCALE=${t.cookie ?? "th"}` },
       });
       // Must NOT redirect (would cause loop) and must NOT 404 (middleware bypass)
       if (res.status >= 300 && res.status < 400) {
@@ -3087,6 +3135,47 @@ async function runDataLinkLivenessTests() {
   }
 }
 
+// ── L) Blog translated-slug registry liveness ───────────────────────
+// data/blog-translated-slugs.ts is a committed mirror of the DB's
+// blog_post_translations (the edge middleware can't query the DB). The
+// dangerous drift direction is data-file-AHEAD-of-DB: the middleware lets
+// /<locale>/blog/<slug> through, but generateStaticParams (DB-driven) never
+// prebuilt it, and dynamicParams=false turns that into a hard 404 that
+// hreflang advertises. Fetching every registered path catches that in CI
+// without DB access. (The other direction — data file BEHIND the DB — is a
+// graceful 301-to-EN and is caught by `npm run validate:blog-slugs`.)
+async function runBlogRegistryLivenessTests() {
+  console.log("\n\x1b[1mL) Blog translated-slug registry liveness\x1b[0m");
+  const { getRegisteredBlogPaths, ALL_LOCALES } =
+    await import("../lib/translated-routes");
+
+  for (const locale of ALL_LOCALES) {
+    if (locale === "en") continue;
+    const paths = getRegisteredBlogPaths(locale);
+    if (paths.length === 0) continue; // th has no blog translations
+    let ok = 0;
+    for (const path of paths) {
+      const target = `/${locale}${path}/`;
+      try {
+        const res = await fetch(`${BASE}${target}`, { redirect: "manual" });
+        if (res.status === 200) {
+          ok++;
+        } else {
+          fail(
+            `Registered blog translation not live: ${target}`,
+            `expected 200, got ${res.status} — data/blog-translated-slugs.ts lists a '${locale}' slug the build didn't prebuild (DB missing the translation?). Run \`npm run validate:blog-slugs\` and re-sync.`,
+          );
+        }
+      } catch (err) {
+        fail(`${target} fetch error`, String(err));
+      }
+    }
+    if (ok === paths.length) {
+      pass(`All ${ok} registered '${locale}' blog translations serve 200`);
+    }
+  }
+}
+
 // ── Main ────────────────────────────────────────────────────────────
 
 async function main() {
@@ -3115,6 +3204,7 @@ async function main() {
   await runRegionHubRegistryConsistencyTests();
   await runPriceTierRegistryConsistencyTests();
   await runDataLinkLivenessTests();
+  await runBlogRegistryLivenessTests();
 
   console.log(`\n\x1b[1m${passed} passed, ${failed} failed\x1b[0m`);
   if (failures.length > 0) {

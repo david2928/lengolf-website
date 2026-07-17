@@ -24,6 +24,10 @@ interface Props {
 
 export const revalidate = 86400
 
+// Unknown region/pair combos 404 at the routing layer (no on-demand render). An
+// ISR page that reaches notFound() on-demand returns 500 on Vercel, not 404.
+export const dynamicParams = false
+
 export async function generateStaticParams() {
   const pairs = await getComparisonPairs()
   return pairs.map((p) => ({ region: p.region, pair: pairSlug(p.slugA, p.slugB) }))

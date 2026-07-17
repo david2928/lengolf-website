@@ -45,6 +45,15 @@ jobs:
 
       - run: npm ci
 
+      # Asserts data/blog-translated-slugs.ts (the edge-middleware mirror of
+      # blog_post_translations) matches the DB. Runs before the build so a
+      # drifted mirror fails fast instead of shipping wrong redirects/404s.
+      - name: Validate blog translated-slug mirror
+        run: npm run validate:blog-slugs
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
       - name: Build
         run: npm run build
         env:

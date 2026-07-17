@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
-import { notFound, redirect } from 'next/navigation'
+import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import DOMPurify from 'isomorphic-dompurify'
@@ -24,8 +24,14 @@ interface Props {
 }
 
 // Locale is supplied by the parent [locale] segment. English prebuilds every
-// post; other locales prebuild only the slugs they have a translation for.
-// Untranslated (locale, slug) combos render on demand and redirect to English.
+// published slug; ko/ja/zh prebuild only the slugs they have a translation for.
+// An untranslated localized URL (/ko/blog/<en-only>) never reaches this page:
+// middleware.ts 301-redirects it to the English canonical, because the
+// translated-routes registry no longer claims the locale has that slug (the old
+// coarse '/blog/[slug]' pattern that matched every slug was removed; the
+// registry now reads data/blog-translated-slugs.ts). Any other unknown slug
+// 404s at the routing layer via `dynamicParams = false` below — nothing renders
+// on demand.
 export async function generateStaticParams({
   params,
 }: {
@@ -65,8 +71,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const { post, isFallback } = result
-  // Untranslated non-English request: the page redirects to the English
-  // canonical, so point metadata there too.
+  // Defensive: with dynamicParams=false only prebuilt (translated) combos
+  // render, so isFallback is normally false. If a translation is removed after
+  // build, the page 404s — point the canonical at the English original.
   const effectiveLocale = isFallback ? 'en' : locale
   const prefix = effectiveLocale === 'en' ? '' : `/${effectiveLocale}`
   const canonicalUrl = `${SITE_URL}${prefix}/blog/${post.slug}/`
@@ -94,6 +101,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export const revalidate = 86400
 
+// Only slugs returned by generateStaticParams render; anything else 404s at the
+// routing layer WITHOUT rendering the page. This is required on Vercel: an ISR
+// page (revalidate set) that reaches notFound()/redirect() during on-demand
+// rendering of an unknown param returns 500, not 404/307. With dynamicParams
+// false there is no on-demand render, so unknown/untranslated slugs cleanly 404.
+// Trade-off: a brand-new post (or a newly-translated locale) only appears after
+// a redeploy regenerates generateStaticParams — edits to existing posts still
+// revalidate via ISR.
+export const dynamicParams = false
+
 export default async function BlogPostPage({ params }: Props) {
   const { locale, slug } = await params
   setRequestLocale(locale)
@@ -105,10 +122,14 @@ export default async function BlogPostPage({ params }: Props) {
     notFound()
   }
 
-  // Slug exists in English but not in this locale — send visitors to the
-  // English canonical rather than serving mixed-language content.
+  // Slug exists in English but has no translation for this locale. Return 404
+  // rather than redirect() to the English canonical: a redirect() here 500s
+  // under Vercel ISR (this page sets `revalidate`, and a redirect response is
+  // not cacheable in that path). The localized version genuinely doesn't
+  // exist, so 404 is the correct signal — and these URLs are never linked or
+  // listed in the sitemap (only translated posts are), so nothing points here.
   if (result.isFallback) {
-    redirect(`/blog/${slug}/`)
+    notFound()
   }
 
   const { post } = result

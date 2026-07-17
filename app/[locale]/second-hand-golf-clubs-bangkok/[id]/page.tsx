@@ -11,6 +11,12 @@ import { ArrowLeft, MessageCircle, Layers, User, Shield, Tag } from 'lucide-reac
 
 export const revalidate = 86400
 
+// Unknown/sold club IDs 404 at the routing layer (no on-demand render). An ISR
+// page that reaches notFound() on-demand returns 500 on Vercel, not 404. NOTE:
+// this makes a newly-listed club appear only after a redeploy regenerates
+// generateStaticParams (edits to existing listings still ISR-revalidate).
+export const dynamicParams = false
+
 export async function generateStaticParams() {
   const ids = await getUsedClubIds()
   return ids.map((id) => ({ id }))
