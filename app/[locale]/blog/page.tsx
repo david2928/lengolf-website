@@ -2,10 +2,11 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { getAllPosts } from '@/lib/blog'
+import { getAllPosts, type BlogLocale } from '@/lib/blog'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 import BookingCTA from '@/components/shared/BookingCTA'
 import { storageUrl, SITE_URL, SITE_NAME, SOCIAL_LINKS, BUSINESS_INFO } from '@/lib/constants'
+import { getAlternates } from '@/lib/translated-routes'
 import { getBreadcrumbJsonLd, getFaqPageJsonLd } from '@/lib/jsonld'
 import FaqSection from '@/components/shared/FaqSection'
 
@@ -16,8 +17,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t('metaTitle'),
     description: t('metaDescription'),
     alternates: {
-      canonical: `${SITE_URL}${locale === 'th' ? '/th' : ''}/blog/`,
-      languages: { en: `${SITE_URL}/blog/`, th: `${SITE_URL}/th/blog/` },
+      canonical: `${SITE_URL}${locale === 'en' ? '' : `/${locale}`}/blog/`,
+      languages: getAlternates('/blog/'),
     },
     openGraph: { images: [{ url: storageUrl('venue/venue-bar-01.jpg'), alt: 'LENGOLF blog — news and articles' }] },
   }
@@ -31,7 +32,7 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
   const t = await getTranslations('Blog')
   const tCommon = await getTranslations('Common')
   const tFaq = await getTranslations('BlogFaq')
-  const posts = await getAllPosts()
+  const posts = await getAllPosts(locale as BlogLocale)
 
   const faqItems = Array.from({ length: 4 }, (_, i) => ({
     question: tFaq(`q${i + 1}`),
@@ -70,7 +71,9 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
     },
   }
 
-  const dateLocale = locale === 'th' ? 'th-TH' : 'en-US'
+  const dateLocale =
+    ({ th: 'th-TH', ko: 'ko-KR', ja: 'ja-JP', zh: 'zh-CN' } as Record<string, string>)[locale] ??
+    'en-US'
 
   return (
     <>

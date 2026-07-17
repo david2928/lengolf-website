@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { SITE_URL, CONTENT_LAST_UPDATED } from '@/lib/constants'
 import { getAlternates } from '@/lib/translated-routes'
-import { getPostSlugsWithDates } from '@/lib/blog'
+import { getPostSlugsWithDates, getPostLocalesMap } from '@/lib/blog'
 import { getAllLocationSlugs } from '@/lib/locations'
 import { getAllSeoPageSlugs } from '@/lib/seo-pages'
 import { REGION_META, getAllCourseParams } from '@/lib/golf-courses'
@@ -33,6 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     bestOfSlugs,
     courseParams,
     comparisonPairs,
+    postLocalesMap,
   ] = await Promise.all([
     getPostSlugsWithDates(),
     getAllLocationSlugs(),
@@ -44,6 +45,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getAllSeoPageSlugs('best_of_listicle'),
     getAllCourseParams(),
     getComparisonPairs(),
+    getPostLocalesMap(),
   ])
 
   // Pages with translations — hreflang alternates sourced from translated-routes registry
@@ -74,12 +76,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]
 
   // Blog posts — the one source with a genuine DB edit date.
-  const blogPages: MetadataRoute.Sitemap = blogEntries.map((p) => ({
-    url: `${SITE_URL}/blog/${p.slug}/`,
-    lastModified: p.updated_at || p.published_at || reviewed,
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }))
+  const blogPages: MetadataRoute.Sitemap = blogEntries.map((p) => {
+    const locales = postLocalesMap[p.slug] ?? ['en']
+    const languages = Object.fromEntries(
+      locales.map((l) => [
+        l,
+        l === 'en' ? `${SITE_URL}/blog/${p.slug}/` : `${SITE_URL}/${l}/blog/${p.slug}/`,
+      ])
+    )
+    return {
+      url: `${SITE_URL}/blog/${p.slug}/`,
+      lastModified: p.updated_at || p.published_at || reviewed,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+      alternates: { languages },
+    }
+  })
 
   const locationPages: MetadataRoute.Sitemap = locationSlugs.map((slug) => ({
     url: `${SITE_URL}/location/${slug}/`,

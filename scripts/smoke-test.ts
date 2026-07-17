@@ -176,6 +176,57 @@ const routeTests: RouteTest[] = [
     expectedStatus: [200],
     contentMarker: '<main id="main-content">',
   },
+  // Localized blog (pilot: rainy-season post translated into ko/ja/zh)
+  {
+    path: "/ko/blog/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/ja/blog/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/zh/blog/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/ko/blog/bangkok-rainy-season-indoor-golf/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/ja/blog/golf-simulator-in-bangkok/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/zh/blog/first-time-golf-simulator-beginners-guide/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/ko/blog/golf-lessons-in-bangkok/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/zh/blog/corporate-team-building-bangkok-golf-simulator/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/ja/blog/learn-to-golf-here-in-bangkok/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/ko/blog/couple-activities-in-bangkok/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
   // SEO hub pages
   {
     path: "/activities/",
@@ -2121,6 +2172,12 @@ const redirectTests: RedirectTest[] = [
     expectedStatus: 308,
     expectedLocation: "/blog/topgolf-bangkok-vs-lengolf/",
   },
+  // Untranslated localized blog post → English canonical (page-level fallback redirect)
+  {
+    path: "/ko/blog/topgolf-bangkok-vs-lengolf/",
+    expectedStatus: 307,
+    expectedLocation: "/blog/topgolf-bangkok-vs-lengolf/",
+  },
   // Tag/category archives → /blog/
   { path: "/tag/bangkok/", expectedStatus: 308, expectedLocation: "/blog/" },
   { path: "/category/golf/", expectedStatus: 308, expectedLocation: "/blog/" },
@@ -2367,11 +2424,6 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
     path: "/ko/privacy-policy/",
     expectedLocation: "/privacy-policy/",
     label: "Untranslated KO privacy policy",
-  },
-  {
-    path: "/zh/blog/",
-    expectedLocation: "/blog/",
-    label: "Untranslated ZH blog page",
   },
   {
     path: "/zh/privacy-policy/",

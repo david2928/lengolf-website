@@ -1,11 +1,19 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import DOMPurify from 'isomorphic-dompurify'
 import { ArrowLeft, Clock, Calendar } from 'lucide-react'
-import { getPostBySlug, getPostSlugs, getRelatedPosts, getReadingTime } from '@/lib/blog'
+import {
+  getLocalizedPost,
+  getPostSlugs,
+  getTranslatedPostParams,
+  getRelatedPosts,
+  getReadingTime,
+  getPostLocalesMap,
+  type BlogLocale,
+} from '@/lib/blog'
 import { SITE_URL, SITE_NAME, BOOKING_URL, storageUrl } from '@/lib/constants'
 import { getBreadcrumbJsonLd } from '@/lib/jsonld'
 import ShareButtons from '@/components/blog/ShareButtons'
@@ -15,26 +23,63 @@ interface Props {
   params: Promise<{ locale: string; slug: string }>
 }
 
-export async function generateStaticParams() {
-  const slugs = await getPostSlugs()
-  return slugs.map((slug) => ({ slug }))
+// Locale is supplied by the parent [locale] segment. English prebuilds every
+// post; other locales prebuild only the slugs they have a translation for.
+// Untranslated (locale, slug) combos render on demand and redirect to English.
+export async function generateStaticParams({
+  params,
+}: {
+  params: { locale: string }
+}) {
+  const { locale } = params
+  if (locale === 'en') {
+    const slugs = await getPostSlugs()
+    return slugs.map((slug) => ({ slug }))
+  }
+  const translated = await getTranslatedPostParams()
+  return translated.filter((t) => t.locale === locale).map((t) => ({ slug: t.slug }))
+}
+
+const DATE_LOCALES: Record<string, string> = {
+  en: 'en-US',
+  th: 'th-TH',
+  ko: 'ko-KR',
+  ja: 'ja-JP',
+  zh: 'zh-CN',
+}
+
+function blogPostAlternates(slug: string, locales: string[]): Record<string, string> {
+  const languages: Record<string, string> = {}
+  for (const l of locales) {
+    languages[l] = l === 'en' ? `${SITE_URL}/blog/${slug}/` : `${SITE_URL}/${l}/blog/${slug}/`
+  }
+  return languages
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params
-  const post = await getPostBySlug(slug)
+  const { locale, slug } = await params
+  const result = await getLocalizedPost(slug, locale as BlogLocale)
 
-  if (!post) {
+  if (!result) {
     return { title: 'Post Not Found' }
   }
 
-  const canonicalUrl = `${SITE_URL}/blog/${post.slug}/`
+  const { post, isFallback } = result
+  // Untranslated non-English request: the page redirects to the English
+  // canonical, so point metadata there too.
+  const effectiveLocale = isFallback ? 'en' : locale
+  const prefix = effectiveLocale === 'en' ? '' : `/${effectiveLocale}`
+  const canonicalUrl = `${SITE_URL}${prefix}/blog/${post.slug}/`
+
+  const localesMap = await getPostLocalesMap()
+  const locales = localesMap[post.slug] ?? ['en']
 
   return {
     title: post.meta_title || post.title,
     description: post.meta_description || post.excerpt || undefined,
     alternates: {
       canonical: canonicalUrl,
+      languages: blogPostAlternates(post.slug, locales),
     },
     openGraph: {
       title: post.meta_title || post.title,
@@ -54,15 +99,22 @@ export default async function BlogPostPage({ params }: Props) {
   setRequestLocale(locale)
   const t = await getTranslations('BlogPost')
 
-  const post = await getPostBySlug(slug)
+  const result = await getLocalizedPost(slug, locale as BlogLocale)
 
-  if (!post) {
+  if (!result) {
     notFound()
   }
 
+  // Slug exists in English but not in this locale — send visitors to the
+  // English canonical rather than serving mixed-language content.
+  if (result.isFallback) {
+    redirect(`/blog/${slug}/`)
+  }
+
+  const { post } = result
   const readingTime = getReadingTime(post.content)
-  const relatedPosts = await getRelatedPosts(slug, 3)
-  const dateLocale = locale === 'th' ? 'th-TH' : 'en-US'
+  const relatedPosts = await getRelatedPosts(slug, locale as BlogLocale, 3)
+  const dateLocale = DATE_LOCALES[locale] ?? 'en-US'
 
   const formattedDate = post.published_at
     ? new Date(post.published_at).toLocaleDateString(dateLocale, {

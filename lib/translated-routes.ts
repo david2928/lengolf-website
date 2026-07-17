@@ -101,6 +101,7 @@ const TRANSLATED_ROUTES: Record<
       "/golf-club-rental",
       "/golf-course-club-rental",
       "/menu",
+      "/blog",
       // Translated guide pages (data/explainer-pages.ts entries with
       // locale: 'ko') — must stay in sync with the data file; the
       // smoke-test registry-consistency check (section I) enforces it.
@@ -158,7 +159,7 @@ const TRANSLATED_ROUTES: Record<
       "/guide/best-golf-simulators-bangkok",
       "/guide/golf-simulator-vs-real-course-bangkok",
     ],
-    dynamicRoutePatterns: [],
+    dynamicRoutePatterns: ["/blog/[slug]"],
   },
   zh: {
     staticRoutes: [
@@ -170,6 +171,7 @@ const TRANSLATED_ROUTES: Record<
       "/golf-club-rental",
       "/golf-course-club-rental",
       "/menu",
+      "/blog",
       // Translated guide pages (data/explainer-pages.ts entries with
       // locale: 'zh') — must stay in sync with the data file; the
       // smoke-test registry-consistency check (section I) enforces it.
@@ -227,7 +229,7 @@ const TRANSLATED_ROUTES: Record<
       "/guide/best-golf-simulators-bangkok",
       "/guide/golf-simulator-vs-real-course-bangkok",
     ],
-    dynamicRoutePatterns: [],
+    dynamicRoutePatterns: ["/blog/[slug]"],
   },
   ja: {
     staticRoutes: [
@@ -239,6 +241,7 @@ const TRANSLATED_ROUTES: Record<
       "/golf-club-rental",
       "/golf-course-club-rental",
       "/menu",
+      "/blog",
       // Translated guide pages (data/explainer-pages.ts entries with
       // locale: 'ja'). List each translated slug explicitly — a broad
       // /guide/[slug] pattern would let untranslated guides 200 in JA.
@@ -296,7 +299,7 @@ const TRANSLATED_ROUTES: Record<
       "/guide/best-golf-simulators-bangkok",
       "/guide/golf-simulator-vs-real-course-bangkok",
     ],
-    dynamicRoutePatterns: [],
+    dynamicRoutePatterns: ["/blog/[slug]"],
   },
 };
 
