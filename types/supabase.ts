@@ -54,6 +54,53 @@ export type Database = {
         }
         Relationships: []
       }
+      blog_post_translations: {
+        Row: {
+          id: string
+          post_id: string
+          locale: string
+          title: string
+          excerpt: string | null
+          content: string
+          meta_title: string | null
+          meta_description: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          post_id: string
+          locale: string
+          title: string
+          excerpt?: string | null
+          content: string
+          meta_title?: string | null
+          meta_description?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          post_id?: string
+          locale?: string
+          title?: string
+          excerpt?: string | null
+          content?: string
+          meta_title?: string | null
+          meta_description?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "blog_post_translations_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "blog_posts"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       location_pages: {
         Row: {
           id: string
