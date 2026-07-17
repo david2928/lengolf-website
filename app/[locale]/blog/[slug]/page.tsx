@@ -24,8 +24,14 @@ interface Props {
 }
 
 // Locale is supplied by the parent [locale] segment. English prebuilds every
-// post; other locales prebuild only the slugs they have a translation for.
-// Untranslated (locale, slug) combos render on demand and redirect to English.
+// published slug; ko/ja/zh prebuild only the slugs they have a translation for.
+// An untranslated localized URL (/ko/blog/<en-only>) never reaches this page:
+// middleware.ts 301-redirects it to the English canonical, because the
+// translated-routes registry no longer claims the locale has that slug (the old
+// coarse '/blog/[slug]' pattern that matched every slug was removed; the
+// registry now reads data/blog-translated-slugs.ts). Any other unknown slug
+// 404s at the routing layer via `dynamicParams = false` below — nothing renders
+// on demand.
 export async function generateStaticParams({
   params,
 }: {

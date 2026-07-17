@@ -1,4 +1,5 @@
 import { SITE_URL } from "./constants";
+import { BLOG_TRANSLATED_SLUGS } from "../data/blog-translated-slugs";
 
 /**
  * Registry of routes that have translations per locale.
@@ -159,7 +160,7 @@ const TRANSLATED_ROUTES: Record<
       "/guide/best-golf-simulators-bangkok",
       "/guide/golf-simulator-vs-real-course-bangkok",
     ],
-    dynamicRoutePatterns: ["/blog/[slug]"],
+    dynamicRoutePatterns: [],
   },
   zh: {
     staticRoutes: [
@@ -229,7 +230,7 @@ const TRANSLATED_ROUTES: Record<
       "/guide/best-golf-simulators-bangkok",
       "/guide/golf-simulator-vs-real-course-bangkok",
     ],
-    dynamicRoutePatterns: ["/blog/[slug]"],
+    dynamicRoutePatterns: [],
   },
   ja: {
     staticRoutes: [
@@ -299,7 +300,7 @@ const TRANSLATED_ROUTES: Record<
       "/guide/best-golf-simulators-bangkok",
       "/guide/golf-simulator-vs-real-course-bangkok",
     ],
-    dynamicRoutePatterns: ["/blog/[slug]"],
+    dynamicRoutePatterns: [],
   },
 };
 
@@ -347,6 +348,16 @@ export function hasTranslationForLocale(
     if (regex.test(normalizedPath)) return true;
   }
 
+  // Blog posts are slug-accurate: a locale only "has" /blog/<slug> when that
+  // exact slug is in BLOG_TRANSLATED_SLUGS[locale] (mirrors the DB). This
+  // replaces the old coarse '/blog/[slug]' dynamic pattern that matched EVERY
+  // slug and let untranslated posts through the middleware to a 404.
+  const blogMatch = normalizedPath.match(/^\/blog\/([^/]+)$/);
+  if (blogMatch) {
+    const slugs = BLOG_TRANSLATED_SLUGS[locale as keyof typeof BLOG_TRANSLATED_SLUGS];
+    if (slugs?.includes(blogMatch[1])) return true;
+  }
+
   return false;
 }
 
@@ -382,6 +393,22 @@ export function getRegisteredFaqPaths(locale: string): string[] {
   return (TRANSLATED_ROUTES[locale]?.staticRoutes ?? []).filter((r) =>
     r.startsWith("/faq/"),
   );
+}
+
+/**
+ * Blog-post paths registered as translated for `locale` (the '/blog/<slug>'
+ * URLs whose slug has a published translation). Mirrors getRegisteredGuidePaths
+ * — this registry cannot import the DB (it is bundled into the edge
+ * middleware), so it reads the committed BLOG_TRANSLATED_SLUGS mirror of
+ * public.blog_post_translations. The CI check `npm run validate:blog-slugs`
+ * (scripts/sync-blog-translated-slugs.ts --check) asserts that mirror matches
+ * the DB, keeping this in sync the same way the smoke tests keep the guide/FAQ
+ * lists in sync.
+ */
+export function getRegisteredBlogPaths(locale: string): string[] {
+  const slugs =
+    BLOG_TRANSLATED_SLUGS[locale as keyof typeof BLOG_TRANSLATED_SLUGS] ?? [];
+  return slugs.map((slug) => `/blog/${slug}`);
 }
 
 /**
