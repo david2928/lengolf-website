@@ -19,7 +19,7 @@
   "Footer": {
     "menu": "メニュー",
     "keepInTouch": "お問い合わせ",
-    "copyright": "© {year} LENGOLF CO., LTD. All rights reserved.",
+    "copyright": "© {year} LENGOLF CO., LTD. 無断転載を禁じます。",
     "privacyPolicy": "プライバシーポリシー",
     "termsOfService": "利用規約",
     "rentalAgreement": "レンタル規約",
@@ -470,24 +470,24 @@
     "earlyBirdNote": "*Early Birdパッケージは14:00以前のみ利用可能"
   },
   "Aqi": {
-    "header": "Air Quality Near LENGOLF",
-    "updated": "Updated {time}",
-    "mainPollutant": "Main pollutant: {pollutant}",
-    "labelVeryGood": "Very Good",
-    "labelGood": "Good",
-    "labelModerate": "Moderate",
-    "labelUnhealthy": "Unhealthy",
-    "labelHazardous": "Hazardous",
-    "golfVeryGood": "Perfect day to hit the range — swing by LENGOLF to warm up",
-    "golfGood": "Great conditions for a session",
-    "golfModerate": "Good conditions — indoor golf keeps you comfortable",
-    "golfUnhealthy": "Skip the outdoor course — play indoors",
-    "golfHazardous": "Stay indoors — simulator golf in clean, filtered air",
-    "healthVeryGood": "Air quality is excellent. Enjoy your round!",
-    "healthGood": "Air quality is satisfactory.",
-    "healthModerate": "Acceptable for most people.",
-    "healthUnhealthy": "Health effects possible. Consider indoor activities.",
-    "healthHazardous": "Serious health risk. Stay indoors."
+    "header": "LENGOLF周辺の空気質",
+    "updated": "{time}更新",
+    "mainPollutant": "主な汚染物質：{pollutant}",
+    "labelVeryGood": "非常に良い",
+    "labelGood": "良い",
+    "labelModerate": "普通",
+    "labelUnhealthy": "悪い",
+    "labelHazardous": "危険",
+    "golfVeryGood": "練習に最適な日です。LENGOLFでウォームアップを",
+    "golfGood": "絶好のコンディションです",
+    "golfModerate": "まずまずのコンディションです。インドアゴルフなら快適です",
+    "golfUnhealthy": "屋外コースは避けて、室内でプレーを",
+    "golfHazardous": "室内で過ごしましょう。クリーンな空気でシミュレーターゴルフを",
+    "healthVeryGood": "空気質はとても良好です。ラウンドをお楽しみください！",
+    "healthGood": "空気質は良好です。",
+    "healthModerate": "ほとんどの方に問題ないレベルです。",
+    "healthUnhealthy": "健康への影響の可能性があります。室内での活動をご検討ください。",
+    "healthHazardous": "深刻な健康リスク。室内でお過ごしください。"
   },
   "GolfFaq": {
     "q1": "LENGOLFの料金はいくらですか？",
@@ -1061,19 +1061,19 @@
     "a8": "はい。月額シミュレーターパッケージには、ティアに応じて飲食5〜10%オフが含まれます。詳細はbay rates pageをご覧ください。"
   },
   "ContactInfo": {
-    "title": "Contact Information",
-    "subtitle": "Get in touch through any of the channels below.\nWe're eager to hear from you!",
-    "address": "The Mercury Ville @ BTS Chidlom, Floor 4, Bangkok"
+    "title": "お問い合わせ先",
+    "subtitle": "以下のいずれかの方法でお気軽にお問い合わせください。\n皆様からのご連絡をお待ちしております！",
+    "address": "The Mercury Ville @ BTS Chidlom、4階、バンコク"
   },
   "ContactForm": {
-    "name": "Name",
-    "email": "Email",
-    "phoneNumber": "Phone Number",
-    "message": "Message",
-    "sendMessage": "Send Message",
-    "sending": "Sending...",
-    "thankYou": "Thank you!",
-    "thankYouMessage": "We'll get back to you soon."
+    "name": "お名前",
+    "email": "メールアドレス",
+    "phoneNumber": "電話番号",
+    "message": "メッセージ",
+    "sendMessage": "メッセージを送信",
+    "sending": "送信中...",
+    "thankYou": "ありがとうございます！",
+    "thankYouMessage": "折り返しご連絡いたします。"
   },
   "EventInquiryForm": {
     "yourName": "お名前",
@@ -1185,7 +1185,7 @@
     "courseRentalCrossCta": "コース用クラブレンタル"
   },
   "FloorPlan": {
-    "floorPlan": "FLOOR PLAN"
+    "floorPlan": "フロアプラン"
   },
   "GolfCourseRegion": {
     "metaTitle": "{label}のゴルフ場 — グリーンフィーとコースガイド",

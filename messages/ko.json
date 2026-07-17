@@ -386,24 +386,24 @@
     "earlyBirdNote": "*얼리버드 패키지는 14시 이전에만 사용 가능합니다"
   },
   "Aqi": {
-    "header": "Air Quality Near LENGOLF",
-    "updated": "Updated {time}",
-    "mainPollutant": "Main pollutant: {pollutant}",
-    "labelVeryGood": "Very Good",
-    "labelGood": "Good",
-    "labelModerate": "Moderate",
-    "labelUnhealthy": "Unhealthy",
-    "labelHazardous": "Hazardous",
-    "golfVeryGood": "Perfect day to hit the range — swing by LENGOLF to warm up",
-    "golfGood": "Great conditions for a session",
-    "golfModerate": "Good conditions — indoor golf keeps you comfortable",
-    "golfUnhealthy": "Skip the outdoor course — play indoors",
-    "golfHazardous": "Stay indoors — simulator golf in clean, filtered air",
-    "healthVeryGood": "Air quality is excellent. Enjoy your round!",
-    "healthGood": "Air quality is satisfactory.",
-    "healthModerate": "Acceptable for most people.",
-    "healthUnhealthy": "Health effects possible. Consider indoor activities.",
-    "healthHazardous": "Serious health risk. Stay indoors."
+    "header": "LENGOLF 주변 공기질",
+    "updated": "{time} 업데이트",
+    "mainPollutant": "주요 오염물질: {pollutant}",
+    "labelVeryGood": "매우 좋음",
+    "labelGood": "좋음",
+    "labelModerate": "보통",
+    "labelUnhealthy": "나쁨",
+    "labelHazardous": "위험",
+    "golfVeryGood": "연습하기 완벽한 날 — LENGOLF에서 몸을 풀어보세요",
+    "golfGood": "플레이하기 좋은 컨디션입니다",
+    "golfModerate": "무난한 컨디션 — 실내 골프로 쾌적하게 즐기세요",
+    "golfUnhealthy": "야외 라운드는 피하고 실내에서 플레이하세요",
+    "golfHazardous": "실내에 머무세요 — 깨끗하게 정화된 공기 속에서 시뮬레이터 골프를 즐기세요",
+    "healthVeryGood": "공기질이 매우 좋습니다. 즐거운 라운드 되세요!",
+    "healthGood": "공기질이 양호합니다.",
+    "healthModerate": "대부분의 사람에게 무난한 수준입니다.",
+    "healthUnhealthy": "건강에 영향을 줄 수 있습니다. 실내 활동을 고려하세요.",
+    "healthHazardous": "심각한 건강 위험이 있습니다. 실내에 머무세요."
   },
   "GolfFaq": {
     "q1": "LENGOLF 이용 요금은 얼마인가요?",
@@ -977,19 +977,19 @@
     "a8": "네. 월간 시뮬레이터 패키지에는 등급에 따라 식음료 5~10% 할인이 포함됩니다. 자세한 내용은 bay rates page를 확인하세요."
   },
   "ContactInfo": {
-    "title": "Contact Information",
-    "subtitle": "Get in touch through any of the channels below.\nWe're eager to hear from you!",
-    "address": "The Mercury Ville @ BTS Chidlom, Floor 4, Bangkok"
+    "title": "연락처 정보",
+    "subtitle": "아래 채널을 통해 편하게 문의해 주세요.\n여러분의 연락을 기다리고 있습니다!",
+    "address": "The Mercury Ville @ BTS Chidlom, 4층, 방콕"
   },
   "ContactForm": {
-    "name": "Name",
-    "email": "Email",
-    "phoneNumber": "Phone Number",
-    "message": "Message",
-    "sendMessage": "Send Message",
-    "sending": "Sending...",
-    "thankYou": "Thank you!",
-    "thankYouMessage": "We'll get back to you soon."
+    "name": "이름",
+    "email": "이메일",
+    "phoneNumber": "전화번호",
+    "message": "메시지",
+    "sendMessage": "메시지 보내기",
+    "sending": "전송 중...",
+    "thankYou": "감사합니다!",
+    "thankYouMessage": "곧 연락드리겠습니다."
   },
   "EventInquiryForm": {
     "yourName": "이름",
@@ -1101,7 +1101,7 @@
     "courseRentalCrossCta": "골프장 클럽 렌탈"
   },
   "FloorPlan": {
-    "floorPlan": "FLOOR PLAN"
+    "floorPlan": "평면도"
   },
   "HomeKo": {
     "metaTitle": "방콕 스크린골프 & 바 — 빈손 OK, 한국어 상담",

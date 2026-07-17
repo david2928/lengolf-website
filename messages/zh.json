@@ -389,24 +389,24 @@
     "earlyBirdNote": "*早鸟套餐仅可在14:00之前使用"
   },
   "Aqi": {
-    "header": "Air Quality Near LENGOLF",
-    "updated": "Updated {time}",
-    "mainPollutant": "Main pollutant: {pollutant}",
-    "labelVeryGood": "Very Good",
-    "labelGood": "Good",
-    "labelModerate": "Moderate",
-    "labelUnhealthy": "Unhealthy",
-    "labelHazardous": "Hazardous",
-    "golfVeryGood": "Perfect day to hit the range — swing by LENGOLF to warm up",
-    "golfGood": "Great conditions for a session",
-    "golfModerate": "Good conditions — indoor golf keeps you comfortable",
-    "golfUnhealthy": "Skip the outdoor course — play indoors",
-    "golfHazardous": "Stay indoors — simulator golf in clean, filtered air",
-    "healthVeryGood": "Air quality is excellent. Enjoy your round!",
-    "healthGood": "Air quality is satisfactory.",
-    "healthModerate": "Acceptable for most people.",
-    "healthUnhealthy": "Health effects possible. Consider indoor activities.",
-    "healthHazardous": "Serious health risk. Stay indoors."
+    "header": "LENGOLF周边空气质量",
+    "updated": "{time}更新",
+    "mainPollutant": "主要污染物：{pollutant}",
+    "labelVeryGood": "非常好",
+    "labelGood": "良好",
+    "labelModerate": "中等",
+    "labelUnhealthy": "不健康",
+    "labelHazardous": "危险",
+    "golfVeryGood": "练球的绝佳日子，来LENGOLF热身吧",
+    "golfGood": "非常适合打球",
+    "golfModerate": "条件不错，室内高尔夫让您更舒适",
+    "golfUnhealthy": "避开户外球场，到室内打球",
+    "golfHazardous": "留在室内，在洁净、过滤后的空气中畅享模拟高尔夫",
+    "healthVeryGood": "空气质量极佳。尽享您的球局！",
+    "healthGood": "空气质量令人满意。",
+    "healthModerate": "对大多数人来说可以接受。",
+    "healthUnhealthy": "可能影响健康。建议进行室内活动。",
+    "healthHazardous": "严重健康风险。请留在室内。"
   },
   "GolfFaq": {
     "q1": "LENGOLF的使用价格是多少？",
@@ -980,19 +980,19 @@
     "a8": "有。月度模拟器套餐根据等级包含餐饮5%至10%折扣。详情请见bay rates page。"
   },
   "ContactInfo": {
-    "title": "Contact Information",
-    "subtitle": "Get in touch through any of the channels below.\nWe're eager to hear from you!",
-    "address": "The Mercury Ville @ BTS Chidlom, Floor 4, Bangkok"
+    "title": "联系方式",
+    "subtitle": "欢迎通过以下任一渠道与我们联系。\n期待您的来信！",
+    "address": "The Mercury Ville @ BTS Chidlom, 4楼, 曼谷"
   },
   "ContactForm": {
-    "name": "Name",
-    "email": "Email",
-    "phoneNumber": "Phone Number",
-    "message": "Message",
-    "sendMessage": "Send Message",
-    "sending": "Sending...",
-    "thankYou": "Thank you!",
-    "thankYouMessage": "We'll get back to you soon."
+    "name": "姓名",
+    "email": "邮箱",
+    "phoneNumber": "电话号码",
+    "message": "留言",
+    "sendMessage": "发送留言",
+    "sending": "发送中...",
+    "thankYou": "感谢您！",
+    "thankYouMessage": "我们会尽快与您联系。"
   },
   "EventInquiryForm": {
     "yourName": "您的姓名",
@@ -1104,7 +1104,7 @@
     "courseRentalCrossCta": "球场球杆租赁"
   },
   "FloorPlan": {
-    "floorPlan": "FLOOR PLAN"
+    "floorPlan": "平面图"
   },
   "HomeZh": {
     "metaTitle": "曼谷打高尔夫 — 空手即可，LINE中文咨询",
