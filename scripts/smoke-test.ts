@@ -207,6 +207,16 @@ const routeTests: RouteTest[] = [
     expectedStatus: [200],
     contentMarker: '<main id="main-content">',
   },
+  {
+    path: "/ko/blog/golf-lessons-in-bangkok/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/zh/blog/corporate-team-building-bangkok-golf-simulator/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
   // SEO hub pages
   {
     path: "/activities/",
