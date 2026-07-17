@@ -18,6 +18,10 @@ interface Props {
 
 export const revalidate = 86400
 
+// Unknown tiers 404 at the routing layer (no on-demand render). An ISR page
+// that reaches notFound() on-demand returns 500 on Vercel, not 404.
+export const dynamicParams = false
+
 export async function generateStaticParams() {
   // EN builds every tier; other locales build only tiers with a published
   // translation (untranslated locale URLs 301 to English via the middleware).

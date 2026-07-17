@@ -2172,12 +2172,6 @@ const redirectTests: RedirectTest[] = [
     expectedStatus: 308,
     expectedLocation: "/blog/topgolf-bangkok-vs-lengolf/",
   },
-  // Untranslated localized blog post → English canonical (page-level fallback redirect)
-  {
-    path: "/ko/blog/topgolf-bangkok-vs-lengolf/",
-    expectedStatus: 307,
-    expectedLocation: "/blog/topgolf-bangkok-vs-lengolf/",
-  },
   // Tag/category archives → /blog/
   { path: "/tag/bangkok/", expectedStatus: 308, expectedLocation: "/blog/" },
   { path: "/category/golf/", expectedStatus: 308, expectedLocation: "/blog/" },
@@ -2479,6 +2473,16 @@ const notFoundTests: NotFoundTest[] = [
   { path: "/wp-json/", label: "WordPress JSON API root" },
   { path: "/wp-json/wp/v2/posts", label: "WordPress REST API endpoint" },
   { path: "/wp-includes/js/jquery/jquery.js", label: "WordPress includes" },
+  // Untranslated localized blog post — no translation for this locale → 404,
+  // NOT the 500 that a page-level redirect() caused under Vercel ISR.
+  {
+    path: "/ko/blog/topgolf-bangkok-vs-lengolf/",
+    label: "Untranslated KO blog post 404s (not 500)",
+  },
+  {
+    path: "/ja/blog/topgolf-bangkok-vs-lengolf/",
+    label: "Untranslated JA blog post 404s (not 500)",
+  },
   // Golf course routes — unknown slugs must 404, not 500
   {
     path: "/golf-courses/bangkok/not-a-real-course/",
@@ -2487,6 +2491,24 @@ const notFoundTests: NotFoundTest[] = [
   {
     path: "/golf-courses/not-a-real-region/",
     label: "Golf region unknown slug → 404",
+  },
+  // ISR dynamic routes: unknown params must 404, not 500. These 500'd on Vercel
+  // before dynamicParams=false (an ISR page reaching notFound() on-demand).
+  {
+    path: "/location/not-a-real-location-xyz/",
+    label: "Location unknown slug → 404 (not 500)",
+  },
+  {
+    path: "/golf-courses/under/99999-baht/",
+    label: "Golf price tier unknown → 404 (not 500)",
+  },
+  {
+    path: "/golf-courses/near/not-a-real-station/",
+    label: "Golf near-station unknown → 404 (not 500)",
+  },
+  {
+    path: "/golf-courses/best-for/not-a-real-usecase/",
+    label: "Golf best-for unknown → 404 (not 500)",
   },
 ];
 
