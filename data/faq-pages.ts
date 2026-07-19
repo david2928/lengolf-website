@@ -987,7 +987,7 @@ export const faqPages: FaqSeoPage[] = [
     page_type: 'faq',
     slug: 'are-rental-golf-clubs-good-enough',
     title: 'Are Rental Golf Clubs Good Enough? Best Sets for Renters',
-    meta_description: 'At premium Bangkok venues and simulators like LENGOLF, Callaway and TaylorMade rental sets are good enough for serious golfers — here\'s how to find the best ones.',
+    meta_description: 'At premium Bangkok venues and simulators like LENGOLF, Callaway and TaylorMade rental sets are good enough for serious golfers. Here\'s how to find the best ones.',
     featured_image: null,
     schema_markup: null,
     status: 'published',

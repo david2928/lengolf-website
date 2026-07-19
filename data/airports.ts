@@ -44,13 +44,13 @@ export const AIRPORTS: Record<string, Airport> = {
     lat: 13.6900,
     lng: 100.7501,
     intro:
-      'Suvarnabhumi (BKK) is Bangkok’s main international gateway, on the eastern edge of the metropolis in Samut Prakan. Its position east of the city puts several of Bangkok’s established courses — and the Chonburi / Eastern Seaboard cluster on the way to Pattaya — within easy reach without ever driving into central Bangkok traffic.',
+      'Suvarnabhumi (BKK) is Bangkok’s main international gateway, on the eastern edge of the metropolis in Samut Prakan. Its position east of the city puts several of Bangkok’s established courses (and the Chonburi / Eastern Seaboard cluster on the way to Pattaya) within easy reach without ever driving into central Bangkok traffic.',
     transitNotes:
       'BKK sits on the Bang Na–Trat / Motorway 7 corridor that runs east toward Chonburi and Pattaya, so courses on that side of the city are reached without crossing the centre. The Airport Rail Link connects the terminal to the BTS network at Phaya Thai for onward travel into town.',
     guideHref: '/guide/suvarnabhumi-airport-to-bangkok-golf',
     guideLabel: 'Suvarnabhumi Airport to Bangkok golf: transfer guide',
     guideDescription:
-      'How to get from BKK arrivals to your tee time — transfers, timing, and what to arrange before you land.',
+      'How to get from BKK arrivals to your tee time: transfers, timing, and what to arrange before you land.',
   },
   'don-mueang-airport': {
     slug: 'don-mueang-airport',
@@ -60,13 +60,13 @@ export const AIRPORTS: Record<string, Airport> = {
     lat: 13.9126,
     lng: 100.6068,
     intro:
-      'Don Mueang (DMK) is Bangkok’s original airport and its low-cost hub, on the northern side of the city. Its northern position favours the dense band of courses in Pathum Thani and the northern suburbs — many of Bangkok’s best-known layouts sit within the arc between DMK and Rangsit / Lam Luk Ka.',
+      'Don Mueang (DMK) is Bangkok’s original airport and its low-cost hub, on the northern side of the city. Its northern position favours the dense band of courses in Pathum Thani and the northern suburbs. Many of Bangkok’s best-known layouts sit within the arc between DMK and Rangsit / Lam Luk Ka.',
     transitNotes:
       'DMK sits beside the Don Mueang Tollway and Vibhavadi Rangsit Road, feeding directly into the northern golf belt around Pathum Thani, Rangsit and Lam Luk Ka. It also connects onward to central Bangkok by tollway and, via nearby stations, the SRT Dark Red commuter line.',
     guideHref: '/guide/don-mueang-airport-to-bangkok',
     guideLabel: 'Don Mueang Airport to Bangkok: transfer guide',
     guideDescription:
-      'Getting from DMK arrivals into the city and out to the northern courses — transfer options and timing.',
+      'Getting from DMK arrivals into the city and out to the northern courses: transfer options and timing.',
   },
 }
 

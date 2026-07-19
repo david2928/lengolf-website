@@ -143,11 +143,11 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
     content: {
       occasion_type: 'birthday-party',
       intro:
-        'The best birthday party venues in Bangkok for adults pair a real activity with food and drinks, so the night keeps momentum instead of stalling over a long dinner. The right pick depends on your numbers — a small circle of friends, a standard 10–15, or a 25-plus crowd — and whether you want the space to yourselves. Here are the venues worth booking for an adult birthday in Bangkok, with honest notes on capacity, vibe, and what each does best.',
+        'The best birthday party venues in Bangkok for adults pair a real activity with food and drinks, so the night keeps momentum instead of stalling over a long dinner. The right pick depends on your numbers (a small circle of friends, a standard 10–15, or a 25-plus crowd) and whether you want the space to yourselves. Here are the venues worth booking for an adult birthday in Bangkok, with honest notes on capacity, vibe, and what each does best.',
       why_lengolf:
-        'LENGOLF runs event packages built for birthdays. The Small Package (9,999 THB) covers 10–15 guests across 2 bays for 3 hours with 10 beers, 5 cocktails, unlimited soft drinks, and a catered food spread. The Medium Package (21,999 THB) steps up to 15–25 guests, all 4 bays, and an exclusive full-venue rental — the whole room is yours. Both centre on Bravo golf simulators that anyone can play, so the group has something to do together rather than just eat; games like closest to the pin keep non-golfers laughing. Food, drinks, decorations, music, and a DJ setup can be customised to the party, and for a bigger celebration the venue hosts 50+ guests on a custom package. It is inside The Mercury Ville at BTS Chidlom, so guests arrive straight off the BTS.',
+        'LENGOLF runs event packages built for birthdays. The Small Package (9,999 THB) covers 10–15 guests across 2 bays for 3 hours with 10 beers, 5 cocktails, unlimited soft drinks, and a catered food spread. The Medium Package (21,999 THB) steps up to 15–25 guests, all 4 bays, and an exclusive full-venue rental: the whole room is yours. Both centre on Bravo golf simulators that anyone can play, so the group has something to do together rather than just eat; games like closest to the pin keep non-golfers laughing. Food, drinks, decorations, music, and a DJ setup can be customised to the party, and for a bigger celebration the venue hosts 50+ guests on a custom package. It is inside The Mercury Ville at BTS Chidlom, so guests arrive straight off the BTS.',
       other_activities: [
-        { name: 'Private Karaoke Room', description: 'KTV venues across Sukhumvit and Silom rent private rooms by the hour — everyone joins in and the energy builds over the night. Best for groups that want music and drinks over an activity.', type: 'entertainment' },
+        { name: 'Private Karaoke Room', description: 'KTV venues across Sukhumvit and Silom rent private rooms by the hour, where everyone joins in and the energy builds over the night. Best for groups that want music and drinks over an activity.', type: 'entertainment' },
         { name: 'Rooftop Private Dining', description: 'Rooftop restaurants and bars will reserve a private section for a birthday group, trading an activity for skyline views and photos. The open-air setting is weather-dependent in Bangkok.', type: 'dining' },
         { name: 'Cooking Class Party', description: 'Some cooking schools run private group sessions where the party cooks together then eats the result. Interactive and inclusive, with a relaxed pace that suits smaller birthdays.', type: 'culinary' },
         { name: 'Bowling Party at Blu-O', description: 'Private lane bookings with food and drinks service make bowling an easy, active birthday for casual groups. Located in major malls, so it is central and budget-friendly.', type: 'entertainment' },
@@ -293,7 +293,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
     slug: 'weekend-activities-bangkok',
     title: 'Weekend Activities in Bangkok | Markets, Golf & Dining',
     meta_description:
-      'The best weekend activities in Bangkok — Chatuchak market mornings, golf simulators, and riverside dining. How to plan a full Saturday or Sunday without melting.',
+      'The best weekend activities in Bangkok: Chatuchak market mornings, golf simulators, and riverside dining. How to plan a full Saturday or Sunday without melting.',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -412,7 +412,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
     slug: 'private-party-venues-bangkok',
     title: 'Private Party Venues in Bangkok | Exclusive Spaces to Hire',
     meta_description:
-      'Private party venues in Bangkok compared — from a golf simulator venue you can book out entirely to private dining rooms and karaoke suites.',
+      'Private party venues in Bangkok compared: from a golf simulator venue you can book out entirely to private dining rooms and karaoke suites.',
     featured_image: null,
     schema_markup: null,
     status: 'published',
@@ -424,9 +424,9 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
     content: {
       occasion_type: 'private-party',
       intro:
-        'Choosing between party venues in Bangkok usually comes down to one question: can you get the whole space to yourselves? Plenty of bars and restaurants take group bookings, but a genuine private party means an exclusive buyout — no strangers at the next table, your own music, your own run of the room. This guide compares the private party venues in Bangkok that actually offer exclusive hire for groups, from full-venue buyouts to private rooms, with an honest read on what each is best for.',
+        'Choosing between party venues in Bangkok usually comes down to one question: can you get the whole space to yourselves? Plenty of bars and restaurants take group bookings, but a genuine private party means an exclusive buyout: no strangers at the next table, your own music, your own run of the room. This guide compares the private party venues in Bangkok that actually offer exclusive hire for groups, from full-venue buyouts to private rooms, with an honest read on what each is best for.',
       why_lengolf:
-        'LENGOLF is one of the few central Bangkok venues you can book out entirely. The Medium Package (21,999 THB) is an exclusive full-venue rental for 15–25 guests — all 4 simulator bays, a full bar, and 3 hours of the space to yourselves, with 20 beers, 10 cocktails, unlimited soft drinks, and a catered food spread included. A smaller Small Package (9,999 THB) covers 10–15 guests, and for a bigger private party the venue hosts 50+ on a custom package, with food, drinks, sound system, and DJ setup all customisable. It sits inside The Mercury Ville right at BTS Chidlom, so guests arrive without a taxi, and the Bravo golf simulators give everyone something to do beyond standing with a drink — no golf experience needed.',
+        'LENGOLF is one of the few central Bangkok venues you can book out entirely. The Medium Package (21,999 THB) is an exclusive full-venue rental for 15–25 guests: all 4 simulator bays, a full bar, and 3 hours of the space to yourselves, with 20 beers, 10 cocktails, unlimited soft drinks, and a catered food spread included. A smaller Small Package (9,999 THB) covers 10–15 guests, and for a bigger private party the venue hosts 50+ on a custom package, with food, drinks, sound system, and DJ setup all customisable. It sits inside The Mercury Ville right at BTS Chidlom, so guests arrive without a taxi, and the Bravo golf simulators give everyone something to do beyond standing with a drink (no golf experience needed).',
       other_activities: [
         { name: 'Private Karaoke Suites', description: 'KTV venues across Sukhumvit and Silom rent private rooms by the hour, so your group sings without an audience. A reliable private-party format when the plan is drinks and music rather than an activity.', type: 'entertainment' },
         { name: 'Restaurant Private Dining Rooms', description: 'Many mid-range and upscale Bangkok restaurants have a separate private room you can reserve for a group. Best when the party is centred on a seated meal rather than mingling.', type: 'dining' },
@@ -438,11 +438,11 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
       target_audience: 'Organisers booking a private, exclusive-hire party for a group in Bangkok',
       show_aqi_widget: false,
       comparison_table: [
-        { feature: 'Exclusive venue buyout', lengolf: 'Yes — full-venue rental (Medium Package)', alternative: 'Often only a private section or room' },
+        { feature: 'Exclusive venue buyout', lengolf: 'Yes: full-venue rental (Medium Package)', alternative: 'Often only a private section or room' },
         { feature: 'All-inclusive package', lengolf: 'Bays, drinks & catered food from 9,999 THB', alternative: 'Food, drinks, venue usually billed separately' },
-        { feature: 'Built-in activity', lengolf: 'Golf simulators — no experience needed', alternative: 'Usually drinks or dining only' },
-        { feature: 'Group capacity', lengolf: '15–25 exclusive; 50+ on custom package', alternative: 'Varies — private rooms often cap at 15–20' },
-        { feature: 'Customisable food, music & DJ', lengolf: 'Yes — fully customisable', alternative: 'Depends on venue' },
+        { feature: 'Built-in activity', lengolf: 'Golf simulators (no experience needed)', alternative: 'Usually drinks or dining only' },
+        { feature: 'Group capacity', lengolf: '15–25 exclusive; 50+ on custom package', alternative: 'Varies: private rooms often cap at 15–20' },
+        { feature: 'Customisable food, music & DJ', lengolf: 'Yes, fully customisable', alternative: 'Depends on venue' },
         { feature: 'Central & BTS-accessible', lengolf: 'BTS Chidlom (Exit 4)', alternative: 'Varies by location' },
       ],
     },
