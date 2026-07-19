@@ -108,6 +108,12 @@ const nextConfig = {
       // location page, matching the sibling /{template}-{area} pattern above.
       { source: '/golf-lessons-ari', destination: '/location/golf-lessons-ari/', permanent: true },
       { source: '/golf-lessons-ari/', destination: '/location/golf-lessons-ari/', permanent: true },
+      // GSC 404s: root-level corporate-events pages missing from the list above
+      // (siblings of /corporate-events-asok). Both have live /location/ pages.
+      { source: '/corporate-events-ratchadamri', destination: '/location/corporate-events-ratchadamri/', permanent: true },
+      { source: '/corporate-events-ratchadamri/', destination: '/location/corporate-events-ratchadamri/', permanent: true },
+      { source: '/corporate-events-thong-lo', destination: '/location/corporate-events-thong-lo/', permanent: true },
+      { source: '/corporate-events-thong-lo/', destination: '/location/corporate-events-thong-lo/', permanent: true },
     ]
 
     // Rental-page consolidation: /rent-golf-clubs-bangkok/ was a duplicate
@@ -120,12 +126,42 @@ const nextConfig = {
       { source: '/:locale(th|ko|ja|zh)/rent-golf-clubs-bangkok/', destination: '/:locale/golf-course-club-rental/', permanent: true },
     ]
 
+    // GSC 404s: content that lives under one section prefix was crawled under
+    // the other (/faq/<guide-slug> and /guide/<faq-slug>). Current internal
+    // links are clean (validate:links passes) — these are legacy URLs Google
+    // still remembers. 301 each to where the content actually lives. Both
+    // trailing-slash variants are listed to avoid a second normalization hop.
+    const guideSlugsUnderFaq = [
+      'renting-golf-clubs-thai-golf-courses',
+      'best-golf-courses-near-bangkok',
+      'what-to-wear-golf-thailand',
+      'how-to-pack-golf-clubs-flight-thailand',
+      'golf-club-baggage-fees-airlines-bangkok',
+      'golf-lessons-bangkok-coaches',
+    ]
+    const faqSlugsUnderGuide = [
+      'what-golf-clubs-available-rent-bangkok',
+      'grab-vs-taxi-bangkok-golf',
+      'do-you-need-caddie-thailand-golf',
+    ]
+    const prefixCorrectionRedirects = [
+      ...guideSlugsUnderFaq.flatMap((slug) => [
+        { source: `/faq/${slug}`, destination: `/guide/${slug}/`, permanent: true },
+        { source: `/faq/${slug}/`, destination: `/guide/${slug}/`, permanent: true },
+      ]),
+      ...faqSlugsUnderGuide.flatMap((slug) => [
+        { source: `/guide/${slug}`, destination: `/faq/${slug}/`, permanent: true },
+        { source: `/guide/${slug}/`, destination: `/faq/${slug}/`, permanent: true },
+      ]),
+    ]
+
     return [
       ...blogRedirects,
       ...pageTypeRedirects,
       ...locationAreaRedirects,
       ...rootLocationRedirects,
       ...rentalConsolidationRedirects,
+      ...prefixCorrectionRedirects,
 
       // WordPress tag, category, and author archives -> blog listing
       { source: '/tag/:slug', destination: '/blog/', permanent: true },
