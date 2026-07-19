@@ -90,6 +90,11 @@ const routeTests: RouteTest[] = [
     contentMarker: '<main id="main-content">',
   },
   {
+    path: "/corporate-golf-packages/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
     path: "/about-us/",
     expectedStatus: [200],
     contentMarker: '<main id="main-content">',
@@ -2143,6 +2148,16 @@ const routeTests: RouteTest[] = [
     contentMarker: '<main id="main-content">',
   },
   {
+    path: "/golf-courses/near/suvarnabhumi-airport/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/golf-courses/near/don-mueang-airport/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
     path: "/golf-courses/under/2500-baht/",
     expectedStatus: [200],
     contentMarker: '<main id="main-content">',
@@ -2200,6 +2215,29 @@ const redirectTests: RedirectTest[] = [
     path: "/golf-lessons-ari/",
     expectedStatus: 308,
     expectedLocation: "/location/golf-lessons-ari/",
+  },
+  // GSC 404 fixes: root-level corporate-events pages -> /location/ prefix
+  {
+    path: "/corporate-events-thong-lo/",
+    expectedStatus: 308,
+    expectedLocation: "/location/corporate-events-thong-lo/",
+  },
+  {
+    path: "/corporate-events-ratchadamri/",
+    expectedStatus: 308,
+    expectedLocation: "/location/corporate-events-ratchadamri/",
+  },
+  // GSC 404 fixes: content crawled under the wrong section prefix
+  // (/faq/<guide-slug> and /guide/<faq-slug>) -> correct prefix
+  {
+    path: "/faq/what-to-wear-golf-thailand/",
+    expectedStatus: 308,
+    expectedLocation: "/guide/what-to-wear-golf-thailand/",
+  },
+  {
+    path: "/guide/do-you-need-caddie-thailand-golf/",
+    expectedStatus: 308,
+    expectedLocation: "/faq/do-you-need-caddie-thailand-golf/",
   },
   // GSC 404 golf-near redirects (trailing slash required — trailingSlash:true fires 308 before middleware)
   {
@@ -2309,6 +2347,7 @@ const seoTests: SeoTest[] = [
   { path: "/zh/", locale: "zh" },
   { path: "/zh/golf/", locale: "zh" },
   { path: "/zh/lessons/", locale: "zh" },
+  { path: "/corporate-golf-packages/", locale: "en" },
   { path: "/golf-in-thailand-guide/", locale: "en" },
   { path: "/guide/what-is-a-golf-simulator/", locale: "en" },
   { path: "/faq/can-i-rent-golf-clubs-in-bangkok/", locale: "en" },
@@ -2355,9 +2394,11 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
   // coverage, so the only locale with untranslated guides is th (the 8 guides
   // from PR #52 were never translated to Thai). These canaries must be guides
   // translated in ja/ko/zh but NOT th — if th ever gains them, pick others.
+  // (golf-lessons-bangkok-coaches gained a th version, so this now uses
+  // screen-golf-bangkok, still ja/ko/zh-only.)
   {
-    path: "/th/guide/golf-lessons-bangkok-coaches/",
-    expectedLocation: "/guide/golf-lessons-bangkok-coaches/",
+    path: "/th/guide/screen-golf-bangkok/",
+    expectedLocation: "/guide/screen-golf-bangkok/",
     label: "Untranslated TH guide (only translated guide slugs may 200)",
   },
   {
@@ -2481,9 +2522,9 @@ const thaiCookieTests: ThaiCookieTest[] = [
   {
     // Must be a guide with NO th translation, so it stays English under a th
     // cookie (a th-translated guide correctly 307s to /th/ per next-intl cookie
-    // behavior). what-is-a-golf-simulator gained a th version, so use a PR #52
+    // behavior). golf-lessons-bangkok-coaches gained a th version, so use a
     // guide that was never translated to Thai.
-    path: "/guide/golf-lessons-bangkok-coaches/",
+    path: "/guide/screen-golf-bangkok/",
     label: "Guide page (th-less) with Thai cookie",
   },
   {

@@ -67,6 +67,7 @@ const STATIC_LABEL_PATHS = new Set([
   'golf-club-rental',
   'golf-course-club-rental',
   'golf-in-thailand-guide',
+  'corporate-golf-packages',
 ])
 
 async function buildRelatedLabels(

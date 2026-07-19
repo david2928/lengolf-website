@@ -51,6 +51,9 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const { name, email, phone, company, event_type, group_size, preferred_date, message, page_source } = body
 
+    // Page sources whose submissions are event/lead inquiries (drives email labelling)
+    const isEventInquiry = page_source === 'events' || page_source === 'corporate-golf-packages'
+
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: 'Name, email, and message are required' },
@@ -107,9 +110,9 @@ export async function POST(request: NextRequest) {
         from: process.env.EMAIL_FROM || 'notification@len.golf',
         to: process.env.CONTACT_EMAIL_TO || 'info@len.golf',
         replyTo: email,
-        subject: `${page_source === 'events' ? 'Event Inquiry' : 'Contact Form'}: ${name}${company ? ` (${company})` : ''}`,
+        subject: `${isEventInquiry ? 'Event Inquiry' : 'Contact Form'}: ${name}${company ? ` (${company})` : ''}`,
         html: `
-          <h2>${page_source === 'events' ? 'New Event Inquiry' : 'New Contact Form Submission'}</h2>
+          <h2>${isEventInquiry ? 'New Event Inquiry' : 'New Contact Form Submission'}</h2>
           <table style="border-collapse:collapse;width:100%;max-width:600px">
             <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee">Name</td><td style="padding:8px;border-bottom:1px solid #eee">${escapeHtml(name)}</td></tr>
             <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee">Email</td><td style="padding:8px;border-bottom:1px solid #eee"><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>

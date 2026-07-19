@@ -11,7 +11,7 @@ import { BUSINESS_INFO } from '@/lib/constants'
 const selectClassName =
   'flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm'
 
-export default function EventInquiryForm() {
+export default function EventInquiryForm({ pageSource = 'events' }: { pageSource?: string } = {}) {
   const t = useTranslations('EventInquiryForm')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
@@ -30,7 +30,7 @@ export default function EventInquiryForm() {
       group_size: formData.get('group_size') as string,
       preferred_date: formData.get('preferred_date') as string,
       message: formData.get('message') as string,
-      page_source: 'events',
+      page_source: pageSource,
     }
 
     try {

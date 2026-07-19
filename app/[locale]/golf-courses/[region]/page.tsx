@@ -238,6 +238,63 @@ export default async function RegionIndexPage({ params }: Props) {
             </div>
           </div>
         </div>
+
+        {/* ── Plan your Thailand golf trip — trip-planning guide links ──
+            EN-only BY DESIGN (like shortlistGuide above): the card copy is
+            hardcoded English, and /golf-in-thailand-guide has no translation
+            (a translated hub linking it would 301). The three /guide/… targets
+            are translated, but the block ships together in one language to
+            avoid a mixed-language card grid on the ja/ko/zh/th hubs. */}
+        {locale === 'en' && (
+          <div className="mx-auto mt-8 max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-5 flex items-center gap-3">
+              <span className="h-px w-8 bg-[#c8a96e]" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#005a32]">
+                Plan your Thailand golf trip
+              </span>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                {
+                  href: '/guide/best-time-play-golf-thailand',
+                  label: 'Best time of year to play golf in Thailand',
+                  description: 'Month-by-month weather and when to book your rounds.',
+                },
+                {
+                  href: '/guide/how-to-book-golf-tee-times-thailand',
+                  label: 'How to book golf tee times in Thailand',
+                  description: 'Booking direct, online, or through a concierge.',
+                },
+                {
+                  href: '/guide/thailand-golf-trip-cost',
+                  label: 'Thailand golf trip cost',
+                  description: 'Green fees, caddies, hotels and transport, broken down.',
+                },
+                {
+                  href: '/golf-in-thailand-guide',
+                  label: 'Complete Thailand golf guide',
+                  description: 'Everything you need to plan a golf holiday in Thailand.',
+                },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="group flex items-start justify-between gap-3 rounded-xl border border-black/5 bg-white p-4 shadow-sm transition-all hover:-translate-y-px hover:border-[#005a32]/30 hover:shadow-md"
+                >
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold leading-snug text-[#1a1a1a] transition-colors group-hover:text-[#005a32]">
+                      {item.label}
+                    </p>
+                    <p className="mt-0.5 text-xs leading-relaxed text-gray-500">
+                      {item.description}
+                    </p>
+                  </div>
+                  <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-[#005a32]/40 transition-all group-hover:translate-x-0.5 group-hover:text-[#005a32]" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </>
   )

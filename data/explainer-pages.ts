@@ -345,9 +345,9 @@ export const explainerPages: ExplainerSeoPage[] = [
     id: "exp-7",
     page_type: "explainer",
     slug: "best-time-play-golf-thailand",
-    title: "Best Time of Year to Play Golf in Thailand",
+    title: "Best Time of Year to Play Golf in Thailand — When to Book",
     meta_description:
-      "Plan your Thailand golf trip around the seasons. Discover when to play, which tee times to book, and how to avoid heat and rain in Bangkok.",
+      "The best time to play golf in Thailand, month by month. When to book tee times, which season suits your game, and how to avoid the heat and rain in Bangkok.",
     featured_image: null,
     schema_markup: null,
     status: "published",
@@ -1313,6 +1313,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: "golf-in-thailand",
     locale: "en",
     related_slugs: [
+      "/corporate-golf-packages",
       "/guide/best-golf-courses-near-bangkok",
       "/guide/golf-tournament-packages-bangkok",
       "/guide/best-golf-simulators-bangkok",
@@ -1875,6 +1876,80 @@ export const explainerPages: ExplainerSeoPage[] = [
         "认准PGA认证教练，坚持至少两个角度的视频记录。在曼谷，用英语授课很普遍",
         "5–7天的高尔夫之旅，安排1到2堂有针对性的课比较现实——别在途中给挥杆塞入太多信息",
         "LENGOLF由泰国PGA认定教练提供1小时免费体验，套餐{{lessonHourly}}起，BTS Chidlom直连；预订与咨询可用LINE中文办理（截至2026年7月）",
+      ],
+      comparison_table: [],
+    },
+  },
+
+  // ─── exp-32 (TH): ภาษาไทย — เรียนกอล์ฟกรุงเทพฯ กับครูสอนกอล์ฟ PGA ──────────────
+  // Adaptation (not a trip-framed translation) of the EN golf-lessons guide,
+  // targeting the LOCAL beginner-heavy Thai search cluster served today only by
+  // /th/lessons/ (GSC 90d: เรียนกอล์ฟ 97 imp pos 19.4, สอนกอล์ฟ 58 imp pos 21.2,
+  // เรียน golf 22 imp, ครูสอนตีกอล์ฟ 20 imp — all 0 clicks, page 2-4). Reader is a
+  // Bangkok local considering lessons, NOT a golf tourist, so the "5-7 day trip"
+  // and "book around tee times" framing of the JA/KO/ZH siblings is replaced with
+  // beginner-onboarding + local scheduling. Honesty: TH glossary forbidden_claims
+  // is EMPTY (no language split — LENGOLF coaches are Thai, teach in Thai), so the
+  // coach-language point is a POSITIVE local selling point, not a scoped negation.
+  // Facts traced to: EN exp-32 (simulator data metrics, coach-selection criteria,
+  // video analysis), shipped messages/th.json Lessons namespace (ทดลองเรียนฟรี
+  // 1 ชั่วโมง, 3 โค้ช PGA Thailand, package 1,800 บาท, ซิม included), and the JA/KO/
+  // ZH siblings (coach names PRO Boss/Ratchavin/Min, BTS Chidlom / Mercury Ville
+  // 4F, 09:00-23:00, LINE @lengolf). PRICE HANDLING: uses the NUMBER-ONLY token
+  // {{lessonHourlyNum}} + spelled " บาท" (→ "1,800 บาท") rather than the currency-
+  // carrying {{lessonHourly}} — the latter renders "1,800THB" for th, which the
+  // TH glossary conventions.currency ruling forbids in Thai prose. {{openingHours}}
+  // is the static hours token. As-of marker "ณ กรกฎาคม 2026" per glossary.
+  {
+    id: "exp-32-th",
+    page_type: "explainer",
+    slug: "golf-lessons-bangkok-coaches",
+    title: "เรียนกอล์ฟกรุงเทพฯ — คอร์สเรียนกับครูสอนกอล์ฟ PGA และราคา",
+    meta_description:
+      "เรียนกอล์ฟในกรุงเทพฯ ที่ LENGOLF คอร์สเรียนกับโค้ช PGA Thailand เหมาะกับมือใหม่ ทดลองฟรี 1 ชั่วโมง แพ็กเกจเริ่ม {{lessonHourlyNum}} บาท (ข้อมูล ณ กรกฎาคม 2026)",
+    featured_image: null,
+    schema_markup: null,
+    status: "published",
+    category: "lessons-coaching",
+    locale: "th",
+    related_slugs: [
+      "/lessons",
+      "/golf",
+      "/guide/golf-thailand-beginners",
+      "/guide/best-golf-simulators-bangkok",
+    ],
+    created_at: now,
+    updated_at: now,
+    content: {
+      intro:
+        "กรุงเทพฯ เป็นเมืองที่เริ่มต้นเรียนกอล์ฟได้ง่ายกว่าที่หลายคนคิด ไม่ว่าคุณจะเป็นมือใหม่ที่ไม่เคยจับไม้กอล์ฟมาก่อน หรือเล่นอยู่แล้วแต่อยากปรับวงสวิงให้นิ่งขึ้น ก็มีตัวเลือกการสอนกอล์ฟหลากหลายให้เลือก สิ่งที่ทำให้การเรียนกอล์ฟในกรุงเทพฯ น่าสนใจเป็นพิเศษคือ การเรียนบนกอล์ฟซิมูเลเตอร์ในร่ม ซึ่งวัดข้อมูลการตีทุกลูกแบบที่การเรียนในสนามไดรฟ์ทั่วไปทำได้ยาก ทำให้เห็นจุดที่ต้องแก้ชัดเจนและพัฒนาได้เร็วขึ้น",
+      sections: [
+        {
+          heading: "ประเภทของการเรียนกอล์ฟในกรุงเทพฯ",
+          body: "**1. เรียนบนกอล์ฟซิมูเลเตอร์** — เป็นรูปแบบการสอนที่แม่นยำที่สุดในเชิงเทคนิค เพราะใช้ซิมูเลเตอร์ระดับมืออาชีพเป็นห้องเรียน เครื่องวัดวิถีลูกจะบันทึกความเร็วหัวไม้ ความเร็วลูก มุมปล่อยลูก อัตราการหมุน (สปิน) ระยะแคร์รี่ และองศาหน้าไม้ในทุกช็อต โค้ชที่สอนโดยดูข้อมูลเหล่านี้จะชี้จุดบกพร่องของวงสวิงที่มองด้วยตาเปล่าไม่เห็นได้ และตรวจสอบได้ทันทีว่าการแก้ไขนั้นได้ผลจริงหรือไม่\n\nการเรียนแบบนี้เหมาะเป็นพิเศษกับการแก้วงสวิงที่ตีออกซ้ำๆ (สไลซ์ ฮุก ตีบาง) การปรับมุมปะทะลูกของเหล็ก การหามุมปล่อยลูกและสปินของไดรเวอร์ให้เหมาะสม รวมถึงการฝึกพัตต์โดยดูข้อมูลหน้าไม้และวิถีการเคลื่อนไม้\n\nเนื่องจากเป็นห้องปรับอากาศ การเรียนจึงไม่ขึ้นกับความร้อนหรือหน้าฝนของกรุงเทพฯ จะนัดเรียนตอนเย็นหลังเลิกงานหรือวันหยุดก็ได้โดยไม่ต้องกังวลเรื่องสภาพอากาศ\n\n**2. เรียนที่สนามไดรฟ์** — สนามกอล์ฟและสนามไดรฟ์หลายแห่งรอบกรุงเทพฯ มีคอร์สเรียนกับโปรประจำสนาม เป็นการฝึกกลางแจ้งพร้อมคำแนะนำและบางที่มีการอัดวิดีโอ เหมาะกับคนที่อยากฝึกจังหวะและฟีลลิ่งในสภาพสนามจริงกลางแจ้ง\n\n**3. เรียนแบบออกรอบจริง** — โค้ชบางคนจะเดินออกรอบไปกับคุณ 9 หรือ 18 หลุม เพื่อสอนในสถานการณ์จริงบนสนาม ช่วยเรื่องการวางแผนการเล่น การจัดการเกม และการรับมือกับความกดดันได้ดีเป็นพิเศษ",
+        },
+        {
+          heading: "เรียนกอล์ฟมือใหม่ต้องเจอกับอะไรบ้าง",
+          body: "ถ้าคุณไม่เคยเล่นกอล์ฟมาก่อน การเริ่มต้นในห้องซิมูเลเตอร์ส่วนตัวมักจะสบายใจกว่าการไปยืนตีที่สนามไดรฟ์ที่เต็มไปด้วยคนเล่นเก่ง โค้ชจะเริ่มจากพื้นฐานที่สุด ทั้งการจับกริป การตั้งท่า การวางเท้า และการเหวี่ยงไม้ โดยไม่มีใครมากดดัน\n\nสิ่งที่มือใหม่ควรรู้ก่อนเริ่มเรียนกอล์ฟ:\n\n1. ไม่จำเป็นต้องมีไม้กอล์ฟหรืออุปกรณ์เป็นของตัวเอง หลายที่รวมไม้ให้ใช้ระหว่างเรียนแล้ว\n2. แต่งตัวสบายๆ เคลื่อนไหวคล่อง รองเท้าผ้าใบก็เพียงพอสำหรับการเรียนในร่ม\n3. คาบแรกส่วนใหญ่จะเน้นทำความเข้าใจท่าทางและสัมผัสการตี ยังไม่ต้องคาดหวังว่าจะตีไกลหรือตรงทันที\n4. ข้อมูลบนจอซิมูเลเตอร์ช่วยให้เห็นพัฒนาการเป็นตัวเลข ทำให้รู้ว่ากำลังดีขึ้นตรงไหน\n\nวิธีที่ดีที่สุดในการรู้ว่าการเรียนกอล์ฟเหมาะกับคุณไหม คือลองเรียนสัก 1 ครั้งก่อน หลายแห่งรวมถึง LENGOLF มีคลาสทดลองให้ก่อนตัดสินใจลงแพ็กเกจเต็ม",
+        },
+        {
+          heading: "วิธีเลือกครูสอนกอล์ฟให้เหมาะกับตัวเอง",
+          body: "1. **คุณวุฒิและการรับรอง** — มองหาครูสอนกอล์ฟหรือโค้ชที่ได้รับการรับรองจาก PGA หรือเทียบเท่า เพื่อให้มั่นใจว่าพื้นฐานการสอนถูกต้องตามหลัก\n2. **สไตล์การสอน** — โค้ชบางคนเน้นข้อมูลและเทคนิคเป็นหลัก บางคนเน้นฟีลลิ่งและจังหวะ ลองดูว่าแบบไหนเข้ากับตัวคุณก่อนตัดสินใจ\n3. **การวิเคราะห์วิดีโอและข้อมูล** — คอร์สเรียนที่ดีในปัจจุบันควรมีการอัดวิดีโอวงสวิงหรือใช้ข้อมูลจากซิมูเลเตอร์ประกอบ เพื่อให้เห็นสิ่งที่ต้องแก้อย่างเป็นรูปธรรม\n4. **ความถนัดของโค้ช** — โค้ชบางคนถนัดสอนมือใหม่ให้เริ่มจากศูนย์ บางคนถนัดปรับจูนนักกอล์ฟที่แฮนดิแคปต่ำ เลือกให้ตรงกับระดับของคุณ\n5. **การสื่อสาร** — โค้ชที่อธิบายเข้าใจง่ายและสื่อสารกันรู้เรื่องสำคัญมาก ที่ LENGOLF โค้ชเป็นคนไทยที่ได้รับการรับรองจาก PGA Thailand จึงเรียนเป็นภาษาไทยได้สบาย",
+        },
+        {
+          heading: "เรียนกอล์ฟที่ LENGOLF — จุดเด่นของการเรียนด้วยซิมูเลเตอร์",
+          body: "LENGOLF เปิดสอนกอล์ฟที่สถานที่ซิมูเลเตอร์ในร่มใจกลางกรุงเทพฯ ข้อได้เปรียบหลักคือ ข้อมูลการตีถูกบันทึกอัตโนมัติและแสดงผลทันที คุณจึงเห็นผลของการปรับวงสวิงได้จากช็อตเดียวกัน ไม่ต้องเดาว่าที่แก้ไปได้ผลไหม ทำให้การเรียนแต่ละครั้งคุ้มค่ากว่าการตีลูกที่สนามไดรฟ์แบบเดิม อีกทั้งอยู่ติดสถานี BTS จึงแวะเรียนก่อนหรือหลังเลิกงานได้ง่าย\n\nสรุปจุดเด่นของคอร์สเรียนกอล์ฟที่ LENGOLF (ข้อมูล ณ กรกฎาคม 2026):\n\n- สอนโดยโค้ชที่ได้รับการรับรองจาก PGA Thailand (PRO Boss, PRO Ratchavin และ PRO Min)\n- เริ่มต้นด้วยคลาสทดลองฟรี 1 ชั่วโมง ก่อนตัดสินใจลงแพ็กเกจ\n- แพ็กเกจเรียนเริ่มต้นที่ชั่วโมงละ {{lessonHourlyNum}} บาท และรวมค่าใช้ห้องซิมูเลเตอร์แล้ว\n- สอนได้ทุกระดับ ตั้งแต่มือใหม่ที่เพิ่งเริ่มจนถึงนักกอล์ฟที่อยากปรับเทคนิค\n- มีไม้กอล์ฟให้ใช้ระหว่างเรียน ไม่ต้องเตรียมอุปกรณ์เอง\n- ใช้ข้อมูลจากซิมูเลเตอร์และการวิเคราะห์วิดีโอเพื่อชี้จุดที่ต้องแก้\n- อยู่ที่ Mercury Ville ชั้น 4 ติด BTS Chidlom เปิดทุกวัน {{openingHours}} น.\n- จองและปรึกษาล่วงหน้าได้ทาง booking.len.golf หรือ LINE @lengolf",
+        },
+        {
+          heading: "เริ่มต้นเรียนกอล์ฟอย่างไรดี",
+          body: "1. เริ่มจากคลาสทดลองก่อน เพื่อดูว่าคุณชอบและเข้ากับสไตล์การสอนไหม ก่อนลงแพ็กเกจระยะยาว\n2. บอกโค้ชตั้งแต่แรกว่าคุณอยู่ระดับไหน และอยากพัฒนาเรื่องอะไรเป็นพิเศษ เช่น อยากเริ่มจากศูนย์ หรืออยากแก้วงสวิงเฉพาะจุด\n3. จองล่วงหน้าโดยเฉพาะช่วงเย็นและวันหยุดที่คนนิยมเรียน เพื่อให้ได้เวลาที่ต้องการ\n4. เผื่อเวลาสำหรับคาบแรกให้พอ เพราะนอกจากเวลาตีแล้ว ยังมีช่วงที่โค้ชอธิบายและทบทวนข้อมูลการตีร่วมกัน\n5. เรียนอย่างต่อเนื่องและฝึกซ้อมระหว่างคาบ จะช่วยให้สิ่งที่ปรับไปติดเป็นนิสัยได้เร็วขึ้น",
+        },
+      ],
+      key_takeaways: [
+        "การเรียนกอล์ฟบนซิมูเลเตอร์ให้ข้อมูลการตีเป็นตัวเลขในทุกช็อต ช่วยให้เห็นจุดที่ต้องแก้ชัดเจนกว่าการเรียนที่สนามไดรฟ์แบบเดิม",
+        "มือใหม่ไม่ต้องมีอุปกรณ์หรือพื้นฐานมาก่อน เริ่มจากคลาสทดลองในห้องส่วนตัวที่ไม่กดดันได้เลย",
+        "เลือกครูสอนกอล์ฟจากการรับรอง PGA สไตล์การสอน และความถนัดกับระดับของคุณ",
+        "ที่ LENGOLF เรียนกับโค้ช PGA Thailand คลาสทดลองฟรี 1 ชั่วโมง แพ็กเกจเริ่ม {{lessonHourlyNum}} บาท ติด BTS Chidlom (ข้อมูล ณ กรกฎาคม 2026)",
       ],
       comparison_table: [],
     },
@@ -2620,9 +2695,9 @@ export const explainerPages: ExplainerSeoPage[] = [
     id: "exp-38",
     page_type: "explainer",
     slug: "nikanti-golf-club-bangkok",
-    title: "Nikanti Golf Club Bangkok — Review and Visitor Guide",
+    title: "Nikanti Golf Club Bangkok — Green Fees, Booking & Review",
     meta_description:
-      "Nikanti Golf Club in Nakhon Pathom is one of Bangkok's top courses — a links-style layout 1 hour west of the city. Green fees, caddies, booking, and what to expect.",
+      "Nikanti Golf Club near Bangkok — a links-style course with all-inclusive green fees from ~5,500 THB covering caddie, drinks, and two meals. How to book inside.",
     featured_image: null,
     schema_markup: null,
     status: "published",
