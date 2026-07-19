@@ -90,6 +90,11 @@ const routeTests: RouteTest[] = [
     contentMarker: '<main id="main-content">',
   },
   {
+    path: "/corporate-golf-packages/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
     path: "/about-us/",
     expectedStatus: [200],
     contentMarker: '<main id="main-content">',
@@ -2319,6 +2324,7 @@ const seoTests: SeoTest[] = [
   { path: "/zh/", locale: "zh" },
   { path: "/zh/golf/", locale: "zh" },
   { path: "/zh/lessons/", locale: "zh" },
+  { path: "/corporate-golf-packages/", locale: "en" },
   { path: "/golf-in-thailand-guide/", locale: "en" },
   { path: "/guide/what-is-a-golf-simulator/", locale: "en" },
   { path: "/faq/can-i-rent-golf-clubs-in-bangkok/", locale: "en" },

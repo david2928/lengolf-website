@@ -16,7 +16,7 @@ export const bestOfListiclePages: BestOfListicleSeoPage[] = [
     status: 'published',
     category: 'team-building',
     locale: 'en',
-    related_slugs: ['/events', '/cost/corporate-golf-event-cost-bangkok', '/location/corporate-events-chidlom', '/activities/group-activities-bangkok'],
+    related_slugs: ['/corporate-golf-packages', '/events', '/cost/corporate-golf-event-cost-bangkok', '/location/corporate-events-chidlom', '/activities/group-activities-bangkok'],
     created_at: now,
     updated_at: now,
     content: {
@@ -333,7 +333,7 @@ export const bestOfListiclePages: BestOfListicleSeoPage[] = [
     status: 'published',
     category: 'corporate-events',
     locale: 'en',
-    related_slugs: ['/events', '/cost/corporate-golf-event-cost-bangkok', '/location/corporate-events-chidlom', '/faq/how-much-does-corporate-golf-event-cost-bangkok'],
+    related_slugs: ['/corporate-golf-packages', '/events', '/cost/corporate-golf-event-cost-bangkok', '/location/corporate-events-chidlom', '/faq/how-much-does-corporate-golf-event-cost-bangkok'],
     created_at: now,
     updated_at: now,
     content: {

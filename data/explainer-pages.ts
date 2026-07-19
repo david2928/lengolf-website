@@ -1313,6 +1313,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     category: "golf-in-thailand",
     locale: "en",
     related_slugs: [
+      "/corporate-golf-packages",
       "/guide/best-golf-courses-near-bangkok",
       "/guide/golf-tournament-packages-bangkok",
       "/guide/best-golf-simulators-bangkok",

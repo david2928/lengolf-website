@@ -467,7 +467,7 @@ export const priceGuidePages: PriceGuideSeoPage[] = [
     status: 'published',
     category: 'pricing',
     locale: 'en',
-    related_slugs: ['/events', '/cost/lengolf-pricing-guide', '/cost/how-much-does-golf-cost-bangkok', '/activities/group-activities-bangkok'],
+    related_slugs: ['/corporate-golf-packages', '/events', '/cost/lengolf-pricing-guide', '/cost/how-much-does-golf-cost-bangkok', '/activities/group-activities-bangkok'],
     created_at: now,
     updated_at: now,
     content: {
