@@ -411,6 +411,13 @@ export default function CoursePage({ course, regionLabel, relatedCourses = [], c
                   <span>Thailand golf planning guide</span>
                 </Link>
                 <Link
+                  href="/guide/best-time-play-golf-thailand"
+                  className="flex items-center gap-3 px-5 py-3.5 text-sm transition-colors hover:bg-muted/40"
+                >
+                  <ArrowRight className="h-4 w-4 shrink-0 text-primary" />
+                  <span>Best time of year to play golf in Thailand</span>
+                </Link>
+                <Link
                   href="/cost/how-much-does-golf-cost-bangkok"
                   className="flex items-center gap-3 px-5 py-3.5 text-sm transition-colors hover:bg-muted/40"
                 >
