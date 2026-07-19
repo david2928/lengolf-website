@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const airport = AIRPORTS[station]
   if (airport) {
-    const title = `Golf Courses Near ${airport.name} (${airport.iata}) — Distances & Green Fees`
+    const title = `Golf Courses Near ${airport.name} (${airport.iata}): Distances & Green Fees`
     const description = `Golf courses ranked by straight-line distance from ${airport.name} (${airport.iata}), with weekday/weekend green fees, club-rental availability, and how to book your round.`
     const canonicalUrl = `${SITE_URL}/golf-courses/near/${station}/`
     return {
@@ -145,7 +145,7 @@ async function AirportPage({ locale, slug }: { locale: string; slug: string }) {
             {items.length} golf courses near {airport.shortName}, by straight-line distance
           </h2>
           <p className="mb-4 text-xs italic text-muted-foreground">
-            Distances are straight-line (as the crow flies) from the {airport.iata} terminal — not driving
+            Distances are straight-line (as the crow flies) from the {airport.iata} terminal, not driving
             distance or drive time, which depend on the expressway route and traffic. Green fees are the
             published starting rates from each course guide and are subject to change; confirm the current
             price (and any caddie/cart charges) with the course or your booking platform before you travel.
@@ -207,8 +207,8 @@ async function AirportPage({ locale, slug }: { locale: string; slug: string }) {
               <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
               <span>
                 <strong className="text-foreground">Reserve ahead.</strong> Most Bangkok courses take tee-time
-                bookings by phone or through a booking platform, and several ask for at least a day’s notice —
-                more at weekends. Check each course’s own guide (linked above) for its booking rules.
+                bookings by phone or through a booking platform, and several ask for at least a day’s notice
+                (more at weekends). Check each course’s own guide (linked above) for its booking rules.
               </span>
             </li>
             <li className="flex gap-2">
@@ -223,7 +223,7 @@ async function AirportPage({ locale, slug }: { locale: string; slug: string }) {
               <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
               <span>
                 <strong className="text-foreground">Plan the transfer.</strong> Straight-line distance is not
-                drive time — Bangkok traffic and expressway access change the real journey significantly. Our{' '}
+                drive time: Bangkok traffic and expressway access change the real journey significantly. Our{' '}
                 <Link href={airport.guideHref} className="text-primary hover:underline">
                   {airport.shortName} arrival guide
                 </Link>{' '}
@@ -237,7 +237,7 @@ async function AirportPage({ locale, slug }: { locale: string; slug: string }) {
                 <Link href="/golf-course-club-rental" className="text-primary hover:underline">
                   delivers rental sets to your Bangkok hotel
                 </Link>{' '}
-                and picks them up after your round — useful if you’d rather not fly with a golf bag.
+                and picks them up after your round, useful if you’d rather not fly with a golf bag.
               </span>
             </li>
           </ul>
@@ -248,7 +248,7 @@ async function AirportPage({ locale, slug }: { locale: string; slug: string }) {
           <h2 className="mb-2 text-lg font-bold text-foreground">Short layover or tight schedule?</h2>
           <p className="text-sm leading-relaxed text-foreground/80">
             If you don’t have the hours a full 18 near {airport.shortName} demands, the LENGOLF indoor
-            simulator sits above BTS Chidlom in central Bangkok — a quick, air-conditioned way to hit balls
+            simulator sits above BTS Chidlom in central Bangkok, a quick, air-conditioned way to hit balls
             between flights or before checking in. It’s a 30-second walk from the station, so a
             city-centre layover can still include golf. See the{' '}
             <Link href={airport.guideHref} className="font-semibold text-primary hover:underline">
@@ -266,7 +266,7 @@ async function AirportPage({ locale, slug }: { locale: string; slug: string }) {
           eyebrow={`Flying into ${airport.iata} without clubs?`}
           body={
             <>
-              We deliver premium club sets to your Bangkok hotel and pick them up after your round —
+              We deliver premium club sets to your Bangkok hotel and pick them up after your round,
               from <strong className="text-white">1,200 THB/day</strong>. Or practise at the LENGOLF
               simulator in Chidlom between flights.
             </>

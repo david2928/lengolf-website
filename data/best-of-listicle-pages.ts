@@ -339,13 +339,13 @@ export const bestOfListiclePages: BestOfListicleSeoPage[] = [
     content: {
       year: 2026,
       intro:
-        'Bangkok is one of Southeast Asia\'s top corporate event destinations, and the venue you pick sets the tone more than anything else on the agenda. The real decision is format: a formal hotel ballroom for a conference or gala dinner, an activity-led venue that actually gets people talking, or a rooftop for a launch or reception. Group size and budget narrow it from there — a 20-person team offsite and a 300-person conference need completely different rooms. We ranked the best corporate event venues in Bangkok below by value, location, and what each genuinely does best, with honest pros and cons for each.',
+        'Bangkok is one of Southeast Asia\'s top corporate event destinations, and the venue you pick sets the tone more than anything else on the agenda. The real decision is format: a formal hotel ballroom for a conference or gala dinner, an activity-led venue that actually gets people talking, or a rooftop for a launch or reception. Group size and budget narrow it from there: a 20-person team offsite and a 300-person conference need completely different rooms. We ranked the best corporate event venues in Bangkok below by value, location, and what each genuinely does best, with honest pros and cons for each.',
       list_items: [
         {
           rank: 1,
           name: 'LENGOLF — Private Corporate Golf Events',
           description:
-            'LENGOLF runs private corporate event packages at Mercury Ville, right on BTS Chidlom. Packages cover 10–50 guests with drinks and catered food included, and the Medium Package is an exclusive full-venue buyout — the whole space is yours. See current package pricing at len.golf/events. No golf experience is required: tournament formats like closest-to-the-pin work for complete beginners and scratch golfers alike, which removes the usual corporate "standing around" awkwardness and gives the team something to do together.',
+            'LENGOLF runs private corporate event packages at Mercury Ville, right on BTS Chidlom. Packages cover 10–50 guests with drinks and catered food included, and the Medium Package is an exclusive full-venue buyout: the whole space is yours. See current package pricing at len.golf/events. No golf experience is required: tournament formats like closest-to-the-pin work for complete beginners and scratch golfers alike, which removes the usual corporate "standing around" awkwardness and gives the team something to do together.',
           pros: [
             'Activity built in — no need to plan entertainment separately',
             'All-inclusive packages (drinks + food + bays)',
@@ -472,17 +472,17 @@ export const bestOfListiclePages: BestOfListicleSeoPage[] = [
         },
         {
           rank: 8,
-          name: 'Tribe Sky Beach Club — EmSphere',
+          name: 'Tribe Sky Beach Club (EmSphere)',
           description:
-            'A rooftop beach-club-style venue on top of EmSphere at Phrom Phong, popular for corporate parties, product launches, and evening receptions. The open-air, poolside setting gives an event a relaxed, social energy that a hotel ballroom cannot — better suited to celebrations and networking than to seated conferences or formal presentations. A strong option for Sukhumvit-based companies that want a launch or party rather than a boardroom.',
+            'A rooftop beach-club-style venue on top of EmSphere at Phrom Phong, popular for corporate parties, product launches, and evening receptions. The open-air, poolside setting gives an event a relaxed, social energy that a hotel ballroom cannot, better suited to celebrations and networking than to seated conferences or formal presentations. A strong option for Sukhumvit-based companies that want a launch or party rather than a boardroom.',
           pros: [
-            'Distinctive rooftop beach-club setting — memorable for launches and parties',
-            'Directly above EmSphere — BTS Phrom Phong access and mall dining nearby',
+            'Distinctive rooftop beach-club setting, memorable for launches and parties',
+            'Directly above EmSphere, with BTS Phrom Phong access and mall dining nearby',
             'Relaxed, social atmosphere that encourages mingling',
           ],
           cons: [
-            'Open-air — exposed to Bangkok heat and rain',
-            'Party and reception focus — not built for seated conferences or AV-heavy presentations',
+            'Open-air, so exposed to Bangkok heat and rain',
+            'Party and reception focus, not built for seated conferences or AV-heavy presentations',
           ],
           is_lengolf: false,
           address: 'EmSphere, 628 Sukhumvit Rd, Phrom Phong, Khlong Toei',

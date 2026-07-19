@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const startingBaht = toBaht(findPackagePrice(eventPackages, 'Small Package') ?? '9,999 THB')
   return {
     // Layout applies the "%s | LENGOLF" template, so the brand is appended automatically.
-    title: 'Corporate Golf Packages Bangkok — Team Building',
-    description: `Private corporate golf packages in Bangkok from ${startingBaht} — indoor simulator bays, full bar and catering for groups of 10–50+. Central at BTS Chidlom, no weather risk.`,
+    title: 'Corporate Golf Packages Bangkok: Team Building',
+    description: `Private corporate golf packages in Bangkok from ${startingBaht}: indoor simulator bays, full bar and catering for groups of 10–50+. Central at BTS Chidlom, no weather risk.`,
     alternates: {
       canonical: `${SITE_URL}${prefix}/corporate-golf-packages/`,
     },
@@ -62,7 +62,7 @@ const buildFaqItems = (smallPrice: string, mediumPrice: string) => [
   {
     question: 'Do guests need golf experience or is this good for non-golfers?',
     answer:
-      'No experience needed — the simulators are fun for complete beginners and experienced golfers alike. We run games like closest to the pin and longest drive that anyone can enjoy, and our golf pros can give mini-lessons and tips during your event, which makes it an easy team-building activity for mixed groups.',
+      'No experience needed: the simulators are fun for complete beginners and experienced golfers alike. We run games like closest to the pin and longest drive that anyone can enjoy, and our golf pros can give mini-lessons and tips during your event, which makes it an easy team-building activity for mixed groups.',
   },
   {
     question: 'How far in advance should we book a corporate event?',
@@ -77,12 +77,12 @@ const buildFaqItems = (smallPrice: string, mediumPrice: string) => [
   {
     question: 'What makes LENGOLF good for corporate team building?',
     answer:
-      'You get a private indoor venue in central Bangkok — directly accessible from BTS Chidlom — with no weather risk, air-conditioned comfort, competitive golf games that get everyone involved, and food and drinks in one place. It works for corporate events, company parties, team building, and client meet-and-greets.',
+      'You get a private indoor venue in central Bangkok (directly accessible from BTS Chidlom) with no weather risk, air-conditioned comfort, competitive golf games that get everyone involved, and food and drinks in one place. It works for corporate events, company parties, team building, and client meet-and-greets.',
   },
   {
     question: 'Where is LENGOLF located?',
     answer:
-      "We're on the 4th floor of The Mercury Ville at BTS Chidlom, 540 Ploenchit Road, Lumpini, Pathumwan, Bangkok 10330 — directly accessible from the BTS Chidlom Skytrain station. See us on Google Maps.",
+      "We're on the 4th floor of The Mercury Ville at BTS Chidlom, 540 Ploenchit Road, Lumpini, Pathumwan, Bangkok 10330, directly accessible from the BTS Chidlom Skytrain station. See us on Google Maps.",
   },
 ]
 
@@ -104,7 +104,7 @@ export default async function CorporateGolfPackagesPage({ params }: { params: Pr
     ...getEventsServiceJsonLd(),
     name: 'Corporate Golf Events & Team Building at LENGOLF',
     description:
-      'Corporate golf packages and team-building hosting at LENGOLF Bangkok — private indoor golf simulator bays with a full bar, catered food, and full-venue rental options.',
+      'Corporate golf packages and team-building hosting at LENGOLF Bangkok: private indoor golf simulator bays with a full bar, catered food, and full-venue rental options.',
     url: `${SITE_URL}/corporate-golf-packages/`,
   }
   const faqJsonLd = getFaqPageJsonLd(faqItems)
@@ -119,11 +119,11 @@ export default async function CorporateGolfPackagesPage({ params }: { params: Pr
   // Facts sourced from data/pricing.ts (amenities / eventPackages) and /events content.
   const includedItems = [
     'Private indoor simulator bays with golf club rental included',
-    'Full bar — beer, cocktails, and unlimited soft drinks',
+    'Full bar: beer, cocktails, and unlimited soft drinks',
     'Customizable catering by Smith & Co. (and Pizza Mania on the Medium Package)',
     'Up to 4 golf bays and seating for 50+ guests',
     'Large putting green and full-venue rental option',
-    'Central BTS Chidlom location — air-conditioned, no weather risk',
+    'Central BTS Chidlom location: air-conditioned, no weather risk',
   ]
 
   return (
@@ -155,7 +155,7 @@ export default async function CorporateGolfPackagesPage({ params }: { params: Pr
           </h1>
           <p className="text-base text-white/85 max-w-2xl mb-8 md:text-lg">
             Host your team at a private indoor golf venue in the heart of Bangkok. Simulator bays,
-            a full bar, and catered food under one roof at BTS Chidlom — no travel, no weather risk,
+            a full bar, and catered food under one roof at BTS Chidlom: no travel, no weather risk,
             and no golf experience required.
           </p>
           <div className="flex flex-wrap items-center gap-4">
@@ -205,7 +205,7 @@ export default async function CorporateGolfPackagesPage({ params }: { params: Pr
           </h2>
           <p className="mx-auto mb-12 max-w-2xl text-center text-sm text-muted-foreground md:text-base">
             Two ready-made packages cover most team sizes. Need something bigger or longer? We build
-            fully custom corporate quotes — just ask.
+            fully custom corporate quotes. Just ask.
           </p>
           <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
             {eventPackages.map((pkg) => (
@@ -282,7 +282,7 @@ export default async function CorporateGolfPackagesPage({ params }: { params: Pr
               <span className="text-foreground">Everyone Can Play</span>
             </h2>
             <p className="mx-auto mb-10 max-w-2xl text-center text-sm text-muted-foreground md:text-base">
-              A great corporate event gets the whole team involved — not just the golfers. Our simulators
+              A great corporate event gets the whole team involved, not just the golfers. Our simulators
               turn into an easy, competitive activity for any skill level.
             </p>
             <div className="grid gap-6 sm:grid-cols-3">
@@ -297,7 +297,7 @@ export default async function CorporateGolfPackagesPage({ params }: { params: Pr
                 },
                 {
                   title: 'Food, drinks, one room',
-                  body: 'A full bar and catered food keep the group together between rounds — ideal for company parties, meet-and-greets, and team socials.',
+                  body: 'A full bar and catered food keep the group together between rounds, ideal for company parties, meet-and-greets, and team socials.',
                 },
               ].map((card) => (
                 <div key={card.title} className="rounded-xl border border-primary/15 bg-white p-6">
