@@ -42,6 +42,7 @@ const TRANSLATED_ROUTES: Record<
       "/guide/golf-courses-chiang-mai",
       "/guide/golf-hotels-near-bangkok",
       "/guide/golf-thailand-beginners",
+      "/guide/golf-lessons-bangkok-coaches",
       "/guide/golf-tournament-packages-bangkok",
       "/guide/golf-weather-bangkok-by-month",
       "/guide/golfnow-thailand-review",
