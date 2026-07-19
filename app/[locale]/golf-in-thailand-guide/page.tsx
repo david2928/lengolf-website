@@ -15,9 +15,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const prefix = locale === 'en' ? '' : `/${locale}`
   return {
-    title: 'Golf in Thailand — The Complete Planning Guide | LENGOLF',
+    title: 'Golf in Thailand — The Complete Golf Travel Guide | LENGOLF',
     description:
-      'Plan your golf trip to Thailand from scratch — best courses near Bangkok, when to go, how to book tee times, club rental vs bringing your own, airport transfers, and on-the-ground tips. Updated 2026.',
+      'The complete golf guide to Thailand — best courses near Bangkok, when to go, booking tee times, club rental vs bringing your own, airport transfers, and on-the-ground travel tips. Updated 2026.',
     alternates: {
       canonical: `${SITE_URL}${prefix}/golf-in-thailand-guide/`,
     },

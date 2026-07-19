@@ -291,9 +291,9 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
     id: 'act-8',
     page_type: 'activity_occasion',
     slug: 'weekend-activities-bangkok',
-    title: 'Weekend Activities in Bangkok | Things to Do on Saturday & Sunday',
+    title: 'Weekend Activities in Bangkok | Markets, Golf & Dining',
     meta_description:
-      'Looking for weekend activities in Bangkok? From morning markets to golf simulators and evening dining — the best things to do on Saturday and Sunday.',
+      'The best weekend activities in Bangkok — Chatuchak market mornings, golf simulators, and riverside dining. How to plan a full Saturday or Sunday without melting.',
     featured_image: null,
     schema_markup: null,
     status: 'published',

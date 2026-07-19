@@ -345,9 +345,9 @@ export const explainerPages: ExplainerSeoPage[] = [
     id: "exp-7",
     page_type: "explainer",
     slug: "best-time-play-golf-thailand",
-    title: "Best Time of Year to Play Golf in Thailand",
+    title: "Best Time of Year to Play Golf in Thailand — When to Book",
     meta_description:
-      "Plan your Thailand golf trip around the seasons. Discover when to play, which tee times to book, and how to avoid heat and rain in Bangkok.",
+      "The best time to play golf in Thailand, month by month. When to book tee times, which season suits your game, and how to avoid the heat and rain in Bangkok.",
     featured_image: null,
     schema_markup: null,
     status: "published",
@@ -2620,9 +2620,9 @@ export const explainerPages: ExplainerSeoPage[] = [
     id: "exp-38",
     page_type: "explainer",
     slug: "nikanti-golf-club-bangkok",
-    title: "Nikanti Golf Club Bangkok — Review and Visitor Guide",
+    title: "Nikanti Golf Club Bangkok — Green Fees, Booking & Review",
     meta_description:
-      "Nikanti Golf Club in Nakhon Pathom is one of Bangkok's top courses — a links-style layout 1 hour west of the city. Green fees, caddies, booking, and what to expect.",
+      "Nikanti Golf Club near Bangkok — a links-style course with all-inclusive green fees from ~5,500 THB covering caddie, drinks, and two meals. How to book inside.",
     featured_image: null,
     schema_markup: null,
     status: "published",

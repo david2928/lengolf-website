@@ -2143,6 +2143,16 @@ const routeTests: RouteTest[] = [
     contentMarker: '<main id="main-content">',
   },
   {
+    path: "/golf-courses/near/suvarnabhumi-airport/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
+    path: "/golf-courses/near/don-mueang-airport/",
+    expectedStatus: [200],
+    contentMarker: '<main id="main-content">',
+  },
+  {
     path: "/golf-courses/under/2500-baht/",
     expectedStatus: [200],
     contentMarker: '<main id="main-content">',

@@ -2,6 +2,7 @@ import 'server-only'
 import type { GolfCourse } from '@/types/golf-courses'
 import { getCoursesByRegion, REGION_META, type Region } from '@/lib/golf-courses'
 import { BTS_STATIONS, type BtsStation } from '@/data/bts-stations'
+import { AIRPORTS } from '@/data/airports'
 import { PRICE_TIERS } from '@/data/price-tiers'
 import { USE_CASE_RULES, type UseCase } from '@/data/golf-courses-use-cases'
 import { haversineKm } from '@/lib/geo'
@@ -116,9 +117,32 @@ export interface CourseWithDistance {
 }
 
 /**
+ * Top N courses ranked by haversine (straight-line) distance from an arbitrary
+ * lat/lng anchor. Courses missing latitude/longitude are excluded (no `?? 0`
+ * fallback — we never want to mis-rank by treating null coords as the equator).
+ *
+ * This is the shared primitive behind both the BTS-station proximity pages and
+ * the airport proximity pages.
+ */
+export async function getCoursesNearPoint(
+  lat: number,
+  lng: number,
+  n: number
+): Promise<CourseWithDistance[]> {
+  const all = await getAllPublishedCourses()
+  return all
+    .filter((c) => c.latitude !== null && c.longitude !== null)
+    .map((c) => ({
+      course: c,
+      km: haversineKm({ lat, lng }, { lat: c.latitude!, lng: c.longitude! }),
+    }))
+    .sort((a, b) => a.km - b.km)
+    .slice(0, n)
+}
+
+/**
  * Top N courses ranked by haversine distance from a BTS station.
- * Courses missing latitude/longitude are excluded (no `?? 0` fallback —
- * we never want to mis-rank by treating null coords as the equator).
+ * Delegates to getCoursesNearPoint — behaviour unchanged.
  */
 export async function getCoursesNearStation(
   stationSlug: string,
@@ -126,18 +150,20 @@ export async function getCoursesNearStation(
 ): Promise<CourseWithDistance[]> {
   const station: BtsStation | undefined = BTS_STATIONS[stationSlug]
   if (!station) return []
-  const all = await getAllPublishedCourses()
-  return all
-    .filter((c) => c.latitude !== null && c.longitude !== null)
-    .map((c) => ({
-      course: c,
-      km: haversineKm(
-        { lat: station.lat, lng: station.lng },
-        { lat: c.latitude!, lng: c.longitude! }
-      ),
-    }))
-    .sort((a, b) => a.km - b.km)
-    .slice(0, n)
+  return getCoursesNearPoint(station.lat, station.lng, n)
+}
+
+/**
+ * Top N courses ranked by haversine distance from an airport terminal.
+ * Returns [] for an unknown airport slug (mirrors getCoursesNearStation).
+ */
+export async function getCoursesNearAirport(
+  airportSlug: string,
+  n: number
+): Promise<CourseWithDistance[]> {
+  const airport = AIRPORTS[airportSlug]
+  if (!airport) return []
+  return getCoursesNearPoint(airport.lat, airport.lng, n)
 }
 
 /**
@@ -182,4 +208,9 @@ export function getPriceTierSlugs(): string[] {
 /** All BTS station slugs that have a proximity page generated. */
 export function getStationSlugs(): string[] {
   return Object.keys(BTS_STATIONS)
+}
+
+/** All airport slugs that have a proximity page generated. */
+export function getAirportSlugs(): string[] {
+  return Object.keys(AIRPORTS)
 }

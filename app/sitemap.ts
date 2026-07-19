@@ -9,6 +9,7 @@ import {
   getComparisonPairs,
   pairSlug,
   getStationSlugs,
+  getAirportSlugs,
   getPriceTierSlugs,
 } from '@/lib/golf-courses-derived'
 import { USE_CASES } from '@/data/golf-courses-use-cases'
@@ -201,6 +202,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }))
 
+  const golfNearAirportPages: MetadataRoute.Sitemap = getAirportSlugs().map((airport) => ({
+    url: `${SITE_URL}/golf-courses/near/${airport}/`,
+    lastModified: reviewed,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
   const golfPriceTierPages: MetadataRoute.Sitemap = getPriceTierSlugs().map((tier) => {
     // Emit hreflang alternates only for tiers with translations
     // (registered in lib/translated-routes.ts) — EN-only tiers stay plain.
@@ -240,6 +248,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...golfCoursePages,
     ...golfComparisonPages,
     ...golfNearStationPages,
+    ...golfNearAirportPages,
     ...golfPriceTierPages,
     ...golfBestForPages,
   ]
