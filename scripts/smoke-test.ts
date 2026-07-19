@@ -2201,6 +2201,29 @@ const redirectTests: RedirectTest[] = [
     expectedStatus: 308,
     expectedLocation: "/location/golf-lessons-ari/",
   },
+  // GSC 404 fixes: root-level corporate-events pages -> /location/ prefix
+  {
+    path: "/corporate-events-thong-lo/",
+    expectedStatus: 308,
+    expectedLocation: "/location/corporate-events-thong-lo/",
+  },
+  {
+    path: "/corporate-events-ratchadamri/",
+    expectedStatus: 308,
+    expectedLocation: "/location/corporate-events-ratchadamri/",
+  },
+  // GSC 404 fixes: content crawled under the wrong section prefix
+  // (/faq/<guide-slug> and /guide/<faq-slug>) -> correct prefix
+  {
+    path: "/faq/what-to-wear-golf-thailand/",
+    expectedStatus: 308,
+    expectedLocation: "/guide/what-to-wear-golf-thailand/",
+  },
+  {
+    path: "/guide/do-you-need-caddie-thailand-golf/",
+    expectedStatus: 308,
+    expectedLocation: "/faq/do-you-need-caddie-thailand-golf/",
+  },
   // GSC 404 golf-near redirects (trailing slash required — trailingSlash:true fires 308 before middleware)
   {
     path: "/golf-near-thong-lo/",
