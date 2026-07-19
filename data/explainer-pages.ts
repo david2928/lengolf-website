@@ -1906,7 +1906,7 @@ export const explainerPages: ExplainerSeoPage[] = [
     slug: "golf-lessons-bangkok-coaches",
     title: "เรียนกอล์ฟกรุงเทพฯ — คอร์สเรียนกับครูสอนกอล์ฟ PGA และราคา",
     meta_description:
-      "อยากเรียนกอล์ฟในกรุงเทพฯ แต่ไม่รู้จะเริ่มตรงไหน คู่มือนี้อธิบายว่าคอร์สเรียนกอล์ฟที่ LENGOLF เป็นอย่างไร เหมาะกับมือใหม่แค่ไหน วิธีเลือกครูสอนกอล์ฟ พร้อมราคาแพ็กเกจเริ่ม {{lessonHourlyNum}} บาท และคลาสทดลองฟรี 1 ชั่วโมง สอนโดยโค้ช PGA Thailand ด้วยข้อมูลจากซิมูเลเตอร์ (ข้อมูล ณ กรกฎาคม 2026)",
+      "เรียนกอล์ฟในกรุงเทพฯ ที่ LENGOLF คอร์สเรียนกับโค้ช PGA Thailand เหมาะกับมือใหม่ ทดลองฟรี 1 ชั่วโมง แพ็กเกจเริ่ม {{lessonHourlyNum}} บาท (ข้อมูล ณ กรกฎาคม 2026)",
     featured_image: null,
     schema_markup: null,
     status: "published",
