@@ -472,12 +472,12 @@ export const bestOfListiclePages: BestOfListicleSeoPage[] = [
         },
         {
           rank: 8,
-          name: 'Tribe Sky Beach Club — EmQuartier',
+          name: 'Tribe Sky Beach Club — EmSphere',
           description:
-            'A rooftop beach-club-style venue on top of EmQuartier at Phrom Phong, popular for corporate parties, product launches, and evening receptions. The open-air, poolside setting gives an event a relaxed, social energy that a hotel ballroom cannot — better suited to celebrations and networking than to seated conferences or formal presentations. A strong option for Sukhumvit-based companies that want a launch or party rather than a boardroom.',
+            'A rooftop beach-club-style venue on top of EmSphere at Phrom Phong, popular for corporate parties, product launches, and evening receptions. The open-air, poolside setting gives an event a relaxed, social energy that a hotel ballroom cannot — better suited to celebrations and networking than to seated conferences or formal presentations. A strong option for Sukhumvit-based companies that want a launch or party rather than a boardroom.',
           pros: [
             'Distinctive rooftop beach-club setting — memorable for launches and parties',
-            'Directly above EmQuartier — BTS Phrom Phong access and mall dining nearby',
+            'Directly above EmSphere — BTS Phrom Phong access and mall dining nearby',
             'Relaxed, social atmosphere that encourages mingling',
           ],
           cons: [
@@ -485,8 +485,8 @@ export const bestOfListiclePages: BestOfListicleSeoPage[] = [
             'Party and reception focus — not built for seated conferences or AV-heavy presentations',
           ],
           is_lengolf: false,
-          address: 'EmQuartier rooftop, Sukhumvit Rd, Phrom Phong, Khlong Toei Nuea',
-          website: undefined,
+          address: 'EmSphere, 628 Sukhumvit Rd, Phrom Phong, Khlong Toei',
+          website: 'https://emsphere.co.th/en/tribe/',
         },
       ],
       conclusion:

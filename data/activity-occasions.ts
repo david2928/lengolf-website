@@ -143,7 +143,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
     content: {
       occasion_type: 'birthday-party',
       intro:
-        'The best birthday party venues in Bangkok for adults pair a real activity with food and drinks, so the night keeps momentum instead of stalling over a long dinner. The right pick depends on your numbers — an intimate group of eight, a standard 10–15, or a 25-plus crowd — and whether you want the space to yourselves. Here are the venues worth booking for an adult birthday in Bangkok, with honest notes on capacity, vibe, and what each does best.',
+        'The best birthday party venues in Bangkok for adults pair a real activity with food and drinks, so the night keeps momentum instead of stalling over a long dinner. The right pick depends on your numbers — a small circle of friends, a standard 10–15, or a 25-plus crowd — and whether you want the space to yourselves. Here are the venues worth booking for an adult birthday in Bangkok, with honest notes on capacity, vibe, and what each does best.',
       why_lengolf:
         'LENGOLF runs event packages built for birthdays. The Small Package (9,999 THB) covers 10–15 guests across 2 bays for 3 hours with 10 beers, 5 cocktails, unlimited soft drinks, and a catered food spread. The Medium Package (21,999 THB) steps up to 15–25 guests, all 4 bays, and an exclusive full-venue rental — the whole room is yours. Both centre on Bravo golf simulators that anyone can play, so the group has something to do together rather than just eat; games like closest to the pin keep non-golfers laughing. Food, drinks, decorations, music, and a DJ setup can be customised to the party, and for a bigger celebration the venue hosts 50+ guests on a custom package. It is inside The Mercury Ville at BTS Chidlom, so guests arrive straight off the BTS.',
       other_activities: [
@@ -412,7 +412,7 @@ export const activityOccasionPages: ActivityOccasionSeoPage[] = [
     slug: 'private-party-venues-bangkok',
     title: 'Private Party Venues in Bangkok | Exclusive Spaces to Hire',
     meta_description:
-      'Looking for private party venues in Bangkok? Compare exclusive-hire spaces for groups — from a golf simulator venue you can book out entirely to private dining rooms, karaoke suites, and rooftop sections.',
+      'Private party venues in Bangkok compared — from a golf simulator venue you can book out entirely to private dining rooms and karaoke suites.',
     featured_image: null,
     schema_markup: null,
     status: 'published',
