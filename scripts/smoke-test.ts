@@ -2371,9 +2371,11 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
   // coverage, so the only locale with untranslated guides is th (the 8 guides
   // from PR #52 were never translated to Thai). These canaries must be guides
   // translated in ja/ko/zh but NOT th — if th ever gains them, pick others.
+  // (golf-lessons-bangkok-coaches gained a th version, so this now uses
+  // screen-golf-bangkok, still ja/ko/zh-only.)
   {
-    path: "/th/guide/golf-lessons-bangkok-coaches/",
-    expectedLocation: "/guide/golf-lessons-bangkok-coaches/",
+    path: "/th/guide/screen-golf-bangkok/",
+    expectedLocation: "/guide/screen-golf-bangkok/",
     label: "Untranslated TH guide (only translated guide slugs may 200)",
   },
   {
@@ -2497,9 +2499,9 @@ const thaiCookieTests: ThaiCookieTest[] = [
   {
     // Must be a guide with NO th translation, so it stays English under a th
     // cookie (a th-translated guide correctly 307s to /th/ per next-intl cookie
-    // behavior). what-is-a-golf-simulator gained a th version, so use a PR #52
+    // behavior). golf-lessons-bangkok-coaches gained a th version, so use a
     // guide that was never translated to Thai.
-    path: "/guide/golf-lessons-bangkok-coaches/",
+    path: "/guide/screen-golf-bangkok/",
     label: "Guide page (th-less) with Thai cookie",
   },
   {
