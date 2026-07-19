@@ -333,19 +333,19 @@ export const bestOfListiclePages: BestOfListicleSeoPage[] = [
     status: 'published',
     category: 'corporate-events',
     locale: 'en',
-    related_slugs: ['/corporate-golf-packages', '/events', '/cost/corporate-golf-event-cost-bangkok', '/location/corporate-events-chidlom', '/faq/how-much-does-corporate-golf-event-cost-bangkok'],
+    related_slugs: ['/corporate-golf-packages', '/events', '/cost/corporate-golf-event-cost-bangkok', '/location/corporate-events-chidlom', '/faq/how-much-does-corporate-golf-event-cost-bangkok', '/activities/private-party-venues-bangkok'],
     created_at: now,
     updated_at: now,
     content: {
       year: 2026,
       intro:
-        'Bangkok is one of Southeast Asia\'s top corporate event destinations — five-star hotels, unique activity venues, and rooftop spaces all compete for corporate bookings. The best choice depends on your group size, budget, and whether you want a formal dinner, an activity-based event, or something in between. Here are the top options based on value, location, and what they do best.',
+        'Bangkok is one of Southeast Asia\'s top corporate event destinations, and the venue you pick sets the tone more than anything else on the agenda. The real decision is format: a formal hotel ballroom for a conference or gala dinner, an activity-led venue that actually gets people talking, or a rooftop for a launch or reception. Group size and budget narrow it from there — a 20-person team offsite and a 300-person conference need completely different rooms. We ranked the best corporate event venues in Bangkok below by value, location, and what each genuinely does best, with honest pros and cons for each.',
       list_items: [
         {
           rank: 1,
           name: 'LENGOLF — Private Corporate Golf Events',
           description:
-            'LENGOLF offers corporate event packages at Mercury Ville, BTS Chidlom. Packages cover 10–50 guests with drinks and catered food included. See current package pricing at len.golf/events. No golf experience required — tournament formats like closest-to-the-pin work for complete beginners and scratch golfers alike. The activity + drinks + food format eliminates the usual corporate "standing around" awkwardness.',
+            'LENGOLF runs private corporate event packages at Mercury Ville, right on BTS Chidlom. Packages cover 10–50 guests with drinks and catered food included, and the Medium Package is an exclusive full-venue buyout — the whole space is yours. See current package pricing at len.golf/events. No golf experience is required: tournament formats like closest-to-the-pin work for complete beginners and scratch golfers alike, which removes the usual corporate "standing around" awkwardness and gives the team something to do together.',
           pros: [
             'Activity built in — no need to plan entertainment separately',
             'All-inclusive packages (drinks + food + bays)',
@@ -470,9 +470,27 @@ export const bestOfListiclePages: BestOfListicleSeoPage[] = [
           address: '78 Lang Suan Rd, Lumphini',
           website: 'https://www.ihg.com/kimptonhotels/hotels/gb/en/bangkok/bkkma/hoteldetail',
         },
+        {
+          rank: 8,
+          name: 'Tribe Sky Beach Club — EmQuartier',
+          description:
+            'A rooftop beach-club-style venue on top of EmQuartier at Phrom Phong, popular for corporate parties, product launches, and evening receptions. The open-air, poolside setting gives an event a relaxed, social energy that a hotel ballroom cannot — better suited to celebrations and networking than to seated conferences or formal presentations. A strong option for Sukhumvit-based companies that want a launch or party rather than a boardroom.',
+          pros: [
+            'Distinctive rooftop beach-club setting — memorable for launches and parties',
+            'Directly above EmQuartier — BTS Phrom Phong access and mall dining nearby',
+            'Relaxed, social atmosphere that encourages mingling',
+          ],
+          cons: [
+            'Open-air — exposed to Bangkok heat and rain',
+            'Party and reception focus — not built for seated conferences or AV-heavy presentations',
+          ],
+          is_lengolf: false,
+          address: 'EmQuartier rooftop, Sukhumvit Rd, Phrom Phong, Khlong Toei Nuea',
+          website: undefined,
+        },
       ],
       conclusion:
-        'For groups up to ~50 who want an activity-based event with drinks and food built in, LENGOLF is the best value corporate venue in central Bangkok. For formal dinners and presentations with larger groups, the Grand Hyatt Erawan is the benchmark. For relationship-building with senior stakeholders, a private dining room at Haoma is hard to beat.',
+        'For groups up to ~50 who want an activity-based event with drinks and food built in, LENGOLF is the best-value corporate venue in central Bangkok. For formal dinners, galas, and larger conferences, the Grand Hyatt Erawan and Anantara Siam set the benchmark on service and capacity. For a product launch or cocktail reception with a view, the Renaissance\'s Altitude rooftop or Tribe Sky Beach Club deliver the setting. And for relationship-building with senior stakeholders, a private dining room at Haoma is hard to beat. Match the venue to the format first, then the guest count, and the shortlist gets short fast.',
     },
   },
 
