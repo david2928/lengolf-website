@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const prefix = locale === 'en' ? '' : `/${locale}`
   return {
-    title: 'Things To Do Near Your Hotel in Bangkok | LENGOLF',
+    title: 'Things To Do Near Your Hotel in Bangkok',
     description:
       'Staying near BTS Chidlom? LENGOLF is minutes from Bangkok\'s top hotels — Grand Hyatt, InterContinental, Anantara, Okura and more. Find walking directions from your hotel.',
     alternates: {

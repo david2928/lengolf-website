@@ -5,7 +5,7 @@ import SectionWrapper from '@/components/shared/SectionWrapper'
 import FaqSection from '@/components/shared/FaqSection'
 import BookingCTA from '@/components/shared/BookingCTA'
 import EventInquiryForm from '@/components/events/EventInquiryForm'
-import { SITE_URL, BUSINESS_INFO } from '@/lib/constants'
+import { SITE_URL, BUSINESS_INFO, storageUrl } from '@/lib/constants'
 import { getEventPackagesData } from '@/data/pricing'
 import {
   getEventsPricingJsonLd,
@@ -17,31 +17,42 @@ import {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
   const prefix = locale === 'en' ? '' : `/${locale}`
+  // Live catalog price so the description can't drift from the rendered package cards.
+  const { eventPackages } = await getEventPackagesData()
+  const startingBaht = toBaht(findPackagePrice(eventPackages, 'Small Package') ?? '9,999 THB')
   return {
     // Layout applies the "%s | LENGOLF" template, so the brand is appended automatically.
     title: 'Corporate Golf Packages Bangkok — Team Building',
-    description:
-      'Private corporate golf packages in Bangkok from ฿9,999 — indoor simulator bays, full bar and catering for groups of 10–50+. Central at BTS Chidlom, no weather risk.',
+    description: `Private corporate golf packages in Bangkok from ${startingBaht} — indoor simulator bays, full bar and catering for groups of 10–50+. Central at BTS Chidlom, no weather risk.`,
     alternates: {
       canonical: `${SITE_URL}${prefix}/corporate-golf-packages/`,
     },
+    openGraph: { images: [{ url: storageUrl('events/event-01.jpg'), alt: 'Corporate event at LENGOLF indoor golf' }] },
   }
+}
+
+function findPackagePrice(packages: { name: string; price: string }[], name: string): string | undefined {
+  return packages.find((p) => p.name === name)?.price
+}
+
+// "9,999 THB" → "฿9,999"
+function toBaht(price: string): string {
+  return `฿${price.replace(/\s*THB$/i, '').trim()}`
 }
 
 const faqLinks: Record<string, { href: string; external?: boolean }> = {
   '@lengolf': { href: 'https://lin.ee/uxQpIXn', external: true },
   'Google Maps': { href: BUSINESS_INFO.googleMapsUrl, external: true },
-  'events page': { href: '/events' },
 }
 
 // Transactional FAQ block — every question maps to a query in the target cluster
 // (cost, group size, non-golfers, lead time, catering, team building). Answers are
 // sourced from data/pricing.ts (eventPackages / amenities) and the /events content.
-const faqItems = [
+// Prices are interpolated from the live catalog so they can't drift from the cards.
+const buildFaqItems = (smallPrice: string, mediumPrice: string) => [
   {
     question: 'How much does a corporate golf package cost in Bangkok?',
-    answer:
-      'Corporate golf packages at LENGOLF start at 9,999 THB for the Small Package (10–15 guests, 2 golf bays, 3 hours) and 21,999 THB for the Medium Package (15–25 guests, all 4 golf bays, 3 hours, exclusive full-location rental). Both include beer, cocktails, unlimited soft drinks, and a catered food spread. For larger groups we build fully custom quotes.',
+    answer: `Corporate golf packages at LENGOLF start at ${smallPrice} for the Small Package (10–15 guests, 2 golf bays, 3 hours) and ${mediumPrice} for the Medium Package (15–25 guests, all 4 golf bays, 3 hours, exclusive full-location rental). Both include beer, cocktails, unlimited soft drinks, and a catered food spread. For larger groups we build fully custom quotes.`,
   },
   {
     question: 'How many people can you host for a corporate event?',
@@ -81,17 +92,29 @@ export default async function CorporateGolfPackagesPage({ params }: { params: Pr
 
   const { eventPackages, eventPackageNotes } = await getEventPackagesData()
 
+  const faqItems = buildFaqItems(
+    findPackagePrice(eventPackages, 'Small Package') ?? '9,999 THB',
+    findPackagePrice(eventPackages, 'Medium Package') ?? '21,999 THB'
+  )
+
   const pricingJsonLd = getEventsPricingJsonLd(eventPackages)
-  const serviceJsonLd = getEventsServiceJsonLd()
+  // Corporate-specific Service entity so this URL and /events don't publish
+  // byte-identical schema for two distinct pages.
+  const serviceJsonLd = {
+    ...getEventsServiceJsonLd(),
+    name: 'Corporate Golf Events & Team Building at LENGOLF',
+    description:
+      'Corporate golf packages and team-building hosting at LENGOLF Bangkok — private indoor golf simulator bays with a full bar, catered food, and full-venue rental options.',
+    url: `${SITE_URL}/corporate-golf-packages/`,
+  }
   const faqJsonLd = getFaqPageJsonLd(faqItems)
   const breadcrumbJsonLd = getBreadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/` },
     { name: 'Corporate Golf Packages', url: `${SITE_URL}/corporate-golf-packages/` },
   ])
 
-  const startingPrice = eventPackages[0]?.price ?? '9,999 THB'
-  // "9,999 THB" → "฿9,999" for the compact stat chip
-  const startingPriceBaht = `฿${startingPrice.replace(/\s*THB$/i, '').trim()}`
+  const startingPrice = findPackagePrice(eventPackages, 'Small Package') ?? '9,999 THB'
+  const startingPriceBaht = toBaht(startingPrice)
 
   // Facts sourced from data/pricing.ts (amenities / eventPackages) and /events content.
   const includedItems = [
