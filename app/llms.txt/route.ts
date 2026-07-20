@@ -54,6 +54,7 @@ const KEY_PAGES: { title: string; path: string; desc: string }[] = [
   { title: 'Golf Club Rental', path: '/golf-club-rental/', desc: 'Free house sets plus premium Callaway / Majesty rentals at the venue.' },
   { title: 'Golf Course Club Rental', path: '/golf-course-club-rental/', desc: 'Rent premium clubs for any Bangkok golf course, with delivery.' },
   { title: 'About LENGOLF', path: '/about-us/', desc: 'About the venue, location, and contact details.' },
+  { title: 'FAQ', path: '/faq/', desc: 'Quick answers: bay prices, lessons, free club rental, walk-ins, group events, food and drink, opening hours, and step-by-step directions from BTS Chidlom.' },
   { title: 'Golf Courses in Thailand', path: '/golf-courses/', desc: 'Directory of Thai golf courses by region with green fees and course guides.' },
   { title: 'Second-Hand Golf Clubs', path: '/second-hand-golf-clubs-bangkok/', desc: 'Used Callaway and TaylorMade clubs for sale, testable in our simulators.' },
 ]

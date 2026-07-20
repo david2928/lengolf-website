@@ -60,6 +60,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/about-us/`, lastModified: reviewed, changeFrequency: 'monthly', priority: 0.7, alternates: { languages: getAlternates('/about-us/') } },
     { url: `${SITE_URL}/blog/`, lastModified: reviewed, changeFrequency: 'weekly', priority: 0.8, alternates: { languages: getAlternates('/blog/') } },
     { url: `${SITE_URL}/menu/`, lastModified: reviewed, changeFrequency: 'monthly', priority: 0.7, alternates: { languages: getAlternates('/menu/') } },
+    { url: `${SITE_URL}/faq/`, lastModified: reviewed, changeFrequency: 'monthly', priority: 0.7, alternates: { languages: getAlternates('/faq/') } },
   ]
 
   // Hub / index pages for SEO section groups

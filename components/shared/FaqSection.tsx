@@ -5,7 +5,7 @@ const faqLinkStyle = 'font-medium underline underline-offset-2 hover:text-primar
 
 export type FaqLink = { href: string; external?: boolean }
 
-function renderFaqAnswer(answer: string, links: Record<string, FaqLink>) {
+export function renderFaqAnswer(answer: string, links: Record<string, FaqLink>) {
   const keys = Object.keys(links)
   if (keys.length === 0) return answer
 

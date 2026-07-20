@@ -175,6 +175,17 @@ const routeTests: RouteTest[] = [
     expectedStatus: [200],
     contentMarker: '<main id="main-content">',
   },
+  // FAQ hub page (EN + TH) — entity statement / directions must render
+  {
+    path: "/faq/",
+    expectedStatus: [200],
+    contentMarker: "Unit 407",
+  },
+  {
+    path: "/th/faq/",
+    expectedStatus: [200],
+    contentMarker: "ยูนิต 407",
+  },
   // Blog post detail (catches Supabase query errors on dynamic routes)
   {
     path: "/blog/golf-lessons-in-bangkok/",
@@ -2351,6 +2362,8 @@ const seoTests: SeoTest[] = [
   { path: "/golf-in-thailand-guide/", locale: "en" },
   { path: "/guide/what-is-a-golf-simulator/", locale: "en" },
   { path: "/faq/can-i-rent-golf-clubs-in-bangkok/", locale: "en" },
+  { path: "/faq/", locale: "en" },
+  { path: "/th/faq/", locale: "th" },
   { path: "/menu/", locale: "en" },
   { path: "/th/menu/", locale: "th" },
   { path: "/ko/menu/", locale: "ko" },

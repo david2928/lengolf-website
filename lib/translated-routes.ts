@@ -20,6 +20,7 @@ const TRANSLATED_ROUTES: Record<
       "/about-us",
       "/blog",
       "/menu",
+      "/faq",
       "/guide/corporate-golf-events-bangkok",
       "/guide/best-time-play-golf-thailand",
       "/guide/nikanti-golf-club-bangkok",

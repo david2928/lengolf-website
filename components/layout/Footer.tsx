@@ -20,6 +20,7 @@ const DISCOVER_LINKS = [
   { key: 'thingsToDoLink', href: '/activities/' as const },
   { key: 'planningLink', href: '/golf-in-thailand-guide/' as const },
   { key: 'hotelsLink', href: '/hotels/' as const },
+  { key: 'faqLink', href: '/faq/' as const },
 ] as const
 
 const linkStyle = {
