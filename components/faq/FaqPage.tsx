@@ -177,7 +177,15 @@ export default function FaqPageComponent({ data }: Props) {
       {content.related_questions.length > 0 && (
         <section className="py-12 md:py-16">
           <div className="mx-auto max-w-[900px] px-5">
-            <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl mb-6">Related Questions</h2>
+            <div className="mb-6 flex flex-wrap items-baseline justify-between gap-3">
+              <h2 className="text-2xl font-bold text-[#1a472a] md:text-3xl">Related Questions</h2>
+              <Link
+                href="/faq/"
+                className="text-sm font-semibold text-[#2d6a4f] underline underline-offset-2 hover:text-[#1a472a]"
+              >
+                Browse all FAQs
+              </Link>
+            </div>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
               {content.related_questions.map((rq) => (
                 <Link

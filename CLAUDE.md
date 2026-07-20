@@ -78,7 +78,7 @@ Migrated from WordPress (Elementor + 24 plugins). All migration artifacts live i
 - **Supabase Storage** hosts all static assets (images, videos) in the `website-assets` public bucket. Assets are organized into folders: `branding/`, `venue/`, `golf/`, `events/`, `lessons/`, `tournaments/`, `menus/`, `icons/`, `promotions/`, `videos/`. Use `storageUrl('folder/file.ext')` from `lib/constants.ts` to generate URLs. Only `favicon.png` remains in `public/images/`.
 - Three tables: `blog_posts`, `contact_submissions`, `location_pages` (types in `types/supabase.ts`)
 - Data fetching helpers: `lib/blog.ts`, `lib/locations.ts`
-- Static data: `data/pricing.ts`, `data/coaches.ts`, `data/faq-pages.ts`, `data/hotel-pages.ts`, `data/explainer-pages.ts`, `data/price-guide-pages.ts`, `data/activity-occasions.ts`, `data/event-clients.ts`
+- Static data: `data/pricing.ts`, `data/coaches.ts`, `data/faq-pages.ts`, `data/faq-hub.ts` (/faq/ hub page content, EN+TH), `data/hotel-pages.ts`, `data/explainer-pages.ts`, `data/price-guide-pages.ts`, `data/activity-occasions.ts`, `data/event-clients.ts`
 - Location pages have rich schema: template_type, distance/transit metrics, area descriptions, SEO content, JSON-LD schema_markup
 
 ### Styling
