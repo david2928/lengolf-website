@@ -2473,6 +2473,24 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
     expectedLocation: "/golf-courses/near/asok/",
     label: "Untranslated TH near-station page (EN-only route must 301)",
   },
+  // Course DETAIL pages build only EN copies (generateStaticParams emits
+  // locale: 'en' only) even though their region HUB may be translated —
+  // /th/golf-courses/bangkok/ 200s, but the 3-segment detail below it must
+  // still 301. Canary for the [region]/[slug] locale restriction.
+  {
+    path: "/th/golf-courses/bangkok/alpine-golf-club/",
+    expectedLocation: "/golf-courses/bangkok/alpine-golf-club/",
+    label: "Untranslated TH course detail (EN-only route must 301)",
+  },
+  // The EN-only SEO-page families (/hotels, /cost, /activities, /best) build
+  // no locale copies either; this canary covers the mechanism for all four —
+  // none of their prefixes are in lib/translated-routes.ts, so every non-EN
+  // URL must 301 to the English page.
+  {
+    path: "/th/hotels/things-to-do-near-grand-hyatt-erawan/",
+    expectedLocation: "/hotels/things-to-do-near-grand-hyatt-erawan/",
+    label: "Untranslated TH hotel-concierge page (EN-only route must 301)",
+  },
   // Untranslated localized blog post must 301 to the English canonical — only
   // slugs in data/blog-translated-slugs.ts[locale] may 200 under /<locale>/blog/.
   // topgolf-bangkok-vs-lengolf is an EN-only post (never translated), so it is
