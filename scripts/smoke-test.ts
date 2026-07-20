@@ -2450,6 +2450,16 @@ const thaiRedirectTests: ThaiRedirectTest[] = [
     expectedLocation: "/golf-courses/under/3500-baht/",
     label: "Untranslated JA price tier (only translated locales may 200)",
   },
+  // EN-only golf-course routes (near/best-for/compare) build no locale copies
+  // (generateStaticParams emits locale: 'en' only) and have dynamicParams:false,
+  // so the middleware 301 is the ONLY thing keeping their locale URLs from a
+  // hard 404. This canary covers the mechanism for all three routes — if it
+  // fails, the allowlist gained one of them without also emitting its params.
+  {
+    path: "/th/golf-courses/near/asok/",
+    expectedLocation: "/golf-courses/near/asok/",
+    label: "Untranslated TH near-station page (EN-only route must 301)",
+  },
   // Untranslated localized blog post must 301 to the English canonical — only
   // slugs in data/blog-translated-slugs.ts[locale] may 200 under /<locale>/blog/.
   // topgolf-bangkok-vs-lengolf is an EN-only post (never translated), so it is
