@@ -17,7 +17,10 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return getAllCourseParams()
+  // EN-only: omitting `locale` would cross-product with every locale from the
+  // root layout, statically rendering th/ja/ko/zh copies that the middleware
+  // 301s to English anyway (course detail pages have no translations).
+  return (await getAllCourseParams()).map((p) => ({ locale: 'en', ...p }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

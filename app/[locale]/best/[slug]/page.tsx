@@ -6,17 +6,17 @@ import { SITE_URL } from '@/lib/constants'
 import { getBestOfListiclePageJsonLd } from '@/lib/jsonld'
 import BestOfListiclePageComponent from '@/components/best/BestOfListiclePage'
 import type { BestOfListicleSeoPage } from '@/types/seo-pages'
-import { routing } from '@/i18n/routing'
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>
 }
 
 export async function generateStaticParams() {
+  // EN-only: these pages have no translations (not in lib/translated-routes.ts),
+  // so the middleware 301s every non-EN URL to English — building locale
+  // copies was dead weight.
   const slugs = await getAllSeoPageSlugs('best_of_listicle')
-  return routing.locales.flatMap((locale) =>
-    slugs.map((slug) => ({ locale, slug }))
-  )
+  return slugs.map((slug) => ({ locale: 'en', slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
