@@ -92,6 +92,10 @@ export async function getRentalClubPricing(): Promise<{
     .from('rental_club_sets')
     .select('tier, indoor_price_1h, indoor_price_2h, indoor_price_3h, indoor_price_4h, indoor_price_5h, course_price_1d, course_price_3d, course_price_7d, course_price_14d')
     .eq('is_active', true)
+    // Exclude website-hidden sets (e.g. the staff-only left-handed set). Aggregation by
+    // tier means a hidden premium set wouldn't visibly change the table, but filter for
+    // correctness so the pricing only ever reflects publicly-bookable sets.
+    .eq('website_visible', true)
 
   if (error || !data) {
     console.error('Error fetching rental pricing:', error)

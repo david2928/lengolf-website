@@ -348,6 +348,7 @@ export type Database = {
           course_price_14d: number | null
           quantity: number
           is_active: boolean
+          website_visible: boolean
           display_order: number
           created_at: string
           updated_at: string
@@ -375,6 +376,7 @@ export type Database = {
           course_price_14d?: number | null
           quantity?: number
           is_active?: boolean
+          website_visible?: boolean
           display_order?: number
           created_at?: string
           updated_at?: string
@@ -402,6 +404,7 @@ export type Database = {
           course_price_14d?: number | null
           quantity?: number
           is_active?: boolean
+          website_visible?: boolean
           display_order?: number
           created_at?: string
           updated_at?: string
