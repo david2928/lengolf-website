@@ -29,8 +29,11 @@ export const revalidate = 86400
 export const dynamicParams = false
 
 export async function generateStaticParams() {
+  // EN-only: omitting `locale` would cross-product with every locale from the
+  // root layout, statically rendering ja/ko/zh copies that the middleware 301s
+  // to English anyway (and whose GolfCourseShared messages don't exist there).
   const pairs = await getComparisonPairs()
-  return pairs.map((p) => ({ region: p.region, pair: pairSlug(p.slugA, p.slugB) }))
+  return pairs.map((p) => ({ locale: 'en', region: p.region, pair: pairSlug(p.slugA, p.slugB) }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

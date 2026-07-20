@@ -32,7 +32,11 @@ export const dynamicParams = false
 export async function generateStaticParams() {
   // Station slugs and airport slugs share this route; both are emitted so
   // dynamicParams:false serves exactly these paths and 404s everything else.
+  // EN-only: omitting `locale` would cross-product with every locale from the
+  // root layout, statically rendering ja/ko/zh copies that the middleware 301s
+  // to English anyway (and whose GolfCourseShared messages don't exist there).
   return [...getStationSlugs(), ...getAirportSlugs()].map((station) => ({
+    locale: 'en',
     station,
   }))
 }
