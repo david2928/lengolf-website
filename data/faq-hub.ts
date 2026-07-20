@@ -10,6 +10,8 @@
 // The quick-answer FAQs below are the plain-language answers Google's AI
 // surfaces (AI Overviews, Gemini "Ask Maps") read now that GBP Q&A is gone —
 // keep answers self-contained, number-rich, and in sync with data/pricing.ts.
+//
+// House style (PR #39/#61): no em dashes in the user-facing strings.
 
 export interface FaqHubQa {
   question: string
@@ -59,15 +61,15 @@ export interface FaqHubContent {
 }
 
 const en: FaqHubContent = {
-  metaTitle: 'FAQ — Prices, Booking & Directions',
+  metaTitle: 'FAQ: Prices, Booking & Directions',
   metaDescription:
-    'Prices, booking, club rental, group events, and step-by-step directions from BTS Chidlom — quick answers about LENGOLF, the indoor golf simulator venue at The Mercury Ville, Bangkok.',
+    'Prices, booking, club rental, group events, and step-by-step directions from BTS Chidlom: quick answers about LENGOLF, the indoor golf simulator venue at The Mercury Ville, Bangkok.',
   heroBadge: 'Frequently Asked Questions',
   heroTitle: 'Everything You Need to Know',
   heroSubtitle:
-    'Prices, booking, what to bring, and how to find us — the questions guests ask most, answered in one place.',
+    'Prices, booking, what to bring, and how to find us. The questions guests ask most, answered in one place.',
   entityStatement:
-    'LENGOLF is an indoor golf simulator venue at The Mercury Ville @ BTS Chidlom, Bangkok — 4th floor, Unit 407, directly connected to the BTS station. We combine four Korean Bravo Golf simulator bays with a full bar and kitchen, free club rental, and Thailand PGA-certified coaching, open 9am to 11pm every day of the week.',
+    'LENGOLF is an indoor golf simulator venue at The Mercury Ville @ BTS Chidlom, Bangkok, on the 4th floor at Unit 407, directly connected to the BTS station. We combine four Korean Bravo Golf simulator bays with a full bar and kitchen, free club rental, and Thailand PGA-certified coaching, open 9am to 11pm every day of the week.',
   stats: [
     { stat: '550 THB', label: 'per bay-hour, from' },
     { stat: '5 players', label: 'share one bay' },
@@ -80,47 +82,47 @@ const en: FaqHubContent = {
     {
       question: 'How much does a golf simulator bay cost at LENGOLF?',
       answer:
-        'Bay rental is 550–950 THB per hour for the whole bay — not per person — and up to 5 players can share one bay. Weekdays (Mon–Thu) are 550 THB/hour before 2pm and 750 THB/hour after 2pm; Fridays, weekends, and public holidays are 750 THB/hour before 2pm and 950 THB/hour after 2pm. Free standard golf clubs are always included — see the bay rates page for details and monthly packages.',
+        'Bay rental is 550–950 THB per hour for the whole bay (not per person), and up to 5 players can share one bay. Weekdays (Mon–Thu) are 550 THB/hour before 2pm and 750 THB/hour after 2pm; Fridays, weekends, and public holidays are 750 THB/hour before 2pm and 950 THB/hour after 2pm. Free standard golf clubs are always included. See the bay rates page for details and monthly packages.',
     },
     {
       question: 'How much do golf lessons cost?',
       answer:
-        'Private lessons with our Thailand PGA-certified coaches start at 1,800 THB per hour, with simulator time and clubs included. Multi-hour packages lower the rate — for example 10 hours for 16,000 THB — and new students can book a free trial lesson. See the lessons page or message us on LINE @lengolf.',
+        'Private lessons with our Thailand PGA-certified coaches start at 1,800 THB per hour, with simulator time and clubs included. Multi-hour packages lower the rate (for example 10 hours for 16,000 THB), and new students can book a free trial lesson. See the lessons page or message us on LINE @lengolf.',
     },
     {
       question: 'Do I need to bring my own golf clubs or equipment?',
       answer:
-        "No. Free standard club sets for men and ladies are included with every bay booking, so most guests arrive empty-handed. If you want better equipment, premium Callaway and Majesty sets rent from 150 THB per hour — see the golf club rental page.",
+        'No. Free standard club sets for men and ladies are included with every bay booking, so most guests arrive empty-handed. If you want better equipment, premium Callaway and Majesty sets rent from 150 THB per hour; see the golf club rental page.',
     },
     {
       question: 'What should I wear? Do I need golf shoes or a glove?',
       answer:
-        "Wear anything comfortable you can swing in — a t-shirt, jeans, and sneakers are perfectly fine. There is no dress code, and you don't need golf shoes or a glove. Golf gloves are available to buy on-site if you'd like one.",
+        "Wear anything comfortable you can swing in: a t-shirt, jeans, and sneakers are perfectly fine. There is no dress code, and you don't need golf shoes or a glove. Golf gloves are available to buy on-site if you'd like one.",
     },
     {
       question: 'Can I walk in, or do I need to book?',
       answer:
-        'Walk-ins are welcome whenever a bay is free. Evenings and weekends often sell out, though, so booking ahead at booking.len.golf or on LINE @lengolf is the safest way to guarantee your bay — it takes under a minute.',
+        'Walk-ins are welcome whenever a bay is free. Evenings and weekends often sell out, though, so booking ahead at booking.len.golf or on LINE @lengolf is the safest way to guarantee your bay. It takes under a minute.',
     },
     {
       question: "What are LENGOLF's opening hours?",
       answer:
-        'We are open 9am to 11pm every day of the week, including weekends and public holidays — there is no weekly closing day. Evenings after 5pm are the busiest, so book ahead for those slots.',
+        'We are open 9am to 11pm every day of the week, including weekends and public holidays; there is no weekly closing day. Evenings after 5pm are the busiest, so book ahead for those slots.',
     },
     {
       question: 'How many people can play together? Do you host parties and corporate events?',
       answer:
-        'Up to 5 players share one bay at no extra per-person cost, and we have 4 bays in total. For bigger occasions the whole venue hosts private and corporate events for 50+ guests — tournaments, team building, birthdays — with food and drink packages. See the events page for details.',
+        'Up to 5 players share one bay at no extra per-person cost, and we have 4 bays in total. For bigger occasions the whole venue hosts private and corporate events for 50+ guests (tournaments, team building, birthdays) with food and drink packages. See the events page for details.',
     },
     {
       question: 'Do you serve food and drinks?',
       answer:
-        'Yes — LENGOLF has a full bar with cocktails, beer, and wine, plus a food menu with Smith & Co burgers, pizza, and snacks, all served directly to your bay while you play. See the menu page for dishes and prices.',
+        'Yes. LENGOLF has a full bar with cocktails, beer, and wine, plus a food menu with Smith & Co burgers, pizza, and snacks, all served directly to your bay while you play. See the menu page for dishes and prices.',
     },
     {
       question: 'Are lessons available in English or Thai?',
       answer:
-        'Both. Our Thailand PGA-certified coaches teach in English and Thai, and several trained and competed in the United States. Just tell us your preferred language when you book and we will match you with the right coach.',
+        'Both. Our Thailand PGA-certified coaches teach in English and Thai, including PRO Boss, who studied and competed in the United States. Just tell us your preferred language when you book and we will match you with the right coach.',
     },
     // The directions question is appended at render time from directions.steps
     // (single source for the visible step list and the FAQ/JSON-LD answer).
@@ -132,7 +134,7 @@ const en: FaqHubContent = {
     {
       question: 'Do I need golf experience to play?',
       answer:
-        'Not at all — around half of our guests are complete beginners. The simulator tracks every shot automatically and our staff will have you hitting balls within a couple of minutes. If you would like structured help, book a free trial lesson with one of our coaches.',
+        'Not at all. Around half of our guests are complete beginners. The simulator tracks every shot automatically and our staff will have you hitting balls within a couple of minutes. If you would like structured help, book a free trial lesson with one of our coaches.',
     },
   ],
   faqLinks: {
@@ -148,18 +150,18 @@ const en: FaqHubContent = {
     title: 'How to',
     titleSuffix: 'Find Us',
     intro:
-      'LENGOLF is inside The Mercury Ville, the mall attached to BTS Chidlom — about 3 minutes from the train platform, entirely under cover.',
+      'LENGOLF is inside The Mercury Ville, the mall attached to BTS Chidlom, about 3 minutes from the train platform and entirely under cover.',
     faqQuestion: 'How do I get to LENGOLF from BTS Chidlom?',
     steps: [
       'Ride the BTS to Chidlom station (Sukhumvit Line, one stop east of Siam).',
-      'Follow the signs for Exit 4 — the skywalk connects the station directly to The Mercury Ville, so you never need to cross the street.',
+      'Follow the signs for Exit 4. The skywalk connects the station directly to The Mercury Ville, so you never need to cross the street.',
       'Enter The Mercury Ville and take the escalators or the lift to the 4th floor.',
-      'LENGOLF is at Unit 407 — look for the green LENGOLF sign. The walk from the platform takes about 3 minutes.',
+      'LENGOLF is at Unit 407; look for the green LENGOLF sign. The walk from the platform takes about 3 minutes.',
     ],
     grabTip:
-      "Coming by Grab or taxi? Tell the driver \"The Mercury Ville, Chidlom\" (เดอะ เมอร์คิวรี่ วิลล์ ชิดลม) — the drop-off is on Ploenchit Road at the mall entrance.",
+      'Coming by Grab or taxi? Tell the driver "The Mercury Ville, Chidlom" (เดอะ เมอร์คิวรี่ วิลล์ ชิดลม). The drop-off is on Ploenchit Road at the mall entrance.',
     parkingTip:
-      'Driving? Park at The Mercury Ville — 3 hours free — and take the lift straight up to the 4th floor.',
+      'Driving? Park at The Mercury Ville (3 hours free) and take the lift straight up to the 4th floor.',
     mapCta: 'Open in Google Maps',
   },
   browseTitle: 'Browse All',
@@ -187,19 +189,19 @@ const en: FaqHubContent = {
   ],
   ctaTitle: 'Still have a question?',
   ctaSubtitle:
-    'Message us on LINE, give us a call, or just book a bay — we reply fast, in English and Thai.',
+    'Message us on LINE, give us a call, or just book a bay. We reply fast, in English and Thai.',
 }
 
 const th: FaqHubContent = {
-  metaTitle: 'คำถามที่พบบ่อย — ราคา การจอง และวิธีเดินทาง',
+  metaTitle: 'คำถามที่พบบ่อย: ราคา การจอง และวิธีเดินทาง',
   metaDescription:
-    'รวมคำตอบเรื่องราคา การจอง เช่าไม้กอล์ฟ จัดปาร์ตี้ และวิธีเดินทางจาก BTS ชิดลมทีละขั้นตอน — LENGOLF สถานที่กอล์ฟซิมมูเลเตอร์ในร่มที่ The Mercury Ville ชั้น 4 กรุงเทพฯ',
+    'รวมคำตอบเรื่องราคา การจอง เช่าไม้กอล์ฟ จัดปาร์ตี้ และวิธีเดินทางจาก BTS ชิดลมทีละขั้นตอน จาก LENGOLF สถานที่กอล์ฟซิมมูเลเตอร์ในร่มที่ The Mercury Ville ชั้น 4 กรุงเทพฯ',
   heroBadge: 'คำถามที่พบบ่อย',
   heroTitle: 'ทุกเรื่องที่อยากรู้ ก่อนมา LENGOLF',
   heroSubtitle:
-    'ราคา การจอง ต้องเตรียมอะไรมาบ้าง และเดินทางมาอย่างไร — รวมคำถามที่ลูกค้าถามบ่อยที่สุด พร้อมคำตอบครบในหน้าเดียว',
+    'ราคา การจอง ต้องเตรียมอะไรมาบ้าง และเดินทางมาอย่างไร รวมคำถามที่ลูกค้าถามบ่อยที่สุด พร้อมคำตอบครบในหน้าเดียว',
   entityStatement:
-    'LENGOLF คือสถานที่กอล์ฟซิมมูเลเตอร์ในร่มที่ The Mercury Ville @ BTS ชิดลม กรุงเทพฯ — ชั้น 4 ยูนิต 407 เชื่อมต่อกับสถานีรถไฟฟ้าโดยตรง ภายในมีเบย์ซิมมูเลเตอร์ Bravo Golf จากเกาหลี 4 เบย์ พร้อมบาร์และครัวเต็มรูปแบบ ไม้กอล์ฟให้ยืมฟรี และโค้ชมืออาชีพที่ได้รับการรับรองจาก Thailand PGA เปิดทุกวัน 9:00-23:00 น.',
+    'LENGOLF คือสถานที่กอล์ฟซิมมูเลเตอร์ในร่มที่ The Mercury Ville @ BTS ชิดลม กรุงเทพฯ ตั้งอยู่ที่ชั้น 4 ยูนิต 407 เชื่อมต่อกับสถานีรถไฟฟ้าโดยตรง ภายในมีเบย์ซิมมูเลเตอร์ Bravo Golf จากเกาหลี 4 เบย์ พร้อมบาร์และครัวเต็มรูปแบบ ไม้กอล์ฟให้ยืมฟรี และโค้ชมืออาชีพที่ได้รับการรับรองจาก Thailand PGA เปิดทุกวัน 9:00-23:00 น.',
   stats: [
     { stat: '550 บาท', label: 'ต่อชั่วโมง เริ่มต้น' },
     { stat: '5 คน', label: 'ต่อ 1 เบย์' },
@@ -252,7 +254,7 @@ const th: FaqHubContent = {
     {
       question: 'มีสอนกอล์ฟเป็นภาษาอังกฤษหรือภาษาไทยไหม',
       answer:
-        'มีทั้งสองภาษา โค้ชของเราทุกคนได้รับการรับรองจาก Thailand PGA สอนได้ทั้งภาษาไทยและภาษาอังกฤษ หลายคนเคยเรียนและแข่งขันที่สหรัฐอเมริกา แจ้งภาษาที่สะดวกตอนจองได้เลย เราจะจัดโค้ชที่เหมาะสมให้',
+        'มีทั้งสองภาษา โค้ชของเราทุกคนได้รับการรับรองจาก Thailand PGA สอนได้ทั้งภาษาไทยและภาษาอังกฤษ รวมถึงโปรบอส (PRO Boss) ที่เคยเรียนและแข่งขันที่สหรัฐอเมริกา แจ้งภาษาที่สะดวกตอนจองได้เลย เราจะจัดโค้ชที่เหมาะสมให้',
     },
     {
       question: 'ที่ LENGOLF มีที่จอดรถไหม',
@@ -282,7 +284,7 @@ const th: FaqHubContent = {
     faqQuestion: 'เดินทางมา LENGOLF จาก BTS ชิดลมอย่างไร',
     steps: [
       'นั่ง BTS สายสุขุมวิทมาลงสถานีชิดลม (ถัดจากสยาม 1 สถานี)',
-      'เดินตามป้ายทางออก 4 — สกายวอล์กเชื่อมจากสถานีเข้าสู่ The Mercury Ville โดยตรง ไม่ต้องข้ามถนน',
+      'เดินตามป้ายทางออก 4 สกายวอล์กเชื่อมจากสถานีเข้าสู่ The Mercury Ville โดยตรง ไม่ต้องข้ามถนน',
       'เข้าห้าง The Mercury Ville แล้วขึ้นบันไดเลื่อนหรือลิฟต์มาที่ชั้น 4',
       'LENGOLF อยู่ที่ยูนิต 407 มองหาป้าย LENGOLF สีเขียว เดินจากชานชาลาประมาณ 3 นาที',
     ],
@@ -319,13 +321,13 @@ const th: FaqHubContent = {
 
 const CONTENT: Record<string, FaqHubContent> = { en, th }
 
-/** Locales with real FAQ-hub content (drives static params + hreflang). */
-export const FAQ_HUB_LOCALES = Object.keys(CONTENT)
-
 /**
  * Content for `locale`, falling back to English. The fallback only renders at
  * build time for ja/ko/zh — the middleware 301s those URLs to /faq/ at request
- * time because they are not registered in lib/translated-routes.ts.
+ * time because they are not registered in lib/translated-routes.ts. To launch
+ * the hub in another locale: add its content block to CONTENT above AND
+ * register "/faq" in that locale's staticRoutes (lib/translated-routes.ts) —
+ * the registry, not this file, drives hreflang and the middleware.
  */
 export function getFaqHubContent(locale: string): FaqHubContent {
   return CONTENT[locale] ?? CONTENT.en
