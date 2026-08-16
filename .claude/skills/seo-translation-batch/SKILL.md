@@ -64,6 +64,24 @@ zero-or-low clicks at pos 8–50 on meaningful impressions is the signal.
 - **You (orchestrator)** are the quality gate: fact-check every BLOCKER against the
   EN source, apply fixes yourself (reviewers never edit), run section 5, commit.
 
+**Applying fixes blind has two failure modes, both of which have shipped (PR #96).**
+A per-edit uniqueness assertion on the `Current:` anchor is necessary and *not*
+sufficient:
+1. The anchor is unique but the `Replace with:` restates a clause that lives just
+   *after* it, producing a visible stutter. Anchors must span everything the
+   replacement restates; see `docs/i18n-review-checklist.md`.
+2. The batch of individually-valid edits still has to be read as prose afterwards.
+   **Re-read the changed strings** (or n-gram scan the touched fields) once the
+   batch is applied.
+
+**Point one reviewer at the RENDERER, not just the strings.** Native reviewers
+read prose as source text; they will not tell you the component collapses your
+paragraph breaks. On PR #96, 13 agents passed a batch whose course prose shipped
+as run-on blocks because `CoursePage` never split on `\n\n` while its three
+sibling components all did. Before a batch ships, check what the consuming
+component does with each field: paragraph breaks, lists, empty and whitespace-only
+values, and the per-field EN fallback path.
+
 Builders AND reviewers must read: the locale glossary, the checklist, and 1–2
 already-shipped sibling entries of the same slug (for tone + field shape).
 

@@ -156,6 +156,47 @@ VERDICT: APPROVE_WITH_NITS   (locale: ja, page: golf-lessons-bangkok-ja)
 If APPROVE with nothing to raise, say so in one line. Never silently edit; never invent a fix you
 can't ground in source or glossary.
 
+### The anchor must cover everything the replacement restates
+
+`Current:` is an **anchor**, and a blind apply can only assert the anchor is unique — it
+cannot see what the anchor is landing next to. If your `Replace with:` reintroduces wording
+that already exists *after* the anchor ends, the applied sentence says it twice.
+
+This shipped (PR #96). A th fix anchored on
+`และ Greenwood ก็ยืนเคียงข้าง Rayong Green Valley ในฐานะ` and replaced it with a phrasing
+containing `หนึ่งในผลงานเด่นของเขาในภาคตะวันออก` — but the original sentence *continued* with
+exactly that clause, so the page rendered a visible stutter. The anchor was unique and
+byte-exact; the result was broken.
+
+**Extend the anchor through the end of every clause your replacement restates**, even when
+that makes it long. When in doubt, anchor on the whole sentence.
+
+**Orchestrator side:** after applying a blind batch, re-read the changed strings, or run a
+repeated-n-gram scan over the touched fields. Per-edit uniqueness assertions do not compose
+into a correct paragraph.
+
+### Cross-file place-name census — EVERY locale, not just zh
+
+The settled `齐隆` / `奇隆` precedent is usually filed as a Chinese problem, so briefs have
+asked zh to check exonyms and left the other three locales without the instruction. That
+asymmetry has cost defects in both directions: ko shipped `푸껫` on one course while `푸켓`
+appears 39× across 12 others and is what `PROVINCE_L10N` carries; ja shipped `バンラムン`
+for a district its two sibling files spell `バーンラムン`, and `バーンチャン` against
+`バーンチャーン`.
+
+Every locale reviewer censuses the batch's place names against (a) the other files in the
+same batch and (b) `PROVINCE_L10N` in `lib/course-seo.ts`. **A name spelled one way once and
+another way many times is the finding**, regardless of which is "correct" in isolation.
+
+### Service claims are checked against the site, not the glossary
+
+`honesty_constraints.forbidden_claims` enumerates *coach-language* strings only, so a pass can
+report "honesty clean" while a different false service promise ships. Whenever content
+mentions rental, delivery, insurance, deposits, lessons or coaching, check it against the FAQ
+answers in `messages/en.json` and `data/pricing.ts` — those are what LENGOLF actually
+promises. PR #96 propagated "clubs fully insured" into four locales while the site's own FAQ
+says "no deposit, no insurance".
+
 ---
 
 ## Appendix — known corpus decisions (STOP re-flagging these)

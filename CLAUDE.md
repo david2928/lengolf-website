@@ -81,6 +81,62 @@ LENGOLF website — a Next.js 15 (App Router) site for an indoor golf simulator 
   anyway — do not let a *future* batch merge on a green gate alone. (The #90
   review pass also added `/hotels` to the `validate:i18n` corpus, where it had
   been absent, so it now gets the mechanical checks too.)
+- **⚠️ A claim that is false under EVERY available reading gets DELETED, not deferred to
+  the owner.** PR #96 found that `siam-country-club-waterside`'s EN prose says its pricing
+  is "premium tier but still **below the Old Course**" while the typed fees are 5,960/6,960
+  against the Old Course's 3,550/4,350 — ~68% **higher** — and `lib/course-fees.ts` renders
+  both tables on sibling pages of the same region hub. It was found BEFORE merge, written up
+  as "known gap #1", and **shipped anyway in five languages**, on the reasoning that only the
+  owner could say whether the prose or the fee data was wrong. That reasoning is a trap: it
+  frames a false sentence as a binary (fix prose / fix data) and misses the third option that
+  is always available — **drop the unsupportable clause**. "Premium tier" was true under
+  either reading; the comparative was true under neither. Removing a claim asserts nothing
+  new, needs no owner ruling, and is not the same as inventing a correction. Reserve
+  "needs the content owner" for claims that are merely *unverifiable*, never for claims you
+  have already proven false.
+- **LENGOLF service claims must be checked against `messages/en.json` and `data/pricing.ts`,
+  which are the authoritative statement of what the business actually offers.** The i18n
+  honesty rule was written for *coach-language* claims and `glossary.honesty_constraints`
+  only enumerates those, so a native-QA pass can come back "clean on honesty" while a
+  different false service promise sails through. Real case (PR #96):
+  `laguna-golf-phuket` told renters their clubs were "**fully insured**" — in EN and, after
+  the batch, in all four locales — while `messages/en.json` answers *"Do I need to pay a
+  deposit or insurance to rent golf clubs?"* with **"No. LENGOLF requires no deposit, no
+  insurance"** and warns that damage beyond normal wear may incur a repair fee. A renter
+  told the set is insured and then billed for a repair has a real complaint. This was the one
+  false EN claim the batch actively multiplied. When any content mentions rental, delivery,
+  insurance, deposits, lessons or coaching, grep the FAQ answers in `messages/en.json` and
+  `data/pricing.ts` for the same subject before trusting it.
+- **A blind fix-apply validates the ANCHOR, not the RESULT.** The review protocol in
+  `docs/i18n-review-checklist.md` has reviewers emit exact `Current:` → `Replace with:` pairs
+  that the orchestrator applies without re-reading the file. PR #96 applied 193 of these with
+  a uniqueness assertion on every anchor — and still shipped a visible stutter, because a th
+  reviewer's *replacement* restated a clause that lived **outside** its *anchor*: the anchor
+  ended at `ในฐานะ`, the original sentence continued `หนึ่งในผลงานเด่นของเขาในภาคตะวันออก`, and the
+  replacement reintroduced that same clause, so the rendered sentence said it twice. A unique,
+  byte-exact anchor cannot see what it is landing next to. Two guards: make the anchor span
+  through the end of everything the replacement restates, and after a blind batch **re-read
+  the changed strings** (or run an n-gram repetition scan over the touched fields) rather than
+  trusting the per-edit assertions.
+- **Mutation-test guards with DEGENERATE values, not just deletion.** The `course-prose-partial`
+  check added in PR #96 was mutation-tested by removing a prose field, went red, and was
+  declared proven. It still passed a **whitespace-only** field, because the test used a bare
+  truthiness check — and `CoursePage` falls back with `??`, not `||`, so `'   '` *beats* the
+  English fallback and renders an empty `<p>` under a localized `<h2>` while hreflang
+  advertises a full translation. Deleting a field proves the guard sees absence; it says
+  nothing about near-misses. Every new detector needs a mutation set of at least: absent,
+  empty string, whitespace-only, and wrong-type/null.
+- **When you fix a renderer, enumerate every render site INSIDE the component too.** PR #96's
+  paragraph fix changed the `proseSections.map()` block in `CoursePage.tsx` and stopped —
+  leaving `prose.overview`, the lead paragraph above the fold, on the raw-string path. Both
+  now route through one `splitParagraphs()` helper so they cannot drift. This is the shape
+  this file already warns about ("fixing the cheap string and leaving the prominent one"),
+  committed in the same session that quoted the warning. Grep the component for every use of
+  the data you are fixing, not just the block you opened. Rendering that fix then exposed
+  what the run-on had been concealing: `chiang-mai/hang-dong-golf-club`'s overview opened with
+  a literal `PUBLISHING NOTE:` internal memo, live on an indexed page and emitted as the
+  `GolfCourse` JSON-LD `description`. **An enumeration used only to size a change is not an
+  inspection** — when a fix reveals hidden content, read a sample of what it reveals.
 - **Validate i18n house style:** `npm run validate:i18n` — lints localized guide content (ja/ko/zh/th entries in `data/explainer-pages.ts` and `data/faq-pages.ts`, `REGION_HUB_I18N` in `data/golf-courses-i18n.ts`, `PRICE_TIER_I18N` in `data/price-tiers.ts`, per-course `locales.<locale>` in `data/golf-courses/*/*.ts`, the non-EN blocks of `CONTENT` in `data/faq-hub.ts`) plus the **UI chrome strings in `messages/{ja,ko,zh,th}.json`** against the machine-readable glossaries in `data/i18n-glossary/*.json`. ERROR-level (fails): emoji, exclamation marks, full-width digits (ja), terminology `avoid` variants, brand-immutable case corruption, unbalanced `**`/unbalanced braces (see the ICU bullet below), and a UI-message namespace entirely missing from a locale catalog (see next bullet). WARN-level (non-blocking): currency-convention drift, unscoped honesty claims, prices with no "as of" marker, individual UI-message key gaps vs `messages/en.json`. Automates the mechanical subset of `docs/i18n-review-checklist.md`; `--self-test` proves the detectors. No server needed.
 - **`checkScript` answers "is this string even in this language?" — and its tuning is the whole check.** Added after a zh paragraph shipped in a `th` slot on an indexed page (above). Two rules, both needed. **(a) Dominance:** foreign-script characters outnumber the locale's own by **2x**, above a floor of 8. **(b) ja-only kana requirement:** ≥30 kanji with zero kana. Rule (b) exists because dominance is *blind* to zh→ja — Han is legal in Japanese, so a Chinese paragraph in a `ja` slot scores 100% "own"; kana is the only discriminator. **Do NOT "simplify" this to "contains a script this language doesn't use".** That version flagged **eleven strings, every one correct copy**: `directions.grabTip` in ja/ko/zh deliberately prints the venue name in **Thai** so a reader can show it to a taxi driver; `스크린골프` is quoted as a term of art in the th/zh screen-golf explainer; `한국어` is the Korean entry in the language switcher; and `毎日午前9時〜午後11時営業` / `平日 = 月〜木、週末 = 金〜日` / `動画撮影 / 写真撮影` are ordinary all-kanji ja catalog strings. A gate that fires 11 times on correct code gets switched off. **The 2x margin is thin and load-bearing:** Chinese is denser than Thai, so the 25-character Thai address quoted inside the zh `grabTip` outnumbers the 22 Han around it — a plurality rule flags it, 2x clears it. That string is pinned **verbatim** as a self-test (an invented shorter version of it failed), so shortening it in `faq-hub.ts` will turn the gate red; keep the two in sync. **Known limit:** rule (b) requires kana to be *exactly* zero, so it catches a whole-slot swap but **not a partial one** — found by mutation, when replacing only a paragraph's first sentence left a Japanese tail and the check correctly stayed green. Tightening to a kana/kanji ratio would catch that and would fire on legitimately kanji-dense Japanese. Half-translated strings stay native QA's job.
 - **The `messages/*.json` corpus is ERROR-checks-only** (`uiChrome` in `scripts/validate-i18n.ts`). The three WARN checks are entry-shaped prose rules that don't transfer to microcopy: `price-as-of` assumes an entry is an article that can carry a date marker in its prose, but a hero subtitle reading `1時間550バーツ〜` has nowhere to put one (the live price lives in `data/pricing.ts`); `currency` and `honesty` are calibrated for long-form text and misfire on 3-word stat badges. Running them over the catalogs would have added ~200 standing warnings, which is how a linter teaches people to ignore it. English is excluded from this corpus by design — the glossaries encode *target*-language terminology, so linting the source language against them is meaningless.

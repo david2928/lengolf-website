@@ -53,10 +53,32 @@ pass. Angles that have actually caught defects in this repo:
 | Customer-facing strings | Claims a reader could act on and find false; prices, distances, directions |
 | Removed behaviour / line-by-line | What the diff deletes or stops doing, not just what it adds |
 | New script/guard logic | Whether the guard can actually fail (see role pass below) |
+| **Renderer / component code** | What the COMPONENTS do with the data the PR adds — see below |
 
 **The scoping trap.** A directory-scoped grep (`lib/ components/ app/`) misses
 `data/`. That is exactly how `data/golf-courses-use-cases.ts` survived two
 rounds of "all consumers now honor the flag". Sweeps must be repo-wide.
+
+**The content-PR trap: nobody was pointed at the renderer.** On PR #96 all five
+finders and all eight native-QA reviewers were aimed at content, registries and
+SEO surfaces. Every one came back clean, and a later `/code-review` found that
+`CoursePage.tsx` rendered course prose as one raw string in a single `<p>` while
+its three sibling components all `split('\n\n')` — so multi-paragraph prose
+shipped as a run-on block on 28 newly localized pages. The native reviewers read
+the prose as *source text* and correctly saw well-formed paragraphs; **nobody
+asked what the renderer did with them.**
+
+So: **when a PR is mostly data/content, at least one finder must be aimed at the
+code that renders it.** Ask what component consumes each field the PR touches,
+and whether it handles the field's full shape — paragraph breaks, lists, empty
+and whitespace-only values, and the locale fallback path. Compare against sibling
+components that render the same *kind* of field; divergence between siblings is
+the signal. A content PR is a code PR wearing a disguise.
+
+**`/code-review` is not subsumed by this skill.** pr-rigor's angles are
+correctness-of-claims angles; `/code-review` hunts correctness-of-code. Run both
+before calling a PR ready — PR #96 was declared ready with 13 agents and no
+`/code-review`, and `/code-review` then found the live rendering bug above.
 
 ### 2. Role passes
 
@@ -144,6 +166,17 @@ first PR to carry this skill (#93) shipped without the disclosure it mandates.
 ## Anti-patterns this gate exists to stop
 
 - Reporting a verdict from a single inline `/code-review`.
+- **Writing a proven-false claim into "Known gaps" and shipping it.** A gaps
+  section is for things that are *unverified*, *out of scope*, or *need an owner
+  decision between two defensible options*. It is NOT a place to park a statement
+  you have already proven false. PR #96 documented that
+  `siam-country-club-waterside` claims pricing "below the Old Course" while the
+  typed fees are ~68% higher, called it known gap #1, and shipped it in five
+  languages — reasoning that only the owner could say whether the prose or the
+  fee data was wrong. That framing missed the option always available for a false
+  claim: **delete it.** Removing an unsupportable clause asserts nothing new and
+  needs no ruling. If you can prove a sentence is false under every reading, it
+  does not go in the gaps list; it comes out of the content.
 - Generalizing from one fixed instance ("found the missed consumer" → "all
   consumers now honor it"). Enumerate, don't infer.
 - Treating CI green as proof of correctness. CI cannot read a sentence.
