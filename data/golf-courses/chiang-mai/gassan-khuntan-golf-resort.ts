@@ -11,6 +11,10 @@ export const course: GolfCourse = {
   year_opened: null,
   green_fee_weekday_thb: 4200,
   green_fee_weekend_thb: 4200,
+  // All-in package per this file's own EN prose (see `tips`). Setting this stops
+  // generated copy calling the number a bare "green fee", which would tell a
+  // reader the caddie and cart are extra when the prose says they are included.
+  fee_is_package: true,
   caddie_fee_thb: 300,
   cart_fee_thb: 750,
   caddie_required: true,
@@ -44,7 +48,7 @@ Pace of play can be slower in peak season (November–March) when the course is 
       meta_description: `Gassan Khuntan Golf & Resort green fees, course overview, tips, and how to arrange golf club rentals delivered to your Bangkok hotel.`,
     },
     th: {
-      title: `Gassan Khuntan Golf & Resort ลำพูน — ค่ากรีนฟี รีวิวสนาม 27 หลุมกลางภูเขา และเช่าไม้กอล์ฟ`,
+      title: `Gassan Khuntan Golf & Resort ลำพูน — แพ็กเกจรวมทุกอย่าง รีวิวสนาม 27 หลุมกลางภูเขา และเช่าไม้กอล์ฟ`,
       meta_description: `ค่ากรีนฟี Gassan Khuntan Golf & Resort 4,200 บาทแบบเหมารวมในช่วงไฮซีซัน สนามภูเขา 27 หลุมในจังหวัดลำพูน โอบล้อมด้วยแนวสันเขาป่าของอุทยานแห่งชาติดอยขุนตาล พร้อมบริการเช่าไม้กอล์ฟส่งถึงโรงแรมในกรุงเทพฯ`,
       prose: {
         overview: `Gassan Khuntan Golf & Resort เป็นสนามป่าเขา 27 หลุมในจังหวัดลำพูน ห่างจากท่าอากาศยานนานาชาติเชียงใหม่ลงมาทางใต้ประมาณ 45 นาทีโดยรถยนต์ สนามบริหารงานโดย Gassan Golf Group ซึ่งเป็นแบรนด์กอล์ฟที่มีบทบาทมากที่สุดในภาคเหนือของไทย และวางผังไว้เป็นลูป 9 หลุมสามลูปที่แตกต่างกันชัดเจน ได้แก่ White Bridge (คอร์ส A), River (คอร์ส B) และ Mountain (คอร์ส C) ส่วนการรวมเป็น 18 หลุมหลักเล่นที่พาร์ 72 ด้วยระยะประมาณ 7,062 หลา บรรยากาศของที่นี่เป็นธรรมชาติชัดเจนที่สุดแห่งหนึ่งของภาคเหนือ ตัวสนามถูกโอบล้อมด้วยแนวสันเขาที่ปกคลุมด้วยป่าของอุทยานแห่งชาติดอยขุนตาล และมีหลายหลุมที่เล่นโดยมีเงาทาบของภูเขาเป็นฉากหลังตลอดเวลา บรรยากาศแบบห่างไกลและเป็นภูเขาเช่นนี้ทำให้ Gassan Khuntan ต่างจากสนามรีสอร์ตที่เดินทางสะดวกกว่าซึ่งอยู่ใกล้ตัวเมืองเชียงใหม่ และทำให้สนามได้ชื่อว่าดิบและผจญภัยที่สุดในบรรดาสนามของ Gassan Group นักกอล์ฟที่อยากเปลี่ยนบรรยากาศจากเลย์เอาต์พาร์กแลนด์ในหุบเขาจะพบว่าภูมิประเทศขรุขระและทำเลบนที่สูงของสนามแห่งนี้เป็นทางเลือกที่น่าสนใจ`,
@@ -59,7 +63,7 @@ Pace of play can be slower in peak season (November–March) when the course is 
       },
     },
     ja: {
-      title: `Gassan Khuntan Golf & Resort（ランプーン県）— グリーンフィー・27ホールの山岳コース紹介・クラブレンタル`,
+      title: `Gassan Khuntan Golf & Resort（ランプーン県）— パッケージ料金・27ホールの山岳コース紹介・クラブレンタル`,
       meta_description: `グリーンフィーはハイシーズンのオールインクルーシブ料金で4,200THB。Gassan Khuntan Golf & Resortはランプーン県にある27ホールの山岳フォレストコースで、ドイクンターン国立公園の森の稜線に囲まれています。バンコクのホテルへ届くLENGOLFのクラブレンタルもご案内します。`,
       prose: {
         overview: `Gassan Khuntan Golf & Resortは、ランプーン県に広がる27ホールの山岳フォレストコースで、チェンマイ国際空港から南へ車でおよそ45分の場所にあります。運営はタイ北部で圧倒的な存在感を持つゴルフブランド、Gassan Golf Group。コースはWhite Bridge（コースA）、River（コースB）、Mountain（コースC）という性格の異なる3つの9ホールループで構成されています。メインとなる18ホールの組み合わせはパー72、全長は約7,062ヤードです。舞台の自然さはタイ北部でも屈指で、コースはドイクンターン国立公園の森に覆われた稜線にぐるりと囲まれ、いくつものホールで山のシルエットが絶えず背景に広がります。この人里離れた山岳の雰囲気が、チェンマイ市街に近く行きやすいリゾートコースとGassan Khuntanを分ける点であり、Gassan Group傘下でも最も野趣に富み冒険的という評判につながっています。谷のパークランドレイアウトから気分を変えたいゴルファーにとって、荒々しい地形と高台の舞台は魅力的な選択肢になるはずです。`,

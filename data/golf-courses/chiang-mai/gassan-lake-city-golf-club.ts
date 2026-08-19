@@ -11,8 +11,13 @@ export const course: GolfCourse = {
   year_opened: 2005,
   green_fee_weekday_thb: 4000,
   green_fee_weekend_thb: 4000,
-  caddie_fee_thb: 300,
-  cart_fee_thb: 750,
+  // All-in package per this file's own EN prose (see `tips`). Setting this stops
+  // generated copy calling the number a bare "green fee", which would tell a
+  // reader the caddie and cart are extra when the prose says they are included.
+  fee_is_package: true,
+  // Zero, not null: EN tips states the rate is "including caddie and cart".
+  caddie_fee_thb: 0,
+  cart_fee_thb: 0,
   caddie_required: true,
   cart_required: true,
   driving_range: true,
@@ -44,7 +49,7 @@ Greens were designed with Tiff Dwarf bermuda grass for good speed and resilience
       meta_description: `Gassan Legacy Golf Club green fees, course overview, tips, and how to arrange golf club rentals delivered to your Bangkok hotel.`,
     },
     th: {
-      title: `Gassan Legacy Golf Club ลำพูน — ค่ากรีนฟี รีวิวสนามที่มีน้ำทุกหลุม และเช่าไม้กอล์ฟ`,
+      title: `Gassan Legacy Golf Club ลำพูน — แพ็กเกจรวมทุกอย่าง รีวิวสนามที่มีน้ำทุกหลุม และเช่าไม้กอล์ฟ`,
       meta_description: `ค่ากรีนฟีแบบเหมารวมประมาณ 4,000-4,200 บาทที่ Gassan Legacy Golf Club (เดิมคือ Gassan Lake City) สนาม 18 หลุม ระยะ 6,852 หลาในอำเภอบ้านธิ จังหวัดลำพูน ปรับปรุงใหม่โดย Schmidt-Curley พร้อมบริการเช่าไม้กอล์ฟส่งถึงโรงแรมในกรุงเทพฯ`,
       prose: {
         overview: `Gassan Lake City Golf Club ซึ่งปัจจุบันดำเนินการในชื่อ Gassan Legacy Golf Club เป็นสนามแชมเปียนชิพ 18 หลุมในอำเภอบ้านธิ จังหวัดลำพูน ห่างจากท่าอากาศยานนานาชาติเชียงใหม่ลงมาทางใต้ประมาณ 30 นาที สนามเปิดให้บริการครั้งแรกในปี 2005 ก่อนจะปิดปรับปรุงใหญ่ในปี 2013 โดยบริษัทออกแบบสัญชาติอเมริกัน Schmidt-Curley และกลับมาเปิดใหม่ในปี 2014 ภายใต้ชื่อ Legacy การปรับปรุงครั้งนั้นเปลี่ยนเลย์เอาต์ที่ล้าสมัยให้กลายเป็นหนึ่งในสนามที่มีน้ำเป็นองค์ประกอบหนักที่สุดของภาคเหนือ โดยมีอุปสรรคน้ำปรากฏในทุกหลุม ซึ่งเป็นลักษณะการออกแบบที่เรียกร้องการเล่นเหล็กอย่างแม่นยำและการวางแผนการเล่นอย่างรอบคอบตลอดทั้งรอบ สนามอยู่ในเครือ Gassan Golf Group ซึ่งดำเนินการสนามสามแห่งในย่านลำพูนและเชียงใหม่ ด้วยระยะ 6,852 หลาและพาร์ 72 Gassan Legacy เล่นในระดับที่ท้าทาย และดึงดูดทั้งสมาชิกท้องถิ่นและนักกอล์ฟที่เดินทางมาเยือน ซึ่งมองหาเลย์เอาต์ที่ดูแลอย่างดีและท้าทาย ต่างจากบรรยากาศป่าเขาของสนาม Gassan Khuntan และ Panorama`,
@@ -59,7 +64,7 @@ Greens were designed with Tiff Dwarf bermuda grass for good speed and resilience
       },
     },
     ja: {
-      title: `Gassan Legacy Golf Club（ランプーン県）— グリーンフィー・全ホールに水があるコース紹介・クラブレンタル`,
+      title: `Gassan Legacy Golf Club（ランプーン県）— パッケージ料金・全ホールに水があるコース紹介・クラブレンタル`,
       meta_description: `オールインクルーシブのグリーンフィーは約4,000〜4,200THB。Gassan Legacy Golf Club（旧Gassan Lake City）はランプーン県バンティにある18ホール・6,852ヤードのコースで、Schmidt-Curleyの改修により全ホールに水が絡みます。バンコクのホテルへ届くLENGOLFのクラブレンタルもご案内します。`,
       prose: {
         overview: `Gassan Lake City Golf Club、現在の名称でGassan Legacy Golf Clubは、ランプーン県バンティにある18ホールのチャンピオンシップコースで、チェンマイ国際空港から南へおよそ30分の距離です。開場は2005年ですが、2013年にいったん閉鎖してアメリカの設計事務所Schmidt-Curleyによる全面改修を行い、2014年にLegacyの名で再オープンしました。この改修によって、古びていたレイアウトはタイ北部で最も水の比重が大きいコースのひとつへと生まれ変わり、ウォーターハザードが全ホールに顔を出します。この設計上の特徴が、ラウンドを通じて正確なアイアンショットと慎重なコースマネジメントを要求します。コースはランプーンとチェンマイ一帯で3コースを運営するGassan Golf Groupの一員です。6,852ヤード・パー72のGassan Legacyは要求水準の高いプレーを求め、Gassan KhuntanやPanoramaの森深い山の舞台とは対照的な、手入れの行き届いた歯ごたえのあるレイアウトを求める地元メンバーと来訪ゴルファーの双方を集めています。`,
@@ -68,7 +73,7 @@ Greens were designed with Tiff Dwarf bermuda grass for good speed and resilience
 パー72のレイアウトには、長さの異なる5つのパー3と、水際に挑む気のあるプレーヤーにリスクとリターンの選択肢を与える5つのパー5が含まれます。フェアウェイはタイ北部の基準では広めですが、アプローチの通路の両側に水があり、しかもグリーンが硬く速いため、正確なショットには報いがあり、ミスヒットの代償は大きくなります。
 
 グリーンには熱帯の生育期を通じた速さと丈夫さを狙ってティフドワーフ・バミューダ芝が採用されました。2014年の再オープン以降、コースコンディションは一貫して高く評価されています。キャディーの利用は必須で、正しい落としどころに関する地元キャディーの知識は、初めて訪れる方なら何打も節約してくれるはずです。`,
-        tips: `オールインクルーシブのグリーンフィー（キャディーとカートを含めておよそ4,000〜4,200THB）が標準料金です。季節によって料金が変わるため、予約時に金額をご確認ください。キャディーへのチップは400THBが想定されており、ラウンド後にキャディーへ現金で手渡します。アプローチは無理をせず組み立てましょう。水際はリカバリーの選択肢が限られ、多くのホールでダブルボギーがすぐそこにあります。予備のボールを1スリーブ余分に持っておくと安心です。コースはCNX空港からおよそ30分の距離にあり、チェンマイのゴルフ旅行では初日または最終日のラウンドとして組みやすい立地です。`,
+        tips: `オールインクルーシブのグリーンフィー（キャディーとカートを含めておよそ4,000〜4,200THB）が標準料金です。季節によって料金が変わるため、予約時に金額をご確認ください。キャディーへのチップは400THBが想定されており、ラウンド後にキャディーへ現金で手渡します。アプローチは無理をせず組み立てましょう。水際はリカバリーの選択肢が限られ、多くのホールでダブルボギーがすぐそこにあります。予備のボールを1スリーブ余分に持っておくと安心です。コースはCNX空港からおよそ30分の距離にあり、チェンマイのゴルフ旅行では初日または最終日のラウンドとして組みやすい立地と言えるでしょう。`,
         location_and_access: `Gassan Legacy Golf Clubはランプーン県バンティにあり、チェンマイ国際空港（CNX）から南へ車でおよそ30分です。バンコクからの来訪者はCNXへ空路で向かい（スワンナプームまたはドンムアンから約1時間10分）、バンコクから700kmを車で走るのは現実的ではありません。チェンマイ市街からも空港からも、Grabか自家用車でアクセスできます。事前に依頼すればGassan Groupに送迎を手配してもらうことも可能です。`,
         rental_cta_context: `チェンマイ旅行でGassan Legacy Golf Clubをプレーする予定の方へ。LENGOLFなら質の高いクラブセットをバンコクでレンタルでき、フライト前にホテルまでお届けします。手荷物料金を気にせず、名物のウォーターハザード攻略に集中できます。`,
       },

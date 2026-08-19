@@ -11,7 +11,10 @@ export const course: GolfCourse = {
   year_opened: 2005,
   green_fee_weekday_thb: 3400,
   green_fee_weekend_thb: null,
-  caddie_fee_thb: 400,
+  // EN prose calls 400 THB a caddie TIP, and never states a caddie fee. Typing
+  // it as a fee made the generated FAQ assert a charge no source supports, on
+  // top of the customary tip. Unknown is the honest value.
+  caddie_fee_thb: null,
   cart_fee_thb: 750,
   caddie_required: true,
   cart_required: true,

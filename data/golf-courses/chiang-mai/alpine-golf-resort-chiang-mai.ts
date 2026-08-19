@@ -13,8 +13,14 @@ export const course: GolfCourse = {
   green_fee_weekend_thb: null,
   // Prices by SEASON, not day of week: 3,700 is explicitly "the low-season rate, valid April through October"; no weekend figure.
   fee_is_seasonal: true,
-  caddie_fee_thb: 400,
-  cart_fee_thb: 800,
+  // All-in package per this file's own EN prose (see `tips`). Setting this stops
+  // generated copy calling the number a bare "green fee", which would tell a
+  // reader the caddie and cart are extra when the prose says they are included.
+  fee_is_package: true,
+  // Zero, not null: EN states the 3,700 all-in rate INCLUDES caddie and cart,
+  // so each costs this golfer nothing on top. SpecTable renders 0 as "Included".
+  caddie_fee_thb: 0,
+  cart_fee_thb: 0,
   caddie_required: true,
   cart_required: true,
   driving_range: true,
@@ -46,7 +52,7 @@ Greens are generally medium-paced and firm enough to reward precise approach pla
       meta_description: `Alpine Golf Resort Chiang Mai green fees, course overview, tips, and how to arrange golf club rentals delivered to your Bangkok hotel.`,
     },
     th: {
-      title: `Alpine Golf Resort Chiang Mai — ค่ากรีนฟี รีวิวสนาม 27 หลุมกรีนกลางนาข้าว และเช่าไม้กอล์ฟ`,
+      title: `Alpine Golf Resort Chiang Mai — แพ็กเกจรวมทุกอย่าง รีวิวสนาม 27 หลุมกรีนกลางนาข้าว และเช่าไม้กอล์ฟ`,
       meta_description: `ค่ากรีนฟี Alpine Golf Resort Chiang Mai 3,700 บาทแบบเหมารวมแคดดี้และรถกอล์ฟ ซึ่งเป็นอัตราโลว์ซีซันเดือนเมษายนถึงตุลาคม สนามแชมเปียนชิพ 27 หลุมในอำเภอสันกำแพง พร้อมกรีนกลางนาข้าวแห่งแรกของไทย และบริการเช่าไม้กอล์ฟส่งถึงโรงแรมในกรุงเทพฯ`,
       prose: {
         overview: `Alpine Golf Resort Chiang Mai เป็นสนามแชมเปียนชิพ 27 หลุมบนพื้นที่ 450 ไร่ในหุบเขาที่ปกคลุมด้วยป่าของอำเภอสันกำแพง ห่างจากตัวเมืองเชียงใหม่ไปทางตะวันออกประมาณ 25 กิโลเมตร สนามออกแบบโดย Ronald M. Garl สถาปนิกชาวอเมริกัน ผู้วางเลย์เอาต์ 18 หลุมดั้งเดิม (คอร์ส A และ B) ซึ่งเปิดให้บริการในปี 2008 ต่อมาในปี 2017 ได้เพิ่มอีก 9 หลุมที่ออกแบบโดย Pirapon Namatra สถาปนิกชาวไทย จุดที่ทำให้รีสอร์ตแห่งนี้เป็นที่รู้จักมากที่สุดคือกรีนกลางนาข้าวแห่งแรกของประเทศไทย ซึ่งเป็นหลุมที่เล่นข้ามผืนนาที่มีน้ำท่วมขังและเปลี่ยนโฉมไปตามฤดูกาล มอบประสบการณ์ที่ต่างจากสนามพาร์กแลนด์มาตรฐานทั่วไปในประเทศ Alpine เคยเป็นเจ้าภาพจัดการแข่งขันระดับภูมิภาคสำหรับนักกอล์ฟอาชีพ และได้รับการกล่าวถึงอย่างสม่ำเสมอในฐานะหนึ่งในประสบการณ์กอล์ฟที่ดีที่สุดของภาคเหนือ สิ่งอำนวยความสะดวกภายในพื้นที่ประกอบด้วยรีสอร์ตขนาด 78 ห้อง สปา ร้านอาหารนานาชาติ สระว่ายน้ำ และศูนย์ประชุม จึงเป็นจุดหมายที่เหมาะกับนักกอล์ฟที่ต้องการรวมการออกรอบเข้ากับการพักผ่อนในเชียงใหม่ที่ยาวนานขึ้น`,
@@ -61,7 +67,7 @@ Greens are generally medium-paced and firm enough to reward precise approach pla
       },
     },
     ja: {
-      title: `Alpine Golf Resort Chiang Mai — グリーンフィー・水田グリーンの27ホール紹介・クラブレンタル`,
+      title: `Alpine Golf Resort Chiang Mai — パッケージ料金・水田グリーンの27ホール紹介・クラブレンタル`,
       meta_description: `グリーンフィーは3,700THB（キャディーとカート込み、4月から10月のローシーズン料金）。Alpine Golf Resort Chiang Maiはサンカンペーンの森の谷に広がる27ホールで、タイ初の水田グリーンが名物です。バンコクのホテルへ届くLENGOLFのクラブレンタルもご案内します。`,
       prose: {
         overview: `Alpine Golf Resort Chiang Maiは、チェンマイ市街から東へ約25kmのサンカンペーンにあり、450ライの森に覆われた谷あいに広がる27ホールのチャンピオンシップコースです。オリジナルの18ホール（コースAとB）を手がけたのはアメリカ人設計家のRonald M. Garlで、2008年に開場しました。さらに2017年には、タイ人設計家Pirapon Namatraが設計した9ホールが加わっています。このリゾートを最もよく知られた存在にしているのは、タイ初の水田グリーンです。季節ごとに水を張り、表情を変えていく田んぼを越えて打つホールは、国内の一般的なパークランドコースとはまったく異なる体験をもたらします。Alpineはプロの地域トーナメントを開催した実績があり、タイ北部を代表するゴルフ体験のひとつとして常に名前が挙がります。敷地内には78室のリゾート、スパ、インターナショナルレストラン、プール、カンファレンスセンターがそろい、ラウンドとチェンマイでの長めの滞在を組み合わせたいゴルファーの目的地となっています。`,

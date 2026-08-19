@@ -12,6 +12,10 @@ export const course: GolfCourse = {
   green_fee_weekday_thb: 250,
   green_fee_weekend_thb: 250,
   fees_verified_at: '2026-07-30',
+  // All-in package per this file's own EN prose (see `tips`). Setting this stops
+  // generated copy calling the number a bare "green fee", which would tell a
+  // reader the caddie and cart are extra when the prose says they are included.
+  fee_is_package: true,
   caddie_fee_thb: 200,
   cart_fee_thb: 300,
   caddie_required: true,
@@ -42,7 +46,7 @@ export const course: GolfCourse = {
       meta_description: `Hang Dong Golf Club Chiangmai green fees, course overview, tips, and how to arrange golf club rentals delivered to your Bangkok hotel.`,
     },
     th: {
-      title: `Hang Dong Golf Club Chiangmai — ค่ากรีนฟี 9 หลุมราคาประหยัด และเช่าไม้กอล์ฟ`,
+      title: `Hang Dong Golf Club Chiangmai — แพ็กเกจรวมทุกอย่าง 9 หลุมราคาประหยัด และเช่าไม้กอล์ฟ`,
       meta_description: `ค่ากรีนฟี Hang Dong Golf Club Chiangmai ประมาณ 250 บาทสำหรับ 9 หลุมพร้อมแคดดี้ (ข้อมูล ณ กรกฎาคม 2026) สนามพาร์ 36 ระยะ 2,751 หลาใกล้สนามบินเชียงใหม่ พร้อมบริการเช่าไม้กอล์ฟส่งถึงโรงแรมในกรุงเทพฯ`,
       prose: {
         overview: `Hang Dong Golf Club Chiangmai เป็นสนาม 9 หลุม (พาร์ 36 ระยะ 2,751 หลา) ในอำเภอหางดง ทางใต้ของเชียงใหม่ เป็นสนามสาธารณะที่เน้นความคุ้มค่า ด้วยค่ากรีนฟีที่ย่อมเยามาก อยู่ที่ประมาณ 250 บาทสำหรับ 9 หลุมพร้อมแคดดี้ (ข้อมูล ณ กรกฎาคม 2026) ด้วยทำเลที่ห่างจากสนามบิน CNX ประมาณ 15 นาที สนามจึงให้บริการชาวเชียงใหม่ในพื้นที่เป็นหลัก รวมถึงนักกอล์ฟที่มองหาการออกรอบสั้น ๆ ในราคาประหยัด สนามมีอุปสรรคน้ำในหลายหลุม รวมถึงกรีนลักษณะเกาะกลางน้ำที่หลุม 8`,
@@ -53,7 +57,7 @@ export const course: GolfCourse = {
       },
     },
     ja: {
-      title: `Hang Dong Golf Club Chiangmai — グリーンフィー・手軽に回れる9ホール紹介・クラブレンタル`,
+      title: `Hang Dong Golf Club Chiangmai — パッケージ料金・手軽に回れる9ホール紹介・クラブレンタル`,
       meta_description: `グリーンフィーはキャディー付き9ホールで約250THB（2026年7月現在）。Hang Dong Golf Club Chiangmaiはチェンマイ空港近くにあるパー36・2,751ヤードのコースです。バンコクのホテルへ届くLENGOLFのクラブレンタルもご案内します。`,
       prose: {
         overview: `Hang Dong Golf Club Chiangmaiは、チェンマイ南側のハーンドン郡にある9ホール（パー36、2,751ヤード）のコースです。予算重視のパブリックコースで、グリーンフィーはキャディー付き9ホールで約250THBときわめて手ごろです（2026年7月現在）。CNX空港からおよそ15分という立地から、利用者の中心はチェンマイ在住の地元ゴルファーと、短時間で安く回りたい方々。コースには複数のホールにウォーターハザードがあり、8番にはアイランドグリーンも設けられています。`,

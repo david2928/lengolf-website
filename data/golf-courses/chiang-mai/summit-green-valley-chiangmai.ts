@@ -33,7 +33,7 @@ export const course: GolfCourse = {
     layout_and_experience: `Griffiths' design is primarily a water-and-bunker challenge over moderately undulating terrain. The valley setting keeps elevation changes gentle compared to the mountain courses, making the layout physically accessible while delivering strategic difficulty through well-placed bunkers and lake hazards that come into play on nearly every hole.
 
 The fairways are broad but bunker positions from the tee demand precise alignment. The approach corridors narrow considerably around the greens on many of the par-4s. The signature 9th hole — a 416-yard par 4 — requires a tee shot over water with sand traps in the landing area, followed by a second shot over water to an elevated island green. Green fee packages include one caddie and cart per player; during peak season, two players may share one cart.`,
-    tips: `Stage 3 verification shows the high-season green fee at 3,300 THB (green fee only) plus caddie (400 THB) and cart (700 THB) for an all-in total of approximately 4,400 THB — note this is higher than some older sources show. Caddie tip of 400 THB per round is required, payable in cash. Book early morning tee times in the November–March high season. The course is approximately 20 minutes from CNX airport by Grab taxi.`,
+    tips: `The high-season green fee is 3,300 THB (green fee only) plus caddie (400 THB) and cart (700 THB) for an all-in total of approximately 4,400 THB — note this is higher than some older sources show. Caddie tip of 400 THB per round is required, payable in cash. Book early morning tee times in the November–March high season. The course is approximately 20 minutes from CNX airport by Grab taxi.`,
     location_and_access: `Summit Green Valley Chiangmai Country Club is located in Mae Sa, Mae Rim district, approximately 20 kilometres north of Chiang Mai city centre and around 20 minutes from Chiang Mai International Airport (CNX). Visitors from Bangkok fly to CNX (approximately 1 hour 10 minutes from Suvarnabhumi or Don Mueang) — driving the 700 kilometres from Bangkok is not practical. The course is easily reached from Chiang Mai by Grab taxi or private car via Chotana Road (Route 107) north toward Mae Rim.`,
     rental_cta_context: `Teeing off at Summit Green Valley Chiangmai Country Club on your Northern Thailand golf trip? Rent premium clubs in Bangkok — delivered to your hotel before you fly — so you can enjoy the palm-lined fairways without the burden of airline baggage fees.`,
   },
@@ -55,9 +55,21 @@ The fairways are broad but bunker positions from the tee demand precise alignmen
         rental_cta_context: `เตรียมออกรอบที่ Summit Green Valley Chiangmai Country Club ในทริปกอล์ฟภาคเหนือของคุณอยู่ใช่ไหม เช่าชุดไม้กอล์ฟคุณภาพพรีเมียมจาก LENGOLF ที่กรุงเทพฯ พร้อมบริการส่งถึงโรงแรมก่อนคุณขึ้นเครื่อง ให้คุณเพลิดเพลินกับแฟร์เวย์ที่เรียงรายด้วยต้นปาล์มโดยไม่ต้องแบกภาระค่าธรรมเนียมสัมภาระของสายการบิน`,
       },
     },
+    ja: {
+      title: `Summit Green Valley Chiangmai Country Club — グリーンフィー・メーリムの18ホール紹介・クラブレンタル`,
+      meta_description: `グリーンフィーは3,300THB、キャディーとカートを含めておよそ4,400THB。Summit Green Valley Chiangmai Country Clubはメーリム郡メーサーの谷にある18ホール・パー72で、設計はDenis Griffiths。バンコクのホテルへ届くLENGOLFのクラブレンタルもご案内します。`,
+      prose: {
+        overview: `Summit Green Valley Chiangmai Country Clubは、メーリム郡メーサーの谷にある18ホール・パー72のチャンピオンシップコースで、チェンマイ中心部から北へおよそ20km、車で約20分の距離にあります。1990年の開場でチェンマイ地方でも最も古いゴルフコースのひとつであり、設計はバンコクのThai Country Clubのオリジナルを手がけたのと同じアメリカ人設計家、Denis Griffithsです。コースは山に囲まれた低地の谷に広がり、フェアウェイ沿いには数百本のヤシの木が並んで、市街から離れた標高の高い森のコースとは異なる熱帯パークランドの表情を作っています。Summit Green Valleyは、安定したコンディション、無理のない地形、しっかりした施設によって、タイ北部のゴルフ旅程に欠かせない存在となっています。`,
+        layout_and_experience: `Griffithsの設計は、中程度の起伏の地形の上で水とバンカーによって難しさを組み立てています。谷という立地から高低差は山岳コースより穏やかで、体力的に取り組みやすいレイアウトでありながら、よく考えられたバンカーの配置と、ほぼ全ホールで絡んでくる湖のハザードによって戦略的な難しさが確保されています。
+
+フェアウェイは広いものの、ティーから見えるバンカーの位置が正確な狙いを求めてきます。多くのパー4ではグリーン周りでアプローチの通路がかなり狭まります。名物の9番ホールは416ヤードのパー4で、落としどころにサンドトラップが待つ水越えのティーショットに続き、2打目でもう一度水を越えて高く持ち上げられたアイランドグリーンを狙います。グリーンフィーパッケージにはプレーヤー1人につきキャディー1人とカート1台が含まれますが、ピークシーズンには2人で1台のカートを共有することもあります。`,
+        tips: `価格の確認によると、ハイシーズンのグリーンフィーは3,300THB（グリーンフィーのみ）で、これにキャディー400THBとカート700THBが加わり、オールインクルーシブでおよそ4,400THBになります。これは一部の古い情報源が示す金額より高い点にご注意ください。キャディーへのチップは1ラウンドあたり400THBが必須で、現金でお支払いいただきます。11月から3月のハイシーズンは早朝のティータイムを予約しておきましょう。コースはCNX空港からGrabでおよそ20分の距離です。`,
+        location_and_access: `Summit Green Valley Chiangmai Country Clubはメーリム郡メーサーにあり、チェンマイ市街中心部から北へおよそ20km、チェンマイ国際空港（CNX）からは車で約20分の距離です。バンコクからの来訪者はCNXへ空路で向かい（スワンナプームまたはドンムアンから約1時間10分）、バンコクから700kmを車で走るのは現実的ではありません。チェンマイからはチョターナ通り（107号線）をメーリム方面へ北上すれば、Grabでも自家用車でも簡単にたどり着けます。`,
+        rental_cta_context: `タイ北部のゴルフ旅行でSummit Green Valley Chiangmai Country Clubのティーに立つ方へ。LENGOLFなら質の高いクラブセットをバンコクでレンタルでき、フライト前にホテルまでお届けします。航空会社の預け荷物料金の負担なく、ヤシの木が並ぶフェアウェイを満喫できます。`,
+      },
+    },
     ko: null,
     zh: null,
-    ja: null,
   },
   status: 'published',
   published_at: '2026-04-21',
