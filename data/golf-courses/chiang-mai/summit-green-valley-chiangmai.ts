@@ -81,7 +81,19 @@ The fairways are broad but bunker positions from the tee demand precise alignmen
         rental_cta_context: `태국 북부 골프 여행에서 Summit Green Valley Chiangmai Country Club 코스의 티에 설 계획인가요? LENGOLF는 방콕에서 품질 좋은 클럽 세트를 대여해 출발 전 호텔로 보내 드려요. 항공사 수하물 요금 부담 없이 야자수가 늘어선 페어웨이를 만끽할 수 있습니다.`,
       },
     },
-    zh: null,
+    zh: {
+      title: `Summit Green Valley Chiangmai Country Club果岭费 — 清迈棕榈球道18洞与球杆租借`,
+      meta_description: `Summit Green Valley Chiangmai Country Club果岭费3,300泰铢，加上球童与球车全包约4,400泰铢。这座18洞标准杆72球场位于Mae Rim县的Mae Sa山谷，由Denis Griffiths设计，另附送到曼谷酒店的LENGOLF球杆租借。`,
+      prose: {
+        overview: `Summit Green Valley Chiangmai Country Club是一座18洞标准杆72的锦标赛球场，位于Mae Rim县的Mae Sa山谷，距清迈市中心以北约20公里、车程约20分钟。球场1990年开放，是清迈地区历史最悠久的球场之一，设计出自Denis Griffiths之手——曼谷Thai Country Club最初的布局也是这位美国设计师的作品。球场占据一片被群山环抱的低地河谷，数百棵棕榈树沿球道排开，形成一种热带园林的气质，与离市区更远、海拔更高的森林球场明显不同。凭着可靠的球场状态、不难应付的地形和扎实的场地设施，Summit Green Valley一直是泰国北部高尔夫行程上的固定成员。`,
+        layout_and_experience: `Griffiths的设计，主要是在中等起伏的地形上用水与沙坑构筑挑战。山谷的场地让高低落差比山岳球场温和得多，因此这套布局体力上很好走，同时又靠位置得当的沙坑与几乎每洞都会牵扯进来的湖泊障碍撑起战术难度。
+
+球道宽阔，但从发球台望出去的沙坑位置要求精准的瞄准线。许多4杆洞在果岭周围，攻果岭的通道会明显收窄。招牌的第9洞是一个416码的4杆洞，发球要越水，落点区还有沙坑等着，第二杆再一次越水攻上一座抬高的岛型果岭。果岭费套餐含每位球员一位球童和一辆球车；旺季期间，两位球员可能会共用一辆球车。`,
+        tips: `旺季果岭费为3,300泰铢，仅含果岭费，另加球童400泰铢与球车700泰铢，全包合计约4,400泰铢——请注意这比部分较旧的资料所列更高。每轮400泰铢的球童小费为必付项目，须以现金支付。11月至次年3月的旺季请订清晨的开球时间。球场距CNX机场约20分钟的Grab车程。`,
+        location_and_access: `Summit Green Valley Chiangmai Country Club位于Mae Rim县Mae Sa，距清迈市中心以北约20公里，距清迈国际机场（CNX）约20分钟。从曼谷前来的访客飞往CNX，自素万那普机场或廊曼机场出发约1小时10分钟——从曼谷开车700公里并不实际。从清迈沿Chotana Road（107号公路）向北往Mae Rim方向，叫Grab或自驾都能轻松抵达。`,
+        rental_cta_context: `泰国北部高尔夫行程里打算在Summit Green Valley Chiangmai Country Club开球吗？LENGOLF在曼谷提供品质可靠的租借球杆套组，登机前送到你的酒店，让你不必背上航空公司行李费的负担，尽情享受棕榈成排的球道。`,
+      },
+    },
   },
   status: 'published',
   published_at: '2026-04-21',

@@ -82,7 +82,17 @@ export const course: GolfCourse = {
         rental_cta_context: `비행기를 타기 전에 Hang Dong Golf Club 코스에서 9홀을 짧게 돌아볼 생각인가요? LENGOLF는 방콕에서 품질 좋은 클럽 세트를 대여해 출발 전 호텔로 보내 드려요. 공항에서 골프백을 메고 다닐 필요 없이 치앙마이 여행 내내 어디서든 플레이할 수 있습니다.`,
       },
     },
-    zh: null,
+    zh: {
+      title: `Hang Dong Golf Club Chiangmai — 9洞全包套餐、清迈机场旁快打与球杆租借`,
+      meta_description: `Hang Dong Golf Club Chiangmai打9洞连球童约250泰铢，截至2026年7月。这座标准杆36、全长2,751码的球场距清迈机场约15分钟，另附送到曼谷酒店的LENGOLF球杆租借。`,
+      prose: {
+        overview: `Hang Dong Golf Club Chiangmai是清迈以南Hang Dong县的一座9洞球场，标准杆36，全长2,751码。它是一处主打实惠的公共设施，费用非常亲民，打9洞连球童约250泰铢，截至2026年7月。球场距CNX机场约15分钟，主要服务清迈本地居民，以及想快速打一场便宜球的球手。好几个洞设有水障碍，其中第8洞还有一座岛型果岭。`,
+        layout_and_experience: `9洞布局在Hang Dong河谷平坦的地形上展开，全长2,751码，标准杆36。水障碍是主要的挑战，出现在好几个洞上，而第8洞的岛型果岭是全场的招牌。这套布局是为休闲打球而设，而非锦标赛竞技。球场地势平坦，允许步行打球。`,
+        tips: `打9洞连球童约250泰铢，另加200泰铢球童小费，是清迈一带最超值的高尔夫，截至2026年7月。球杆租借按全包价约350–450泰铢。这里最适合在CNX的傍晚航班之前快打一场。球场没有官方网站，出发前请先联系球场确认当前费用。`,
+        location_and_access: `Hang Dong Golf Club Chiangmai位于Hang Dong县Namprae，距清迈国际机场（CNX）以南约15分钟。从曼谷前来的访客飞往CNX，约1小时10分钟——从曼谷开车700公里并不实际。从CNX叫一辆Grab约15分钟即可抵达。`,
+        rental_cta_context: `想在登机前到Hang Dong Golf Club快打9洞吗？LENGOLF在曼谷提供品质可靠的租借球杆套组，登机前送到你的酒店，这样整趟清迈行程哪里都能打，不必扛着球包穿过机场。`,
+      },
+    },
   },
   status: 'published',
   published_at: '2026-04-21',

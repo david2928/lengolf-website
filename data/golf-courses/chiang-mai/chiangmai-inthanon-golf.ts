@@ -11,8 +11,14 @@ export const course: GolfCourse = {
   year_opened: 2009,
   green_fee_weekday_thb: 1400,
   green_fee_weekend_thb: 1400,
-  caddie_fee_thb: 300,
-  cart_fee_thb: 700,
+  // All-in package per this file's own EN prose (see `tips`): one rate covers
+  // green fee, caddie and cart. Without this the generated copy calls the number
+  // a bare "green fee", telling a reader the caddie and cart are extra.
+  fee_is_package: true,
+  // Zero, not the component price: EN states the rate INCLUDES caddie and cart,
+  // so each costs this golfer nothing on top. SpecTable renders 0 as "Included".
+  caddie_fee_thb: 0,
+  cart_fee_thb: 0,
   caddie_required: true,
   cart_required: true,
   driving_range: true,
@@ -41,7 +47,7 @@ export const course: GolfCourse = {
       meta_description: `Chiangmai Inthanon Golf & Natural Resort green fees, course overview, tips, and how to arrange golf club rentals delivered to your Bangkok hotel.`,
     },
     th: {
-      title: `Chiangmai Inthanon Golf & Natural Resort — ค่ากรีนฟี รีวิวสนามใกล้ดอยอินทนนท์ และเช่าไม้กอล์ฟ`,
+      title: `Chiangmai Inthanon Golf & Natural Resort — แพ็กเกจรวมทุกอย่าง รีวิวสนามใกล้ดอยอินทนนท์ และเช่าไม้กอล์ฟ`,
       meta_description: `ค่ากรีนฟีแบบเหมารวม 1,400 บาท รวมแคดดี้และรถกอล์ฟ ที่ Chiangmai Inthanon Golf & Natural Resort สนาม 18 หลุม พาร์ 72 ระยะ 7,268 หลาในอำเภอจอมทอง พร้อมบริการเช่าไม้กอล์ฟส่งถึงโรงแรมในกรุงเทพฯ`,
       prose: {
         overview: `Chiangmai Inthanon Golf & Natural Resort เป็นสนาม 18 หลุม พาร์ 72 ที่เปิดให้บริการในปี 2009 ในพื้นที่อำเภอจอมทอง ห่างจากตัวเมืองเชียงใหม่ลงมาทางใต้ประมาณ 40 กิโลเมตร บนเส้นทางมุ่งสู่ดอยอินทนนท์ ยอดเขาที่สูงที่สุดของประเทศไทย สนามออกแบบโดย Supachai Silamom สถาปนิกชาวไทย มีระยะยาวถึง 7,268 หลา ซึ่งทำให้เป็นเลย์เอาต์ที่ยาวที่สุดในเขตเชียงใหม่ ณ เวลาที่เปิดให้บริการ ตำแหน่งของสนามเปิดมุมมองไปยังไหล่เขาที่ปกคลุมด้วยป่าของดอยอินทนนท์จากแฟร์เวย์หลายหลุม จึงให้บรรยากาศการออกรอบที่ห่างไกลผู้คนและแนบชิดธรรมชาติอย่างชัดเจน ด้วยอัตราเหมารวม 1,400 บาท ซึ่งครอบคลุมทั้งค่ากรีนฟี ค่าแคดดี้ และรถกอล์ฟ ที่นี่จึงเป็นหนึ่งในสนามแชมเปียนชิพที่คุ้มค่าที่สุดของภาคเหนือ`,
@@ -52,7 +58,7 @@ export const course: GolfCourse = {
       },
     },
     ja: {
-      title: `Chiangmai Inthanon Golf & Natural Resort — グリーンフィー・ドイインタノン麓の18ホール紹介・クラブレンタル`,
+      title: `Chiangmai Inthanon Golf & Natural Resort — パッケージ料金・ドイインタノン麓の18ホール紹介・クラブレンタル`,
       meta_description: `グリーンフィーはキャディーとカート込みで1,400THB。Chiangmai Inthanon Golf & Natural Resortはチョムトーンにある18ホール・パー72、7,268ヤードのコースで、タイ最高峰ドイインタノンへ向かう道沿いに広がります。バンコクのホテルへ届くLENGOLFのクラブレンタルもご案内します。`,
       prose: {
         overview: `Chiangmai Inthanon Golf & Natural Resortは、2009年に開場した18ホール・パー72のコースです。チェンマイ市街から南へ約40km、タイ最高峰であるドイインタノンへ向かう道沿いのチョムトーン一帯に位置します。設計はタイ人設計家のSupachai Silamom。全長は7,268ヤードに達し、開場当時はチェンマイ地方で最も長いレイアウトでした。いくつものフェアウェイからドイインタノンの森に覆われた山肌を望める配置になっており、ラウンドには人里離れた自然に包まれるような性格が備わります。グリーンフィー、キャディー、カートを含めて1,400THBというオールインクルーシブの料金は、タイ北部のチャンピオンシップレイアウトのなかでも屈指の手ごろさです。`,
@@ -63,7 +69,7 @@ export const course: GolfCourse = {
       },
     },
     ko: {
-      title: `Chiangmai Inthanon Golf & Natural Resort 그린피 — 도이인타논 자락 18홀 가이드`,
+      title: `Chiangmai Inthanon Golf & Natural Resort 올인클루시브 패키지 — 도이인타논 자락 18홀 가이드`,
       meta_description: `Chiangmai Inthanon Golf & Natural Resort 그린피는 캐디와 카트를 포함해 1,400바트예요. 태국 최고봉 도이인타논으로 향하는 길목 Chom Thong 일대의 18홀 파 72, 7,268야드 코스와 방콕 호텔로 배달되는 LENGOLF 클럽 대여를 안내해요.`,
       prose: {
         overview: `Chiangmai Inthanon Golf & Natural Resort 코스는 2009년에 문을 연 18홀 파 72 코스예요. 치앙마이 시내에서 남쪽으로 약 40km, 태국에서 가장 높은 산인 도이인타논으로 향하는 길가의 Chom Thong 일대에 자리합니다. 설계는 태국인 건축가 Supachai Silamom의 손에서 나왔고, 전장은 7,268야드에 이르러 문을 열 당시 치앙마이 지역에서 가장 긴 레이아웃이었어요. 여러 페어웨이에서 도이인타논의 숲으로 덮인 산자락을 바라볼 수 있도록 자리를 잡아, 이곳의 라운딩에는 인적이 드물고 자연에 둘러싸인 성격이 뚜렷하게 배어 있습니다. 그린피와 캐디, 카트를 모두 포함해 1,400바트라는 요금은 태국 북부의 챔피언십 레이아웃 가운데서도 손꼽히게 저렴해요.`,
@@ -73,7 +79,17 @@ export const course: GolfCourse = {
         rental_cta_context: `치앙마이 여행에서 도이인타논 곁의 Chiangmai Inthanon Golf & Natural Resort 코스를 돌아볼 계획인가요? LENGOLF는 방콕에서 품질 좋은 클럽 세트를 대여해 출발 전 호텔로 보내 드려요. 항공사 수하물 문제 없이 이 경치 좋은 코스를 마음껏 즐길 수 있습니다.`,
       },
     },
-    zh: null,
+    zh: {
+      title: `Chiangmai Inthanon Golf & Natural Resort全包套餐 — 因他侬山下18洞与球杆租借`,
+      meta_description: `Chiangmai Inthanon Golf & Natural Resort全包价1,400泰铢，已含果岭费、球童与球车。这座18洞标准杆72、全长7,268码的球场位于清迈以南Chom Thong，就在通往泰国最高峰因他侬山的路上，另附送到曼谷酒店的LENGOLF球杆租借。`,
+      prose: {
+        overview: `Chiangmai Inthanon Golf & Natural Resort是一座2009年开放的18洞标准杆72球场，位于清迈市区以南约40公里的Chom Thong一带，就在通往泰国最高峰因他侬山（Doi Inthanon）的路上。球场由泰国设计师Supachai Silamom设计，全长7,268码，开放当时是清迈地区最长的一套布局。球场的位置让好几条球道都能望见因他侬山被森林覆盖的山坡——这样的场景，让在这里打球带着明显的僻静与亲近自然的气质。1,400泰铢的全包价，涵盖果岭费、球童与球车，也让它成为泰国北部最实惠的锦标赛级布局之一。`,
+        layout_and_experience: `路线利用Chom Thong河谷缓缓起伏的地形，以因他侬山的山脊线作为景观背景。设计把自然水景纳入其中，也保留了原有的树木覆盖。7,268码的总长从后发球台打相当有挑战，既要距离也要准头。Chom Thong的位置意味着球场的客流少于Mae Rim方向或紧邻市区的选择，全年都能换来更清静的球局和更好的打球节奏。`,
+        tips: `上午的全包果岭费为1,400泰铢，含球童与球车；下午1点之后的球局为1,300泰铢。以18洞锦标赛级的一轮球来说，这个性价比相当突出。公园入口就在附近，可以把打球和同一天游览因他侬国家公园安排在一起。凉季（11月至次年2月）的Chom Thong河谷可能比清迈市区略凉一些，前几个洞不妨带一件薄外套。`,
+        location_and_access: `Chiangmai Inthanon Golf & Natural Resort位于Chom Thong，在清迈市区以南约40公里的108号公路（Hod Road）旁。从曼谷前来的访客通常飞往清迈国际机场（CNX），自素万那普机场或廊曼机场出发约1小时10分钟——从曼谷开车700公里并不实际。从CNX或清迈市中心出发，自驾或叫Grab沿108号公路南下约40分钟即可抵达。`,
+        rental_cta_context: `清迈行程里打算到因他侬山旁的Chiangmai Inthanon Golf & Natural Resort打一场吗？LENGOLF在曼谷提供品质可靠的租借球杆套组，登机前送到你的酒店，让你不必操心航空公司的行李手续，就能尽情享受这座景色出众的球场。`,
+      },
+    },
   },
   status: 'published',
   published_at: '2026-04-21',

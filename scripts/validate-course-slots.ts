@@ -468,10 +468,11 @@ const corpus = registered.filter(
  *
  * These are a ratchet, not a description. Raise them when the corpus grows;
  * lowering one has to be a deliberate edit with a reason, which is the whole
- * point. Today: 61 courses, 244 slots, 1,708 strings.
+ * point. Today: 72 courses, 288 slots, 2,016 strings (was 61/244/1,708 before
+ * the chiang-mai batch registered 11 more courses in four locales).
  */
-const MIN_COURSES = 61
-const MIN_STRINGS = 1708
+const MIN_COURSES = 72
+const MIN_STRINGS = 2016
 
 let problems = 0
 let checked = 0

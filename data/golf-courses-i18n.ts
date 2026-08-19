@@ -494,6 +494,17 @@ export const COURSE_DETAIL_I18N: {
   { region: 'bangkok', slug: 'sai-golf-club', locales: ['th', 'ja', 'ko', 'zh'] },
   { region: 'bangkok', slug: 'the-legacy-golf-club', locales: ['th', 'ja', 'ko', 'zh'] },
   { region: 'chiang-mai', slug: 'lanna-golf-course', locales: ['th', 'ja', 'ko', 'zh'] },
+  { region: 'chiang-mai', slug: 'alpine-golf-resort-chiang-mai', locales: ['th', 'ja', 'ko', 'zh'] },
+  { region: 'chiang-mai', slug: 'chiangmai-highlands-golf', locales: ['th', 'ja', 'ko', 'zh'] },
+  { region: 'chiang-mai', slug: 'chiangmai-inthanon-golf', locales: ['th', 'ja', 'ko', 'zh'] },
+  { region: 'chiang-mai', slug: 'gassan-khuntan-golf-resort', locales: ['th', 'ja', 'ko', 'zh'] },
+  { region: 'chiang-mai', slug: 'gassan-lake-city-golf-club', locales: ['th', 'ja', 'ko', 'zh'] },
+  { region: 'chiang-mai', slug: 'gassan-panorama-golf-club', locales: ['th', 'ja', 'ko', 'zh'] },
+  { region: 'chiang-mai', slug: 'hang-dong-golf-club', locales: ['th', 'ja', 'ko', 'zh'] },
+  { region: 'chiang-mai', slug: 'mae-jo-golf-club', locales: ['th', 'ja', 'ko', 'zh'] },
+  { region: 'chiang-mai', slug: 'north-hill-chiang-mai', locales: ['th', 'ja', 'ko', 'zh'] },
+  { region: 'chiang-mai', slug: 'royal-chiang-mai-golf-club', locales: ['th', 'ja', 'ko', 'zh'] },
+  { region: 'chiang-mai', slug: 'summit-green-valley-chiangmai', locales: ['th', 'ja', 'ko', 'zh'] },
   // Batch 2 (2026-08) — top course pages by GSC impressions (90d) within
   // regions whose hubs are translated for both locales. Suvarnabhumi (1,319
   // imp) deliberately excluded pending the Phoenix Gold slug merge.

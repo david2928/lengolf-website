@@ -93,7 +93,21 @@ Greens were designed with Tiff Dwarf bermuda grass for good speed and resilience
         rental_cta_context: `치앙마이 여행에서 Gassan Legacy Golf Club 코스를 플레이할 계획인가요? LENGOLF는 방콕에서 품질 좋은 클럽 세트를 대여해 출발 전 호텔로 보내 드려요. 수하물 요금을 신경 쓰지 않고 이 코스의 이름난 워터 해저드 공략에만 집중할 수 있습니다.`,
       },
     },
-    zh: null,
+    zh: {
+      title: `Gassan Legacy Golf Club（南奔府）— 全包套餐、洞洞有水的18洞与球杆租借`,
+      meta_description: `Gassan Legacy Golf Club全包价约4,000–4,200泰铢，已含球童与球车。这座前身为Gassan Lake City的18洞球场位于南奔府Ban Thi，全长6,852码，经Schmidt-Curley改造后洞洞有水，另附送到曼谷酒店的LENGOLF球杆租借。`,
+      prose: {
+        overview: `Gassan Lake City Golf Club——如今以Gassan Legacy Golf Club之名运营——是一座位于南奔府Ban Thi的18洞锦标赛球场，距清迈国际机场以南约30分钟。球场最初于2005年开放，2013年为了美国设计公司Schmidt-Curley的全面改造而关闭，2014年以Legacy之名重新开业。这次改造把一套过时的布局，变成泰国北部用水最密集的球场之一：每一个洞都有水障碍。这样的设计特征，要求整轮球都保持精准的铁杆表现和谨慎的战术管理。球场隶属Gassan Golf Group，该集团在南奔与清迈一带经营三座球场。以6,852码、标准杆72的规格，Gassan Legacy打起来要求不低，既吸引本地会员，也吸引那些想找一套维护到位又有难度、与Gassan Khuntan和Panorama森林山地气质形成反差的布局的来访球手。`,
+        layout_and_experience: `Schmidt-Curley的改造围绕一片作为球场中段支点的中央湖区展开。路线对水的运用很有战术意识：开局几个洞以两侧林木夹道的球道确立园林式的节奏，随后布局逐步把水推成核心威胁，最终在中段形成一串连续的球洞——那里几乎每一个洞的攻果岭球都必须越过湖岸或贴着湖边穿过。
+
+这套标准杆72的布局包含五个长度各异的3杆洞，以及五个为敢于挑战水边的球手提供风险与回报选择的5杆洞。以泰国北部的标准看球道算宽绰，但攻果岭通道两侧都有水，加上紧实而快速的果岭，精准的击球会得到回报，失误的代价则相当高。
+
+果岭铺设Tiff Dwarf百慕大草，以求在热带生长季里维持速度与韧性。自2014年重新开放以来，球场状况一直广受好评。球童服务为强制项目，而当地球童对正确落点的了解，能为第一次来的球手省下好几杆。`,
+        tips: `全包果岭费（含球童与球车，约4,000–4,200泰铢）是标准价格；由于价格随季节浮动，预订时请确认金额。球童小费一般预期为400泰铢，打完后以现金交给球童。攻果岭球打得保守一些：水边可挽救的余地有限，很多洞的双柏忌就在一步之遥。记得多带一筒备用球。球场距CNX机场约30分钟，很适合安排成清迈高尔夫行程的第一场或最后一场球。`,
+        location_and_access: `Gassan Legacy Golf Club位于南奔府Ban Thi，距清迈国际机场（CNX）以南约30分钟车程。从曼谷前来的访客飞往CNX，自素万那普机场或廊曼机场出发约1小时10分钟——从曼谷开车700公里并不实际。从清迈市区或机场都可以叫Grab或自驾前往，Gassan Group也可以应要求安排接送。`,
+        rental_cta_context: `清迈行程里打算到Gassan Legacy Golf Club打一场吗？LENGOLF在曼谷提供品质可靠的租借球杆套组，登机前送到你的酒店，让你不必操心行李费用，专心对付这座球场著名的水障碍。`,
+      },
+    },
   },
   status: 'published',
   published_at: '2026-04-21',

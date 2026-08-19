@@ -11,8 +11,14 @@ export const course: GolfCourse = {
   year_opened: 2015,
   green_fee_weekday_thb: 3400,
   green_fee_weekend_thb: 3400,
-  caddie_fee_thb: 300,
-  cart_fee_thb: 600,
+  // All-in package per this file's own EN prose (see `tips`): one rate covers
+  // green fee, caddie and cart. Without this the generated copy calls the number
+  // a bare "green fee", telling a reader the caddie and cart are extra.
+  fee_is_package: true,
+  // Zero, not the component price: EN states the rate INCLUDES caddie and cart,
+  // so each costs this golfer nothing on top. SpecTable renders 0 as "Included".
+  caddie_fee_thb: 0,
+  cart_fee_thb: 0,
   caddie_required: true,
   cart_required: true,
   driving_range: true,
@@ -41,7 +47,7 @@ export const course: GolfCourse = {
       meta_description: `North Hill Golf Club Chiang Mai green fees, course overview, tips, and how to arrange golf club rentals delivered to your Bangkok hotel.`,
     },
     th: {
-      title: `North Hill Golf Club Chiang Mai — ค่ากรีนฟี รีวิวสนามใกล้สนามบิน และเช่าไม้กอล์ฟ`,
+      title: `North Hill Golf Club Chiang Mai — แพ็กเกจรวมทุกอย่าง รีวิวสนามใกล้สนามบิน และเช่าไม้กอล์ฟ`,
       meta_description: `ค่ากรีนฟีแบบเหมารวมประมาณ 3,400 บาท รวมแคดดี้และรถกอล์ฟ ที่ North Hill Golf Club Chiang Mai สนาม 18 หลุม พาร์ 72 ระยะ 6,789 หลา ห่างจากสนามบินเชียงใหม่ 15 นาที พร้อมบริการเช่าไม้กอล์ฟส่งถึงโรงแรมในกรุงเทพฯ`,
       prose: {
         overview: `North Hill Golf Club Chiang Mai เป็นสนาม 18 หลุมที่พัฒนาขึ้นใหม่ล่าสุดในย่านเชียงใหม่ โดยขยายจาก 9 หลุมเป็นเลย์เอาต์ 18 หลุมเต็มรูปแบบในเดือนพฤศจิกายน 2015 สนามตั้งอยู่ในตำบลบ้านแหวน อำเภอหางดง ห่างจากท่าอากาศยานนานาชาติเชียงใหม่ลงมาทางใต้ประมาณ 15 นาที จึงเป็นหนึ่งในสนามที่มีทำเลสะดวกที่สุดสำหรับนักเดินทางที่ลงเครื่องที่ CNX สนามดำเนินการเป็นส่วนหนึ่งของโครงการ North Hill City Resort ซึ่งประกอบด้วยสปา ฟิตเนสเซ็นเตอร์ สนามไดรฟ์ระดับดีลักซ์ บาร์ และร้านอาหาร ด้วยระยะ 6,789 หลาและพาร์ 72 ที่นี่จึงเป็นเลย์เอาต์ระยะกลางที่เหมาะกับนักกอล์ฟหลากหลายแฮนดิแคป`,
@@ -52,7 +58,7 @@ export const course: GolfCourse = {
       },
     },
     ja: {
-      title: `North Hill Golf Club Chiang Mai — グリーンフィー・空港から15分の18ホール紹介・クラブレンタル`,
+      title: `North Hill Golf Club Chiang Mai — パッケージ料金・空港から15分の18ホール紹介・クラブレンタル`,
       meta_description: `オールインクルーシブのグリーンフィーはキャディーとカート込みで約3,400THB。North Hill Golf Club Chiang Maiはチェンマイ空港から15分の18ホール・パー72、6,789ヤードのコースです。バンコクのホテルへ届くLENGOLFのクラブレンタルもご案内します。`,
       prose: {
         overview: `North Hill Golf Club Chiang Maiはチェンマイ一帯で最も新しく整備された18ホールのコースで、2015年11月に9ホールから18ホールのフルレイアウトへと拡張されました。所在地はハーンドン郡バーンウェーンで、チェンマイ国際空港から南へおよそ15分。CNXに降り立つ旅行者にとって、最も立地の便利なコースのひとつです。コースはNorth Hill City Resortという複合施設の一部として運営されており、施設内にはスパ、フィットネスセンター、デラックスなドライビングレンジ、バー、レストランがそろいます。6,789ヤード・パー72という中程度の長さのレイアウトで、幅広いハンディキャップの方に向いています。`,
@@ -63,7 +69,7 @@ export const course: GolfCourse = {
       },
     },
     ko: {
-      title: `North Hill Golf Club Chiang Mai 그린피 — 치앙마이 공항 15분 18홀 가이드`,
+      title: `North Hill Golf Club Chiang Mai 올인클루시브 패키지 — 치앙마이 공항 15분 18홀 가이드`,
       meta_description: `North Hill Golf Club Chiang Mai 올인클루시브 그린피는 캐디와 카트를 포함해 약 3,400바트예요. 치앙마이 공항에서 15분 거리의 18홀 파 72, 6,789야드 코스와 방콕 호텔로 배달되는 LENGOLF 클럽 대여를 안내해요.`,
       prose: {
         overview: `North Hill Golf Club Chiang Mai 코스는 치앙마이 일대에서 가장 최근에 정비된 18홀 코스로, 2015년 11월에 9홀에서 18홀 전체 레이아웃으로 확장됐어요. 위치는 항동군 반왠이며 치앙마이 국제공항에서 남쪽으로 약 15분 거리라, CNX에 내리는 여행자에게는 가장 편리한 코스 가운데 하나입니다. 코스는 스파와 피트니스 센터, 고급 드라이빙 레인지, 바, 레스토랑을 갖춘 North Hill City Resort 복합 시설의 일부로 운영돼요. 6,789야드 파 72라는 중간 길이의 레이아웃이라 다양한 핸디캡의 골퍼에게 두루 어울립니다.`,
@@ -73,7 +79,17 @@ export const course: GolfCourse = {
         rental_cta_context: `치앙마이 골프 여행에서 North Hill Golf Club 코스에 들를 계획인가요? LENGOLF는 방콕에서 품질 좋은 클럽 세트를 대여해 출발 전 호텔로 보내 드려요. 위탁 수하물의 번거로움 없이 공항에서 곧바로 첫 티로 향할 수 있습니다.`,
       },
     },
-    zh: null,
+    zh: {
+      title: `North Hill Golf Club Chiang Mai全包套餐 — 距清迈机场15分钟的18洞与球杆租借`,
+      meta_description: `North Hill Golf Club Chiang Mai全包果岭费约3,400泰铢，已含球童与球车。这座18洞标准杆72、全长6,789码的球场距清迈机场仅15分钟，另附送到曼谷酒店的LENGOLF球杆租借。`,
+      prose: {
+        overview: `North Hill Golf Club Chiang Mai是清迈一带最新建成的18洞球场，2015年11月从9洞扩建为完整的18洞布局。球场位于Hang Dong县Ban Waen，距清迈国际机场以南约15分钟，对落地CNX的旅客而言，是位置最便利的球场之一。它作为North Hill City Resort综合体的一部分运营，园区内还有水疗、健身中心、高规格练习场、酒吧与餐厅。以6,789码、标准杆72的规格，这是一套中等长度的布局，适合差点跨度较大的球手。`,
+        layout_and_experience: `球场原本是一座9洞的私人俱乐部，扩建为18洞之后形成了一套园林式布局，水障碍与沙坑贯穿全场。6,789码的总长，从后发球台打对大多数水平的球手都算舒适。Hang Dong的位置让球场落在平坦到略有坡度的地形上。North Hill的练习场在品质与设施丰富度上尤其突出。`,
+        tips: `全包果岭费套餐约3,400泰铢，含球童与球车，让预算好算得多。请透过官方网站（northhillchiangmai.com）查看当前价格并预订。距CNX机场只有15分钟，这里很适合安排成清迈高尔夫行程的第一场或最后一场球。高规格的练习场，也是下场前热身的好选择。`,
+        location_and_access: `North Hill Golf Club位于Hang Dong县Ban Waen，距清迈国际机场（CNX）以南约15分钟。从曼谷前来的访客飞往CNX，自素万那普机场或廊曼机场出发约1小时10分钟——从曼谷开车700公里并不实际。从CNX叫一辆Grab约15分钟即可抵达。`,
+        rental_cta_context: `清迈高尔夫行程里打算顺道去North Hill Golf Club吗？LENGOLF在曼谷提供品质可靠的租借球杆套组，登机前送到你的酒店，让你省去托运行李的麻烦，从机场直接奔向第一个发球台。`,
+      },
+    },
   },
   status: 'published',
   published_at: '2026-04-21',

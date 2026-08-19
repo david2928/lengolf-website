@@ -4382,13 +4382,18 @@ async function runCourseDetailRegistryLivenessTests() {
   }
 
   // Its own floor, because the package branch goes vacuous INDEPENDENTLY of the
-  // one above: 2 of 149 courses are packages, so the general Offer count stays
+  // one above: 9 of 149 courses are packages, so the general Offer count stays
   // in the hundreds while the branch that matters here drops to zero. Today:
-  // kaeng-krachan and korea-golf-club, 4 translated locales each, 2 rates each.
-  if (packageOfferSeen < 16) {
+  // kaeng-krachan and korea-golf-club, plus the seven the chiang-mai batch
+  // found (alpine, chiangmai-inthanon, gassan-khuntan, gassan-lake-city,
+  // hang-dong, north-hill, royal-chiang-mai) — 4 translated locales each.
+  // Note it is NOT courses x locales x 2: `alpine` publishes only a weekday
+  // rate, so it emits one Offer per locale, not two. 8 courses x 2 + 1 = 17
+  // per locale, x 4 = 68. Re-measure from the registry when the set changes.
+  if (packageOfferSeen < 68) {
     fail(
       `L2 package-label check ran on only ${packageOfferSeen} Offer(s)`,
-      "expected 16+ (2 package courses x 4 locales x 2 rates). Zero means no course carries fee_is_package any more, or the registry dropped them — not that the labels are right.",
+      "expected 68+ (9 package courses x 4 locales x their published rates; alpine has only a weekday rate, so it contributes 1 not 2). Zero means no course carries fee_is_package any more, or the registry dropped them — not that the labels are right.",
     );
   } else {
     pass(`L2 asserted package (not green-fee) Offer labels on ${packageOfferSeen} Offer(s)`);

@@ -87,7 +87,19 @@ Pot bunkers — deep, steep-faced, and strategically positioned to catch half-mi
         rental_cta_context: `Peter Thomson의 손에서 태어난 태국 북부의 명작, Royal Chiang Mai Golf Club 코스를 플레이할 계획인가요? LENGOLF는 방콕에서 품질 좋은 클럽 세트를 대여해 출발 전 호텔로 보내 드려요. 항공사 수하물 요금에 시달리지 않고, 그 포트 벙커에 맞설 준비를 갖춘 채 도착할 수 있습니다.`,
       },
     },
-    zh: null,
+    zh: {
+      title: `Royal Chiang Mai Golf Club & Resort — 全包套餐、Peter Thomson设计18洞与球杆租借`,
+      meta_description: `Royal Chiang Mai Golf Club & Resort旺季全包价约4,800泰铢，已含球童与球车。这座18洞标准杆72球场1996年开放，出自Peter Thomson之手，坐落在清迈San Sai县的山谷里，另附送到曼谷酒店的LENGOLF球杆租借。`,
+      prose: {
+        overview: `Royal Chiang Mai Golf Club & Resort是泰国北部故事最多的球场之一：一套由五届British Open冠军Peter Thomson设计、1996年2月开放的18洞标准杆72球场。球场坐落在清迈市区以北约40公里、San Sai县Mae Faek一带的山谷之中，构想上是一套糅入林克斯元素的英式园林布局——罐式沙坑、贴地滚进的攻果岭球，以及回报地面打法而非纯粹空中攻旗的起伏球道。场地从前是一片果园，留存下来的成材大树，给这套布局带来了同龄球场少见的尺度感与荫凉。四周的山脊为球场镶边，整轮球都有壮阔的背景。`,
+        layout_and_experience: `以现代的码数标准衡量，Thomson这套6,969码的设计并不算长——这里没有黑色发球台——但难度来自战术性的布置而非长度。球场林木夹道密实，通道会惩罚任何没有打出球形的发球。球道起伏而非平坦，Thomson还把谷底自然的坡度纳进设计，造出影响攻果岭球球位的细微地面障碍。
+
+罐式沙坑——又深、面又陡，位置专门用来收下打偏一半的攻果岭球——是这座球场的招牌防守机制。大多数洞上还有水障碍，又叠上一层战术复杂度。果岭是维护良好、速度偏快的Tiff Dwarf百慕大草面。状态最好的时候是凉爽干燥的11月至次年3月。`,
+        tips: `请到royalchiangmai.com或透过预订平台确认当前价格：旺季约4,800泰铢的全包价已含球童与球车。选定攻击线之前，先请球童根据码数手册讲解罐式沙坑的位置。这座球场回报准头多过距离，发球台上保守一些，能降低吞下双柏忌的风险。上午的球局更凉快，11月至次年1月山谷里的晨雾还会添上独特的氛围。`,
+        location_and_access: `Royal Chiang Mai Golf Club & Resort位于San Sai县Mae Faek，距清迈市区以北约40公里，距清迈国际机场（CNX）约40分钟车程。从曼谷前来的访客飞往CNX，自素万那普机场或廊曼机场出发约1小时10分钟——从曼谷开车700公里并不实际。前往球场可以自驾、叫Grab，或使用度假村的接送服务，自清迈沿1001号公路北上。`,
+        rental_cta_context: `打算去打Royal Chiang Mai Golf Club，这座Peter Thomson留在泰国北部的经典之作吗？LENGOLF在曼谷提供品质可靠的租借球杆套组，登机前送到你的酒店，让你不必操心航空公司的行李费用，抵达时就已备好挑战那些罐式沙坑。`,
+      },
+    },
   },
   status: 'published',
   published_at: '2026-04-21',

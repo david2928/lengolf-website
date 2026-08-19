@@ -380,7 +380,10 @@ function checkPackageNoun(courses: { file: string; course: GolfCourse }[]) {
   // rendered EN title silently regresses to "— Green Fees & Guide". The flag is
   // optional on the type, so the deletion compiles. Needs an ABSOLUTE floor with
   // a real number, which is the rule this guard was added to enforce.
-  const MIN_PACKAGE_COURSES = 2
+  // Raised 2 -> 9 by the chiang-mai batch, which found seven courses whose own
+  // prose described an all-in rate while the typed fields did not say so.
+  // Re-measure and RAISE when the next one is found; never lower to pass a run.
+  const MIN_PACKAGE_COURSES = 9
   if (packages < MIN_PACKAGE_COURSES) {
     errors.push(
       `package-noun check found only ${packages} fee_is_package course(s), expected at least ` +
