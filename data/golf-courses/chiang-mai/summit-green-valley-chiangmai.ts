@@ -68,7 +68,19 @@ The fairways are broad but bunker positions from the tee demand precise alignmen
         rental_cta_context: `タイ北部のゴルフ旅行でSummit Green Valley Chiangmai Country Clubのティーに立つ方へ。LENGOLFなら質の高いクラブセットをバンコクでレンタルでき、フライト前にホテルまでお届けします。航空会社の預け荷物料金の負担なく、ヤシの木が並ぶフェアウェイを満喫できます。`,
       },
     },
-    ko: null,
+    ko: {
+      title: `Summit Green Valley Chiangmai Country Club 그린피 — 매림 야자수 18홀 가이드`,
+      meta_description: `Summit Green Valley Chiangmai Country Club 그린피는 3,300바트이고 캐디와 카트를 더하면 약 4,400바트예요. 매림군 매사 계곡의 18홀 파 72 코스로 설계자는 Denis Griffiths입니다. 방콕 호텔로 배달되는 LENGOLF 클럽 대여도 안내해요.`,
+      prose: {
+        overview: `Summit Green Valley Chiangmai Country Club 코스는 매림군 매사 계곡에 자리한 18홀 파 72 챔피언십 코스로, 치앙마이 중심부에서 북쪽으로 약 20km, 차로 약 20분 거리에 있어요. 1990년에 문을 열어 치앙마이 지역에서도 가장 오래된 골프 코스 가운데 하나이며, 설계는 방콕의 Thai Country Club 원안을 맡았던 것과 같은 미국인 건축가 Denis Griffiths의 손에서 나왔습니다. 코스는 산으로 둘러싸인 저지대 계곡에 펼쳐지고 페어웨이를 따라 수백 그루의 야자수가 늘어서 있어, 시내에서 멀리 떨어진 고지대의 숲 코스와는 다른 열대 파크랜드의 표정을 만들어요. Summit Green Valley 코스는 믿을 만한 코스 컨디션과 무리 없는 지형, 탄탄한 시설 덕분에 태국 북부 골프 일정에 빠지지 않고 등장합니다.`,
+        layout_and_experience: `Griffiths의 설계는 중간 정도로 굽이치는 지형 위에서 물과 벙커로 어려움을 쌓아 올려요. 계곡이라는 입지 덕분에 고저 차는 산악 코스보다 완만해서 체력적으로 다가서기 쉬운 레이아웃이면서도, 잘 배치된 벙커와 거의 모든 홀에서 얽혀 오는 호수 해저드가 전략적인 난도를 확보해 줍니다.
+
+페어웨이는 넓지만 티에서 보이는 벙커의 위치가 정확한 조준을 요구해요. 많은 파 4 홀에서는 그린 주변으로 갈수록 어프로치 통로가 꽤 좁아집니다. 명물인 9번 홀은 416야드 파 4로, 낙하 지점에 샌드 트랩이 기다리는 물 넘김 티샷에 이어 두 번째 샷으로 다시 물을 넘겨 높이 올려진 아일랜드 그린을 노려야 해요. 그린피 패키지에는 플레이어 한 명당 캐디 한 명과 카트 한 대가 포함되지만, 성수기에는 두 명이 카트 한 대를 함께 쓰기도 합니다.`,
+        tips: `가격을 확인해 보면 성수기 그린피는 3,300바트(그린피만)이고, 여기에 캐디 400바트와 카트 700바트가 더해져 올인클루시브로 약 4,400바트가 돼요. 일부 오래된 자료가 안내하는 금액보다 높다는 점을 알아 두세요. 캐디 팁은 라운드당 400바트가 필수이며 현금으로 지불합니다. 11월부터 3월까지의 성수기에는 이른 아침 티타임을 예약해 두세요. 코스는 CNX 공항에서 Grab으로 약 20분 거리예요.`,
+        location_and_access: `Summit Green Valley Chiangmai Country Club 코스는 매림군 매사에 있고, 치앙마이 시내 중심부에서 북쪽으로 약 20km, 치앙마이 국제공항(CNX)에서는 차로 약 20분 거리예요. 방콕에서 오는 방문객은 CNX까지 비행기로 이동하며(수완나품이나 돈므앙에서 약 1시간 10분), 방콕에서 700km를 운전하는 것은 현실적이지 않아요. 치앙마이에서는 Chotana Road(107번 국도)를 따라 매림 방면으로 북상하면 Grab으로도 자가용으로도 쉽게 닿을 수 있습니다.`,
+        rental_cta_context: `태국 북부 골프 여행에서 Summit Green Valley Chiangmai Country Club 코스의 티에 설 계획인가요? LENGOLF는 방콕에서 품질 좋은 클럽 세트를 대여해 출발 전 호텔로 보내 드려요. 항공사 수하물 요금 부담 없이 야자수가 늘어선 페어웨이를 만끽할 수 있습니다.`,
+      },
+    },
     zh: null,
   },
   status: 'published',

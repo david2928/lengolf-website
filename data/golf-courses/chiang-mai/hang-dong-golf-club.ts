@@ -16,7 +16,11 @@ export const course: GolfCourse = {
   // generated copy calling the number a bare "green fee", which would tell a
   // reader the caddie and cart are extra when the prose says they are included.
   fee_is_package: true,
-  caddie_fee_thb: 200,
+  // Zero, not 200: EN states "250 THB for 9 holes WITH caddie", so the caddie is
+  // inside the rate (SpecTable renders 0 as "Included"). The 200 in the EN prose is
+  // the customary TIP — "(plus 200 THB caddie tip)" — which the generated FAQ already
+  // covers generically. Typing the tip as a fee asserted a charge no source supports.
+  caddie_fee_thb: 0,
   cart_fee_thb: 300,
   caddie_required: true,
   cart_required: false,
@@ -67,7 +71,17 @@ export const course: GolfCourse = {
         rental_cta_context: `フライト前にHang Dong Golf Clubで9ホールをさっと回りたい方へ。LENGOLFなら質の高いクラブセットをバンコクでレンタルでき、フライト前にホテルまでお届けします。空港でキャディーバッグを担ぐことなく、チェンマイ旅行中どこでもプレーできます。`,
       },
     },
-    ko: null,
+    ko: {
+      title: `Hang Dong Golf Club Chiangmai 올인클루시브 패키지 — 치앙마이 9홀 가성비 가이드`,
+      meta_description: `Hang Dong Golf Club Chiangmai 요금은 캐디를 포함한 9홀 약 250바트예요 (2026년 7월 기준). 치앙마이 공항 가까이에 있는 파 36, 2,751야드 코스와 방콕 호텔로 배달되는 LENGOLF 클럽 대여를 안내해요.`,
+      prose: {
+        overview: `Hang Dong Golf Club Chiangmai 코스는 치앙마이 남쪽 항동군에 자리한 9홀(파 36, 2,751야드) 코스예요. 예산을 아끼려는 골퍼를 위한 퍼블릭 시설로, 캐디를 포함한 9홀 요금이 약 250바트로 매우 저렴합니다 (2026년 7월 기준). CNX 공항에서 약 15분 거리라, 주로 치앙마이 현지 주민과 짧고 저렴하게 한 라운드 돌고 싶은 골퍼가 찾아요. 코스에는 여러 홀에 워터 해저드가 있고, 8번 홀에는 아일랜드 그린도 마련돼 있습니다.`,
+        layout_and_experience: `9홀 레이아웃은 항동 계곡의 평탄한 지형 위에서 2,751야드 파 36으로 플레이해요. 주된 난관은 워터 해저드로 여러 홀에 얼굴을 내밀며, 그 가운데 8번 홀의 아일랜드 그린이 이 코스의 명물입니다. 레이아웃은 챔피언십 경기보다 가볍게 즐기는 라운딩을 염두에 두고 만들어졌고, 평탄한 코스라 걸어서 도는 플레이도 허용돼요.`,
+        tips: `캐디를 포함한 9홀 약 250바트(별도로 캐디 팁 200바트)라는 요금은 치앙마이 일대에서 가장 가성비 좋은 골프라고 할 수 있어요 (2026년 7월 기준). 클럽 대여는 올인클루시브로 약 350~450바트에 이용할 수 있습니다. CNX에서 늦은 오후 비행기를 타기 전에 짧게 한 라운드 끼워 넣기에 안성맞춤이에요. 공식 웹사이트가 없으니, 방문하기 전에 코스에 연락해 현재 요금을 확인해 두세요.`,
+        location_and_access: `Hang Dong Golf Club Chiangmai 코스는 항동군 남프래 지역에 있고, 치앙마이 국제공항(CNX)에서 남쪽으로 약 15분 거리예요. 방콕에서 오는 방문객은 CNX까지 비행기로 이동하며(약 1시간 10분), 방콕에서 700km를 운전하는 것은 현실적이지 않아요. CNX에서 Grab을 이용하면 약 15분이 걸립니다.`,
+        rental_cta_context: `비행기를 타기 전에 Hang Dong Golf Club 코스에서 9홀을 짧게 돌아볼 생각인가요? LENGOLF는 방콕에서 품질 좋은 클럽 세트를 대여해 출발 전 호텔로 보내 드려요. 공항에서 골프백을 메고 다닐 필요 없이 치앙마이 여행 내내 어디서든 플레이할 수 있습니다.`,
+      },
+    },
     zh: null,
   },
   status: 'published',
