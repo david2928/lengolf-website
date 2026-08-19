@@ -281,6 +281,12 @@ interface CourseFaqL10n {
 const PROVINCE_L10N: Record<string, Record<Exclude<CourseSeoLocale, 'en'>, string>> = {
   Bangkok: { th: 'กรุงเทพฯ', ja: 'バンコク', ko: '방콕', zh: '曼谷' },
   'Chiang Mai': { th: 'จังหวัดเชียงใหม่', ja: 'チェンマイ県', ko: '치앙마이주', zh: '清迈府' },
+  // The three Gassan courses sit in Lamphun, not Chiang Mai, even though they
+  // live under the chiang-mai region directory (the directory builds the URL;
+  // the province is a separate fact). ZH uses the established exonym 南奔府 —
+  // the name Chinese sources actually use — rather than a coined transcription;
+  // KO transcribes per the Korean standard for Thai, matching 치앙마이주's shape.
+  Lamphun: { th: 'จังหวัดลำพูน', ja: 'ランプーン県', ko: '람푼주', zh: '南奔府' },
   'Phra Nakhon Si Ayutthaya': {
     th: 'จังหวัดพระนครศรีอยุธยา',
     ja: 'アユタヤ県',
